@@ -1,0 +1,30 @@
+
+/* Class = "UIButton"; normalTitle = "signup"; ObjectID = "0Y5-o9-uPi"; */
+"0Y5-o9-uPi.normalTitle" = "signup";
+
+/* Class = "UILabel"; text = "Not yet a hueman?"; ObjectID = "25e-jP-tTb"; */
+"25e-jP-tTb.text" = "Not yet a hueman?";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "3ju-AT-XTu"; */
+"3ju-AT-XTu.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "A0j-lp-QDj"; */
+"A0j-lp-QDj.title" = "Item";
+
+/* Class = "UILabel"; text = "password:"; ObjectID = "JLB-qs-aKn"; */
+"JLB-qs-aKn.text" = "password:";
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "U4e-Tp-VuO"; */
+"U4e-Tp-VuO.title" = "Item 1";
+
+/* Class = "UIButton"; normalTitle = "log-in"; ObjectID = "auU-gu-ZH2"; */
+"auU-gu-ZH2.normalTitle" = "log-in";
+
+/* Class = "UILabel"; text = "email:"; ObjectID = "bSN-y8-Ivj"; */
+"bSN-y8-Ivj.text" = "email:";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "lhP-Ud-d81"; */
+"lhP-Ud-d81.title" = "Item 2";
+
+/* Class = "UILabel"; text = "I forgot my password"; ObjectID = "p8J-NE-OXM"; */
+"p8J-NE-OXM.text" = "I forgot my password";
