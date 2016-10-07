@@ -19,10 +19,13 @@ class ConnectionsViewController: UIViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         //self.navigationController?.navigationBar.
-        self.title = "connections"
-        self.navigationController?.navigationBar.topItem!.title = "connections"
+        print("connections view did load")
     }
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem!.title = "connections"
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

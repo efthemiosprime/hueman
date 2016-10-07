@@ -19,13 +19,22 @@ class TabBar: UITabBarController {
         self.tabBar.layer.borderWidth = 0.50
         self.tabBar.layer.borderColor = UIColor.clearColor().CGColor
         self.tabBar.clipsToBounds = true
-
+        
+        
+       // self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!]
+      //  self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColorFromRGB(0x999999)]
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        print("xxx")
+        item.enabled=true
+    }
 
     /*
     // MARK: - Navigation

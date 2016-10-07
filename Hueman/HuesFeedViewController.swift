@@ -13,8 +13,13 @@ class HuesFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "hueboards"
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem!.title = "hues feed"
+        
     }
 
     override func didReceiveMemoryWarning() {

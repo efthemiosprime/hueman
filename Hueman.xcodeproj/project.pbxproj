@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */; };
-		3A060D301D9CADE9007F2B02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A060D2F1D9CADE9007F2B02 /* ViewController.swift */; };
 		3A060D351D9CADE9007F2B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A060D341D9CADE9007F2B02 /* Assets.xcassets */; };
 		3A060D381D9CADE9007F2B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A060D361D9CADE9007F2B02 /* LaunchScreen.storyboard */; };
-		3A060D401D9CAF80007F2B02 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A060D3F1D9CAF80007F2B02 /* RegistrationViewController.swift */; };
 		3A083B981DA417520092AE75 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A083B971DA417520092AE75 /* TabBar.swift */; };
 		3A083B9D1DA426B50092AE75 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A083B9C1DA426B50092AE75 /* NavBar.swift */; };
 		3A083B9F1DA4357C0092AE75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EE1DA3B6080011B467 /* Main.storyboard */; };
@@ -28,11 +26,9 @@
 /* Begin PBXFileReference section */
 		3A060D2A1D9CADE9007F2B02 /* Hueman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hueman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A060D2F1D9CADE9007F2B02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A060D341D9CADE9007F2B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A060D371D9CADE9007F2B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A060D391D9CADE9007F2B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A060D3F1D9CAF80007F2B02 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		3A083B971DA417520092AE75 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		3A083B9C1DA426B50092AE75 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		3A083BA21DA49C4A0092AE75 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -82,8 +78,6 @@
 				3A22A3E51DA3A70B0011B467 /* App */,
 				3A22A3E71DA3A8560011B467 /* Resources */,
 				3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */,
-				3A060D2F1D9CADE9007F2B02 /* ViewController.swift */,
-				3A060D3F1D9CAF80007F2B02 /* RegistrationViewController.swift */,
 				3A22A3EE1DA3B6080011B467 /* Main.storyboard */,
 				3A060D361D9CADE9007F2B02 /* LaunchScreen.storyboard */,
 				3A060D391D9CADE9007F2B02 /* Info.plist */,
@@ -286,7 +280,6 @@
 			files = (
 				3A22A3F21DA3BD0A0011B467 /* LoginViewController.swift in Sources */,
 				3A083BA51DA4A06E0092AE75 /* HueboardsViewController.swift in Sources */,
-				3A060D301D9CADE9007F2B02 /* ViewController.swift in Sources */,
 				3A083BA31DA49C4A0092AE75 /* SignupViewController.swift in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A083B981DA417520092AE75 /* TabBar.swift in Sources */,
@@ -294,7 +287,6 @@
 				3A083BA71DA4A07C0092AE75 /* HuesFeedViewController.swift in Sources */,
 				3A083BA91DA4A08E0092AE75 /* NotificationsViewController.swift in Sources */,
 				3A22A3FE1DA3C0420011B467 /* ConnectionsViewController.swift in Sources */,
-				3A060D401D9CAF80007F2B02 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

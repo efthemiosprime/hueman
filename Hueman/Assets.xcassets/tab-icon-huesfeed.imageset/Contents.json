@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "hueboards-icon.png",
+      "filename" : "tab-icon-huesfeed.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tab-icon-huesfeed@2x.png",
       "scale" : "2x"
     },
     {
