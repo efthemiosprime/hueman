@@ -160,21 +160,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-yO-66B">
-                                <frame key="frameInset" minX="50.00%" minY="28.69%" width="248" height="36"/>
+                                <frame key="frameInset" minX="49.61%" minY="28.69%" width="248" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY7-HE-8E9">
-                                <frame key="frameInset" minX="50.00%" minY="24.62%" width="248" height="17"/>
+                                <frame key="frameInset" minX="49.61%" minY="24.62%" width="248" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="JjH-KL-bGG">
-                                <frame key="frameInset" minX="50.00%" minY="41.05%" width="248" height="36"/>
+                                <frame key="frameInset" minX="49.61%" minY="41.05%" width="248" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
@@ -361,15 +361,20 @@
                         <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="connections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjL-Ua-9uk">
-                                <frame key="frameInset" minX="75" minY="281" width="94" height="21"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnl-zU-AAe"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr8-bI-cFv">
+                                <frame key="frameInset" minX="15" minY="1" width="50" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" image="add-connection-btn"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cnl-zU-AAe" secondAttribute="trailing" id="9Nb-Xd-4ES"/>
+                            <constraint firstItem="cnl-zU-AAe" firstAttribute="top" secondItem="d9e-j1-XJU" secondAttribute="bottom" id="WH7-ie-bDF"/>
+                            <constraint firstItem="CGt-gg-hGe" firstAttribute="top" secondItem="cnl-zU-AAe" secondAttribute="bottom" id="YZh-Uy-eSd"/>
+                            <constraint firstItem="cnl-zU-AAe" firstAttribute="leading" secondItem="cda-rl-5P4" secondAttribute="leading" id="n8g-Sw-KLH"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" id="RZj-KZ-T6N" userLabel="connections">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
@@ -377,6 +382,9 @@
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="scrollView" destination="cnl-zU-AAe" id="yW7-Tt-Xoa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-DB-3hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -384,6 +392,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-connection-btn" width="49" height="51"/>
         <image name="hueman-logo" width="247" height="58"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>

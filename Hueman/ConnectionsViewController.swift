@@ -10,6 +10,8 @@ import UIKit
 
 class ConnectionsViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,7 +21,54 @@ class ConnectionsViewController: UIViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         //self.navigationController?.navigationBar.
-        print("connections view did load")
+        
+        let connections : [Profile] = [
+            Profile(name: "Julius\nBusa", topic: .RelationshipMusing),
+            Profile(name: "Maverick Shawn\nAquino", topic: .OnMyPlate),
+            Profile(name: "Nicolette\nOñate", topic: .DailyHustle),
+            Profile(name: "Camille\nLaurente", topic: .RayOfLight),
+            Profile(name: "Julius\nBusa", topic: .RelationshipMusing),
+            Profile(name: "Maverick Shawn\nAquino", topic: .Wanderlust),
+            Profile(name: "Nicolette\nOñate", topic: .Health),
+            Profile(name: "Camille\nLaurente", topic: .RayOfLight)
+        ]
+        
+    
+        let connectionWidth: CGFloat = 200
+        let connectionHeight: CGFloat = 128
+        let connectionPadding: CGFloat = -25
+        var yOffset: CGFloat = 25
+        var xOffset: CGFloat = 65
+        var scrollViewContentSize: CGFloat = 0
+        var index = 0
+        var type = 0
+        for connectionItem in connections {
+            
+            if index % 2 == 0 {
+                type = 1
+                xOffset = 45
+            }else {
+                type = 2
+                xOffset = connectionWidth - 45
+            }
+            
+            let connection = Connection(name: connectionItem.name!, hue: connectionItem.topic!, direction: type)
+            connection.connectionName = connectionItem.name!
+            connection.hue = connectionItem.topic!
+            connection.direction = type
+            
+            connection.frame = CGRectMake(xOffset, yOffset, connectionWidth, connectionHeight)
+            
+            self.scrollView.addSubview(connection)
+            
+            yOffset += (connectionHeight + connectionPadding)
+            scrollViewContentSize += connectionHeight
+            index += 1
+            scrollView.contentSize = CGSize(width: connectionWidth, height: scrollViewContentSize)
+        }
+        
+
+        
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,74 +79,10 @@ class ConnectionsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
-//    // MARK: - Table view data source
-//
-//
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-//    
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    override func prefersStatusBarHidden() -> Bool {
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
