@@ -95,7 +95,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet a hueman?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25e-jP-tTb">
                                 <constraints>
@@ -262,6 +262,7 @@
                     <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-active" id="5rQ-R0-03f">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qw4-Nf-3oM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,6 +357,7 @@
                     <tabBarItem key="tabBarItem" tag="3" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-active" id="Jn4-hJ-MS2" userLabel="notifications">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d61-v6-3gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

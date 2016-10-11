@@ -23,16 +23,15 @@ class ConnectionsViewController: UIViewController {
         //self.navigationController?.navigationBar.
         
         let connections : [Profile] = [
-            Profile(name: "Julius\nBusa", topic: .RelationshipMusing),
-            Profile(name: "Maverick Shawn\nAquino", topic: .OnMyPlate),
-            Profile(name: "Nicolette\nOñate", topic: .DailyHustle),
-            Profile(name: "Camille\nLaurente", topic: .RayOfLight),
-            Profile(name: "Julius\nBusa", topic: .RelationshipMusing),
-            Profile(name: "Maverick Shawn\nAquino", topic: .Wanderlust),
-            Profile(name: "Nicolette\nOñate", topic: .Health),
-            Profile(name: "Camille\nLaurente", topic: .RayOfLight)
+            Profile(name:"Julius\nBusa", topic: .RelationshipMusing),
+            Profile(name:"Maverick Shawn\nAquino", topic: .OnMyPlate),
+            Profile(name:"Nicolette\nOnate", topic: .DailyHustle),
+            Profile(name:"Camille\nLaurante", topic: .RayOfLight),
+            Profile(name:"Julius\nBusa", topic: .RelationshipMusing),
+            Profile(name:"Maverick Shawn\nAquino", topic: .Health),
+            Profile(name:"Nicolette\nOnate", topic: .Wanderlust),
+            Profile(name:"Camille\nLaurante", topic: .RayOfLight),
         ]
-        
     
         let connectionWidth: CGFloat = 200
         let connectionHeight: CGFloat = 128
