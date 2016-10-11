@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="15" y="825"/>
         </scene>
-        <!--test-->
+        <!--Navigation Controller-->
         <scene sceneID="maR-JG-Cp5">
             <objects>
-                <navigationController title="test" id="djW-IY-5EE" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController title="Navigation Controller" id="djW-IY-5EE" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Ui3-QR-Btg">
@@ -259,7 +259,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" id="5rQ-R0-03f">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-active" id="5rQ-R0-03f">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                 </viewController>
@@ -289,7 +289,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-icon-huesfeed" id="8BJ-Rf-PCI">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-active" id="8BJ-Rf-PCI">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -303,6 +303,7 @@
             <objects>
                 <tabBarController id="SvP-59-BOn" customClass="TabBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Odh-y5-w61">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger-bar-item" id="Fy1-aj-z5V"/>
                         <rightBarButtonItems>
                             <barButtonItem image="profile-bar-item" style="plain" id="VFR-vo-dCi">
                                 <inset key="imageInsets" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -352,7 +353,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="" image="tab-icon-notifications" badgeValue="2" id="Jn4-hJ-MS2" userLabel="notifications">
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-active" id="Jn4-hJ-MS2" userLabel="notifications">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                 </viewController>
@@ -387,7 +388,7 @@
                             <constraint firstItem="cnl-zU-AAe" firstAttribute="leading" secondItem="cda-rl-5P4" secondAttribute="leading" id="n8g-Sw-KLH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" id="RZj-KZ-T6N" userLabel="connections">
+                    <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-active" id="RZj-KZ-T6N" userLabel="connections">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -406,16 +407,21 @@
     </scenes>
     <resources>
         <image name="add-connection-btn" width="49" height="51"/>
+        <image name="hamburger-bar-item" width="22" height="22"/>
         <image name="hueman-logo" width="247" height="58"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>
         <image name="profile-bar-item" width="22" height="22"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
-        <image name="tab-icon-connections" width="30" height="26"/>
-        <image name="tab-icon-hueboards" width="30" height="30"/>
-        <image name="tab-icon-huesfeed" width="30" height="30"/>
-        <image name="tab-icon-notifications" width="55" height="30"/>
+        <image name="tab-icon-connections" width="48" height="32"/>
+        <image name="tab-icon-connections-active" width="48" height="32"/>
+        <image name="tab-icon-hueboards" width="48" height="32"/>
+        <image name="tab-icon-hueboards-active" width="48" height="32"/>
+        <image name="tab-icon-huesfeed" width="48" height="32"/>
+        <image name="tab-icon-huesfeed-active" width="48" height="32"/>
+        <image name="tab-icon-notifications" width="48" height="32"/>
+        <image name="tab-icon-notifications-active" width="48" height="32"/>
         <image name="write-post-bar-item" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
