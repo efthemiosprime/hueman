@@ -10,6 +10,7 @@ import UIKit
 
 class TabBar: UITabBarController {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,8 +22,14 @@ class TabBar: UITabBarController {
         self.tabBar.clipsToBounds = true
         
         
-       // self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!]
-      //  self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColorFromRGB(0x999999)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!]
+
+        
+        if revealViewController() != nil {
+            menuButton.target = revealViewController()
+            menuButton.action = "revealToggle:"
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
     }
 
@@ -31,10 +38,6 @@ class TabBar: UITabBarController {
     }
     
     
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        print("xxx")
-        item.enabled=true
-    }
 
     /*
     // MARK: - Navigation
