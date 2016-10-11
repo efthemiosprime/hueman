@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -245,7 +246,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1ic-hY-56x"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s26-SQ-puS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hueboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-L6-dzl">
@@ -275,7 +276,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dFy-D5-s7b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FsL-hy-KfB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="huesfeed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsM-3s-hEB">
@@ -301,8 +302,18 @@
         <scene sceneID="1ii-RM-aAk">
             <objects>
                 <tabBarController id="SvP-59-BOn" customClass="TabBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Odh-y5-w61"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="Odh-y5-w61">
+                        <rightBarButtonItems>
+                            <barButtonItem image="profile-bar-item" style="plain" id="VFR-vo-dCi">
+                                <inset key="imageInsets" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
+                            </barButtonItem>
+                            <barButtonItem image="write-post-bar-item" style="plain" id="ZOE-XC-nDk">
+                                <inset key="imageInsets" minX="15" minY="0.0" maxX="-15" maxY="0.0"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5Al-8v-M9E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -328,7 +339,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JuQ-ZO-o7t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oK9-eB-T8V">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG3-MV-8PP">
@@ -358,7 +369,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CGt-gg-hGe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cda-rl-5P4">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnl-zU-AAe"/>
@@ -380,8 +391,10 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
+                    <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="cnl-zU-AAe" id="yW7-Tt-Xoa"/>
                     </connections>
@@ -396,12 +409,14 @@
         <image name="hueman-logo" width="247" height="58"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>
+        <image name="profile-bar-item" width="22" height="22"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
         <image name="tab-icon-connections" width="30" height="26"/>
         <image name="tab-icon-hueboards" width="30" height="30"/>
         <image name="tab-icon-huesfeed" width="30" height="30"/>
         <image name="tab-icon-notifications" width="55" height="30"/>
+        <image name="write-post-bar-item" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YET-qu-eun"/>

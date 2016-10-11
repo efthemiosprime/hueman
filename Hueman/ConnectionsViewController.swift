@@ -68,6 +68,7 @@ class ConnectionsViewController: UIViewController {
         }
         
 
+                let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action:("addTapped"))
         
     }
     override func viewWillAppear(animated: Bool) {
