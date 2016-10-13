@@ -8,17 +8,27 @@
 
 import UIKit
 
-class HueboardsViewController: UIViewController {
-
+class HueboardsViewController: UICollectionViewController {
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.topItem!.title = "hueboards"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!]
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColorFromRGB(0x999999)]
         
+        if let patternImage = UIImage(named: "Pattern") {
+            view.backgroundColor = UIColor(patternImage: patternImage)
+        }
+        
+        collectionView!.backgroundColor = UIColor.clearColor()
+        collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
+        
+        let layout = collectionViewLayout as! HueboardsLayout
+        layout.cellPadding = 5
+        layout.delegate = self
+        //layout.numberOfColumns = 2
     }
-
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,3 +59,27 @@ class HueboardsViewController: UIViewController {
     */
 
 }
+
+
+extension HueboardsViewController {
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HueboardCell", forIndexPath: indexPath) as UICollectionViewCell
+        return cell
+    }
+    
+}
+
+extension HueboardsViewController: HueboardsLayoutDelegate {
+    
+    func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let random = arc4random_uniform(4) + 1
+        return CGFloat(random * 100)
+    }
+    
+}
+

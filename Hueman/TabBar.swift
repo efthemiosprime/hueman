@@ -14,7 +14,7 @@ class TabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       let tabBarBackground = UIImage(named: "tabbar-bg")
+       let tabBarBackground = UIImage(named: "tabbar-bg.png")
         self.tabBar.backgroundImage = tabBarBackground
         self.tabBar.shadowImage = UIImage()
         self.tabBar.layer.borderWidth = 0.50
@@ -23,7 +23,7 @@ class TabBar: UITabBarController {
         
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!]
-
+      //  self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColorFromRGB(0x999999)]
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()

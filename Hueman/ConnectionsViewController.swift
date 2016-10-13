@@ -32,23 +32,30 @@ class ConnectionsViewController: UIViewController {
             Profile(name:"Nicolette\nOnate", topic: .Wanderlust),
             Profile(name:"Camille\nLaurante", topic: .RayOfLight),
         ]
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width
     
         let connectionWidth: CGFloat = 200
         let connectionHeight: CGFloat = 128
         let connectionPadding: CGFloat = -25
         var yOffset: CGFloat = 25
-        var xOffset: CGFloat = 65
+        var xOffset: CGFloat = 45
         var scrollViewContentSize: CGFloat = 0
         var index = 0
         var type = 0
+        let marginX = (11/100) * screenWidth
+
+    
+
         for connectionItem in connections {
             
             if index % 2 == 0 {
                 type = 1
-                xOffset = 45
+                xOffset = marginX
             }else {
                 type = 2
-                xOffset = connectionWidth - 45
+                xOffset = connectionWidth - marginX
             }
             
             let connection = Connection(name: connectionItem.name!, hue: connectionItem.topic!, direction: type)

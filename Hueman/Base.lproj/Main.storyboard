@@ -177,7 +177,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
@@ -266,6 +266,58 @@
             </objects>
             <point key="canvasLocation" x="15" y="825"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="7fS-MY-MwB">
+            <objects>
+                <viewController id="kJ6-ki-agT" customClass="ProfileViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2wc-Vz-aJ7"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Co-ZT-ETQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ye8-f0-Z1X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-thumbnail-bg" translatesAutoresizingMaskIntoConstraints="NO" id="OVZ-AW-iGe">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="286" id="QtV-Hd-f8t"/>
+                                    <constraint firstAttribute="height" constant="286" id="xX4-Y2-4TM"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Rb-nb-Ywk">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="232" id="5IV-CB-iRo"/>
+                                    <constraint firstAttribute="width" constant="232" id="Z8c-6x-7hj"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PvN-En-wHC">
+                                <frame key="frameInset" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="MVc-sm-KYC">
+                                        <barButtonItem key="rightBarButtonItem" image="back-bar-item" id="jKw-X2-HLa">
+                                            <connections>
+                                                <action selector="backHandler:" destination="kJ6-ki-agT" id="Eq4-1U-8JK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OVZ-AW-iGe" firstAttribute="top" secondItem="2wc-Vz-aJ7" secondAttribute="bottom" constant="95" id="Dua-oL-F1Y"/>
+                            <constraint firstItem="9Rb-nb-Ywk" firstAttribute="centerX" secondItem="Ye8-f0-Z1X" secondAttribute="centerX" id="X7z-T1-vUd"/>
+                            <constraint firstItem="OVZ-AW-iGe" firstAttribute="centerX" secondItem="Ye8-f0-Z1X" secondAttribute="centerX" id="dur-Le-hsV"/>
+                            <constraint firstItem="9Rb-nb-Ywk" firstAttribute="top" secondItem="2wc-Vz-aJ7" secondAttribute="bottom" constant="122" id="y3B-DS-jBs"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yos-en-NAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2249" y="-834"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="maR-JG-Cp5">
             <objects>
@@ -288,24 +340,31 @@
         <scene sceneID="xHy-pg-vin">
             <objects>
                 <viewController id="4ci-av-bsr" userLabel="Hueboards" customClass="HueboardsViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TCS-aL-Dua"/>
-                        <viewControllerLayoutGuide type="bottom" id="1ic-hY-56x"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s26-SQ-puS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Q3w-GA-zwc">
                         <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hueboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-L6-dzl">
-                                <frame key="frameInset" minX="121" minY="168" width="74" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <collectionViewLayout key="collectionViewLayout" id="3AE-VY-bah" customClass="HueboardsLayout" customModule="Hueman" customModuleProvider="target"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HueboardCell" id="37M-cn-2sK" customClass="HueboardCell" customModule="Hueman" customModuleProvider="target">
+                                <rect key="frame" x="88" y="0.0" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="99G-Kt-eJG">
+                                            <frame key="frameInset" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="customSize" width="200" height="200"/>
+                            </collectionViewCell>
+                        </cells>
+                    </collectionView>
                     <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-active" id="5rQ-R0-03f">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
@@ -355,6 +414,9 @@
                         <rightBarButtonItems>
                             <barButtonItem image="profile-bar-item" style="plain" id="VFR-vo-dCi">
                                 <inset key="imageInsets" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="kJ6-ki-agT" kind="presentation" id="2hV-4K-JPB"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="write-post-bar-item" style="plain" id="ZOE-XC-nDk">
                                 <inset key="imageInsets" minX="15" minY="0.0" maxX="-15" maxY="0.0"/>
@@ -454,14 +516,33 @@
             </objects>
             <point key="canvasLocation" x="3858" y="-868"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="SHQ-49-YLY">
+            <objects>
+                <viewController id="hbX-M1-Bjn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2H6-ho-laB"/>
+                        <viewControllerLayoutGuide type="bottom" id="99j-A1-oGf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cpU-Ii-hnl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QhQ-L8-rrv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="add-connection-btn" width="49" height="51"/>
+        <image name="back-bar-item" width="22" height="22"/>
         <image name="hamburger-bar-item" width="22" height="22"/>
         <image name="hueman-logo" width="247" height="58"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>
         <image name="profile-bar-item" width="22" height="22"/>
+        <image name="profile-thumbnail-bg" width="286" height="286"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
         <image name="tab-icon-connections" width="48" height="32"/>
