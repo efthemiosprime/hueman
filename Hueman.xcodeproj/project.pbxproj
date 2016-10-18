@@ -19,6 +19,7 @@
 		3A083BA91DA4A08E0092AE75 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A083BA81DA4A08E0092AE75 /* NotificationsViewController.swift */; };
 		3A17F0691DAF091D006DC612 /* HueboardsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17F0681DAF091D006DC612 /* HueboardsLayout.swift */; };
 		3A17F06B1DAF0C5D006DC612 /* HueboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17F06A1DAF0C5D006DC612 /* HueboardCell.swift */; };
+		3A17F06E1DAF127F006DC612 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17F06D1DAF127F006DC612 /* RoundedCornersView.swift */; };
 		3A20AB241DAD3E62008E54AD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A20AB231DAD3E62008E54AD /* SWRevealViewController.m */; };
 		3A20AB291DADFD38008E54AD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A20AB281DADFD38008E54AD /* ProfileViewController.swift */; };
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
@@ -48,6 +49,7 @@
 		3A083BA81DA4A08E0092AE75 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		3A17F0681DAF091D006DC612 /* HueboardsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueboardsLayout.swift; sourceTree = "<group>"; };
 		3A17F06A1DAF0C5D006DC612 /* HueboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueboardCell.swift; sourceTree = "<group>"; };
+		3A17F06D1DAF127F006DC612 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		3A20AB211DAD3E62008E54AD /* Hueman-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hueman-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A20AB221DAD3E62008E54AD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
 		3A20AB231DAD3E62008E54AD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		3A060D2C1D9CADE9007F2B02 /* Hueman */ = {
 			isa = PBXGroup;
 			children = (
+				3A17F06C1DAF125B006DC612 /* Helpers */,
 				3A20AB1F1DAD3D73008E54AD /* ThirdParty */,
 				3A22A3E21DA3A62C0011B467 /* Extensions */,
 				3A22A3E31DA3A6360011B467 /* Core */,
@@ -134,6 +137,15 @@
 				3A083B9C1DA426B50092AE75 /* NavBar.swift */,
 			);
 			name = NavBar;
+			sourceTree = "<group>";
+		};
+		3A17F06C1DAF125B006DC612 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A17F06D1DAF127F006DC612 /* RoundedCornersView.swift */,
+			);
+			name = Helpers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		3A20AB1F1DAD3D73008E54AD /* ThirdParty */ = {
@@ -364,6 +376,7 @@
 				3A6C94761DAB13E5002A7EA3 /* Connection.swift in Sources */,
 				3A083BA91DA4A08E0092AE75 /* NotificationsViewController.swift in Sources */,
 				3AEB8B2F1DAB4CC00004A191 /* Profile.swift in Sources */,
+				3A17F06E1DAF127F006DC612 /* RoundedCornersView.swift in Sources */,
 				3A20AB291DADFD38008E54AD /* ProfileViewController.swift in Sources */,
 				3A17F0691DAF091D006DC612 /* HueboardsLayout.swift in Sources */,
 				3A22A3FE1DA3C0420011B467 /* ConnectionsViewController.swift in Sources */,

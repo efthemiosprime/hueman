@@ -9,12 +9,31 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var profileImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        print(profileImage.frame.size.width)
+        profileImage.layer.cornerRadius = 232/2
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
+            NSForegroundColorAttributeName : UIColorFromRGB(0x959595)
+        ]
+        
     }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

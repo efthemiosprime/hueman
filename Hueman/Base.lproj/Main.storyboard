@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,9 @@
     <customFonts key="customFonts">
         <array key="Sofia Pro Light.otf">
             <string>SofiaPro-Light</string>
+        </array>
+        <array key="Sofia Pro Regular.otf">
+            <string>SofiaProRegular</string>
         </array>
     </customFonts>
     <scenes>
@@ -169,15 +173,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="under" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioC-KS-ArO">
-                                <frame key="frameInset" minX="54" minY="207" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Np7-IA-2oN"/>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Np7-IA-2oN" firstAttribute="top" secondItem="Y4R-Nw-9hg" secondAttribute="bottom" id="ZEt-1d-MPD"/>
+                            <constraint firstItem="mMz-od-wWI" firstAttribute="top" secondItem="Np7-IA-2oN" secondAttribute="bottom" id="Zm3-hw-rkG"/>
+                            <constraint firstItem="Np7-IA-2oN" firstAttribute="leading" secondItem="NOI-Dx-4KE" secondAttribute="leading" id="aaw-AX-c8L"/>
+                            <constraint firstAttribute="trailing" secondItem="Np7-IA-2oN" secondAttribute="trailing" id="gTs-GI-P2G"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
@@ -284,11 +288,14 @@
                                     <constraint firstAttribute="height" constant="286" id="xX4-Y2-4TM"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Rb-nb-Ywk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9Rb-nb-Ywk">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="232" id="5IV-CB-iRo"/>
-                                    <constraint firstAttribute="width" constant="232" id="Z8c-6x-7hj"/>
+                                    <constraint firstAttribute="width" constant="232" id="RvH-Ko-j9n"/>
+                                    <constraint firstAttribute="height" constant="232" id="htS-7g-ZTW"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="232/2"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PvN-En-wHC">
                                 <frame key="frameInset" height="44"/>
@@ -303,20 +310,40 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-name-background" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-8R-wAI">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7r1-8R-wAI" secondAttribute="height" multiplier="143:17" id="p1I-zz-hVC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Julius Busa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-d5-qk9">
+                                <frame key="frameInset" minX="44" minY="396" width="286" height="21"/>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="17"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OVZ-AW-iGe" firstAttribute="top" secondItem="2wc-Vz-aJ7" secondAttribute="bottom" constant="95" id="Dua-oL-F1Y"/>
-                            <constraint firstItem="9Rb-nb-Ywk" firstAttribute="centerX" secondItem="Ye8-f0-Z1X" secondAttribute="centerX" id="X7z-T1-vUd"/>
+                            <constraint firstItem="Phy-d5-qk9" firstAttribute="centerX" secondItem="7r1-8R-wAI" secondAttribute="centerX" id="T4F-zs-9rf"/>
+                            <constraint firstItem="Phy-d5-qk9" firstAttribute="centerY" secondItem="7r1-8R-wAI" secondAttribute="centerY" id="TWz-CT-gcp"/>
+                            <constraint firstItem="9Rb-nb-Ywk" firstAttribute="centerY" secondItem="OVZ-AW-iGe" secondAttribute="centerY" id="WlY-ur-MxP"/>
+                            <constraint firstItem="7r1-8R-wAI" firstAttribute="centerX" secondItem="OVZ-AW-iGe" secondAttribute="centerX" id="c4C-aU-1SW"/>
                             <constraint firstItem="OVZ-AW-iGe" firstAttribute="centerX" secondItem="Ye8-f0-Z1X" secondAttribute="centerX" id="dur-Le-hsV"/>
-                            <constraint firstItem="9Rb-nb-Ywk" firstAttribute="top" secondItem="2wc-Vz-aJ7" secondAttribute="bottom" constant="122" id="y3B-DS-jBs"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="7r1-8R-wAI" secondAttribute="trailing" constant="28" id="f4B-FM-ZJ2"/>
+                            <constraint firstItem="9Rb-nb-Ywk" firstAttribute="centerX" secondItem="OVZ-AW-iGe" secondAttribute="centerX" id="fsC-FE-fvX"/>
+                            <constraint firstItem="7r1-8R-wAI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ye8-f0-Z1X" secondAttribute="leadingMargin" constant="28" id="xrE-mV-AQP"/>
+                            <constraint firstItem="3Co-ZT-ETQ" firstAttribute="top" secondItem="7r1-8R-wAI" secondAttribute="bottom" constant="244" id="zXY-oB-jvj"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="profileImage" destination="9Rb-nb-Ywk" id="fpL-WM-DZL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yos-en-NAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="-834"/>
+            <point key="canvasLocation" x="2248.8000000000002" y="-834.33283358320841"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="maR-JG-Cp5">
@@ -347,21 +374,90 @@
                         <collectionViewLayout key="collectionViewLayout" id="3AE-VY-bah" customClass="HueboardsLayout" customModule="Hueman" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HueboardCell" id="37M-cn-2sK" customClass="HueboardCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="88" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="170" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="99G-Kt-eJG">
-                                            <frame key="frameInset" width="200" height="200"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHs-jS-YAG" customClass="RoundedCornersView" customModule="Hueman" customModuleProvider="target">
+                                            <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="6"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFM-wM-JVG" customClass="RoundedCornersView" customModule="Hueman" customModuleProvider="target">
+                                            <frame key="frameInset" minX="5" minY="142" width="160" height="71"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="6"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63B-eN-AkJ">
+                                            <frame key="frameInset" minX="5" minY="10" width="160" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Juluis Busa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szG-ih-udq">
+                                            <frame key="frameInset" minX="8" minY="186" width="154" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Have trieds and must eats." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60y-Yy-Xi0">
+                                            <frame key="frameInset" minX="8" minY="172" width="154" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="u1E-5j-Vwa">
+                                            <frame key="frameInset" minX="5" minY="32" width="160" height="137"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Igg-W8-c5N">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Igg-W8-c5N" secondAttribute="height" multiplier="1:1" id="Hrs-C6-AVD"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="22"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="customSize" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstItem="uFM-wM-JVG" firstAttribute="top" secondItem="37M-cn-2sK" secondAttribute="top" constant="142" id="CgM-I0-3Vx"/>
+                                    <constraint firstItem="Igg-W8-c5N" firstAttribute="leading" secondItem="37M-cn-2sK" secondAttribute="leading" constant="118" id="KC8-Nh-91X"/>
+                                    <constraint firstAttribute="bottom" secondItem="uFM-wM-JVG" secondAttribute="bottom" constant="25" id="Oj8-Pd-HC3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Igg-W8-c5N" secondAttribute="trailing" constant="8" id="R6w-HJ-HcD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Igg-W8-c5N" secondAttribute="bottom" constant="2" id="RTL-6p-5Vn"/>
+                                    <constraint firstAttribute="trailing" secondItem="uFM-wM-JVG" secondAttribute="trailing" constant="5" id="WVp-tN-rAf"/>
+                                    <constraint firstItem="gHs-jS-YAG" firstAttribute="top" secondItem="37M-cn-2sK" secondAttribute="top" id="YOw-XN-bxH"/>
+                                    <constraint firstAttribute="bottom" secondItem="gHs-jS-YAG" secondAttribute="bottom" constant="20" id="YmO-pe-CRG"/>
+                                    <constraint firstItem="gHs-jS-YAG" firstAttribute="leading" secondItem="37M-cn-2sK" secondAttribute="leading" id="c5b-ys-2qo"/>
+                                    <constraint firstAttribute="trailing" secondItem="gHs-jS-YAG" secondAttribute="trailing" id="pkv-7V-0rZ"/>
+                                    <constraint firstItem="Igg-W8-c5N" firstAttribute="top" relation="greaterThanOrEqual" secondItem="37M-cn-2sK" secondAttribute="top" constant="194" id="sEx-x6-O1Y"/>
+                                    <constraint firstItem="uFM-wM-JVG" firstAttribute="leading" secondItem="37M-cn-2sK" secondAttribute="leading" constant="5" id="zcY-tZ-dba"/>
+                                </constraints>
+                                <size key="customSize" width="170" height="240"/>
+                                <connections>
+                                    <outlet property="coverImage" destination="u1E-5j-Vwa" id="P1K-sj-4ss"/>
+                                    <outlet property="postLabel" destination="60y-Yy-Xi0" id="3OQ-gL-a5o"/>
+                                    <outlet property="profileImage" destination="Igg-W8-c5N" id="HEw-rn-73D"/>
+                                    <outlet property="profileName" destination="szG-ih-udq" id="TfP-Lr-n0Q"/>
+                                    <outlet property="roundedBackground" destination="gHs-jS-YAG" id="XMw-Tf-hZD"/>
+                                    <outlet property="titleLabel" destination="63B-eN-AkJ" id="GE0-Th-k55"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                     </collectionView>
@@ -372,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qw4-Nf-3oM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4482" y="-335"/>
+            <point key="canvasLocation" x="4480.8000000000002" y="-335.08245877061472"/>
         </scene>
         <!--Huesfeed-->
         <scene sceneID="4k8-Q3-ML6">
@@ -539,9 +635,11 @@
         <image name="back-bar-item" width="22" height="22"/>
         <image name="hamburger-bar-item" width="22" height="22"/>
         <image name="hueman-logo" width="247" height="58"/>
+        <image name="hulyo.jpg" width="720" height="483"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>
         <image name="profile-bar-item" width="22" height="22"/>
+        <image name="profile-name-background" width="286" height="34"/>
         <image name="profile-thumbnail-bg" width="286" height="286"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>

@@ -10,24 +10,36 @@ import UIKit
 
 class HueboardsViewController: UICollectionViewController {
     
+    var  colors = [UIColor]()
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        
+//        if let patternImage = UIImage(named: "Pattern") {
+//            view.backgroundColor = UIColor(patternImage: patternImage)
+//        }
         
-        if let patternImage = UIImage(named: "Pattern") {
-            view.backgroundColor = UIColor(patternImage: patternImage)
-        }
+//      
         
-        collectionView!.backgroundColor = UIColor.clearColor()
+        colors = [
+            UIColorFromRGB(0x93648D),
+            UIColorFromRGB(0x7BC8A4),
+            UIColorFromRGB(0xf8b243),
+            UIColorFromRGB(0xEACD53),
+            UIColorFromRGB(0xe2563b),
+            UIColorFromRGB(0x34b5d4)
+        ]
+        //collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
         
         let layout = collectionViewLayout as! HueboardsLayout
         layout.cellPadding = 5
         layout.delegate = self
-        //layout.numberOfColumns = 2
+        layout.numberOfColumns = 2
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,7 +80,12 @@ extension HueboardsViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HueboardCell", forIndexPath: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HueboardCell", forIndexPath: indexPath) as! HueboardCell
+        let randomIndex = Int(arc4random_uniform(5) + 1)
+        cell.roundedBackground.backgroundColor = colors[randomIndex]
+        cell.profileImage.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.postLabel.text = "Anectdotes from the Smith household"
+        cell.postLabel.sizeToFit()
         return cell
     }
     
@@ -76,9 +93,14 @@ extension HueboardsViewController {
 
 extension HueboardsViewController: HueboardsLayoutDelegate {
     
-    func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let random = arc4random_uniform(4) + 1
-        return CGFloat(random * 100)
+    
+    
+    func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+        return 180
+    }
+    
+    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+        return 60
     }
     
 }

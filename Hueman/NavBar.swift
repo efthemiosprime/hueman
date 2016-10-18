@@ -13,8 +13,7 @@ class NavBar: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!]
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColorFromRGB(0x999999)]
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColorFromRGB(0x999999)]
     
         
 
