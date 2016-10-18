@@ -84,8 +84,12 @@ extension HueboardsViewController {
         let randomIndex = Int(arc4random_uniform(5) + 1)
         cell.roundedBackground.backgroundColor = colors[randomIndex]
         cell.profileImage.layer.borderColor = UIColor.whiteColor().CGColor
+
         cell.postLabel.text = "Anectdotes from the Smith household"
         cell.postLabel.sizeToFit()
+        cell.titleLabel.text = "I can show you the world"
+        cell.titleLabel.sizeToFit()
+        print("celff")
         return cell
     }
     
@@ -96,7 +100,7 @@ extension HueboardsViewController: HueboardsLayoutDelegate {
     
     
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
-        return 180
+        return 220
     }
     
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
