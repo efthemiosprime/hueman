@@ -73,8 +73,6 @@ class ConnectionsViewController: UIViewController {
             scrollView.contentSize = CGSize(width: connectionWidth, height: scrollViewContentSize)
         }
         
-
-                let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action:("addTapped"))
         
     }
     override func viewWillAppear(animated: Bool) {
