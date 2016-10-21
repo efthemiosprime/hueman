@@ -97,7 +97,7 @@ class HueboardsLayout: UICollectionViewLayout {
                 
                 let titleHeight = delegate.collectionView(collectionView!, titleHeightAtIndexPath: indexPath, withWidth: 162)
                 
-                var annotationHeight = delegate.collectionView(collectionView!, annotationHeightAtIndexPath: indexPath, withWidth: width)
+                let annotationHeight = delegate.collectionView(collectionView!, annotationHeightAtIndexPath: indexPath, withWidth: width)
                 
                 print("coverImageHeight: \(coverImageHeight)")
                 print("profileImageHeight: \(profileImageHeight)")
