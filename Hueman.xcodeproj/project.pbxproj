@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A0317BA1DB9B0E400DA0A15 /* Hueboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0317B91DB9B0E400DA0A15 /* Hueboard.swift */; };
+		3A0317BE1DB9DD5800DA0A15 /* Sofia Pro Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A0317BD1DB9DD5800DA0A15 /* Sofia Pro Light Italic.otf */; };
+		3A0317C01DB9DFE000DA0A15 /* AutoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0317BF1DB9DFE000DA0A15 /* AutoLabel.swift */; };
 		3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */; };
 		3A060D351D9CADE9007F2B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A060D341D9CADE9007F2B02 /* Assets.xcassets */; };
 		3A060D381D9CADE9007F2B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A060D361D9CADE9007F2B02 /* LaunchScreen.storyboard */; };
@@ -32,13 +34,14 @@
 		3A6C94761DAB13E5002A7EA3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C94751DAB13E5002A7EA3 /* Connection.swift */; };
 		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
-		3AE311FC1DB68904008219FC /* AutoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE311FB1DB68904008219FC /* AutoLabel.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		3AEB8B2F1DAB4CC00004A191 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2E1DAB4CC00004A191 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A0317B91DB9B0E400DA0A15 /* Hueboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hueboard.swift; sourceTree = "<group>"; };
+		3A0317BD1DB9DD5800DA0A15 /* Sofia Pro Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light Italic.otf"; path = "Fonts/Sofia Pro Light Italic.otf"; sourceTree = "<group>"; };
+		3A0317BF1DB9DFE000DA0A15 /* AutoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoLabel.swift; path = Hueman/AutoLabel.swift; sourceTree = "<group>"; };
 		3A060D2A1D9CADE9007F2B02 /* Hueman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hueman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A060D341D9CADE9007F2B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +70,6 @@
 		3A6C94751DAB13E5002A7EA3 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
 		3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Bold.otf"; path = "Fonts/Sofia Pro Bold.otf"; sourceTree = "<group>"; };
-		3AE311FB1DB68904008219FC /* AutoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLabel.swift; sourceTree = "<group>"; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
 		3AEB8B2E1DAB4CC00004A191 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,8 +148,8 @@
 		3A17F06C1DAF125B006DC612 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3A0317BF1DB9DFE000DA0A15 /* AutoLabel.swift */,
 				3A17F06D1DAF127F006DC612 /* RoundedCornersView.swift */,
-				3AE311FB1DB68904008219FC /* AutoLabel.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -241,6 +243,7 @@
 		3A22A3E81DA3A85F0011B467 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3A0317BD1DB9DD5800DA0A15 /* Sofia Pro Light Italic.otf */,
 				3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */,
 				3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */,
 				3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */,
@@ -361,6 +364,7 @@
 				3A060D351D9CADE9007F2B02 /* Assets.xcassets in Resources */,
 				3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */,
 				3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */,
+				3A0317BE1DB9DD5800DA0A15 /* Sofia Pro Light Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +376,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A22A3F21DA3BD0A0011B467 /* LoginViewController.swift in Sources */,
-				3AE311FC1DB68904008219FC /* AutoLabel.swift in Sources */,
 				3A083BA51DA4A06E0092AE75 /* HueboardsViewController.swift in Sources */,
 				3A083BA31DA49C4A0092AE75 /* SignupViewController.swift in Sources */,
 				3A17F06B1DAF0C5D006DC612 /* HueboardCell.swift in Sources */,
@@ -387,6 +390,7 @@
 				3A17F06E1DAF127F006DC612 /* RoundedCornersView.swift in Sources */,
 				3A20AB291DADFD38008E54AD /* ProfileViewController.swift in Sources */,
 				3A17F0691DAF091D006DC612 /* HueboardsLayout.swift in Sources */,
+				3A0317C01DB9DFE000DA0A15 /* AutoLabel.swift in Sources */,
 				3A22A3FE1DA3C0420011B467 /* ConnectionsViewController.swift in Sources */,
 				3A20AB241DAD3E62008E54AD /* SWRevealViewController.m in Sources */,
 			);

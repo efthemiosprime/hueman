@@ -27,7 +27,7 @@ class HueboardsViewController: UICollectionViewController {
 //
         
         let juliusBoard = Hueboard(title: "Puppy Love", coverImage: "hulyo.jpg", annotation: "For puppy lovers, by puppy lovers", ownerName: "Julius Busa", ownerImage: "hulyo.jpg")
-        let vinBoard = Hueboard(title: "Entrepeneurship 101", coverImage: "hulyo.jpg", annotation: "Blueprints for a success startup.", ownerName: "Maverick Shawn Aquino", ownerImage: "hulyo.jpg")
+        let vinBoard = Hueboard(title: "Entrepeneurship 101 200 300", coverImage: "hulyo.jpg", annotation: "Blueprints for a success startup.", ownerName: "Maverick Shawn Aquino", ownerImage: "hulyo.jpg")
         let camilleBoard = Hueboard(title: "Food Glorious Food", coverImage: "hulyo.jpg", annotation: "Have trieds and must eats.", ownerName: "Camille Laurente", ownerImage: "hulyo.jpg")
         let bongBoard = Hueboard(title: "Food Glorious Food", coverImage: "hulyo.jpg", annotation: "The boys band together to stand up for their rights. The boys band together to stand up for their rights.", ownerName: "Efthemios Suyat", ownerImage: "hulyo.jpg")
         

@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Sofia Pro Light Italic.otf">
+            <string>SofiaPro-LightItalic</string>
+        </array>
         <array key="Sofia Pro Light.otf">
             <string>SofiaPro-Light</string>
         </array>
@@ -352,7 +355,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Ui3-QR-Btg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ui3-QR-Btg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -414,7 +417,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7do-gu-RbI">
                                             <frame key="frameInset" minX="12" minY="196" width="146" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="10"/>
+                                            <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -510,10 +513,9 @@
                     <navigationItem key="navigationItem" id="Odh-y5-w61">
                         <barButtonItem key="leftBarButtonItem" image="hamburger-bar-item" id="Fy1-aj-z5V"/>
                         <rightBarButtonItems>
-                            <barButtonItem image="profile-bar-item" style="plain" id="VFR-vo-dCi">
-                                <inset key="imageInsets" minX="-10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <barButtonItem image="profile-bar-item" width="22" style="plain" id="VFR-vo-dCi">
                                 <connections>
-                                    <segue destination="kJ6-ki-agT" kind="presentation" id="2hV-4K-JPB"/>
+                                    <segue destination="kJ6-ki-agT" kind="presentation" identifier="ShowProfile" id="2hV-4K-JPB"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="write-post-bar-item" style="plain" id="ZOE-XC-nDk">
@@ -530,6 +532,8 @@
                     </tabBar>
                     <connections>
                         <outlet property="menuButton" destination="Fy1-aj-z5V" id="GKb-nk-NH6"/>
+                        <outlet property="profileItem" destination="VFR-vo-dCi" id="9b4-OL-2fJ"/>
+                        <outlet property="writePostItem" destination="ZOE-XC-nDk" id="h3r-o1-HXt"/>
                         <segue destination="Ttj-Lh-GvP" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
                         <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
                         <segue destination="J7n-ft-CXT" kind="relationship" relationship="viewControllers" id="i9n-0l-uCH"/>

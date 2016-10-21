@@ -91,21 +91,21 @@ class HueboardsLayout: UICollectionViewLayout {
                 let width = columnWidth - (cellPadding * 2)
                 
                 
-                let coverImageHeight = delegate.collectionView(collectionView!, coverImageHeightAtIndexPath: indexPath, withWidth: width)
+                let coverImageHeight = delegate.collectionView(collectionView!, coverImageHeightAtIndexPath: indexPath, withWidth: 162)
                 
-                let profileImageHeight = delegate.collectionView(collectionView!, profileImageHeightAtIndexPath: indexPath, withWidth: width)
+                let profileImageHeight = delegate.collectionView(collectionView!, profileImageHeightAtIndexPath: indexPath, withWidth: 44)
                 
                 let titleHeight = delegate.collectionView(collectionView!, titleHeightAtIndexPath: indexPath, withWidth: 162)
                 
-                let annotationHeight = delegate.collectionView(collectionView!, annotationHeightAtIndexPath: indexPath, withWidth: width)
+                var annotationHeight = delegate.collectionView(collectionView!, annotationHeightAtIndexPath: indexPath, withWidth: width)
                 
                 print("coverImageHeight: \(coverImageHeight)")
                 print("profileImageHeight: \(profileImageHeight)")
                 print("titleHeight: \(titleHeight)")
-                    print("annotationHeight: \(annotationHeight)")
+                print("annotationHeight: \(annotationHeight)")
 
-                
-                let height = cellPadding + coverImageHeight + profileImageHeight + titleHeight + (annotationHeight + 12)  + cellPadding
+
+                let height = cellPadding + coverImageHeight + profileImageHeight + titleHeight + (annotationHeight + 15)  + cellPadding
                 
      
                 let frame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)

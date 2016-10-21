@@ -10,7 +10,10 @@ import UIKit
 
 class TabBar: UITabBarController {
 
+    @IBOutlet weak var profileItem: UIBarButtonItem!
+    @IBOutlet weak var writePostItem: UIBarButtonItem!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +31,22 @@ class TabBar: UITabBarController {
             NSForegroundColorAttributeName : UIColorFromRGB(0x959595)
         ]
         
-
+        let circular = UIColor(patternImage: UIImage(named:"profile-bar-item")!)
+        let itemView = UIView(frame: CGRectMake(0, 0, 22, 22))
+        itemView.backgroundColor = circular
+        let profieImage = UIImage(named: "hulyo.jpg")
+        
+        let profileImageButtonItem = UIButton(type: .Custom)
+        profileImageButtonItem.frame = CGRectMake(0, 0, 17, 17)
+        profileImageButtonItem.center = itemView.center
+        profileImageButtonItem.setImage(profieImage, forState: .Normal)
+        profileImageButtonItem.contentMode = .ScaleAspectFit
+        profileImageButtonItem.layer.cornerRadius = 8.5
+        profileImageButtonItem.clipsToBounds = true
+        profileImageButtonItem.addTarget(self, action: #selector(TabBar.showProfile), forControlEvents: .TouchUpInside)
+        itemView.addSubview(profileImageButtonItem)
+        
+        profileItem!.customView = itemView
 
         if revealViewController() != nil {
             menuButton.target = revealViewController()
@@ -51,7 +69,9 @@ class TabBar: UITabBarController {
         super.didReceiveMemoryWarning()
     }
     
-    
+    func showProfile() {
+        self.performSegueWithIdentifier("ShowProfile", sender: nil)
+    }
 
     /*
     // MARK: - Navigation
