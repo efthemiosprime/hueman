@@ -1,40 +1,30 @@
 //
-//  ProfileViewController.swift
+//  SearchBarViewController.swift
 //  Hueman
 //
-//  Created by Efthemios Prime on 10/12/16.
+//  Created by Efthemios Prime on 10/21/16.
 //  Copyright © 2016 Efthemios Prime. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-    
-    @IBOutlet weak var profileImage: UIImageView!
+class SearchBarViewController: UIViewController {
 
+    @IBOutlet weak var writePostButton: UIButton!
+    @IBOutlet weak var filterPostsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(profileImage.frame.size.width)
-        profileImage.layer.cornerRadius = 232/2
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
-            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x959595)
-        ]
+
+        writePostButton.addTarget(self, action: #selector(TabBar.createPost), forControlEvents: .TouchUpInside)
         
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func backHandler(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
-    }
-    
+
 
     /*
     // MARK: - Navigation

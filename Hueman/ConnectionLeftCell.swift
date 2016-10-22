@@ -19,6 +19,7 @@ class ConnectionLeftCell: UITableViewCell {
             if let profile = profile {
                 self.connectionName.text = profile.name?.uppercaseString
                 item.hueColor = profile.hueColor
+                profileImage.image = profile.imageView
             }
         }
     }
@@ -27,6 +28,7 @@ class ConnectionLeftCell: UITableViewCell {
         super.awakeFromNib()
         item.backgroundColor = UIColor.clearColor()
         item.hueColor = UIColor.brownColor()
+        profileImage.contentMode = .ScaleAspectFill
         profileImage.layer.cornerRadius = 55
         profileImage.clipsToBounds = true
         

@@ -350,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yos-en-NAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2248.8000000000002" y="-834.33283358320841"/>
+            <point key="canvasLocation" x="2812" y="-1080"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="maR-JG-Cp5">
@@ -537,11 +537,12 @@
                         <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
                         <segue destination="J7n-ft-CXT" kind="relationship" relationship="viewControllers" id="i9n-0l-uCH"/>
                         <segue destination="D5x-fb-ScK" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
+                        <segue destination="TVX-Vb-Dl9" kind="presentation" identifier="CreatePost" id="R3y-7e-Yox"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIY-vW-yjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3100" y="33"/>
+            <point key="canvasLocation" x="3194" y="161"/>
         </scene>
         <!--Notifications View Controller-->
         <scene sceneID="jge-Cl-ERY">
@@ -560,7 +561,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7M-uM-oDO">
-                                            <frame key="frameInset" minX="10" minY="43" width="332" height="2"/>
+                                            <frame key="frameInset" minX="10" minY="44" width="332" height="1"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -609,108 +610,190 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDU-kr-lEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4520.8000000000002" y="1085.3073463268368"/>
+            <point key="canvasLocation" x="4044" y="1130"/>
         </scene>
         <!--Connections-->
         <scene sceneID="HkI-lr-hoc">
             <objects>
                 <viewController title="connections" id="Ttj-Lh-GvP" userLabel="Connections" customClass="ConnectionsViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VJj-c2-3b8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="750-HG-jnt"/>
+                        <viewControllerLayoutGuide type="bottom" id="NPY-LV-JAV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="swM-Nb-eag">
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectionLeftCell" rowHeight="140" id="PiI-Ax-bVo" customClass="ConnectionLeftCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PiI-Ax-bVo" id="zdj-Tq-yno">
-                                    <frame key="frameInset" width="375" height="139"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-dotted-line" translatesAutoresizingMaskIntoConstraints="NO" id="xWi-ZF-GUY">
-                                            <frame key="frameInset" minX="187" width="1" height="63"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80A-Ty-oLF" customClass="ConnectionLeftItem" customModule="Hueman" customModuleProvider="target">
-                                            <frame key="frameInset" minX="8" minY="13" width="237" height="140"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BA4-gy-nCo">
+                                <frame key="frameInset" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ryb-Qq-HS5">
+                                <frame key="frameInset" minY="75" width="375" height="499"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectionLeftCell" rowHeight="140" id="wb6-mE-Ax2" customClass="ConnectionLeftCell" customModule="Hueman" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wb6-mE-Ax2" id="sbC-Rl-Y5i">
+                                            <frame key="frameInset" width="375" height="139"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Julius" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEw-I7-9b0">
-                                                    <frame key="frameInset" minX="127" minY="36" width="99" height="68"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-dotted-line" translatesAutoresizingMaskIntoConstraints="NO" id="uGy-9E-y7u">
+                                                    <frame key="frameInset" minX="187" width="1" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjp-xl-T30" customClass="ConnectionLeftItem" customModule="Hueman" customModuleProvider="target">
+                                                    <frame key="frameInset" minX="8" minY="13" width="237" height="140"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Julius" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kC-RJ-841">
+                                                            <frame key="frameInset" minX="127" minY="36" width="99" height="68"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="17"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooA-dJ-IKP">
+                                                    <frame key="frameInset" minX="22" minY="27" width="110" height="110"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="connectionName" destination="2kC-RJ-841" id="243-Wh-T9x"/>
+                                            <outlet property="item" destination="bjp-xl-T30" id="hae-qJ-hZt"/>
+                                            <outlet property="profileImage" destination="ooA-dJ-IKP" id="TcF-Cv-xGB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectionRightCell" rowHeight="130" id="0MU-R2-74u" customClass="ConnectionRightCell" customModule="Hueman" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="168" width="375" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0MU-R2-74u" id="RKu-Lb-yev">
+                                            <frame key="frameInset" width="375" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-dotted-line" translatesAutoresizingMaskIntoConstraints="NO" id="t1v-w2-dVY">
+                                                    <frame key="frameInset" minX="187" width="1" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-SH-oRf" customClass="ConnectionRightItem" customModule="Hueman" customModuleProvider="target">
+                                                    <frame key="frameInset" minX="125" width="237" height="140"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.3431842672" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2h-E0-snO">
+                                                    <frame key="frameInset" minX="236" minY="15" width="110" height="110"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEH-j4-Tsb">
+                                                    <frame key="frameInset" minX="137" minY="40" width="96" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XmB-zP-X0L">
-                                            <frame key="frameInset" minX="22" minY="27" width="110" height="110"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="connectionName" destination="VEw-I7-9b0" id="XAN-f6-Czs"/>
-                                    <outlet property="item" destination="80A-Ty-oLF" id="M4S-Uf-MFW"/>
-                                    <outlet property="profileImage" destination="XmB-zP-X0L" id="EX0-OX-cPE"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectionRightCell" rowHeight="130" id="aCy-eR-ZK2" customClass="ConnectionRightCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="168" width="375" height="130"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aCy-eR-ZK2" id="ZBr-Xc-X27">
-                                    <frame key="frameInset" width="375" height="129"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-dotted-line" translatesAutoresizingMaskIntoConstraints="NO" id="bWf-tK-7wf">
-                                            <frame key="frameInset" minX="187" width="1" height="63"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skf-uD-d4g" customClass="ConnectionRightItem" customModule="Hueman" customModuleProvider="target">
-                                            <frame key="frameInset" minX="125" width="237" height="140"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="0.34318426724137929" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ons-YK-n9x">
-                                            <frame key="frameInset" minX="236" minY="15" width="110" height="110"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LT-e7-Asa">
-                                            <frame key="frameInset" minX="137" minY="40" width="96" height="68"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="connectionName" destination="9LT-e7-Asa" id="AOG-2R-0PH"/>
-                                    <outlet property="item" destination="Skf-uD-d4g" id="4zC-bz-6OU"/>
-                                    <outlet property="profileImage" destination="ons-YK-n9x" id="7cg-dy-sPy"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="connectionName" destination="IEH-j4-Tsb" id="wV8-Qp-D61"/>
+                                            <outlet property="item" destination="zfP-SH-oRf" id="nfj-37-6Py"/>
+                                            <outlet property="profileImage" destination="z2h-E0-snO" id="4oq-eT-y9s"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-active" id="RZj-KZ-T6N" userLabel="connections">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchView" destination="BA4-gy-nCo" id="Ska-mb-vrH"/>
+                        <outlet property="tableView" destination="ryb-Qq-HS5" id="ZHa-eE-IET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-DB-3hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3856.8000000000002" y="-1208.5457271364319"/>
+            <point key="canvasLocation" x="4381.6000000000004" y="-1143.7781109445277"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Post View Controller-->
+        <scene sceneID="pwK-2y-sWl">
+            <objects>
+                <viewController id="TVX-Vb-Dl9" customClass="CreatePostViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V0i-lZ-ZYE"/>
+                        <viewControllerLayoutGuide type="bottom" id="cmC-PR-1kJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nCE-dn-54C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lhr-t2-O7d">
+                                <frame key="frameInset" minX="23" minY="72" width="332" height="152"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-mb-8Md">
+                                        <frame key="frameInset" minX="18" minY="44" width="306" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hustle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gSk-Qk-Ddy">
+                                <frame key="frameInset" minX="178" minY="53" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="create a post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHo-0f-h4g">
+                                <frame key="frameInset" minX="16" minY="14" width="339" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igv-W4-zeh">
+                                <frame key="frameInset" minX="16" minY="8" width="33" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back-icon"/>
+                                <connections>
+                                    <action selector="backButton:" destination="TVX-Vb-Dl9" eventType="touchUpInside" id="LiF-lF-F7a"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="250/250 characters left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-jV-SBc">
+                                <frame key="frameInset" minX="40" minY="95" width="313" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="icon" destination="gSk-Qk-Ddy" id="oR0-Ke-vJf"/>
+                        <outlet property="inputBackground" destination="Lhr-t2-O7d" id="7fW-Mh-76d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueo-qe-IHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3624.8000000000002" y="-991.75412293853083"/>
+        </scene>
+        <!--Search Bar View Controller-->
         <scene sceneID="WhY-37-fwr">
             <objects>
-                <viewController storyboardIdentifier="SearchBox" id="Yjp-cO-I2N" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchBox" id="Yjp-cO-I2N" customClass="SearchBarViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HSW-YO-CXA"/>
                         <viewControllerLayoutGuide type="bottom" id="xS0-HH-PhA"/>
@@ -719,17 +802,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RVf-l5-rbP">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhY-pv-kTq">
+                                <frame key="frameInset" minX="318" minY="14" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="write-post-icon"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30J-vQ-FHx">
                                 <frame key="frameInset" minX="63" minY="20" width="248" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr8-bI-cFv">
-                                <frame key="frameInset" minX="5" minY="3" width="50" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-2y-JHc">
+                                <frame key="frameInset" minX="14" minY="14" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="add-connection-btn"/>
+                                <state key="normal" image="filter-post-icon"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
@@ -737,6 +825,10 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="75"/>
+                    <connections>
+                        <outlet property="filterPostsButton" destination="9WS-2y-JHc" id="78H-vi-WQM"/>
+                        <outlet property="writePostButton" destination="WhY-pv-kTq" id="cgX-LA-YAr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBR-2O-Xl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -744,12 +836,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add-connection-btn" width="49" height="51"/>
         <image name="back-bar-item" width="22" height="22"/>
+        <image name="back-icon" width="33" height="33"/>
         <image name="connection-dotted-line" width="1" height="63"/>
+        <image name="filter-post-icon" width="41" height="41"/>
         <image name="hamburger-bar-item" width="22" height="22"/>
         <image name="hueman-logo" width="247" height="58"/>
         <image name="hulyo.jpg" width="720" height="483"/>
+        <image name="hustle-icon" width="37" height="37"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>
         <image name="profile-bar-item" width="22" height="22"/>
@@ -764,6 +858,7 @@
         <image name="tab-icon-huesfeed" width="48" height="32"/>
         <image name="tab-icon-huesfeed-active" width="48" height="32"/>
         <image name="tab-icon-notifications" width="48" height="32"/>
+        <image name="write-post-icon" width="41" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ash-Wk-JfK"/>

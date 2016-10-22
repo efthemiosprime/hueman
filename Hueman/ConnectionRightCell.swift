@@ -19,6 +19,8 @@ class ConnectionRightCell: UITableViewCell {
             if let profile = profile {
                 self.connectionName.text = profile.name?.uppercaseString
                 item.hueColor = profile.hueColor
+                profileImage.image = profile.imageView
+
             }
         }
     }
@@ -29,7 +31,8 @@ class ConnectionRightCell: UITableViewCell {
         item.backgroundColor = UIColor.clearColor()
         profileImage.layer.cornerRadius = 55
         profileImage.clipsToBounds = true
-        
+        profileImage.contentMode = .ScaleAspectFill
+
         connectionName.numberOfLines = 0
         connectionName.textAlignment = .Center
         connectionName.adjustsFontSizeToFitWidth = true

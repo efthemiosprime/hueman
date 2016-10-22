@@ -28,7 +28,7 @@ class TabBar: UITabBarController {
 
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
-            NSForegroundColorAttributeName : UIColorFromRGB(0x959595)
+            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x959595)
         ]
         
         let circular = UIColor(patternImage: UIImage(named:"profile-bar-item")!)
@@ -56,14 +56,6 @@ class TabBar: UITabBarController {
         
     }
     
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +65,10 @@ class TabBar: UITabBarController {
         self.performSegueWithIdentifier("ShowProfile", sender: nil)
     }
 
+    func createPost() {
+        self.performSegueWithIdentifier("CreatePost", sender: nil)
+
+    }
     /*
     // MARK: - Navigation
 

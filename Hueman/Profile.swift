@@ -12,10 +12,15 @@ struct Profile {
     let name: String?
     let topic: Hue?
     let hueColor: UIColor?
+    let imageStr: String?
+    let imageView: UIImage?
     
-    init(name: String, topic:Hue) {
+    init(name: String, image:String, topic:Hue) {
+        
         self.name = name
         self.topic = topic
+        self.imageStr = image
+        self.imageView = UIImage(named: imageStr!)
         
         switch topic {
         case .DailyHustle:
