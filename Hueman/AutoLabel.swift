@@ -10,7 +10,7 @@ import UIKit
 
 class AutoLabel: UILabel {
 
-    override public var text: String? {
+    override internal var text: String? {
         didSet {
             layoutIfNeeded()
         }
