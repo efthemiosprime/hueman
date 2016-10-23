@@ -360,7 +360,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ui3-QR-Btg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Ui3-QR-Btg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -740,17 +740,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lhr-t2-O7d">
-                                <frame key="frameInset" minX="23" minY="72" width="332" height="152"/>
+                                <frame key="frameInset" minX="23" minY="72" width="332" height="245"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-mb-8Md">
-                                        <frame key="frameInset" minX="18" minY="44" width="306" height="29"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-g2-JUK">
+                                        <frame key="frameInset" minX="14" minY="46" width="303" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xy-Ni-Qiz">
+                                        <frame key="frameInset" minX="137" minY="183" width="180" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hustle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gSk-Qk-Ddy">
                                 <frame key="frameInset" minX="178" minY="53" width="37" height="37"/>
@@ -772,18 +778,90 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="250/250 characters left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-jV-SBc">
-                                <frame key="frameInset" minX="40" minY="95" width="313" height="21"/>
+                                <frame key="frameInset" minX="40" minY="95" width="301" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAx-sf-uWU">
+                                <frame key="frameInset" minX="40" minY="114" width="180" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-YC-Yy7">
+                                <frame key="frameInset" minX="195" minY="265" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="camera-icon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1w-BA-dXT">
+                                <frame key="frameInset" minX="244" minY="265" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="filter-icon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbP-56-ZdH">
+                                <frame key="frameInset" minX="293" minY="265" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="post-icon"/>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZC-zr-4cu">
+                                <frame key="frameInset" minX="47" minY="262" width="289" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topic-container" translatesAutoresizingMaskIntoConstraints="NO" id="klS-wh-Gr4">
+                                        <frame key="frameInset" width="289" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-Ng-GpO">
+                                        <frame key="frameInset" minX="4" minY="4" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="wanderlust-icon"/>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-Bu-21k">
+                                        <frame key="frameInset" minX="53" minY="4" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="plate-icon"/>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8f-kd-KO1">
+                                        <frame key="frameInset" minX="103" minY="4" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="relationship-icon"/>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sy-YR-VQ4">
+                                        <frame key="frameInset" minX="151" minY="4" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="health-icon"/>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-lO-M60">
+                                        <frame key="frameInset" minX="201" minY="4" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="hustle-icon"/>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-kG-kVI">
+                                        <frame key="frameInset" minX="247" minY="4" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="ray-light-icon"/>
+                                    </button>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="aRM-YC-Yy7" id="XpU-R6-Js0"/>
+                        <outlet property="filterButton" destination="r1w-BA-dXT" id="FRN-Vg-g1S"/>
+                        <outlet property="headerLabel" destination="DyD-jV-SBc" id="bgt-30-9qx"/>
+                        <outlet property="healthButton" destination="4sy-YR-VQ4" id="cxS-Yq-6rX"/>
+                        <outlet property="hustleButton" destination="rBs-lO-M60" id="nzj-Hi-pky"/>
                         <outlet property="icon" destination="gSk-Qk-Ddy" id="oR0-Ke-vJf"/>
                         <outlet property="inputBackground" destination="Lhr-t2-O7d" id="7fW-Mh-76d"/>
+                        <outlet property="plateButton" destination="TFg-Bu-21k" id="IHI-dH-TwB"/>
+                        <outlet property="postButton" destination="YbP-56-ZdH" id="dmV-y4-Dm6"/>
+                        <outlet property="postInput" destination="Q5g-g2-JUK" id="jpI-bL-E3i"/>
+                        <outlet property="raylightButton" destination="Nmb-kG-kVI" id="NeL-Tb-YHS"/>
+                        <outlet property="relationshopButton" destination="r8f-kd-KO1" id="Any-ah-sWB"/>
+                        <outlet property="topic" destination="WZC-zr-4cu" id="tok-lV-HxZ"/>
+                        <outlet property="wanderlustButton" destination="kRb-Ng-GpO" id="JMK-GE-gKS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueo-qe-IHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -838,17 +916,24 @@
     <resources>
         <image name="back-bar-item" width="22" height="22"/>
         <image name="back-icon" width="33" height="33"/>
+        <image name="camera-icon" width="41" height="41"/>
         <image name="connection-dotted-line" width="1" height="63"/>
+        <image name="filter-icon" width="41" height="41"/>
         <image name="filter-post-icon" width="41" height="41"/>
         <image name="hamburger-bar-item" width="22" height="22"/>
+        <image name="health-icon" width="37" height="37"/>
         <image name="hueman-logo" width="247" height="58"/>
         <image name="hulyo.jpg" width="720" height="483"/>
         <image name="hustle-icon" width="37" height="37"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>
+        <image name="plate-icon" width="37" height="37"/>
+        <image name="post-icon" width="41" height="41"/>
         <image name="profile-bar-item" width="22" height="22"/>
         <image name="profile-name-background" width="286" height="34"/>
         <image name="profile-thumbnail-bg" width="286" height="286"/>
+        <image name="ray-light-icon" width="37" height="37"/>
+        <image name="relationship-icon" width="37" height="37"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
         <image name="tab-icon-connections" width="48" height="32"/>
@@ -858,9 +943,11 @@
         <image name="tab-icon-huesfeed" width="48" height="32"/>
         <image name="tab-icon-huesfeed-active" width="48" height="32"/>
         <image name="tab-icon-notifications" width="48" height="32"/>
+        <image name="topic-container" width="288" height="43"/>
+        <image name="wanderlust-icon" width="37" height="37"/>
         <image name="write-post-icon" width="41" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ash-Wk-JfK"/>
+        <segue reference="MXF-TL-zKd"/>
     </inferredMetricsTieBreakers>
 </document>
