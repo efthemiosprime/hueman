@@ -23,7 +23,6 @@
 		3A17F0691DAF091D006DC612 /* HueboardsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17F0681DAF091D006DC612 /* HueboardsLayout.swift */; };
 		3A17F06B1DAF0C5D006DC612 /* HueboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17F06A1DAF0C5D006DC612 /* HueboardCell.swift */; };
 		3A17F06E1DAF127F006DC612 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17F06D1DAF127F006DC612 /* RoundedCornersView.swift */; };
-		3A20AB241DAD3E62008E54AD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A20AB231DAD3E62008E54AD /* SWRevealViewController.m */; };
 		3A20AB291DADFD38008E54AD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A20AB281DADFD38008E54AD /* ProfileViewController.swift */; };
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
 		3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */; };
@@ -42,6 +41,7 @@
 		3A7A88DD1DBB1403003BA27C /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A88DC1DBB1403003BA27C /* ConnectionsViewController.swift */; };
 		3A7A88E01DBB1825003BA27C /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A88DF1DBB1825003BA27C /* SearchBarViewController.swift */; };
 		3A7A88E31DBB1F09003BA27C /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A88E21DBB1F09003BA27C /* CreatePostViewController.swift */; };
+		3ABD761D1DBC55EB00AD2538 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD761C1DBC55EB00AD2538 /* SWRevealViewController.m */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		3AEB8B2F1DAB4CC00004A191 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2E1DAB4CC00004A191 /* Profile.swift */; };
 /* End PBXBuildFile section */
@@ -65,8 +65,6 @@
 		3A17F06A1DAF0C5D006DC612 /* HueboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueboardCell.swift; sourceTree = "<group>"; };
 		3A17F06D1DAF127F006DC612 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		3A20AB211DAD3E62008E54AD /* Hueman-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hueman-Bridging-Header.h"; sourceTree = "<group>"; };
-		3A20AB221DAD3E62008E54AD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
-		3A20AB231DAD3E62008E54AD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
 		3A20AB281DADFD38008E54AD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light.otf"; path = "Fonts/Sofia Pro Light.otf"; sourceTree = "<group>"; };
 		3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Regular.otf"; path = "Fonts/Sofia Pro Regular.otf"; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		3A7A88DC1DBB1403003BA27C /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		3A7A88DF1DBB1825003BA27C /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		3A7A88E21DBB1F09003BA27C /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		3ABD761B1DBC55EB00AD2538 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		3ABD761C1DBC55EB00AD2538 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
 		3AEB8B2E1DAB4CC00004A191 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,8 +183,8 @@
 		3A20AB201DAD3E51008E54AD /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3A20AB221DAD3E62008E54AD /* SWRevealViewController.h */,
-				3A20AB231DAD3E62008E54AD /* SWRevealViewController.m */,
+				3ABD761B1DBC55EB00AD2538 /* SWRevealViewController.h */,
+				3ABD761C1DBC55EB00AD2538 /* SWRevealViewController.m */,
 				3A20AB211DAD3E62008E54AD /* Hueman-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
@@ -420,6 +420,7 @@
 				3A083BA51DA4A06E0092AE75 /* HueboardsViewController.swift in Sources */,
 				3A083BA31DA49C4A0092AE75 /* SignupViewController.swift in Sources */,
 				3A17F06B1DAF0C5D006DC612 /* HueboardCell.swift in Sources */,
+				3ABD761D1DBC55EB00AD2538 /* SWRevealViewController.m in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A083B981DA417520092AE75 /* TabBar.swift in Sources */,
 				3A083B9D1DA426B50092AE75 /* NavBar.swift in Sources */,
@@ -440,7 +441,6 @@
 				3A7A88DD1DBB1403003BA27C /* ConnectionsViewController.swift in Sources */,
 				3A0317C01DB9DFE000DA0A15 /* AutoLabel.swift in Sources */,
 				3A22A3FE1DA3C0420011B467 /* ConnectionsTableViewController.swift in Sources */,
-				3A20AB241DAD3E62008E54AD /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
