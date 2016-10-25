@@ -11,13 +11,14 @@ import UIKit
 class ConnectionLeftCell: UITableViewCell {
 
     @IBOutlet weak var item: ConnectionLeftItem!
-    @IBOutlet weak var connectionName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var connectionLabel: ConnectionLabel!
     
     var profile: Profile? {
         didSet {
             if let profile = profile {
-                self.connectionName.text = profile.name?.uppercaseString
+                connectionLabel.nameLabel = profile.name
+                connectionLabel.hueColor = profile.hueColor
                 item.hueColor = profile.hueColor
                 profileImage.image = profile.imageView
             }
@@ -31,10 +32,7 @@ class ConnectionLeftCell: UITableViewCell {
         profileImage.contentMode = .ScaleAspectFill
         profileImage.layer.cornerRadius = 55
         profileImage.clipsToBounds = true
-        
-        connectionName.numberOfLines = 0
-        connectionName.textAlignment = .Center
-        connectionName.adjustsFontSizeToFitWidth = true
+
         
     }
 

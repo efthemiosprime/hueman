@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // printFonts()
+       //printFonts()
     }
     
     override func didReceiveMemoryWarning() {

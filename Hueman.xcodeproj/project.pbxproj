@@ -27,7 +27,7 @@
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
 		3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */; };
 		3A22A3F21DA3BD0A0011B467 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22A3F11DA3BD0A0011B467 /* LoginViewController.swift */; };
-		3A22A3FE1DA3C0420011B467 /* ConnectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22A3FD1DA3C0420011B467 /* ConnectionsTableViewController.swift */; };
+		3A5D19711DBF2F2D009E70F3 /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D19701DBF2F2D009E70F3 /* ConnectionsViewController.swift */; };
 		3A676A441DBA6DC500B4AC77 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A676A431DBA6DC500B4AC77 /* NotificationCell.swift */; };
 		3A676A461DBA714800B4AC77 /* UIColor+UIColorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A676A451DBA714800B4AC77 /* UIColor+UIColorFromRGB.swift */; };
 		3A676A481DBA94EB00B4AC77 /* ConnectionLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A676A471DBA94EB00B4AC77 /* ConnectionLeftCell.swift */; };
@@ -38,12 +38,13 @@
 		3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */; };
 		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
-		3A7A88DD1DBB1403003BA27C /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A88DC1DBB1403003BA27C /* ConnectionsViewController.swift */; };
 		3A7A88E01DBB1825003BA27C /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A88DF1DBB1825003BA27C /* SearchBarViewController.swift */; };
 		3A7A88E31DBB1F09003BA27C /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A88E21DBB1F09003BA27C /* CreatePostViewController.swift */; };
 		3ABD761D1DBC55EB00AD2538 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD761C1DBC55EB00AD2538 /* SWRevealViewController.m */; };
 		3ABD761F1DBC9E6C00AD2538 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */; };
 		3ABD76211DBC9E9900AD2538 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD76201DBC9E9900AD2538 /* Photos.framework */; };
+		3AC2793F1DBDC780006ECF1C /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2793E1DBDC780006ECF1C /* FilterOptions.swift */; };
+		3AC279411DBDE257006ECF1C /* ConnectionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC279401DBDE257006ECF1C /* ConnectionLabel.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		3AEB8B2F1DAB4CC00004A191 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2E1DAB4CC00004A191 /* Profile.swift */; };
 /* End PBXBuildFile section */
@@ -72,7 +73,7 @@
 		3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Regular.otf"; path = "Fonts/Sofia Pro Regular.otf"; sourceTree = "<group>"; };
 		3A22A3EF1DA3B6080011B467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A22A3F11DA3BD0A0011B467 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3A22A3FD1DA3C0420011B467 /* ConnectionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsTableViewController.swift; sourceTree = "<group>"; };
+		3A5D19701DBF2F2D009E70F3 /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		3A676A431DBA6DC500B4AC77 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		3A676A451DBA714800B4AC77 /* UIColor+UIColorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+UIColorFromRGB.swift"; sourceTree = "<group>"; };
 		3A676A471DBA94EB00B4AC77 /* ConnectionLeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionLeftCell.swift; sourceTree = "<group>"; };
@@ -83,13 +84,14 @@
 		3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
 		3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Bold.otf"; path = "Fonts/Sofia Pro Bold.otf"; sourceTree = "<group>"; };
-		3A7A88DC1DBB1403003BA27C /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		3A7A88DF1DBB1825003BA27C /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		3A7A88E21DBB1F09003BA27C /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		3ABD761B1DBC55EB00AD2538 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		3ABD761C1DBC55EB00AD2538 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		3AC2793E1DBDC780006ECF1C /* FilterOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
+		3AC279401DBDE257006ECF1C /* ConnectionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionLabel.swift; sourceTree = "<group>"; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
 		3AEB8B2E1DAB4CC00004A191 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */,
+				3AC2793D1DBDC769006ECF1C /* Filter */,
 				3A7A88E11DBB1EF8003BA27C /* Post */,
 				3A7A88DE1DBB1806003BA27C /* SearchBar */,
 				3A20AB271DADFD1F008E54AD /* Profile */,
@@ -288,12 +291,12 @@
 		3A22A3F31DA3BD850011B467 /* Connections */ = {
 			isa = PBXGroup;
 			children = (
-				3A22A3FD1DA3C0420011B467 /* ConnectionsTableViewController.swift */,
+				3A5D19701DBF2F2D009E70F3 /* ConnectionsViewController.swift */,
 				3A676A471DBA94EB00B4AC77 /* ConnectionLeftCell.swift */,
 				3A676A491DBA986E00B4AC77 /* ConnectionLeftItem.swift */,
 				3A676A4B1DBAAA8A00B4AC77 /* ConnectionRightItem.swift */,
 				3A676A4D1DBAACCF00B4AC77 /* ConnectionRightCell.swift */,
-				3A7A88DC1DBB1403003BA27C /* ConnectionsViewController.swift */,
+				3AC279401DBDE257006ECF1C /* ConnectionLabel.swift */,
 			);
 			name = Connections;
 			sourceTree = "<group>";
@@ -341,6 +344,14 @@
 				3A7A88E21DBB1F09003BA27C /* CreatePostViewController.swift */,
 			);
 			name = Post;
+			sourceTree = "<group>";
+		};
+		3AC2793D1DBDC769006ECF1C /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				3AC2793E1DBDC780006ECF1C /* FilterOptions.swift */,
+			);
+			name = Filter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +438,7 @@
 				3A676A4A1DBA986E00B4AC77 /* ConnectionLeftItem.swift in Sources */,
 				3A083BA51DA4A06E0092AE75 /* HueboardsViewController.swift in Sources */,
 				3A083BA31DA49C4A0092AE75 /* SignupViewController.swift in Sources */,
+				3A5D19711DBF2F2D009E70F3 /* ConnectionsViewController.swift in Sources */,
 				3A17F06B1DAF0C5D006DC612 /* HueboardCell.swift in Sources */,
 				3ABD761D1DBC55EB00AD2538 /* SWRevealViewController.m in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
@@ -435,20 +447,20 @@
 				3A676A441DBA6DC500B4AC77 /* NotificationCell.swift in Sources */,
 				3A083BA71DA4A07C0092AE75 /* HuesFeedViewController.swift in Sources */,
 				3A0317BA1DB9B0E400DA0A15 /* Hueboard.swift in Sources */,
+				3AC279411DBDE257006ECF1C /* ConnectionLabel.swift in Sources */,
 				3A083BA91DA4A08E0092AE75 /* NotificationsViewController.swift in Sources */,
 				3A676A481DBA94EB00B4AC77 /* ConnectionLeftCell.swift in Sources */,
 				3AEB8B2F1DAB4CC00004A191 /* Profile.swift in Sources */,
 				3A7A88E31DBB1F09003BA27C /* CreatePostViewController.swift in Sources */,
 				3A17F06E1DAF127F006DC612 /* RoundedCornersView.swift in Sources */,
 				3A20AB291DADFD38008E54AD /* ProfileViewController.swift in Sources */,
+				3AC2793F1DBDC780006ECF1C /* FilterOptions.swift in Sources */,
 				3A7A88E01DBB1825003BA27C /* SearchBarViewController.swift in Sources */,
 				3A676A4C1DBAAA8A00B4AC77 /* ConnectionRightItem.swift in Sources */,
 				3A676A4E1DBAACCF00B4AC77 /* ConnectionRightCell.swift in Sources */,
 				3A676A461DBA714800B4AC77 /* UIColor+UIColorFromRGB.swift in Sources */,
 				3A17F0691DAF091D006DC612 /* HueboardsLayout.swift in Sources */,
-				3A7A88DD1DBB1403003BA27C /* ConnectionsViewController.swift in Sources */,
 				3A0317C01DB9DFE000DA0A15 /* AutoLabel.swift in Sources */,
-				3A22A3FE1DA3C0420011B467 /* ConnectionsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

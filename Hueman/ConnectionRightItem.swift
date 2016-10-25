@@ -31,9 +31,7 @@ class ConnectionRightItem: UIView {
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         //// Color Declarations
-        let white = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         let fillColor = (hueColor != nil) ? hueColor : UIColor.UIColorFromRGB(0x93648D)
-        let fillColor4 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
         
         //// outerProfileBackground Drawing
         let outerProfileBackgroundPath = UIBezierPath(ovalInRect: CGRect(x: 99.2, y: 1.96, width: 133.9, height: 133.9))
@@ -48,22 +46,6 @@ class ConnectionRightItem: UIView {
         innerProfileBackgroundPath.fill()
         
         
-        //// dropShadow Drawing
-        let dropShadowPath = UIBezierPath(ovalInRect: CGRect(x: 1.5, y: 14.71, width: 117.4, height: 117.4))
-        fillColor4.setFill()
-        dropShadowPath.fill()
-        
-        
-        //// outerLabelBackground Drawing
-        let outerLabelBackgroundPath = UIBezierPath(ovalInRect: CGRect(x: 0, y: 13.21, width: 117.4, height: 117.4))
-        white.setFill()
-        outerLabelBackgroundPath.fill()
-        
-        
-        //// innerLabelBackground Drawing
-        let innerLabelBackgroundPath = UIBezierPath(ovalInRect: CGRect(x: 7.95, y: 21.21, width: 101.5, height: 101.4))
-        fillColor!.setFill()
-        innerLabelBackgroundPath.fill()
     }
  
 

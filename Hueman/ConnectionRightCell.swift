@@ -10,14 +10,15 @@ import UIKit
 
 class ConnectionRightCell: UITableViewCell {
 
-    @IBOutlet weak var connectionName: UILabel!
     @IBOutlet weak var item: ConnectionRightItem!
     @IBOutlet weak var profileImage: UIImageView!
-    
+    @IBOutlet weak var connectionLabel: ConnectionLabel!
+
     var profile: Profile? {
         didSet {
             if let profile = profile {
-                self.connectionName.text = profile.name?.uppercaseString
+                connectionLabel.nameLabel = profile.name
+                connectionLabel.hueColor = profile.hueColor
                 item.hueColor = profile.hueColor
                 profileImage.image = profile.imageView
 
@@ -32,10 +33,8 @@ class ConnectionRightCell: UITableViewCell {
         profileImage.layer.cornerRadius = 55
         profileImage.clipsToBounds = true
         profileImage.contentMode = .ScaleAspectFill
+        
 
-        connectionName.numberOfLines = 0
-        connectionName.textAlignment = .Center
-        connectionName.adjustsFontSizeToFitWidth = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

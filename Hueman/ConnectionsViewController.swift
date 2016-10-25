@@ -20,11 +20,11 @@ class ConnectionsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem!.title = "connections"
         
-        connections.append(Profile(name:"Julius\nBusa", image: "hulyo.jpg", topic: .RelationshipMusing))
-        connections.append(Profile(name:"Maverick Shawn\nAquino", image: "hulyo.jpg", topic: .OnMyPlate))
-        connections.append(Profile(name:"Nicolette\nOnate", image: "hulyo.jpg", topic: .DailyHustle))
-        connections.append(Profile(name:"Camille\nLaurente", image: "hulyo.jpg", topic: .Health))
-        connections.append(Profile(name:"Efthemios\nSuyat", image: "hulyo.jpg", topic: .RayOfLight))
+        connections.append(Profile(name:"Julius Busa", image: "hulyo.jpg", topic: .RelationshipMusing))
+        connections.append(Profile(name:"Maverick Shawn Aquino", image: "hulyo.jpg", topic: .OnMyPlate))
+        connections.append(Profile(name:"Nicolette Onate", image: "hulyo.jpg", topic: .DailyHustle))
+        connections.append(Profile(name:"Camille Laurente", image: "hulyo.jpg", topic: .Health))
+        connections.append(Profile(name:"Efthemios Suyat", image: "hulyo.jpg", topic: .RayOfLight))
         
         
         tableView.separatorStyle = .None
@@ -36,12 +36,17 @@ class ConnectionsViewController: UIViewController {
         searchBoxController.view.frame = CGRectMake(0, 0, searchView.frame.size.width, 75)
         self.searchView.addSubview(searchBoxController.view)
         
+        
     }
     
     // MARK: - Table View
 
     
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem!.title = "connections"
+        
+    }
     
 
     override func didReceiveMemoryWarning() {

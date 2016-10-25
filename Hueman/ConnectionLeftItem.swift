@@ -34,8 +34,6 @@ class ConnectionLeftItem: UIView{
      //   let fillColor = UIColor(red: 0.200, green: 0.710, blue: 0.827, alpha: 1.000)\
         
         let fillColor = (hueColor != nil) ? hueColor : UIColor.UIColorFromRGB(0x93648D)
-        let shadowColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.490)
-        let fillColor3 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
  
         //// outterStroke Drawing
         let outterStrokePath = UIBezierPath(ovalInRect: CGRect(x: 2, y: 2, width: 134, height: 134))
@@ -50,22 +48,6 @@ class ConnectionLeftItem: UIView{
         thumbnailBackgroundPath.fill()
  
  
-        //// shadow Drawing
-        let shadowPath = UIBezierPath(ovalInRect: CGRect(x: 118.95, y: 11.8, width: 117.4, height: 117.4))
-        shadowColor.setFill()
-        shadowPath.fill()
- 
- 
-        //// outterWhiteStroke Drawing
-        let outterWhiteStrokePath = UIBezierPath(ovalInRect: CGRect(x: 117.45, y: 10.3, width: 117.4, height: 117.4))
-        fillColor3.setFill()
-        outterWhiteStrokePath.fill()
- 
- 
-        //// innerLabelBackground Drawing
-        let innerLabelBackgroundPath = UIBezierPath(ovalInRect: CGRect(x: 125.4, y: 18.3, width: 101.5, height: 101.4))
-        fillColor!.setFill()
-        innerLabelBackgroundPath.fill()
     }
 
 }
