@@ -1,14 +1,14 @@
 //
-//  FilterOption.swift
+//  FilterOptionsViewController.swift
 //  Hueman
 //
-//  Created by Efthemios Prime on 10/24/16.
+//  Created by Efthemios Prime on 10/27/16.
 //  Copyright © 2016 Efthemios Prime. All rights reserved.
 //
 
 import UIKit
 
-class FilterOptions: UIViewController {
+class FilterOptionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,10 @@ class FilterOptions: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func dismissViewController(sender: AnyObject) {
+                self.dismissViewControllerAnimated(true, completion: {})
+    }
+
 
     /*
     // MARK: - Navigation

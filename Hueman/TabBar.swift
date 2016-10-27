@@ -57,9 +57,6 @@ class TabBar: UITabBarController {
     }
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     func showProfile() {
         self.performSegueWithIdentifier("ShowProfile", sender: nil)
@@ -67,6 +64,11 @@ class TabBar: UITabBarController {
 
     func createPost() {
         self.performSegueWithIdentifier("CreatePost", sender: nil)
+
+    }
+    
+    func filterOption() {
+        self.performSegueWithIdentifier("FilterOption", sender: nil)
 
     }
     /*

@@ -36,6 +36,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func backButton(sender: AnyObject) {
         postInput?.resignFirstResponder()
         self.dismissViewControllerAnimated(true, completion: {})
+
         
     }
     
@@ -65,6 +66,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         cameraButton.addTarget(self, action: #selector(CreatePostViewController.openPhotoLibrary), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
+        
+
         
 
     }

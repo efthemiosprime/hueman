@@ -18,13 +18,9 @@ class SearchBarViewController: UIViewController {
 
         writePostButton.addTarget(self, action: #selector(TabBar.createPost), forControlEvents: .TouchUpInside)
         
+        filterPostsButton.addTarget(self, action: #selector(TabBar.filterOption), forControlEvents: .TouchUpInside)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     /*
     // MARK: - Navigation
