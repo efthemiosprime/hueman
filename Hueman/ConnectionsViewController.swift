@@ -69,7 +69,6 @@ class ConnectionsViewController: UIViewController {
 
 extension ConnectionsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print(indexPath.row)
         let cell = indexPath.row % 2 == 0 ? tableView.dequeueReusableCellWithIdentifier("ConnectionLeftCell", forIndexPath: indexPath) as! ConnectionLeftCell : tableView.dequeueReusableCellWithIdentifier("ConnectionRightCell", forIndexPath: indexPath) as! ConnectionRightCell
         
         

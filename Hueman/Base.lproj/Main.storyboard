@@ -534,7 +534,7 @@
                         <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
                         <segue destination="J7n-ft-CXT" kind="relationship" relationship="viewControllers" id="i9n-0l-uCH"/>
                         <segue destination="D5x-fb-ScK" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
-                        <segue destination="TVX-Vb-Dl9" kind="presentation" identifier="CreatePost" id="R3y-7e-Yox"/>
+                        <segue destination="JIw-ye-t1H" kind="presentation" identifier="CreatePost" id="6O1-1d-wip"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIY-vW-yjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -719,7 +719,7 @@
         <!--Create Post View Controller-->
         <scene sceneID="pwK-2y-sWl">
             <objects>
-                <viewController id="TVX-Vb-Dl9" customClass="CreatePostViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePost" id="TVX-Vb-Dl9" customClass="CreatePostViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V0i-lZ-ZYE"/>
                         <viewControllerLayoutGuide type="bottom" id="cmC-PR-1kJ"/>
@@ -836,6 +836,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cameraButton" destination="aRM-YC-Yy7" id="XpU-R6-Js0"/>
                         <outlet property="filterButton" destination="r1w-BA-dXT" id="FRN-Vg-g1S"/>
@@ -855,7 +856,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueo-qe-IHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3624.8000000000002" y="-991.75412293853083"/>
+            <point key="canvasLocation" x="4023" y="-1029"/>
         </scene>
         <!--Search Bar View Controller-->
         <scene sceneID="WhY-37-fwr">
@@ -899,7 +900,108 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBR-2O-Xl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3890" y="-1729"/>
+            <point key="canvasLocation" x="4481" y="-1839"/>
+        </scene>
+        <!--Pick Hues View Controller-->
+        <scene sceneID="M2j-KG-hVV">
+            <objects>
+                <viewController id="JIw-ye-t1H" customClass="PickHuesViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bLC-9a-7Y0"/>
+                        <viewControllerLayoutGuide type="bottom" id="a34-WB-jV8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PG3-OY-SmR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hues-description-wanderlust" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-tK-JLn">
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" id="tX5-0q-GOe"/>
+                                    <constraint firstAttribute="width" constant="282" id="zRT-QP-r2i"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-pL-Qa4">
+                                <frame key="frameInset" minX="48" minY="120" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pick-hues-wanderlust-btn"/>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-VA-6pm">
+                                <frame key="frameInset" minX="197" minY="120" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pick-hues-plate-btn"/>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THq-z4-thE">
+                                <frame key="frameInset" minX="48" minY="270" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pick-hues-relationship-btn"/>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="az7-Rp-H7o">
+                                <frame key="frameInset" minX="197" minY="270" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pick-hues-health-btn"/>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue6-S7-Hzp">
+                                <frame key="frameInset" minX="48" minY="418" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pick-hues-daily-hustle-btn"/>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh8-IQ-JnA">
+                                <frame key="frameInset" minX="197" minY="418" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pick-hues-ray-light-btn"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tip: tap and hold to view descriptions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-yn-oCh">
+                                <frame key="frameInset" minX="48" minY="91" width="282" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="15"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pick your hue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dht-xh-qmj">
+                                <frame key="frameInset" minX="16" minY="14" width="339" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="20"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIq-Gm-glL">
+                                <frame key="frameInset" minX="16" minY="8" width="33" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back-grey-icon"/>
+                                <connections>
+                                    <action selector="backButton:" destination="TVX-Vb-Dl9" eventType="touchUpInside" id="unO-ht-KFv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SVh-tK-JLn" firstAttribute="centerX" secondItem="PG3-OY-SmR" secondAttribute="centerX" id="3oV-mQ-QJI"/>
+                            <constraint firstItem="SVh-tK-JLn" firstAttribute="centerY" secondItem="PG3-OY-SmR" secondAttribute="centerY" id="GeB-kJ-poI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SVh-tK-JLn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="kIq-Gm-glL" id="Q9C-ng-Lua"/>
+                        <outlet property="dailyhustleButton" destination="Ue6-S7-Hzp" id="AWp-9i-pwl"/>
+                        <outlet property="healthButton" destination="az7-Rp-H7o" id="Mmf-wP-Bfs"/>
+                        <outlet property="plateButton" destination="rXL-VA-6pm" id="CCu-cJ-oPd"/>
+                        <outlet property="raylightButton" destination="Bh8-IQ-JnA" id="13v-YE-Jqa"/>
+                        <outlet property="relationshipButton" destination="THq-z4-thE" id="hF6-Vn-ZH0"/>
+                        <outlet property="wanderlustButton" destination="Ff4-pL-Qa4" id="ePY-Dq-gZB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-LJ-5ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3382" y="-919"/>
         </scene>
         <!--Filter Option-->
         <scene sceneID="O95-Mz-9BX">
@@ -933,6 +1035,7 @@
     </scenes>
     <resources>
         <image name="back-bar-item" width="22" height="22"/>
+        <image name="back-grey-icon" width="33" height="33"/>
         <image name="back-icon" width="33" height="33"/>
         <image name="camera-icon" width="41" height="41"/>
         <image name="connection-dotted-line" width="1" height="63"/>
@@ -941,10 +1044,17 @@
         <image name="hamburger-bar-item" width="22" height="22"/>
         <image name="health-icon" width="37" height="37"/>
         <image name="hueman-logo" width="247" height="58"/>
+        <image name="hues-description-wanderlust" width="282" height="479"/>
         <image name="hulyo.jpg" width="720" height="483"/>
         <image name="hustle-icon" width="37" height="37"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="login-bg" width="7" height="7"/>
+        <image name="pick-hues-daily-hustle-btn" width="130" height="130"/>
+        <image name="pick-hues-health-btn" width="130" height="130"/>
+        <image name="pick-hues-plate-btn" width="130" height="130"/>
+        <image name="pick-hues-ray-light-btn" width="130" height="130"/>
+        <image name="pick-hues-relationship-btn" width="130" height="130"/>
+        <image name="pick-hues-wanderlust-btn" width="130" height="130"/>
         <image name="plate-icon" width="37" height="37"/>
         <image name="post-icon" width="41" height="41"/>
         <image name="profile-bar-item" width="22" height="22"/>

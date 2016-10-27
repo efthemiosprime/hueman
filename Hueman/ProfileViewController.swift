@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(profileImage.frame.size.width)
         profileImage.layer.cornerRadius = 232/2
         
         self.navigationController?.navigationBar.titleTextAttributes = [

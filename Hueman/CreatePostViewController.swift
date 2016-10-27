@@ -28,11 +28,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var healthButton: UIButton!
     @IBOutlet weak var hustleButton: UIButton!
     @IBOutlet weak var raylightButton: UIButton!
+    
+    var topicColor: UInt?
+    var topicIcon: String?
 
     
     @IBAction func backButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: {})
-
+        
     }
     
     override func viewDidLoad() {
@@ -46,10 +49,13 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         inputBackground.layer.borderWidth = 2
         inputBackground.layer.borderColor = UIColor.whiteColor().CGColor
         
-        self.view.backgroundColor = UIColor.UIColorFromRGB(0xe2563b)
-        inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xe2563b)
-        icon.image = UIImage(named: "relationship-icon.png")
+        if let topicColor = topicColor, let topicIcon = topicIcon {
+            
+            updateTopic(topicColor, hueIcon: topicIcon)
+            
+        }
         
+
         let buttons: [UIButton] = [wanderlustButton, plateButton, relationshopButton, healthButton, hustleButton, raylightButton]
         
         for btn in buttons {
@@ -67,7 +73,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     func topicChangedAction(sender: UIButton!) {
-        print(sender.tag)
         if sender.tag == 0 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
@@ -111,14 +116,19 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         showTopic(false)
     }
     
+    func updateTopic(hueColor: UInt, hueIcon: String) {
+        self.view.backgroundColor = UIColor.UIColorFromRGB(hueColor)
+        inputBackground.backgroundColor = UIColor.UIColorFromRGB(hueColor)
+        icon.image = UIImage(named: hueIcon)
+    }
+    
     func openPhotoLibrary() {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
             imagePicker.allowsEditing = true
             self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -155,3 +165,5 @@ extension CreatePostViewController: UITextViewDelegate {
         return textView.text.characters.count + (text.characters.count - range.length) <= 250
     }
 }
+
+
