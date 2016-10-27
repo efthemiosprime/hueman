@@ -142,7 +142,6 @@
 				3A22A3E71DA3A8560011B467 /* Resources */,
 				3A22A3EE1DA3B6080011B467 /* Main.storyboard */,
 				3A060D361D9CADE9007F2B02 /* LaunchScreen.storyboard */,
-				3A060D391D9CADE9007F2B02 /* Info.plist */,
 			);
 			path = Hueman;
 			sourceTree = "<group>";
@@ -264,6 +263,7 @@
 		3A22A3E71DA3A8560011B467 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A060D391D9CADE9007F2B02 /* Info.plist */,
 				3AEB8B2C1DAB46670004A191 /* splash_screen.png */,
 				3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */,
 				3A060D341D9CADE9007F2B02 /* Assets.xcassets */,

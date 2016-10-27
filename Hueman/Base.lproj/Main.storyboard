@@ -475,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qw4-Nf-3oM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4772" y="-349"/>
+            <point key="canvasLocation" x="4825" y="-504"/>
         </scene>
         <!--Huesfeed-->
         <scene sceneID="4k8-Q3-ML6">
@@ -506,7 +506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eoq-eT-sA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4482" y="358"/>
+            <point key="canvasLocation" x="4825" y="179"/>
         </scene>
         <!--Tab Bar-->
         <scene sceneID="1ii-RM-aAk">
@@ -607,7 +607,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDU-kr-lEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4044" y="1130"/>
+            <point key="canvasLocation" x="4804" y="893"/>
         </scene>
         <!--Connections-->
         <scene sceneID="HkI-lr-hoc">
@@ -714,7 +714,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-DB-3hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="-1155"/>
+            <point key="canvasLocation" x="4825" y="-1170"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="pwK-2y-sWl">
@@ -732,7 +732,7 @@
                                 <frame key="frameInset" minX="23" minY="72" width="332" height="245"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-g2-JUK">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-g2-JUK">
                                         <frame key="frameInset" minX="14" minY="46" width="303" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -925,32 +925,32 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-pL-Qa4">
-                                <frame key="frameInset" minX="48" minY="120" width="130" height="130"/>
+                                <frame key="frameInset" minX="48" minY="125" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pick-hues-wanderlust-btn"/>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-VA-6pm">
-                                <frame key="frameInset" minX="197" minY="120" width="130" height="130"/>
+                                <frame key="frameInset" minX="197" minY="125" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pick-hues-plate-btn"/>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THq-z4-thE">
-                                <frame key="frameInset" minX="48" minY="270" width="130" height="130"/>
+                                <frame key="frameInset" minX="48" minY="275" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pick-hues-relationship-btn"/>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="az7-Rp-H7o">
-                                <frame key="frameInset" minX="197" minY="270" width="130" height="130"/>
+                                <frame key="frameInset" minX="197" minY="275" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pick-hues-health-btn"/>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue6-S7-Hzp">
-                                <frame key="frameInset" minX="48" minY="418" width="130" height="130"/>
+                                <frame key="frameInset" minX="48" minY="423" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pick-hues-daily-hustle-btn"/>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh8-IQ-JnA">
-                                <frame key="frameInset" minX="197" minY="418" width="130" height="130"/>
+                                <frame key="frameInset" minX="197" minY="423" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pick-hues-ray-light-btn"/>
                             </button>
@@ -1001,7 +1001,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-LJ-5ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3382" y="-919"/>
+            <point key="canvasLocation" x="3343" y="-1030"/>
         </scene>
         <!--Filter Option-->
         <scene sceneID="O95-Mz-9BX">
@@ -1030,7 +1030,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iji-Vb-kSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2750" y="-967"/>
+            <point key="canvasLocation" x="2617" y="-967"/>
         </scene>
     </scenes>
     <resources>

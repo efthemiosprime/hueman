@@ -34,6 +34,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
     
     @IBAction func backButton(sender: AnyObject) {
+        postInput?.resignFirstResponder()
         self.dismissViewControllerAnimated(true, completion: {})
         
     }
@@ -64,13 +65,21 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         cameraButton.addTarget(self, action: #selector(CreatePostViewController.openPhotoLibrary), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
+        
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        postInput?.becomeFirstResponder()
+        
     }
     
     func showTopic(show: Bool) {
         topic.hidden = show
 
     }
+    
 
     func topicChangedAction(sender: UIButton!) {
         if sender.tag == 0 {
@@ -131,6 +140,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -162,8 +172,14 @@ extension CreatePostViewController: UITextViewDelegate {
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            postInput.resignFirstResponder()
+            return false
+        }
         return textView.text.characters.count + (text.characters.count - range.length) <= 250
     }
+    
+
 }
 
 
