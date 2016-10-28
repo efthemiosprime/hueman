@@ -28,6 +28,7 @@
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
 		3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */; };
 		3A22A3F21DA3BD0A0011B467 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22A3F11DA3BD0A0011B467 /* LoginViewController.swift */; };
+		3A34ED701DC3C7890038AFD8 /* FilterOptionsCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34ED6F1DC3C7890038AFD8 /* FilterOptionsCheckBox.swift */; };
 		3A5D19711DBF2F2D009E70F3 /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D19701DBF2F2D009E70F3 /* ConnectionsViewController.swift */; };
 		3A676A441DBA6DC500B4AC77 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A676A431DBA6DC500B4AC77 /* NotificationCell.swift */; };
 		3A676A461DBA714800B4AC77 /* UIColor+UIColorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A676A451DBA714800B4AC77 /* UIColor+UIColorFromRGB.swift */; };
@@ -75,6 +76,7 @@
 		3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Regular.otf"; path = "Fonts/Sofia Pro Regular.otf"; sourceTree = "<group>"; };
 		3A22A3EF1DA3B6080011B467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A22A3F11DA3BD0A0011B467 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3A34ED6F1DC3C7890038AFD8 /* FilterOptionsCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOptionsCheckBox.swift; sourceTree = "<group>"; };
 		3A5D19701DBF2F2D009E70F3 /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		3A676A431DBA6DC500B4AC77 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		3A676A451DBA714800B4AC77 /* UIColor+UIColorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+UIColorFromRGB.swift"; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1852661DC2728100C5AE37 /* FilterOptionsViewController.swift */,
+				3A34ED6F1DC3C7890038AFD8 /* FilterOptionsCheckBox.swift */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				3A083BA31DA49C4A0092AE75 /* SignupViewController.swift in Sources */,
 				3A5D19711DBF2F2D009E70F3 /* ConnectionsViewController.swift in Sources */,
 				3A17F06B1DAF0C5D006DC612 /* HueboardCell.swift in Sources */,
+				3A34ED701DC3C7890038AFD8 /* FilterOptionsCheckBox.swift in Sources */,
 				3ABD761D1DBC55EB00AD2538 /* SWRevealViewController.m in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A083B981DA417520092AE75 /* TabBar.swift in Sources */,

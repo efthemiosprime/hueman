@@ -9,11 +9,23 @@
 import UIKit
 
 class FilterOptionsViewController: UIViewController {
+    
 
+    @IBOutlet var checkboxes: Array<UIButton>?
+    @IBOutlet var ratings: Array<UIButton>?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
+        for checkbox in checkboxes! {
+            checkbox.addTarget(self, action: #selector(FilterOptionsViewController.onSelectFilterOptions(_:)), forControlEvents: .TouchUpInside)
+        }
+        
+        for rating in ratings! {
+            rating.addTarget(self, action: #selector(FilterOptionsViewController.onSelectRating(_:)), forControlEvents: .TouchUpInside)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +37,27 @@ class FilterOptionsViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: {})
     }
 
-
+    func onSelectFilterOptions(checkbox: UIButton) {
+        
+        for current in checkboxes! {
+            if current.tag != checkbox.tag {
+                current.selected = false
+            }
+        }
+        
+        checkbox.selected = !checkbox.selected
+        
+    }
+    
+    func onSelectRating(sender: UIButton) {
+        for rating in ratings! {
+            if rating.tag != sender.tag {
+                rating.selected = false
+            }
+        }
+        
+        sender.selected = !sender.selected
+    }
     /*
     // MARK: - Navigation
 
