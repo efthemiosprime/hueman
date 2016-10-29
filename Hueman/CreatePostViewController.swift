@@ -22,12 +22,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var postButton: UIButton!
     
-    @IBOutlet weak var wanderlustButton: UIButton!
-    @IBOutlet weak var plateButton: UIButton!
-    @IBOutlet weak var relationshopButton: UIButton!
-    @IBOutlet weak var healthButton: UIButton!
-    @IBOutlet weak var hustleButton: UIButton!
-    @IBOutlet weak var raylightButton: UIButton!
+    @IBOutlet var huesCollections: Array<UIButton>?
     
     var topicColor: UInt?
     var topicIcon: String?
@@ -57,17 +52,13 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             
         }
         
-
-        let buttons: [UIButton] = [wanderlustButton, plateButton, relationshopButton, healthButton, hustleButton, raylightButton]
         
-        for btn in buttons {
+        for btn in huesCollections! {
             btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
         }
         
         cameraButton.addTarget(self, action: #selector(CreatePostViewController.openPhotoLibrary), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
-        
-
         
 
     }
@@ -170,7 +161,7 @@ extension CreatePostViewController: UITextViewDelegate {
         return true
     }
     func textViewDidChange(textView: UITextView) {
-        headerLabel.text = "\(250 - textView.text.characters.count)/250 characters left"
+        headerLabel.text = "\(textView.text.characters.count)/250 characters left"
         
     }
     

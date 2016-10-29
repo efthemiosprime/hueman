@@ -19,6 +19,8 @@ class ConnectionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem!.title = "connections"
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+
         
         connections.append(Profile(name:"Julius Busa", image: "hulyo.jpg", topic: .RelationshipMusing))
         connections.append(Profile(name:"Maverick Shawn Aquino", image: "hulyo.jpg", topic: .OnMyPlate))
@@ -27,15 +29,13 @@ class ConnectionsViewController: UIViewController {
         connections.append(Profile(name:"Efthemios Suyat", image: "hulyo.jpg", topic: .RayOfLight))
         
         
-        tableView.separatorStyle = .None
-        tableView.allowsSelection = false
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.separatorStyle = .None
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         let searchBoxController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchBox") as UIViewController
         searchBoxController.view.frame = CGRectMake(0, 0, searchView.frame.size.width, 75)
         self.searchView.addSubview(searchBoxController.view)
-        
         
     }
     
@@ -55,17 +55,15 @@ class ConnectionsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationProfileController = segue.destinationViewController as? ConnectionProfileViewController {
+            
+        }
     }
-    */
-
+    
+    
 }
+
 
 extension ConnectionsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -91,6 +89,20 @@ extension ConnectionsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 145
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.selectionStyle = UITableViewCellSelectionStyle.None
+        performSegueWithIdentifier("showConnection", sender: indexPath)
+        
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        if cell?.selected == true {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
 }
 

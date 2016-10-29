@@ -13,11 +13,14 @@ class FilterOptionsViewController: UIViewController {
 
     @IBOutlet var checkboxes: Array<UIButton>?
     @IBOutlet var ratings: Array<UIButton>?
+    @IBOutlet var hues: Array<UIButton>?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkboxes![0].selected = true
+        hues![0].selected = true
         
         for checkbox in checkboxes! {
             checkbox.addTarget(self, action: #selector(FilterOptionsViewController.onSelectFilterOptions(_:)), forControlEvents: .TouchUpInside)
@@ -25,6 +28,10 @@ class FilterOptionsViewController: UIViewController {
         
         for rating in ratings! {
             rating.addTarget(self, action: #selector(FilterOptionsViewController.onSelectRating(_:)), forControlEvents: .TouchUpInside)
+        }
+        
+        for hue in hues! {
+            hue.addTarget(self, action: #selector(FilterOptionsViewController.onSelectHue(_:)), forControlEvents: .TouchUpInside)
         }
     }
 
@@ -57,6 +64,16 @@ class FilterOptionsViewController: UIViewController {
         }
         
         sender.selected = !sender.selected
+    }
+    
+    func onSelectHue(hue: UIButton) {
+        for btn in hues! {
+            if btn.tag != hue.tag {
+                btn.selected = false
+            }
+        }
+        
+        hue.selected = !hue.selected
     }
     /*
     // MARK: - Navigation
