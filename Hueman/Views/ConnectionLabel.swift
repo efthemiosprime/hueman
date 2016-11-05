@@ -34,7 +34,6 @@ class ConnectionLabel: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clearColor()
-       // self.hueColor = UIColor.UIColorFromRGB(0x93648D)
 
         
         label =  UILabel()
@@ -43,7 +42,7 @@ class ConnectionLabel: UIView {
         label?.adjustsFontSizeToFitWidth = true
         
         label?.numberOfLines = 0
-        label?.font = UIFont(name: "SofiaPro-Bold", size: 16)
+        label?.font = UIFont(name: Font.SofiaProBold, size: 16)
         label?.textColor = UIColor.whiteColor()
         label?.frame = CGRectMake(0, 10, self.frame.width, 100)
         self.addSubview(label!)

@@ -26,19 +26,19 @@ class PickHuesViewController: UIViewController {
         
         backButton.addTarget(self, action: #selector(PickHuesViewController.backButtonAction), forControlEvents: .TouchUpInside)
         
-        hueColors.append(Hues.WanderlustColor)
-        hueColors.append(Hues.OnMyPlateColor)
-        hueColors.append(Hues.RelationshipMusingColor)
-        hueColors.append(Hues.HealthColor)
-        hueColors.append(Hues.DailyHustleColor)
-        hueColors.append(Hues.RayOfLightColor)
+        hueColors.append(Color.Wanderlust)
+        hueColors.append(Color.OnMyPlate)
+        hueColors.append(Color.RelationshipMusing)
+        hueColors.append(Color.Health)
+        hueColors.append(Color.DailyHustle)
+        hueColors.append(Color.RayOfLight)
 
-        hueIcons.append(Hues.WanderlustIcon)
-        hueIcons.append(Hues.OnMyPlateIcon)
-        hueIcons.append(Hues.RelationshipMusingIcon)
-        hueIcons.append(Hues.HealthIcon)
-        hueIcons.append(Hues.DailyHustleIcon)
-        hueIcons.append(Hues.RayOfLightIcon)
+        hueIcons.append(Icon.Wanderlust)
+        hueIcons.append(Icon.OnMyPlate)
+        hueIcons.append(Icon.RelationshipMusing)
+        hueIcons.append(Icon.Health)
+        hueIcons.append(Icon.DailyHustle)
+        hueIcons.append(Icon.RayOfLight)
     }
 
     func createPostWithTopic(btn: UIButton) {

@@ -119,7 +119,7 @@ extension HueboardsViewController: HueboardsLayoutDelegate {
     
     func collectionView(collectionView: UICollectionView, titleHeightAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
         if let titleText = hueboards[indexPath.item].title {
-            let rect = NSString(string: titleText).boundingRectWithSize(CGSizeMake(view.frame.width, 1000), options: NSStringDrawingOptions.UsesFontLeading.union(NSStringDrawingOptions.UsesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 16)!], context: nil)
+            let rect = NSString(string: titleText).boundingRectWithSize(CGSizeMake(view.frame.width, 1000), options: NSStringDrawingOptions.UsesFontLeading.union(NSStringDrawingOptions.UsesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont(name: Font.SofiaProRegular, size: 16)!], context: nil)
             
             return rect.height + 15
         }
@@ -140,7 +140,7 @@ extension HueboardsViewController: HueboardsLayoutDelegate {
     func collectionView(collectionView: UICollectionView, annotationHeightAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
         
         if let annotationText = hueboards[indexPath.item].annotation {
-            let rect = NSString(string: annotationText).boundingRectWithSize(CGSizeMake(view.frame.width, 1000), options: NSStringDrawingOptions.UsesFontLeading.union(NSStringDrawingOptions.UsesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 14)!], context: nil)
+            let rect = NSString(string: annotationText).boundingRectWithSize(CGSizeMake(view.frame.width, 1000), options: NSStringDrawingOptions.UsesFontLeading.union(NSStringDrawingOptions.UsesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont(name: Font.SofiaProRegular, size: 14)!], context: nil)
             
             return rect.height + 6
             

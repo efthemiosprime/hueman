@@ -351,7 +351,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR4-vF-USN">
                                 <rect key="frame" x="49" y="498" width="132" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Boston,Massachusetts</string>
+                                <string key="text">Boston,
+Massachusetts</string>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="15"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -359,7 +360,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-dn-h8b">
                                 <rect key="frame" x="196" y="498" width="132" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">January 26,1994</string>
+                                <string key="text">January 26,
+1994</string>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="15"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -509,7 +511,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-active" id="5rQ-R0-03f">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-selected" id="5rQ-R0-03f">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -541,7 +543,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-active" id="8BJ-Rf-PCI">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="8BJ-Rf-PCI">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -643,7 +645,7 @@
                             <outlet property="delegate" destination="D5x-fb-ScK" id="nTy-t2-tA1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-notifications" id="mdU-Mb-acb">
+                    <tabBarItem key="tabBarItem" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-selected" id="mdU-Mb-acb">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -743,7 +745,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-active" id="RZj-KZ-T6N" userLabel="connections">
+                    <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-selected" id="RZj-KZ-T6N" userLabel="connections">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -1267,7 +1269,8 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0v-K1-pOA">
                                                 <rect key="frame" x="48" y="552" width="132" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <string key="text">Boston,Massachusetts</string>
+                                                <string key="text">Boston,
+Massachusetts</string>
                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="15"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1275,7 +1278,8 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8N-es-vTy">
                                                 <rect key="frame" x="195" y="552" width="132" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <string key="text">January 26,1994</string>
+                                                <string key="text">January 26,
+1994</string>
                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="15"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1372,12 +1376,13 @@
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
         <image name="tab-icon-connections" width="48" height="32"/>
-        <image name="tab-icon-connections-active" width="48" height="32"/>
+        <image name="tab-icon-connections-selected" width="48" height="32"/>
         <image name="tab-icon-hueboards" width="48" height="32"/>
-        <image name="tab-icon-hueboards-active" width="48" height="32"/>
+        <image name="tab-icon-hueboards-selected" width="48" height="32"/>
         <image name="tab-icon-huesfeed" width="48" height="32"/>
-        <image name="tab-icon-huesfeed-active" width="48" height="32"/>
+        <image name="tab-icon-huesfeed-selected" width="48" height="32"/>
         <image name="tab-icon-notifications" width="48" height="32"/>
+        <image name="tab-icon-notifications-selected" width="48" height="32"/>
         <image name="topic-container" width="288" height="43"/>
         <image name="wanderlust-icon" width="37" height="37"/>
         <image name="write-post-icon" width="41" height="41"/>

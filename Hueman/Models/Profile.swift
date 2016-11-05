@@ -24,22 +24,22 @@ struct Profile {
         
         switch topic {
         case .DailyHustle:
-            self.hueColor = UIColor.UIColorFromRGB(0x93648D)
+            self.hueColor = UIColor.UIColorFromRGB(Color.DailyHustle)
             break
         case .Health:
-            self.hueColor = UIColor.UIColorFromRGB(0x7BC8A4)
+            self.hueColor = UIColor.UIColorFromRGB(Color.Health)
             break
         case .OnMyPlate:
-            self.hueColor = UIColor.UIColorFromRGB(0xf8b243)
+            self.hueColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
             break
         case .RayOfLight:
-            self.hueColor = UIColor.UIColorFromRGB(0xEACD53)
+            self.hueColor = UIColor.UIColorFromRGB(Color.RayOfLight)
             break
         case .RelationshipMusing:
-            self.hueColor = UIColor.UIColorFromRGB(0xe2563b)
+            self.hueColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
             break
         case .Wanderlust:
-            self.hueColor = UIColor.UIColorFromRGB(0x34b5d4)
+            self.hueColor = UIColor.UIColorFromRGB(Color.Wanderlust)
             break
         }
     }
