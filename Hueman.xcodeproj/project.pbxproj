@@ -47,14 +47,18 @@
 		3A154E781DCD8D77005A79EC /* PickHuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E771DCD8D77005A79EC /* PickHuesViewModel.swift */; };
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
 		3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */; };
+		3A45BAAF1DE926430062081E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BAAE1DE926430062081E /* Constants.swift */; };
+		3A45BAB11DE926BB0062081E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */; };
 		3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */; };
 		3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */; };
 		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
+		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20C7B4D02A2CCFF1A0614B46 /* Pods-Hueman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.debug.xcconfig"; sourceTree = "<group>"; };
 		3A0317BD1DB9DD5800DA0A15 /* Sofia Pro Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light Italic.otf"; path = "Fonts/Sofia Pro Light Italic.otf"; sourceTree = "<group>"; };
 		3A060D2A1D9CADE9007F2B02 /* Hueman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hueman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,9 @@
 		3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light.otf"; path = "Fonts/Sofia Pro Light.otf"; sourceTree = "<group>"; };
 		3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Regular.otf"; path = "Fonts/Sofia Pro Regular.otf"; sourceTree = "<group>"; };
 		3A22A3EF1DA3B6080011B467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A45BAAE1DE926430062081E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
+		3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A45BAB21DE927D60062081E /* Hueman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hueman.entitlements; sourceTree = "<group>"; };
 		3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
@@ -106,6 +113,8 @@
 		3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
+		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
+		DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hueman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,18 +124,29 @@
 			files = (
 				3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */,
 				3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */,
+				BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2291ECA32F5C65C00BA3BDD4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20C7B4D02A2CCFF1A0614B46 /* Pods-Hueman.debug.xcconfig */,
+				907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3A060D211D9CADE9007F2B02 = {
 			isa = PBXGroup;
 			children = (
 				3A060D2C1D9CADE9007F2B02 /* Hueman */,
 				3A060D2B1D9CADE9007F2B02 /* Products */,
 				3A6C94701DAB12F6002A7EA3 /* Frameworks */,
+				2291ECA32F5C65C00BA3BDD4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */,
+				3A45BAAD1DE926200062081E /* Utils */,
 				3A20AB1F1DAD3D73008E54AD /* ThirdParties */,
 				3A154E621DCD7428005A79EC /* Layouts */,
 				3A154E531DCD7379005A79EC /* Views */,
@@ -284,6 +305,8 @@
 		3A22A3E71DA3A8560011B467 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A45BAB21DE927D60062081E /* Hueman.entitlements */,
+				3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */,
 				3A060D391D9CADE9007F2B02 /* Info.plist */,
 				3AEB8B2C1DAB46670004A191 /* splash_screen.png */,
 				3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */,
@@ -304,6 +327,14 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		3A45BAAD1DE926200062081E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3A45BAAE1DE926430062081E /* Constants.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		3A6C94701DAB12F6002A7EA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +342,7 @@
 				3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */,
 				3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */,
 				3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */,
+				DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -322,9 +354,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A060D3C1D9CADE9007F2B02 /* Build configuration list for PBXNativeTarget "Hueman" */;
 			buildPhases = (
+				3E0930FEE3FDC2A4C895B7C5 /* 📦 Check Pods Manifest.lock */,
 				3A060D261D9CADE9007F2B02 /* Sources */,
 				3A060D271D9CADE9007F2B02 /* Frameworks */,
 				3A060D281D9CADE9007F2B02 /* Resources */,
+				26882498B520B12CC853A412 /* 📦 Embed Pods Frameworks */,
+				25E8DD062E7128AE8DB20429 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -350,6 +385,11 @@
 						DevelopmentTeam = 2F2MGP4R3K;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -383,12 +423,61 @@
 				3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */,
 				3A060D351D9CADE9007F2B02 /* Assets.xcassets in Resources */,
 				3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */,
+				3A45BAB11DE926BB0062081E /* GoogleService-Info.plist in Resources */,
 				3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */,
 				3A0317BE1DB9DD5800DA0A15 /* Sofia Pro Light Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25E8DD062E7128AE8DB20429 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hueman/Pods-Hueman-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26882498B520B12CC853A412 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hueman/Pods-Hueman-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E0930FEE3FDC2A4C895B7C5 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A060D261D9CADE9007F2B02 /* Sources */ = {
@@ -420,6 +509,7 @@
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,
 				3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */,
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
+				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
 				3A154E471DCD7352005A79EC /* PickHuesViewController.swift in Sources */,
@@ -549,9 +639,11 @@
 		};
 		3A060D3D1D9CADE9007F2B02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20C7B4D02A2CCFF1A0614B46 /* Pods-Hueman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Hueman/Hueman.entitlements;
 				DEVELOPMENT_TEAM = 2F2MGP4R3K;
 				INFOPLIST_FILE = Hueman/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -566,9 +658,11 @@
 		};
 		3A060D3E1D9CADE9007F2B02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Hueman/Hueman.entitlements;
 				DEVELOPMENT_TEAM = 2F2MGP4R3K;
 				INFOPLIST_FILE = Hueman/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
