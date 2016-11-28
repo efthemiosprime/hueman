@@ -33,3 +33,12 @@ struct Icon {
     static let DailyHustle: String = "hustle-icon.png"
     static let RayOfLight:String  = "ray-light-icon.png"
 }
+
+struct Topic {
+    static let Wanderlust: String = "Wanderlust"
+    static let OnMyPlate: String = "Food"
+    static let RelationshipMusing: String = "Relationship"
+    static let Health: String = "Health"
+    static let DailyHustle: String = "Daily Hustle"
+    static let RayOfLight:String  = "Ray of Light"
+}

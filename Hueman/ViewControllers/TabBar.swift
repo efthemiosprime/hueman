@@ -10,7 +10,6 @@ import UIKit
 
 class TabBar: UITabBarController {
 
-    @IBOutlet weak var profileItem: UIBarButtonItem!
     @IBOutlet weak var writePostItem: UIBarButtonItem!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -31,6 +30,7 @@ class TabBar: UITabBarController {
             NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x959595)
         ]
         
+        /*
         let circular = UIColor(patternImage: UIImage(named:"profile-bar-item")!)
         let itemView = UIView(frame: CGRectMake(0, 0, 22, 22))
         itemView.backgroundColor = circular
@@ -47,6 +47,7 @@ class TabBar: UITabBarController {
         itemView.addSubview(profileImageButtonItem)
         
         profileItem!.customView = itemView
+    */
 
         if revealViewController() != nil {
             menuButton.target = revealViewController()
@@ -57,6 +58,9 @@ class TabBar: UITabBarController {
     }
     
 
+    @IBAction func createFeed(sender: AnyObject) {
+        createPost()
+    }
     
     func showProfile() {
         self.performSegueWithIdentifier("ShowProfile", sender: nil)

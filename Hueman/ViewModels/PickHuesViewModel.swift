@@ -11,7 +11,7 @@ import Foundation
 class PickHuesViewModel {
     var hueColors: [UInt] = [UInt]()
     var hueIcons: [String] = [String]()
-    
+    var hueTopics: [String] = [String]()
     init() {
         hueColors.append(Color.Wanderlust)
         hueColors.append(Color.OnMyPlate)
@@ -26,5 +26,13 @@ class PickHuesViewModel {
         hueIcons.append(Icon.Health)
         hueIcons.append(Icon.DailyHustle)
         hueIcons.append(Icon.RayOfLight)
+        
+        hueTopics.append(Topic.Wanderlust)
+        hueTopics.append(Topic.OnMyPlate)
+        hueTopics.append(Topic.RelationshipMusing)
+        hueTopics.append(Topic.Health)
+        hueTopics.append(Topic.DailyHustle)
+        hueTopics.append(Topic.RayOfLight)
+
     }
 }

@@ -9,18 +9,36 @@
 import UIKit
 
 class SignupViewController: UIViewController {
-
+    
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var dobField: UITextField!
+    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var bioField: UITextView!
+    
+    var authenticationManager = AuthenticationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    @IBAction func didCreateUser(sender: AnyObject) {
+        if let email = self.emailField.text, let password = self.passwordField.text, let name = nameField.text,
+            let dob = dobField.text, let location = locationField.text, let bio = bioField.text{
+                
+            let user = User(name: name, email: email, password: password, dob: dob, location: location, bio: bio)
+            authenticationManager.signUp(user, completion: {
+                self.performSegueWithIdentifier("SignUpComplete", sender: sender)
+            })
+        
+        }else {
+            print("any of the fields can't be empty")
+        }
+
+    }
 
     /*
     // MARK: - Navigation

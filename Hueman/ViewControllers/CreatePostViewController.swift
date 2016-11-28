@@ -10,6 +10,9 @@ import UIKit
 import AssetsLibrary
 import Photos
 import MobileCoreServices
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 
 class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -20,20 +23,18 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var topic: UIView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var postButton: UIButton!
     
     @IBOutlet var huesCollections: Array<UIButton>?
     
     var topicColor: UInt?
     var topicIcon: String?
+    var topicString: String?
+    var currentUser: User!
+    var previousController: UIViewController!
 
+    var feedManager = FeedManager()
     
-    @IBAction func backButton(sender: AnyObject) {
-        postInput?.resignFirstResponder()
-        self.dismissViewControllerAnimated(true, completion: {})
 
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +47,13 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         inputBackground.layer.borderWidth = 2
         inputBackground.layer.borderColor = UIColor.whiteColor().CGColor
         
-        if let topicColor = topicColor, let topicIcon = topicIcon {
+        if let controller = previousController {
+            controller.dismissViewControllerAnimated(false, completion: nil)
+        }
+        
+        if let topicColor = topicColor, let topicIcon = topicIcon, let topicString = topicString {
             
-            updateTopic(topicColor, hueIcon: topicIcon)
+            updateTopic(topicColor, hueIcon: topicIcon, topic: topicString)
             
         }
         
@@ -67,6 +72,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewWillAppear(animated)
         postInput?.becomeFirstResponder()
         
+
     }
     
     func showTopic(show: Bool) {
@@ -119,10 +125,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         showTopic(false)
     }
     
-    func updateTopic(hueColor: UInt, hueIcon: String) {
+    func updateTopic(hueColor: UInt, hueIcon: String, topic: String) {
         self.view.backgroundColor = UIColor.UIColorFromRGB(hueColor)
         inputBackground.backgroundColor = UIColor.UIColorFromRGB(hueColor)
         icon.image = UIImage(named: hueIcon)
+        self.topicString = topic
     }
     
     func openPhotoLibrary() {
@@ -140,6 +147,26 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         // Dispose of any resources that can be recreated.
     }
     
+
+    @IBAction func didTapCreateFeed(sender: AnyObject) {
+        if let text: String = postInput.text, let topic = topicString {
+          
+            let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic)
+            feedManager.createFeed(feed, feedPosted: {
+                self.dismissViewControllerAnimated(true, completion: {})
+            })
+            
+        }
+        
+    }
+    
+    
+    @IBAction func backButton(sender: AnyObject) {
+        postInput?.resignFirstResponder()
+        self.dismissViewControllerAnimated(true, completion: {})
+        
+        
+    }
 
     /*
     // MARK: - Navigation

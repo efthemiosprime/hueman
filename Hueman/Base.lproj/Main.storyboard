@@ -34,125 +34,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-qs-aKn">
-                                <rect key="frame" x="64" y="252" width="247" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="247" id="QKg-jm-WOF"/>
-                                    <constraint firstAttribute="height" constant="21" id="XbL-nE-DwA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I forgot my password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8J-NE-OXM">
-                                <rect key="frame" x="64" y="316" width="247" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="247" id="CAt-jG-HQf"/>
-                                    <constraint firstAttribute="height" constant="21" id="XQy-94-pJf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.70980392156862748" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="8Mg-Sd-psX">
-                                <rect key="frame" x="64" y="196" width="248" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="pof-6I-79g"/>
-                                    <constraint firstAttribute="width" constant="248" id="r6u-IZ-mit"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auU-gu-ZH2">
-                                <rect key="frame" x="228" y="319" width="84" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="71b-Iu-ELr"/>
-                                    <constraint firstAttribute="width" constant="84" id="Ceh-3c-Efv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
-                                <state key="normal" title="log-in" backgroundImage="login-bg">
-                                    <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="lAe-Do-sBk" kind="show" id="ash-Wk-JfK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y5-o9-uPi">
-                                <rect key="frame" x="228" y="409" width="84" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Cgx-aP-26Y"/>
-                                    <constraint firstAttribute="width" constant="84" id="E2E-ID-xXl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
-                                <state key="normal" title="signup" backgroundImage="signup-bg">
-                                    <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Tro-xW-aFj" kind="show" id="RPK-bA-L1C"/>
-                                </connections>
-                            </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="hueman-logo" translatesAutoresizingMaskIntoConstraints="NO" id="By8-dp-SEc">
                                 <rect key="frame" x="16" y="95" width="343" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Gxo-Jm-nFY"/>
+                                    <constraint firstAttribute="height" constant="58" id="XYJ-9i-RPK"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSN-y8-Ivj">
-                                <rect key="frame" x="64" y="176" width="248" height="17"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-Kl-Fci" userLabel="container">
+                                <rect key="frame" x="16" y="176" width="343" height="263"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSN-y8-Ivj">
+                                        <rect key="frame" x="47" y="0.0" width="248" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="HVb-AV-JhB"/>
+                                            <constraint firstAttribute="width" constant="248" id="vMy-GP-r2g"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-qs-aKn">
+                                        <rect key="frame" x="48" y="81" width="247" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="247" id="ROi-lD-TER"/>
+                                            <constraint firstAttribute="height" constant="21" id="rQz-Qm-ys3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-Id-sGN">
+                                        <rect key="frame" x="47" y="25" width="248" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="AGB-EC-GtO"/>
+                                            <constraint firstAttribute="width" constant="248" id="r49-0D-xVg"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="8Mg-Sd-psX">
+                                        <rect key="frame" x="47" y="110" width="248" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="248" id="DKh-dc-mUq"/>
+                                            <constraint firstAttribute="height" constant="36" id="PW7-Bu-UiY"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I forgot my password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8J-NE-OXM">
+                                        <rect key="frame" x="48" y="154" width="247" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="2ab-hP-yRF"/>
+                                            <constraint firstAttribute="width" constant="247" id="Lpg-JV-47L"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.70980392156862748" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y5-o9-uPi">
+                                        <rect key="frame" x="210" y="225" width="84" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
+                                        <state key="normal" title="signup" backgroundImage="signup-bg">
+                                            <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Tro-xW-aFj" kind="show" id="RPK-bA-L1C"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not yet a hueman?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25e-jP-tTb">
+                                        <rect key="frame" x="47" y="203" width="247" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auU-gu-ZH2">
+                                        <rect key="frame" x="211" y="156" width="84" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="S7z-bT-D2b"/>
+                                            <constraint firstAttribute="width" constant="84" id="Z66-H8-Ee2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
+                                        <state key="normal" title="log-in" backgroundImage="login-bg">
+                                            <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zxx-Uu-vxE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="GkF-hw-bVF"/>
-                                    <constraint firstAttribute="width" constant="248" id="Ouk-J7-QSM"/>
+                                    <constraint firstItem="p8J-NE-OXM" firstAttribute="top" secondItem="8Mg-Sd-psX" secondAttribute="bottom" constant="8" id="06w-kI-HzX"/>
+                                    <constraint firstAttribute="width" constant="343" id="0KN-4t-Tnx"/>
+                                    <constraint firstItem="8Mg-Sd-psX" firstAttribute="centerX" secondItem="ZtS-Kl-Fci" secondAttribute="centerX" id="4PM-Of-gMh"/>
+                                    <constraint firstItem="FdB-Id-sGN" firstAttribute="centerX" secondItem="ZtS-Kl-Fci" secondAttribute="centerX" id="6mE-jn-Oem"/>
+                                    <constraint firstAttribute="height" constant="263" id="H5e-sW-yPd"/>
+                                    <constraint firstItem="bSN-y8-Ivj" firstAttribute="top" secondItem="ZtS-Kl-Fci" secondAttribute="top" id="Pk8-Fd-1D7"/>
+                                    <constraint firstItem="8Mg-Sd-psX" firstAttribute="top" secondItem="JLB-qs-aKn" secondAttribute="bottom" constant="8" id="Psm-Xn-6Ms"/>
+                                    <constraint firstItem="JLB-qs-aKn" firstAttribute="centerX" secondItem="ZtS-Kl-Fci" secondAttribute="centerX" id="VHh-UL-c8o"/>
+                                    <constraint firstItem="auU-gu-ZH2" firstAttribute="trailing" secondItem="8Mg-Sd-psX" secondAttribute="trailing" id="XEH-4r-KG4"/>
+                                    <constraint firstItem="bSN-y8-Ivj" firstAttribute="centerX" secondItem="ZtS-Kl-Fci" secondAttribute="centerX" id="cmp-ph-nqM"/>
+                                    <constraint firstItem="JLB-qs-aKn" firstAttribute="top" secondItem="FdB-Id-sGN" secondAttribute="bottom" constant="20" id="dZ5-x1-GgO"/>
+                                    <constraint firstItem="FdB-Id-sGN" firstAttribute="top" secondItem="bSN-y8-Ivj" secondAttribute="bottom" constant="8" id="mOl-bc-GhE"/>
+                                    <constraint firstItem="p8J-NE-OXM" firstAttribute="centerX" secondItem="ZtS-Kl-Fci" secondAttribute="centerX" id="sMc-SO-owB"/>
+                                    <constraint firstItem="auU-gu-ZH2" firstAttribute="top" secondItem="8Mg-Sd-psX" secondAttribute="bottom" constant="10" id="z8q-Iv-d62"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-Id-sGN">
-                                <rect key="frame" x="64" y="275" width="248" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="ND7-6Z-CZ3"/>
-                                    <constraint firstAttribute="width" constant="248" id="ROE-QW-iV4"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet a hueman?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25e-jP-tTb">
-                                <rect key="frame" x="64" y="388" width="247" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="ASB-Vb-pM5"/>
-                                    <constraint firstAttribute="width" constant="247" id="RBL-pW-s1g"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="By8-dp-SEc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="2aw-St-MEh"/>
-                            <constraint firstItem="By8-dp-SEc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="33P-qG-aJq"/>
-                            <constraint firstItem="bSN-y8-Ivj" firstAttribute="top" secondItem="By8-dp-SEc" secondAttribute="bottom" constant="22.5" id="4g0-Ly-LiT"/>
-                            <constraint firstItem="25e-jP-tTb" firstAttribute="top" secondItem="auU-gu-ZH2" secondAttribute="bottom" constant="39" id="8Xq-1Y-KxG"/>
-                            <constraint firstItem="p8J-NE-OXM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B3e-Ci-sHd"/>
-                            <constraint firstItem="JLB-qs-aKn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FXp-ks-AOe"/>
-                            <constraint firstItem="FdB-Id-sGN" firstAttribute="top" secondItem="JLB-qs-aKn" secondAttribute="bottom" constant="1.5" id="HAf-MD-1Rl"/>
-                            <constraint firstItem="auU-gu-ZH2" firstAttribute="top" secondItem="FdB-Id-sGN" secondAttribute="bottom" constant="8" id="HLt-16-BDQ"/>
-                            <constraint firstItem="8Mg-Sd-psX" firstAttribute="top" secondItem="bSN-y8-Ivj" secondAttribute="bottom" constant="3" id="S6r-Kl-CSZ"/>
-                            <constraint firstItem="auU-gu-ZH2" firstAttribute="trailing" secondItem="FdB-Id-sGN" secondAttribute="trailing" id="Wh8-bT-5z3"/>
-                            <constraint firstItem="25e-jP-tTb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cxM-Dx-fDh"/>
-                            <constraint firstItem="p8J-NE-OXM" firstAttribute="top" secondItem="FdB-Id-sGN" secondAttribute="bottom" constant="5" id="d0p-Ng-8GY"/>
-                            <constraint firstItem="8Mg-Sd-psX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f1e-yW-8KN"/>
-                            <constraint firstItem="JLB-qs-aKn" firstAttribute="top" secondItem="8Mg-Sd-psX" secondAttribute="bottom" constant="20.5" id="g0e-5E-Q7X"/>
-                            <constraint firstItem="0Y5-o9-uPi" firstAttribute="top" secondItem="25e-jP-tTb" secondAttribute="bottom" id="kSo-3l-HYj"/>
-                            <constraint firstItem="FdB-Id-sGN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ppb-z3-WRC"/>
-                            <constraint firstItem="0Y5-o9-uPi" firstAttribute="trailing" secondItem="auU-gu-ZH2" secondAttribute="trailing" id="rNv-wx-1tt"/>
-                            <constraint firstItem="bSN-y8-Ivj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w5J-Qr-anA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="By8-dp-SEc" secondAttribute="trailing" id="zE6-rh-jBl"/>
+                            <constraint firstItem="ZtS-Kl-Fci" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IXa-qj-7BK"/>
+                            <constraint firstItem="By8-dp-SEc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JLp-xw-adH"/>
+                            <constraint firstItem="ZtS-Kl-Fci" firstAttribute="top" secondItem="By8-dp-SEc" secondAttribute="bottom" constant="23" id="efR-zp-XE6"/>
+                            <constraint firstItem="By8-dp-SEc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="l6m-qc-Bkn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="FdB-Id-sGN" id="YQV-aI-mVw"/>
+                        <outlet property="passwordField" destination="8Mg-Sd-psX" id="VRX-Je-4Mj"/>
+                        <segue destination="lAe-Do-sBk" kind="show" identifier="LoginConfirmed" id="gNX-ic-ARf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="6"/>
+            <point key="canvasLocation" x="13.6" y="5.8470764617691158"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="x1j-Ww-F3H">
@@ -219,77 +228,128 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="signup-logo" translatesAutoresizingMaskIntoConstraints="NO" id="BOl-K4-CHu">
-                                <rect key="frame" x="64" y="75" width="247" height="60"/>
+                                <rect key="frame" x="64" y="40" width="247" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="247" id="bbj-Pp-VpJ"/>
                                     <constraint firstAttribute="height" constant="60" id="pmx-Jk-PkR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtG-qH-qMf">
-                                <rect key="frame" x="65" y="237" width="247" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-yO-66B">
-                                <rect key="frame" x="63" y="181" width="248" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY7-HE-8E9">
-                                <rect key="frame" x="63" y="160" width="248" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="JjH-KL-bGG">
-                                <rect key="frame" x="63" y="259" width="248" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="re-enter password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-3v-ftg">
-                                <rect key="frame" x="64" y="314" width="247" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="Tsr-LQ-2JY">
-                                <rect key="frame" x="63" y="337" width="248" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlP-3l-Kzj">
-                                <rect key="frame" x="227" y="380" width="84" height="30"/>
+                                <rect key="frame" x="228" y="617" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
                                 <state key="normal" title="signup" backgroundImage="signup-bg">
                                     <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lAe-Do-sBk" kind="show" id="MXF-TL-zKd"/>
+                                    <action selector="didCreateUser:" destination="Tro-xW-aFj" eventType="touchUpInside" id="KOh-Zz-C25"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtG-qH-qMf">
+                                <rect key="frame" x="64" y="239" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-yO-66B">
+                                <rect key="frame" x="64" y="195" width="248" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY7-HE-8E9">
+                                <rect key="frame" x="64" y="174" width="248" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="S8O-Eh-3bj">
+                                <rect key="frame" x="64" y="130" width="248" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYX-wd-EsR">
+                                <rect key="frame" x="64" y="109" width="248" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="JjH-KL-bGG">
+                                <rect key="frame" x="62" y="261" width="248" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date of birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-3v-ftg">
+                                <rect key="frame" x="63" y="305" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="Tsr-LQ-2JY">
+                                <rect key="frame" x="62" y="329" width="248" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kac-qi-8yo">
+                                <rect key="frame" x="63" y="373" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="oHs-79-POD">
+                                <rect key="frame" x="62" y="396" width="248" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="738-E9-vVQ">
+                                <rect key="frame" x="63" y="440" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ip7-hQ-Q9x">
+                                <rect key="frame" x="62" y="466" width="248" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BOl-K4-CHu" firstAttribute="centerX" secondItem="Oma-LL-kC3" secondAttribute="centerX" id="Es7-gJ-eok"/>
-                            <constraint firstItem="BOl-K4-CHu" firstAttribute="top" secondItem="pWS-cP-Di8" secondAttribute="bottom" constant="75" id="Jca-gE-f4l"/>
+                            <constraint firstItem="BOl-K4-CHu" firstAttribute="top" secondItem="pWS-cP-Di8" secondAttribute="bottom" constant="40" id="Jca-gE-f4l"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="bioField" destination="ip7-hQ-Q9x" id="mxM-67-wOP"/>
+                        <outlet property="dobField" destination="Tsr-LQ-2JY" id="MRs-w8-lbO"/>
+                        <outlet property="emailField" destination="uEi-yO-66B" id="0TE-uH-NkK"/>
+                        <outlet property="locationField" destination="oHs-79-POD" id="LSy-lc-b7D"/>
+                        <outlet property="nameField" destination="S8O-Eh-3bj" id="4Zg-a0-uPV"/>
+                        <outlet property="passwordField" destination="JjH-KL-bGG" id="xYV-SA-TdR"/>
+                        <segue destination="lAe-Do-sBk" kind="show" identifier="SignUpComplete" id="bqS-Mq-b4c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfg-sl-0bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="825"/>
+            <point key="canvasLocation" x="13.6" y="824.43778110944538"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="7fS-MY-MwB">
@@ -521,36 +581,105 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="4825" y="-504"/>
         </scene>
-        <!--Huesfeed-->
-        <scene sceneID="4k8-Q3-ML6">
+        <!--Hues Feed View Controller-->
+        <scene sceneID="QIv-oO-q5a">
             <objects>
-                <viewController id="J7n-ft-CXT" userLabel="Huesfeed" customClass="HuesFeedViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bET-ma-hAl"/>
-                        <viewControllerLayoutGuide type="bottom" id="dFy-D5-s7b"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FsL-hy-KfB">
+                <tableViewController id="Xzd-Me-4Pw" customClass="HuesFeedViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="143" sectionHeaderHeight="28" sectionFooterHeight="28" id="H70-34-Xiu">
                         <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="huesfeed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsM-3s-hEB">
-                                <rect key="frame" x="192" y="235" width="72" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="8BJ-Rf-PCI">
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="huesfeedcell" rowHeight="135" id="Ek0-2G-lI8" customClass="FeedTextTableViewCell" customModule="Hueman" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="135"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ek0-2G-lI8" id="BpH-j8-DCk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM">
+                                            <rect key="frame" x="0.0" y="109" width="375" height="25"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-Am-UtL" userLabel="Heart">
+                                                    <rect key="frame" x="8" y="5" width="18" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="feed-heart-icon"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-ed-JFN" userLabel="Comments">
+                                                    <rect key="frame" x="59" y="5" width="18" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="feed-comments-icon"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fp-Rf-kEw" userLabel="Comments">
+                                                    <rect key="frame" x="109" y="5" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="feed-plus-icon"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="Iql-WP-leA"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hse-qf-p65" userLabel="Profile Container">
+                                            <rect key="frame" x="22" y="28" width="330" height="65"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed-profile-container" translatesAutoresizingMaskIntoConstraints="NO" id="x1U-lw-nAw">
+                                                    <rect key="frame" x="0.0" y="-1" width="330" height="66"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aq-k2-d3A">
+                                                    <rect key="frame" x="0.0" y="36" width="257" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65" id="0Rl-Yt-POH"/>
+                                                <constraint firstAttribute="width" constant="330" id="Awn-Cx-XLH"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjs-TM-vxg">
+                                            <rect key="frame" x="23" y="18" width="275" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="275" id="obq-H4-JDl"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="c5C-BH-ulM" firstAttribute="leading" secondItem="BpH-j8-DCk" secondAttribute="leading" id="EoZ-JQ-cEf"/>
+                                        <constraint firstAttribute="bottom" secondItem="c5C-BH-ulM" secondAttribute="bottom" id="bSe-3u-Xom"/>
+                                        <constraint firstItem="hse-qf-p65" firstAttribute="top" secondItem="jjs-TM-vxg" secondAttribute="top" constant="10" id="jLb-70-1n9"/>
+                                        <constraint firstItem="jjs-TM-vxg" firstAttribute="top" secondItem="BpH-j8-DCk" secondAttribute="topMargin" constant="10" id="khJ-Wh-1kX"/>
+                                        <constraint firstItem="hse-qf-p65" firstAttribute="centerX" secondItem="BpH-j8-DCk" secondAttribute="centerX" id="mgU-Zu-8Pb"/>
+                                        <constraint firstItem="jjs-TM-vxg" firstAttribute="leading" secondItem="BpH-j8-DCk" secondAttribute="leadingMargin" constant="15" id="qkx-4J-E4a"/>
+                                        <constraint firstAttribute="trailing" secondItem="c5C-BH-ulM" secondAttribute="trailing" id="rbD-sd-Jt1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textAuthorLabel" destination="6aq-k2-d3A" id="jMZ-xi-kB6"/>
+                                    <outlet property="textFeedLabel" destination="jjs-TM-vxg" id="6gv-XE-hzI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xzd-Me-4Pw" id="nxl-Ae-S1k"/>
+                            <outlet property="delegate" destination="Xzd-Me-4Pw" id="vHT-0m-nTj"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="B12-F0-z1B">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
-                    <nil key="simulatedStatusBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eoq-eT-sA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DkT-jr-hu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="179"/>
+            <point key="canvasLocation" x="5236" y="506.89655172413796"/>
         </scene>
         <!--Tab Bar-->
         <scene sceneID="1ii-RM-aAk">
@@ -558,9 +687,9 @@ Massachusetts</string>
                 <tabBarController id="SvP-59-BOn" customClass="TabBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Odh-y5-w61">
                         <barButtonItem key="leftBarButtonItem" image="hamburger-bar-item" id="Fy1-aj-z5V"/>
-                        <barButtonItem key="rightBarButtonItem" image="profile-bar-item" width="22" id="VFR-vo-dCi">
+                        <barButtonItem key="rightBarButtonItem" image="write-post-bar-item" width="22" id="VFR-vo-dCi">
                             <connections>
-                                <segue destination="kJ6-ki-agT" kind="presentation" identifier="ShowProfile" id="2hV-4K-JPB"/>
+                                <action selector="createFeed:" destination="SvP-59-BOn" id="Fph-gh-00p"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -573,13 +702,12 @@ Massachusetts</string>
                     </tabBar>
                     <connections>
                         <outlet property="menuButton" destination="Fy1-aj-z5V" id="GKb-nk-NH6"/>
-                        <outlet property="profileItem" destination="VFR-vo-dCi" id="9b4-OL-2fJ"/>
-                        <segue destination="Ttj-Lh-GvP" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
-                        <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
-                        <segue destination="J7n-ft-CXT" kind="relationship" relationship="viewControllers" id="i9n-0l-uCH"/>
-                        <segue destination="D5x-fb-ScK" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
                         <segue destination="JIw-ye-t1H" kind="presentation" identifier="CreatePost" id="6O1-1d-wip"/>
                         <segue destination="Ooc-xd-Edo" kind="presentation" identifier="FilterOption" id="EOW-9B-phL"/>
+                        <segue destination="Ttj-Lh-GvP" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
+                        <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
+                        <segue destination="Xzd-Me-4Pw" kind="relationship" relationship="viewControllers" id="7U5-G0-Sz3"/>
+                        <segue destination="D5x-fb-ScK" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIY-vW-yjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -652,7 +780,7 @@ Massachusetts</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDU-kr-lEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4804" y="893"/>
+            <point key="canvasLocation" x="3922" y="1297"/>
         </scene>
         <!--Connections-->
         <scene sceneID="HkI-lr-hoc">
@@ -760,7 +888,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-DB-3hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="-1166"/>
+            <point key="canvasLocation" x="4769" y="-1209"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="pwK-2y-sWl">
@@ -838,6 +966,9 @@ Massachusetts</string>
                                 <rect key="frame" x="293" y="265" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="post-icon"/>
+                                <connections>
+                                    <action selector="didTapCreateFeed:" destination="TVX-Vb-Dl9" eventType="touchUpInside" id="K3l-C0-VOU"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZC-zr-4cu">
                                 <rect key="frame" x="47" y="262" width="289" height="44"/>
@@ -889,7 +1020,6 @@ Massachusetts</string>
                         <outlet property="headerLabel" destination="DyD-jV-SBc" id="bgt-30-9qx"/>
                         <outlet property="icon" destination="gSk-Qk-Ddy" id="oR0-Ke-vJf"/>
                         <outlet property="inputBackground" destination="Lhr-t2-O7d" id="7fW-Mh-76d"/>
-                        <outlet property="postButton" destination="YbP-56-ZdH" id="dmV-y4-Dm6"/>
                         <outlet property="postInput" destination="Q5g-g2-JUK" id="jpI-bL-E3i"/>
                         <outlet property="topic" destination="WZC-zr-4cu" id="tok-lV-HxZ"/>
                         <outletCollection property="huesCollections" destination="kRb-Ng-GpO" collectionClass="NSMutableArray" id="fOc-QH-5AX"/>
@@ -1326,6 +1456,10 @@ Massachusetts</string>
         <image name="camera-icon" width="41" height="41"/>
         <image name="connection-dotted-line" width="1" height="63"/>
         <image name="connection-profile-btn" width="209" height="28"/>
+        <image name="feed-comments-icon" width="18" height="15"/>
+        <image name="feed-heart-icon" width="18" height="15"/>
+        <image name="feed-plus-icon" width="16" height="16"/>
+        <image name="feed-profile-container" width="330" height="66"/>
         <image name="filter-checkbox-check" width="28" height="28"/>
         <image name="filter-checkbox-uncheck" width="28" height="28"/>
         <image name="filter-daily-notselected-btn" width="50" height="50"/>
@@ -1361,7 +1495,6 @@ Massachusetts</string>
         <image name="pick-hues-wanderlust-btn" width="133" height="170"/>
         <image name="plate-icon" width="37" height="37"/>
         <image name="post-icon" width="41" height="41"/>
-        <image name="profile-bar-item" width="22" height="22"/>
         <image name="profile-name-background" width="286" height="34"/>
         <image name="profile-thumbnail-bg" width="286" height="286"/>
         <image name="ray-light-icon" width="37" height="37"/>
@@ -1378,9 +1511,10 @@ Massachusetts</string>
         <image name="tab-icon-notifications-selected" width="48" height="32"/>
         <image name="topic-container" width="288" height="43"/>
         <image name="wanderlust-icon" width="37" height="37"/>
+        <image name="write-post-bar-item" width="22" height="22"/>
         <image name="write-post-icon" width="41" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MXF-TL-zKd"/>
+        <segue reference="bqS-Mq-b4c"/>
     </inferredMetricsTieBreakers>
 </document>
