@@ -15,7 +15,7 @@ class PickHuesViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     
     var viewModel: PickHuesViewModel?
-    
+    var currentController: UIViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,19 +27,30 @@ class PickHuesViewController: UIViewController {
         
         backButton.addTarget(self, action: #selector(PickHuesViewController.backButtonAction), forControlEvents: .TouchUpInside)
         
+        
+        currentController = self
+        
     }
 
     func createPostWithTopic(btn: UIButton) {
         
+        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let createPostController: CreatePostViewController = storyboard.instantiateViewControllerWithIdentifier("CreatePost") as! CreatePostViewController
+        let createPostController: CreatePostViewController! = storyboard.instantiateViewControllerWithIdentifier("CreatePost") as! CreatePostViewController
         
-        createPostController.topicColor = viewModel?.hueColors[btn.tag]
-        createPostController.topicIcon = viewModel?.hueIcons[btn.tag]
-        createPostController.topicString = viewModel?.hueTopics[btn.tag]
-        createPostController.previousController = self
+        createPostController.topicColor = self.viewModel?.hueColors[btn.tag]
+        createPostController.topicIcon = self.viewModel?.hueIcons[btn.tag]
+        createPostController.topicString = self.viewModel?.hueTopics[btn.tag]
         
-        presentViewController(createPostController, animated: true, completion: nil)
+        createPostController.previousController = currentController
+        
+        
+        self.presentViewController(createPostController!, animated: true, completion: nil)
+        
+
+        
+        
+
     }
     
     func showDescription() {

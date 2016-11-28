@@ -13,7 +13,7 @@ import FirebaseAuth
 
 struct Feed {
     
-    var uid: String!
+    var uid: String?
     var author: String!
     var text: String!
     var id: String!
@@ -27,7 +27,7 @@ struct Feed {
         self.author = snapshot.value!["author"] as! String
         self.text = snapshot.value!["text"] as! String
         self.topic = snapshot.value!["topic"] as! String
-        self.uid = snapshot.value!["uid"] as! String
+        self.uid = snapshot.value!["uid"] as? String
 
     }
     
@@ -40,7 +40,7 @@ struct Feed {
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["author": self.author, "id":self.id, "text": self.text, "topic": topic]
+        return ["author": self.author, "id":self.id, "uid": self.uid!, "text": self.text, "topic": topic]
     }
     
 }

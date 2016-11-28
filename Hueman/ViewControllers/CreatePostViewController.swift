@@ -31,7 +31,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     var topicString: String?
     var currentUser: User!
     var previousController: UIViewController!
-
+    
     var feedManager = FeedManager()
     
 
@@ -47,9 +47,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         inputBackground.layer.borderWidth = 2
         inputBackground.layer.borderColor = UIColor.whiteColor().CGColor
         
-        if let controller = previousController {
-            controller.dismissViewControllerAnimated(false, completion: nil)
-        }
+ 
+        
         
         if let topicColor = topicColor, let topicIcon = topicIcon, let topicString = topicString {
             
@@ -149,21 +148,37 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
 
     @IBAction func didTapCreateFeed(sender: AnyObject) {
-        if let text: String = postInput.text, let topic = topicString {
-          
-            let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic)
-            feedManager.createFeed(feed, feedPosted: {
-                self.dismissViewControllerAnimated(true, completion: {})
-            })
+        
+        if postInput.text.isEmpty {
+            print("input can't be empty")
+        }else {
+            if let text: String = postInput.text, let topic = topicString {
+                
+                let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic)
+                
+                feedManager.createFeed(feed, feedPosted: {
+                    self.previousController.dismissViewControllerAnimated(false, completion: {
+                        self.dismissViewControllerAnimated(true, completion: nil)
+
+                    })
+
+                })
+                
+            }
             
         }
         
+
     }
     
     
     @IBAction func backButton(sender: AnyObject) {
         postInput?.resignFirstResponder()
-        self.dismissViewControllerAnimated(true, completion: {})
+        
+        self.previousController.dismissViewControllerAnimated(false, completion: {
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })
         
         
     }

@@ -7,26 +7,53 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class HuesFeedViewController: UITableViewController {
+    
+    let cellTextIdentifier = "huesfeedtextcell"
+    
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    
+    var feeds = [Feed]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 135
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
-        
+        fetchFeeds()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    
+    func fetchFeeds() {
+        databaseRef.child("feeds").observeEventType(.Value, withBlock: {
+            feedsSnapshot in
+            var newFeeds = [Feed]()
+            for feed in feedsSnapshot.children {
+                let newFeed = Feed(snapshot: feed as! FIRDataSnapshot)
+                newFeeds.insert(newFeed, atIndex: 0)
+            }
+            
+            self.feeds = newFeeds
+            self.tableView.reloadData()
+        }) {  error in
+            print (error.localizedDescription)
+        }
+    }
 
     // MARK: - Table View
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -34,19 +61,42 @@ class HuesFeedViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return feeds.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("huesfeedcell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellTextIdentifier, forIndexPath: indexPath) as! FeedTextTableViewCell
+        cell.textFeedLabel.text = feeds[indexPath.row].text
+        cell.textAuthorLabel.text = feeds[indexPath.row].author
         
+        switch feeds[indexPath.row].topic {
+        case Topic.Wanderlust:
+            cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
+            break;
+        case Topic.DailyHustle:
+            cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
+            break;
+        case Topic.Health:
+            cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
+            break;
+        case Topic.RayOfLight:
+            cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
+            break;
+            
+        default:
+            cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
+        }
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 90
-    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! FeedTextTableViewCell
+//        
+//        let textHeight = currentCell.textFeedLabel.frame.size.height
+//        
+//        return textHeight + 100
+//    }
 
 }
 
