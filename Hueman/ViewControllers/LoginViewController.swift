@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftOverlays
 
 class LoginViewController: UIViewController {
 
@@ -53,8 +54,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func didTapLogin(sender: AnyObject) {
+        showWaitOverlay()
         if let email = self.emailField.text, let password = self.passwordField.text {
             authenticationManager.logIn(email, password: password, loggedIn: {
+                self.removeAllOverlays()
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
             })
         }else {

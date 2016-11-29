@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import SwiftOverlays
 
 struct AuthenticationManager {
     
@@ -22,7 +23,6 @@ struct AuthenticationManager {
 
     
     func logIn(email: String, password: String, loggedIn: (() -> ())? = nil) {
-        
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: {
             (user, error) in
             if error == nil {

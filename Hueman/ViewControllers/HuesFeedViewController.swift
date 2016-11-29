@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import SwiftOverlays
 
 class HuesFeedViewController: UITableViewController {
     
@@ -28,6 +29,7 @@ class HuesFeedViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 135
         
+        self.tableView.hidden = true
         
     }
     
@@ -40,6 +42,7 @@ class HuesFeedViewController: UITableViewController {
     
     
     func fetchFeeds() {
+        showWaitOverlay()
         databaseRef.child("feeds").observeEventType(.Value, withBlock: {
             feedsSnapshot in
             var newFeeds = [Feed]()
@@ -50,6 +53,8 @@ class HuesFeedViewController: UITableViewController {
             
             self.feeds = newFeeds
             self.tableView.reloadData()
+            self.removeAllOverlays()
+            self.tableView.hidden = false
         }) {  error in
             print (error.localizedDescription)
         }

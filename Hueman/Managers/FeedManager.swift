@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import SwiftOverlays
 
 struct FeedManager {
     
@@ -20,7 +21,7 @@ struct FeedManager {
     
     
     func createFeed(feed: Feed, feedPosted: (() -> ())? = nil) {
-
+        
         var currentUser: User!
         let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue(FIRAuth.auth()!.currentUser!.email)
         userRef.observeEventType(.Value, withBlock: {
