@@ -22,6 +22,15 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Creating Tap Gesture to dismiss Keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
+        
+        // Creating Swipe Gesture to dismiss Keyboard
+        let swipDown = UISwipeGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard(_:)))
+        swipDown.direction = .Down
+        view.addGestureRecognizer(swipDown)
     }
 
     
@@ -40,14 +49,23 @@ class SignupViewController: UIViewController {
 
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // Dismissing all editing actions when User Tap or Swipe down on the Main View
+    func dismissKeyboard(gesture: UIGestureRecognizer){
+        self.view.endEditing(true)
     }
-    */
 
+}
+
+extension SignupViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        nameField.resignFirstResponder()
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        dobField.resignFirstResponder()
+        locationField.resignFirstResponder()
+        bioField.resignFirstResponder()
+        return true
+    }
 }

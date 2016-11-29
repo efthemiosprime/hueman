@@ -18,6 +18,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //printFonts()
+        
+        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        if hasLogin {
+            if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = authenticationManager.keychainWrapper.myObjectForKey("v_Data") as? String {
+                emailField.text = storedEmail
+                passwordField.text = storedPassword
+            }
+        }
     }
     
     /*

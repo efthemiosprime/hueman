@@ -54,10 +54,11 @@
 		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
 		3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */; };
-		3A900B921DEA9D9F00CAECF7 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A900B911DEA9D9F00CAECF7 /* AuthenticationManager.swift */; };
-		3A900B941DEAAFB300CAECF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A900B931DEAAFB300CAECF7 /* User.swift */; };
-		3ADC34421DEAC7E6005CC321 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC34411DEAC7E6005CC321 /* Feed.swift */; };
-		3ADC34441DEACA77005CC321 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC34431DEACA77005CC321 /* FeedManager.swift */; };
+		3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B151DED1BC600388DDF /* KeychainWrapper.m */; };
+		3A987B191DED1C6100388DDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B171DED1C6100388DDF /* User.swift */; };
+		3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B181DED1C6100388DDF /* Feed.swift */; };
+		3A987B1C1DED1CDF00388DDF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */; };
+		3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B1D1DED1D2500388DDF /* FeedManager.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
 /* End PBXBuildFile section */
@@ -116,12 +117,14 @@
 		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
 		3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Bold.otf"; path = "Fonts/Sofia Pro Bold.otf"; sourceTree = "<group>"; };
 		3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTextTableViewCell.swift; path = Views/FeedTextTableViewCell.swift; sourceTree = "<group>"; };
-		3A900B911DEA9D9F00CAECF7 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
-		3A900B931DEAAFB300CAECF7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A987B141DED1BC600388DDF /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = ThirdParties/KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
+		3A987B151DED1BC600388DDF /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = ThirdParties/KeychainWrapper/KeychainWrapper.m; sourceTree = "<group>"; };
+		3A987B171DED1C6100388DDF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		3A987B181DED1C6100388DDF /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed.swift; path = Models/Feed.swift; sourceTree = "<group>"; };
+		3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = Networking/AuthenticationManager.swift; sourceTree = "<group>"; };
+		3A987B1D1DED1D2500388DDF /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedManager.swift; path = Managers/FeedManager.swift; sourceTree = "<group>"; };
 		3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		3ADC34411DEAC7E6005CC321 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		3ADC34431DEACA77005CC321 /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
 		DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hueman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,9 +225,9 @@
 		3A154E2B1DCD6FD7005A79EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3A987B1D1DED1D2500388DDF /* FeedManager.swift */,
+				3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */,
 				3A154E751DCD7852005A79EC /* NetworkManager.swift */,
-				3A900B911DEA9D9F00CAECF7 /* AuthenticationManager.swift */,
-				3ADC34431DEACA77005CC321 /* FeedManager.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 		3A20AB1F1DAD3D73008E54AD /* ThirdParties */ = {
 			isa = PBXGroup;
 			children = (
+				3A987B101DED1B7500388DDF /* KeychainWrapper */,
 				3A20AB201DAD3E51008E54AD /* SWRevealViewController */,
 			);
 			name = ThirdParties;
@@ -307,12 +311,12 @@
 		3A22A3E41DA3A63D0011B467 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3A987B171DED1C6100388DDF /* User.swift */,
+				3A987B181DED1C6100388DDF /* Feed.swift */,
 				3A154E201DCD6EA6005A79EC /* Theme.swift */,
 				3A154E211DCD6EA6005A79EC /* Hues.swift */,
 				3A154E221DCD6EA6005A79EC /* Profile.swift */,
 				3A154E231DCD6EA6005A79EC /* Hueboard.swift */,
-				3A900B931DEAAFB300CAECF7 /* User.swift */,
-				3ADC34411DEAC7E6005CC321 /* Feed.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -360,6 +364,15 @@
 				DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A987B101DED1B7500388DDF /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				3A987B141DED1BC600388DDF /* KeychainWrapper.h */,
+				3A987B151DED1BC600388DDF /* KeychainWrapper.m */,
+			);
+			name = KeychainWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */,
 				3A154E5F1DCD7389005A79EC /* ConnectionLeftCell.swift in Sources */,
 				3A154E5B1DCD7389005A79EC /* ConnectionLabel.swift in Sources */,
 				3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */,
@@ -518,27 +532,27 @@
 				3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */,
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
+				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,
 				3A154E461DCD7352005A79EC /* LoginViewController.swift in Sources */,
+				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
-				3A900B921DEA9D9F00CAECF7 /* AuthenticationManager.swift in Sources */,
 				3A154E4D1DCD7352005A79EC /* SearchBarViewController.swift in Sources */,
-				3A900B941DEAAFB300CAECF7 /* User.swift in Sources */,
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,
 				3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */,
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
-				3ADC34441DEACA77005CC321 /* FeedManager.swift in Sources */,
+				3A987B191DED1C6100388DDF /* User.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
 				3A154E471DCD7352005A79EC /* PickHuesViewController.swift in Sources */,
+				3A987B1C1DED1CDF00388DDF /* AuthenticationManager.swift in Sources */,
 				3A154E261DCD6EA6005A79EC /* Profile.swift in Sources */,
 				3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */,
 				3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */,
 				3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */,
 				3A154E4A1DCD7352005A79EC /* ProfileViewController.swift in Sources */,
 				3A154E491DCD7352005A79EC /* CreatePostViewController.swift in Sources */,
-				3ADC34421DEAC7E6005CC321 /* Feed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@ import FirebaseDatabase
 
 struct AuthenticationManager {
     
+    let keychainWrapper = KeychainWrapper()
+    
     var dataBaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
     }
@@ -45,6 +47,19 @@ struct AuthenticationManager {
         FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: {
             (user, error) in
             if error == nil {
+                
+                let hasLoginKey = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+                if hasLoginKey == false {
+                    NSUserDefaults.standardUserDefaults().setValue(email, forKeyPath: "email")
+                }
+                
+                self.keychainWrapper.mySetObject(password, forKey: kSecValueData)
+                self.keychainWrapper.writeToKeychain()
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+                NSUserDefaults.standardUserDefaults().synchronize()
+
+                
+                
                 self.saveUserInfo(user, userVo: userVo)
                 completion?()
             }else {
@@ -74,4 +89,22 @@ struct AuthenticationManager {
         
     }
     
+    
+    func checkLogin(email: String, password: String) -> Bool {
+        
+        if password == keychainWrapper.myObjectForKey("v_Data") as? String && email == NSUserDefaults.standardUserDefaults().valueForKey("email") as? String {
+            return true
+        }
+        
+        return false
+    }
+    
+     func manuallyStoreCreds() {
+        
+        NSUserDefaults.standardUserDefaults().setValue("bongbox@gmail.com", forKeyPath: "email")
+        self.keychainWrapper.mySetObject("12qwaszx#", forKey: kSecValueData)
+        self.keychainWrapper.writeToKeychain()
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
 }
