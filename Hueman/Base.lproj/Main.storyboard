@@ -177,8 +177,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="djW-IY-5EE" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="cqd-J7-f39"/>
                         <segue destination="Dth-Xh-86j" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="SxX-Fn-ohy"/>
+                        <segue destination="SvP-59-BOn" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="ke0-Fs-dJV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yiG-xm-4ut" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -623,27 +623,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yos-en-NAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="-900"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="maR-JG-Cp5">
-            <objects>
-                <navigationController title="Navigation Controller" id="djW-IY-5EE" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Ui3-QR-Btg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="SvP-59-BOn" kind="relationship" relationship="rootViewController" id="WNF-2I-mbP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fgr-Of-heO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2183" y="33"/>
+            <point key="canvasLocation" x="1041" y="-1209"/>
         </scene>
         <!--Hueboards-->
         <scene sceneID="xHy-pg-vin">
@@ -746,22 +726,20 @@ Massachusetts</string>
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-selected" id="5rQ-R0-03f">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="U1s-lB-rGf"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qw4-Nf-3oM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="-504"/>
+            <point key="canvasLocation" x="6016.8000000000002" y="-464.6176911544228"/>
         </scene>
         <!--Hues Feed View Controller-->
         <scene sceneID="QIv-oO-q5a">
             <objects>
                 <tableViewController id="Xzd-Me-4Pw" customClass="HuesFeedViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="143" sectionHeaderHeight="10" sectionFooterHeight="10" id="H70-34-Xiu">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -860,13 +838,11 @@ Massachusetts</string>
                             <outlet property="delegate" destination="Xzd-Me-4Pw" id="vHT-0m-nTj"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="B12-F0-z1B">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="0i3-SQ-UnO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DkT-jr-hu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5236" y="506.89655172413796"/>
+            <point key="canvasLocation" x="6175.1999999999998" y="506.89655172413796"/>
         </scene>
         <!--Tab Bar-->
         <scene sceneID="1ii-RM-aAk">
@@ -891,22 +867,22 @@ Massachusetts</string>
                         <outlet property="menuButton" destination="Fy1-aj-z5V" id="GKb-nk-NH6"/>
                         <segue destination="JIw-ye-t1H" kind="presentation" identifier="CreatePost" id="6O1-1d-wip"/>
                         <segue destination="Ooc-xd-Edo" kind="presentation" identifier="FilterOption" id="EOW-9B-phL"/>
-                        <segue destination="Ttj-Lh-GvP" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
-                        <segue destination="D5x-fb-ScK" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
-                        <segue destination="Xzd-Me-4Pw" kind="relationship" relationship="viewControllers" id="7U5-G0-Sz3"/>
-                        <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
+                        <segue destination="wSJ-fA-lIe" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
+                        <segue destination="bod-oI-1KW" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
+                        <segue destination="OxA-ni-I6x" kind="relationship" relationship="viewControllers" id="7U5-G0-Sz3"/>
+                        <segue destination="ShM-rD-ryk" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIY-vW-yjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3194" y="161"/>
+            <point key="canvasLocation" x="2270" y="68"/>
         </scene>
         <!--Notifications View Controller-->
         <scene sceneID="jge-Cl-ERY">
             <objects>
                 <tableViewController id="D5x-fb-ScK" customClass="NotificationsViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="twZ-7R-aUK">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -960,14 +936,12 @@ Massachusetts</string>
                             <outlet property="delegate" destination="D5x-fb-ScK" id="nTy-t2-tA1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-selected" id="mdU-Mb-acb">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="yLN-Ub-PtH"/>
                     <nil key="simulatedStatusBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDU-kr-lEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3922" y="1297"/>
+            <point key="canvasLocation" x="4860" y="1296.7016491754123"/>
         </scene>
         <!--Connections-->
         <scene sceneID="HkI-lr-hoc">
@@ -978,7 +952,7 @@ Massachusetts</string>
                         <viewControllerLayoutGuide type="bottom" id="NPY-LV-JAV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="swM-Nb-eag">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BA4-gy-nCo">
@@ -1060,11 +1034,8 @@ Massachusetts</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-selected" id="RZj-KZ-T6N" userLabel="connections">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="r4L-3W-gib"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1075,7 +1046,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-DB-3hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4769" y="-1209"/>
+            <point key="canvasLocation" x="5708" y="-1209.4452773613195"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="pwK-2y-sWl">
@@ -1219,7 +1190,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueo-qe-IHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4023" y="-1029"/>
+            <point key="canvasLocation" x="3588" y="-1675"/>
         </scene>
         <!--Search Bar View Controller-->
         <scene sceneID="WhY-37-fwr">
@@ -1358,7 +1329,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-LJ-5ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3343" y="-1030"/>
+            <point key="canvasLocation" x="2870" y="-1255"/>
         </scene>
         <!--Filter Options View Controller-->
         <scene sceneID="O95-Mz-9BX">
@@ -1508,7 +1479,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iji-Vb-kSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2668" y="-1016"/>
+            <point key="canvasLocation" x="2012" y="-1315"/>
         </scene>
         <!--Connection Profile View Controller-->
         <scene sceneID="iBY-uF-Rab">
@@ -1633,7 +1604,92 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbY-XB-l72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5696.8000000000002" y="-1208.5457271364319"/>
+            <point key="canvasLocation" x="6636" y="-1208.5457271364319"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MJb-ka-ZqA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wSJ-fA-lIe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-selected" id="RZj-KZ-T6N" userLabel="connections">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ttj-Lh-GvP" kind="relationship" relationship="rootViewController" id="HG0-bP-7jR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BVx-6Z-XW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4768.8000000000002" y="-1209.4452773613195"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QSk-y1-8by">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ShM-rD-ryk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-selected" id="5rQ-R0-03f">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4ci-av-bsr" kind="relationship" relationship="rootViewController" id="52u-T8-xfk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="em8-4B-8ZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5077.6000000000004" y="-464.6176911544228"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gdL-eL-Mbx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OxA-ni-I6x" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="B12-F0-z1B">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xzd-Me-4Pw" kind="relationship" relationship="rootViewController" id="Ird-a3-2jh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJT-SD-HGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5236" y="506.89655172413796"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qbd-cq-q9s">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bod-oI-1KW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-selected" id="mdU-Mb-acb">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D5x-fb-ScK" kind="relationship" relationship="rootViewController" id="kvY-qF-Tfb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5m0-By-4m3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3920.8000000000002" y="1296.7016491754123"/>
         </scene>
     </scenes>
     <resources>
