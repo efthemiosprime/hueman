@@ -21,16 +21,11 @@ class HamburgerDrawerTableViewController: UITableViewController {
         
         userRef = FIRDatabase.database().reference().child("users").queryOrderedByChild("email").queryEqualToValue(FIRAuth.auth()!.currentUser!.email)
         
-
-        
-        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
        // let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue(FIRAuth.auth()!.currentUser!.email)
-
-
         
     }
     

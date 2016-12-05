@@ -633,7 +633,7 @@ Massachusetts</string>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ui3-QR-Btg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Ui3-QR-Btg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -892,9 +892,9 @@ Massachusetts</string>
                         <segue destination="JIw-ye-t1H" kind="presentation" identifier="CreatePost" id="6O1-1d-wip"/>
                         <segue destination="Ooc-xd-Edo" kind="presentation" identifier="FilterOption" id="EOW-9B-phL"/>
                         <segue destination="Ttj-Lh-GvP" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
-                        <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
-                        <segue destination="Xzd-Me-4Pw" kind="relationship" relationship="viewControllers" id="7U5-G0-Sz3"/>
                         <segue destination="D5x-fb-ScK" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
+                        <segue destination="Xzd-Me-4Pw" kind="relationship" relationship="viewControllers" id="7U5-G0-Sz3"/>
+                        <segue destination="4ci-av-bsr" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIY-vW-yjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
