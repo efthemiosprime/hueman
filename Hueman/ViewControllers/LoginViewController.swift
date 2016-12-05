@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     
     let authenticationManager = AuthenticationManager()
     
+    var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //printFonts()
@@ -25,6 +27,19 @@ class LoginViewController: UIViewController {
             if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = authenticationManager.keychainWrapper.myObjectForKey("v_Data") as? String {
                 emailField.text = storedEmail
                 passwordField.text = storedPassword
+            }
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(false)
+        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        if !hasLogin {
+            emailField.text = ""
+            passwordField.text = ""
+            if loginButton != nil {
+                loginButton.enabled = true
+
             }
         }
     }
@@ -54,7 +69,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func didTapLogin(sender: AnyObject) {
+        
+        let btn = sender as! UIButton
+        btn.enabled = false
+        loginButton = btn
         showWaitOverlay()
+        
         if let email = self.emailField.text, let password = self.passwordField.text {
             authenticationManager.logIn(email, password: password, loggedIn: {
                 self.removeAllOverlays()

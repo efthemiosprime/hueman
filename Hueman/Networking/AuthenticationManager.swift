@@ -29,7 +29,14 @@ struct AuthenticationManager {
                 if let user = user {
                     
                     NSUserDefaults.standardUserDefaults().setValue(user.uid, forKey: "uid")
+                    NSUserDefaults.standardUserDefaults().setValue(email, forKeyPath: "email")
 
+                    self.keychainWrapper.mySetObject(password, forKey: kSecValueData)
+                    self.keychainWrapper.writeToKeychain()
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                    
+                    
                     loggedIn?()
                 }
             }else {

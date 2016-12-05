@@ -27,9 +27,9 @@ class HuesFeedViewController: UITableViewController {
 
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 135
-        
-        self.tableView.hidden = true
+        self.tableView.estimatedRowHeight = 160
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
         
     }
     
@@ -43,7 +43,7 @@ class HuesFeedViewController: UITableViewController {
     
     func fetchFeeds() {
         showWaitOverlay()
-        databaseRef.child("feeds").observeEventType(.Value, withBlock: {
+        databaseRef.child("feeds").observeSingleEventOfType(.Value, withBlock: {
             feedsSnapshot in
             var newFeeds = [Feed]()
             for feed in feedsSnapshot.children {
@@ -54,13 +54,14 @@ class HuesFeedViewController: UITableViewController {
             self.feeds = newFeeds
             self.tableView.reloadData()
             self.removeAllOverlays()
-            self.tableView.hidden = false
+            
         }) {  error in
             print (error.localizedDescription)
         }
     }
 
     // MARK: - Table View
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -88,6 +89,10 @@ class HuesFeedViewController: UITableViewController {
             cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
             break;
             
+        case Topic.OnMyPlate:
+            cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
+            break;
+            
         default:
             cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
         }
@@ -95,6 +100,15 @@ class HuesFeedViewController: UITableViewController {
         return cell
     }
     
+    
+//    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 10
+//    }
+//    
+//    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 10
+//    }
+//    
 //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! FeedTextTableViewCell
 //        

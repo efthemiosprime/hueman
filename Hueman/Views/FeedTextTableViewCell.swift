@@ -24,5 +24,13 @@ class FeedTextTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    @IBAction func didTapComment(sender: AnyObject) {
+        print("didTapComment")
+    }
+    @IBAction func didTapLike(sender: AnyObject) {
+        print("didTapLike")
+    }
 
 }

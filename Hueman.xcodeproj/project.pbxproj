@@ -49,6 +49,9 @@
 		3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */; };
 		3A45BAAF1DE926430062081E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BAAE1DE926430062081E /* Constants.swift */; };
 		3A45BAB11DE926BB0062081E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */; };
+		3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */; };
+		3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */; };
+		3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */; };
 		3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */; };
 		3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */; };
 		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
@@ -112,6 +115,9 @@
 		3A45BAAE1DE926430062081E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
 		3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A45BAB21DE927D60062081E /* Hueman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hueman.entitlements; sourceTree = "<group>"; };
+		3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HamburgerDrawerTableViewController.swift; path = ViewControllers/HamburgerDrawerTableViewController.swift; sourceTree = "<group>"; };
+		3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerProfileImageRowCell.swift; path = Views/DrawerProfileImageRowCell.swift; sourceTree = "<group>"; };
+		3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerProfileNameRowCell.swift; path = Views/DrawerProfileNameRowCell.swift; sourceTree = "<group>"; };
 		3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 				3A154E421DCD7352005A79EC /* NotificationsViewController.swift */,
 				3A154E431DCD7352005A79EC /* HuesFeedViewController.swift */,
 				3A154E441DCD7352005A79EC /* SignupViewController.swift */,
+				3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -250,6 +257,8 @@
 				3A154E591DCD7389005A79EC /* NotificationCell.swift */,
 				3A154E5A1DCD7389005A79EC /* HueboardCell.swift */,
 				3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */,
+				3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */,
+				3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -534,6 +543,7 @@
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
 				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,
 				3A154E461DCD7352005A79EC /* LoginViewController.swift in Sources */,
+				3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */,
 				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
@@ -544,10 +554,12 @@
 				3A987B191DED1C6100388DDF /* User.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
+				3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
 				3A154E471DCD7352005A79EC /* PickHuesViewController.swift in Sources */,
 				3A987B1C1DED1CDF00388DDF /* AuthenticationManager.swift in Sources */,
 				3A154E261DCD6EA6005A79EC /* Profile.swift in Sources */,
+				3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */,
 				3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */,
 				3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */,
 				3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */,
