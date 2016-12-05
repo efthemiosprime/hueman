@@ -13,7 +13,7 @@ class ConnectionsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
     
-    var connections = [Profile]()
+    var connections = [Connection]()
 
     
     override func viewDidLoad() {
@@ -22,20 +22,27 @@ class ConnectionsViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
 
         
-        connections.append(Profile(name:"Julius Busa", image: "hulyo.jpg", topic: .RelationshipMusing))
-        connections.append(Profile(name:"Maverick Shawn Aquino", image: "hulyo.jpg", topic: .OnMyPlate))
-        connections.append(Profile(name:"Nicolette Onate", image: "hulyo.jpg", topic: .DailyHustle))
-        connections.append(Profile(name:"Camille Laurente", image: "hulyo.jpg", topic: .Health))
-        connections.append(Profile(name:"Efthemios Suyat", image: "hulyo.jpg", topic: .RayOfLight))
+//        connections.append(Profile(name:"Julius Busa", image: "hulyo.jpg", topic: .RelationshipMusing))
+//        connections.append(Profile(name:"Maverick Shawn Aquino", image: "hulyo.jpg", topic: .OnMyPlate))
+//        connections.append(Profile(name:"Nicolette Onate", image: "hulyo.jpg", topic: .DailyHustle))
+//        connections.append(Profile(name:"Camille Laurente", image: "hulyo.jpg", topic: .Health))
+//        connections.append(Profile(name:"Efthemios Suyat", image: "hulyo.jpg", topic: .RayOfLight))
+        
+        connections.append(Connection(name: "Julius Busa", location: "New York, NY", imageURL: ""))
+        connections.append(Connection(name: "Maverick Shawn Aquino", location: "New York, NY", imageURL: ""))
+        connections.append(Connection(name: "Nicolette Onate", location: "New York, NY", imageURL: ""))
+        connections.append(Connection(name: "Camille Laurente", location: "New York, NY", imageURL: ""))
+        
+        connections.append(Connection(name: "Efthemios Suyat", location: "New York, NY", imageURL: ""))
         
         
         self.tableView.separatorStyle = .None
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let searchBoxController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchBox") as UIViewController
-        searchBoxController.view.frame = CGRectMake(0, 0, searchView.frame.size.width, 75)
-        self.searchView.addSubview(searchBoxController.view)
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
+
         
     }
     
@@ -49,17 +56,12 @@ class ConnectionsViewController: UIViewController {
     }
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationProfileController = segue.destinationViewController as? ConnectionProfileViewController {
-            
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if let destinationProfileController = segue.destinationViewController as? ConnectionProfileViewController {
+//            
+//        }
+//    }
     
     
 }
@@ -67,28 +69,16 @@ class ConnectionsViewController: UIViewController {
 
 extension ConnectionsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = indexPath.row % 2 == 0 ? tableView.dequeueReusableCellWithIdentifier("ConnectionLeftCell", forIndexPath: indexPath) as! ConnectionLeftCell : tableView.dequeueReusableCellWithIdentifier("ConnectionRightCell", forIndexPath: indexPath) as! ConnectionRightCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CONNECTION_CELL, forIndexPath: indexPath) as! ConnectionCell
         
-        
-        cell.backgroundColor = UIColor.clearColor()
-        cell.clipsToBounds = false
-        cell.contentView.clipsToBounds = false
-        
-        if let leftCell = cell as? ConnectionLeftCell {
-            leftCell.profile = connections[indexPath.row]
-        }
-        
-        if let rightCell = cell as? ConnectionRightCell {
-            rightCell.profile = connections[indexPath.row]
-            
-        }
+        cell.connection = connections[indexPath.row]
         
         return cell
     }
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 145
+        return 96
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
