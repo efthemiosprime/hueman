@@ -14,7 +14,12 @@ import SwiftOverlays
 
 class HuesFeedViewController: UITableViewController {
     
-    @IBOutlet weak var menuButon: UIBarButtonItem!
+    @IBOutlet var searchBar: UISearchBar!
+    var searhItem: UIBarButtonItem!
+    var filterItem: UIBarButtonItem!
+    var menuItem: UIBarButtonItem!
+    var backItem: UIBarButtonItem!
+    var searchBarOpen: Bool = false
     
     let cellTextIdentifier = "huesfeedtextcell"
     
@@ -28,9 +33,19 @@ class HuesFeedViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
 
+        backItem = UIBarButtonItem(image: UIImage(named: "back-bar-item"), style: .Plain, target: self, action: #selector(HuesFeedViewController.hideSearchBar))
+        
+        searhItem = UIBarButtonItem(image: UIImage(named: "search-item-icon"), style: .Plain, target: self, action: #selector(HuesFeedViewController.showSearchBar))
+        
+        searhItem.imageInsets = UIEdgeInsetsMake(2, 18, -2, -18)
+        
+        filterItem = UIBarButtonItem(image: UIImage(named: "filter-bar-item"), style: .Plain, target: self, action: nil)
+        filterItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0)
+        menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
+        
+        
+        addNavigationItems()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160
@@ -38,8 +53,8 @@ class HuesFeedViewController: UITableViewController {
 
         
         if revealViewController() != nil {
-            menuButon.target = revealViewController()
-            menuButon.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuItem.target = revealViewController()
+            menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -71,6 +86,32 @@ class HuesFeedViewController: UITableViewController {
         }) {  error in
             print (error.localizedDescription)
         }
+    }
+    
+    
+    func addNavigationItems () {
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.rightBarButtonItems = [filterItem, searhItem]
+    }
+    
+    func hideNavigationItems () {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItems = nil
+    }
+    
+    func showSearchBar() {
+        searchBarOpen = true
+        hideNavigationItems()
+        self.navigationItem.leftBarButtonItem = backItem
+        self.navigationItem.titleView = searchBar
+        searchBar.becomeFirstResponder()
+    }
+    
+    func hideSearchBar() {
+        searchBarOpen = false
+        hideNavigationItems()
+        addNavigationItems()
+        self.navigationItem.titleView = nil
     }
 
     // MARK: - Table View

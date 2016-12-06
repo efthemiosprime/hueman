@@ -565,7 +565,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julius Busa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-d5-qk9">
-                                <rect key="frame" x="146" y="398" width="83" height="17"/>
+                                <rect key="frame" x="146.5" y="398" width="82.5" height="17"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -841,15 +841,18 @@ Massachusetts</string>
                             <outlet property="delegate" destination="Xzd-Me-4Pw" id="vHT-0m-nTj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="WWF-pg-sUe">
-                        <barButtonItem key="leftBarButtonItem" image="hamburger-bar-item" id="T8G-X3-xNv"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="WWF-pg-sUe"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="menuButon" destination="T8G-X3-xNv" id="0j0-dL-4Cb"/>
+                        <outlet property="searchBar" destination="NoY-D8-Uzo" id="Cgr-Vk-ERO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DkT-jr-hu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" placeholder="search huesfeed" id="NoY-D8-Uzo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </objects>
             <point key="canvasLocation" x="6175.1999999999998" y="506.89655172413796"/>
         </scene>
@@ -1621,7 +1624,7 @@ Massachusetts</string>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1652,7 +1655,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1665,15 +1668,15 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="5077.6000000000004" y="-464.6176911544228"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Bar-->
         <scene sceneID="gdL-eL-Mbx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OxA-ni-I6x" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OxA-ni-I6x" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="B12-F0-z1B">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1695,7 +1698,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1739,7 +1742,6 @@ Massachusetts</string>
         <image name="filter-relationship-selected-btn" width="50" height="50"/>
         <image name="filter-wanderlust-notselected-btn" width="50" height="50"/>
         <image name="filter-wanderlust-selected-btn" width="50" height="50"/>
-        <image name="hamburger-bar-item" width="22" height="22"/>
         <image name="health-icon" width="37" height="37"/>
         <image name="help-center-icon_1" width="34" height="34"/>
         <image name="hueman-logo" width="247" height="58"/>
