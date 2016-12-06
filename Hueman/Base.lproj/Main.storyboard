@@ -565,7 +565,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julius Busa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-d5-qk9">
-                                <rect key="frame" x="146.5" y="398" width="82.5" height="17"/>
+                                <rect key="frame" x="146" y="398" width="83" height="17"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1651,7 +1651,7 @@ Massachusetts</string>
         <scene sceneID="QSk-y1-8by">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ShM-rD-ryk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-selected" id="5rQ-R0-03f">
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-selected" id="5rQ-R0-03f">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1672,7 +1672,7 @@ Massachusetts</string>
         <scene sceneID="gdL-eL-Mbx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OxA-ni-I6x" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="B12-F0-z1B">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="B12-F0-z1B">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1694,7 +1694,7 @@ Massachusetts</string>
         <scene sceneID="qbd-cq-q9s">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bod-oI-1KW" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-selected" id="mdU-Mb-acb">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-selected" id="mdU-Mb-acb">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBar: UITabBarController {
+class TabBar: UITabBarController, UITabBarControllerDelegate{
 
     @IBOutlet weak var writePostItem: UIBarButtonItem!
    // @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -30,6 +30,7 @@ class TabBar: UITabBarController {
             NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x959595)
         ]
         
+        self.delegate = self
         
         
     }
@@ -62,5 +63,19 @@ class TabBar: UITabBarController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+
+    
+    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+        print (tabBarController.selectedIndex)
+        
+        if viewController == tabBarController.viewControllers![3]    {
+            print("xx HueboardsViewController xx")
+            return false
+
+        }
+
+        return true
+    }
 
 }
