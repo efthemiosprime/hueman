@@ -11,7 +11,7 @@ import UIKit
 class TabBar: UITabBarController {
 
     @IBOutlet weak var writePostItem: UIBarButtonItem!
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+   // @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +49,11 @@ class TabBar: UITabBarController {
         profileItem!.customView = itemView
     */
 
-        if revealViewController() != nil {
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+//        if revealViewController() != nil {
+//            menuButton.target = revealViewController()
+//            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+//            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//        }
         
     }
     

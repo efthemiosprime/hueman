@@ -12,8 +12,11 @@ class NotificationsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.topItem!.title = "notifications"
+        
+        self.navigationController?.navigationBar.topItem!.title = "connections"
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
+        
     }
 
     

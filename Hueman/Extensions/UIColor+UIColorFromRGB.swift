@@ -6,7 +6,7 @@
 //  Copyright © 2016 Efthemios Prime. All rights reserved.
 //
 
-
+import UIKit
 
 extension UIColor {
     static func UIColorFromRGB(rgbValue: UInt) -> UIColor {
@@ -18,4 +18,6 @@ extension UIColor {
         )
     }
 }
+
+
 

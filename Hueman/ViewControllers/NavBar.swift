@@ -13,7 +13,12 @@ class NavBar: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.navigationBar.topItem!.title = ""
+        self.setNavigationBarHidden(false, animated: false)
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
+        
+        
     
     }
 

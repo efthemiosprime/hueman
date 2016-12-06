@@ -9,4 +9,4 @@
 import UIKit
 
 let KEY_UID = "uid"
-let CONNECTION_CELL = "connectionCell"
+let CONNECTION_CELL_IDENTIFIER = "connectionCell"

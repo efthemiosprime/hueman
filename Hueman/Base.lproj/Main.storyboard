@@ -206,7 +206,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNK-FD-DrO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNK-FD-DrO">
                                                     <rect key="frame" x="22" y="18" width="122" height="122"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -253,11 +253,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="app-settings-icon" translatesAutoresizingMaskIntoConstraints="NO" id="s7S-Bq-AEs">
-                                                    <rect key="frame" x="25" y="12" width="34" height="34"/>
+                                                    <rect key="frame" x="20" y="12" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="app settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONF-UE-dq0">
-                                                    <rect key="frame" x="85" y="19" width="282" height="21"/>
+                                                    <rect key="frame" x="77" y="19" width="282" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="18"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -274,11 +274,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="privacy-policy-icon" translatesAutoresizingMaskIntoConstraints="NO" id="TPT-e8-gbb">
-                                                    <rect key="frame" x="25" y="12" width="34" height="34"/>
+                                                    <rect key="frame" x="20" y="12" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="privacy policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeH-ry-sX0">
-                                                    <rect key="frame" x="85" y="19" width="282" height="21"/>
+                                                    <rect key="frame" x="77" y="19" width="282" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="18"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -295,11 +295,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="terms-conditions-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6OZ-xr-koA">
-                                                    <rect key="frame" x="25" y="12" width="34" height="34"/>
+                                                    <rect key="frame" x="20" y="12" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="terms and conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GP0-JR-aw6">
-                                                    <rect key="frame" x="85" y="19" width="282" height="21"/>
+                                                    <rect key="frame" x="77" y="19" width="282" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="18"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -316,11 +316,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="report-problem-icon" translatesAutoresizingMaskIntoConstraints="NO" id="78f-Pr-cbL">
-                                                    <rect key="frame" x="25" y="12" width="34" height="34"/>
+                                                    <rect key="frame" x="20" y="12" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="report a problem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dg1-Pf-2M1">
-                                                    <rect key="frame" x="85" y="19" width="282" height="21"/>
+                                                    <rect key="frame" x="77" y="19" width="282" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="18"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -337,11 +337,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help-center-icon_1" translatesAutoresizingMaskIntoConstraints="NO" id="ClD-Y0-hDC">
-                                                    <rect key="frame" x="25" y="12" width="34" height="34"/>
+                                                    <rect key="frame" x="20" y="12" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="help center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i24-9y-YVM">
-                                                    <rect key="frame" x="85" y="19" width="282" height="21"/>
+                                                    <rect key="frame" x="77" y="19" width="282" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="18"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -841,7 +841,13 @@ Massachusetts</string>
                             <outlet property="delegate" destination="Xzd-Me-4Pw" id="vHT-0m-nTj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0i3-SQ-UnO"/>
+                    <navigationItem key="navigationItem" id="WWF-pg-sUe">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger-bar-item" id="T8G-X3-xNv"/>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButon" destination="T8G-X3-xNv" id="0j0-dL-4Cb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DkT-jr-hu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -851,14 +857,7 @@ Massachusetts</string>
         <scene sceneID="1ii-RM-aAk">
             <objects>
                 <tabBarController id="SvP-59-BOn" customClass="TabBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Odh-y5-w61">
-                        <barButtonItem key="leftBarButtonItem" image="hamburger-bar-item" id="Fy1-aj-z5V"/>
-                        <barButtonItem key="rightBarButtonItem" image="write-post-bar-item" width="22" id="VFR-vo-dCi">
-                            <connections>
-                                <action selector="createFeed:" destination="SvP-59-BOn" id="Fph-gh-00p"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Odh-y5-w61"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5Al-8v-M9E">
@@ -867,7 +866,6 @@ Massachusetts</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <outlet property="menuButton" destination="Fy1-aj-z5V" id="GKb-nk-NH6"/>
                         <segue destination="JIw-ye-t1H" kind="presentation" identifier="CreatePost" id="6O1-1d-wip"/>
                         <segue destination="Ooc-xd-Edo" kind="presentation" identifier="FilterOption" id="EOW-9B-phL"/>
                         <segue destination="wSJ-fA-lIe" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
@@ -1024,19 +1022,32 @@ Massachusetts</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="r4L-3W-gib">
-                        <barButtonItem key="leftBarButtonItem" image="hamburger-bar-item" id="Ftj-EA-1GV"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="r4L-3W-gib"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="8y8-ih-J0x" id="p1W-8e-lFV"/>
+                        <outlet property="searchDisplayController" destination="kh8-qJ-BOK" id="ITF-TO-LOz"/>
                         <outlet property="tableView" destination="ryb-Qq-HS5" id="ZHa-eE-IET"/>
                         <segue destination="WTN-aI-Hpi" kind="show" identifier="showConnection" id="rR1-8X-a2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-DB-3hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="kh8-qJ-BOK">
+                    <connections>
+                        <outlet property="delegate" destination="Ttj-Lh-GvP" id="ckm-Br-juR"/>
+                        <outlet property="searchContentsController" destination="Ttj-Lh-GvP" id="mPa-BK-kbf"/>
+                        <outlet property="searchResultsDataSource" destination="Ttj-Lh-GvP" id="YoA-ot-8hg"/>
+                        <outlet property="searchResultsDelegate" destination="Ttj-Lh-GvP" id="nO0-Ny-Yy4"/>
+                    </connections>
+                </searchDisplayController>
+                <searchBar contentMode="redraw" placeholder="search connection" translucent="NO" id="8y8-ih-J0x">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                </searchBar>
             </objects>
-            <point key="canvasLocation" x="5707.5" y="-1210.5"/>
+            <point key="canvasLocation" x="5706.3999999999996" y="-1211.2443778110946"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="pwK-2y-sWl">
@@ -1484,7 +1495,7 @@ Massachusetts</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-l0-Nu2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLu-ok-pgO" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1596,10 +1607,10 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="6636" y="-1208.5457271364319"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Bar-->
         <scene sceneID="MJb-ka-ZqA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wSJ-fA-lIe" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wSJ-fA-lIe" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-selected" id="RZj-KZ-T6N" userLabel="connections">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
@@ -1612,12 +1623,21 @@ Massachusetts</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="qfh-0A-nOY" id="CTW-kx-PBT"/>
                         <segue destination="Ttj-Lh-GvP" kind="relationship" relationship="rootViewController" id="HG0-bP-7jR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVx-6Z-XW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="qfh-0A-nOY">
+                    <connections>
+                        <outlet property="delegate" destination="wSJ-fA-lIe" id="KuG-Qb-jD3"/>
+                        <outlet property="searchContentsController" destination="wSJ-fA-lIe" id="gU6-7X-UfE"/>
+                        <outlet property="searchResultsDataSource" destination="wSJ-fA-lIe" id="PDp-wI-567"/>
+                        <outlet property="searchResultsDelegate" destination="wSJ-fA-lIe" id="13l-4g-Vjf"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="4768.8000000000002" y="-1209.4452773613195"/>
+            <point key="canvasLocation" x="5038" y="-1227"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QSk-y1-8by">
@@ -1651,6 +1671,7 @@ Massachusetts</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1751,10 +1772,9 @@ Massachusetts</string>
         <image name="terms-conditions-icon" width="34" height="34"/>
         <image name="topic-container" width="288" height="43"/>
         <image name="wanderlust-icon" width="37" height="37"/>
-        <image name="write-post-bar-item" width="22" height="22"/>
         <image name="write-post-icon" width="41" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bqS-Mq-b4c"/>
+        <segue reference="gNX-ic-ARf"/>
     </inferredMetricsTieBreakers>
 </document>
