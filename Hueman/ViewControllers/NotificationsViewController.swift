@@ -10,13 +10,21 @@ import UIKit
 
 class NotificationsViewController: UITableViewController {
 
+    var menuItem: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.topItem!.title = "connections"
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
+        self.navigationController?.navigationBar.topItem!.title = "notifications"
         
+        menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = menuItem
+
+        if revealViewController() != nil {
+            menuItem.target = revealViewController()
+            menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
 
     
@@ -26,11 +34,7 @@ class NotificationsViewController: UITableViewController {
         
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     // MARK: - Table View
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

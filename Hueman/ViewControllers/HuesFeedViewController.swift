@@ -66,7 +66,13 @@ class HuesFeedViewController: UITableViewController {
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
         fetchFeeds()
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if searchBarOpen {
+            hideSearchBar()
+        }
+    }
     
     
     func fetchFeeds() {
@@ -113,6 +119,8 @@ class HuesFeedViewController: UITableViewController {
         addNavigationItems()
         self.navigationItem.titleView = nil
     }
+    
+
 
     // MARK: - Table View
 

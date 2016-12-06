@@ -1690,10 +1690,10 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="5236" y="506.89655172413796"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Bar-->
         <scene sceneID="qbd-cq-q9s">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bod-oI-1KW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bod-oI-1KW" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-selected" id="mdU-Mb-acb">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
