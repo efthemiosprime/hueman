@@ -882,12 +882,12 @@ Massachusetts</string>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="JIw-ye-t1H" kind="presentation" identifier="CreatePost" id="6O1-1d-wip"/>
                         <segue destination="Ooc-xd-Edo" kind="presentation" identifier="FilterOption" id="EOW-9B-phL"/>
                         <segue destination="wSJ-fA-lIe" kind="relationship" relationship="viewControllers" id="l9P-cm-xRt"/>
                         <segue destination="bod-oI-1KW" kind="relationship" relationship="viewControllers" id="MWv-gc-jVV"/>
                         <segue destination="OxA-ni-I6x" kind="relationship" relationship="viewControllers" id="7U5-G0-Sz3"/>
                         <segue destination="ShM-rD-ryk" kind="relationship" relationship="viewControllers" id="OqD-yB-CcJ"/>
+                        <segue destination="TVX-Vb-Dl9" kind="presentation" identifier="CreatePost" id="Res-We-OyF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIY-vW-yjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1207,7 +1207,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueo-qe-IHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3588" y="-1675"/>
+            <point key="canvasLocation" x="2754" y="-955"/>
         </scene>
         <!--Search Bar View Controller-->
         <scene sceneID="WhY-37-fwr">
@@ -1346,7 +1346,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-LJ-5ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2870" y="-1255"/>
+            <point key="canvasLocation" x="3350" y="-954"/>
         </scene>
         <!--Filter Options View Controller-->
         <scene sceneID="O95-Mz-9BX">
@@ -1627,7 +1627,7 @@ Massachusetts</string>
         <scene sceneID="MJb-ka-ZqA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wSJ-fA-lIe" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab-icon-connections" selectedImage="tab-icon-connections-selected" id="RZj-KZ-T6N" userLabel="connections">
+                    <tabBarItem key="tabBarItem" title="" image="tab-connections-icon" selectedImage="tab-connections-selected-icon" id="RZj-KZ-T6N" userLabel="connections">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -1659,7 +1659,7 @@ Massachusetts</string>
         <scene sceneID="QSk-y1-8by">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ShM-rD-ryk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="" image="tab-icon-hueboards" selectedImage="tab-icon-hueboards-selected" id="5rQ-R0-03f">
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="tab-post-icon" selectedImage="tab-post-selected-icon" id="5rQ-R0-03f">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1680,7 +1680,7 @@ Massachusetts</string>
         <scene sceneID="gdL-eL-Mbx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OxA-ni-I6x" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-icon-huesfeed" selectedImage="tab-icon-huesfeed-selected" id="B12-F0-z1B">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab-huesfeed-icon" selectedImage="tab-huesfeed-selected-icon" id="B12-F0-z1B">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1702,7 +1702,7 @@ Massachusetts</string>
         <scene sceneID="qbd-cq-q9s">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bod-oI-1KW" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-icon-notifications" selectedImage="tab-icon-notifications-selected" id="mdU-Mb-acb">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab-notifications-icon" selectedImage="tab-notifications-selected-icon" id="mdU-Mb-acb">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1776,14 +1776,14 @@ Massachusetts</string>
         <image name="report-problem-icon" width="34" height="34"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
-        <image name="tab-icon-connections" width="48" height="32"/>
-        <image name="tab-icon-connections-selected" width="48" height="32"/>
-        <image name="tab-icon-hueboards" width="48" height="32"/>
-        <image name="tab-icon-hueboards-selected" width="48" height="32"/>
-        <image name="tab-icon-huesfeed" width="48" height="32"/>
-        <image name="tab-icon-huesfeed-selected" width="48" height="32"/>
-        <image name="tab-icon-notifications" width="48" height="32"/>
-        <image name="tab-icon-notifications-selected" width="48" height="32"/>
+        <image name="tab-connections-icon" width="48" height="32"/>
+        <image name="tab-connections-selected-icon" width="48" height="32"/>
+        <image name="tab-huesfeed-icon" width="48" height="32"/>
+        <image name="tab-huesfeed-selected-icon" width="48" height="32"/>
+        <image name="tab-notifications-icon" width="48" height="32"/>
+        <image name="tab-notifications-selected-icon" width="48" height="32"/>
+        <image name="tab-post-icon" width="48" height="32"/>
+        <image name="tab-post-selected-icon" width="48" height="32"/>
         <image name="terms-conditions-icon" width="34" height="34"/>
         <image name="topic-container" width="288" height="43"/>
         <image name="wanderlust-icon" width="37" height="37"/>

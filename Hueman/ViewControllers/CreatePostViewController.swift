@@ -30,7 +30,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     var topicIcon: String?
     var topicString: String?
     var currentUser: User!
-    var previousController: UIViewController!
     
     var feedManager = FeedManager()
     
@@ -85,36 +84,43 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
             icon.image = UIImage(named: "wanderlust-icon.png")
+            topicString = Topic.Wanderlust
         }
+        
         
         if sender.tag == 1 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0xF49445)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xF49445)
             icon.image = UIImage(named: "plate-icon.png")
+            topicString = Topic.OnMyPlate
         }
         
         if sender.tag == 2 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0xe2563b)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xe2563b)
             icon.image = UIImage(named: "relationship-icon.png")
+            topicString = Topic.RelationshipMusing
         }
         
         if sender.tag == 3 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x7BC8A4)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x7BC8A4)
             icon.image = UIImage(named: "health-icon.png")
+            topicString = Topic.Health
         }
         
         if sender.tag == 4 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x93648D)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x93648D)
             icon.image = UIImage(named: "hustle-icon.png")
+            topicString = Topic.DailyHustle
         }
         
         if sender.tag == 5 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0xEACD53)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xEACD53)
             icon.image = UIImage(named: "ray-light-icon.png")
+            topicString = Topic.RayOfLight
         }
         
         showTopic(true)
@@ -148,19 +154,20 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
 
     @IBAction func didTapCreateFeed(sender: AnyObject) {
-        
+        print("xxxx didTapCreateFeed  xxxxx")
         if postInput.text.isEmpty {
             print("input can't be empty")
         }else {
+         
+            print(postInput.text + " " + topicString!)
             if let text: String = postInput.text, let topic = topicString {
                 
                 let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic)
                 
                 feedManager.createFeed(feed, feedPosted: {
-                    self.previousController.dismissViewControllerAnimated(false, completion: {
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                    print("xxxx feedPosted  xxxxx")
 
-                    })
+                    self.dismissViewControllerAnimated(true, completion: nil)
 
                 })
                 
@@ -174,11 +181,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func backButton(sender: AnyObject) {
         postInput?.resignFirstResponder()
-        
-        self.previousController.dismissViewControllerAnimated(false, completion: {
-            self.dismissViewControllerAnimated(true, completion: nil)
-            
-        })
+        self.dismissViewControllerAnimated(true, completion: nil)
+
         
         
     }

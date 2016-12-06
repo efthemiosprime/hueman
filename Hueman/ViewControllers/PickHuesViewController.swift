@@ -42,7 +42,6 @@ class PickHuesViewController: UIViewController {
         createPostController.topicIcon = self.viewModel?.hueIcons[btn.tag]
         createPostController.topicString = self.viewModel?.hueTopics[btn.tag]
         
-        createPostController.previousController = currentController
         
         
         self.presentViewController(createPostController!, animated: true, completion: nil)

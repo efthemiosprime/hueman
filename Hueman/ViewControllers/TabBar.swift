@@ -70,7 +70,7 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         print (tabBarController.selectedIndex)
         
         if viewController == tabBarController.viewControllers![3]    {
-            print("xx HueboardsViewController xx")
+            createPost()
             return false
 
         }
