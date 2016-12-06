@@ -13,14 +13,21 @@ import FirebaseDatabase
 
 class HamburgerDrawerTableViewController: UITableViewController {
     
+    @IBOutlet var profileImage: UIImageView!
+    
     var userRef: FIRDatabaseQuery!
     var currentUser: User!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userRef = FIRDatabase.database().reference().child("users").queryOrderedByChild("email").queryEqualToValue(FIRAuth.auth()!.currentUser!.email)
         
+        
+        profileImage.layer.borderWidth = 2
+        profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x666666).CGColor
+
     }
 
     override func viewWillAppear(animated: Bool) {

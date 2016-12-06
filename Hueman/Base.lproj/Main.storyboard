@@ -209,6 +209,11 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNK-FD-DrO">
                                                     <rect key="frame" x="22" y="18" width="122" height="122"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -388,6 +393,9 @@
                             <outlet property="delegate" destination="Dth-Xh-86j" id="HtX-O4-zGW"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="profileImage" destination="yNK-FD-DrO" id="9YL-ek-qHZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xB-yN-a3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
