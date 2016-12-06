@@ -1137,7 +1137,7 @@ Massachusetts</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="filter-icon"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbP-56-ZdH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbP-56-ZdH" userLabel="Submit Button">
                                 <rect key="frame" x="293" y="265" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="post-icon"/>
@@ -1196,6 +1196,7 @@ Massachusetts</string>
                         <outlet property="icon" destination="gSk-Qk-Ddy" id="oR0-Ke-vJf"/>
                         <outlet property="inputBackground" destination="Lhr-t2-O7d" id="7fW-Mh-76d"/>
                         <outlet property="postInput" destination="Q5g-g2-JUK" id="jpI-bL-E3i"/>
+                        <outlet property="submitButton" destination="YbP-56-ZdH" id="d4u-fN-Vms"/>
                         <outlet property="topic" destination="WZC-zr-4cu" id="tok-lV-HxZ"/>
                         <outletCollection property="huesCollections" destination="kRb-Ng-GpO" collectionClass="NSMutableArray" id="fOc-QH-5AX"/>
                         <outletCollection property="huesCollections" destination="TFg-Bu-21k" collectionClass="NSMutableArray" id="eM4-JD-kCg"/>

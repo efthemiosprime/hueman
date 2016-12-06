@@ -13,6 +13,7 @@ import MobileCoreServices
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
+import SwiftOverlays
 
 class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -23,12 +24,20 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var topic: UIView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
     
     @IBOutlet var huesCollections: Array<UIButton>?
     
     var topicColor: UInt?
     var topicIcon: String?
-    var topicString: String?
+    var topicString: String? {
+        didSet {
+            submitButton.enabled = true
+        }
+    }
+    
+
+    
     var currentUser: User!
     
     var feedManager = FeedManager()
@@ -39,6 +48,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         
         showTopic(true)
+        submitButton.enabled = false
         
         postInput.delegate = self
         self.navigationController?.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x93648D)
@@ -154,7 +164,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
 
     @IBAction func didTapCreateFeed(sender: AnyObject) {
-        print("xxxx didTapCreateFeed  xxxxx")
+        submitButton.enabled = false
+        showWaitOverlay()
+
         if postInput.text.isEmpty {
             print("input can't be empty")
         }else {
@@ -165,7 +177,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                 let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic)
                 
                 feedManager.createFeed(feed, feedPosted: {
-                    print("xxxx feedPosted  xxxxx")
+                    self.removeAllOverlays()
 
                     self.dismissViewControllerAnimated(true, completion: nil)
 
