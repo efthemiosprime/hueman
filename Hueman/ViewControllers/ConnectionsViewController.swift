@@ -20,6 +20,9 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     
     var connections = [Connection]()
     var searchController: UISearchController!
+
+    
+    var searchBarOpen: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +101,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     }
     
     func showSearchBar() {
+        searchBarOpen = true
         hideNavigationItems()
         self.navigationItem.leftBarButtonItem = backItem
         self.navigationItem.titleView = searchBar
@@ -105,12 +109,10 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     }
     
     func didCancelSearch() {
+        searchBarOpen = false
         hideNavigationItems()
         addNavigationItems()
         self.navigationItem.titleView = nil
-
-        
-        
     }
     
     // MARK: - Table View
@@ -120,6 +122,13 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "connections"
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if searchBarOpen {
+            didCancelSearch()
+        }
     }
     
     // MARK: - Search Controller
