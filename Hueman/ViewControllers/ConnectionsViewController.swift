@@ -26,18 +26,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: yourbutton), animated: true);
-        
-//        var textFieldInsideSearchBar = yourSearchbar.valueForKey("searchField") as? UITextField
-//        
-//        textFieldInsideSearchBar?.textColor = yourcolor
-//        textFieldInsideSearchBar?.backgroundColor = backgroundColor
-//        
-        
-      //  searchController.searchBar.backgroundColor = UIColor.grayColor()
-//        searchController.searchBar.setSearchFieldBackgroundImage(UIImage(named: ""), forState: .Normal)
-        
-        
 
         
         backItem = UIBarButtonItem(image: UIImage(named: "back-bar-item"), style: .Plain, target: self, action: #selector(ConnectionsViewController.didCancelSearch))
@@ -64,23 +52,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
-        /*
-        self.searchController = UISearchController(searchResultsController:  nil)
-        
-        self.searchController.searchResultsUpdater = self
-        self.searchController.delegate = self
-        self.searchController.searchBar.delegate = self
-        
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchBar.placeholder = "Search Connection"
-        self.searchController.dimsBackgroundDuringPresentation = true
-        
-        self.navigationItem.titleView = searchController.searchBar
-        
-        self.definesPresentationContext = true
-        */
-        
+
         if revealViewController() != nil {
             menuItem.target = revealViewController()
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -88,6 +60,31 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         }
 
         
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem!.title = "connections"
+        
+        if revealViewController() != nil {
+            menuItem.target = revealViewController()
+            menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if searchBarOpen {
+            didCancelSearch()
+        }
+        
+        if revealViewController() != nil {
+            menuItem.target = nil
+            menuItem.action = nil
+            self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     func addNavigationItems () {
@@ -117,19 +114,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     
     // MARK: - Table View
 
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem!.title = "connections"
-        
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        if searchBarOpen {
-            didCancelSearch()
-        }
-    }
+
     
     // MARK: - Search Controller
     func updateSearchResultsForSearchController(searchController: UISearchController) {

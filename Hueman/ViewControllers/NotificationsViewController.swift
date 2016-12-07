@@ -20,11 +20,7 @@ class NotificationsViewController: UITableViewController {
         menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = menuItem
 
-        if revealViewController() != nil {
-            menuItem.target = revealViewController()
-            menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+
     }
 
     
@@ -32,6 +28,22 @@ class NotificationsViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "notifications"
         
+        if revealViewController() != nil {
+            menuItem.target = revealViewController()
+            menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if revealViewController() != nil {
+            menuItem.target = nil
+            menuItem.action = nil
+            self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
 

@@ -52,25 +52,33 @@ class HuesFeedViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
         
-        if revealViewController() != nil {
-            menuItem.target = revealViewController()
-            menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
+        
+        if revealViewController() != nil {
+            menuItem.target = revealViewController()
+            menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        
         fetchFeeds()
+    
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         if searchBarOpen {
             hideSearchBar()
+        }
+        
+        if revealViewController() != nil {
+            menuItem.target = nil
+            menuItem.action = nil
+            self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
