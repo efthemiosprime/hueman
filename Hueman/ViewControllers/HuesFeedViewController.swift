@@ -84,6 +84,7 @@ class HuesFeedViewController: UITableViewController {
     
     
     func fetchFeeds() {
+        
         showWaitOverlay()
         databaseRef.child("feeds").observeSingleEventOfType(.Value, withBlock: {
             feedsSnapshot in

@@ -19,7 +19,7 @@ struct User {
     var photoURL: String?
     var password: String?
     var bio: String?
-    var uid: String!
+    var uid: String?
     var ref: FIRDatabaseReference?
     var key: String?
     
@@ -36,7 +36,7 @@ struct User {
 
         photoURL = snapshot.value!["photoURL"] as? String
         
-      //  uid = snapshot.value!["uid"] as! String
+        uid = snapshot.value!["uid"] as? String
         
 
     }

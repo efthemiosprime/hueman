@@ -36,6 +36,7 @@ struct AuthenticationManager {
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
                     NSUserDefaults.standardUserDefaults().synchronize()
                     
+
                     
                     loggedIn?()
                 }
@@ -64,10 +65,12 @@ struct AuthenticationManager {
                 self.keychainWrapper.writeToKeychain()
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
                 NSUserDefaults.standardUserDefaults().synchronize()
-
                 
                 
-                self.saveUserInfo(user, userVo: userVo)
+                var updatedUserVo = userVo
+                updatedUserVo.uid = FIRAuth.auth()?.currentUser?.uid
+                
+                self.saveUserInfo(user, userVo: updatedUserVo)
                 completion?()
             }else {
                 print("error: \(error?.localizedDescription)")
@@ -82,7 +85,8 @@ struct AuthenticationManager {
             "email": userVo.email!,
             "dob": userVo.dob,
             "location": userVo.location,
-            "bio": userVo.bio
+            "bio": userVo.bio,
+            "uid": userVo.uid
         ]
         
        let userRef = dataBaseRef.child("users").child(user.uid)
@@ -104,6 +108,19 @@ struct AuthenticationManager {
         }
         
         return false
+    }
+    
+    func readUser(key: String) {
+        print (" +++++++ readUser +++++++++")
+        let userRef = dataBaseRef.child("/users/\(key)")
+        userRef.observeSingleEventOfType(.Value, withBlock: {
+            snapshot in
+            
+            if !snapshot.exists() { return }
+            
+            print(snapshot.value!["email"] as! String)
+
+        })
     }
     
      func manuallyStoreCreds() {

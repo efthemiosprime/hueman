@@ -57,6 +57,7 @@
 		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
 		3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */; };
+		3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */; };
 		3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B151DED1BC600388DDF /* KeychainWrapper.m */; };
 		3A987B191DED1C6100388DDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B171DED1C6100388DDF /* User.swift */; };
 		3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B181DED1C6100388DDF /* Feed.swift */; };
@@ -123,6 +124,7 @@
 		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
 		3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Bold.otf"; path = "Fonts/Sofia Pro Bold.otf"; sourceTree = "<group>"; };
 		3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTextTableViewCell.swift; path = Views/FeedTextTableViewCell.swift; sourceTree = "<group>"; };
+		3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedImageTableViewCell.swift; path = Views/FeedImageTableViewCell.swift; sourceTree = "<group>"; };
 		3A987B141DED1BC600388DDF /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = ThirdParties/KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
 		3A987B151DED1BC600388DDF /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = ThirdParties/KeychainWrapper/KeychainWrapper.m; sourceTree = "<group>"; };
 		3A987B171DED1C6100388DDF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */,
 				3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */,
 				3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */,
+				3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */,
 				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
+				3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */,
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
 				3A154E4D1DCD7352005A79EC /* SearchBarViewController.swift in Sources */,
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,
