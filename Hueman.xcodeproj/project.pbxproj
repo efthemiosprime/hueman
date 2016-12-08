@@ -47,6 +47,7 @@
 		3A154E781DCD8D77005A79EC /* PickHuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E771DCD8D77005A79EC /* PickHuesViewModel.swift */; };
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
 		3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */; };
+		3A3B2AC91DF8FA83004350A0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2AC81DF8FA83004350A0 /* EditProfileViewController.swift */; };
 		3A45BAAF1DE926430062081E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BAAE1DE926430062081E /* Constants.swift */; };
 		3A45BAB11DE926BB0062081E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */; };
 		3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */; };
@@ -58,6 +59,7 @@
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
 		3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */; };
 		3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */; };
+		3A982BB81DF9023D005DF901 /* EditProfileViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A982BB71DF9023D005DF901 /* EditProfileViewController+Handlers.swift */; };
 		3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B151DED1BC600388DDF /* KeychainWrapper.m */; };
 		3A987B191DED1C6100388DDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B171DED1C6100388DDF /* User.swift */; };
 		3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B181DED1C6100388DDF /* Feed.swift */; };
@@ -113,6 +115,7 @@
 		3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light.otf"; path = "Fonts/Sofia Pro Light.otf"; sourceTree = "<group>"; };
 		3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Regular.otf"; path = "Fonts/Sofia Pro Regular.otf"; sourceTree = "<group>"; };
 		3A22A3EF1DA3B6080011B467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A3B2AC81DF8FA83004350A0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = ViewControllers/EditProfileViewController.swift; sourceTree = "<group>"; };
 		3A45BAAE1DE926430062081E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
 		3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A45BAB21DE927D60062081E /* Hueman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hueman.entitlements; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 		3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Bold.otf"; path = "Fonts/Sofia Pro Bold.otf"; sourceTree = "<group>"; };
 		3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTextTableViewCell.swift; path = Views/FeedTextTableViewCell.swift; sourceTree = "<group>"; };
 		3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedImageTableViewCell.swift; path = Views/FeedImageTableViewCell.swift; sourceTree = "<group>"; };
+		3A982BB71DF9023D005DF901 /* EditProfileViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EditProfileViewController+Handlers.swift"; path = "ViewControllers/EditProfileViewController+Handlers.swift"; sourceTree = "<group>"; };
 		3A987B141DED1BC600388DDF /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = ThirdParties/KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
 		3A987B151DED1BC600388DDF /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = ThirdParties/KeychainWrapper/KeychainWrapper.m; sourceTree = "<group>"; };
 		3A987B171DED1C6100388DDF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				3A154E431DCD7352005A79EC /* HuesFeedViewController.swift */,
 				3A154E441DCD7352005A79EC /* SignupViewController.swift */,
 				3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */,
+				3A3B2AC81DF8FA83004350A0 /* EditProfileViewController.swift */,
+				3A982BB71DF9023D005DF901 /* EditProfileViewController+Handlers.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				3A154E4B1DCD7352005A79EC /* ConnectionProfileViewController.swift in Sources */,
 				3A154E641DCD7430005A79EC /* HueboardsLayout.swift in Sources */,
 				3A154E451DCD7352005A79EC /* FilterOptionsViewController.swift in Sources */,
+				3A3B2AC91DF8FA83004350A0 /* EditProfileViewController.swift in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A154E4F1DCD7352005A79EC /* NavBar.swift in Sources */,
 				3A154E601DCD7389005A79EC /* NotificationCell.swift in Sources */,
@@ -541,6 +548,7 @@
 				3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */,
 				3A154E4C1DCD7352005A79EC /* ConnectionsViewController.swift in Sources */,
 				3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */,
+				3A982BB81DF9023D005DF901 /* EditProfileViewController+Handlers.swift in Sources */,
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
 				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BCO-Qn-cTH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1813,6 +1813,122 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="5236" y="506.89655172413796"/>
         </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="9z9-Kr-a2k">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12l-CS-ga1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="BCO-Qn-cTH" customClass="EditProfileViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DQH-8c-XvN"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Zt-MV-Wud"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lom-C3-iHA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzW-n9-dhZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-RP-wwz" userLabel="Profile">
+                                        <rect key="frame" x="37" y="60" width="301" height="285"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-bg" translatesAutoresizingMaskIntoConstraints="NO" id="O5f-dR-lDA">
+                                                <rect key="frame" x="0.0" y="11.5" width="286" height="286"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cwm-c5-B8w">
+                                                <rect key="frame" x="13" y="24" width="260" height="260"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="285" id="WVG-85-rTG"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CrL-9A-hDH" userLabel="nameLabel">
+                                        <rect key="frame" x="46" y="373" width="286" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-name-background" translatesAutoresizingMaskIntoConstraints="NO" id="ezg-wC-XVq">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your name here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Rq-c4-qLh">
+                                                <rect key="frame" x="8" y="3" width="270" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                            </textField>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MwW-gn-Ptm" userLabel="demo">
+                                        <rect key="frame" x="46" y="424" width="286" height="118"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="birthday-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PeJ-Um-Bqm">
+                                                <rect key="frame" x="195" y="8" width="43" height="43"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="u40-gM-M3G">
+                                                <rect key="frame" x="48" y="8" width="43" height="43"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When is your birthday?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYG-4i-n0z">
+                                                <rect key="frame" x="150" y="54" width="133" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What city do you live in?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DYU-fT-5Hb">
+                                                <rect key="frame" x="11" y="54" width="116" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IZC-RP-wwz" firstAttribute="leading" secondItem="PzW-n9-dhZ" secondAttribute="leading" constant="37" id="9m2-xS-2PJ"/>
+                                    <constraint firstItem="IZC-RP-wwz" firstAttribute="centerX" secondItem="PzW-n9-dhZ" secondAttribute="centerX" id="Fjp-aD-hDR"/>
+                                    <constraint firstAttribute="trailing" secondItem="IZC-RP-wwz" secondAttribute="trailing" constant="53" id="K8P-SO-U8u"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IZC-RP-wwz" secondAttribute="bottom" constant="321" id="WBe-17-dDA"/>
+                                    <constraint firstAttribute="bottom" secondItem="IZC-RP-wwz" secondAttribute="bottom" constant="321" id="m9y-5M-egY"/>
+                                    <constraint firstItem="IZC-RP-wwz" firstAttribute="top" secondItem="PzW-n9-dhZ" secondAttribute="top" constant="60" id="mVM-pl-s98"/>
+                                </constraints>
+                            </scrollView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PUV-to-JoB">
+                                <rect key="frame" x="0.0" y="524" width="375" height="146"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="502863921.97612202">
+                                    <!--2016-12-08 04:25:21 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PzW-n9-dhZ" firstAttribute="top" secondItem="Lom-C3-iHA" secondAttribute="top" id="dil-Q4-6IT"/>
+                            <constraint firstItem="4Zt-MV-Wud" firstAttribute="top" secondItem="PzW-n9-dhZ" secondAttribute="bottom" id="qdJ-Xt-qR9"/>
+                            <constraint firstItem="PzW-n9-dhZ" firstAttribute="leading" secondItem="Lom-C3-iHA" secondAttribute="leading" id="toE-bz-ybm"/>
+                            <constraint firstAttribute="trailing" secondItem="PzW-n9-dhZ" secondAttribute="trailing" id="vBM-df-hXx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="birthdayDatePicker" destination="PUV-to-JoB" id="rsz-hV-cBd"/>
+                        <outlet property="birthdayImage" destination="PeJ-Um-Bqm" id="0Th-kB-c53"/>
+                        <outlet property="dateLabel" destination="gYG-4i-n0z" id="BfM-U2-6HF"/>
+                        <outlet property="locationImage" destination="u40-gM-M3G" id="9OS-pg-ukf"/>
+                        <outlet property="locationTextField" destination="DYU-fT-5Hb" id="npd-wI-1rx"/>
+                        <outlet property="nameTextfield" destination="3Rq-c4-qLh" id="KLD-fB-Y7n"/>
+                        <outlet property="profileImage" destination="cwm-c5-B8w" id="bBp-e6-au6"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-12" y="-701.19940029985014"/>
+        </scene>
         <!--Nav Bar-->
         <scene sceneID="qbd-cq-q9s">
             <objects>
@@ -1839,7 +1955,7 @@ Massachusetts</string>
         <image name="app-settings-icon" width="34" height="34"/>
         <image name="back-grey-icon" width="33" height="33"/>
         <image name="back-icon" width="33" height="33"/>
-        <image name="birthday-icon" width="44" height="44"/>
+        <image name="birthday-icon" width="43" height="43"/>
         <image name="camera-icon" width="41" height="41"/>
         <image name="connection-image-bg" width="75" height="75"/>
         <image name="connection-profile-btn" width="209" height="28"/>
@@ -1872,7 +1988,7 @@ Massachusetts</string>
         <image name="hulyo.jpg" width="720" height="483"/>
         <image name="hustle-icon" width="37" height="37"/>
         <image name="input-bg" width="4" height="4"/>
-        <image name="location-icon" width="44" height="44"/>
+        <image name="location-icon" width="43" height="43"/>
         <image name="login-bg" width="7" height="7"/>
         <image name="logout-icon_1" width="27" height="28"/>
         <image name="pick-hues-daily-hustle-btn" width="133" height="170"/>
@@ -1884,6 +2000,7 @@ Massachusetts</string>
         <image name="plate-icon" width="37" height="37"/>
         <image name="post-icon" width="41" height="41"/>
         <image name="privacy-policy-icon" width="34" height="34"/>
+        <image name="profile-bg" width="286" height="286"/>
         <image name="profile-name-background" width="286" height="34"/>
         <image name="profile-thumbnail-bg" width="286" height="286"/>
         <image name="ray-light-icon" width="37" height="37"/>
@@ -1905,6 +2022,6 @@ Massachusetts</string>
         <image name="write-post-icon" width="41" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bqS-Mq-b4c"/>
+        <segue reference="gNX-ic-ARf"/>
     </inferredMetricsTieBreakers>
 </document>
