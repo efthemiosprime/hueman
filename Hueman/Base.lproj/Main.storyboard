@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BCO-Qn-cTH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -830,9 +830,10 @@ Massachusetts</string>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
                                             </constraints>
                                         </imageView>
@@ -1246,10 +1247,10 @@ Massachusetts</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="camera-icon"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1w-BA-dXT">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-9M-so0">
                                 <rect key="frame" x="244" y="265" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="filter-icon"/>
+                                <state key="normal" image="image-picker-icon"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbP-56-ZdH" userLabel="Submit Button">
                                 <rect key="frame" x="293" y="265" width="41" height="41"/>
@@ -1260,7 +1261,7 @@ Massachusetts</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZC-zr-4cu">
-                                <rect key="frame" x="47" y="262" width="289" height="44"/>
+                                <rect key="frame" x="47" y="331" width="289" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topic-container" translatesAutoresizingMaskIntoConstraints="NO" id="klS-wh-Gr4">
@@ -1299,6 +1300,15 @@ Massachusetts</string>
                                     </button>
                                 </subviews>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1w-BA-dXT">
+                                <rect key="frame" x="314" y="23" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="filter-icon"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TiS-Un-pfv">
+                                <rect key="frame" x="23" y="394" width="332" height="219"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1308,7 +1318,9 @@ Massachusetts</string>
                         <outlet property="filterButton" destination="r1w-BA-dXT" id="FRN-Vg-g1S"/>
                         <outlet property="headerLabel" destination="DyD-jV-SBc" id="bgt-30-9qx"/>
                         <outlet property="icon" destination="gSk-Qk-Ddy" id="oR0-Ke-vJf"/>
+                        <outlet property="imagePickerButton" destination="wxL-9M-so0" id="wbI-aS-Qh6"/>
                         <outlet property="inputBackground" destination="Lhr-t2-O7d" id="7fW-Mh-76d"/>
+                        <outlet property="postImage" destination="TiS-Un-pfv" id="vZc-5M-6wx"/>
                         <outlet property="postInput" destination="Q5g-g2-JUK" id="jpI-bL-E3i"/>
                         <outlet property="submitButton" destination="YbP-56-ZdH" id="d4u-fN-Vms"/>
                         <outlet property="topic" destination="WZC-zr-4cu" id="tok-lV-HxZ"/>
@@ -1322,7 +1334,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueo-qe-IHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="-955"/>
+            <point key="canvasLocation" x="2752.8000000000002" y="-955.77211394302856"/>
         </scene>
         <!--Search Bar View Controller-->
         <scene sceneID="WhY-37-fwr">
@@ -1987,6 +1999,7 @@ Massachusetts</string>
         <image name="hues-description-wanderlust" width="282" height="479"/>
         <image name="hulyo.jpg" width="720" height="483"/>
         <image name="hustle-icon" width="37" height="37"/>
+        <image name="image-picker-icon" width="40" height="40"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="location-icon" width="43" height="43"/>
         <image name="login-bg" width="7" height="7"/>

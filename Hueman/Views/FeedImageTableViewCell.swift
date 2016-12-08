@@ -22,7 +22,7 @@ class FeedImageTableViewCell: UITableViewCell {
             if let feed = feed {
                 textFeedLabel.text = feed.text
                 textAuthorLabel.text = feed.author
-                feedImage.image = UIImage(named: "test")
+               // feedImage.image = UIImage(named: "test")
             }
         }
     }

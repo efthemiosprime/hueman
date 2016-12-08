@@ -20,6 +20,8 @@ struct Feed {
     var topic: String!
     var ref: FIRDatabaseReference!
     var key: String?
+    var imageURL: String?
+    var withImage: Bool?
     
     init(snapshot: FIRDataSnapshot) {
         self.ref = snapshot.ref
@@ -28,19 +30,22 @@ struct Feed {
         self.text = snapshot.value!["text"] as! String
         self.topic = snapshot.value!["topic"] as! String
         self.uid = snapshot.value!["uid"] as? String
-
+        self.imageURL = snapshot.value!["imageURL"] as? String
+        self.withImage = snapshot.value!["withImage"] as? Bool
     }
     
-    init(author: String, id: String, uid: String, text: String, topic: String) {
+    init(author: String, id: String, uid: String, text: String, topic: String, imageURL: String, withImage: Bool = false) {
         self.author = author
         self.id = id
         self.text = text
         self.topic = topic
         self.uid = uid
+        self.imageURL = imageURL
+        self.withImage = withImage
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["author": self.author, "id":self.id, "uid": self.uid!, "text": self.text, "topic": topic]
+        return ["author": self.author, "id":self.id, "uid": self.uid!, "text": self.text, "topic": topic, "imageURL": imageURL!, "withImage": withImage!]
     }
     
 }

@@ -14,6 +14,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
 import SwiftOverlays
+import FirebaseStorage
 
 class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -25,6 +26,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var imagePickerButton: UIButton!
+    @IBOutlet weak var postImage: UIImageView!
+    
+    var withImage: Bool = false
     
     @IBOutlet var huesCollections: Array<UIButton>?
     
@@ -72,7 +77,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         cameraButton.addTarget(self, action: #selector(CreatePostViewController.openPhotoLibrary), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
-        
+        imagePickerButton.addTarget(self, action: #selector(CreatePostViewController.handleSelectedFeedImageView), forControlEvents: .TouchUpInside)
 
     }
     
@@ -155,6 +160,38 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         self.presentViewController(imagePicker, animated: true, completion: nil)
         
     }
+    
+    func handleSelectedFeedImageView() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] {
+            selectedImageFromPicker = editedImage as? UIImage
+        }else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+            selectedImageFromPicker = originalImage as? UIImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            postImage.image = selectedImage
+        }
+        
+        withImage = true
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
 
     override func didReceiveMemoryWarning() {
@@ -171,17 +208,32 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             print("input can't be empty")
         }else {
          
-            print(postInput.text + " " + topicString!)
+
             if let text: String = postInput.text, let topic = topicString {
                 
-                let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic)
+        
+                let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic, imageURL: "")
                 
-                feedManager.createFeed(feed, feedPosted: {
-                    self.removeAllOverlays()
 
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                if withImage == true {
+                    let imageData = UIImageJPEGRepresentation(postImage.image!, 0.7)
+                    feedManager.createFeed(feed, imageData: imageData,  feedPosted: {
+                        self.removeAllOverlays()
+                        
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                    })
+                }else {
+                    feedManager.createFeed(feed, imageData: nil,  feedPosted: {
+                        self.removeAllOverlays()
+                        
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                    })
+                }
+                
+                
 
-                })
                 
             }
             

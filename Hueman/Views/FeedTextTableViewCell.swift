@@ -13,6 +13,17 @@ class FeedTextTableViewCell: UITableViewCell {
     @IBOutlet weak var textFeedLabel: UILabel!
 
     @IBOutlet weak var textAuthorLabel: UILabel!
+    
+    var feed: Feed? {
+        didSet{
+            if let feed = feed {
+                textFeedLabel.text = feed.text
+                textAuthorLabel.text = feed.author
+            }
+        }
+    }
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

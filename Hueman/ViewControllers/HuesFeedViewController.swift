@@ -22,9 +22,15 @@ class HuesFeedViewController: UITableViewController {
     var searchBarOpen: Bool = false
     
     let cellTextIdentifier = "huesfeedtextcell"
+    let cellImageIdentifier = "huesfeedimagecell"
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
+    }
+    
+    
+    var storageRef: FIRStorage!{
+        return FIRStorage.storage()
     }
     
     var feeds = [Feed]()
@@ -142,9 +148,33 @@ class HuesFeedViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellTextIdentifier, forIndexPath: indexPath) as! FeedTextTableViewCell
-        cell.textFeedLabel.text = feeds[indexPath.row].text
-        cell.textAuthorLabel.text = feeds[indexPath.row].author
+        
+        let feed = feeds[indexPath.row]
+        
+        let cell = feed.withImage == true ? tableView.dequeueReusableCellWithIdentifier(cellImageIdentifier, forIndexPath: indexPath) as! FeedImageTableViewCell : tableView.dequeueReusableCellWithIdentifier(cellTextIdentifier, forIndexPath: indexPath) as! FeedTextTableViewCell
+    
+        if (feed.withImage == true) {
+            (cell as! FeedImageTableViewCell).feed = feed
+
+            storageRef.referenceForURL(feeds[indexPath.row].imageURL!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                if error == nil {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if let data = data {
+                            (cell as! FeedImageTableViewCell).feedImage.image = UIImage(data: data)
+                        }
+                    })
+                    
+                    
+                }else {
+                    print(error!.localizedDescription)
+                }
+            })
+            
+            
+        }else {
+            (cell as! FeedTextTableViewCell).feed = feed
+        }
         
         switch feeds[indexPath.row].topic {
         case Topic.Wanderlust:
