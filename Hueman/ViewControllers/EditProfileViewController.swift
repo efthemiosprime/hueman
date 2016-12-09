@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
+import SwiftOverlays
 
 class EditProfileViewController: UIViewController, UINavigationControllerDelegate {
 
@@ -18,11 +23,23 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextView!
     
+    var dataBaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference();
+    }
+    
+    var storageRef: FIRStorageReference! {
+        return FIRStorage.storage().reference()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+        if let name = FIRAuth.auth()?.currentUser!.displayName  {
+            nameTextfield.text = name
+        }
+        
+
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = 130
         profileImage.contentMode = .ScaleAspectFill
@@ -81,6 +98,56 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
 
     }
     
+    @IBAction func didTappedSave(sender: AnyObject) {
+        
+        let currentUser = FIRAuth.auth()?.currentUser
+        
+        
+        let trimmedName = currentUser?.displayName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+
+        let imageData = UIImageJPEGRepresentation(profileImage.image!, 0.5)
+
+        let imagePath = "userProfileImage\(currentUser?.uid)/\(trimmedName).jpg"
+        let imageRef = storageRef.child(imagePath)
+        
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        imageRef.putData(imageData!, metadata: metadata, completion: {
+            (metadata, error) in
+            if error == nil {
+                let changeRequest = currentUser?.profileChangeRequest()
+                
+                var updatedUser = User(email: (currentUser?.email!)!, name: (currentUser?.displayName)!, userId: currentUser!.uid)
+
+                if let photoURL = metadata!.downloadURL(){
+                    changeRequest!.photoURL = photoURL
+                }
+                
+                changeRequest?.commitChangesWithCompletion({
+                  error in
+                    if error == nil {
+                        
+                        var updatedUser = User(email: (currentUser?.email!)!, name: (currentUser?.displayName)!, userId: currentUser!.uid)
+                        
+                        updatedUser.birthday = self.dateLabel.text
+                        updatedUser.location = self.locationTextField.text
+                        updatedUser.bio = ""
+                        updatedUser.photoURL = changeRequest?.photoURL?.absoluteString
+                        
+                        
+                        
+                        let updateRef = self.dataBaseRef.child("/users/\(updatedUser.uid)")
+                        updateRef.updateChildValues(updatedUser.toAnyObject())
+                        
+                    }
+                })
+            }
+        })
+        
+ 
+        
+    }
 
     
 }

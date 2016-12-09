@@ -47,10 +47,9 @@ struct AuthenticationManager {
 
     }
     
-    func signUp(userVo: User, completion: (() -> ())? = nil) {
+    func signUp(email: String, password:String, name: String, completion: (() -> ())? = nil) {
         
-        let email: String = userVo.email!
-        let password: String = userVo.password!
+        resetStoredUserInfo()
         
         FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: {
             (user, error) in
@@ -61,32 +60,78 @@ struct AuthenticationManager {
                     NSUserDefaults.standardUserDefaults().setValue(email, forKeyPath: "email")
                 }
                 
-                self.keychainWrapper.mySetObject(password, forKey: kSecValueData)
-                self.keychainWrapper.writeToKeychain()
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
-                NSUserDefaults.standardUserDefaults().synchronize()
+                let changeRequest = user!.profileChangeRequest()
+                changeRequest.displayName = name
                 
+                changeRequest.commitChangesWithCompletion({ (error) in
+                    if error == nil {
+                        self.keychainWrapper.mySetObject(password, forKey: kSecValueData)
+                        self.keychainWrapper.writeToKeychain()
+                        
+                        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+                        NSUserDefaults.standardUserDefaults().synchronize()
+                        
+                        
+                        var newUserVo = User(email: email, name: name, userId: (user?.uid)! )
+                        newUserVo.uid = FIRAuth.auth()?.currentUser?.uid
+                        
+                        self.saveUserInfo(user, userVo: newUserVo)
+                        completion?()
+                    }
+                    else {
+                        
+                        print(error?.localizedDescription)
+                    }
+                    
+                })
                 
-                var updatedUserVo = userVo
-                updatedUserVo.uid = FIRAuth.auth()?.currentUser?.uid
-                
-                self.saveUserInfo(user, userVo: updatedUserVo)
-                completion?()
+            
             }else {
                 print("error: \(error?.localizedDescription)")
             }
         })
     }
-    
+//    func signUp(userVo: User, completion: (() -> ())? = nil) {
+//        
+//        let email: String = userVo.email!
+//        let password: String = userVo.password!
+//        
+//        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: {
+//            (user, error) in
+//            if error == nil {
+//                
+//                let hasLoginKey = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+//                if hasLoginKey == false {
+//                    NSUserDefaults.standardUserDefaults().setValue(email, forKeyPath: "email")
+//                }
+//                
+//                self.keychainWrapper.mySetObject(password, forKey: kSecValueData)
+//                self.keychainWrapper.writeToKeychain()
+//                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+//                NSUserDefaults.standardUserDefaults().synchronize()
+//                
+//                
+//                var updatedUserVo = userVo
+//                updatedUserVo.uid = FIRAuth.auth()?.currentUser?.uid
+//                
+//                self.saveUserInfo(user, userVo: updatedUserVo)
+//                completion?()
+//            }else {
+//                print("error: \(error?.localizedDescription)")
+//            }
+//        })
+//    }
+//    
     private func saveUserInfo(user: FIRUser!, userVo: User) {
 
         let userInfo = [
             "name": userVo.name!,
             "email": userVo.email!,
-            "dob": userVo.dob,
-            "location": userVo.location,
-            "bio": userVo.bio,
-            "uid": userVo.uid
+            "uid": userVo.uid!,
+            "photoURL": "",
+            "bio": "",
+            "birthday": "",
+            "location": ""
         ]
         
        let userRef = dataBaseRef.child("users").child(user.uid)
@@ -125,6 +170,24 @@ struct AuthenticationManager {
             print(snapshot.value!["email"] as! String)
 
         })
+        
+    }
+    
+    func resetStoredUserInfo()  {
+        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        if hasLogin {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("email")
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "hasLoginKey")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+
+            let vData = keychainWrapper.myObjectForKey("v_Data");
+            if (!(vData as? String)!.isEmpty) || vData == nil {
+                keychainWrapper.mySetObject(nil, forKey:"v_Data")
+                keychainWrapper.writeToKeychain()
+                
+            }
+        }
     }
     
      func manuallyStoreCreds() {
@@ -135,4 +198,6 @@ struct AuthenticationManager {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
+    
+    
 }

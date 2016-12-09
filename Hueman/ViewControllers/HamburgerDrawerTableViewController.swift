@@ -19,6 +19,17 @@ class HamburgerDrawerTableViewController: UITableViewController {
     var currentUser: User!
     
 
+    
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    
+    
+    var storageRef: FIRStorage!{
+        return FIRStorage.storage()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,10 +79,25 @@ class HamburgerDrawerTableViewController: UITableViewController {
                 }
                 
                 if let profileCell = cell as? DrawerProfileImageRowCell {
-                    profileCell.profileImage.image = UIImage(named: "hulyo.jpg")
                     profileCell.profileImage.clipsToBounds = true
                     profileCell.profileImage.layer.cornerRadius = 61
                     profileCell.profileImage.contentMode = .ScaleToFill
+                    
+                    
+                    self.storageRef.referenceForURL(self.currentUser.photoURL!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                        if error == nil {
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                if let data = data {
+                                    profileCell.profileImage.image = UIImage(data: data)
+                                }
+                            })
+                            
+                            
+                        }else {
+                            print(error!.localizedDescription)
+                        }
+                    })
                     
                     
                 }
@@ -83,11 +109,14 @@ class HamburgerDrawerTableViewController: UITableViewController {
 
                 
                 
+                
+                
             }) { (error) in
                 print(error.localizedDescription)
                 
             }
             
+
             
 
             
@@ -117,7 +146,7 @@ class HamburgerDrawerTableViewController: UITableViewController {
                     
                     let keychainWrapper = KeychainWrapper()
                     let vData = keychainWrapper.myObjectForKey("v_Data");
-                    if (!(keychainWrapper.myObjectForKey("v_Data") as? String)!.isEmpty) || vData == nil {
+                    if (!(vData as? String)!.isEmpty) || vData == nil {
                         keychainWrapper.mySetObject(nil, forKey:"v_Data")
                         keychainWrapper.writeToKeychain()
 
