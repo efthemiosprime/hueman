@@ -758,7 +758,7 @@ Massachusetts</string>
                                 <rect key="frame" x="0.0" y="10" width="375" height="350"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jso-0v-QCx" id="wEW-UF-yFW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="349"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
@@ -830,8 +830,8 @@ Massachusetts</string>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
@@ -866,7 +866,7 @@ Massachusetts</string>
                                 <rect key="frame" x="0.0" y="360" width="375" height="143"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ek0-2G-lI8" id="BpH-j8-DCk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM" userLabel="Footer">
@@ -1022,7 +1022,7 @@ Massachusetts</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KOF-vt-Ifb" id="3Tb-X9-oW0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7M-uM-oDO">
@@ -1096,7 +1096,7 @@ Massachusetts</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ol3-Gi-Nou" id="HjT-yc-MAv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-h1-yc1" userLabel="bg">
@@ -1759,7 +1759,7 @@ Massachusetts</string>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1790,7 +1790,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1811,7 +1811,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1828,7 +1828,6 @@ Massachusetts</string>
         <!--Edit Profile View Controller-->
         <scene sceneID="9z9-Kr-a2k">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12l-CS-ga1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="BCO-Qn-cTH" customClass="EditProfileViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DQH-8c-XvN"/>
@@ -1938,6 +1937,7 @@ Massachusetts</string>
                         <outlet property="profileImage" destination="cwm-c5-B8w" id="bBp-e6-au6"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12l-CS-ga1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12" y="-701.19940029985014"/>
         </scene>
@@ -1949,7 +1949,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
