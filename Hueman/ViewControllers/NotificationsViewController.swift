@@ -20,6 +20,7 @@ class NotificationsViewController: UITableViewController {
         menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = menuItem
 
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
     }
 

@@ -53,6 +53,7 @@
 		3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */; };
 		3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */; };
 		3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */; };
+		3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */; };
 		3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */; };
 		3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */; };
 		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
@@ -122,6 +123,7 @@
 		3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HamburgerDrawerTableViewController.swift; path = ViewControllers/HamburgerDrawerTableViewController.swift; sourceTree = "<group>"; };
 		3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerProfileImageRowCell.swift; path = Views/DrawerProfileImageRowCell.swift; sourceTree = "<group>"; };
 		3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerProfileNameRowCell.swift; path = Views/DrawerProfileNameRowCell.swift; sourceTree = "<group>"; };
+		3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = ViewControllers/CommentsViewController.swift; sourceTree = "<group>"; };
 		3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */,
 				3A3B2AC81DF8FA83004350A0 /* EditProfileViewController.swift */,
 				3A982BB71DF9023D005DF901 /* EditProfileViewController+Handlers.swift */,
+				3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */,
 				3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */,
 				3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */,
+				3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */,
 				3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */,
 				3A154E4A1DCD7352005A79EC /* ProfileViewController.swift in Sources */,
 				3A154E491DCD7352005A79EC /* CreatePostViewController.swift in Sources */,

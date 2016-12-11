@@ -155,6 +155,8 @@ class HuesFeedViewController: UITableViewController {
     
         if (feed.withImage == true) {
             (cell as! FeedImageTableViewCell).feed = feed
+            (cell as! FeedImageTableViewCell).commentsButton.addTarget(self, action: #selector(HuesFeedViewController.showComments), forControlEvents: .TouchUpInside)
+
 
             storageRef.referenceForURL(feeds[indexPath.row].imageURL!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
                 if error == nil {
@@ -199,6 +201,10 @@ class HuesFeedViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    func showComments() {
+        self.performSegueWithIdentifier("ShowComments", sender: nil)
     }
     
     

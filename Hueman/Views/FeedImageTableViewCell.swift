@@ -17,12 +17,17 @@ class FeedImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var feedImage: UIImageView!
     
+    @IBOutlet weak var commentsButton: UIButton!
+    
+    @IBOutlet weak var likesButton: UIButton!
+    
+    
     var feed: Feed? {
         didSet{
             if let feed = feed {
                 textFeedLabel.text = feed.text
                 textAuthorLabel.text = feed.author
-               // feedImage.image = UIImage(named: "test")
+                feedImage.clipsToBounds = true
             }
         }
     }

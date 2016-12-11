@@ -39,6 +39,9 @@ class FeedTextTableViewCell: UITableViewCell {
     
     @IBAction func didTapComment(sender: AnyObject) {
         print("didTapComment")
+   //    self.performSegueWithIdentifier("ShowComments", sender: nil)
+        
+    
     }
     @IBAction func didTapLike(sender: AnyObject) {
         print("didTapLike")
