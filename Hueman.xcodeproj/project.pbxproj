@@ -29,7 +29,6 @@
 		3A154E4A1DCD7352005A79EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E3C1DCD7352005A79EC /* ProfileViewController.swift */; };
 		3A154E4B1DCD7352005A79EC /* ConnectionProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E3D1DCD7352005A79EC /* ConnectionProfileViewController.swift */; };
 		3A154E4C1DCD7352005A79EC /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E3E1DCD7352005A79EC /* ConnectionsViewController.swift */; };
-		3A154E4D1DCD7352005A79EC /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E3F1DCD7352005A79EC /* SearchBarViewController.swift */; };
 		3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E401DCD7352005A79EC /* TabBar.swift */; };
 		3A154E4F1DCD7352005A79EC /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E411DCD7352005A79EC /* NavBar.swift */; };
 		3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E421DCD7352005A79EC /* NotificationsViewController.swift */; };
@@ -95,7 +94,6 @@
 		3A154E3C1DCD7352005A79EC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		3A154E3D1DCD7352005A79EC /* ConnectionProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionProfileViewController.swift; path = ViewControllers/ConnectionProfileViewController.swift; sourceTree = "<group>"; };
 		3A154E3E1DCD7352005A79EC /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionsViewController.swift; path = ViewControllers/ConnectionsViewController.swift; sourceTree = "<group>"; };
-		3A154E3F1DCD7352005A79EC /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBarViewController.swift; path = ViewControllers/SearchBarViewController.swift; sourceTree = "<group>"; };
 		3A154E401DCD7352005A79EC /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBar.swift; path = ViewControllers/TabBar.swift; sourceTree = "<group>"; };
 		3A154E411DCD7352005A79EC /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = ViewControllers/NavBar.swift; sourceTree = "<group>"; };
 		3A154E421DCD7352005A79EC /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsViewController.swift; path = ViewControllers/NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				3A154E3C1DCD7352005A79EC /* ProfileViewController.swift */,
 				3A154E3D1DCD7352005A79EC /* ConnectionProfileViewController.swift */,
 				3A154E3E1DCD7352005A79EC /* ConnectionsViewController.swift */,
-				3A154E3F1DCD7352005A79EC /* SearchBarViewController.swift */,
 				3A154E401DCD7352005A79EC /* TabBar.swift */,
 				3A154E411DCD7352005A79EC /* NavBar.swift */,
 				3A154E421DCD7352005A79EC /* NotificationsViewController.swift */,
@@ -561,7 +558,6 @@
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
 				3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */,
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
-				3A154E4D1DCD7352005A79EC /* SearchBarViewController.swift in Sources */,
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,
 				3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */,
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
