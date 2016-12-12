@@ -52,8 +52,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showTopic(true)
+        showTopic(false)
         submitButton.enabled = false
+        icon.hidden = true
         
         postInput.delegate = self
         self.navigationController?.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x93648D)
@@ -78,18 +79,34 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         cameraButton.addTarget(self, action: #selector(CreatePostViewController.openPhotoLibrary), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
         imagePickerButton.addTarget(self, action: #selector(CreatePostViewController.handleSelectedFeedImageView), forControlEvents: .TouchUpInside)
+        
+        icon.userInteractionEnabled = false
+        let tapIconGesture = UITapGestureRecognizer(target: self, action: #selector(CreatePostViewController.showTopicAction))
+        icon.addGestureRecognizer(tapIconGesture)
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        postInput?.becomeFirstResponder()
+   //     postInput?.becomeFirstResponder()
         
 
     }
     
     func showTopic(show: Bool) {
         topic.hidden = show
+        if show == true {
+            postInput?.userInteractionEnabled = true
+            postInput?.becomeFirstResponder()
+            filterButton.hidden = true
+            icon.hidden = false
+            icon.userInteractionEnabled = true
+    
+        }else {
+            postInput?.userInteractionEnabled = false
+            postInput?.resignFirstResponder()
+        }
+
 
     }
     
@@ -242,6 +259,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
     }
     
+    @IBAction func didTappedCloseTopic(sender: AnyObject) {
+        showTopic(true)
+    }
     
     @IBAction func backButton(sender: AnyObject) {
         postInput?.resignFirstResponder()
