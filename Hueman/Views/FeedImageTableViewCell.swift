@@ -23,6 +23,9 @@ class FeedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var authorProfileImage: UIImageView!
     
+    var showCommentsAction: ((UITableViewCell) -> Void)?
+    var showLikesAction: ((UITableViewCell) -> Void)?
+    
     var feed: Feed? {
         didSet{
             if let feed = feed {
@@ -45,11 +48,11 @@ class FeedImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func didTapComment(sender: AnyObject) {
-        print("didTapComment")
-    }
-    @IBAction func didTapLike(sender: AnyObject) {
-        print("didTapLike")
+
+    @IBAction func didTappedComments(sender: AnyObject) {
+   //     showCommentsAction?(self)
     }
 
+    @IBAction func didTappedLikes(sender: AnyObject) {
+    }
 }

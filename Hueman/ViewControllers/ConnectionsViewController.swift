@@ -42,11 +42,11 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
         self.navigationController?.navigationBar.topItem!.title = "connections"
         
-        connections.append(Connection(name: "Julius Busa", location: "New York, NY", imageURL: ""))
-        connections.append(Connection(name: "Maverick Shawn Aquino", location: "New York, NY", imageURL: ""))
-        connections.append(Connection(name: "Nicolette Onate", location: "New York, NY", imageURL: ""))
-        connections.append(Connection(name: "Camille Laurente", location: "New York, NY", imageURL: ""))
-        connections.append(Connection(name: "Efthemios Suyat", location: "New York, NY", imageURL: ""))
+        connections.append(Connection(name: "Julius Busa", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Maverick Shawn Aquino", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Nicolette Onate", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Camille Laurente", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Efthemios Suyat", location: "New York, NY", imageURL: "", uid: ""))
         
         self.tableView.separatorStyle = .None
         self.tableView.delegate = self

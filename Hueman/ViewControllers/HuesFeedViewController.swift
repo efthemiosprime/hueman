@@ -155,7 +155,10 @@ class HuesFeedViewController: UITableViewController {
     
         if (feed.withImage == true) {
             (cell as! FeedImageTableViewCell).feed = feed
-            (cell as! FeedImageTableViewCell).commentsButton.addTarget(self, action: #selector(HuesFeedViewController.showComments), forControlEvents: .TouchUpInside)
+            (cell as! FeedImageTableViewCell).showCommentsAction = { (cell) in
+                //self.performSegueWithIdentifier("ShowComments", sender: nil)
+
+            }
 
 
             storageRef.referenceForURL(feeds[indexPath.row].imageURL!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
@@ -260,9 +263,7 @@ class HuesFeedViewController: UITableViewController {
         return cell
     }
     
-    func showComments() {
-        self.performSegueWithIdentifier("ShowComments", sender: nil)
-    }
+
     
     
 //    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

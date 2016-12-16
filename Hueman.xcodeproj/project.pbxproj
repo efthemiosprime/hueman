@@ -13,7 +13,6 @@
 		3A060D381D9CADE9007F2B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A060D361D9CADE9007F2B02 /* LaunchScreen.storyboard */; };
 		3A083B9F1DA4357C0092AE75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EE1DA3B6080011B467 /* Main.storyboard */; };
 		3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */; };
-		3A10BC5C1DF60C2100B0CADC /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10BC5B1DF60C2100B0CADC /* Connection.swift */; };
 		3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E201DCD6EA6005A79EC /* Theme.swift */; };
 		3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E211DCD6EA6005A79EC /* Hues.swift */; };
 		3A154E261DCD6EA6005A79EC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E221DCD6EA6005A79EC /* Profile.swift */; };
@@ -68,6 +67,7 @@
 		3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B1D1DED1D2500388DDF /* FeedManager.swift */; };
 		3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB900C91DFE5D8E0038D147 /* TextField.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
+		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +80,6 @@
 		3A060D371D9CADE9007F2B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A060D391D9CADE9007F2B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionCell.swift; path = Views/ConnectionCell.swift; sourceTree = "<group>"; };
-		3A10BC5B1DF60C2100B0CADC /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3A154E201DCD6EA6005A79EC /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Models/Theme.swift; sourceTree = "<group>"; };
 		3A154E211DCD6EA6005A79EC /* Hues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hues.swift; path = Models/Hues.swift; sourceTree = "<group>"; };
 		3A154E221DCD6EA6005A79EC /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = Models/Profile.swift; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
+		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
 		DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hueman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -340,7 +340,7 @@
 				3A154E211DCD6EA6005A79EC /* Hues.swift */,
 				3A154E221DCD6EA6005A79EC /* Profile.swift */,
 				3A154E231DCD6EA6005A79EC /* Hueboard.swift */,
-				3A10BC5B1DF60C2100B0CADC /* Connection.swift */,
+				3C7FB2A11E04533900FF3160 /* Connection.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -538,7 +538,6 @@
 			files = (
 				3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */,
 				3A154E5B1DCD7389005A79EC /* ConnectionLabel.swift in Sources */,
-				3A10BC5C1DF60C2100B0CADC /* Connection.swift in Sources */,
 				3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */,
 				3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */,
 				3A154E5C1DCD7389005A79EC /* ConnectionLeftItem.swift in Sources */,
@@ -557,6 +556,7 @@
 				3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */,
 				3A982BB81DF9023D005DF901 /* EditProfileViewController+Handlers.swift in Sources */,
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,
+				3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */,
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
 				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,
 				3A154E461DCD7352005A79EC /* LoginViewController.swift in Sources */,

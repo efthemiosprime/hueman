@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
 
 class AddConnectionsController: UITableViewController {
+    
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    
+    var storageRef: FIRStorage! {
+        return FIRStorage.storage()
+    }
+    
+    var users = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +30,33 @@ class AddConnectionsController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        fetchAllUsers()
     }
+    
+    func fetchAllUsers() {
+        let userRef = databaseRef.child("users")
+        userRef.observeEventType(.Value, withBlock:{
+            snapshot in
+            
+            var allUsers = [User]()
+            for snap in snapshot.children {
+                print (user)
+                let newUser = User(snapshot: snap as! FIRDataSnapshot )
+                print(newUser)
+                allUsers.append(newUser)
+            }
+            
+            self.users = allUsers.sort({ (user1, user2) -> Bool in
+                    user1.name < user2.name
+            
+            })
+            
+        }) {(error) in
+            
+        }
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
