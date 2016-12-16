@@ -41,7 +41,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         
 
         profileImage.clipsToBounds = true
-        profileImage.layer.cornerRadius = 130
+        profileImage.layer.cornerRadius = 136
         profileImage.contentMode = .ScaleAspectFill
         
         let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
