@@ -205,6 +205,34 @@ class HuesFeedViewController: UITableViewController {
             
         }else {
             (cell as! FeedTextTableViewCell).feed = feed
+            
+            let authorRef = FIRDatabase.database().reference().child("users").queryOrderedByChild("uid").queryEqualToValue(feed.uid)
+            authorRef.observeSingleEventOfType(.ChildAdded, withBlock: { (snapshot) in
+                
+                
+                if let photoURL = snapshot.value!["photoURL"] as? String {
+                    self.storageRef.referenceForURL(photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                        if error == nil {
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                if let data = data {
+                                    (cell as! FeedTextTableViewCell).authorProfileImage.image = UIImage(data: data)
+                                }
+                            })
+                            
+                            
+                        }else {
+                            print(error!.localizedDescription)
+                        }
+                    })
+                }
+                
+                
+            }) { (error) in
+                print(error.localizedDescription)
+                
+            }
+            
         }
         
         switch feeds[indexPath.row].topic {
