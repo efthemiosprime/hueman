@@ -34,7 +34,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
         searhItem.imageInsets = UIEdgeInsetsMake(2, 18, -2, -18)
 
-        addItem = UIBarButtonItem(image: UIImage(named: "add-item-icon"), style: .Plain, target: self, action: nil)
+        addItem = UIBarButtonItem(image: UIImage(named: "add-item-icon"), style: .Plain, target: self, action: #selector(ConnectionsViewController.addConnections))
         addItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0)
         menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
         
@@ -110,6 +110,10 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         hideNavigationItems()
         addNavigationItems()
         self.navigationItem.titleView = nil
+    }
+    
+    func addConnections() {
+        performSegueWithIdentifier("AddConnections", sender: nil);
     }
     
     // MARK: - Table View

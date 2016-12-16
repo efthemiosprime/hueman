@@ -14,6 +14,9 @@ class FeedTextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textAuthorLabel: UILabel!
     
+    @IBOutlet weak var authorProfileImage: UIImageView!
+
+    
     var feed: Feed? {
         didSet{
             if let feed = feed {

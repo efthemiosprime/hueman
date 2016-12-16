@@ -209,7 +209,7 @@
                         <sections>
                             <tableViewSection id="G0V-Fz-dpT">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="160" id="nyN-r8-ITb" userLabel="user image" customClass="DrawerProfileImageRowCell" customModule="Hueman" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="160" id="nyN-r8-ITb" userLabel="user image" customClass="DrawerProfileImageRowCell" customModule="Hueman" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nyN-r8-ITb" id="6mm-6S-iie">
@@ -227,11 +227,14 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="profileImage" destination="yNK-FD-DrO" id="cit-uJ-YaD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="45" id="yuH-LC-Bxc" userLabel="user name" customClass="DrawerProfileNameRowCell" customModule="Hueman" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="45" id="yuH-LC-Bxc" userLabel="user name" customClass="DrawerProfileNameRowCell" customModule="Hueman" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="160" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yuH-LC-Bxc" id="qm6-Xm-dDd">
@@ -248,17 +251,23 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="nameLabel" destination="04V-1Z-UvT" id="QuM-yc-s0M"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" id="RMo-ET-Nkc" userLabel="seperator">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" id="RMo-ET-Nkc" userLabel="seperator">
                                         <rect key="frame" x="0.0" y="205" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMo-ET-Nkc" id="KOC-hg-bEb">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="60" id="Brj-IS-dmO" userLabel="app settings">
                                         <rect key="frame" x="0.0" y="249" width="375" height="60"/>
@@ -365,13 +374,16 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="50" id="TY5-4x-uEA" userLabel="seperator">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="50" id="TY5-4x-uEA" userLabel="seperator">
                                         <rect key="frame" x="0.0" y="549" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TY5-4x-uEA" id="iuX-dL-nou">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="68" id="Aal-sV-dmZ" userLabel="Logout">
                                         <rect key="frame" x="0.0" y="599" width="375" height="68"/>
@@ -727,7 +739,7 @@ Massachusetts</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
@@ -774,6 +786,13 @@ Massachusetts</string>
                                                     <rect key="frame" x="0.0" y="-1" width="330" height="66"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9r-Cf-vXc" userLabel="authorProfileImage">
+                                                    <rect key="frame" x="267" y="2" width="59" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxK-c2-dYc">
                                                     <rect key="frame" x="49" y="40" width="208" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -816,6 +835,7 @@ Massachusetts</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="authorProfileImage" destination="p9r-Cf-vXc" id="zfK-ee-RFe"/>
                                     <outlet property="commentsButton" destination="upt-Dd-l8c" id="lsI-id-zSR"/>
                                     <outlet property="feedImage" destination="WEo-Tr-vKD" id="Qli-3c-OHC"/>
                                     <outlet property="likesButton" destination="EwO-G9-Arb" id="3E7-AZ-cID"/>
@@ -872,6 +892,13 @@ Massachusetts</string>
                                                     <rect key="frame" x="0.0" y="-1" width="330" height="66"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehe-cd-dJ2" userLabel="authorProfileImage">
+                                                    <rect key="frame" x="267" y="2" width="59" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="29.5"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aq-k2-d3A">
                                                     <rect key="frame" x="49" y="40" width="208" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -910,6 +937,7 @@ Massachusetts</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="authorProfileImage" destination="ehe-cd-dJ2" id="0cH-05-jHA"/>
                                     <outlet property="textAuthorLabel" destination="6aq-k2-d3A" id="jMZ-xi-kB6"/>
                                     <outlet property="textFeedLabel" destination="jjs-TM-vxg" id="6gv-XE-hzI"/>
                                 </connections>
@@ -1121,6 +1149,7 @@ Massachusetts</string>
                         <outlet property="searchDisplayController" destination="kh8-qJ-BOK" id="ITF-TO-LOz"/>
                         <outlet property="tableView" destination="ryb-Qq-HS5" id="ZHa-eE-IET"/>
                         <segue destination="WTN-aI-Hpi" kind="show" identifier="showConnection" id="rR1-8X-a2g"/>
+                        <segue destination="VTM-EG-hpg" kind="show" identifier="AddConnections" id="KHp-4d-ukL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-DB-3hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1524,6 +1553,34 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="6636" y="-1208.5457271364319"/>
         </scene>
+        <!--Add Connections Controller-->
+        <scene sceneID="Mma-mV-Bw5">
+            <objects>
+                <tableViewController id="VTM-EG-hpg" customClass="AddConnectionsController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="T1m-NL-Ty9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NTt-ar-2iC">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NTt-ar-2iC" id="fSS-tg-wZN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VTM-EG-hpg" id="ZH3-13-SzT"/>
+                            <outlet property="delegate" destination="VTM-EG-hpg" id="pVL-g0-oiB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAO-z0-ktu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6636" y="-1867"/>
+        </scene>
         <!--Nav Bar-->
         <scene sceneID="MJb-ka-ZqA">
             <objects>
@@ -1720,6 +1777,7 @@ Massachusetts</string>
                         <outlet property="locationTextField" destination="DYU-fT-5Hb" id="npd-wI-1rx"/>
                         <outlet property="nameTextfield" destination="3Rq-c4-qLh" id="KLD-fB-Y7n"/>
                         <outlet property="profileImage" destination="cwm-c5-B8w" id="bBp-e6-au6"/>
+                        <segue destination="lAe-Do-sBk" kind="show" identifier="UserCreated" id="OkO-K9-BA2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12l-CS-ga1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1893,4 +1951,7 @@ Massachusetts</string>
         <image name="terms-conditions-icon" width="34" height="34"/>
         <image name="wanderlust-icon" width="37" height="37"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OkO-K9-BA2"/>
+    </inferredMetricsTieBreakers>
 </document>

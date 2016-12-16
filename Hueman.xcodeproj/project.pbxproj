@@ -44,6 +44,7 @@
 		3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E701DCD75FC005A79EC /* SWRevealViewController.m */; };
 		3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E751DCD7852005A79EC /* NetworkManager.swift */; };
 		3A154E781DCD8D77005A79EC /* PickHuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E771DCD8D77005A79EC /* PickHuesViewModel.swift */; };
+		3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */; };
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
 		3A22A3EC1DA3A86C0011B467 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */; };
 		3A3B2AC91DF8FA83004350A0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2AC81DF8FA83004350A0 /* EditProfileViewController.swift */; };
@@ -110,8 +111,9 @@
 		3A154E701DCD75FC005A79EC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ThirdParties/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		3A154E711DCD75FC005A79EC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ThirdParties/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		3A154E731DCD763E005A79EC /* Hueman-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hueman-Bridging-Header.h"; path = "Hueman/Helpers/Hueman-Bridging-Header.h"; sourceTree = "<group>"; };
-		3A154E751DCD7852005A79EC /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Networking/NetworkManager.swift; sourceTree = "<group>"; };
+		3A154E751DCD7852005A79EC /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Hueman/Networking/NetworkManager.swift; sourceTree = "<group>"; };
 		3A154E771DCD8D77005A79EC /* PickHuesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickHuesViewModel.swift; path = ViewModels/PickHuesViewModel.swift; sourceTree = "<group>"; };
+		3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddConnectionsController.swift; path = ViewControllers/AddConnectionsController.swift; sourceTree = "<group>"; };
 		3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light.otf"; path = "Fonts/Sofia Pro Light.otf"; sourceTree = "<group>"; };
 		3A22A3EA1DA3A86C0011B467 /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Regular.otf"; path = "Fonts/Sofia Pro Regular.otf"; sourceTree = "<group>"; };
 		3A22A3EF1DA3B6080011B467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		3A060D211D9CADE9007F2B02 = {
 			isa = PBXGroup;
 			children = (
+				3A154E751DCD7852005A79EC /* NetworkManager.swift */,
 				3A060D2C1D9CADE9007F2B02 /* Hueman */,
 				3A060D2B1D9CADE9007F2B02 /* Products */,
 				3A6C94701DAB12F6002A7EA3 /* Frameworks */,
@@ -235,6 +238,7 @@
 				3A3B2AC81DF8FA83004350A0 /* EditProfileViewController.swift */,
 				3A982BB71DF9023D005DF901 /* EditProfileViewController+Handlers.swift */,
 				3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */,
+				3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -244,7 +248,6 @@
 			children = (
 				3A987B1D1DED1D2500388DDF /* FeedManager.swift */,
 				3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */,
-				3A154E751DCD7852005A79EC /* NetworkManager.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
 				3A987B191DED1C6100388DDF /* User.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
+				3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
@@ -631,6 +635,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2F2MGP4R3K;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -650,6 +655,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -682,6 +688,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2F2MGP4R3K;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -694,6 +701,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
@@ -708,12 +716,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hueman/Hueman.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2F2MGP4R3K;
 				INFOPLIST_FILE = Hueman/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.efthemiosprime.Hueman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hueman/Helpers/Hueman-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
@@ -727,12 +737,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hueman/Hueman.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2F2MGP4R3K;
 				INFOPLIST_FILE = Hueman/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.efthemiosprime.Hueman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hueman/Helpers/Hueman-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 			};

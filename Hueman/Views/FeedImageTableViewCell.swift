@@ -21,6 +21,7 @@ class FeedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likesButton: UIButton!
     
+    @IBOutlet weak var authorProfileImage: UIImageView!
     
     var feed: Feed? {
         didSet{

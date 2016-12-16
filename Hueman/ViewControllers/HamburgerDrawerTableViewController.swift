@@ -161,6 +161,16 @@ class HamburgerDrawerTableViewController: UITableViewController {
             }
         }
     }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        if indexPath == 2 || indexPath == 8 {
+            cell.selectionStyle = .None
+           // return nil
+        }
+        
+        return indexPath
+    }
 
     /*
     // Override to support conditional editing of the table view.

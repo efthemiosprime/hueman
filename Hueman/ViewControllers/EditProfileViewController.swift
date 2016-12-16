@@ -100,6 +100,9 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func didTappedSave(sender: AnyObject) {
         
+        showWaitOverlay()
+
+        
         let currentUser = FIRAuth.auth()?.currentUser
         
         
@@ -139,6 +142,10 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
                         
                         let updateRef = self.dataBaseRef.child("/users/\(updatedUser.uid)")
                         updateRef.updateChildValues(updatedUser.toAnyObject())
+                        
+                        self.removeAllOverlays()
+                        self.performSegueWithIdentifier("UserCreated", sender: sender)
+
                         
                     }
                 })
