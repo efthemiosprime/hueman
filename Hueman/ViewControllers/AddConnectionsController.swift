@@ -30,6 +30,14 @@ class AddConnectionsController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 96
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         fetchAllUsers()
     }
     
@@ -40,19 +48,20 @@ class AddConnectionsController: UITableViewController {
             
             var allUsers = [User]()
             for snap in snapshot.children {
-                print (user)
                 let newUser = User(snapshot: snap as! FIRDataSnapshot )
-                print(newUser)
                 allUsers.append(newUser)
             }
             
             self.users = allUsers.sort({ (user1, user2) -> Bool in
                     user1.name < user2.name
+                
             
             })
+            self.tableView.reloadData()
+
             
         }) {(error) in
-            
+            print(error.localizedDescription)
         }
         
     }
@@ -66,13 +75,24 @@ class AddConnectionsController: UITableViewController {
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
+        cell.user = users[indexPath.row]
+        
+        return cell
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return users.count
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 96
+    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
