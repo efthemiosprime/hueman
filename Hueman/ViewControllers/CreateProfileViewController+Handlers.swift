@@ -1,5 +1,5 @@
 //
-//  EditProfileViewController+Handlers.swift
+//  CreateProfileViewController+Handlers.swift
 //  Hueman
 //
 //  Created by Efthemios Prime on 12/7/16.
@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 
-extension EditProfileViewController: UIImagePickerControllerDelegate {
+extension CreateProfileViewController: UIImagePickerControllerDelegate {
     
     func handleSelectedProfileImageView() {
         let picker = UIImagePickerController()
@@ -49,10 +49,11 @@ extension EditProfileViewController: UIImagePickerControllerDelegate {
 
 
 
-extension EditProfileViewController: UITextFieldDelegate {
+extension CreateProfileViewController: UITextFieldDelegate {
     // Dismissing the Keyboard with the Return Keyboard Button
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         nameTextfield.resignFirstResponder()
+        locationField.resignFirstResponder()
         return true
     }
     
@@ -85,16 +86,18 @@ extension EditProfileViewController: UITextFieldDelegate {
 
 
 
-extension EditProfileViewController: UITextViewDelegate {
+extension CreateProfileViewController: UITextViewDelegate {
     
-    
+
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        birthdayDatePicker.hidden = true
+        cityInputView.hidden = true
         textView.text = ""
         return true
     }
 
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        locationTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
 //    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {

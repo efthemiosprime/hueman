@@ -1,5 +1,5 @@
 //
-//  EditProfileViewController.swift
+//  CreateProfileViewController.swift
 //  Hueman
 //
 //  Created by Efthemios Prime on 12/7/16.
@@ -13,15 +13,19 @@ import FirebaseStorage
 import FirebaseDatabase
 import SwiftOverlays
 
-class EditProfileViewController: UIViewController, UINavigationControllerDelegate {
+class CreateProfileViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameTextfield: UITextField!
+    @IBOutlet weak var bioTextfield: UITextView!
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var birthdayImage: UIImageView!
     @IBOutlet weak var birthdayDatePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var locationTextField: UITextView!
+    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var cityInputView: UIView!
+    @IBOutlet weak var backScrollView: UIView!
+    @IBOutlet weak var locationInput: UILabel!
     
     var dataBaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
@@ -48,21 +52,26 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         profileImage.addGestureRecognizer(profileImageTapGesture)
         
         // Creating Tap Gesture to dismiss Keyboard
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.dismissKeyboard(_:)))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
+        
+        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.didTappedLocation(_:)))
+        locationTapGesture.numberOfTapsRequired = 1
+        locationImage.addGestureRecognizer(locationTapGesture)
+        
+        bioTextfield.delegate = self
         
         
         let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
         birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
         
-        birthdayDatePicker.addTarget(self, action: #selector(EditProfileViewController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        birthdayDatePicker.addTarget(self, action: #selector(CreateProfileViewController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
 
-        birthdayDatePicker.backgroundColor = UIColor.whiteColor()
+        birthdayDatePicker.backgroundColor = UIColor.UIColorFromRGB(0x999999)
         birthdayDatePicker.hidden = true
         
-        
-
+        cityInputView.hidden = true
         
         
     }
@@ -73,6 +82,10 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func profileImageTapped() {
+        
+        cityInputView.hidden = true
+        birthdayDatePicker.hidden = true
+
         handleSelectedProfileImageView()
     }
     
@@ -89,14 +102,29 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         dateLabel.text = dateFormatter.stringFromDate(sender.date)
     }
     
+    func didTappedLocation(gesture: UIGestureRecognizer) {
+        self.view.endEditing(true)
+        if cityInputView.hidden == true {
+            cityInputView.hidden = false
+        }
+    }
+    
     // Dismissing all editing actions when User Tap or Swipe down on the Main View
     func dismissKeyboard(gesture: UIGestureRecognizer){
         self.view.endEditing(true)
         if birthdayDatePicker.hidden == false {
             birthdayDatePicker.hidden = true
         }
-
+        
+        if cityInputView.hidden == false {
+            cityInputView.hidden = true
+        }
+        
     }
+    @IBAction func locationInputDidChanged(sender: AnyObject) {
+        locationInput.text = locationField.text
+    }
+
     
     @IBAction func didTappedSave(sender: AnyObject) {
         
@@ -132,8 +160,8 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
                         var updatedUser = User(email: (currentUser?.email!)!, name: (currentUser?.displayName)!, userId: currentUser!.uid)
                         
                         updatedUser.birthday = self.dateLabel.text
-                        updatedUser.location = self.locationTextField.text
-                        updatedUser.bio = ""
+                        updatedUser.location = self.locationInput.text
+                        updatedUser.bio = self.bioTextfield.text
                         updatedUser.photoURL = changeRequest?.photoURL?.absoluteString
                         
                         

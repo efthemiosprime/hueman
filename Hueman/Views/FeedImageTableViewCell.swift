@@ -50,8 +50,6 @@ class FeedImageTableViewCell: UITableViewCell {
     
 
     @IBAction func didTappedComments(sender: AnyObject) {
-        let button: UIButton = sender as! UIButton
-        print(button.tag)
         showCommentsAction?(self)
     }
 
