@@ -33,7 +33,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         if let name = FIRAuth.auth()?.currentUser!.displayName  {
             nameTextfield.text = name
@@ -121,8 +121,6 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             if error == nil {
                 let changeRequest = currentUser?.profileChangeRequest()
                 
-                var updatedUser = User(email: (currentUser?.email!)!, name: (currentUser?.displayName)!, userId: currentUser!.uid)
-
                 if let photoURL = metadata!.downloadURL(){
                     changeRequest!.photoURL = photoURL
                 }

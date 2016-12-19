@@ -59,6 +59,7 @@
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
 		3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */; };
 		3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */; };
+		3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */; };
 		3A982BB81DF9023D005DF901 /* EditProfileViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A982BB71DF9023D005DF901 /* EditProfileViewController+Handlers.swift */; };
 		3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B151DED1BC600388DDF /* KeychainWrapper.m */; };
 		3A987B191DED1C6100388DDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B171DED1C6100388DDF /* User.swift */; };
@@ -131,6 +132,7 @@
 		3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Bold.otf"; path = "Fonts/Sofia Pro Bold.otf"; sourceTree = "<group>"; };
 		3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTextTableViewCell.swift; path = Views/FeedTextTableViewCell.swift; sourceTree = "<group>"; };
 		3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedImageTableViewCell.swift; path = Views/FeedImageTableViewCell.swift; sourceTree = "<group>"; };
+		3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationManager.swift; path = Managers/RegistrationManager.swift; sourceTree = "<group>"; };
 		3A982BB71DF9023D005DF901 /* EditProfileViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EditProfileViewController+Handlers.swift"; path = "ViewControllers/EditProfileViewController+Handlers.swift"; sourceTree = "<group>"; };
 		3A987B141DED1BC600388DDF /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = ThirdParties/KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
 		3A987B151DED1BC600388DDF /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = ThirdParties/KeychainWrapper/KeychainWrapper.m; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		3A060D2C1D9CADE9007F2B02 /* Hueman */ = {
 			isa = PBXGroup;
 			children = (
+				3A8BCFAD1E078BD2007AE84B /* Managers */,
 				3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */,
 				3A45BAAD1DE926200062081E /* Utils */,
 				3A20AB1F1DAD3D73008E54AD /* ThirdParties */,
@@ -248,7 +251,6 @@
 		3A154E2B1DCD6FD7005A79EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3A987B1D1DED1D2500388DDF /* FeedManager.swift */,
 				3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */,
 			);
 			name = Networking;
@@ -393,6 +395,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3A8BCFAD1E078BD2007AE84B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3A987B1D1DED1D2500388DDF /* FeedManager.swift */,
+				3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		3A987B101DED1B7500388DDF /* KeychainWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,7 +540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -566,6 +577,7 @@
 				3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */,
 				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
+				3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */,
 				3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */,
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,

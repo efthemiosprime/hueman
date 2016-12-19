@@ -156,7 +156,7 @@ class HuesFeedViewController: UITableViewController {
         if (feed.withImage == true) {
             (cell as! FeedImageTableViewCell).feed = feed
             (cell as! FeedImageTableViewCell).showCommentsAction = { (cell) in
-                //self.performSegueWithIdentifier("ShowComments", sender: nil)
+                self.performSegueWithIdentifier("ShowComments", sender: nil)
 
             }
 
