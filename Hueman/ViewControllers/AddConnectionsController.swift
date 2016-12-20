@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class AddConnectionsController: UITableViewController {
     
@@ -21,6 +22,10 @@ class AddConnectionsController: UITableViewController {
     }
     
     var users = [User]()
+    var requests = [User]()
+    
+    var sections = [String]()
+    var data: [[User]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +35,8 @@ class AddConnectionsController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: Font.SofiaProRegular, size: 20)!]
+
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 96
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -38,32 +44,99 @@ class AddConnectionsController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        fetchAllUsers()
+        
+        self.navigationController?.navigationBar.topItem?.title = ""
+//        self.navigationBar.topItem!.title = ""
+        self.navigationController?.navigationBar.translucent = false
+//        self.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
+        
+        
+        fetchAllRequests()
     }
     
     func fetchAllUsers() {
+        
+        print("fetchAllUsers")
         let userRef = databaseRef.child("users")
+    
+        let currentUser = FIRAuth.auth()?.currentUser
+
         userRef.observeEventType(.Value, withBlock:{
             snapshot in
             
             var allUsers = [User]()
             for snap in snapshot.children {
                 let newUser = User(snapshot: snap as! FIRDataSnapshot )
-                allUsers.append(newUser)
+                if currentUser?.uid != newUser.uid {
+                    allUsers.append(newUser)
+                }
             }
             
             self.users = allUsers.sort({ (user1, user2) -> Bool in
                     user1.name < user2.name
-                
-            
             })
+            
+
+            if self.requests.count > 0 {
+                self.sections.append("pending")
+                self.data.append(self.requests)
+                
+                self.sections.append("users")
+                self.data.append(self.users)
+            }else {
+                self.sections.append("users")
+                self.data.append(self.users)
+            }
+
             self.tableView.reloadData()
+
+        }) {(error) in
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func fetchAllRequests() {
+        let currentUser = FIRAuth.auth()?.currentUser
+        let requestRef = databaseRef.child("requests").child((currentUser?.uid)!)
+
+        requestRef.observeSingleEventOfType(.Value, withBlock:{
+            snapshot in
+            if snapshot.exists() {
+                
+
+                
+                for snap in snapshot.children {
+                    if let from = snap.value!["from"] as? String {
+                        print("from \(from)")
+                        let requestFromRef = self.databaseRef.child("/users/\(from)")
+                        
+                        requestFromRef.observeSingleEventOfType(.Value, withBlock: {userSnap in
+                            
+                            let userRequest = User(snapshot: userSnap )
+                            self.requests.append(userRequest)
+                        }) {(error ) in
+                            print(error.localizedDescription)
+                            
+                        }
+                        
+
+                    }
+                }
+
+
+                self.fetchAllUsers()
+
+            }else {
+
+                self.fetchAllUsers()
+            }
 
             
         }) {(error) in
             print(error.localizedDescription)
         }
-        
     }
     
 
@@ -73,20 +146,79 @@ class AddConnectionsController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
-        cell.user = users[indexPath.row]
+        let currentCell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! AddUserCell
+        currentCell.user = data[indexPath.section][indexPath.row]
         
-        return cell
+        
+        storageRef.referenceForURL((currentCell.user?.photoURL)!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+            if error == nil {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let data = data {
+                        currentCell.connectionImage.image = UIImage(data: data)
+                    }
+                })
+                
+                
+            }else {
+                print(error!.localizedDescription)
+            }
+        })
+        
+        if indexPath.section == 0 && sections.count > 1 {
+            // accept request
+            currentCell.addUserAction = { (cell) in
+                print("xxxxxxxx 000000")
+                
+            }
+        }else {
+            // add user
+            currentCell.addUserAction = { (cell) in
+                let currentUserUid = FIRAuth.auth()?.currentUser?.uid
+                let requestId = NSUUID().UUIDString
+                let connectionRequest = ConnectionRequest(from: currentUserUid!, to: cell.user!.uid, id: requestId)
+                let requestRef = self.databaseRef.child("requests").child(connectionRequest.to!).child(connectionRequest.id!)
+                requestRef.setValue(connectionRequest.toAnyObject(), withCompletionBlock: {
+                    (error, ref) in
+                    if error == nil {
+                        //feedPosted?()
+                      //  print("posted")
+                        
+                        let friendshipsReq = self.databaseRef.child("friendships").child(requestId)
+                        let friendships = Friendship(from: connectionRequest.from!, to: connectionRequest.to!, id: connectionRequest.id!, status: Friendship.Pending)
+                        friendshipsReq.setValue(friendships.toAnyObject(), withCompletionBlock: {
+                            (error, ref) in
+                            
+                            print("posted")
+                        })
+                    }
+                })
+                
+            }
+        }
+
+        
+        return currentCell
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return sections.count
     }
 
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return data[section].count
+    }
+    
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return self.sections[section]
+        
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

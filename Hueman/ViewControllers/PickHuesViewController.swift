@@ -46,10 +46,6 @@ class PickHuesViewController: UIViewController {
         
         self.presentViewController(createPostController!, animated: true, completion: nil)
         
-
-        
-        
-
     }
     
     func showDescription() {

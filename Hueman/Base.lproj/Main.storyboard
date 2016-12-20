@@ -185,7 +185,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Qys-BR-KXj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NhB-cF-DX8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1579,7 +1579,7 @@ Massachusetts</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="96" id="AxQ-hA-xTp" customClass="UserCell" customModule="Hueman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="96" id="AxQ-hA-xTp" customClass="AddUserCell" customModule="Hueman" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AxQ-hA-xTp" id="V5r-jE-Xqz">
@@ -1590,7 +1590,7 @@ Massachusetts</string>
                                             <rect key="frame" x="23" y="10" width="75" height="75"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s7F-0B-jPM" userLabel="img">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7F-0B-jPM" userLabel="img">
                                             <rect key="frame" x="25" y="12" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <userDefinedRuntimeAttributes>
@@ -1622,6 +1622,14 @@ Massachusetts</string>
                                                 <constraint firstAttribute="height" constant="1" id="obJ-WJ-bpq"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkN-C8-wcK">
+                                            <rect key="frame" x="324" y="34" width="27" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="add-connection-icon"/>
+                                            <connections>
+                                                <action selector="didTappedAddUser:" destination="AxQ-hA-xTp" eventType="touchUpInside" id="Ehp-j5-qiV"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="YPa-gb-TEW" firstAttribute="centerX" secondItem="V5r-jE-Xqz" secondAttribute="centerX" id="1AY-n9-3gu"/>
@@ -2038,6 +2046,7 @@ Massachusetts</string>
         </scene>
     </scenes>
     <resources>
+        <image name="add-connection-icon" width="28" height="28"/>
         <image name="app-settings-icon" width="34" height="34"/>
         <image name="back-bar-item" width="22" height="22"/>
         <image name="back-grey-icon" width="33" height="33"/>
@@ -2094,6 +2103,6 @@ Massachusetts</string>
         <image name="wanderlust-icon" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gNX-ic-ARf"/>
+        <segue reference="OkO-K9-BA2"/>
     </inferredMetricsTieBreakers>
 </document>

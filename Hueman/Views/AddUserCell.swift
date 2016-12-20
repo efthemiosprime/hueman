@@ -9,12 +9,15 @@
 import UIKit
 
 
-class UserCell: UITableViewCell {
+class AddUserCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var connectionImage: UIImageView!
     
+    
+    var addUserAction: ((AddUserCell) -> Void)?
+
     var user: User? {
         didSet {
             if let user = user {
@@ -34,6 +37,11 @@ class UserCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    
+    @IBAction func didTappedAddUser(sender: AnyObject) {
+        addUserAction?(self)
     }
     
 }

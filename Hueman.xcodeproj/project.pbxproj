@@ -12,6 +12,8 @@
 		3A060D351D9CADE9007F2B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A060D341D9CADE9007F2B02 /* Assets.xcassets */; };
 		3A060D381D9CADE9007F2B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A060D361D9CADE9007F2B02 /* LaunchScreen.storyboard */; };
 		3A083B9F1DA4357C0092AE75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EE1DA3B6080011B467 /* Main.storyboard */; };
+		3A0AB1911E086E1300295AA5 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB1901E086E1300295AA5 /* ConnectionRequest.swift */; };
+		3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB1921E086ECB00295AA5 /* Friendship.swift */; };
 		3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */; };
 		3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E201DCD6EA6005A79EC /* Theme.swift */; };
 		3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E211DCD6EA6005A79EC /* Hues.swift */; };
@@ -69,7 +71,7 @@
 		3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB900C91DFE5D8E0038D147 /* TextField.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
-		3C908B7E1E04937F00DA0109 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* UserCell.swift */; };
+		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		3A060D341D9CADE9007F2B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A060D371D9CADE9007F2B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A060D391D9CADE9007F2B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A0AB1901E086E1300295AA5 /* ConnectionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionRequest.swift; path = Models/ConnectionRequest.swift; sourceTree = "<group>"; };
+		3A0AB1921E086ECB00295AA5 /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Friendship.swift; path = Models/Friendship.swift; sourceTree = "<group>"; };
 		3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionCell.swift; path = Views/ConnectionCell.swift; sourceTree = "<group>"; };
 		3A154E201DCD6EA6005A79EC /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Models/Theme.swift; sourceTree = "<group>"; };
 		3A154E211DCD6EA6005A79EC /* Hues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hues.swift; path = Models/Hues.swift; sourceTree = "<group>"; };
@@ -145,7 +149,7 @@
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
-		3C908B7D1E04937F00DA0109 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCell.swift; path = Views/UserCell.swift; sourceTree = "<group>"; };
+		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
 		DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hueman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -195,8 +199,8 @@
 		3A060D2C1D9CADE9007F2B02 /* Hueman */ = {
 			isa = PBXGroup;
 			children = (
-				3A8BCFAD1E078BD2007AE84B /* Managers */,
 				3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */,
+				3A8BCFAD1E078BD2007AE84B /* Managers */,
 				3A45BAAD1DE926200062081E /* Utils */,
 				3A20AB1F1DAD3D73008E54AD /* ThirdParties */,
 				3A154E621DCD7428005A79EC /* Layouts */,
@@ -276,7 +280,7 @@
 				3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */,
 				3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */,
 				3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */,
-				3C908B7D1E04937F00DA0109 /* UserCell.swift */,
+				3C908B7D1E04937F00DA0109 /* AddUserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -346,6 +350,8 @@
 				3A154E221DCD6EA6005A79EC /* Profile.swift */,
 				3A154E231DCD6EA6005A79EC /* Hueboard.swift */,
 				3C7FB2A11E04533900FF3160 /* Connection.swift */,
+				3A0AB1901E086E1300295AA5 /* ConnectionRequest.swift */,
+				3A0AB1921E086ECB00295AA5 /* Friendship.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -585,12 +591,14 @@
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
 				3A987B191DED1C6100388DDF /* User.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
+				3A0AB1911E086E1300295AA5 /* ConnectionRequest.swift in Sources */,
 				3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
-				3C908B7E1E04937F00DA0109 /* UserCell.swift in Sources */,
+				3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */,
 				3A154E471DCD7352005A79EC /* PickHuesViewController.swift in Sources */,
+				3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */,
 				3A987B1C1DED1CDF00388DDF /* AuthenticationManager.swift in Sources */,
 				3A154E261DCD6EA6005A79EC /* Profile.swift in Sources */,
 				3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */,

@@ -50,24 +50,4 @@ struct User {
         return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!, "location": self.location!, "bio": self.bio!, "photoURL": self.photoURL! ]
     }
     
-//    init(name: String, uid: String, email: String, dob: String, location: String, bio: String, photoURL: String = "") {
-//        self.name = name
-//        self.uid = uid
-//        self.email = email
-//        self.dob = dob
-//        self.location = location
-//        self.bio = bio
-//        self.photoURL = photoURL
-//    }
-//    
-//    init(name: String, email: String, password: String, dob: String, location: String, bio: String, photoURL: String = "") {
-//        self.name = name
-//        self.email = email
-//        self.password = password
-//        self.dob = dob
-//        self.location = location
-//        self.bio = bio
-//        self.photoURL = photoURL
-//        
-//    }
 }
