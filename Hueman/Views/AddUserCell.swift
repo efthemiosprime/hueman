@@ -14,16 +14,17 @@ class AddUserCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var connectionImage: UIImageView!
+    @IBOutlet weak var addButton: UIButton!
     
     
     var addUserAction: ((AddUserCell) -> Void)?
+    var friendship: Friendship?
 
     var user: User? {
         didSet {
             if let user = user {
                 nameLabel.text = user.name
                 locationLabel.text = user.location
-                //connectionImage.image = UIImage(named: connection.imageURL!)
                 connectionImage.clipsToBounds = true
             }
         }

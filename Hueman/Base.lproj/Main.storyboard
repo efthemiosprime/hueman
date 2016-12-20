@@ -1637,6 +1637,7 @@ Massachusetts</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="addButton" destination="CkN-C8-wcK" id="V3f-XA-rYj"/>
                                     <outlet property="connectionImage" destination="s7F-0B-jPM" id="vPh-Vp-X9T"/>
                                     <outlet property="locationLabel" destination="lDT-R6-uI2" id="lQi-I7-VND"/>
                                     <outlet property="nameLabel" destination="uHb-E0-Vge" id="oKk-4P-co0"/>

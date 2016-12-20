@@ -14,9 +14,9 @@ struct Connection {
     let location: String?
     let imageURL: String?
     let uid: String!
-    let friendship:Friendship?
+    let friendship:String?
 
-    init(name: String, location:String, imageURL:String, uid: String, friendship: Friendship? = nil) {
+    init(name: String, location:String, imageURL:String, uid: String, friendship: String = "") {
         
         self.name = name
         self.location = location

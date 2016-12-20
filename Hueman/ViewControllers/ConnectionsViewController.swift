@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
+import SwiftOverlays
 
 class ConnectionsViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
@@ -23,6 +27,19 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
 
     
     var searchBarOpen: Bool = false
+    
+    
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    
+    
+    var storageRef: FIRStorage!{
+        return FIRStorage.storage()
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +59,12 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
         self.navigationController?.navigationBar.topItem!.title = "connections"
         
-        connections.append(Connection(name: "Julius Busa", location: "New York, NY", imageURL: "", uid: "", friendship: nil))
-        connections.append(Connection(name: "Maverick Shawn Aquino", location: "New York, NY", imageURL: "", uid: "", friendship: nil))
-        connections.append(Connection(name: "Nicolette Onate", location: "New York, NY", imageURL: "", uid: "", friendship: nil))
-        connections.append(Connection(name: "Camille Laurente", location: "New York, NY", imageURL: "", uid: "", friendship: nil))
-        connections.append(Connection(name: "Efthemios Suyat", location: "New York, NY", imageURL: "", uid: "", friendship: nil))
+        connections.append(Connection(name: "Julius Busa", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Maverick Shawn Aquino", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Nicolette Onate", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Camille Laurente", location: "New York, NY", imageURL: "", uid: ""))
+        connections.append(Connection(name: "Efthemios Suyat", location: "New York, NY", imageURL: "", uid: ""))
+        
         
         self.tableView.separatorStyle = .None
         self.tableView.delegate = self
@@ -62,6 +80,22 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
     }
     
+
+    
+    func fetchFriends() {
+        let currentUser = FIRAuth.auth()?.currentUser
+        let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
+        friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            if let uid = snapshot.value {
+                
+            }
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
+
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,6 +106,8 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        fetchFriends()
     }
     
     override func viewWillDisappear(animated: Bool) {
