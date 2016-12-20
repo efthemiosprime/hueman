@@ -18,6 +18,10 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
 
         // Creating Tap Gesture to dismiss Keyboard
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard(_:)))
@@ -60,9 +64,8 @@ class SignupViewController: UIViewController {
 
 extension SignupViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        nameField.resignFirstResponder()
-        emailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
+        textField.resignFirstResponder()
+
         return true
     }
 }

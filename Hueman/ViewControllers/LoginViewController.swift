@@ -22,6 +22,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         //printFonts()
         
+        emailField.delegate = self
+        passwordField.delegate = self
+        
         let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
         if hasLogin {
             if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = authenticationManager.keychainWrapper.myObjectForKey("v_Data") as? String {
@@ -29,6 +32,12 @@ class LoginViewController: UIViewController {
                 passwordField.text = storedPassword
             }
         }
+        
+        // Creating Tap Gesture to dismiss Keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -84,5 +93,45 @@ class LoginViewController: UIViewController {
             print("email/password can't be empty")
         }
     }
+    
+    // Dismissing all editing actions when User Tap or Swipe down on the Main View
+    func dismissKeyboard(gesture: UIGestureRecognizer){
+        self.view.endEditing(true)
+    }
 
+}
+
+
+extension LoginViewController: UITextFieldDelegate {
+    // Dismissing the Keyboard with the Return Keyboard Button
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Moving the View up after the Keyboard appears
+    func textFieldDidBeginEditing(textField: UITextField) {
+        //animateView(true, moveValue: 80)
+    }
+    
+    
+    // Moving the View down after the Keyboard disappears
+    func textFieldDidEndEditing(textField: UITextField) {
+        // animateView(false, moveValue: 80)
+    }
+    
+    
+    // Move the View Up & Down when the Keyboard appears
+    func animateView(up: Bool, moveValue: CGFloat){
+        
+        let movementDuration: NSTimeInterval = 0.3
+        let movement: CGFloat = (up ? -moveValue : moveValue)
+        UIView.beginAnimations("animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        self.view.frame = CGRectOffset(self.view.frame, 0, movement)
+        UIView.commitAnimations()
+        
+        
+    }
 }
