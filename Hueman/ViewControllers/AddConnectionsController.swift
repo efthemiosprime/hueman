@@ -24,6 +24,7 @@ class AddConnectionsController: UITableViewController {
     
     var users = [User]()
     var requests = [User]()
+    var connections = [Connection]()
     
     var sections = [String]()
     var data: [[User]] = []
@@ -42,27 +43,25 @@ class AddConnectionsController: UITableViewController {
         self.tableView.estimatedRowHeight = 96
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        //self.tableView.setEditing(true, animated: true)
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.topItem?.title = ""
-//        self.navigationBar.topItem!.title = ""
         self.navigationController?.navigationBar.translucent = false
-//        self.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
         
         let currentAuthenticatedUser = FIRAuth.auth()?.currentUser
         let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             self.currentUser = User(snapshot: snapshot)
+            self.fetchConnections()
             self.fetchAllRequests()
         }) { error in
             print(error.localizedDescription)
         }
+        
         
         
     }
@@ -85,9 +84,48 @@ class AddConnectionsController: UITableViewController {
             for snap in snapshot.children {
                 let newUser = User(snapshot: snap as! FIRDataSnapshot )
                 if self.currentUser?.uid != newUser.uid {
-                    allUsers.append(newUser)
+                    
+                    var found = false
+                    for con in self.connections {
+                        if newUser.uid == con.uid {
+                            found = true
+                        }
+                    }
+                    if !found {
+                        allUsers.append(newUser)
+
+                    }
+                    
+
+
                 }
             }
+//            
+//            let boolArray = connections.map { (con) -> Bool in
+//                return users.contains(connection.uid)
+//            }
+            // todo: optimize
+            
+        
+//            for user in allUsers {
+//
+//                for con in self.connections {
+//                    if user.uid == con.uid {
+//                        print(user.name)
+//
+//                    }
+//                }
+//                index = index + 1
+//
+//            }
+//            let filteredKeys = allUsers.flatMap { (str, arr) -> String? in
+//                if arr.contains({ $0.uid == "two" }) {
+//                    return str
+//                }
+//                return nil
+//            }
+
+            
             
             self.users = allUsers.sort({ (user1, user2) -> Bool in
                     user1.name < user2.name
@@ -152,6 +190,24 @@ class AddConnectionsController: UITableViewController {
         }
     }
     
+    func fetchConnections() {
+        let currentUser = FIRAuth.auth()?.currentUser
+        let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
+        friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            
+            for con in snapshot.children {
+                let connection = Connection(name: (con.value!["name"] as? String)!,
+                    location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                self.connections.append(connection)
+            }
+            
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

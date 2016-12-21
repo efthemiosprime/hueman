@@ -82,12 +82,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
         friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            
-//            self.name = snapshot.value!["name"] as? String
-//            self.location = snapshot.value!["location"] as? String
-//            self.imageURL = snapshot.value!["photoURL"] as? String
-//            self.uid = snapshot.value!["uid"] as? String
-//            self.friendship = ""
+        
             for con in snapshot.children {
                 let connection = Connection(name: (con.value!["name"] as? String)!,
                     location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
@@ -127,6 +122,8 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             menuItem.action = nil
             self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        connections.removeAll()
     }
     
     func addNavigationItems () {
@@ -191,6 +188,21 @@ extension ConnectionsViewController: UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CONNECTION_CELL_IDENTIFIER, forIndexPath: indexPath) as! ConnectionCell
         cell.connection = connections[indexPath.row]
+        
+        storageRef.referenceForURL(connections[indexPath.row].imageURL!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+            if error == nil {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let data = data {
+                        cell.connectionImage.image = UIImage(data: data)
+                    }
+                })
+                
+                
+            }else {
+                print(error!.localizedDescription)
+            }
+        })
         
         return cell
     }

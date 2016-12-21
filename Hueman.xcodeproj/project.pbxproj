@@ -116,7 +116,7 @@
 		3A154E701DCD75FC005A79EC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ThirdParties/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		3A154E711DCD75FC005A79EC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ThirdParties/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		3A154E731DCD763E005A79EC /* Hueman-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hueman-Bridging-Header.h"; path = "Hueman/Helpers/Hueman-Bridging-Header.h"; sourceTree = "<group>"; };
-		3A154E751DCD7852005A79EC /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Hueman/Networking/NetworkManager.swift; sourceTree = "<group>"; };
+		3A154E751DCD7852005A79EC /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Networking/NetworkManager.swift; sourceTree = "<group>"; };
 		3A154E771DCD8D77005A79EC /* PickHuesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickHuesViewModel.swift; path = ViewModels/PickHuesViewModel.swift; sourceTree = "<group>"; };
 		3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddConnectionsController.swift; path = ViewControllers/AddConnectionsController.swift; sourceTree = "<group>"; };
 		3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light.otf"; path = "Fonts/Sofia Pro Light.otf"; sourceTree = "<group>"; };
@@ -180,7 +180,6 @@
 		3A060D211D9CADE9007F2B02 = {
 			isa = PBXGroup;
 			children = (
-				3A154E751DCD7852005A79EC /* NetworkManager.swift */,
 				3A060D2C1D9CADE9007F2B02 /* Hueman */,
 				3A060D2B1D9CADE9007F2B02 /* Products */,
 				3A6C94701DAB12F6002A7EA3 /* Frameworks */,
@@ -255,6 +254,7 @@
 		3A154E2B1DCD6FD7005A79EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3A154E751DCD7852005A79EC /* NetworkManager.swift */,
 				3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */,
 			);
 			name = Networking;
@@ -546,7 +546,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

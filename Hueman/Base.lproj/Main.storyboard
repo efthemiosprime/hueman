@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -34,18 +34,18 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="hueman-logo" translatesAutoresizingMaskIntoConstraints="NO" id="By8-dp-SEc">
-                                <rect key="frame" x="-11.5" y="95" width="343" height="58"/>
+                                <rect key="frame" x="16" y="95" width="343" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="Gxo-Jm-nFY"/>
                                     <constraint firstAttribute="height" constant="58" id="XYJ-9i-RPK"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-Kl-Fci" userLabel="container">
-                                <rect key="frame" x="-11.5" y="176" width="343" height="263"/>
+                                <rect key="frame" x="16" y="176" width="343" height="263"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSN-y8-Ivj">
                                         <rect key="frame" x="47" y="0.0" width="248" height="17"/>
@@ -75,7 +75,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="insetX">
                                                 <real key="value" value="8"/>
@@ -185,7 +185,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Qys-BR-KXj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NhB-cF-DX8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -203,17 +203,17 @@
             <objects>
                 <tableViewController id="Dth-Xh-86j" customClass="HamburgerDrawerTableViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fi4-00-EPn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="G0V-Fz-dpT">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="160" id="nyN-r8-ITb" userLabel="user image" customClass="DrawerProfileImageRowCell" customModule="Hueman" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nyN-r8-ITb" id="6mm-6S-iie">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNK-FD-DrO">
@@ -235,10 +235,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="45" id="yuH-LC-Bxc" userLabel="user name" customClass="DrawerProfileNameRowCell" customModule="Hueman" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="160" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="160" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yuH-LC-Bxc" id="qm6-Xm-dDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04V-1Z-UvT">
@@ -259,10 +259,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" id="RMo-ET-Nkc" userLabel="seperator">
-                                        <rect key="frame" x="0.0" y="205" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="205" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMo-ET-Nkc" id="KOC-hg-bEb">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration">
@@ -270,10 +270,10 @@
                                         </accessibility>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="60" id="Brj-IS-dmO" userLabel="app settings">
-                                        <rect key="frame" x="0.0" y="249" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="249" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Brj-IS-dmO" id="kfq-7W-Nib">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="app-settings-icon" translatesAutoresizingMaskIntoConstraints="NO" id="s7S-Bq-AEs">
@@ -291,10 +291,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="60" id="i6S-gR-EQR" userLabel="privacy policy">
-                                        <rect key="frame" x="0.0" y="309" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="309" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i6S-gR-EQR" id="MvF-bc-ZLz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="privacy-policy-icon" translatesAutoresizingMaskIntoConstraints="NO" id="TPT-e8-gbb">
@@ -312,10 +312,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="60" id="Xgk-tF-a19" userLabel="terms and conditions">
-                                        <rect key="frame" x="0.0" y="369" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="369" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xgk-tF-a19" id="nPG-46-KNv">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="terms-conditions-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6OZ-xr-koA">
@@ -333,10 +333,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="60" id="RMy-oO-6kw" userLabel="report a problem">
-                                        <rect key="frame" x="0.0" y="429" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="429" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMy-oO-6kw" id="xJI-wB-0Yw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="report-problem-icon" translatesAutoresizingMaskIntoConstraints="NO" id="78f-Pr-cbL">
@@ -354,10 +354,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="60" id="KC4-x8-u7Q" userLabel="report a problem">
-                                        <rect key="frame" x="0.0" y="489" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="489" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KC4-x8-u7Q" id="GJz-EO-Wyh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help-center-icon_1" translatesAutoresizingMaskIntoConstraints="NO" id="ClD-Y0-hDC">
@@ -375,10 +375,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="50" id="TY5-4x-uEA" userLabel="seperator">
-                                        <rect key="frame" x="0.0" y="549" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="549" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TY5-4x-uEA" id="iuX-dL-nou">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration">
@@ -386,10 +386,10 @@
                                         </accessibility>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="drawerCell" rowHeight="68" id="Aal-sV-dmZ" userLabel="Logout">
-                                        <rect key="frame" x="0.0" y="599" width="320" height="68"/>
+                                        <rect key="frame" x="0.0" y="599" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aal-sV-dmZ" id="ZKb-ek-0wG">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logout-icon_1" translatesAutoresizingMaskIntoConstraints="NO" id="lOb-41-rfv">
@@ -432,25 +432,25 @@
                         <viewControllerLayoutGuide type="bottom" id="OS3-er-aii"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Oma-LL-kC3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="signup-logo" translatesAutoresizingMaskIntoConstraints="NO" id="BOl-K4-CHu">
-                                <rect key="frame" x="36.5" y="40" width="247" height="60"/>
+                                <rect key="frame" x="64" y="40" width="247" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="247" id="bbj-Pp-VpJ"/>
                                     <constraint firstAttribute="height" constant="60" id="pmx-Jk-PkR"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtG-qH-qMf">
-                                <rect key="frame" x="36.5" y="222.5" width="247" height="21"/>
+                                <rect key="frame" x="64" y="263" width="247" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-yO-66B" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="36.5" y="184.5" width="248" height="36"/>
+                                <rect key="frame" x="64.5" y="219" width="248" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
@@ -462,14 +462,14 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY7-HE-8E9">
-                                <rect key="frame" x="36.5" y="168" width="248" height="17"/>
+                                <rect key="frame" x="64.5" y="198" width="248" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="S8O-Eh-3bj" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="36.5" y="130" width="248" height="36"/>
+                                <rect key="frame" x="64.5" y="154" width="248" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
@@ -481,14 +481,14 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYX-wd-EsR">
-                                <rect key="frame" x="36.5" y="112.5" width="248" height="17"/>
+                                <rect key="frame" x="64.5" y="132.5" width="248" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="JjH-KL-bGG" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="36.5" y="241" width="248" height="36"/>
+                                <rect key="frame" x="64.5" y="286" width="248" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
@@ -500,7 +500,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlP-3l-Kzj">
-                                <rect key="frame" x="183.5" y="292" width="84" height="30"/>
+                                <rect key="frame" x="226.5" y="345.5" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
                                 <state key="normal" title="signup" backgroundImage="signup-bg">
@@ -538,18 +538,18 @@
                         <viewControllerLayoutGuide type="bottom" id="3Co-ZT-ETQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ye8-f0-Z1X">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-thumbnail-bg" translatesAutoresizingMaskIntoConstraints="NO" id="OVZ-AW-iGe">
-                                <rect key="frame" x="17" y="95" width="286" height="286"/>
+                                <rect key="frame" x="44.5" y="95" width="286" height="286"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="286" id="QtV-Hd-f8t"/>
                                     <constraint firstAttribute="height" constant="286" id="xX4-Y2-4TM"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9Rb-nb-Ywk">
-                                <rect key="frame" x="44" y="122" width="232" height="232"/>
+                                <rect key="frame" x="71.5" y="122" width="232" height="232"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="232" id="RvH-Ko-j9n"/>
                                     <constraint firstAttribute="height" constant="232" id="htS-7g-ZTW"/>
@@ -559,13 +559,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-name-background" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-8R-wAI">
-                                <rect key="frame" x="44" y="296.5" width="232" height="27.5"/>
+                                <rect key="frame" x="44.5" y="389" width="286" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7r1-8R-wAI" secondAttribute="height" multiplier="143:17" id="p1I-zz-hVC"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julius Busa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-d5-qk9">
-                                <rect key="frame" x="118" y="302" width="83" height="17"/>
+                                <rect key="frame" x="146" y="398" width="82.5" height="17"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -633,13 +633,13 @@ Massachusetts</string>
             <objects>
                 <viewController id="4ci-av-bsr" userLabel="Hueboards" customClass="HueboardsViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Q3w-GA-zwc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="3AE-VY-bah" customClass="HueboardsLayout" customModule="Hueman" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HueboardCell" id="37M-cn-2sK" customClass="HueboardCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="75" y="0.0" width="170" height="240"/>
+                                <rect key="frame" x="0.0" y="0.0" width="170" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="240"/>
@@ -742,32 +742,32 @@ Massachusetts</string>
             <objects>
                 <tableViewController id="Xzd-Me-4Pw" customClass="HuesFeedViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="143" sectionHeaderHeight="10" sectionFooterHeight="10" id="H70-34-Xiu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="huesfeedimagecell" rowHeight="350" id="jso-0v-QCx" userLabel="huesfeedimagecell" customClass="FeedImageTableViewCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="10" width="320" height="350"/>
+                                <rect key="frame" x="0.0" y="10" width="375" height="350"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="jso-0v-QCx" id="wEW-UF-yFW">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="349"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jso-0v-QCx" id="wEW-UF-yFW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="349"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
                                             <rect key="frame" x="0.0" y="317" width="375" height="30"/>
                                             <subviews>
-                                                <view alpha="0.10000000149011612" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-yU-eVX">
+                                                <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-yU-eVX">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7h4-t7-KWJ">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h4-t7-KWJ">
                                                     <rect key="frame" x="0.0" y="25" width="375" height="5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -829,7 +829,7 @@ Massachusetts</string>
                                                 <constraint firstAttribute="width" constant="330" id="s6n-SK-I7M"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
                                             <rect key="frame" x="15" y="230.5" width="275" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="275" id="8P9-tI-7y3"/>
@@ -866,20 +866,20 @@ Massachusetts</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="huesfeedtextcell" id="Ek0-2G-lI8" customClass="FeedTextTableViewCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="360" width="320" height="143"/>
+                                <rect key="frame" x="0.0" y="360" width="375" height="143"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Ek0-2G-lI8" id="BpH-j8-DCk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="142"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ek0-2G-lI8" id="BpH-j8-DCk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM" userLabel="Footer">
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM" userLabel="Footer">
                                             <rect key="frame" x="0.0" y="109" width="375" height="30"/>
                                             <subviews>
-                                                <view alpha="0.10000000000000001" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-g0-6X1">
+                                                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-g0-6X1">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uh-Jr-Tdz">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uh-Jr-Tdz">
                                                     <rect key="frame" x="0.0" y="25" width="375" height="5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -939,7 +939,7 @@ Massachusetts</string>
                                                 <constraint firstAttribute="width" constant="330" id="bvZ-Eu-sKp"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjs-TM-vxg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjs-TM-vxg">
                                             <rect key="frame" x="15" y="18" width="275" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="275" id="0p1-uZ-COw"/>
@@ -1025,15 +1025,15 @@ Massachusetts</string>
             <objects>
                 <tableViewController id="D5x-fb-ScK" customClass="NotificationsViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="twZ-7R-aUK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" rowHeight="90" id="KOF-vt-Ifb" customClass="NotificationCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KOF-vt-Ifb" id="3Tb-X9-oW0">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7M-uM-oDO">
@@ -1059,7 +1059,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="123" y="63.5" width="175" height="21"/>
+                                            <rect key="frame" x="178" y="62.5" width="175" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
@@ -1100,7 +1100,7 @@ Massachusetts</string>
                         <viewControllerLayoutGuide type="bottom" id="NPY-LV-JAV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="swM-Nb-eag">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ryb-Qq-HS5">
@@ -1119,7 +1119,7 @@ Massachusetts</string>
                                                     <rect key="frame" x="23" y="10" width="75" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-f9-n3q" userLabel="img">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-f9-n3q" userLabel="img">
                                                     <rect key="frame" x="25" y="12" width="70" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <userDefinedRuntimeAttributes>
@@ -1206,7 +1206,7 @@ Massachusetts</string>
                         <viewControllerLayoutGuide type="bottom" id="cmC-PR-1kJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nCE-dn-54C">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lhr-t2-O7d">
@@ -1233,11 +1233,11 @@ Massachusetts</string>
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hustle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gSk-Qk-Ddy">
-                                <rect key="frame" x="149" y="53" width="37" height="37"/>
+                                <rect key="frame" x="178" y="53" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="create a post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHo-0f-h4g">
-                                <rect key="frame" x="16" y="14" width="284" height="21"/>
+                                <rect key="frame" x="16" y="14" width="339" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7qT-1o-cve"/>
                                 </constraints>
@@ -1287,39 +1287,39 @@ Massachusetts</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1w-BA-dXT">
-                                <rect key="frame" x="150" y="53" width="35" height="35"/>
+                                <rect key="frame" x="179" y="53" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="filter-icon"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZC-zr-4cu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sy-cq-cG9">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-Bu-21k" userLabel="Plate Icon">
-                                        <rect key="frame" x="88" y="124" width="35" height="35"/>
+                                        <rect key="frame" x="105" y="124" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="plate-icon"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-Ng-GpO" userLabel="Wanderlust">
-                                        <rect key="frame" x="65.5" y="77" width="35" height="35"/>
+                                        <rect key="frame" x="78" y="77" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="wanderlust-icon"/>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8f-kd-KO1">
-                                        <rect key="frame" x="128.5" y="148" width="35" height="35"/>
+                                        <rect key="frame" x="153.5" y="148" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="relationship-icon"/>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sy-YR-VQ4">
-                                        <rect key="frame" x="172" y="148" width="35" height="35"/>
+                                        <rect key="frame" x="205" y="148" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="health-icon"/>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-O3-Hww">
-                                        <rect key="frame" x="150" y="54" width="35" height="35"/>
+                                        <rect key="frame" x="179" y="54" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="close-topic"/>
                                         <connections>
@@ -1327,12 +1327,12 @@ Massachusetts</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-lO-M60">
-                                        <rect key="frame" x="212" y="124" width="37" height="37"/>
+                                        <rect key="frame" x="253" y="124" width="37" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="hustle-icon"/>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-kG-kVI">
-                                        <rect key="frame" x="235.5" y="77" width="35" height="35"/>
+                                        <rect key="frame" x="281" y="77" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ray-light-icon"/>
                                     </button>
@@ -1403,7 +1403,7 @@ Massachusetts</string>
                         <viewControllerLayoutGuide type="bottom" id="a34-WB-jV8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PG3-OY-SmR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pick your hue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dht-xh-qmj">
@@ -1498,14 +1498,14 @@ Massachusetts</string>
                         <viewControllerLayoutGuide type="bottom" id="HhD-bO-mXD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d6c-C9-r1H">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-l0-Nu2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLu-ok-pgO" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="profile-thumbnail-bg" translatesAutoresizingMaskIntoConstraints="NO" id="TW7-eI-uY5">
                                                 <rect key="frame" x="44" y="67" width="286.5" height="286"/>
@@ -1618,15 +1618,15 @@ Massachusetts</string>
             <objects>
                 <tableViewController id="VTM-EG-hpg" customClass="AddConnectionsController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="T1m-NL-Ty9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="96" id="AxQ-hA-xTp" customClass="AddUserCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="96"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AxQ-hA-xTp" id="V5r-jE-Xqz">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="c3I-Ft-Q4u" userLabel="bg">
@@ -1658,7 +1658,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-gb-TEW" userLabel="seperator">
-                                            <rect key="frame" x="-15" y="94" width="350" height="1"/>
+                                            <rect key="frame" x="12.5" y="94" width="350" height="1"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="350" id="OBY-5C-uIS"/>
@@ -1666,7 +1666,7 @@ Massachusetts</string>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkN-C8-wcK">
-                                            <rect key="frame" x="269" y="34" width="27" height="27"/>
+                                            <rect key="frame" x="324" y="34" width="27" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="27" id="Kdn-Cl-pjT"/>
                                                 <constraint firstAttribute="height" constant="27" id="zdd-Ks-QS1"/>
@@ -2017,15 +2017,15 @@ Massachusetts</string>
             <objects>
                 <tableViewController id="l2o-RD-tr6" customClass="CommentsViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gLT-W9-cZH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="90" id="ISV-B5-VQi">
-                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ISV-B5-VQi" id="f3z-be-e1i">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izp-xi-7J8">
@@ -2162,6 +2162,6 @@ Massachusetts</string>
         <image name="wanderlust-icon" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OkO-K9-BA2"/>
+        <segue reference="gNX-ic-ARf"/>
     </inferredMetricsTieBreakers>
 </document>
