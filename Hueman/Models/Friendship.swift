@@ -10,21 +10,21 @@ import Foundation
 
 struct Friendship {
     
-    let from: String?
-    let to: String?
+    let requester: String? // from
+    let recipient: String? // to
     let id: String?
     let status: String?
     
     static let Pending: String = "Pending"
     static let Accepted: String = "Accepted"
     static let Rejected: String = "Rejected"
-    
+    static let Removed: String = "Removed"
 
     
     init(from: String, to:String, id: String,  status: String) {
         
-        self.from = from
-        self.to = to
+        self.requester = from
+        self.recipient = to
         self.id = id
         self.status = status
         
@@ -32,7 +32,7 @@ struct Friendship {
     
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["from": self.from!, "to":self.to!, "id": self.id!, "status":  status!]
+        return ["from": self.requester!, "to":self.recipient!, "id": self.id!, "status":  status!]
     }
 }
 

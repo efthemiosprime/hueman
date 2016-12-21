@@ -40,6 +40,9 @@ class AddConnectionsController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 96
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        //self.tableView.setEditing(true, animated: true)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -183,10 +186,19 @@ class AddConnectionsController: UITableViewController {
             currentCell.addUserAction = { (cell) in
                 
 
+                self.tableView.beginUpdates()
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.data[0].removeAtIndex(indexPath.row)
+                self.tableView.reloadData()
+                self.tableView.endUpdates()
+                
                 let requestRef = self.databaseRef.child("requests").child(currentUserUid)
                 requestRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
                     if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                        
+
+                        
                         for child in result {
 
                             let friendshipKey = child.value!["id"] as! String
@@ -197,97 +209,23 @@ class AddConnectionsController: UITableViewController {
                             friendshipRef.updateChildValues(["status":Friendship.Accepted])
                             cell.addButton.userInteractionEnabled = false
                             cell.addButton.hidden = true
-                            
+
+
+
+
+
+
                             
                             /// friendshipTo == currentUserUid
-//                            let userFromRef = self.databaseRef.child("users").child(friendshipFrom)
-//                            userFromRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//                                
-//                                
-//                                let senderConnection: [String: AnyObject] = [
-//                                    "name": snapshot.value!["name"],
-//                                    "location": snapshot.value!["location"],
-//                                    "imageURL": snapshot.value!["imageURL"],
-//                                    "friendshipId": snapshot.value!["friendshipKey"]
-//                                ]
-//                                
-//                                self.databaseRef.child("friends").child(friendshipFrom).setValue(senderConnection)
-//                                
-//                                
-//                            }) { (error) in
-//                                print(error.localizedDescription)
-//                            }
-//                            
-//                            
-//                            let userToRef = self.databaseRef.child("users").child(friendshipTo)
-//                            
-//                            
-//                            userToRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//                                
-//                                let toConnection: [String: AnyObject] = [
-//                                    "name": snapshot.value!["name"],
-//                                    "location": snapshot.value!["location"],
-//                                    "imageURL": snapshot.value!["imageURL"],
-//                                    "friendshipId": snapshot.value!["friendshipKey"]
-//                                ]
-//                                
-//                                
-//                                self.databaseRef.child("friends").child(friendshipTo).setValue(toConnection)
-//                            }) { (error) in
-//                                print(error.localizedDescription)
-//                            }
+                            
+                        //    self.databaseRef.child("friends").child(friendshipFrom).setValue(friendshipTo)
+                        //    self.databaseRef.child("friends").child(friendshipTo).setValue(friendshipFrom)
                             
                             
-                            self.databaseRef.child("friends").child(friendshipFrom).setValue(friendshipTo)
-                            self.databaseRef.child("friends").child(friendshipTo).setValue(friendshipFrom)
-                            
-                            
-                            
-//                            if self.data.count > 0 {
-//                              //  self.data[0].removeAll()
-//                              //  self.sections[0].removeAll()
-//
-//                                self.data[0].removeAtIndex(indexPath.row)
-//                                requestRef.child(friendshipKey).removeValue()
-//
-//                            }else {
-//                                self.sections.removeAll()
-//                                requestRef.removeValue()
-//                            }
-                            
-//                            dispatch_async(dispatch_get_main_queue(), {
-//                                self.tableView.reloadData()
-//                            })
-                            
-//                            friendshipRef.observeSingleEventOfType(.Value, withBlock: { friendshipSnapshot in
-//                                
-//                                if let result = friendshipSnapshot.children.allObjects as? [FIRDataSnapshot] {
-//                                    for resKey in result {
-//                                        if let status = resKey.value!["status"] as? String {
-//                                            if status == Friendship.Accepted {
-//                                                
-//                                               // let friendsRef = self.databaseRef.child("friends")
-//                                                print("xxxx")
-//                                                if self.data.count > 1 {
-//                                                    self.data.removeAll()
-//                                                    dispatch_async(dispatch_get_main_queue(), {
-//                                                        self.tableView.reloadData()
-//
-//                                                    })
-//                                                }
-//
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            
-//                    
-//                                
-//                            }) { (error) in
-//                                print(error.localizedDescription)
-//                            }
-                            
+
                         }
+                        
+                        
                     } else {
                         print("no results")
                     }
@@ -305,8 +243,8 @@ class AddConnectionsController: UITableViewController {
             currentCell.addUserAction = { (cell) in
                 
                 let requestId = NSUUID().UUIDString
-                let connectionRequest = ConnectionRequest(from: currentUserUid, to: currentCell.user!.uid, id: requestId)
-                let requestRef = self.databaseRef.child("requests").child(connectionRequest.to!).child(connectionRequest.id!)
+                let connectionRequest = Request(from: currentUserUid, to: currentCell.user!.uid, id: requestId)
+                let requestRef = self.databaseRef.child("requests").child(connectionRequest.recipient!).child(connectionRequest.id!)
                 
                 requestRef.setValue(connectionRequest.toAnyObject(), withCompletionBlock: {
                     (error, ref) in
@@ -315,7 +253,7 @@ class AddConnectionsController: UITableViewController {
                       //  print("posted")
                         
                         let friendshipsReq = self.databaseRef.child("friendships").child(requestId)
-                        let friendships = Friendship(from: connectionRequest.from!, to: connectionRequest.to!, id: connectionRequest.id!, status: Friendship.Pending)
+                        let friendships = Friendship(from: connectionRequest.requester!, to: connectionRequest.recipient!, id: connectionRequest.id!, status: Friendship.Pending)
                         friendshipsReq.setValue(friendships.toAnyObject(), withCompletionBlock: {
                             (error, ref) in
                             
@@ -350,6 +288,18 @@ class AddConnectionsController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 96
+    }
+    
+//    override func setEditing(editing: Bool, animated: Bool) {
+//        super.setEditing(true, animated: true)
+//    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            var pendingRequest = self.data[indexPath.section]
+            pendingRequest.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+        }
     }
     
 
