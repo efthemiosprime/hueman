@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
 struct Connection {
     
@@ -14,7 +16,7 @@ struct Connection {
     let location: String?
     let imageURL: String?
     let uid: String!
-    let friendship:String?
+    var friendship:String?
 
     init(name: String, location:String, imageURL:String, uid: String, friendship: String = "") {
         
@@ -24,5 +26,21 @@ struct Connection {
         self.uid = uid
         self.friendship = friendship
         
+    }
+    
+    
+    init(snapshot: FIRDataSnapshot) {
+        
+        self.name = snapshot.value!["name"] as? String
+        self.location = snapshot.value!["location"] as? String
+        self.imageURL = snapshot.value!["photoURL"] as? String
+        self.uid = snapshot.value!["uid"] as? String
+        self.friendship = ""
+    }
+    
+    
+    
+    func toAnyObject() -> [String: AnyObject] {
+        return ["name": self.name!, "location":self.location!, "imageURL": self.imageURL!, "uid": self.uid!, "friendship": self.friendship!]
     }
 }

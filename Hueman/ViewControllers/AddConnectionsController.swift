@@ -16,10 +16,11 @@ class AddConnectionsController: UITableViewController {
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
     }
-    
     var storageRef: FIRStorage! {
         return FIRStorage.storage()
     }
+    
+    var currentUser: User?
     
     var users = [User]()
     var requests = [User]()
@@ -54,8 +55,15 @@ class AddConnectionsController: UITableViewController {
 //        self.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
         
+        let currentAuthenticatedUser = FIRAuth.auth()?.currentUser
+        let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
+        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            self.currentUser = User(snapshot: snapshot)
+            self.fetchAllRequests()
+        }) { error in
+            print(error.localizedDescription)
+        }
         
-        fetchAllRequests()
         
     }
     
@@ -67,10 +75,8 @@ class AddConnectionsController: UITableViewController {
     
     func fetchAllUsers() {
         
-        print("fetchAllUsers")
         let userRef = databaseRef.child("users")
     
-        let currentUser = FIRAuth.auth()?.currentUser
 
         userRef.observeSingleEventOfType(.Value, withBlock:{
             snapshot in
@@ -78,7 +84,7 @@ class AddConnectionsController: UITableViewController {
             var allUsers = [User]()
             for snap in snapshot.children {
                 let newUser = User(snapshot: snap as! FIRDataSnapshot )
-                if currentUser?.uid != newUser.uid {
+                if self.currentUser?.uid != newUser.uid {
                     allUsers.append(newUser)
                 }
             }
@@ -108,7 +114,7 @@ class AddConnectionsController: UITableViewController {
     }
     
     func fetchAllRequests() {
-        let currentUser = FIRAuth.auth()?.currentUser
+        
         let requestRef = databaseRef.child("requests").child((currentUser?.uid)!)
 
         requestRef.observeSingleEventOfType(.Value, withBlock:{
@@ -118,9 +124,8 @@ class AddConnectionsController: UITableViewController {
 
                 
                 for snap in snapshot.children {
-                    if let from = snap.value!["from"] as? String {
-                        print("from \(from)")
-                        let requestFromRef = self.databaseRef.child("/users/\(from)")
+                    if let requester = snap.value!["requester"] as? String {
+                        let requestFromRef = self.databaseRef.child("/users/\(requester)")
                         
                         requestFromRef.observeSingleEventOfType(.Value, withBlock: {userSnap in
                             
@@ -130,8 +135,6 @@ class AddConnectionsController: UITableViewController {
                             print(error.localizedDescription)
                             
                         }
-                        
-
                     }
                 }
 
@@ -178,8 +181,6 @@ class AddConnectionsController: UITableViewController {
             }
         })
         
-        let currentUser = FIRAuth.auth()?.currentUser
-        let currentUserUid = currentUser!.uid
 
         if indexPath.section == 0 && sections.count > 1 {
             // accept request
@@ -189,43 +190,54 @@ class AddConnectionsController: UITableViewController {
                 self.tableView.beginUpdates()
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 self.data[0].removeAtIndex(indexPath.row)
-                self.tableView.reloadData()
-                self.tableView.endUpdates()
                 
-                let requestRef = self.databaseRef.child("requests").child(currentUserUid)
+                
+                let requestRef = self.databaseRef.child("requests").child((self.currentUser?.uid)!)
                 requestRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
                     if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                         
-
+                        
                         
                         for child in result {
-
+                            
                             let friendshipKey = child.value!["id"] as! String
-                            let friendshipFrom = child.value!["from"] as! String
-                            let friendshipTo = child.value!["to"] as! String
+                            let friendshipRequester = child.value!["requester"] as! String
+                            let friendshipRecipient = child.value!["recipient"] as! String
                             let friendshipRef = self.databaseRef.child("friendships").child(friendshipKey)
                             
                             friendshipRef.updateChildValues(["status":Friendship.Accepted])
-                            cell.addButton.userInteractionEnabled = false
-                            cell.addButton.hidden = true
-
-
-
-
-
-
                             
-                            /// friendshipTo == currentUserUid
+                            // friendshipRecipient == currentUserUid
+                            // Recipient is the current user
+    
                             
-                        //    self.databaseRef.child("friends").child(friendshipFrom).setValue(friendshipTo)
-                        //    self.databaseRef.child("friends").child(friendshipTo).setValue(friendshipFrom)
+                            let userRef = self.databaseRef.child("users").child(friendshipRequester)
+                            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                                if snapshot.exists() {
+                                    var requester = Connection(snapshot: snapshot)
+                                    requester.friendship = friendshipKey
+                                    
+                                    var recipient = Connection(name: self.currentUser!.name, location: self.currentUser!.location!, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
+                                    recipient.friendship = friendshipKey
+                                    
+                                    
+                                    self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
+                                    self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
+                                    
+                                }
+                            }) { error in
+                                print(error.localizedDescription)
+                            }
+                            
+                            //self.databaseRef.child("friends").child(friendshipRequester).setValue(friendshipRecipient)
+                            //self.databaseRef.child("friends").child(friendshipRecipient).setValue(friendshipRequester)
                             
                             
-
+                            
                         }
                         
-                        
+                        requestRef.removeValue()
                     } else {
                         print("no results")
                     }
@@ -235,16 +247,26 @@ class AddConnectionsController: UITableViewController {
                     
                     print(error.localizedDescription)
                 }
-
+                
+                
+                self.tableView.reloadData()
+                self.tableView.endUpdates()
                 
             }
         }else {
-            // add user
+            // make request user
             currentCell.addUserAction = { (cell) in
                 
                 let requestId = NSUUID().UUIDString
-                let connectionRequest = Request(from: currentUserUid, to: currentCell.user!.uid, id: requestId)
+                let connectionRequest = Request(from: self.currentUser!.uid, to: currentCell.user!.uid, id: requestId)
                 let requestRef = self.databaseRef.child("requests").child(connectionRequest.recipient!).child(connectionRequest.id!)
+                
+                self.tableView.beginUpdates()
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                self.data[indexPath.section].removeAtIndex(indexPath.row)
+                
+                self.tableView.reloadData()
+                self.tableView.endUpdates()
                 
                 requestRef.setValue(connectionRequest.toAnyObject(), withCompletionBlock: {
                     (error, ref) in
@@ -268,6 +290,8 @@ class AddConnectionsController: UITableViewController {
         
         return currentCell
     }
+    
+
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -294,13 +318,6 @@ class AddConnectionsController: UITableViewController {
 //        super.setEditing(true, animated: true)
 //    }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            var pendingRequest = self.data[indexPath.section]
-            pendingRequest.removeAtIndex(indexPath.row)
-            tableView.reloadData()
-        }
-    }
     
 
     /*

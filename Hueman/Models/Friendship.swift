@@ -32,7 +32,7 @@ struct Friendship {
     
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["from": self.requester!, "to":self.recipient!, "id": self.id!, "status":  status!]
+        return ["requester": self.requester!, "recipient":self.recipient!, "id": self.id!, "status":  status!]
     }
 }
 

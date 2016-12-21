@@ -59,11 +59,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
         self.navigationController?.navigationBar.topItem!.title = "connections"
         
-        connections.append(Connection(name: "Julius Busa", location: "New York, NY", imageURL: "", uid: ""))
-        connections.append(Connection(name: "Maverick Shawn Aquino", location: "New York, NY", imageURL: "", uid: ""))
-        connections.append(Connection(name: "Nicolette Onate", location: "New York, NY", imageURL: "", uid: ""))
-        connections.append(Connection(name: "Camille Laurente", location: "New York, NY", imageURL: "", uid: ""))
-        connections.append(Connection(name: "Efthemios Suyat", location: "New York, NY", imageURL: "", uid: ""))
         
         
         self.tableView.separatorStyle = .None
@@ -82,14 +77,25 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     
 
     
-    func fetchFriends() {
+    func fetchConnections() {
         let currentUser = FIRAuth.auth()?.currentUser
         let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
         friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            if let uid = snapshot.value {
-                
+            
+//            self.name = snapshot.value!["name"] as? String
+//            self.location = snapshot.value!["location"] as? String
+//            self.imageURL = snapshot.value!["photoURL"] as? String
+//            self.uid = snapshot.value!["uid"] as? String
+//            self.friendship = ""
+            for con in snapshot.children {
+                let connection = Connection(name: (con.value!["name"] as? String)!,
+                    location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                self.connections.append(connection)
             }
+            
+            self.tableView.reloadData()
+            
             
         }) {(error) in
             print(error.localizedDescription)
@@ -107,7 +113,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        fetchFriends()
+        fetchConnections()
     }
     
     override func viewWillDisappear(animated: Bool) {
