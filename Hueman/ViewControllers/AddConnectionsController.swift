@@ -68,7 +68,7 @@ class AddConnectionsController: UITableViewController {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        
+        self.users.removeAll()
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -80,57 +80,18 @@ class AddConnectionsController: UITableViewController {
         userRef.observeSingleEventOfType(.Value, withBlock:{
             snapshot in
             
-            var allUsers = [User]()
-            for snap in snapshot.children {
-                let newUser = User(snapshot: snap as! FIRDataSnapshot )
-                if self.currentUser?.uid != newUser.uid {
-                    
-                    var found = false
-                    for con in self.connections {
-                        if newUser.uid == con.uid {
-                            found = true
-                        }
-                    }
-                    if !found {
-                        allUsers.append(newUser)
-
-                    }
-                    
-
-
-                }
-            }
-//            
-//            let boolArray = connections.map { (con) -> Bool in
-//                return users.contains(connection.uid)
-//            }
-            // todo: optimize
             
-        
-//            for user in allUsers {
-//
-//                for con in self.connections {
-//                    if user.uid == con.uid {
-//                        print(user.name)
-//
-//                    }
-//                }
-//                index = index + 1
-//
-//            }
-//            let filteredKeys = allUsers.flatMap { (str, arr) -> String? in
-//                if arr.contains({ $0.uid == "two" }) {
-//                    return str
-//                }
-//                return nil
-//            }
-
-            
-            
-            self.users = allUsers.sort({ (user1, user2) -> Bool in
-                    user1.name < user2.name
+            let connectionsUids: [String] = self.connections.map({$0.uid})
+            self.users = snapshot.children.map({(snap) -> User in
+                let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
+                return newUser
             })
-            
+                .filter({!connectionsUids.contains($0.uid)})
+                .sort({ (user1, user2) -> Bool in
+                user1.name < user2.name
+            })
+
+
 
             if self.requests.count > 0 {
                 self.sections.append("pending")

@@ -82,12 +82,13 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
         friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-        
-            for con in snapshot.children {
+            self.connections  = snapshot.children.map({(con) -> Connection in
                 let connection = Connection(name: (con.value!["name"] as? String)!,
                     location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
-                self.connections.append(connection)
-            }
+                return connection
+            }).sort({ (user1, user2) -> Bool in
+                user1.name < user2.name })
+        
             
             self.tableView.reloadData()
             

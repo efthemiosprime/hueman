@@ -94,13 +94,13 @@ class HuesFeedViewController: UITableViewController {
         showWaitOverlay()
         databaseRef.child("feeds").observeSingleEventOfType(.Value, withBlock: {
             feedsSnapshot in
-            var newFeeds = [Feed]()
-            for feed in feedsSnapshot.children {
-                let newFeed = Feed(snapshot: feed as! FIRDataSnapshot)
-                newFeeds.insert(newFeed, atIndex: 0)
-            }
-            
-            self.feeds = newFeeds
+
+            self.feeds  = feedsSnapshot.children.map({(feed) -> Feed in
+                let newFeed: Feed = Feed(snapshot: feed as! FIRDataSnapshot)
+                return newFeed
+            }).reverse()
+ 
+    
             self.tableView.reloadData()
             self.removeAllOverlays()
             
