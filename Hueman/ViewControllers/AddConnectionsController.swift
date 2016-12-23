@@ -20,9 +20,6 @@ class AddConnectionsController: UITableViewController {
         return FIRStorage.storage()
     }
     
-    var addIconWithBadge: UIImage!
-    var addIconNoBadge: UIImage!
-    
     var currentUser: User?
     
     var users = [User]()
@@ -45,14 +42,7 @@ class AddConnectionsController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 96
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        
-        
-        addIconWithBadge = UIImage(named: "add-item-badge-icon")
-        addIconNoBadge = UIImage(named: "add-item-icon")
-        
-        
-        
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -130,7 +120,6 @@ class AddConnectionsController: UITableViewController {
             snapshot in
             if snapshot.exists() {
                 
-                self.navigationItem.rightBarButtonItems![0].image = self.addIconWithBadge
                 
                 for snap in snapshot.children {
                     if let requester = snap.value!["requester"] as? String {
@@ -217,10 +206,6 @@ class AddConnectionsController: UITableViewController {
                 self.tableView.beginUpdates()
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 self.data[0].removeAtIndex(indexPath.row)
-                
-                if self.requests.count == 0 {
-                    self.navigationItem.rightBarButtonItems![0].image = self.addIconNoBadge
-                }
                 
                 
                 let requestRef = self.databaseRef.child("requests").child((self.currentUser?.uid)!)

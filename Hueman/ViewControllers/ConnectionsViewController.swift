@@ -78,7 +78,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
-        fetchConnections()
 
     }
     
@@ -106,6 +105,28 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
 
     }
     
+    func fetchAllRequests() {
+        let currentUser = FIRAuth.auth()?.currentUser
+        let requestRef = databaseRef.child("requests").child((currentUser?.uid)!)
+        
+        requestRef.observeSingleEventOfType(.Value, withBlock:{
+            snapshot in
+            if snapshot.exists() {
+                self.navigationItem.rightBarButtonItems![0].image = self.addIconWithBadge
+                
+            }else {
+                self.navigationItem.rightBarButtonItems![0].image = self.addIconNoBadge
+
+            }
+            
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
+        
+        
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "connections"
@@ -115,6 +136,9 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        fetchConnections()
+        fetchAllRequests()
         
     }
     
