@@ -21,6 +21,8 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     var addItem: UIBarButtonItem!
     var menuItem: UIBarButtonItem!
     var backItem: UIBarButtonItem!
+    var addIconWithBadge: UIImage!
+    var addIconNoBadge: UIImage!
     
     var connections = [Connection]()
     var searchController: UISearchController!
@@ -44,6 +46,8 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addIconWithBadge = UIImage(named: "add-item-badge-icon")
+        addIconNoBadge = UIImage(named: "add-item-icon")
         
         backItem = UIBarButtonItem(image: UIImage(named: "back-bar-item"), style: .Plain, target: self, action: #selector(ConnectionsViewController.didCancelSearch))
         
@@ -51,8 +55,10 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
         searhItem.imageInsets = UIEdgeInsetsMake(2, 18, -2, -18)
 
-        addItem = UIBarButtonItem(image: UIImage(named: "add-item-icon"), style: .Plain, target: self, action: #selector(ConnectionsViewController.addConnections))
+        addItem = UIBarButtonItem(image: addIconNoBadge, style: .Plain, target: self, action: #selector(ConnectionsViewController.addConnections))
         addItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0)
+        
+    
         menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
         
         addNavigationItems()
