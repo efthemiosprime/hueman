@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import SwiftOverlays
 
-class HuesFeedViewController: UITableViewController {
+class HuesFeedViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet var searchBar: UISearchBar!
     var searhItem: UIBarButtonItem!
@@ -34,6 +34,7 @@ class HuesFeedViewController: UITableViewController {
     }
     
     var feeds = [Feed]()
+    var filterController: FilterController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class HuesFeedViewController: UITableViewController {
         
         searhItem.imageInsets = UIEdgeInsetsMake(2, 18, -2, -18)
         
-        filterItem = UIBarButtonItem(image: UIImage(named: "filter-bar-item"), style: .Plain, target: self, action: nil)
+        filterItem = UIBarButtonItem(image: UIImage(named: "filter-bar-item"), style: .Plain, target: self, action: #selector(HuesFeedViewController.showFilter))
         filterItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0)
         menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
         
@@ -57,7 +58,8 @@ class HuesFeedViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 160
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
-        
+        fetchFeeds()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -71,7 +73,6 @@ class HuesFeedViewController: UITableViewController {
         }
         
         
-        fetchFeeds()
     
     }
     
@@ -135,6 +136,14 @@ class HuesFeedViewController: UITableViewController {
         self.navigationItem.titleView = nil
     }
     
+    func showFilter() {
+        filterController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("FilterID") as? FilterController
+        self.navigationController?.addChildViewController(filterController!)
+        filterController?.view.frame = (self.tableView.superview?.frame)!
+        self.navigationController?.view.addSubview((filterController?.view)!)
+        filterController!.didMoveToParentViewController(self.navigationController)
+        
+    }
 
 
     // MARK: - Table View

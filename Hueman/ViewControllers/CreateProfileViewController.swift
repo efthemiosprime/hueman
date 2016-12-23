@@ -26,6 +26,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var cityInputView: UIView!
     @IBOutlet weak var backScrollView: UIView!
     @IBOutlet weak var locationInput: UILabel!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var dataBaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
@@ -74,13 +75,19 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         cityInputView.hidden = true
         
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.navigationBar.topItem!.title = "create profile"
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 18)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
+        
     }
     
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+
+    }
+
     func profileImageTapped() {
         
         cityInputView.hidden = true

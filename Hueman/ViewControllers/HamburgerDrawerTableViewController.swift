@@ -69,8 +69,7 @@ class HamburgerDrawerTableViewController: UITableViewController {
 
         if self.currentUser == nil {
             
-
-            userRef.observeEventType(.Value, withBlock: { (snapshot) in
+            userRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 
                 for userInfo in snapshot.children {
                     
@@ -131,6 +130,9 @@ class HamburgerDrawerTableViewController: UITableViewController {
         //CODE TO BE RUN ON CELL TOUCH
         print(indexPath.row)
         if indexPath.row == 9 {
+            
+            
+            userRef.removeAllObservers()
             
             do {
                 

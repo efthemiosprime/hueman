@@ -246,12 +246,7 @@ class AddConnectionsController: UITableViewController {
                             }) { error in
                                 print(error.localizedDescription)
                             }
-                            
-                            //self.databaseRef.child("friends").child(friendshipRequester).setValue(friendshipRecipient)
-                            //self.databaseRef.child("friends").child(friendshipRecipient).setValue(friendshipRequester)
-                            
-                            
-                            
+
                         }
                         
                         requestRef.removeValue()

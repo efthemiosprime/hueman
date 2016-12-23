@@ -16,6 +16,7 @@ class SignupViewController: UIViewController {
     
     var authenticationManager = AuthenticationManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +37,11 @@ class SignupViewController: UIViewController {
 
     
     @IBAction func didTappedSignup(sender: AnyObject) {
+        
+        if AppSettings.DEBUG {
+            self.performSegueWithIdentifier("CreateProfile", sender: sender)
+            return
+        }
         
         if let email = self.emailField.text, let password = self.passwordField.text, let name = nameField.text
         {

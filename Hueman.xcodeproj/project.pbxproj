@@ -68,6 +68,8 @@
 		3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B181DED1C6100388DDF /* Feed.swift */; };
 		3A987B1C1DED1CDF00388DDF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */; };
 		3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B1D1DED1D2500388DDF /* FeedManager.swift */; };
+		3AA4DFB81E0CDB6F00BF75A1 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */; };
+		3AA4DFBA1E0CDEAB00BF75A1 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */; };
 		3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB900C91DFE5D8E0038D147 /* TextField.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
@@ -144,6 +146,8 @@
 		3A987B181DED1C6100388DDF /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed.swift; path = Models/Feed.swift; sourceTree = "<group>"; };
 		3A987B1B1DED1CDF00388DDF /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = Networking/AuthenticationManager.swift; sourceTree = "<group>"; };
 		3A987B1D1DED1D2500388DDF /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedManager.swift; path = Managers/FeedManager.swift; sourceTree = "<group>"; };
+		3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettings.swift; path = Config/AppSettings.swift; sourceTree = "<group>"; };
+		3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterController.swift; path = ViewControllers/FilterController.swift; sourceTree = "<group>"; };
 		3AB900C91DFE5D8E0038D147 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = Hueman/Helpers/TextField.swift; sourceTree = "<group>"; };
 		3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -247,6 +251,7 @@
 				3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */,
 				3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */,
 				3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */,
+				3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 			children = (
 				3A987B1D1DED1D2500388DDF /* FeedManager.swift */,
 				3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */,
+				3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -546,7 +552,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -576,6 +582,7 @@
 				3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */,
 				3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */,
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,
+				3AA4DFBA1E0CDEAB00BF75A1 /* FilterController.swift in Sources */,
 				3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */,
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
 				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,
@@ -606,6 +613,7 @@
 				3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */,
 				3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */,
 				3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */,
+				3AA4DFB81E0CDB6F00BF75A1 /* AppSettings.swift in Sources */,
 				3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */,
 				3A154E4A1DCD7352005A79EC /* ProfileViewController.swift in Sources */,
 				3A154E491DCD7352005A79EC /* CreatePostViewController.swift in Sources */,

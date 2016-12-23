@@ -72,7 +72,8 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
-        
+        fetchConnections()
+
     }
     
 
@@ -109,7 +110,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        fetchConnections()
     }
     
     override func viewWillDisappear(animated: Bool) {
