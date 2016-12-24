@@ -1237,7 +1237,7 @@ Massachusetts</string>
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hustle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gSk-Qk-Ddy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSk-Qk-Ddy">
                                 <rect key="frame" x="178" y="53" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2257,7 +2257,7 @@ Massachusetts</string>
         <image name="hues-description-wanderlust" width="282" height="479"/>
         <image name="hulyo.jpg" width="720" height="483"/>
         <image name="hustle-icon" width="37" height="37"/>
-        <image name="hustle-selected-icon" width="247" height="58"/>
+        <image name="hustle-selected-icon" width="32" height="32"/>
         <image name="image-picker-icon" width="40" height="40"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="location-icon" width="43" height="43"/>

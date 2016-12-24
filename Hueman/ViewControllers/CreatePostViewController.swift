@@ -103,6 +103,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             icon.userInteractionEnabled = true
     
         }else {
+
             postInput?.userInteractionEnabled = false
             postInput?.resignFirstResponder()
         }
@@ -177,7 +178,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     func handleSelectedFeedImageView() {
         let camera = Camera(delegate: self)
-        camera.PresentPhotoCamera(self, canEdit: true)
+        camera.PresentPhotoLibrary(self, canEdit: true)
     }
     
     
@@ -256,14 +257,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func didTappedCloseTopic(sender: AnyObject) {
         showTopic(true)
+        if icon.image == nil {
+            filterButton.hidden = false
+        }
     }
     
     @IBAction func backButton(sender: AnyObject) {
         postInput?.resignFirstResponder()
         self.dismissViewControllerAnimated(true, completion: nil)
-
-        
-        
     }
 
 

@@ -107,6 +107,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
         connectionsModel.fetchAllRequests({ withRequest in
             if(withRequest) {
+                print("with requests?")
                 self.navigationItem.rightBarButtonItems![0].image = self.addIconWithBadge
             }else {
                 self.navigationItem.rightBarButtonItems![0].image = self.addIconNoBadge

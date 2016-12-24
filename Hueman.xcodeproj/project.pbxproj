@@ -64,6 +64,7 @@
 		3A7605601E0DEF9100E682AD /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A76055F1E0DEF9100E682AD /* AuthenticationManager.swift */; };
 		3A7605621E0E013900E682AD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605611E0E013900E682AD /* Camera.swift */; };
 		3A7605641E0E080800E682AD /* UIImage+resizeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */; };
+		3A7605661E0E3DA200E682AD /* HuesFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */; };
 		3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */; };
 		3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */; };
 		3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */; };
@@ -145,6 +146,7 @@
 		3A76055F1E0DEF9100E682AD /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = Managers/AuthenticationManager.swift; sourceTree = "<group>"; };
 		3A7605611E0E013900E682AD /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Camera.swift; path = Hueman/Helpers/Camera.swift; sourceTree = "<group>"; };
 		3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+resizeWith.swift"; path = "Extensions/UIImage+resizeWith.swift"; sourceTree = "<group>"; };
+		3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuesFeedViewModel.swift; path = ViewModels/HuesFeedViewModel.swift; sourceTree = "<group>"; };
 		3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedImageTableViewCell.swift; path = Views/FeedImageTableViewCell.swift; sourceTree = "<group>"; };
 		3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationManager.swift; path = Managers/RegistrationManager.swift; sourceTree = "<group>"; };
 		3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreateProfileViewController+Handlers.swift"; path = "ViewControllers/CreateProfileViewController+Handlers.swift"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				3A154E651DCD7458005A79EC /* HueboardsViewModel.swift */,
 				3A154E771DCD8D77005A79EC /* PickHuesViewModel.swift */,
 				3A76055D1E0DEB8100E682AD /* ConnectionsViewModel.swift */,
+				3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
+				3A7605661E0E3DA200E682AD /* HuesFeedViewModel.swift in Sources */,
 				3A7605601E0DEF9100E682AD /* AuthenticationManager.swift in Sources */,
 				3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */,
 				3A154E471DCD7352005A79EC /* PickHuesViewController.swift in Sources */,

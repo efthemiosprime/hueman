@@ -22,8 +22,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     var backItem: UIBarButtonItem!
     var searchBarOpen: Bool = false
     
-    let cellTextIdentifier = "huesfeedtextcell"
-    let cellImageIdentifier = "huesfeedimagecell"
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
@@ -36,11 +34,13 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     
     var oldFeeds = [Feed]()
     var feeds = [Feed]()
-   // var filteredFeeds = [Feed]()
     var filterController: FilterController?
+    var huesFeedModel: HuesFeedViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        huesFeedModel = HuesFeedViewModel()
 
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
 
@@ -74,10 +74,13 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        showWaitOverlay()
+        huesFeedModel.feetchFeeds({ feeds in
+            self.feeds = feeds
+            self.tableView.reloadData()
+            self.removeAllOverlays()
+        })
         
-        fetchFeeds()
-        
-    
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -90,27 +93,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             menuItem.target = nil
             menuItem.action = nil
             self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-    }
-    
-    
-    func fetchFeeds() {
-        
-        showWaitOverlay()
-        databaseRef.child("feeds").observeSingleEventOfType(.Value, withBlock: {
-            feedsSnapshot in
-
-            self.feeds  = feedsSnapshot.children.map({(feed) -> Feed in
-                let newFeed: Feed = Feed(snapshot: feed as! FIRDataSnapshot)
-                return newFeed
-            }).reverse()
- 
-            self.oldFeeds = self.feeds
-            self.tableView.reloadData()
-            self.removeAllOverlays()
-            
-        }) {  error in
-            print (error.localizedDescription)
         }
     }
     
@@ -165,7 +147,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         
         let feed = feeds[indexPath.row]
         
-        let cell = feed.withImage == true ? tableView.dequeueReusableCellWithIdentifier(cellImageIdentifier, forIndexPath: indexPath) as! FeedImageTableViewCell : tableView.dequeueReusableCellWithIdentifier(cellTextIdentifier, forIndexPath: indexPath) as! FeedTextTableViewCell
+        let cell = feed.withImage == true ? tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_IMAGE_IDENTIFIER, forIndexPath: indexPath) as! FeedImageTableViewCell : tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_TEXT_IDENTIFIER, forIndexPath: indexPath) as! FeedTextTableViewCell
     
         if (feed.withImage == true) {
             (cell as! FeedImageTableViewCell).feed = feed
@@ -282,7 +264,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     func onFilter(topics: [String])
     {
         
-        feeds = topics.count > 0 ? oldFeeds.filter({topics.contains($0.topic!)}) : oldFeeds
+        feeds = topics.count > 0 ? huesFeedModel.oldFeeds.filter({topics.contains($0.topic!)}) : huesFeedModel.oldFeeds
         self.tableView.reloadData()
         
     }

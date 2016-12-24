@@ -10,7 +10,6 @@ import Foundation
 
 class ConnectionsViewModel: NSObject {
     
-    
     override init() {
         super.init()
     }
