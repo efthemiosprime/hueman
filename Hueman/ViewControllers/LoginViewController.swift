@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    let authenticationManager = AuthenticationManager()
+    let firebaseManager = FirebaseManager()
     
     var loginButton: UIButton!
     
@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
         
         let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
         if hasLogin {
-            if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = authenticationManager.keychainWrapper.myObjectForKey("v_Data") as? String {
+            if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = firebaseManager.keychainWrapper.myObjectForKey("v_Data") as? String {
                 emailField.text = storedEmail
                 passwordField.text = storedPassword
             }
@@ -53,16 +53,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -85,7 +75,8 @@ class LoginViewController: UIViewController {
         showWaitOverlay()
         
         if let email = self.emailField.text, let password = self.passwordField.text {
-            authenticationManager.logIn(email, password: password, loggedIn: {
+            firebaseManager.logIn(email, password: password, loggedIn: {
+                AuthenticationManager.sharedInstance
                 self.removeAllOverlays()
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
             })

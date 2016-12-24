@@ -14,7 +14,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    var authenticationManager = AuthenticationManager()
+    var firebaseManager = FirebaseManager()
     
     
     override func viewDidLoad() {
@@ -46,7 +46,7 @@ class SignupViewController: UIViewController {
         if let email = self.emailField.text, let password = self.passwordField.text, let name = nameField.text
         {
                 
-            authenticationManager.signUp(email, password: password, name: name, completion: {
+            firebaseManager.signUp(email, password: password, name: name, completion: {
                     
                     self.performSegueWithIdentifier("CreateProfile", sender: sender)
                     

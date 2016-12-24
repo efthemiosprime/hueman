@@ -13,7 +13,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import SwiftOverlays
 
-struct AuthenticationManager {
+struct FirebaseManager {
     
     let keychainWrapper = KeychainWrapper()
     
@@ -91,37 +91,7 @@ struct AuthenticationManager {
             }
         })
     }
-//    func signUp(userVo: User, completion: (() -> ())? = nil) {
-//        
-//        let email: String = userVo.email!
-//        let password: String = userVo.password!
-//        
-//        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: {
-//            (user, error) in
-//            if error == nil {
-//                
-//                let hasLoginKey = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
-//                if hasLoginKey == false {
-//                    NSUserDefaults.standardUserDefaults().setValue(email, forKeyPath: "email")
-//                }
-//                
-//                self.keychainWrapper.mySetObject(password, forKey: kSecValueData)
-//                self.keychainWrapper.writeToKeychain()
-//                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
-//                NSUserDefaults.standardUserDefaults().synchronize()
-//                
-//                
-//                var updatedUserVo = userVo
-//                updatedUserVo.uid = FIRAuth.auth()?.currentUser?.uid
-//                
-//                self.saveUserInfo(user, userVo: updatedUserVo)
-//                completion?()
-//            }else {
-//                print("error: \(error?.localizedDescription)")
-//            }
-//        })
-//    }
-//    
+
     private func saveUserInfo(user: FIRUser!, userVo: User) {
 
         let userInfo = [

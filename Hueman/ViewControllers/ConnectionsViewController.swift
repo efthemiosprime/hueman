@@ -40,11 +40,13 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         return FIRStorage.storage()
     }
     
-    
+    var connectionsModel: ConnectionsViewModel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        connectionsModel = ConnectionsViewModel()
 
         addIconWithBadge = UIImage(named: "add-item-badge-icon")
         addIconNoBadge = UIImage(named: "add-item-icon")
@@ -83,50 +85,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     
 
     
-    func fetchConnections() {
-        let currentUser = FIRAuth.auth()?.currentUser
-        let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
-        friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            self.connections  = snapshot.children.map({(con) -> Connection in
-                let connection = Connection(name: (con.value!["name"] as? String)!,
-                    location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
-                return connection
-            }).sort({ (user1, user2) -> Bool in
-                user1.name < user2.name })
-        
-            
-            self.tableView.reloadData()
-            
-            
-        }) {(error) in
-            print(error.localizedDescription)
-        }
-
-    }
-    
-    func fetchAllRequests() {
-        let currentUser = FIRAuth.auth()?.currentUser
-        let requestRef = databaseRef.child("requests").child((currentUser?.uid)!)
-        
-        requestRef.observeSingleEventOfType(.Value, withBlock:{
-            snapshot in
-            if snapshot.exists() {
-                self.navigationItem.rightBarButtonItems![0].image = self.addIconWithBadge
-                
-            }else {
-                self.navigationItem.rightBarButtonItems![0].image = self.addIconNoBadge
-
-            }
-            
-            
-        }) {(error) in
-            print(error.localizedDescription)
-        }
-        
-        
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "connections"
@@ -137,8 +95,24 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        fetchConnections()
-        fetchAllRequests()
+        
+        connectionsModel.fetchConnections({ connections in
+            self.connections = connections
+            dispatch_async(dispatch_get_main_queue(),{
+                self.tableView.reloadData()
+                
+            })
+
+        })
+        
+        connectionsModel.fetchAllRequests({ withRequest in
+            if(withRequest) {
+                self.navigationItem.rightBarButtonItems![0].image = self.addIconWithBadge
+            }else {
+                self.navigationItem.rightBarButtonItems![0].image = self.addIconNoBadge
+
+            }
+        })
         
     }
     
@@ -186,7 +160,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         performSegueWithIdentifier("AddConnections", sender: nil);
     }
     
-    // MARK: - Table View
 
 
     
@@ -204,16 +177,10 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     }
 
 
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let destinationProfileController = segue.destinationViewController as? ConnectionProfileViewController {
-//            
-//        }
-//    }
-    
     
 }
 
-
+// MARK: - Table View
 extension ConnectionsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
