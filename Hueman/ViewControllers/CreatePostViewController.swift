@@ -76,7 +76,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
         }
         
-        cameraButton.addTarget(self, action: #selector(CreatePostViewController.openPhotoLibrary), forControlEvents: .TouchUpInside)
+        cameraButton.addTarget(self, action: #selector(CreatePostViewController.handleCamera), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
         imagePickerButton.addTarget(self, action: #selector(CreatePostViewController.handleSelectedFeedImageView), forControlEvents: .TouchUpInside)
         
@@ -169,20 +169,15 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         self.topicString = topic
     }
     
-    func openPhotoLibrary() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
-        imagePicker.allowsEditing = true
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+    func handleCamera() {
+        let camera = Camera(delegate: self)
+        camera.PresentPhotoCamera(self, canEdit: true)
         
     }
     
     func handleSelectedFeedImageView() {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = true
-        presentViewController(picker, animated: true, completion: nil)
+        let camera = Camera(delegate: self)
+        camera.PresentPhotoCamera(self, canEdit: true)
     }
     
     

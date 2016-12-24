@@ -1275,9 +1275,12 @@ Massachusetts</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-YC-Yy7">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-YC-Yy7">
                                 <rect key="frame" x="195" y="265" width="41" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="JIy-wj-jjm"/>
+                                    <constraint firstAttribute="height" constant="41" id="igY-Wb-gBk"/>
+                                </constraints>
                                 <state key="normal" image="camera-icon"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-9M-so0">
@@ -1362,13 +1365,16 @@ Massachusetts</string>
                             <constraint firstItem="wxL-9M-so0" firstAttribute="baseline" secondItem="Lhr-t2-O7d" secondAttribute="baseline" constant="-10" id="Afr-H6-SmV"/>
                             <constraint firstItem="cmC-PR-1kJ" firstAttribute="top" secondItem="TiS-Un-pfv" secondAttribute="bottom" constant="54" id="E5N-UM-X5S"/>
                             <constraint firstItem="Lhr-t2-O7d" firstAttribute="leading" secondItem="nCE-dn-54C" secondAttribute="leading" constant="20" id="Gzj-6n-isy"/>
+                            <constraint firstItem="aRM-YC-Yy7" firstAttribute="centerY" secondItem="wxL-9M-so0" secondAttribute="centerY" id="LFe-7B-Xjr"/>
                             <constraint firstItem="OHo-0f-h4g" firstAttribute="leading" secondItem="nCE-dn-54C" secondAttribute="leadingMargin" id="Pct-Lf-lO7"/>
+                            <constraint firstItem="wxL-9M-so0" firstAttribute="leading" secondItem="aRM-YC-Yy7" secondAttribute="trailing" constant="8" id="QBZ-Dw-GK2"/>
                             <constraint firstItem="TiS-Un-pfv" firstAttribute="top" secondItem="Lhr-t2-O7d" secondAttribute="bottom" constant="77" id="c3C-BB-w99"/>
                             <constraint firstAttribute="trailing" secondItem="TiS-Un-pfv" secondAttribute="trailing" constant="20" id="f1o-dX-siz"/>
                             <constraint firstItem="cmC-PR-1kJ" firstAttribute="top" secondItem="WZC-zr-4cu" secondAttribute="bottom" id="fFG-L9-QPD"/>
                             <constraint firstItem="YbP-56-ZdH" firstAttribute="leading" secondItem="wxL-9M-so0" secondAttribute="trailing" constant="8" id="fW2-fn-46Z"/>
                             <constraint firstAttribute="trailing" secondItem="Lhr-t2-O7d" secondAttribute="trailing" constant="20" id="krz-uy-JHj"/>
                             <constraint firstItem="WZC-zr-4cu" firstAttribute="leading" secondItem="nCE-dn-54C" secondAttribute="leading" id="nb5-cO-mNU"/>
+                            <constraint firstItem="aRM-YC-Yy7" firstAttribute="baseline" secondItem="wxL-9M-so0" secondAttribute="baseline" id="oki-vE-QWr"/>
                             <constraint firstItem="Lhr-t2-O7d" firstAttribute="top" secondItem="igv-W4-zeh" secondAttribute="bottom" constant="31" id="rlM-xy-R42"/>
                             <constraint firstAttribute="trailing" secondItem="WZC-zr-4cu" secondAttribute="trailing" id="tPG-LE-fBJ"/>
                             <constraint firstItem="WZC-zr-4cu" firstAttribute="top" secondItem="V0i-lZ-ZYE" secondAttribute="bottom" id="u3r-bL-49S"/>
@@ -2220,7 +2226,7 @@ Massachusetts</string>
         <image name="back-icon" width="33" height="33"/>
         <image name="birthday-icon" width="43" height="43"/>
         <image name="camera-button" width="61" height="61"/>
-        <image name="camera-icon" width="41" height="41"/>
+        <image name="camera-icon" width="40" height="40"/>
         <image name="close-topic" width="33" height="33"/>
         <image name="connection-image-bg" width="75" height="75"/>
         <image name="connection-profile-btn" width="209" height="28"/>

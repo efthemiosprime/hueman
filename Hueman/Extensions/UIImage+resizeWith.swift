@@ -23,5 +23,5 @@ extension UIImage {
 
 
 // Usage: 
-// let myPicture = UIImage(data: try! Data(contentsOf: URL(string: "http://i.stack.imgur.com/Xs4RX.jpg")!))!
-//let myThumb2 = myPicture.resizeWith(width: 72.0)
+// let myPicture = UIImage(data: try! Data(contentsOf: URL(string: "http://")!))!
+// let myThumb2 = myPicture.resizeWith(width: 72.0)
