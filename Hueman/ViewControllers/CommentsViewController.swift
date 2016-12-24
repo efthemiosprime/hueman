@@ -26,6 +26,7 @@ class CommentsViewController: UIViewController {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
 //        notificationCenter.addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+
     }
     
 
@@ -40,7 +41,13 @@ class CommentsViewController: UIViewController {
     func keyboardWillShow(notification: NSNotification) {
         let userInfo = notification.userInfo!
         let keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
-        bottomHeight.constant = keyboardHeight
+       //bottomHeight.constant = keyboardHeight
+       // self.view.setNeedsLayout()
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        print(keyboardHeight)
+        textViewContainer.frame = CGRectMake(0, screenHeight - (keyboardHeight + 105), screenWidth, textViewContainer.frame.size.height)
         self.view.setNeedsLayout()
     }
 //
