@@ -1498,7 +1498,7 @@ Massachusetts</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0Z-LJ-5ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350" y="-954"/>
+            <point key="canvasLocation" x="3546" y="-941"/>
         </scene>
         <!--Connection Profile View Controller-->
         <scene sceneID="iBY-uF-Rab">
@@ -2147,35 +2147,41 @@ Massachusetts</string>
                                             <action selector="didTappedClose:" destination="6EG-xT-OFJ" eventType="touchUpInside" id="UCV-Og-vpG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lv-0O-Rpl">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lv-0O-Rpl" userLabel="wanderlust">
                                         <rect key="frame" x="4" y="52" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="wanderlust-icon"/>
+                                        <state key="selected" image="wanderlust-selected-icon"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rq-jG-a1n">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rq-jG-a1n" userLabel="plate">
                                         <rect key="frame" x="3" y="94" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="plate-icon"/>
+                                        <state key="selected" image="plate-selected-icon"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYy-nE-IRa">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYy-nE-IRa" userLabel="relationship">
                                         <rect key="frame" x="3" y="137" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="relationship-icon"/>
+                                        <state key="selected" image="relationship-selected-icon"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cr-23-aqd">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cr-23-aqd" userLabel="health">
                                         <rect key="frame" x="3" y="182" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="health-icon"/>
+                                        <state key="selected" image="health-selected-icon"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3c-5f-lNU">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3c-5f-lNU" userLabel="rayoflight">
                                         <rect key="frame" x="4" y="267" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ray-light-icon"/>
+                                        <state key="selected" image="ray-light-selected-icon"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0o-gh-jrv">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0o-gh-jrv" userLabel="hustle">
                                         <rect key="frame" x="4" y="225" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="health-icon"/>
+                                        <state key="normal" image="hustle-icon"/>
+                                        <state key="selected" image="hustle-selected-icon"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -2194,6 +2200,14 @@ Massachusetts</string>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outletCollection property="hues" destination="4lv-0O-Rpl" collectionClass="NSMutableArray" id="tDt-yg-8mq"/>
+                        <outletCollection property="hues" destination="3rq-jG-a1n" collectionClass="NSMutableArray" id="ofw-BA-79G"/>
+                        <outletCollection property="hues" destination="RYy-nE-IRa" collectionClass="NSMutableArray" id="Y81-uM-NEC"/>
+                        <outletCollection property="hues" destination="3Cr-23-aqd" collectionClass="NSMutableArray" id="S4L-QE-r37"/>
+                        <outletCollection property="hues" destination="T0o-gh-jrv" collectionClass="NSMutableArray" id="IdU-ec-qQx"/>
+                        <outletCollection property="hues" destination="U3c-5f-lNU" collectionClass="NSMutableArray" id="928-7h-Bnc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSg-gW-Jvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2236,12 +2250,14 @@ Massachusetts</string>
         <image name="feed-profile-container" width="330" height="66"/>
         <image name="filter-bg" width="41" height="305"/>
         <image name="filter-icon" width="41" height="41"/>
-        <image name="health-icon" width="37" height="37"/>
+        <image name="health-icon" width="35" height="35"/>
+        <image name="health-selected-icon" width="32" height="32"/>
         <image name="help-center-icon_1" width="34" height="34"/>
         <image name="hueman-logo" width="247" height="58"/>
         <image name="hues-description-wanderlust" width="282" height="479"/>
         <image name="hulyo.jpg" width="720" height="483"/>
         <image name="hustle-icon" width="37" height="37"/>
+        <image name="hustle-selected-icon" width="247" height="58"/>
         <image name="image-picker-icon" width="40" height="40"/>
         <image name="input-bg" width="4" height="4"/>
         <image name="location-icon" width="43" height="43"/>
@@ -2254,6 +2270,7 @@ Massachusetts</string>
         <image name="pick-hues-relationship-btn" width="133" height="170"/>
         <image name="pick-hues-wanderlust-btn" width="133" height="170"/>
         <image name="plate-icon" width="37" height="37"/>
+        <image name="plate-selected-icon" width="32" height="32"/>
         <image name="post-icon" width="41" height="41"/>
         <image name="privacy-policy-icon" width="34" height="34"/>
         <image name="profile-image-background" width="287" height="287"/>
@@ -2261,7 +2278,9 @@ Massachusetts</string>
         <image name="profile-name-background" width="286" height="34"/>
         <image name="profile-thumbnail-bg" width="286" height="286"/>
         <image name="ray-light-icon" width="37" height="37"/>
+        <image name="ray-light-selected-icon" width="32" height="32"/>
         <image name="relationship-icon" width="37" height="37"/>
+        <image name="relationship-selected-icon" width="32" height="32"/>
         <image name="report-problem-icon" width="34" height="34"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
@@ -2276,6 +2295,7 @@ Massachusetts</string>
         <image name="terms-conditions-icon" width="34" height="34"/>
         <image name="topbar-check-icon" width="27" height="27"/>
         <image name="wanderlust-icon" width="37" height="37"/>
+        <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OkO-K9-BA2"/>

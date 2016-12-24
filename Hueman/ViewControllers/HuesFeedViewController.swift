@@ -12,9 +12,10 @@ import FirebaseStorage
 import FirebaseDatabase
 import SwiftOverlays
 
-class HuesFeedViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class HuesFeedViewController: UITableViewController, UIPopoverPresentationControllerDelegate, FilterControllerDelegate {
     
     @IBOutlet var searchBar: UISearchBar!
+    
     var searhItem: UIBarButtonItem!
     var filterItem: UIBarButtonItem!
     var menuItem: UIBarButtonItem!
@@ -33,7 +34,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         return FIRStorage.storage()
     }
     
+    var oldFeeds = [Feed]()
     var feeds = [Feed]()
+   // var filteredFeeds = [Feed]()
     var filterController: FilterController?
 
     override func viewDidLoad() {
@@ -52,13 +55,12 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
         
         
-        addNavigationItems()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
-        fetchFeeds()
+        addNavigationItems()
 
     }
     
@@ -72,6 +74,8 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        
+        fetchFeeds()
         
     
     }
@@ -101,7 +105,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 return newFeed
             }).reverse()
  
-    
+            self.oldFeeds = self.feeds
             self.tableView.reloadData()
             self.removeAllOverlays()
             
@@ -138,6 +142,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     
     func showFilter() {
         filterController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("FilterID") as? FilterController
+        filterController?.delegate = self
         self.navigationController?.addChildViewController(filterController!)
         filterController?.view.frame = (self.tableView.superview?.frame)!
         self.navigationController?.view.addSubview((filterController?.view)!)
@@ -272,8 +277,15 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         return cell
     }
     
+    // MARK: - Filter Option
 
-    
+    func onFilter(topics: [String])
+    {
+        
+        feeds = topics.count > 0 ? oldFeeds.filter({topics.contains($0.topic!)}) : oldFeeds
+        self.tableView.reloadData()
+        
+    }
     
 //    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        return 10
