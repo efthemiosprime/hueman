@@ -15,12 +15,15 @@ import FirebaseDatabase
 extension CreateProfileViewController: UIImagePickerControllerDelegate {
     
     func handleSelectedProfileImageView() {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = true
-        presentViewController(picker, animated: true, completion: nil)
+
+        let camera = Camera(delegate: self)
+        camera.PresentPhotoLibrary(self, canEdit: true)
     }
     
+    func handleCamera() {
+        let camera = Camera(delegate: self)
+        camera.PresentPhotoCamera(self, canEdit: true)
+    }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {

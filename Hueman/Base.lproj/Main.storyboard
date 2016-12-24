@@ -1059,7 +1059,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="178" y="60.5" width="175" height="21"/>
+                                            <rect key="frame" x="178" y="60" width="175" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
@@ -1827,6 +1827,9 @@ Massachusetts</string>
                                                 <rect key="frame" x="214" y="220" width="57" height="57"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="camera-button"/>
+                                                <connections>
+                                                    <action selector="cameraTapped:" destination="BCO-Qn-cTH" eventType="touchUpInside" id="foN-i7-dHN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -2114,7 +2117,6 @@ Massachusetts</string>
         <!--Filter Controller-->
         <scene sceneID="pSX-bp-n1a">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mSg-gW-Jvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FilterID" id="6EG-xT-OFJ" customClass="FilterController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GK5-q5-VZY"/>
@@ -2187,6 +2189,7 @@ Massachusetts</string>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSg-gW-Jvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6776.8000000000002" y="-142.57871064467767"/>
         </scene>

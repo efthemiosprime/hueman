@@ -96,6 +96,11 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         handleSelectedProfileImageView()
     }
     
+    @IBAction func cameraTapped(sender: AnyObject) {
+        handleCamera()
+    }
+    
+    
     func birthdayImageTapped() {
 
         birthdayDatePicker.hidden = false
@@ -143,7 +148,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         let trimmedName = currentUser?.displayName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
 
-        let imageData = UIImageJPEGRepresentation(profileImage.image!, 0.5)
+        let imageData = UIImageJPEGRepresentation(profileImage.image!, 0.4)
 
         let imagePath = "userProfileImage\(currentUser?.uid)/\(trimmedName).jpg"
         let imageRef = storageRef.child(imagePath)

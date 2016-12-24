@@ -233,7 +233,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                 
 
                 if withImage == true {
-                    let imageData = UIImageJPEGRepresentation(postImage.image!, 0.7)
+                    let imageData = UIImageJPEGRepresentation(postImage.image!, 0.4)
                     feedManager.createFeed(feed, imageData: imageData,  feedPosted: {
                         self.removeAllOverlays()
                         
