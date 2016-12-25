@@ -21,10 +21,13 @@ class FeedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likesButton: UIButton!
     
+    @IBOutlet weak var popoverButton: UIButton!
+    
     @IBOutlet weak var authorProfileImage: UIImageView!
     
     var showCommentsAction: ((UITableViewCell) -> Void)?
     var showLikesAction: ((UITableViewCell) -> Void)?
+    var showPopover:((UITableViewCell) -> Void)?
     
     var feed: Feed? {
         didSet{
@@ -48,6 +51,9 @@ class FeedImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func didTappedPopover(sender: AnyObject) {
+        showPopover?(self)
+    }
 
     @IBAction func didTappedComments(sender: AnyObject) {
         showCommentsAction?(self)

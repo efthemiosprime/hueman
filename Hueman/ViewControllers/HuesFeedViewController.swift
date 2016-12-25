@@ -96,41 +96,20 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         }
     }
     
-    
-    func addNavigationItems () {
-        self.navigationItem.leftBarButtonItem = menuItem
-        self.navigationItem.rightBarButtonItems = [filterItem, searhItem]
-    }
-    
-    func hideNavigationItems () {
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.rightBarButtonItems = nil
-    }
-    
-    func showSearchBar() {
-        searchBarOpen = true
-        hideNavigationItems()
-        self.navigationItem.leftBarButtonItem = backItem
-        self.navigationItem.titleView = searchBar
-        searchBar.becomeFirstResponder()
-    }
-    
-    func hideSearchBar() {
-        searchBarOpen = false
-        hideNavigationItems()
-        addNavigationItems()
-        self.navigationItem.titleView = nil
-    }
-    
-    func showFilter() {
-        filterController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("FilterID") as? FilterController
-        filterController?.delegate = self
-        self.navigationController?.addChildViewController(filterController!)
-        filterController?.view.frame = (self.tableView.superview?.frame)!
-        self.navigationController?.view.addSubview((filterController?.view)!)
-        filterController!.didMoveToParentViewController(self.navigationController)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        if segue.identifier == "ShowPopover" {
+
+        }
     }
+    
+
+    
+    // MARK: - Popover
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+
 
 
     // MARK: - Table View
@@ -153,6 +132,20 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             (cell as! FeedImageTableViewCell).feed = feed
             (cell as! FeedImageTableViewCell).showCommentsAction = { (cell) in
                 self.performSegueWithIdentifier("ShowComments", sender: nil)
+
+            }
+            
+            (cell as! FeedImageTableViewCell).showPopover = { (cell) in
+                let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("popoverID")
+                popController.preferredContentSize = CGSizeMake(120, 160)
+                popController.modalPresentationStyle = UIModalPresentationStyle.Popover
+                // set up the popover presentation controller
+                popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.Up
+                popController.popoverPresentationController?.delegate = self
+                popController.popoverPresentationController?.sourceView = (cell as! FeedImageTableViewCell).popoverButton // button
+                popController.popoverPresentationController?.sourceRect = (cell as! FeedImageTableViewCell).popoverButton.bounds
+                
+                self.presentViewController(popController, animated: true, completion: nil)
 
             }
 
@@ -268,6 +261,43 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         self.tableView.reloadData()
         
     }
+    
+    // Mark: - 
+    func addNavigationItems () {
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.rightBarButtonItems = [filterItem, searhItem]
+    }
+    
+    func hideNavigationItems () {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItems = nil
+    }
+    
+    func showSearchBar() {
+        searchBarOpen = true
+        hideNavigationItems()
+        self.navigationItem.leftBarButtonItem = backItem
+        self.navigationItem.titleView = searchBar
+        searchBar.becomeFirstResponder()
+    }
+    
+    func hideSearchBar() {
+        searchBarOpen = false
+        hideNavigationItems()
+        addNavigationItems()
+        self.navigationItem.titleView = nil
+    }
+    
+    func showFilter() {
+        filterController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("FilterID") as? FilterController
+        filterController?.delegate = self
+        self.navigationController?.addChildViewController(filterController!)
+        filterController?.view.frame = (self.tableView.superview?.frame)!
+        self.navigationController?.view.addSubview((filterController?.view)!)
+        filterController!.didMoveToParentViewController(self.navigationController)
+        
+    }
+    
     
 //    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        return 10
