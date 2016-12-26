@@ -98,8 +98,16 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "ShowPopover" {
+        if segue.identifier == "ShowComments" {
+            let sender: FeedImageTableViewCell = sender as! FeedImageTableViewCell
 
+            if let navController = segue.destinationViewController as? UINavigationController {
+                
+                if let commentsViewController = navController.topViewController as? CommentsViewController {
+                    commentsViewController.key = sender.key
+                }
+        
+            }
         }
     }
     
@@ -131,7 +139,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         if (feed.withImage == true) {
             (cell as! FeedImageTableViewCell).feed = feed
             (cell as! FeedImageTableViewCell).showCommentsAction = { (cell) in
-                self.performSegueWithIdentifier("ShowComments", sender: nil)
+                self.performSegueWithIdentifier("ShowComments", sender: cell)
 
             }
             

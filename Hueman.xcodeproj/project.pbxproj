@@ -63,6 +63,9 @@
 		3A7605621E0E013900E682AD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605611E0E013900E682AD /* Camera.swift */; };
 		3A7605641E0E080800E682AD /* UIImage+resizeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */; };
 		3A7605661E0E3DA200E682AD /* HuesFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */; };
+		3A82E6681E118A38008F520A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82E6671E118A38008F520A /* Comment.swift */; };
+		3A82E66A1E118D00008F520A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82E6691E118D00008F520A /* CommentCell.swift */; };
+		3A82E66C1E11977F008F520A /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82E66B1E11977F008F520A /* CommentsViewModel.swift */; };
 		3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */; };
 		3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */; };
 		3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */; };
@@ -143,6 +146,9 @@
 		3A7605611E0E013900E682AD /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Camera.swift; path = Hueman/Helpers/Camera.swift; sourceTree = "<group>"; };
 		3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+resizeWith.swift"; path = "Extensions/UIImage+resizeWith.swift"; sourceTree = "<group>"; };
 		3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuesFeedViewModel.swift; path = ViewModels/HuesFeedViewModel.swift; sourceTree = "<group>"; };
+		3A82E6671E118A38008F520A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Models/Comment.swift; sourceTree = "<group>"; };
+		3A82E6691E118D00008F520A /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentCell.swift; path = Views/CommentCell.swift; sourceTree = "<group>"; };
+		3A82E66B1E11977F008F520A /* CommentsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewModel.swift; path = ViewModels/CommentsViewModel.swift; sourceTree = "<group>"; };
 		3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedImageTableViewCell.swift; path = Views/FeedImageTableViewCell.swift; sourceTree = "<group>"; };
 		3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationManager.swift; path = Managers/RegistrationManager.swift; sourceTree = "<group>"; };
 		3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreateProfileViewController+Handlers.swift"; path = "ViewControllers/CreateProfileViewController+Handlers.swift"; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 				3A154E651DCD7458005A79EC /* HueboardsViewModel.swift */,
 				3A76055D1E0DEB8100E682AD /* ConnectionsViewModel.swift */,
 				3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */,
+				3A82E66B1E11977F008F520A /* CommentsViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -292,6 +299,7 @@
 				3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */,
 				3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */,
 				3C908B7D1E04937F00DA0109 /* AddUserCell.swift */,
+				3A82E6691E118D00008F520A /* CommentCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -365,6 +373,7 @@
 				3C7FB2A11E04533900FF3160 /* Connection.swift */,
 				3A0AB1901E086E1300295AA5 /* Request.swift */,
 				3A0AB1921E086ECB00295AA5 /* Friendship.swift */,
+				3A82E6671E118A38008F520A /* Comment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -588,9 +597,11 @@
 				3A154E611DCD7389005A79EC /* HueboardCell.swift in Sources */,
 				3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */,
 				3A154E4C1DCD7352005A79EC /* ConnectionsViewController.swift in Sources */,
+				3A82E6681E118A38008F520A /* Comment.swift in Sources */,
 				3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */,
 				3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */,
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,
+				3A82E66C1E11977F008F520A /* CommentsViewModel.swift in Sources */,
 				3AA4DFBA1E0CDEAB00BF75A1 /* FilterController.swift in Sources */,
 				3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */,
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
@@ -605,6 +616,7 @@
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,
 				3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */,
+				3A82E66A1E118D00008F520A /* CommentCell.swift in Sources */,
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
 				3A987B191DED1C6100388DDF /* User.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
@@ -757,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 20C7B4D02A2CCFF1A0614B46 /* Pods-Hueman.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hueman/Hueman.entitlements;
@@ -778,6 +791,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hueman/Hueman.entitlements;

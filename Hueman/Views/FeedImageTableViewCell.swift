@@ -23,7 +23,14 @@ class FeedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var popoverButton: UIButton!
     
+    @IBOutlet weak var likesLabel: UILabel!
+    
+    @IBOutlet weak var commentsLabel: UILabel!
+    
+    
     @IBOutlet weak var authorProfileImage: UIImageView!
+    
+    var key: String!
     
     var showCommentsAction: ((UITableViewCell) -> Void)?
     var showLikesAction: ((UITableViewCell) -> Void)?
@@ -35,6 +42,7 @@ class FeedImageTableViewCell: UITableViewCell {
                 textFeedLabel.text = feed.text
                 textAuthorLabel.text = feed.author
                 feedImage.clipsToBounds = true
+                key = feed.key
             }
         }
     }

@@ -13,7 +13,8 @@ import FirebaseDatabase
 class ConnectionsViewModel: NSObject {
     
     let cachedImages = NSCache()
-    
+    var connections = [Connection]()
+
     var storageRef: FIRStorage!{
         return FIRStorage.storage()
     }
