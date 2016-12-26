@@ -101,17 +101,13 @@ class HuesFeedViewModel: NSObject {
                                 self.cachedImages.setObject(image!, forKey:photoURL)
                                 
                                 dispatch_async(dispatch_get_main_queue(), {
-                                    if let imageData = data {
-                                        if let currentCell = cell as? FeedTextTableViewCell {
-                                            currentCell.authorProfileImage.image = image
-                                        } else {
-                                            (cell as? FeedImageTableViewCell)!.authorProfileImage.image = image
-                                        }
+                                    if let currentCell = cell as? FeedTextTableViewCell {
+                                        currentCell.authorProfileImage.image = image
+                                    } else {
+                                        (cell as? FeedImageTableViewCell)!.authorProfileImage.image = image
                                     }
                                     
-                                    
                                 })
-
                             }
                             
                         }else {

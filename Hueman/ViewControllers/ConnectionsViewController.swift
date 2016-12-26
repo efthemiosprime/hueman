@@ -188,20 +188,10 @@ extension ConnectionsViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(CONNECTION_CELL_IDENTIFIER, forIndexPath: indexPath) as! ConnectionCell
         cell.connection = connections[indexPath.row]
         
-        storageRef.referenceForURL(connections[indexPath.row].imageURL!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-            if error == nil {
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    if let data = data {
-                        cell.connectionImage.image = UIImage(data: data)
-                    }
-                })
-                
-                
-            }else {
-                print(error!.localizedDescription)
-            }
-        })
+        if let url = connections[indexPath.row].imageURL {
+            connectionsModel.displayConnectionImage(url, cell: cell)
+        }
+
         
         return cell
     }

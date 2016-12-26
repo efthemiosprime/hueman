@@ -19,6 +19,7 @@ class HamburgerDrawerTableViewController: UITableViewController {
     var currentUser: User!
     
 
+    let cachedProfileImage = NSCache()
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
@@ -82,21 +83,33 @@ class HamburgerDrawerTableViewController: UITableViewController {
                     profileCell.profileImage.layer.cornerRadius = 61
                     profileCell.profileImage.contentMode = .ScaleToFill
                     
+                    if let profileImageURL = self.currentUser.photoURL {
+                        if let cachedImage = self.cachedProfileImage.objectForKey(profileImageURL) {
+                            profileCell.profileImage.image = cachedImage as? UIImage
+                        } else {
+                            self.storageRef.referenceForURL(profileImageURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                                if error == nil {
+                                    if let imageData = data {
+                                        let image = UIImage(data: imageData)
+                                        self.cachedProfileImage.setObject(image!, forKey: profileImageURL)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            profileCell.profileImage.image = image
+                                            
+                                        })
+                                    }
+
+                                    
                     
-                    self.storageRef.referenceForURL(self.currentUser.photoURL!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-                        if error == nil {
-                            
-                            dispatch_async(dispatch_get_main_queue(), {
-                                if let data = data {
-                                    profileCell.profileImage.image = UIImage(data: data)
+                                }else {
+                                    print(error!.localizedDescription)
                                 }
                             })
-                            
-                            
-                        }else {
-                            print(error!.localizedDescription)
                         }
-                    })
+                    }
+                    
+                    
+                    
+
                     
                     
                 }
