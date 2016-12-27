@@ -73,6 +73,9 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        
+        self.tabBarController?.tabBar.items![0].badgeValue = "1"
+
 
         if revealViewController() != nil {
             menuItem.target = revealViewController()

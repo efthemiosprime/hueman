@@ -59,8 +59,21 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
 
         addNavigationItems()
+        
+//        let date = NSDate()
+//        let calendar = NSCalendar.currentCalendar()
+//        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+//        
+//        let year =  components.year
+//        let month = components.month
+//        let day = components.day
+//        
+//        print(year)
+//        print(month)
+//        print(day)
 
     }
     

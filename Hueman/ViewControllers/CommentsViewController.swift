@@ -46,6 +46,7 @@ class CommentsViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
 //        notificationCenter.addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
 
+        self.tableView.separatorStyle = .None
 
         loadComments()
     }
@@ -95,6 +96,9 @@ class CommentsViewController: UIViewController {
     }
     
     func loadComments() {
+        
+        showWaitOverlay()
+        
         commentsRef = dataBaseRef.child("comments").child(key)
         commentsRef.observeEventType(.Value, withBlock:{ snapshot in
             
@@ -105,8 +109,9 @@ class CommentsViewController: UIViewController {
             
             
             self.viewModel.comments = comments
-
+            
             dispatch_async(dispatch_get_main_queue(), {
+                self.removeAllOverlays()
                 self.tableView.reloadData()
             })
         })

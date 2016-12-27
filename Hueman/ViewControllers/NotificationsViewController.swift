@@ -21,6 +21,9 @@ class NotificationsViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = menuItem
 
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        self.tabBarController?.tabBar.items![1].badgeValue = "1"
+
 
     }
 
