@@ -17,11 +17,25 @@ class FeedTextTableViewCell: UITableViewCell {
     @IBOutlet weak var authorProfileImage: UIImageView!
 
     
+    @IBOutlet weak var likesButton: UIButton!
+    
+    @IBOutlet weak var likesLabel: UILabel!
+    
+    @IBOutlet weak var commentsLabel: UILabel!
+    
+    
+    var key: String!
+
+    
+    var showCommentsAction: ((UITableViewCell) -> Void)?
+    var showLikesAction: ((UITableViewCell) -> Void)?
+    
     var feed: Feed? {
         didSet{
             if let feed = feed {
                 textFeedLabel.text = feed.text
                 textAuthorLabel.text = feed.author
+                key = feed.key
             }
         }
     }
@@ -39,15 +53,15 @@ class FeedTextTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
-    @IBAction func didTapComment(sender: AnyObject) {
-        print("didTapComment")
-   //    self.performSegueWithIdentifier("ShowComments", sender: nil)
-        
-    
+    @IBAction func didTappedCommentAction(sender: AnyObject) {
+        showCommentsAction?(self)
     }
-    @IBAction func didTapLike(sender: AnyObject) {
-        print("didTapLike")
+    
+
+    @IBAction func didTappedLikeAction(sender: AnyObject) {
+        likesButton.enabled = false
+        showLikesAction?(self)
     }
+
 
 }

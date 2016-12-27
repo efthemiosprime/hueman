@@ -1,5 +1,5 @@
 //
-//  Comment.swift
+//  Like.swift
 //  Hueman
 //
 //  Created by Efthemios Prime on 12/26/16.
@@ -9,34 +9,29 @@
 import Foundation
 import Firebase
 
-struct Comment {
-    
+struct Like {
     let name: String!
-    var text: String!
+    let uid: String!
     let id: String!
-    let imageURL: String!
     
-    init(name: String, text:String, id: String, imageURL: String) {
+    init(name: String, uid:String, id: String) {
         
         self.name = name
-        self.text = text
+        self.uid = uid
         self.id = id
-        self.imageURL = imageURL
     }
-    
     
     init(snapshot: FIRDataSnapshot) {
         
         self.name = snapshot.value!["name"] as? String
-        self.text = snapshot.value!["text"] as? String
+        self.uid = snapshot.value!["uid"] as? String
         self.id = snapshot.value!["id"] as? String
-        self.imageURL = snapshot.value!["imageURL"] as? String
-
+        
     }
-    
     
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["name": self.name!, "text":self.text!, "id": self.id, "imageURL": self.imageURL]
+        return ["name": self.name!, "uid":self.uid!, "id": self.id]
     }
+    
 }

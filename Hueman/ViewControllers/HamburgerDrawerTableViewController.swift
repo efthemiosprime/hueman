@@ -158,7 +158,7 @@ class HamburgerDrawerTableViewController: UITableViewController {
                         NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "email")
                         NSUserDefaults.standardUserDefaults().synchronize() 
                     }
-                    
+                                        
                     let keychainWrapper = KeychainWrapper()
                     let vData = keychainWrapper.myObjectForKey("v_Data");
                     if (!(vData as? String)!.isEmpty) || vData == nil {
@@ -168,6 +168,9 @@ class HamburgerDrawerTableViewController: UITableViewController {
                     }
 
                 }
+                
+                AuthenticationManager.sharedInstance.dispose()
+                
                 self.dismissViewControllerAnimated(true, completion: nil)
 
                 

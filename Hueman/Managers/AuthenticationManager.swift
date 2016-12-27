@@ -17,16 +17,32 @@ import SwiftOverlays
 
 class AuthenticationManager {
     
-    static let sharedInstance = AuthenticationManager()
+    var currentUser: User?
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
     }
     
-    var currentUser: User?
+    struct Static
+    {
+        private static var instance: AuthenticationManager?
+    }
+    
+    
+    class var sharedInstance: AuthenticationManager
+    {
+        if Static.instance == nil
+        {
+            Static.instance = AuthenticationManager()
+        }
+        
+        return Static.instance!
+    }
+    
     
     private init() {
-        print("auth")
+        
+        
         let currentAuthenticatedUser = FIRAuth.auth()?.currentUser
         let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -35,11 +51,17 @@ class AuthenticationManager {
                 self.currentUser = User(snapshot: snapshot)
                 userRef.removeAllObservers()
             }
-
-        })
+            
+            })
         { error in
             print(error.localizedDescription)
         }
     }
     
+    
+    func dispose() {
+        currentUser = nil
+        AuthenticationManager.Static.instance = nil
+    }
 }
+

@@ -126,4 +126,74 @@ class HuesFeedViewModel: NSObject {
         
     }
     
+    func displayTotalComments(key:String, cell: AnyObject) {
+        
+
+        let commentsRef = databaseRef.child("comments").child(key)
+        commentsRef.observeSingleEventOfType(.Value, withBlock:{ snapshot in
+            
+            if snapshot.exists() {
+                if cell is FeedImageTableViewCell {
+                    (cell as! FeedImageTableViewCell).commentsLabel.text = String(snapshot.childrenCount)
+
+                }else {
+                    (cell as! FeedTextTableViewCell).commentsLabel.text = String(snapshot.childrenCount)
+  
+                }
+            }else {
+                if cell is FeedImageTableViewCell {
+                    (cell as! FeedImageTableViewCell).commentsLabel.text = "0"
+                    
+                }else {
+                    (cell as! FeedTextTableViewCell).commentsLabel.text = "0"
+                    
+                }
+            }
+            
+
+        })
+    }
+    
+    func displayTotalLikes(key:String, cell: AnyObject) {
+        
+        let authManager = AuthenticationManager.sharedInstance
+        let currentUID = authManager.currentUser?.uid
+        
+        let likesRef = databaseRef.child("likes").child(key)
+        likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if snapshot.exists() {
+                
+                for snap in snapshot.children {
+                    print(snap.value["uid"])
+                
+                    if let uid = snap.value["uid"] as? String {
+                        if uid == currentUID {
+                            if cell is FeedImageTableViewCell {
+                                (cell as! FeedImageTableViewCell).likesButton.enabled = false
+                            }else {
+        
+                                (cell as! FeedTextTableViewCell).likesButton.enabled = false
+                                
+                            }
+                        }
+                    }
+                }
+                
+                if cell is FeedImageTableViewCell {
+                    (cell as! FeedImageTableViewCell).likesLabel.text = String(snapshot.childrenCount)
+                }else {
+                    (cell as! FeedTextTableViewCell).likesLabel.text = String(snapshot.childrenCount)
+                }
+            }else {
+                if cell is FeedImageTableViewCell {
+                    (cell as! FeedImageTableViewCell).likesLabel.text = "0"
+                    
+                }else {
+                    (cell as! FeedTextTableViewCell).likesLabel.text = "0"
+                    
+                }
+            }
+        })
+    }
+    
 }

@@ -7,20 +7,54 @@
 //
 
 import Foundation
+import FirebaseStorage
 
 
 import UIKit
 
+var storageRef: FIRStorage! {
+    return FIRStorage.storage()
+}
 class CommentCell: UITableViewCell {
     
     @IBOutlet var name: UILabel!
     @IBOutlet var commentText: UILabel!
+    @IBOutlet weak var authorImage: UIImageView!
+    
+    var cachedImages = NSCache()
     
     var comment: Comment? {
         didSet {
             if let comment = comment {
                 self.name.text = comment.name
                 self.commentText.text = comment.text
+                
+                if let cachedImage = self.cachedImages.objectForKey(comment.imageURL) {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.authorImage.image = cachedImage as? UIImage
+                        
+                    })
+                } else {
+                    storageRef.referenceForURL(comment.imageURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                        if error == nil {
+                            
+                            if let imageData = data {
+                                let feedImage = UIImage(data: imageData)
+                                self.cachedImages.setObject(feedImage!, forKey:comment.imageURL)
+                                
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.authorImage.image = feedImage
+                                    
+                                })
+                            }
+                            
+                        }else {
+                            print(error!.localizedDescription)
+                        }
+                    })
+                }
+                
+
 
             }
         }

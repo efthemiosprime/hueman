@@ -99,12 +99,17 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "ShowComments" {
-            let sender: FeedImageTableViewCell = sender as! FeedImageTableViewCell
+            if sender is FeedImageTableViewCell {
+                sender as! FeedImageTableViewCell
+            }else {
+                sender as! FeedTextTableViewCell
+            }
+
 
             if let navController = segue.destinationViewController as? UINavigationController {
                 
                 if let commentsViewController = navController.topViewController as? CommentsViewController {
-                    commentsViewController.key = sender.key
+                    commentsViewController.key = sender!.key
                 }
         
             }
@@ -136,14 +141,25 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         
         let cell = feed.withImage == true ? tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_IMAGE_IDENTIFIER, forIndexPath: indexPath) as! FeedImageTableViewCell : tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_TEXT_IDENTIFIER, forIndexPath: indexPath) as! FeedTextTableViewCell
     
-        if (feed.withImage == true) {
-            (cell as! FeedImageTableViewCell).feed = feed
-            (cell as! FeedImageTableViewCell).showCommentsAction = { (cell) in
+        if (feed.withImage == true)
+        {
+            let feedCell = cell as! FeedImageTableViewCell
+            feedCell.feed = feed
+            feedCell.showCommentsAction = { (cell) in
                 self.performSegueWithIdentifier("ShowComments", sender: cell)
 
             }
+            feedCell.showLikesAction = { cell in
+                let authenticationManager = AuthenticationManager.sharedInstance
+                let id = NSUUID().UUIDString
+                let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
+                
+                let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
+                likesRef.setValue(newLike.toAnyObject())
+            }
+
             
-            (cell as! FeedImageTableViewCell).showPopover = { (cell) in
+            feedCell.showPopover = { (cell) in
                 let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("popoverID")
                 popController.preferredContentSize = CGSizeMake(120, 160)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
@@ -153,11 +169,15 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 popController.popoverPresentationController?.sourceView = (cell as! FeedImageTableViewCell).popoverButton // button
                 popController.popoverPresentationController?.sourceRect = (cell as! FeedImageTableViewCell).popoverButton.bounds
                 
+                
+                
                 self.presentViewController(popController, animated: true, completion: nil)
 
             }
             
-            let feedCell = cell as! FeedImageTableViewCell
+            
+            huesFeedModel.displayTotalComments(feedCell.key, cell: feedCell)
+            huesFeedModel.displayTotalLikes(feedCell.key, cell: feedCell)
 
             if let imageFeedURL = feeds[indexPath.row].imageURL {
                 
@@ -169,8 +189,22 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         }else {
             
             let feedCell = cell as! FeedTextTableViewCell
-            feedCell.feed = feed
 
+            feedCell.feed = feed
+            huesFeedModel.displayTotalComments(feedCell.key, cell: feedCell)
+            huesFeedModel.displayTotalLikes(feedCell.key, cell: feedCell)
+            feedCell.showCommentsAction =  { (cell) in
+                self.performSegueWithIdentifier("ShowComments", sender: cell)
+            }
+            
+            feedCell.showLikesAction = { cell in
+                let authenticationManager = AuthenticationManager.sharedInstance
+                let id = NSUUID().UUIDString
+                let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
+
+                let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
+                likesRef.setValue(newLike.toAnyObject())
+            }
             
         }
         

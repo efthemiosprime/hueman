@@ -84,7 +84,7 @@ class CommentsViewController: UIViewController {
             if let inputText = commentInput.text {
                 let authManager = AuthenticationManager.sharedInstance
                 let uuid = NSUUID().UUIDString
-                let newComment = Comment(name: authManager.currentUser!.name, text: inputText, id: uuid)
+                let newComment = Comment(name: authManager.currentUser!.name, text: inputText, id: uuid, imageURL: authManager.currentUser!.photoURL!)
                 if key != nil {
                     let commentRef = dataBaseRef.child("comments").child(key).childByAutoId()
                     commentRef.setValue(newComment.toAnyObject())
@@ -109,10 +109,11 @@ class CommentsViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
-        
-        
         })
-        
+    }
+    
+    func loadAuthorProfileImage() {
+        commentsRef = dataBaseRef.child("comments").child(key)
 
     }
     

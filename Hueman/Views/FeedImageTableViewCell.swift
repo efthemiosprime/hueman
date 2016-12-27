@@ -46,8 +46,7 @@ class FeedImageTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -67,6 +66,13 @@ class FeedImageTableViewCell: UITableViewCell {
         showCommentsAction?(self)
     }
 
-    @IBAction func didTappedLikes(sender: AnyObject) {
+    @IBAction func didTappedLikeAction(sender: AnyObject) {
+        likesButton.enabled = false
+        
+        likesLabel.text = String(UInt(likesLabel.text!)! + 1)
+
+        
+        showLikesAction?(self)
     }
+
 }

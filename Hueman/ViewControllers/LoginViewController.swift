@@ -77,6 +77,7 @@ class LoginViewController: UIViewController {
         if let email = self.emailField.text, let password = self.passwordField.text {
             firebaseManager.logIn(email, password: password, loggedIn: {
                 AuthenticationManager.sharedInstance
+                print(AuthenticationManager.sharedInstance.currentUser?.name)
                 self.removeAllOverlays()
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
             })
