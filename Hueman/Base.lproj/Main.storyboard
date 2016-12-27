@@ -754,7 +754,7 @@ Massachusetts</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
@@ -847,7 +847,7 @@ Massachusetts</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="15" y="230" width="275" height="28"/>
+                                            <rect key="frame" x="15" y="230.5" width="275" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="275" id="8P9-tI-7y3"/>
                                             </constraints>
@@ -856,7 +856,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="341" y="210" width="11" height="22"/>
+                                            <rect key="frame" x="341" y="210.5" width="11" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="iUD-3f-dOx"/>
                                                 <constraint firstAttribute="width" constant="11" id="yE1-eZ-wy8"/>
@@ -1116,7 +1116,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="178" y="59" width="174.5" height="21"/>
+                                            <rect key="frame" x="177.5" y="59" width="175" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
@@ -1684,7 +1684,7 @@ Massachusetts</string>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1715,7 +1715,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1736,7 +1736,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1996,7 +1996,7 @@ Massachusetts</string>
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2207,10 +2207,10 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="7916" y="505.09745127436287"/>
         </scene>
-        <!--View Controller-->
+        <!--Popover View Controller-->
         <scene sceneID="GND-0c-myI">
             <objects>
-                <viewController storyboardIdentifier="popoverID" id="pYv-Y1-js6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popoverID" id="pYv-Y1-js6" customClass="PopoverViewController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wvn-5N-4hy"/>
                         <viewControllerLayoutGuide type="bottom" id="6hn-4f-HgA"/>
@@ -2337,7 +2337,7 @@ Massachusetts</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EBF-gu-Xh4" customClass="NavBar" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2397,14 +2397,14 @@ Massachusetts</string>
         <image name="report-problem-icon" width="34" height="34"/>
         <image name="signup-bg" width="7" height="7"/>
         <image name="signup-logo" width="247" height="60"/>
-        <image name="tab-connections-icon" width="48" height="32"/>
-        <image name="tab-connections-selected-icon" width="48" height="32"/>
-        <image name="tab-huesfeed-icon" width="48" height="32"/>
-        <image name="tab-huesfeed-selected-icon" width="48" height="32"/>
-        <image name="tab-notifications-icon" width="48" height="32"/>
-        <image name="tab-notifications-selected-icon" width="48" height="32"/>
-        <image name="tab-post-icon" width="48" height="32"/>
-        <image name="tab-post-selected-icon" width="48" height="32"/>
+        <image name="tab-connections-icon" width="26" height="23"/>
+        <image name="tab-connections-selected-icon" width="26" height="23"/>
+        <image name="tab-huesfeed-icon" width="24" height="24"/>
+        <image name="tab-huesfeed-selected-icon" width="24" height="24"/>
+        <image name="tab-notifications-icon" width="20" height="24"/>
+        <image name="tab-notifications-selected-icon" width="20" height="24"/>
+        <image name="tab-post-icon" width="24" height="24"/>
+        <image name="tab-post-selected-icon" width="24" height="24"/>
         <image name="terms-conditions-icon" width="34" height="34"/>
         <image name="topbar-check-icon" width="27" height="27"/>
         <image name="wanderlust-icon" width="37" height="37"/>

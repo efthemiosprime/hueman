@@ -80,7 +80,8 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
-        
+
+
         if revealViewController() != nil {
             menuItem.target = revealViewController()
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -177,13 +178,11 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 popController.preferredContentSize = CGSizeMake(120, 160)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
                 // set up the popover presentation controller
-                popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.Up
+                popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
                 popController.popoverPresentationController?.delegate = self
                 popController.popoverPresentationController?.sourceView = (cell as! FeedImageTableViewCell).popoverButton // button
                 popController.popoverPresentationController?.sourceRect = (cell as! FeedImageTableViewCell).popoverButton.bounds
-                
-                
-                
+                                
                 self.presentViewController(popController, animated: true, completion: nil)
 
             }
