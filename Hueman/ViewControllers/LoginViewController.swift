@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     let firebaseManager = FirebaseManager()
     
@@ -21,6 +22,17 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //printFonts()
+        
+        let screenSize = UIScreen.mainScreen().bounds
+        let screenHeight = screenSize.height
+        
+        if screenHeight <= 568 {
+            forgotPasswordButton.titleLabel?.font = UIFont(name: Font.SofiaProRegular, size: 11)
+        }else {
+            forgotPasswordButton.titleLabel?.font = UIFont(name: Font.SofiaProRegular, size: 13)
+        }
+        
+
         
         emailField.delegate = self
         passwordField.delegate = self
