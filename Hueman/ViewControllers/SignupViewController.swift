@@ -13,6 +13,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var topHeightSpace: NSLayoutConstraint!
     
     var firebaseManager = FirebaseManager()
     
