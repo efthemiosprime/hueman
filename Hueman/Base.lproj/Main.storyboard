@@ -1831,7 +1831,7 @@ Massachusetts</string>
                                                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                                             </textField>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Write anything you’d like telling other Huemans who view your profile to see..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hzF-1l-UeY">
-                                                                <rect key="frame" x="17" y="41" width="342" height="62"/>
+                                                                <rect key="frame" x="22" y="40" width="330" height="62"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
@@ -1861,11 +1861,11 @@ Massachusetts</string>
                                                         <subviews>
                                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vo8-dv-LXo">
                                                                 <rect key="frame" x="51" y="10" width="43" height="43"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What city do you live in?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc1-SW-6AH">
                                                                 <rect key="frame" x="21" y="57" width="103" height="33"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1878,11 +1878,11 @@ Massachusetts</string>
                                                         <subviews>
                                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="birthday-icon" translatesAutoresizingMaskIntoConstraints="NO" id="nE7-Bb-ZDo">
                                                                 <rect key="frame" x="51" y="10" width="43" height="43"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When’s your birthday?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lC-va-hjq">
                                                                 <rect key="frame" x="21" y="57" width="103" height="33"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1918,14 +1918,14 @@ Massachusetts</string>
                                                     <constraint firstAttribute="height" constant="50" id="H4y-nW-oKu"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QfN-pE-qrh" userLabel="Hues">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QfN-pE-qrh" userLabel="Hues">
                                                 <rect key="frame" x="30" y="641" width="315" height="630"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3a-vH-cMo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="204"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="199.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSo-YB-ixN" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="204"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-M6-qmv">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
@@ -1959,7 +1959,7 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-n2-gNm" userLabel="plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="204"/>
+                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="LXI-mA-kP3">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
@@ -1995,10 +1995,10 @@ Massachusetts</string>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IoV-MB-0cB">
-                                                        <rect key="frame" x="0.0" y="220" width="315" height="190"/>
+                                                        <rect key="frame" x="0.0" y="215.5" width="315" height="199"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKc-yL-RN9" userLabel="love musings" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="190"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ORj-dM-tru">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
@@ -2032,7 +2032,7 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o31-ep-JYG" userLabel="health" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="190"/>
+                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-Pe-Wj6">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
@@ -2066,15 +2066,12 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="190" id="9s7-0W-T8P"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Cas-CI-ljB">
-                                                        <rect key="frame" x="0.0" y="426" width="315" height="204"/>
+                                                        <rect key="frame" x="0.0" y="430.5" width="315" height="199.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-zU-m4P" userLabel="daily" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="204"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-De-L62">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
@@ -2108,7 +2105,7 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IN-XA-Wbq" userLabel="ray" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="204"/>
+                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-Q4-IFT">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
@@ -2147,7 +2144,6 @@ Massachusetts</string>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="315" id="ZLc-FE-WKd"/>
                                                     <constraint firstAttribute="height" constant="630" id="abZ-ZQ-udz"/>
-                                                    <constraint firstItem="IoV-MB-0cB" firstAttribute="centerY" secondItem="QfN-pE-qrh" secondAttribute="centerY" id="bbf-hF-nlp"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dd-c4-5Kb" userLabel="Camera">
@@ -2221,7 +2217,10 @@ Massachusetts</string>
                     <size key="freeformSize" width="375" height="1350"/>
                     <connections>
                         <outlet property="bioTextfield" destination="hzF-1l-UeY" id="XFP-1j-5Lj"/>
+                        <outlet property="birthdayImage" destination="nE7-Bb-ZDo" id="VxE-ZH-5Db"/>
+                        <outlet property="dateLabel" destination="2lC-va-hjq" id="4LO-w3-oC5"/>
                         <outlet property="locationImage" destination="vo8-dv-LXo" id="CBZ-lH-3TN"/>
+                        <outlet property="locationLabel" destination="wc1-SW-6AH" id="g9D-Sq-h7l"/>
                         <outlet property="nameTextfield" destination="3Rq-c4-qLh" id="KLD-fB-Y7n"/>
                         <outlet property="navigationBar" destination="7Sz-Kv-aCi" id="xQh-wT-Hrh"/>
                         <outlet property="profileImage" destination="cwm-c5-B8w" id="bBp-e6-au6"/>
@@ -2269,11 +2268,27 @@ Massachusetts</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9H2-Uc-3Je">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="create profile" id="Vij-Px-3Zx">
+                                        <barButtonItem key="rightBarButtonItem" image="topbar-check-icon" id="rb3-we-2XO">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="didTappedConfirmButton:" destination="pnW-h7-Yah" id="nTb-5O-Tdq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="birthdayPicker" destination="fGn-Yd-eRr" id="7mb-cQ-f0z"/>
+                        <outlet property="confirmButton" destination="rb3-we-2XO" id="bwF-8l-h9q"/>
+                        <outlet property="navigationBar" destination="9H2-Uc-3Je" id="nd0-at-Bsi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yo2-xZ-EMw" userLabel="First Responder" sceneMemberID="firstResponder"/>

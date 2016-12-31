@@ -56,7 +56,6 @@ extension CreateProfileViewController: UITextFieldDelegate {
     // Dismissing the Keyboard with the Return Keyboard Button
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         nameTextfield.resignFirstResponder()
-        locationField.resignFirstResponder()
         return true
     }
     
@@ -93,7 +92,6 @@ extension CreateProfileViewController: UITextViewDelegate {
     
 
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        cityInputView.hidden = true
         textView.text = ""
         return true
     }

@@ -21,10 +21,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var birthdayImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var locationField: UITextField!
-    @IBOutlet weak var cityInputView: UIView!
-    @IBOutlet weak var backScrollView: UIView!
-    @IBOutlet weak var locationInput: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     
@@ -60,26 +57,24 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
         profileImage.contentMode = .ScaleAspectFill
         
-//        let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
-//        profileImage.addGestureRecognizer(profileImageTapGesture)
-//        
-//        // Creating Tap Gesture to dismiss Keyboard
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.dismissKeyboard(_:)))
-//        tapGesture.numberOfTapsRequired = 1
-//        view.addGestureRecognizer(tapGesture)
-//        
-////        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.didTappedLocation(_:)))
-////        locationTapGesture.numberOfTapsRequired = 1
-////        locationImage.addGestureRecognizer(locationTapGesture)
-//        
-//        bioTextfield.delegate = self
-//        
-//        
-//        let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
-//        birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
-//        
-//       
-//        
+        let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
+        profileImage.addGestureRecognizer(profileImageTapGesture)
+        
+        // Creating Tap Gesture to dismiss Keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.dismissKeyboard(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
+        
+        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.didTappedLocation(_:)))
+        locationTapGesture.numberOfTapsRequired = 1
+        locationImage.addGestureRecognizer(locationTapGesture)
+        
+        bioTextfield.delegate = self
+        
+        
+        let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
+        birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
+    
         
         self.navigationBar.topItem!.title = "create profile"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 18)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
@@ -102,7 +97,6 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
     func profileImageTapped() {
         
-        cityInputView.hidden = true
         handleSelectedProfileImageView()
     }
     
@@ -125,22 +119,17 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     func didTappedLocation(gesture: UIGestureRecognizer) {
         self.view.endEditing(true)
-        if cityInputView.hidden == true {
-            cityInputView.hidden = false
-        }
+
     }
     
     // Dismissing all editing actions when User Tap or Swipe down on the Main View
     func dismissKeyboard(gesture: UIGestureRecognizer){
         self.view.endEditing(true)
 
-        if cityInputView.hidden == false {
-            cityInputView.hidden = true
-        }
+
         
     }
     @IBAction func locationInputDidChanged(sender: AnyObject) {
-        locationInput.text = locationField.text
     }
 
     
@@ -178,7 +167,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         var updatedUser = User(email: (currentUser?.email!)!, name: (currentUser?.displayName)!, userId: currentUser!.uid)
                         
                         updatedUser.birthday = self.dateLabel.text
-                        updatedUser.location = self.locationInput.text
+                        updatedUser.location = self.locationLabel.text
                         updatedUser.bio = self.bioTextfield.text
                         updatedUser.photoURL = changeRequest?.photoURL?.absoluteString
                         

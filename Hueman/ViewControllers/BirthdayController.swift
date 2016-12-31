@@ -15,25 +15,40 @@ protocol BirthdayDelegate {
 class BirthdayController: UIViewController {
 
     @IBOutlet weak var birthdayPicker: UIDatePicker!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var confirmButton: UIBarButtonItem!
+    
     var delegate: BirthdayDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        confirmButton.enabled = false
         
-        birthdayPicker.subviews[0].subviews[1].backgroundColor = UIColor.redColor()
-        birthdayPicker.subviews[0].subviews[2].backgroundColor = UIColor.redColor()
         birthdayPicker.setValue(UIColor.whiteColor(), forKey: "textColor")
         birthdayPicker.setValue(false, forKey: "highlightsToday")
         
         birthdayPicker.addTarget(self, action: #selector(BirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationBar.topItem!.title = "create profile"
+        self.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x999999)
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
+    }
 
     func handleBirthdayPicker(sender: UIDatePicker) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd yyyy"
+        
+        confirmButton.enabled = true
         self.delegate?.pickerDidChange(dateFormatter.stringFromDate(sender.date))
         
     }
 
+    @IBAction func didTappedConfirmButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
