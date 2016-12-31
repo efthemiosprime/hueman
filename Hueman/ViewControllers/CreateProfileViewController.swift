@@ -41,10 +41,13 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         if !AppSettings.DEBUG {
             if let name = FIRAuth.auth()?.currentUser!.displayName  {
                 nameTextfield.text = name
+            }else {
+                nameTextfield.attributedPlaceholder = NSAttributedString(string: "What's your name?", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
             }
         }
 
-        
+        nameTextfield.delegate = self
+        nameTextfield.attributedPlaceholder = NSAttributedString(string: "What's your name?", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
         var topics: [String] = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
         
         for (index, hue) in profilesHues!.enumerate() {
@@ -65,7 +68,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
         
-        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.didTappedLocation(_:)))
+        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedLocation))
         locationTapGesture.numberOfTapsRequired = 1
         locationImage.addGestureRecognizer(locationTapGesture)
         
@@ -93,6 +96,12 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             let birthdayController = segue.destinationViewController as! BirthdayController
             birthdayController.delegate = self
         }
+        
+        if segue.identifier  == "AddLocation" {
+            
+            let locationController = segue.destinationViewController as! AddLocationController
+            locationController.delegate = self
+        }
     }
 
     func profileImageTapped() {
@@ -111,15 +120,9 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
     }
     
-    func handleBirthdayPicker(sender: UIDatePicker) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM dd yyyy"
-        dateLabel.text = dateFormatter.stringFromDate(sender.date)
-    }
-    
-    func didTappedLocation(gesture: UIGestureRecognizer) {
-        self.view.endEditing(true)
 
+    func didTappedLocation() {
+        self.performSegueWithIdentifier("AddLocation", sender: nil )
     }
     
     // Dismissing all editing actions when User Tap or Swipe down on the Main View
@@ -128,8 +131,6 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
 
         
-    }
-    @IBAction func locationInputDidChanged(sender: AnyObject) {
     }
 
     

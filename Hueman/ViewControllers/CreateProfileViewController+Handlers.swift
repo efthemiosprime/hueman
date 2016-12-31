@@ -62,6 +62,8 @@ extension CreateProfileViewController: UITextFieldDelegate {
     // Moving the View up after the Keyboard appears
     func textFieldDidBeginEditing(textField: UITextField) {
         //animateView(true, moveValue: 80)
+        textField.placeholder = nil;
+
     }
     
     
@@ -114,6 +116,14 @@ extension CreateProfileViewController: UITextViewDelegate {
 extension CreateProfileViewController: BirthdayDelegate {
     func pickerDidChange(date: String) {
         dateLabel.text = date
+    }
+}
+
+
+extension CreateProfileViewController: LocationDelegate {
+    func setLocation(location: String) {
+        print(location)
+        locationLabel.text = location
     }
 }
 

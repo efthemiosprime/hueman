@@ -79,6 +79,8 @@
 		3AA4DFB81E0CDB6F00BF75A1 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */; };
 		3AA4DFBA1E0CDEAB00BF75A1 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */; };
 		3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB900C91DFE5D8E0038D147 /* TextField.swift */; };
+		3ACF44381E17718B00CB97DF /* AddLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF44371E17718B00CB97DF /* AddLocationController.swift */; };
+		3ACF443A1E17872300CB97DF /* AddHueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF44391E17872300CB97DF /* AddHueController.swift */; };
 		3ADE12331E17048C00BE3DE6 /* BirthdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */; };
 		3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */; };
 		3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */; };
@@ -170,6 +172,8 @@
 		3AB900C91DFE5D8E0038D147 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = Hueman/Helpers/TextField.swift; sourceTree = "<group>"; };
 		3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		3ACF44371E17718B00CB97DF /* AddLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLocationController.swift; path = ViewControllers/AddLocationController.swift; sourceTree = "<group>"; };
+		3ACF44391E17872300CB97DF /* AddHueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddHueController.swift; path = ViewControllers/AddHueController.swift; sourceTree = "<group>"; };
 		3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdayController.swift; path = ViewControllers/BirthdayController.swift; sourceTree = "<group>"; };
 		3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHue.swift; path = Views/ProfileHue.swift; sourceTree = "<group>"; };
 		3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHueModel.swift; path = Models/ProfileHueModel.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */,
 				3AA3B35D1E123437007D5E9E /* PopoverViewController.swift */,
 				3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */,
+				3ACF44371E17718B00CB97DF /* AddLocationController.swift */,
+				3ACF44391E17872300CB97DF /* AddHueController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -603,6 +609,7 @@
 				3A82E66E1E11BA8F008F520A /* Like.swift in Sources */,
 				3A76055E1E0DEB8100E682AD /* ConnectionsViewModel.swift in Sources */,
 				3A154E5C1DCD7389005A79EC /* ConnectionLeftItem.swift in Sources */,
+				3ACF443A1E17872300CB97DF /* AddHueController.swift in Sources */,
 				3A154E481DCD7352005A79EC /* HueboardsViewController.swift in Sources */,
 				3A154E4B1DCD7352005A79EC /* ConnectionProfileViewController.swift in Sources */,
 				3A154E641DCD7430005A79EC /* HueboardsLayout.swift in Sources */,
@@ -628,6 +635,7 @@
 				3A154E461DCD7352005A79EC /* LoginViewController.swift in Sources */,
 				3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */,
 				3A7605641E0E080800E682AD /* UIImage+resizeWith.swift in Sources */,
+				3ACF44381E17718B00CB97DF /* AddLocationController.swift in Sources */,
 				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
 				3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */,
