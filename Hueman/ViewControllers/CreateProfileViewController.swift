@@ -56,7 +56,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         
         profileImage.clipsToBounds = true
-        profileImage.layer.cornerRadius = 132.5
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
         profileImage.contentMode = .ScaleAspectFill
         

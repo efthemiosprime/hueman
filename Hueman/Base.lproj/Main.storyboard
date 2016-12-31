@@ -567,14 +567,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-thumbnail-bg" translatesAutoresizingMaskIntoConstraints="NO" id="OVZ-AW-iGe">
-                                <rect key="frame" x="44.5" y="95" width="286" height="286"/>
+                                <rect key="frame" x="45" y="95" width="286" height="286"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="286" id="QtV-Hd-f8t"/>
                                     <constraint firstAttribute="height" constant="286" id="xX4-Y2-4TM"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9Rb-nb-Ywk">
-                                <rect key="frame" x="71.5" y="122" width="232" height="232"/>
+                                <rect key="frame" x="72" y="122" width="232" height="232"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="232" id="RvH-Ko-j9n"/>
                                     <constraint firstAttribute="height" constant="232" id="htS-7g-ZTW"/>
@@ -584,13 +584,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-name-background" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-8R-wAI">
-                                <rect key="frame" x="44.5" y="389" width="286" height="34"/>
+                                <rect key="frame" x="45" y="389" width="286" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7r1-8R-wAI" secondAttribute="height" multiplier="143:17" id="p1I-zz-hVC"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julius Busa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-d5-qk9">
-                                <rect key="frame" x="146" y="398" width="82.5" height="17"/>
+                                <rect key="frame" x="146" y="398" width="83" height="17"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1656,7 +1656,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-gb-TEW" userLabel="seperator">
-                                            <rect key="frame" x="12.5" y="94" width="350" height="1"/>
+                                            <rect key="frame" x="13" y="94" width="350" height="1"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="350" id="OBY-5C-uIS"/>
@@ -1787,20 +1787,20 @@ Massachusetts</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8b-WN-1n4">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8b-WN-1n4">
                                 <rect key="frame" x="0.0" y="44" width="375" height="1306"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGG-X5-Z4Z" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1291"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1301"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iJo-FF-dBR" userLabel="Profile">
                                                 <rect key="frame" x="52" y="25" width="271" height="271"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cwm-c5-B8w">
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cwm-c5-B8w">
                                                         <rect key="frame" x="0.0" y="0.0" width="271" height="271"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="cwm-c5-B8w" secondAttribute="height" multiplier="1:1" id="Ehx-pf-0gz"/>
-                                                            <constraint firstAttribute="width" secondItem="cwm-c5-B8w" secondAttribute="height" multiplier="1:1" id="igB-me-XvN"/>
+                                                            <constraint firstAttribute="width" constant="271" id="L0u-lA-MkE"/>
+                                                            <constraint firstAttribute="height" constant="271" id="Xau-sQ-Bi8"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -1810,7 +1810,8 @@ Massachusetts</string>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="iJo-FF-dBR" secondAttribute="height" multiplier="1:1" id="Tfy-v4-CLW"/>
+                                                    <constraint firstAttribute="height" constant="271" id="7Qj-gs-dBA"/>
+                                                    <constraint firstAttribute="width" constant="271" id="atk-iw-kla"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-jh-U5z" userLabel="Name + Bio">
@@ -1819,29 +1820,36 @@ Massachusetts</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNU-AJ-1eG" userLabel="Name + Bio">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                                         <subviews>
-                                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="create-profile-name-bio" translatesAutoresizingMaskIntoConstraints="NO" id="325-h0-99p">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="create-profile-name-bio" translatesAutoresizingMaskIntoConstraints="NO" id="325-h0-99p">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                                             </imageView>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What’s your name?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Rq-c4-qLh">
                                                                 <rect key="frame" x="0.0" y="4" width="375" height="26"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                                             </textField>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Write anything you’d like telling other Huemans who view your profile to see..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hzF-1l-UeY">
-                                                                <rect key="frame" x="0.0" y="41" width="375" height="62"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <rect key="frame" x="17" y="41" width="342" height="62"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="325-h0-99p" secondAttribute="bottom" id="0il-EF-rzS"/>
+                                                            <constraint firstItem="325-h0-99p" firstAttribute="top" secondItem="sNU-AJ-1eG" secondAttribute="top" id="2Rk-B7-SAG"/>
+                                                            <constraint firstItem="325-h0-99p" firstAttribute="leading" secondItem="sNU-AJ-1eG" secondAttribute="leading" id="8Ja-GH-rdF"/>
+                                                            <constraint firstAttribute="trailing" secondItem="325-h0-99p" secondAttribute="trailing" id="8wF-40-zCH"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="sNU-AJ-1eG" secondAttribute="bottom" id="E2c-I1-DxZ"/>
+                                                    <constraint firstItem="sNU-AJ-1eG" firstAttribute="top" secondItem="TCb-jh-U5z" secondAttribute="top" id="GHQ-ak-skt"/>
                                                     <constraint firstAttribute="height" constant="103" id="i9f-Ue-EuV"/>
                                                 </constraints>
                                             </stackView>
@@ -1886,6 +1894,7 @@ Massachusetts</string>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="9bJ-DF-FDh"/>
                                                     <constraint firstItem="rNA-Az-Nj1" firstAttribute="leading" secondItem="Daz-P8-oBA" secondAttribute="leading" constant="161" id="b3V-C0-xcz"/>
+                                                    <constraint firstAttribute="width" constant="307" id="kdK-c3-8Ky"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T6J-Za-wDx" userLabel="Text">
@@ -1912,14 +1921,14 @@ Massachusetts</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QfN-pE-qrh" userLabel="Hues">
                                                 <rect key="frame" x="30" y="641" width="315" height="630"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3a-vH-cMo">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3a-vH-cMo">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="204"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSo-YB-ixN" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="204"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="204"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-M6-qmv">
-                                                                        <rect key="frame" x="69" y="156" width="13" height="13"/>
+                                                                        <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vd-tc-VoZ">
@@ -1930,14 +1939,14 @@ Massachusetts</string>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfG-mW-sMQ">
-                                                                        <rect key="frame" x="20" y="135" width="112" height="55"/>
+                                                                        <rect key="frame" x="19.5" y="135" width="112" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="nRQ-0g-Dxs">
-                                                                        <rect key="frame" x="49" y="9" width="55" height="55"/>
+                                                                        <rect key="frame" x="48.5" y="9" width="55" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -1950,28 +1959,28 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-n2-gNm" userLabel="plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="166" y="0.0" width="149" height="204"/>
+                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="204"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="LXI-mA-kP3">
-                                                                        <rect key="frame" x="69" y="156" width="13" height="13"/>
+                                                                        <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g25-KU-uzA">
-                                                                        <rect key="frame" x="8" y="95" width="134" height="21"/>
+                                                                        <rect key="frame" x="8.5" y="95" width="134" height="21"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niQ-El-EqS">
-                                                                        <rect key="frame" x="19" y="135" width="112" height="55"/>
+                                                                        <rect key="frame" x="19.5" y="135" width="112" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="EwS-Rn-5NE">
-                                                                        <rect key="frame" x="49" y="9" width="55" height="55"/>
+                                                                        <rect key="frame" x="49.5" y="9" width="55" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -1984,19 +1993,15 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="rSo-YB-ixN" secondAttribute="trailing" constant="165" id="UrL-ad-NT9"/>
-                                                            <constraint firstItem="VfG-n2-gNm" firstAttribute="leading" secondItem="e3a-vH-cMo" secondAttribute="leading" constant="166" id="mo8-pt-aqZ"/>
-                                                        </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IoV-MB-0cB">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IoV-MB-0cB">
                                                         <rect key="frame" x="0.0" y="220" width="315" height="190"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKc-yL-RN9" userLabel="love musings" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="190"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ORj-dM-tru">
-                                                                        <rect key="frame" x="69" y="156" width="13" height="13"/>
+                                                                        <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rto-3y-do2">
@@ -2007,14 +2012,14 @@ Massachusetts</string>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-8V-Vlc">
-                                                                        <rect key="frame" x="20" y="135" width="112" height="55"/>
+                                                                        <rect key="frame" x="19.5" y="135" width="112" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="z8u-AM-Qgr">
-                                                                        <rect key="frame" x="49" y="9" width="55" height="55"/>
+                                                                        <rect key="frame" x="48.5" y="9" width="55" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -2027,28 +2032,28 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o31-ep-JYG" userLabel="health" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="166" y="0.0" width="149" height="190"/>
+                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="190"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-Pe-Wj6">
-                                                                        <rect key="frame" x="69" y="156" width="13" height="13"/>
+                                                                        <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-dE-eco">
-                                                                        <rect key="frame" x="8" y="95" width="134" height="21"/>
+                                                                        <rect key="frame" x="8.5" y="95" width="134" height="21"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbx-ft-1oJ">
-                                                                        <rect key="frame" x="19" y="135" width="112" height="55"/>
+                                                                        <rect key="frame" x="19.5" y="135" width="112" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="44K-3G-WLj">
-                                                                        <rect key="frame" x="49" y="9" width="55" height="55"/>
+                                                                        <rect key="frame" x="49.5" y="9" width="55" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -2063,17 +2068,16 @@ Massachusetts</string>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="190" id="9s7-0W-T8P"/>
-                                                            <constraint firstItem="o31-ep-JYG" firstAttribute="leading" secondItem="IoV-MB-0cB" secondAttribute="leading" constant="166" id="J9s-xH-TRM"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Cas-CI-ljB">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Cas-CI-ljB">
                                                         <rect key="frame" x="0.0" y="426" width="315" height="204"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-zU-m4P" userLabel="daily" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="204"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="204"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-De-L62">
-                                                                        <rect key="frame" x="69" y="156" width="13" height="13"/>
+                                                                        <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-Bx-qMB">
@@ -2084,14 +2088,14 @@ Massachusetts</string>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Ss-Gud">
-                                                                        <rect key="frame" x="20" y="135" width="112" height="55"/>
+                                                                        <rect key="frame" x="19.5" y="135" width="112" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="l4E-fH-js1">
-                                                                        <rect key="frame" x="49" y="9" width="55" height="55"/>
+                                                                        <rect key="frame" x="48.5" y="9" width="55" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -2104,28 +2108,28 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IN-XA-Wbq" userLabel="ray" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                                <rect key="frame" x="166" y="0.0" width="149" height="204"/>
+                                                                <rect key="frame" x="165.5" y="0.0" width="149.5" height="204"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-Q4-IFT">
-                                                                        <rect key="frame" x="69" y="156" width="13" height="13"/>
+                                                                        <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEr-5A-M4J">
-                                                                        <rect key="frame" x="8" y="95" width="134" height="21"/>
+                                                                        <rect key="frame" x="8.5" y="95" width="134" height="21"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwk-tz-aRC">
-                                                                        <rect key="frame" x="20" y="135" width="112" height="55"/>
+                                                                        <rect key="frame" x="20.5" y="135" width="112" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="NtG-Nd-iJ5">
-                                                                        <rect key="frame" x="49" y="9" width="55" height="55"/>
+                                                                        <rect key="frame" x="49.5" y="9" width="55" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -2138,9 +2142,6 @@ Massachusetts</string>
                                                                 </connections>
                                                             </view>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="8IN-XA-Wbq" firstAttribute="leading" secondItem="Cas-CI-ljB" secondAttribute="leading" constant="166" id="uoL-9M-O8R"/>
-                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -2160,29 +2161,28 @@ Massachusetts</string>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="iJo-FF-dBR" secondAttribute="trailing" constant="52" id="291-9r-0v9"/>
-                                            <constraint firstItem="Daz-P8-oBA" firstAttribute="leading" secondItem="vGG-X5-Z4Z" secondAttribute="leading" constant="34" id="4Z3-PB-TlO"/>
-                                            <constraint firstAttribute="bottom" secondItem="QfN-pE-qrh" secondAttribute="bottom" constant="20" id="6Nt-wk-xuX"/>
-                                            <constraint firstItem="cwm-c5-B8w" firstAttribute="leading" secondItem="vGG-X5-Z4Z" secondAttribute="leading" constant="52" id="Bah-Rj-Lca"/>
+                                            <constraint firstAttribute="bottom" secondItem="QfN-pE-qrh" secondAttribute="bottom" constant="30" id="6Nt-wk-xuX"/>
+                                            <constraint firstItem="iJo-FF-dBR" firstAttribute="centerX" secondItem="vGG-X5-Z4Z" secondAttribute="centerX" id="8dL-2Y-6X2"/>
                                             <constraint firstItem="QfN-pE-qrh" firstAttribute="leading" secondItem="vGG-X5-Z4Z" secondAttribute="leading" constant="30" id="CcY-hM-RG0"/>
                                             <constraint firstAttribute="trailing" secondItem="TCb-jh-U5z" secondAttribute="trailing" id="EbL-av-Ocx"/>
-                                            <constraint firstAttribute="trailing" secondItem="Daz-P8-oBA" secondAttribute="trailing" constant="34" id="G9B-qw-eIn"/>
-                                            <constraint firstAttribute="trailing" secondItem="cwm-c5-B8w" secondAttribute="trailing" constant="52" id="Hd5-4M-ZJJ"/>
                                             <constraint firstItem="QfN-pE-qrh" firstAttribute="top" secondItem="T6J-Za-wDx" secondAttribute="bottom" constant="20" id="Kv9-TE-2Qo"/>
                                             <constraint firstItem="TCb-jh-U5z" firstAttribute="top" secondItem="iJo-FF-dBR" secondAttribute="bottom" constant="32" id="Mbt-8P-9Qs"/>
                                             <constraint firstItem="T6J-Za-wDx" firstAttribute="top" secondItem="Daz-P8-oBA" secondAttribute="bottom" constant="20" id="OU9-GY-ORl"/>
+                                            <constraint firstItem="sNU-AJ-1eG" firstAttribute="width" secondItem="vGG-X5-Z4Z" secondAttribute="width" id="TMB-Xu-aLU"/>
                                             <constraint firstAttribute="trailing" secondItem="T6J-Za-wDx" secondAttribute="trailing" id="VBG-yz-i0O"/>
                                             <constraint firstItem="TCb-jh-U5z" firstAttribute="leading" secondItem="vGG-X5-Z4Z" secondAttribute="leading" id="ajE-Ww-rQR"/>
+                                            <constraint firstItem="Daz-P8-oBA" firstAttribute="centerX" secondItem="vGG-X5-Z4Z" secondAttribute="centerX" id="cU4-Nh-M7b"/>
                                             <constraint firstItem="iJo-FF-dBR" firstAttribute="top" secondItem="vGG-X5-Z4Z" secondAttribute="top" constant="25" id="cYr-gd-DRw"/>
                                             <constraint firstItem="T6J-Za-wDx" firstAttribute="leading" secondItem="vGG-X5-Z4Z" secondAttribute="leading" id="ckR-Rt-lI4"/>
-                                            <constraint firstItem="iJo-FF-dBR" firstAttribute="leading" secondItem="vGG-X5-Z4Z" secondAttribute="leading" constant="52" id="e3O-Fg-gjQ"/>
                                             <constraint firstItem="Daz-P8-oBA" firstAttribute="top" secondItem="TCb-jh-U5z" secondAttribute="bottom" constant="20" id="lpf-5t-nLX"/>
+                                            <constraint firstItem="325-h0-99p" firstAttribute="width" secondItem="vGG-X5-Z4Z" secondAttribute="width" id="wot-yO-ga0"/>
                                             <constraint firstAttribute="trailing" secondItem="QfN-pE-qrh" secondAttribute="trailing" constant="30" id="yfH-X1-2u5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="vGG-X5-Z4Z" secondAttribute="trailing" id="AWn-hW-xmL"/>
+                                    <constraint firstItem="vGG-X5-Z4Z" firstAttribute="width" secondItem="D8b-WN-1n4" secondAttribute="width" id="Jdr-u5-mHA"/>
                                     <constraint firstAttribute="bottom" secondItem="vGG-X5-Z4Z" secondAttribute="bottom" id="Y83-eR-nov"/>
                                     <constraint firstItem="vGG-X5-Z4Z" firstAttribute="leading" secondItem="D8b-WN-1n4" secondAttribute="leading" id="j6r-QP-2So"/>
                                     <constraint firstItem="vGG-X5-Z4Z" firstAttribute="top" secondItem="D8b-WN-1n4" secondAttribute="top" id="qin-p6-dzN"/>
@@ -2225,12 +2225,12 @@ Massachusetts</string>
                         <outlet property="nameTextfield" destination="3Rq-c4-qLh" id="KLD-fB-Y7n"/>
                         <outlet property="navigationBar" destination="7Sz-Kv-aCi" id="xQh-wT-Hrh"/>
                         <outlet property="profileImage" destination="cwm-c5-B8w" id="bBp-e6-au6"/>
-                        <outletCollection property="profilesHues" destination="mpw-zU-m4P" collectionClass="NSMutableArray" id="deh-2S-E1f"/>
-                        <outletCollection property="profilesHues" destination="o31-ep-JYG" collectionClass="NSMutableArray" id="qDF-Rx-2mp"/>
-                        <outletCollection property="profilesHues" destination="8IN-XA-Wbq" collectionClass="NSMutableArray" id="Ekd-kO-Ol4"/>
-                        <outletCollection property="profilesHues" destination="HKc-yL-RN9" collectionClass="NSMutableArray" id="vjP-A5-ljA"/>
-                        <outletCollection property="profilesHues" destination="rSo-YB-ixN" collectionClass="NSMutableArray" id="nvm-9z-jj9"/>
-                        <outletCollection property="profilesHues" destination="VfG-n2-gNm" collectionClass="NSMutableArray" id="gVx-0M-gV9"/>
+                        <outletCollection property="profilesHues" destination="rSo-YB-ixN" collectionClass="NSMutableArray" id="PNa-ku-U5U"/>
+                        <outletCollection property="profilesHues" destination="VfG-n2-gNm" collectionClass="NSMutableArray" id="NId-DO-rza"/>
+                        <outletCollection property="profilesHues" destination="HKc-yL-RN9" collectionClass="NSMutableArray" id="hbi-Wf-DgQ"/>
+                        <outletCollection property="profilesHues" destination="o31-ep-JYG" collectionClass="NSMutableArray" id="M3n-Ow-VCj"/>
+                        <outletCollection property="profilesHues" destination="mpw-zU-m4P" collectionClass="NSMutableArray" id="6am-TR-gtp"/>
+                        <outletCollection property="profilesHues" destination="8IN-XA-Wbq" collectionClass="NSMutableArray" id="m9B-OI-XXP"/>
                         <segue destination="lAe-Do-sBk" kind="show" identifier="UserCreated" id="OkO-K9-BA2"/>
                         <segue destination="pnW-h7-Yah" kind="presentation" identifier="BirthdayEntry" id="4Ng-kP-CAz"/>
                     </connections>
