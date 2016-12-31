@@ -20,13 +20,15 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var bioTextfield: UITextView!
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var birthdayImage: UIImageView!
-    @IBOutlet weak var birthdayDatePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var cityInputView: UIView!
     @IBOutlet weak var backScrollView: UIView!
     @IBOutlet weak var locationInput: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    
+    @IBOutlet var profilesHues: [ProfileHue]?
     
     var dataBaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
@@ -39,41 +41,45 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !AppSettings.DEBUG {
+            if let name = FIRAuth.auth()?.currentUser!.displayName  {
+                nameTextfield.text = name
+            }
+        }
+
         
-        if let name = FIRAuth.auth()?.currentUser!.displayName  {
-            nameTextfield.text = name
+        var topics: [String] = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
+        
+        for (index, hue) in profilesHues!.enumerate() {
+            hue.type = topics[index]
         }
         
-
+        
         profileImage.clipsToBounds = true
-        profileImage.layer.cornerRadius = 136
+        profileImage.layer.cornerRadius = 132.5
+        profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
         profileImage.contentMode = .ScaleAspectFill
         
-        let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
-        profileImage.addGestureRecognizer(profileImageTapGesture)
-        
-        // Creating Tap Gesture to dismiss Keyboard
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.dismissKeyboard(_:)))
-        tapGesture.numberOfTapsRequired = 1
-        view.addGestureRecognizer(tapGesture)
-        
-        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.didTappedLocation(_:)))
-        locationTapGesture.numberOfTapsRequired = 1
-        locationImage.addGestureRecognizer(locationTapGesture)
-        
-        bioTextfield.delegate = self
-        
-        
-        let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
-        birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
-        
-        birthdayDatePicker.addTarget(self, action: #selector(CreateProfileViewController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
-
-        birthdayDatePicker.backgroundColor = UIColor.UIColorFromRGB(0x999999)
-        birthdayDatePicker.hidden = true
-        
-        cityInputView.hidden = true
-        
+//        let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
+//        profileImage.addGestureRecognizer(profileImageTapGesture)
+//        
+//        // Creating Tap Gesture to dismiss Keyboard
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.dismissKeyboard(_:)))
+//        tapGesture.numberOfTapsRequired = 1
+//        view.addGestureRecognizer(tapGesture)
+//        
+////        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.didTappedLocation(_:)))
+////        locationTapGesture.numberOfTapsRequired = 1
+////        locationImage.addGestureRecognizer(locationTapGesture)
+//        
+//        bioTextfield.delegate = self
+//        
+//        
+//        let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
+//        birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
+//        
+//       
+//        
         
         self.navigationBar.topItem!.title = "create profile"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 18)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
@@ -83,16 +89,20 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-
-
+    
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier  == "BirthdayEntry" {
+            
+            let birthdayController = segue.destinationViewController as! BirthdayController
+            birthdayController.delegate = self
+        }
     }
 
     func profileImageTapped() {
         
         cityInputView.hidden = true
-        birthdayDatePicker.hidden = true
-
         handleSelectedProfileImageView()
     }
     
@@ -103,8 +113,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     func birthdayImageTapped() {
 
-        birthdayDatePicker.hidden = false
-    
+        self.performSegueWithIdentifier("BirthdayEntry", sender: nil )
 
     }
     
@@ -124,10 +133,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     // Dismissing all editing actions when User Tap or Swipe down on the Main View
     func dismissKeyboard(gesture: UIGestureRecognizer){
         self.view.endEditing(true)
-        if birthdayDatePicker.hidden == false {
-            birthdayDatePicker.hidden = true
-        }
-        
+
         if cityInputView.hidden == false {
             cityInputView.hidden = true
         }

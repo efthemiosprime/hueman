@@ -40,23 +40,24 @@ class SignupViewController: UIViewController {
     @IBAction func didTappedSignup(sender: AnyObject) {
         
         if AppSettings.DEBUG {
+            print("xxxxxxxxxxxx")
             self.performSegueWithIdentifier("CreateProfile", sender: sender)
             return
         }
         
-        if let email = self.emailField.text, let password = self.passwordField.text, let name = nameField.text
-        {
-                
-            firebaseManager.signUp(email, password: password, name: name, completion: {
-                    
-                    self.performSegueWithIdentifier("CreateProfile", sender: sender)
-                    
-            })
-                
-        }else {
-            print("any of the fields can't be empty")
-        }
-            
+//        if let email = self.emailField.text, let password = self.passwordField.text, let name = nameField.text
+//        {
+//                
+//            firebaseManager.signUp(email, password: password, name: name, completion: {
+//                    
+//                    self.performSegueWithIdentifier("CreateProfile", sender: sender)
+//                    
+//            })
+//                
+//        }else {
+//            print("any of the fields can't be empty")
+//        }
+        
     
     }
 

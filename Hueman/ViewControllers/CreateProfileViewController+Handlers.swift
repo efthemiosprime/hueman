@@ -93,7 +93,6 @@ extension CreateProfileViewController: UITextViewDelegate {
     
 
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        birthdayDatePicker.hidden = true
         cityInputView.hidden = true
         textView.text = ""
         return true
@@ -112,5 +111,11 @@ extension CreateProfileViewController: UITextViewDelegate {
 //    }
     
     
+}
+
+extension CreateProfileViewController: BirthdayDelegate {
+    func pickerDidChange(date: String) {
+        dateLabel.text = date
+    }
 }
 

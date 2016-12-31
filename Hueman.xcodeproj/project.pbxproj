@@ -79,6 +79,9 @@
 		3AA4DFB81E0CDB6F00BF75A1 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */; };
 		3AA4DFBA1E0CDEAB00BF75A1 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */; };
 		3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB900C91DFE5D8E0038D147 /* TextField.swift */; };
+		3ADE12331E17048C00BE3DE6 /* BirthdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */; };
+		3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */; };
+		3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
@@ -167,6 +170,9 @@
 		3AB900C91DFE5D8E0038D147 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = Hueman/Helpers/TextField.swift; sourceTree = "<group>"; };
 		3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdayController.swift; path = ViewControllers/BirthdayController.swift; sourceTree = "<group>"; };
+		3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHue.swift; path = Views/ProfileHue.swift; sourceTree = "<group>"; };
+		3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHueModel.swift; path = Models/ProfileHueModel.swift; sourceTree = "<group>"; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 				3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */,
 				3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */,
 				3AA3B35D1E123437007D5E9E /* PopoverViewController.swift */,
+				3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -305,6 +312,7 @@
 				3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */,
 				3C908B7D1E04937F00DA0109 /* AddUserCell.swift */,
 				3A82E6691E118D00008F520A /* CommentCell.swift */,
+				3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -380,6 +388,7 @@
 				3A0AB1921E086ECB00295AA5 /* Friendship.swift */,
 				3A82E6671E118A38008F520A /* Comment.swift */,
 				3A82E66D1E11BA8F008F520A /* Like.swift */,
+				3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -590,6 +599,7 @@
 				3A154E5B1DCD7389005A79EC /* ConnectionLabel.swift in Sources */,
 				3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */,
 				3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */,
+				3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */,
 				3A82E66E1E11BA8F008F520A /* Like.swift in Sources */,
 				3A76055E1E0DEB8100E682AD /* ConnectionsViewModel.swift in Sources */,
 				3A154E5C1DCD7389005A79EC /* ConnectionLeftItem.swift in Sources */,
@@ -600,6 +610,7 @@
 				3A3B2AC91DF8FA83004350A0 /* CreateProfileViewController.swift in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A154E4F1DCD7352005A79EC /* NavBar.swift in Sources */,
+				3ADE12331E17048C00BE3DE6 /* BirthdayController.swift in Sources */,
 				3A154E601DCD7389005A79EC /* NotificationCell.swift in Sources */,
 				3A154E611DCD7389005A79EC /* HueboardCell.swift in Sources */,
 				3AA3B35E1E123437007D5E9E /* PopoverViewController.swift in Sources */,
@@ -642,6 +653,7 @@
 				3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */,
 				3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */,
 				3A7605621E0E013900E682AD /* Camera.swift in Sources */,
+				3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */,
 				3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */,
 				3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */,
 				3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */,
