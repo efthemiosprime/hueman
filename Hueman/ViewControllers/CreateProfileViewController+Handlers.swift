@@ -127,3 +127,50 @@ extension CreateProfileViewController: LocationDelegate {
     }
 }
 
+
+extension CreateProfileViewController: AddHueDelegate {
+    func setHue(hue: String, type: String) {
+            switch type {
+            case Topic.Wanderlust:
+                let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
+                profilesHues![0].data = data
+                break
+                
+            case Topic.OnMyPlate:
+                let data = ProfileHueModel(title: "I love to stuff myself with", description: hue, type: Topic.OnMyPlate)
+                profilesHues![1].data = data
+                break
+                
+            case Topic.RelationshipMusing:
+                let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.Wanderlust)
+                profilesHues![2].data = data
+
+                
+                break
+                
+            case Topic.Health:
+              let data = ProfileHueModel(title: "I keep health / fit by", description: hue, type: Topic.Health)
+              profilesHues![3].data = data
+
+                break
+                
+            case Topic.DailyHustle:
+                let data = ProfileHueModel(title: "I am a", description: hue, type: Topic.DailyHustle)
+
+            //   titleLabel.text  = "I am a"
+                profilesHues![4].data = data
+
+                break
+                
+                
+                
+            default:
+                let data = ProfileHueModel(title: "What makes you smile?", description: hue, type: Topic.RayOfLight)
+
+                profilesHues![5].data = data
+
+                break
+            }
+    }
+}
+

@@ -92,6 +92,7 @@ extension AddLocationController: UITextFieldDelegate {
     // Moving the View up after the Keyboard appears
     func textFieldDidBeginEditing(textField: UITextField) {
         //animateView(true, moveValue: 80)
+        locationField.placeholder = nil
     }
     
     

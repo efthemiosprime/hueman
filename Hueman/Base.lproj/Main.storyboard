@@ -1931,8 +1931,8 @@ Massachusetts</string>
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vd-tc-VoZ">
-                                                                        <rect key="frame" x="8" y="95" width="134" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vd-tc-VoZ">
+                                                                        <rect key="frame" x="8" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1952,10 +1952,10 @@ Massachusetts</string>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
-                                                                    <outlet property="descriptionLabel" destination="0vd-tc-VoZ" id="Bxd-kK-LXn"/>
+                                                                    <outlet property="descriptionLabel" destination="zfG-mW-sMQ" id="uje-W3-tyM"/>
                                                                     <outlet property="icon" destination="nRQ-0g-Dxs" id="ak7-bQ-1iv"/>
                                                                     <outlet property="plus" destination="OlT-M6-qmv" id="4Vq-ww-qVM"/>
-                                                                    <outlet property="titleLabel" destination="zfG-mW-sMQ" id="3cM-MG-lYa"/>
+                                                                    <outlet property="titleLabel" destination="0vd-tc-VoZ" id="Bxd-qD-cEA"/>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-n2-gNm" userLabel="plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
@@ -1965,8 +1965,8 @@ Massachusetts</string>
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g25-KU-uzA">
-                                                                        <rect key="frame" x="8.5" y="95" width="134" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g25-KU-uzA">
+                                                                        <rect key="frame" x="8.5" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1986,10 +1986,10 @@ Massachusetts</string>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
-                                                                    <outlet property="descriptionLabel" destination="g25-KU-uzA" id="a0G-jM-Rmz"/>
+                                                                    <outlet property="descriptionLabel" destination="niQ-El-EqS" id="Q1F-Li-ejx"/>
                                                                     <outlet property="icon" destination="EwS-Rn-5NE" id="25D-v2-Utq"/>
                                                                     <outlet property="plus" destination="LXI-mA-kP3" id="seR-Au-qld"/>
-                                                                    <outlet property="titleLabel" destination="niQ-El-EqS" id="5CS-uF-79J"/>
+                                                                    <outlet property="titleLabel" destination="g25-KU-uzA" id="1IP-Ro-PCp"/>
                                                                 </connections>
                                                             </view>
                                                         </subviews>
@@ -2004,8 +2004,8 @@ Massachusetts</string>
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rto-3y-do2">
-                                                                        <rect key="frame" x="8" y="95" width="134" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rto-3y-do2">
+                                                                        <rect key="frame" x="8" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2025,10 +2025,10 @@ Massachusetts</string>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
-                                                                    <outlet property="descriptionLabel" destination="rto-3y-do2" id="ReK-7V-XdQ"/>
+                                                                    <outlet property="descriptionLabel" destination="BeA-8V-Vlc" id="mdE-wd-J8q"/>
                                                                     <outlet property="icon" destination="z8u-AM-Qgr" id="ETy-P3-Nas"/>
                                                                     <outlet property="plus" destination="ORj-dM-tru" id="whv-b9-AUN"/>
-                                                                    <outlet property="titleLabel" destination="BeA-8V-Vlc" id="EDD-po-LTm"/>
+                                                                    <outlet property="titleLabel" destination="rto-3y-do2" id="cx0-Il-jf1"/>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o31-ep-JYG" userLabel="health" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
@@ -2038,8 +2038,8 @@ Massachusetts</string>
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-dE-eco">
-                                                                        <rect key="frame" x="8.5" y="95" width="134" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-dE-eco">
+                                                                        <rect key="frame" x="8.5" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2059,10 +2059,10 @@ Massachusetts</string>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
-                                                                    <outlet property="descriptionLabel" destination="Up3-dE-eco" id="iPR-h8-018"/>
+                                                                    <outlet property="descriptionLabel" destination="kbx-ft-1oJ" id="mp4-oT-Xem"/>
                                                                     <outlet property="icon" destination="44K-3G-WLj" id="SUe-7n-cMb"/>
                                                                     <outlet property="plus" destination="HZd-Pe-Wj6" id="V2e-Pi-wE2"/>
-                                                                    <outlet property="titleLabel" destination="kbx-ft-1oJ" id="CtF-Gv-mmg"/>
+                                                                    <outlet property="titleLabel" destination="Up3-dE-eco" id="SaF-89-tRe"/>
                                                                 </connections>
                                                             </view>
                                                         </subviews>
@@ -2077,8 +2077,8 @@ Massachusetts</string>
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-Bx-qMB">
-                                                                        <rect key="frame" x="8" y="95" width="134" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-Bx-qMB">
+                                                                        <rect key="frame" x="8" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2098,10 +2098,10 @@ Massachusetts</string>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
-                                                                    <outlet property="descriptionLabel" destination="ME9-Bx-qMB" id="EVi-pw-di3"/>
+                                                                    <outlet property="descriptionLabel" destination="C8c-Ss-Gud" id="3TW-WB-6h1"/>
                                                                     <outlet property="icon" destination="l4E-fH-js1" id="pg5-XR-0ab"/>
                                                                     <outlet property="plus" destination="Fyx-De-L62" id="Ees-72-pMZ"/>
-                                                                    <outlet property="titleLabel" destination="C8c-Ss-Gud" id="OB3-Vg-UBa"/>
+                                                                    <outlet property="titleLabel" destination="ME9-Bx-qMB" id="A9F-Zi-aAO"/>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IN-XA-Wbq" userLabel="ray" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
@@ -2111,8 +2111,8 @@ Massachusetts</string>
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEr-5A-M4J">
-                                                                        <rect key="frame" x="8.5" y="95" width="134" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEr-5A-M4J">
+                                                                        <rect key="frame" x="8.5" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2132,10 +2132,10 @@ Massachusetts</string>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
-                                                                    <outlet property="descriptionLabel" destination="AEr-5A-M4J" id="neG-6P-0ws"/>
+                                                                    <outlet property="descriptionLabel" destination="Lwk-tz-aRC" id="jG6-kP-ZT2"/>
                                                                     <outlet property="icon" destination="NtG-Nd-iJ5" id="CdI-1n-chd"/>
                                                                     <outlet property="plus" destination="lIa-Q4-IFT" id="m8V-L3-2CW"/>
-                                                                    <outlet property="titleLabel" destination="Lwk-tz-aRC" id="Cmz-z1-WJ9"/>
+                                                                    <outlet property="titleLabel" destination="AEr-5A-M4J" id="Zsq-aL-hvB"/>
                                                                 </connections>
                                                             </view>
                                                         </subviews>
@@ -2233,6 +2233,7 @@ Massachusetts</string>
                         <segue destination="lAe-Do-sBk" kind="show" identifier="UserCreated" id="OkO-K9-BA2"/>
                         <segue destination="pnW-h7-Yah" kind="presentation" identifier="BirthdayEntry" id="4Ng-kP-CAz"/>
                         <segue destination="dGN-iK-Tg8" kind="presentation" identifier="AddLocation" id="BRr-Vw-3By"/>
+                        <segue destination="J8a-pi-IY7" kind="presentation" identifier="AddHue" id="aHI-CP-S5K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12l-CS-ga1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2631,7 +2632,7 @@ Massachusetts</string>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2e-Ml-yBq">
                                 <rect key="frame" x="16" y="246" width="343" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -2655,10 +2656,10 @@ Massachusetts</string>
             </objects>
             <point key="canvasLocation" x="1646" y="1611"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Hue Controller-->
         <scene sceneID="JfR-XM-leI">
             <objects>
-                <viewController id="J8a-pi-IY7" sceneMemberID="viewController">
+                <viewController id="J8a-pi-IY7" customClass="AddHueController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qg3-Rq-iIH"/>
                         <viewControllerLayoutGuide type="bottom" id="Fx8-bp-oNb"/>
@@ -2671,15 +2672,22 @@ Massachusetts</string>
                                 <rect key="frame" x="155.5" y="90" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What city and country do you live in?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVv-Al-95u">
-                                <rect key="frame" x="43.5" y="330" width="288" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name a place that you’d like to visit." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVv-Al-95u">
+                                <rect key="frame" x="43" y="378" width="288" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I would love to visit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGY-Qq-lmg">
+                                <rect key="frame" x="44" y="265" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30/30 characters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nd-et-o9l">
-                                <rect key="frame" x="44" y="289" width="288" height="21"/>
+                                <rect key="frame" x="44" y="337" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2692,29 +2700,49 @@ Massachusetts</string>
                                     <navigationItem title="create profile" id="ejS-jy-ZUj">
                                         <barButtonItem key="rightBarButtonItem" image="topbar-check-icon" id="mOF-hw-VTb">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="didTappedConfirm:" destination="J8a-pi-IY7" id="Hl3-O6-cdL"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-LJ-71i">
-                                <rect key="frame" x="16" y="246" width="343" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="16" y="294" width="343" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-55-hFF">
+                                <rect key="frame" x="117" y="155" width="140" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-h0-5i6">
-                                <rect key="frame" x="63" y="287" width="250" height="1"/>
+                                <rect key="frame" x="50" y="335" width="275" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="charactersLabel" destination="2nd-et-o9l" id="uDz-4Y-exp"/>
+                        <outlet property="confirmButton" destination="mOF-hw-VTb" id="mM5-vf-NUd"/>
+                        <outlet property="detailLabel" destination="b2L-LJ-71i" id="j1M-TR-wVt"/>
+                        <outlet property="footerLabel" destination="YVv-Al-95u" id="XVD-aU-aFl"/>
+                        <outlet property="icon" destination="w4L-lX-zSo" id="ppa-2p-iv3"/>
+                        <outlet property="iconLabel" destination="FFj-55-hFF" id="oiq-YI-gTK"/>
+                        <outlet property="navigationBar" destination="soH-jp-HVt" id="Fwm-i1-jbt"/>
+                        <outlet property="titleLabel" destination="lGY-Qq-lmg" id="Tly-MS-cEW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWq-DA-MOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="2334"/>
+            <point key="canvasLocation" x="1645.5999999999999" y="2333.8830584707648"/>
         </scene>
     </scenes>
     <resources>

@@ -40,7 +40,6 @@ class SignupViewController: UIViewController {
     @IBAction func didTappedSignup(sender: AnyObject) {
         
         if AppSettings.DEBUG {
-            print("xxxxxxxxxxxx")
             self.performSegueWithIdentifier("CreateProfile", sender: sender)
             return
         }

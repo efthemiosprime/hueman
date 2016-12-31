@@ -52,6 +52,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         for (index, hue) in profilesHues!.enumerate() {
             hue.type = topics[index]
+            let hueGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.addHue(_:)))
+            hue.addGestureRecognizer(hueGesture)
         }
         
         
@@ -102,6 +104,22 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             let locationController = segue.destinationViewController as! AddLocationController
             locationController.delegate = self
         }
+        
+        if segue.identifier  == "AddHue" {
+            if sender != nil {
+                
+                if let unwrappedType = sender {
+                    let hueController = segue.destinationViewController as! AddHueController
+                    hueController.delegate = self
+                    hueController.type = unwrappedType as? String
+                    
+                }
+
+                
+                
+                
+            }
+        }
     }
 
     func profileImageTapped() {
@@ -120,6 +138,12 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
     }
     
+    func addHue(sender: UITapGestureRecognizer) {
+        let hue = (sender as UITapGestureRecognizer).view as? ProfileHue
+        self.performSegueWithIdentifier("AddHue", sender: hue?.type )
+
+        
+    }
 
     func didTappedLocation() {
         self.performSegueWithIdentifier("AddLocation", sender: nil )

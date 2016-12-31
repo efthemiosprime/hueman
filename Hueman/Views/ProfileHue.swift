@@ -19,8 +19,7 @@ class ProfileHue: UIView {
     var type: String? {
         didSet {
             
-            titleLabel.hidden = true
-
+            descriptionLabel.hidden = true
             
             if let unwrappedType = type {
                 
@@ -30,35 +29,35 @@ class ProfileHue: UIView {
                 case Topic.Wanderlust:
                     icon.image = UIImage(named: "hue-wanderlust-icon")
                     self.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
-                    descriptionLabel.text = "wanderlust"
+                    titleLabel.text = "wanderlust"
 
                     break
                     
                 case Topic.OnMyPlate:
                     icon.image = UIImage(named: "hue-plate-icon")
                     self.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
-                    descriptionLabel.text = "on my plate"
+                    titleLabel.text = "on my plate"
 
                     break
                     
                 case Topic.RelationshipMusing:
-                    icon.image = UIImage(named: "hue-health-icon")
+                    icon.image = UIImage(named: "hue-love-icon")
                     self.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
-                    descriptionLabel.text = "love musings"
+                    titleLabel.text = "love musings"
 
                     break
                     
                 case Topic.Health:
                     icon.image = UIImage(named: "hue-health-icon")
                     self.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
-                    descriptionLabel.text = "oh health yeah"
+                    titleLabel.text = "oh health yeah"
 
                     break
                     
                 case Topic.DailyHustle:
                     icon.image = UIImage(named: "hue-hustle-icon")
                     self.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
-                    descriptionLabel.text = "daily hustle"
+                    titleLabel.text = "daily hustle"
 
                     break
                     
@@ -67,7 +66,7 @@ class ProfileHue: UIView {
                 default:
                     icon.image = UIImage(named: "hue-ray-icon")
                     self.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
-                    descriptionLabel.text = "ray of light"
+                    titleLabel.text = "ray of light"
 
                     break
                 }
@@ -88,7 +87,8 @@ class ProfileHue: UIView {
                 descriptionLabel.text = unwrappedData.description
                 
                 plus.hidden = true
-                titleLabel.hidden = false
+                descriptionLabel.hidden = false
+
             }
         }
     }
@@ -96,8 +96,8 @@ class ProfileHue: UIView {
     
     override init (frame : CGRect) {
         super.init(frame : frame)
-        titleLabel.hidden = true
-        
+        descriptionLabel.hidden = true
+
     }
     
     required init?(coder aDecoder: NSCoder) {
