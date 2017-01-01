@@ -32,6 +32,21 @@ class AddUserCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let screenSize = UIScreen.mainScreen().bounds
+        let screenHeight = screenSize.height
+        
+        if screenHeight <= 568 {
+            let nameRectSize = nameLabel.frame
+            nameLabel.frame.size = CGSizeMake(150, nameRectSize.height)
+            nameLabel.adjustsFontSizeToFitWidth = true
+            
+            let locRectSize = locationLabel.frame.size
+            locationLabel.frame.size = CGSizeMake(150, locRectSize.height)
+            locationLabel.adjustsFontSizeToFitWidth = true
+
+            
+        }
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

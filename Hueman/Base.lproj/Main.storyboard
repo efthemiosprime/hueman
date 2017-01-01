@@ -509,7 +509,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlP-3l-Kzj">
-                                <rect key="frame" x="235" y="327" width="84" height="30"/>
+                                <rect key="frame" x="235" y="326.5" width="84" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="poB-uz-mjs"/>
                                     <constraint firstAttribute="width" constant="84" id="xvz-u2-t36"/>
@@ -567,14 +567,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-thumbnail-bg" translatesAutoresizingMaskIntoConstraints="NO" id="OVZ-AW-iGe">
-                                <rect key="frame" x="45" y="95" width="286" height="286"/>
+                                <rect key="frame" x="44.5" y="95" width="286" height="286"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="286" id="QtV-Hd-f8t"/>
                                     <constraint firstAttribute="height" constant="286" id="xX4-Y2-4TM"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hulyo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9Rb-nb-Ywk">
-                                <rect key="frame" x="72" y="122" width="232" height="232"/>
+                                <rect key="frame" x="71.5" y="122" width="232" height="232"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="232" id="RvH-Ko-j9n"/>
                                     <constraint firstAttribute="height" constant="232" id="htS-7g-ZTW"/>
@@ -584,13 +584,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="profile-name-background" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-8R-wAI">
-                                <rect key="frame" x="45" y="389" width="286" height="34"/>
+                                <rect key="frame" x="44.5" y="389" width="286" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7r1-8R-wAI" secondAttribute="height" multiplier="143:17" id="p1I-zz-hVC"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julius Busa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-d5-qk9">
-                                <rect key="frame" x="146" y="398" width="83" height="17"/>
+                                <rect key="frame" x="145.5" y="398" width="83" height="17"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="17"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -779,14 +779,14 @@ Massachusetts</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
-                                            <rect key="frame" x="0.0" y="317" width="375" height="30"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
+                                            <rect key="frame" x="0.0" y="320" width="375" height="30"/>
                                             <subviews>
                                                 <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-yU-eVX">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
@@ -844,8 +844,8 @@ Massachusetts</string>
                                                 <constraint firstItem="7h4-t7-KWJ" firstAttribute="trailing" secondItem="gk2-yU-eVX" secondAttribute="trailing" id="vzE-nW-aWh"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wn3-x9-pSq" userLabel="Profile Container">
-                                            <rect key="frame" x="22" y="236" width="330" height="65"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wn3-x9-pSq" userLabel="Profile Container">
+                                            <rect key="frame" x="23" y="239" width="330" height="65"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed-profile-container" translatesAutoresizingMaskIntoConstraints="NO" id="4lu-IW-HOb">
                                                     <rect key="frame" x="0.0" y="-1" width="330" height="66"/>
@@ -872,7 +872,7 @@ Massachusetts</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="15" y="230.5" width="275" height="28"/>
+                                            <rect key="frame" x="15" y="231" width="275" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="275" id="8P9-tI-7y3"/>
                                             </constraints>
@@ -881,7 +881,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="341" y="210.5" width="11" height="22"/>
+                                            <rect key="frame" x="341" y="211" width="11" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="iUD-3f-dOx"/>
                                                 <constraint firstAttribute="width" constant="11" id="yE1-eZ-wy8"/>
@@ -931,8 +931,8 @@ Massachusetts</string>
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM" userLabel="Footer">
-                                            <rect key="frame" x="0.0" y="109" width="375" height="30"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM" userLabel="Footer">
+                                            <rect key="frame" x="0.0" y="112.5" width="375" height="30"/>
                                             <subviews>
                                                 <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-g0-6X1">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
@@ -991,8 +991,8 @@ Massachusetts</string>
                                                 <constraint firstAttribute="width" constant="375" id="zhm-7i-oqt"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hse-qf-p65" userLabel="Profile Container">
-                                            <rect key="frame" x="22" y="28" width="330" height="65"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hse-qf-p65" userLabel="Profile Container">
+                                            <rect key="frame" x="23" y="32" width="330" height="65"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed-profile-container" translatesAutoresizingMaskIntoConstraints="NO" id="x1U-lw-nAw">
                                                     <rect key="frame" x="0.0" y="-1" width="330" height="66"/>
@@ -1018,8 +1018,8 @@ Massachusetts</string>
                                                 <constraint firstAttribute="width" constant="330" id="bvZ-Eu-sKp"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjs-TM-vxg">
-                                            <rect key="frame" x="15" y="18" width="275" height="28"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjs-TM-vxg">
+                                            <rect key="frame" x="20" y="18" width="275" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="275" id="0p1-uZ-COw"/>
                                             </constraints>
@@ -1141,7 +1141,7 @@ Massachusetts</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="177" y="58.5" width="175.5" height="21"/>
+                                            <rect key="frame" x="177" y="57" width="175" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-LightItalic" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
@@ -1196,46 +1196,79 @@ Massachusetts</string>
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-h1-yc1" userLabel="bg">
-                                                    <rect key="frame" x="23" y="10" width="75" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-f9-n3q" userLabel="img">
-                                                    <rect key="frame" x="25" y="12" width="70" height="70"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="35"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                            <integer key="value" value="0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="David Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbf-IL-A1r">
-                                                    <rect key="frame" x="111" y="28" width="253" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Boston, Massachusetts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d0-1Z-lDz">
-                                                    <rect key="frame" x="111" y="47" width="245" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
-                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IK-0w-V3l" userLabel="seperator">
-                                                    <rect key="frame" x="13" y="94" width="350" height="1"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-OM-3cu" userLabel="Profile">
+                                                    <rect key="frame" x="18" y="10" width="76" height="76"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-h1-yc1" userLabel="bg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-f9-n3q" userLabel="img">
+                                                            <rect key="frame" x="2" y="2" width="70" height="70"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="35"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                    <integer key="value" value="0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="350" id="HYO-hf-JYE"/>
+                                                        <constraint firstAttribute="height" constant="76" id="TEe-hg-yxR"/>
+                                                        <constraint firstAttribute="width" constant="76" id="b8H-W0-UEy"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IK-0w-V3l" userLabel="seperator">
+                                                    <rect key="frame" x="10" y="94" width="355" height="1"/>
+                                                    <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="O5V-Fg-R76"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jdu-WC-Jxz" userLabel="Name">
+                                                    <rect key="frame" x="102" y="27" width="210" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="David Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbf-IL-A1r">
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Boston, Massachusetts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d0-1Z-lDz">
+                                                            <rect key="frame" x="0.0" y="21" width="200" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
+                                                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="210" id="7x4-N0-pk0"/>
+                                                        <constraint firstAttribute="height" constant="40" id="atH-gj-yjc"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUG-Jn-nRf">
+                                                    <rect key="frame" x="330" y="34" width="27" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="9Dt-12-Rlf"/>
+                                                        <constraint firstAttribute="width" constant="27" id="MZF-Ut-rSZ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="check-connection-icon"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2IK-0w-V3l" firstAttribute="centerX" secondItem="HjT-yc-MAv" secondAttribute="centerX" id="0jb-8B-mxR"/>
+                                                <constraint firstItem="EOD-OM-3cu" firstAttribute="centerY" secondItem="HjT-yc-MAv" secondAttribute="centerY" id="6rl-b6-P1w"/>
                                                 <constraint firstAttribute="bottom" secondItem="2IK-0w-V3l" secondAttribute="bottom" id="DWU-dU-Gim"/>
+                                                <constraint firstItem="EOD-OM-3cu" firstAttribute="leading" secondItem="HjT-yc-MAv" secondAttribute="leadingMargin" constant="10" id="VOZ-2p-JyC"/>
+                                                <constraint firstAttribute="trailing" secondItem="2IK-0w-V3l" secondAttribute="trailing" constant="10" id="Xla-wK-Vbg"/>
+                                                <constraint firstItem="2IK-0w-V3l" firstAttribute="leading" secondItem="HjT-yc-MAv" secondAttribute="leading" constant="10" id="cpP-HU-ttZ"/>
+                                                <constraint firstItem="rUG-Jn-nRf" firstAttribute="centerY" secondItem="HjT-yc-MAv" secondAttribute="centerY" id="eEj-i0-oib"/>
+                                                <constraint firstItem="Jdu-WC-Jxz" firstAttribute="leading" secondItem="EOD-OM-3cu" secondAttribute="trailing" constant="8" id="hE2-aU-xol"/>
+                                                <constraint firstItem="Jdu-WC-Jxz" firstAttribute="centerY" secondItem="HjT-yc-MAv" secondAttribute="centerY" id="kHi-0Q-jii"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rUG-Jn-nRf" secondAttribute="trailing" constant="10" id="kdF-86-2CO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1282,7 +1315,7 @@ Massachusetts</string>
                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                 </searchBar>
             </objects>
-            <point key="canvasLocation" x="3510" y="-2406"/>
+            <point key="canvasLocation" x="3509.5999999999999" y="-2406.7466266866568"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="pwK-2y-sWl">
@@ -1296,8 +1329,8 @@ Massachusetts</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lhr-t2-O7d">
-                                <rect key="frame" x="23" y="72" width="332" height="245"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhr-t2-O7d">
+                                <rect key="frame" x="20" y="72" width="335" height="245"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-g2-JUK" propertyAccessControl="all">
                                         <rect key="frame" x="14" y="46" width="303" height="132"/>
@@ -1332,8 +1365,8 @@ Massachusetts</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TiS-Un-pfv">
-                                <rect key="frame" x="23" y="394" width="332" height="219"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TiS-Un-pfv">
+                                <rect key="frame" x="20" y="394" width="335" height="219"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="219" id="rlH-uL-AjU"/>
                                 </constraints>
@@ -1357,20 +1390,20 @@ Massachusetts</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-YC-Yy7">
-                                <rect key="frame" x="195" y="265" width="41" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-YC-Yy7">
+                                <rect key="frame" x="196" y="266.5" width="41" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="41" id="JIy-wj-jjm"/>
                                     <constraint firstAttribute="height" constant="41" id="igY-Wb-gBk"/>
                                 </constraints>
                                 <state key="normal" image="camera-icon"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-9M-so0">
-                                <rect key="frame" x="244" y="265" width="41" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxL-9M-so0">
+                                <rect key="frame" x="245" y="267" width="40" height="40"/>
                                 <state key="normal" image="image-picker-icon"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbP-56-ZdH" userLabel="Submit Button">
-                                <rect key="frame" x="293" y="265" width="41" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbP-56-ZdH" userLabel="Submit Button">
+                                <rect key="frame" x="293" y="266" width="41" height="41"/>
                                 <state key="normal" image="post-icon"/>
                                 <connections>
                                     <action selector="didTapCreateFeed:" destination="TVX-Vb-Dl9" eventType="touchUpInside" id="K3l-C0-VOU"/>
@@ -1642,24 +1675,23 @@ Massachusetts</string>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="David Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHb-E0-Vge">
-                                            <rect key="frame" x="111" y="28" width="253" height="21"/>
+                                            <rect key="frame" x="111" y="28" width="185" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Boston, Massachusetts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDT-R6-uI2">
-                                            <rect key="frame" x="111" y="47" width="245" height="21"/>
+                                            <rect key="frame" x="111" y="47" width="185" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-gb-TEW" userLabel="seperator">
-                                            <rect key="frame" x="13" y="94" width="350" height="1"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="10" y="94" width="355" height="1"/>
+                                            <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="350" id="OBY-5C-uIS"/>
                                                 <constraint firstAttribute="height" constant="1" id="obJ-WJ-bpq"/>
                                             </constraints>
                                         </view>
@@ -1676,8 +1708,9 @@ Massachusetts</string>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="YPa-gb-TEW" firstAttribute="centerX" secondItem="V5r-jE-Xqz" secondAttribute="centerX" id="1AY-n9-3gu"/>
+                                        <constraint firstItem="YPa-gb-TEW" firstAttribute="leading" secondItem="V5r-jE-Xqz" secondAttribute="leading" constant="10" id="B94-yE-Bbl"/>
                                         <constraint firstItem="CkN-C8-wcK" firstAttribute="centerY" secondItem="V5r-jE-Xqz" secondAttribute="centerY" id="OHS-Ae-0f9"/>
+                                        <constraint firstAttribute="trailing" secondItem="YPa-gb-TEW" secondAttribute="trailing" constant="10" id="Xzq-4z-pdt"/>
                                         <constraint firstAttribute="trailing" secondItem="CkN-C8-wcK" secondAttribute="trailing" constant="24" id="cxq-cl-J96"/>
                                         <constraint firstAttribute="bottom" secondItem="YPa-gb-TEW" secondAttribute="bottom" id="wcY-uy-RX9"/>
                                     </constraints>
@@ -1698,7 +1731,7 @@ Massachusetts</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CAO-z0-ktu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4528" y="-2942"/>
+            <point key="canvasLocation" x="4526.25" y="-2942.9577464788731"/>
         </scene>
         <!--Nav Bar-->
         <scene sceneID="MJb-ka-ZqA">
@@ -2754,6 +2787,7 @@ Massachusetts</string>
         <image name="birthday-icon" width="43" height="43"/>
         <image name="camera-button" width="61" height="61"/>
         <image name="camera-icon" width="40" height="40"/>
+        <image name="check-connection-icon" width="27" height="27"/>
         <image name="close-topic" width="33" height="33"/>
         <image name="connection-image-bg" width="75" height="75"/>
         <image name="connection-profile-btn" width="209" height="28"/>

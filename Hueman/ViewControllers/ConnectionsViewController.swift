@@ -46,6 +46,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         connectionsModel = ConnectionsViewModel()
 
         addIconWithBadge = UIImage(named: "add-item-badge-icon")

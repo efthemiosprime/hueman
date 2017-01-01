@@ -17,6 +17,7 @@ class NotificationCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
         profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x959595).CGColor
     }
 
