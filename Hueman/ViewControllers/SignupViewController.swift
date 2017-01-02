@@ -46,15 +46,19 @@ class SignupViewController: UIViewController, UIPopoverPresentationControllerDel
             return
         }
         
+
+        showWaitOverlay()
+        
         if let email = self.emailField.text, let password = self.passwordField.text, let name = nameField.text
         {
             
             firebaseManager.signUp(email, password: password, name: name, completion: {
-                    
+                
+                    self.removeAllOverlays()
                     self.performSegueWithIdentifier("CreateProfile", sender: sender)
                     
                 }, onerror: { errorMsg in
-                    
+                    self.removeAllOverlays()
                     self.showError(errorMsg)
             
             })
@@ -104,6 +108,10 @@ extension SignupViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
 
         return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.placeholder = nil
     }
     
     // Moving the View down after the Keyboard disappears

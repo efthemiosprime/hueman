@@ -153,20 +153,20 @@ extension CreateProfileViewController: AddHueDelegate {
             case Topic.Wanderlust:
                 let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
                 profilesHues![0].data = data
-                hues.append([Topic.Wanderlust: data.description])
+                self.hues[Topic.Wanderlust] = data.description
                 break
                 
             case Topic.OnMyPlate:
                 let data = ProfileHueModel(title: "I love to stuff myself with", description: hue, type: Topic.OnMyPlate)
                 profilesHues![1].data = data
-                hues.append([Topic.OnMyPlate: data.description])
+                self.hues[Topic.OnMyPlate] = data.description
 
                 break
                 
             case Topic.RelationshipMusing:
                 let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.Wanderlust)
                 profilesHues![2].data = data
-                hues.append([Topic.RelationshipMusing: data.description])
+                self.hues[Topic.RelationshipMusing] = data.description
 
                 
                 break
@@ -174,7 +174,7 @@ extension CreateProfileViewController: AddHueDelegate {
             case Topic.Health:
               let data = ProfileHueModel(title: "I keep health / fit by", description: hue, type: Topic.Health)
               profilesHues![3].data = data
-              hues.append([Topic.Health: data.description])
+              self.hues[Topic.Health] = data.description
 
                 break
                 
@@ -182,7 +182,7 @@ extension CreateProfileViewController: AddHueDelegate {
                 let data = ProfileHueModel(title: "I am a", description: hue, type: Topic.DailyHustle)
 
                 profilesHues![4].data = data
-                hues.append([Topic.DailyHustle: data.description])
+                self.hues[Topic.DailyHustle] = data.description
 
                 break
                 
@@ -192,10 +192,37 @@ extension CreateProfileViewController: AddHueDelegate {
                 let data = ProfileHueModel(title: "What makes you smile?", description: hue, type: Topic.RayOfLight)
 
                 profilesHues![5].data = data
-                hues.append([Topic.RayOfLight: data.description])
-
+                self.hues[Topic.RayOfLight] = data.description
                 break
             }
+        
+        print(self.hues)
+
     }
 }
 
+
+extension CreateProfileViewController: UIPopoverPresentationControllerDelegate {
+    
+    func showError(msg: String) {
+        let errorController: ErrorController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("errorID") as? ErrorController)!
+        errorController.preferredContentSize = CGSizeMake(300, 150)
+        errorController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        errorController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        errorController.popoverPresentationController?.delegate = self
+        errorController.popoverPresentationController?.sourceView = self.view
+        errorController.popoverPresentationController?.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds),0,0)
+        
+        // set up the popover presentation controller
+        errorController.errorMsg = msg
+        
+        self.presentViewController(errorController, animated: true, completion: nil)
+    }
+    // MARK: - Popover
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+    }
+}

@@ -37,7 +37,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         return FIRStorage.storage().reference()
     }
     
-    var hues = [[String: String]]()
+    var hues: [String: String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +91,15 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         self.navigationBar.topItem!.title = "create profile"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 18)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
+        
+        hues = [
+            Topic.Wanderlust: "",
+            Topic.OnMyPlate: "",
+            Topic.RelationshipMusing: "",
+            Topic.Health: "",
+            Topic.DailyHustle: "",
+            Topic.RayOfLight: ""
+        ]
         
     }
     
@@ -177,18 +186,23 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         let updateRef = self.dataBaseRef.child("/users/\(updatedUser.uid)")
                         updateRef.updateChildValues(updatedUser.toAnyObject())
                         
+                    
+                        
                         let huesRef = updateRef.child("hues")
-                       
-                        for hue in self.hues {
-                            huesRef.setValue(hue)
-                        }
-                
-                        
-                        
+                        huesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                            if snapshot.exists() {
+                                huesRef.updateChildValues(self.hues)
+                            }else {
+                                huesRef.setValue(self.hues)
+                            }
+                        })
+            
                         self.removeAllOverlays()
                         self.performSegueWithIdentifier("UserCreated", sender: sender)
 
                         
+                    }else {
+                        self.showError((error?.localizedDescription)!)
                     }
                 })
             }
