@@ -17,7 +17,6 @@
 		3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */; };
 		3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E201DCD6EA6005A79EC /* Theme.swift */; };
 		3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E211DCD6EA6005A79EC /* Hues.swift */; };
-		3A154E261DCD6EA6005A79EC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E221DCD6EA6005A79EC /* Profile.swift */; };
 		3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E231DCD6EA6005A79EC /* Hueboard.swift */; };
 		3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E2D1DCD71A1005A79EC /* RoundedCornersView.swift */; };
 		3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E331DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift */; };
@@ -85,6 +84,11 @@
 		3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */; };
 		3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
+		3AEFA4691E198A18005C78D2 /* CircleHues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA4681E198A18005C78D2 /* CircleHues.swift */; };
+		3AEFA46B1E198C98005C78D2 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46A1E198C98005C78D2 /* ActivityIndicator.swift */; };
+		3AEFA46D1E19B62B005C78D2 /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46C1E19B62B005C78D2 /* Hue.swift */; };
+		3AEFA46F1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */; };
+		3AEFA4731E19EB88005C78D2 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA4721E19EB88005C78D2 /* ErrorController.swift */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
@@ -103,7 +107,6 @@
 		3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionCell.swift; path = Views/ConnectionCell.swift; sourceTree = "<group>"; };
 		3A154E201DCD6EA6005A79EC /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Models/Theme.swift; sourceTree = "<group>"; };
 		3A154E211DCD6EA6005A79EC /* Hues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hues.swift; path = Models/Hues.swift; sourceTree = "<group>"; };
-		3A154E221DCD6EA6005A79EC /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = Models/Profile.swift; sourceTree = "<group>"; };
 		3A154E231DCD6EA6005A79EC /* Hueboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hueboard.swift; path = Models/Hueboard.swift; sourceTree = "<group>"; };
 		3A154E2D1DCD71A1005A79EC /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedCornersView.swift; path = Hueman/Helpers/RoundedCornersView.swift; sourceTree = "<group>"; };
 		3A154E331DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+UIColorFromRGB.swift"; path = "Extensions/UIColor+UIColorFromRGB.swift"; sourceTree = "<group>"; };
@@ -178,6 +181,11 @@
 		3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHue.swift; path = Views/ProfileHue.swift; sourceTree = "<group>"; };
 		3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHueModel.swift; path = Models/ProfileHueModel.swift; sourceTree = "<group>"; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
+		3AEFA4681E198A18005C78D2 /* CircleHues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleHues.swift; path = Views/CircleHues.swift; sourceTree = "<group>"; };
+		3AEFA46A1E198C98005C78D2 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = Views/ActivityIndicator.swift; sourceTree = "<group>"; };
+		3AEFA46C1E19B62B005C78D2 /* Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hue.swift; path = Models/Hue.swift; sourceTree = "<group>"; };
+		3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+CapitilizingFirstLetter.swift"; path = "Extensions/String+CapitilizingFirstLetter.swift"; sourceTree = "<group>"; };
+		3AEFA4721E19EB88005C78D2 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorController.swift; path = ViewControllers/ErrorController.swift; sourceTree = "<group>"; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
@@ -283,6 +291,7 @@
 				3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */,
 				3ACF44371E17718B00CB97DF /* AddLocationController.swift */,
 				3ACF44391E17872300CB97DF /* AddHueController.swift */,
+				3AEFA4721E19EB88005C78D2 /* ErrorController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 		3A154E531DCD7379005A79EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3AEFA4681E198A18005C78D2 /* CircleHues.swift */,
 				3A154E541DCD7389005A79EC /* ConnectionLabel.swift */,
 				3A154E551DCD7389005A79EC /* ConnectionLeftItem.swift */,
 				3A154E561DCD7389005A79EC /* ConnectionRightItem.swift */,
@@ -319,6 +329,7 @@
 				3C908B7D1E04937F00DA0109 /* AddUserCell.swift */,
 				3A82E6691E118D00008F520A /* CommentCell.swift */,
 				3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */,
+				3AEFA46A1E198C98005C78D2 /* ActivityIndicator.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -376,6 +387,7 @@
 			children = (
 				3A154E331DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift */,
 				3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */,
+				3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -387,7 +399,6 @@
 				3A987B181DED1C6100388DDF /* Feed.swift */,
 				3A154E201DCD6EA6005A79EC /* Theme.swift */,
 				3A154E211DCD6EA6005A79EC /* Hues.swift */,
-				3A154E221DCD6EA6005A79EC /* Profile.swift */,
 				3A154E231DCD6EA6005A79EC /* Hueboard.swift */,
 				3C7FB2A11E04533900FF3160 /* Connection.swift */,
 				3A0AB1901E086E1300295AA5 /* Request.swift */,
@@ -395,6 +406,7 @@
 				3A82E6671E118A38008F520A /* Comment.swift */,
 				3A82E66D1E11BA8F008F520A /* Like.swift */,
 				3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */,
+				3AEFA46C1E19B62B005C78D2 /* Hue.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -615,6 +627,7 @@
 				3A154E641DCD7430005A79EC /* HueboardsLayout.swift in Sources */,
 				3A154E451DCD7352005A79EC /* FilterOptionsViewController.swift in Sources */,
 				3A3B2AC91DF8FA83004350A0 /* CreateProfileViewController.swift in Sources */,
+				3AEFA4731E19EB88005C78D2 /* ErrorController.swift in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A154E4F1DCD7352005A79EC /* NavBar.swift in Sources */,
 				3ADE12331E17048C00BE3DE6 /* BirthdayController.swift in Sources */,
@@ -647,18 +660,20 @@
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
 				3A987B191DED1C6100388DDF /* User.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
+				3AEFA46B1E198C98005C78D2 /* ActivityIndicator.swift in Sources */,
 				3A0AB1911E086E1300295AA5 /* Request.swift in Sources */,
 				3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */,
+				3AEFA46D1E19B62B005C78D2 /* Hue.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
 				3A7605661E0E3DA200E682AD /* HuesFeedViewModel.swift in Sources */,
 				3A7605601E0DEF9100E682AD /* AuthenticationManager.swift in Sources */,
 				3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */,
 				3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */,
 				3A987B1C1DED1CDF00388DDF /* FirebaseManager.swift in Sources */,
-				3A154E261DCD6EA6005A79EC /* Profile.swift in Sources */,
 				3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */,
+				3AEFA4691E198A18005C78D2 /* CircleHues.swift in Sources */,
 				3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */,
 				3A7605621E0E013900E682AD /* Camera.swift in Sources */,
 				3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */,
@@ -666,6 +681,7 @@
 				3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */,
 				3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */,
 				3AA4DFB81E0CDB6F00BF75A1 /* AppSettings.swift in Sources */,
+				3AEFA46F1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift in Sources */,
 				3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */,
 				3A154E4A1DCD7352005A79EC /* ProfileViewController.swift in Sources */,
 				3A154E491DCD7352005A79EC /* CreatePostViewController.swift in Sources */,

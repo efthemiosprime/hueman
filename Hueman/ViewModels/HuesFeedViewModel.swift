@@ -59,9 +59,11 @@ class HuesFeedViewModel: NSObject {
                     
             })
         }else {
+            cell.activityIndicator.show()
             storageRef.referenceForURL(url).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
                 if error == nil {
-                        
+                   cell.activityIndicator.hide()
+
                     if let imageData = data {
                         let feedImage = UIImage(data: imageData)
                         self.cachedImages.setObject(feedImage!, forKey:url)

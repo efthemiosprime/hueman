@@ -34,6 +34,9 @@ class AddHueController: UIViewController {
         detailLabel.delegate = self
         confirmButton.enabled = false
         detailLabel.becomeFirstResponder()
+        
+        
+        print(type)
         if let unwrappedType = type {
             switch unwrappedType {
                 
@@ -121,7 +124,7 @@ class AddHueController: UIViewController {
         
         
         
-        if textField.text?.characters.count > 6 {
+        if textField.text?.characters.count > 3 {
             confirmButton.enabled = true
         }
         let charCount: String = String(textField.text!.characters.count)

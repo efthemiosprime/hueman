@@ -23,6 +23,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var tapToAddPhotoLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
     @IBOutlet var profilesHues: [ProfileHue]?
@@ -35,8 +37,14 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         return FIRStorage.storage().reference()
     }
     
+    var hues = [[String: String]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveButton.enabled = false
+        
+        self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.clearColor();
         
         if !AppSettings.DEBUG {
             if let name = FIRAuth.auth()?.currentUser!.displayName  {
@@ -45,8 +53,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                 nameTextfield.attributedPlaceholder = NSAttributedString(string: "What's your name?", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
             }
         }
-
         nameTextfield.delegate = self
+        nameTextfield.autocapitalizationType = .Words
         nameTextfield.attributedPlaceholder = NSAttributedString(string: "What's your name?", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
         var topics: [String] = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
         
@@ -79,7 +87,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
         birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
-    
+        
         
         self.navigationBar.topItem!.title = "create profile"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 18)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
@@ -122,42 +130,12 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         }
     }
 
-    func profileImageTapped() {
-        
-        handleSelectedProfileImageView()
-    }
-    
+
     @IBAction func cameraTapped(sender: AnyObject) {
         handleCamera()
     }
     
-    
-    func birthdayImageTapped() {
 
-        self.performSegueWithIdentifier("BirthdayEntry", sender: nil )
-
-    }
-    
-    func addHue(sender: UITapGestureRecognizer) {
-        let hue = (sender as UITapGestureRecognizer).view as? ProfileHue
-        self.performSegueWithIdentifier("AddHue", sender: hue?.type )
-
-        
-    }
-
-    func didTappedLocation() {
-        self.performSegueWithIdentifier("AddLocation", sender: nil )
-    }
-    
-    // Dismissing all editing actions when User Tap or Swipe down on the Main View
-    func dismissKeyboard(gesture: UIGestureRecognizer){
-        self.view.endEditing(true)
-
-
-        
-    }
-
-    
     @IBAction func didTappedSave(sender: AnyObject) {
         
         showWaitOverlay()
@@ -196,10 +174,16 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         updatedUser.bio = self.bioTextfield.text
                         updatedUser.photoURL = changeRequest?.photoURL?.absoluteString
                         
-                        
-                        
                         let updateRef = self.dataBaseRef.child("/users/\(updatedUser.uid)")
                         updateRef.updateChildValues(updatedUser.toAnyObject())
+                        
+                        let huesRef = updateRef.child("hues")
+                       
+                        for hue in self.hues {
+                            huesRef.setValue(hue)
+                        }
+                
+                        
                         
                         self.removeAllOverlays()
                         self.performSegueWithIdentifier("UserCreated", sender: sender)
@@ -210,9 +194,58 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             }
         })
         
- 
+    }
+    
+    
+    @IBAction func nameTextFieldDidChanged(sender: AnyObject) {
+        checkRequiredProfileInfos()
+    }
+
+    
+    func profileImageTapped() {
+        
+        handleSelectedProfileImageView()
+    }
+    
+    
+    
+    func birthdayImageTapped() {
+        
+        self.performSegueWithIdentifier("BirthdayEntry", sender: nil )
         
     }
+    
+    func addHue(sender: UITapGestureRecognizer) {
+        let hue = (sender as UITapGestureRecognizer).view as? ProfileHue
+        self.performSegueWithIdentifier("AddHue", sender: hue?.type )
+        
+        
+    }
+    
+    func didTappedLocation() {
+        self.performSegueWithIdentifier("AddLocation", sender: nil )
+    }
+    
+    // Dismissing all editing actions when User Tap or Swipe down on the Main View
+    func dismissKeyboard(gesture: UIGestureRecognizer){
+        self.view.endEditing(true)
+        
+    }
+    
+    
+    func checkRequiredProfileInfos() {
+        
+        if !(nameTextfield.text?.isEmpty)! && !bioTextfield.text.isEmpty && tapToAddPhotoLabel.hidden == true && locationLabel.text?.lowercaseString != "What city do you live in?".lowercaseString && dateLabel.text?.lowercaseString != "When’s your birthday?".lowercaseString {
+            
+            saveButton.enabled = true
+        }else {
+            saveButton.enabled = false
+        }
+        
+        
+    }
+    
+    
 
     
 }

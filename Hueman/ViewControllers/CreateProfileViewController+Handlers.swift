@@ -38,8 +38,11 @@ extension CreateProfileViewController: UIImagePickerControllerDelegate {
         
         if let selectedImage = selectedImageFromPicker {
             profileImage.image = selectedImage
+            tapToAddPhotoLabel.hidden = true
         }
         
+        
+        checkRequiredProfileInfos()
         dismissViewControllerAnimated(true, completion: nil)
 
     }
@@ -56,13 +59,17 @@ extension CreateProfileViewController: UITextFieldDelegate {
     // Dismissing the Keyboard with the Return Keyboard Button
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         nameTextfield.resignFirstResponder()
+        checkRequiredProfileInfos()
         return true
     }
     
     // Moving the View up after the Keyboard appears
     func textFieldDidBeginEditing(textField: UITextField) {
         //animateView(true, moveValue: 80)
-        textField.placeholder = nil;
+        if textField.placeholder != nil {
+            textField.placeholder = nil;
+
+        }
 
     }
     
@@ -94,13 +101,22 @@ extension CreateProfileViewController: UITextViewDelegate {
     
 
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        textView.text = ""
+        if textView.text.lowercaseString == "Write anything you’d like telling other Huemans who view your profile to see...".lowercaseString {
+            textView.text = ""
+
+        }
         return true
     }
 
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        textField.text?.capitalizeFirstLetter()
+
         return true
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        checkRequiredProfileInfos()
     }
 //    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
 //        if(text == "\n") {
@@ -116,6 +132,7 @@ extension CreateProfileViewController: UITextViewDelegate {
 extension CreateProfileViewController: BirthdayDelegate {
     func pickerDidChange(date: String) {
         dateLabel.text = date
+        checkRequiredProfileInfos()
     }
 }
 
@@ -124,6 +141,8 @@ extension CreateProfileViewController: LocationDelegate {
     func setLocation(location: String) {
         print(location)
         locationLabel.text = location
+        checkRequiredProfileInfos()
+
     }
 }
 
@@ -134,16 +153,20 @@ extension CreateProfileViewController: AddHueDelegate {
             case Topic.Wanderlust:
                 let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
                 profilesHues![0].data = data
+                hues.append([Topic.Wanderlust: data.description])
                 break
                 
             case Topic.OnMyPlate:
                 let data = ProfileHueModel(title: "I love to stuff myself with", description: hue, type: Topic.OnMyPlate)
                 profilesHues![1].data = data
+                hues.append([Topic.OnMyPlate: data.description])
+
                 break
                 
             case Topic.RelationshipMusing:
                 let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.Wanderlust)
                 profilesHues![2].data = data
+                hues.append([Topic.RelationshipMusing: data.description])
 
                 
                 break
@@ -151,14 +174,15 @@ extension CreateProfileViewController: AddHueDelegate {
             case Topic.Health:
               let data = ProfileHueModel(title: "I keep health / fit by", description: hue, type: Topic.Health)
               profilesHues![3].data = data
+              hues.append([Topic.Health: data.description])
 
                 break
                 
             case Topic.DailyHustle:
                 let data = ProfileHueModel(title: "I am a", description: hue, type: Topic.DailyHustle)
 
-            //   titleLabel.text  = "I am a"
                 profilesHues![4].data = data
+                hues.append([Topic.DailyHustle: data.description])
 
                 break
                 
@@ -168,6 +192,7 @@ extension CreateProfileViewController: AddHueDelegate {
                 let data = ProfileHueModel(title: "What makes you smile?", description: hue, type: Topic.RayOfLight)
 
                 profilesHues![5].data = data
+                hues.append([Topic.RayOfLight: data.description])
 
                 break
             }

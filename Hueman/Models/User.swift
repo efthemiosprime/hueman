@@ -21,6 +21,8 @@ struct User {
     var uid: String!
     var ref: FIRDatabaseReference?
     var key: String?
+    var hues = [[String: String]]()
+    
     
     init(snapshot: FIRDataSnapshot) {
         
@@ -37,7 +39,7 @@ struct User {
         
         uid = snapshot.value!["uid"] as! String
         
-
+      //  hues = (snapshot.value!["hues"] as? [Hue])!
     }
     
     init(email: String, name: String, userId: String) {
@@ -47,7 +49,7 @@ struct User {
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!, "location": self.location!, "bio": self.bio!, "photoURL": self.photoURL! ]
+        return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!, "location": self.location!, "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
     }
     
 }

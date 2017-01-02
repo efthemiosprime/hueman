@@ -159,6 +159,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         {
             let feedCell = cell as! FeedImageTableViewCell
             feedCell.feed = feed
+
             feedCell.showCommentsAction = { (cell) in
                 self.performSegueWithIdentifier("ShowComments", sender: cell)
 
@@ -295,22 +296,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         
     }
     
-    
-//    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 10
-//    }
-//    
-//    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 10
-//    }
-//    
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! FeedTextTableViewCell
-//        
-//        let textHeight = currentCell.textFeedLabel.frame.size.height
-//        
-//        return textHeight + 100
-//    }
 
 }
 

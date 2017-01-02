@@ -27,6 +27,7 @@ class FeedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentsLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: ActivityIndicator!
     
     @IBOutlet weak var authorProfileImage: UIImageView!
     

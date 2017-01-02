@@ -9,12 +9,13 @@
 import UIKit
 import SwiftOverlays
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: ActivityIndicator!
     let firebaseManager = FirebaseManager()
     
     var loginButton: UIButton!
@@ -84,17 +85,23 @@ class LoginViewController: UIViewController {
         let btn = sender as! UIButton
         btn.enabled = false
         loginButton = btn
-        showWaitOverlay()
+        activityIndicator.show()
         
         if let email = self.emailField.text, let password = self.passwordField.text {
             firebaseManager.logIn(email, password: password, loggedIn: {
                 AuthenticationManager.sharedInstance
-                print(AuthenticationManager.sharedInstance.currentUser?.name)
-                self.removeAllOverlays()
+                self.activityIndicator.hide()
+
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
+                }, onerror: { errorMsg in
+                    
+                    self.activityIndicator.hide()
+
+                    self.showError(errorMsg)
             })
         }else {
-            print("email/password can't be empty")
+            self.showError("email/password can't be empty")
+
         }
     }
     
@@ -102,7 +109,29 @@ class LoginViewController: UIViewController {
     func dismissKeyboard(gesture: UIGestureRecognizer){
         self.view.endEditing(true)
     }
+    
+    func showError(msg: String) {
+        let errorController: ErrorController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("errorID") as? ErrorController)!
+        errorController.preferredContentSize = CGSizeMake(300, 150)
+        errorController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        errorController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        errorController.popoverPresentationController?.delegate = self
+        errorController.popoverPresentationController?.sourceView = self.view
+        errorController.popoverPresentationController?.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds),0,0)
+        
+        // set up the popover presentation controller
+        errorController.errorMsg = msg
+        
+        self.presentViewController(errorController, animated: true, completion: nil)
+    }
+    // MARK: - Popover
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
 
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        loginButton.enabled = true
+    }
 }
 
 

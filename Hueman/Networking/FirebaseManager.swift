@@ -22,7 +22,7 @@ struct FirebaseManager {
     }
 
     
-    func logIn(email: String, password: String, loggedIn: (() -> ())? = nil) {
+    func logIn(email: String, password: String, loggedIn: (() -> ())? = nil, onerror: ((errorMsg: String) -> ())? = nil) {
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: {
             (user, error) in
             if error == nil {
@@ -41,13 +41,14 @@ struct FirebaseManager {
                     loggedIn?()
                 }
             }else {
-                print(error!.localizedDescription)
+                onerror!(errorMsg: (error?.localizedDescription)!)
+
             }
         })
 
     }
     
-    func signUp(email: String, password:String, name: String, completion: (() -> ())? = nil) {
+    func signUp(email: String, password:String, name: String, completion: (() -> ())? = nil, onerror: ((errorMsg: String) -> ())? = nil) {
         
         resetStoredUserInfo()
         
@@ -80,7 +81,8 @@ struct FirebaseManager {
                     }
                     else {
                         
-                        print(error?.localizedDescription)
+                        onerror!(errorMsg: (error?.localizedDescription)!)
+
                     }
                     
                 })
@@ -88,6 +90,8 @@ struct FirebaseManager {
             
             }else {
                 print("error: \(error?.localizedDescription)")
+                onerror!(errorMsg: (error?.localizedDescription)!)
+
             }
         })
     }
