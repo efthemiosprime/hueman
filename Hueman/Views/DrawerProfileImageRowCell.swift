@@ -12,11 +12,15 @@ class DrawerProfileImageRowCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
 
+    var showProfileAction: ((UITableViewCell) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        
+
+        let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
+        profileImage.addGestureRecognizer(profileImageTapGesture)
 
     }
 
@@ -24,6 +28,10 @@ class DrawerProfileImageRowCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func profileImageTapped() {
+        showProfileAction?(self)
     }
 
 }

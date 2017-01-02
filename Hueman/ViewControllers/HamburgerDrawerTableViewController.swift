@@ -48,6 +48,15 @@ class HamburgerDrawerTableViewController: UITableViewController {
         
     }
     
+    // MARK: - Life cycle
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        
+        if segue.identifier  == "ViewProfile" {
+            let profileController = segue.destinationViewController as! ProfileViewController
+            profileController.user = AuthenticationManager.sharedInstance.currentUser
+        }
+    }
     
 
 
@@ -82,10 +91,23 @@ class HamburgerDrawerTableViewController: UITableViewController {
                     profileCell.profileImage.clipsToBounds = true
                     profileCell.profileImage.layer.cornerRadius = 61
                     profileCell.profileImage.contentMode = .ScaleToFill
+                    profileCell.profileImage.userInteractionEnabled = true
+                    profileCell.showProfileAction = { (cell) in
+                        
+                        if self.revealViewController() != nil {
+                            self.revealViewController().revealToggleAnimated(true)
+
+                        }
+                        
+                        self.performSegueWithIdentifier("ViewProfile", sender: nil)
+                    }
                     
                     if let profileImageURL = self.currentUser.photoURL {
                         if let cachedImage = self.cachedProfileImage.objectForKey(profileImageURL) {
                             profileCell.profileImage.image = cachedImage as? UIImage
+
+
+                            
                         } else {
                             self.storageRef.referenceForURL(profileImageURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
                                 if error == nil {

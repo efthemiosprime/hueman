@@ -79,7 +79,7 @@ class ProfileHue: UIView {
     
     var data: ProfileHueModel? {
         didSet {
-            
+                
             if let unwrappedData = data {
             
                 

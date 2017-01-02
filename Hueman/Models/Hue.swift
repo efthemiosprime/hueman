@@ -21,6 +21,7 @@ struct Hue {
 
     }
     
+    
     func toAnyObject() -> [String: AnyObject] {
         return ["topic": self.topic!, "detail":self.detail!]
     }

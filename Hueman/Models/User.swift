@@ -39,7 +39,14 @@ struct User {
         
         uid = snapshot.value!["uid"] as! String
         
-      //  hues = (snapshot.value!["hues"] as? [Hue])!
+        if snapshot.value!["hues"]  != nil {
+            if let unwrappedHues =  snapshot.value!["hues"] as? NSArray {
+                print("xx \(unwrappedHues)"  )
+            }
+        }
+        
+
+        
     }
     
     init(email: String, name: String, userId: String) {

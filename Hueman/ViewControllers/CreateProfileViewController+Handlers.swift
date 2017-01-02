@@ -149,7 +149,7 @@ extension CreateProfileViewController: LocationDelegate {
 
 extension CreateProfileViewController: AddHueDelegate {
     func setHue(hue: String, type: String) {
-            switch type {
+        switch type {
             case Topic.Wanderlust:
                 let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
                 profilesHues![0].data = data
@@ -194,10 +194,7 @@ extension CreateProfileViewController: AddHueDelegate {
                 profilesHues![5].data = data
                 self.hues[Topic.RayOfLight] = data.description
                 break
-            }
-        
-        print(self.hues)
-
+        }
     }
 }
 
