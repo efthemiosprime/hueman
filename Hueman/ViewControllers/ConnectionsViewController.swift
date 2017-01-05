@@ -136,6 +136,26 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         connections.removeAll()
     }
     
+    
+    // MARK: - Life cycle
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        
+//        
+//        if segue.identifier  == "showConnection" {
+//            
+//            if sender != nil {
+//                
+//                
+//
+//                
+//
+//            }
+//
+//        }
+//    }
+    
+    
     func addNavigationItems () {
         self.navigationItem.leftBarButtonItem = menuItem
         self.navigationItem.rightBarButtonItems = [addItem, searhItem]
@@ -162,6 +182,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     }
     
     func addConnections() {
+        print("addd")
         performSegueWithIdentifier("AddConnections", sender: nil);
     }
     
@@ -208,7 +229,35 @@ extension ConnectionsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.selectionStyle = UITableViewCellSelectionStyle.None
-        performSegueWithIdentifier("showConnection", sender: indexPath)
+        
+        let senderConnection = connections[indexPath.row] as Connection
+       
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+        if let unwrappedUid = senderConnection.uid {
+            
+            let userRef = databaseRef.child("users").child(unwrappedUid )
+            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if snapshot.exists() {
+                    
+                    let user = User(snapshot: snapshot)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+                    profileController?.user = user
+                    
+                    
+                    self.tabBarController?.parentViewController!.addChildViewController(profileController!)
+                    profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+                    self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
+                    profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                }
+                
+            })
+            
+        }
+
         
     }
     

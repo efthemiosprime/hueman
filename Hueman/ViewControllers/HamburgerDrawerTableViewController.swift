@@ -52,12 +52,22 @@ class HamburgerDrawerTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         
-        if segue.identifier  == "ViewProfile" {
+        if segue.identifier  == "ShowProfile" {
             let profileController = segue.destinationViewController as! ProfileViewController
             profileController.user = AuthenticationManager.sharedInstance.currentUser
         }
     }
     
+    
+
+    
+    @IBAction func returnFromSegueActions(sender: UIStoryboardSegue) {
+        
+    }
+    
+
+//
+
 
 
     // MARK: - Table view data source
@@ -92,46 +102,49 @@ class HamburgerDrawerTableViewController: UITableViewController {
                     profileCell.profileImage.layer.cornerRadius = 61
                     profileCell.profileImage.contentMode = .ScaleToFill
                     profileCell.profileImage.userInteractionEnabled = true
-                    profileCell.showProfileAction = { (cell) in
-                        
-                        if self.revealViewController() != nil {
-                            self.revealViewController().revealToggleAnimated(true)
-
-                        }
-                        
-                        self.performSegueWithIdentifier("ViewProfile", sender: nil)
-                    }
                     
-                    if let profileImageURL = self.currentUser.photoURL {
-                        if let cachedImage = self.cachedProfileImage.objectForKey(profileImageURL) {
-                            profileCell.profileImage.image = cachedImage as? UIImage
-
-
+                    print(indexPath.row)
+                    
+                    if indexPath.row == 0 {
+                        profileCell.showProfileAction = { (cell) in
                             
-                        } else {
-                            self.storageRef.referenceForURL(profileImageURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-                                if error == nil {
-                                    if let imageData = data {
-                                        let image = UIImage(data: imageData)
-                                        self.cachedProfileImage.setObject(image!, forKey: profileImageURL)
-                                        dispatch_async(dispatch_get_main_queue(), {
-                                            profileCell.profileImage.image = image
-                                            
-                                        })
-                                    }
+                            
+                            if self.revealViewController() != nil {
+                                self.revealViewController().revealToggleAnimated(true)
+                            }
+                            NSNotificationCenter.defaultCenter().postNotificationName("ShowProfile", object: nil)
 
-                                    
-                    
-                                }else {
-                                    print(error!.localizedDescription)
-                                }
-                            })
                         }
+                        
+                        if let profileImageURL = self.currentUser.photoURL {
+                            if let cachedImage = self.cachedProfileImage.objectForKey(profileImageURL) {
+                                profileCell.profileImage.image = cachedImage as? UIImage
+                                
+                                
+                                
+                            } else {
+                                self.storageRef.referenceForURL(profileImageURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                                    if error == nil {
+                                        if let imageData = data {
+                                            let image = UIImage(data: imageData)
+                                            self.cachedProfileImage.setObject(image!, forKey: profileImageURL)
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                profileCell.profileImage.image = image
+                                                
+                                            })
+                                        }
+                                        
+                                        
+                                        
+                                    }else {
+                                        print(error!.localizedDescription)
+                                    }
+                                })
+                            }
+                        }
+                        
+                        
                     }
-                    
-                    
-                    
-
                     
                     
                 }

@@ -58,15 +58,56 @@ class ProfileViewController: UIViewController {
             getCurrentProfile(unwrappedUser)
         }
         
+
+
         
 
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            print(self.view.frame)
+            self.view.frame = CGRectMake(0.0, 0.0, screenWidth, screenHeight)
+            
+            
+        }) { (Finished) -> Void in
+            
+        }
+
+    }
+    
 
 
     @IBAction func backActionHandler(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
+       // self.dismissViewControllerAnimated(true, completion: {})
+       // self.performSegueWithIdentifier("UnwindSegue", sender: self)
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        
+     //   CGRectOffset(<#T##rect: CGRect##CGRect#>, CGFloat, <#T##dy: CGFloat##CGFloat#>)
+//        self.view.layer.backgroundColor = UIColor.clearColor().CGColor
+//        self.view.backgroundColor = UIColor.clearColor()
+
+        // Animate the transition.
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.view.frame = CGRectOffset(self.view.frame, screenWidth, 0.0)
+            
+        }) { (Finished) -> Void in
+            
+             self.willMoveToParentViewController(nil)
+             self.didMoveToParentViewController(nil)
+             self.view.removeFromSuperview()
+             self.removeFromParentViewController()
+        
+        }
+
     }
 
     func getCurrentProfile(_user: User) {

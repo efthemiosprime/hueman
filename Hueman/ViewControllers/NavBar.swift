@@ -19,7 +19,8 @@ class NavBar: UINavigationController {
         self.setNavigationBarHidden(false, animated: false)
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
         
-        
+         // NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NavBar.showProfile), name:"ShowProfile", object: nil)
+
     
     }
 
@@ -28,6 +29,7 @@ class NavBar: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
+
 
     /*
     // MARK: - Navigation

@@ -33,8 +33,11 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         self.delegate = self
         
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.showProfile), name:"ShowProfile", object: nil)
+
+        
     }
-    
+
 
     
     @IBAction func createFeed(sender: AnyObject) {
@@ -42,7 +45,26 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
     }
     
     func showProfile() {
-        self.performSegueWithIdentifier("ShowProfile", sender: nil)
+        print("showing....")
+
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+        // Specify the initial position of the destination view.
+        print(self.parentViewController?.childViewControllers.count)
+
+        if self.parentViewController?.childViewControllers.count < 3 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+            profileController?.user = AuthenticationManager.sharedInstance.currentUser
+
+            
+            self.parentViewController!.addChildViewController(profileController!)
+            profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+            self.parentViewController?.view.addSubview((profileController?.view)!)
+            profileController!.didMoveToParentViewController(self.parentViewController)
+        }
+
     }
 
     func createPost() {
@@ -53,16 +75,10 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
     func filterOption() {
         self.performSegueWithIdentifier("FilterOption", sender: nil)
 
+
     }
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 
     

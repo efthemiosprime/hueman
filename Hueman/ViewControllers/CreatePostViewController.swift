@@ -62,8 +62,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         inputBackground.layer.borderWidth = 2
         inputBackground.layer.borderColor = UIColor.whiteColor().CGColor
         
- 
-        
         
         if let topicColor = topicColor, let topicIcon = topicIcon, let topicString = topicString {
             
