@@ -61,13 +61,17 @@ class ProfileViewController: UIViewController {
 
 
         
-
+        self.view.layer.masksToBounds = false
+        self.view.layer.shadowColor = UIColor.blackColor().CGColor
+        self.view.layer.shadowOffset = CGSizeMake(0.0, 5.0)
+        self.view.layer.shadowOpacity = 0.5
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+
         
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
@@ -83,6 +87,16 @@ class ProfileViewController: UIViewController {
 
     }
     
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        
+//        self.view.layer.masksToBounds = false
+//        self.view.layer.shadowColor = UIColor.blackColor().CGColor
+//        self.view.layer.shadowOffset = CGSizeMake(0.0, 5.0)
+//        self.view.layer.shadowOpacity = 0.5
+//      //  self.view.layer.shadowPath = shadowPath.CGPath
+//    }
+//    
 
 
     @IBAction func backActionHandler(sender: AnyObject) {
