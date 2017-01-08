@@ -11,17 +11,22 @@ import UIKit
 class FeedTextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textFeedLabel: UILabel!
+    
+    @IBOutlet weak var textCreatedLabel: UILabel!
 
     @IBOutlet weak var textAuthorLabel: UILabel!
     
     @IBOutlet weak var authorProfileImage: UIImageView!
 
+    @IBOutlet weak var popoverButton: UIButton!
     
     @IBOutlet weak var likesButton: UIButton!
     
     @IBOutlet weak var likesLabel: UILabel!
     
     @IBOutlet weak var commentsLabel: UILabel!
+    
+    @IBOutlet weak var flagButton: UIButton!
     
     
     var key: String!
@@ -35,6 +40,7 @@ class FeedTextTableViewCell: UITableViewCell {
             if let feed = feed {
                 textFeedLabel.text = feed.text
                 textAuthorLabel.text = feed.author
+                textCreatedLabel.text = feed.dateCreated ?? ""
                 key = feed.key
             }
         }

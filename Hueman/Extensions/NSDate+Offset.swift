@@ -30,13 +30,13 @@ extension NSDate {
         return NSCalendar.currentCalendar().components(.Second, fromDate: date, toDate: self, options: []).second
     }
     func offsetFrom(date: NSDate) -> String {
-        if yearsFrom(date)   > 0 { return "\(yearsFrom(date))y"   }
-        if monthsFrom(date)  > 0 { return "\(monthsFrom(date))M"  }
-        if weeksFrom(date)   > 0 { return "\(weeksFrom(date))w"   }
-        if daysFrom(date)    > 0 { return "\(daysFrom(date))d"    }
-        if hoursFrom(date)   > 0 { return "\(hoursFrom(date))h"   }
-        if minutesFrom(date) > 0 { return "\(minutesFrom(date))m" }
-        if secondsFrom(date) > 0 { return "\(secondsFrom(date))s" }
+        if yearsFrom(date)   > 0 { return "\(yearsFrom(date)) year\(yearsFrom(date) > 1 ? "s" : "") ago"   }
+        if monthsFrom(date)  > 0 { return "\(monthsFrom(date)) month\(monthsFrom(date) > 1 ? "s" : "") ago"  }
+        if weeksFrom(date)   > 0 { return "\(weeksFrom(date)) week\(weeksFrom(date) > 1 ? "s" : "") ago"   }
+        if daysFrom(date)    > 0 { return "\(daysFrom(date)) day\(daysFrom(date) > 1 ? "s" : "") ago"    }
+        if hoursFrom(date)   > 0 { return "\(hoursFrom(date)) hour\(hoursFrom(date) > 1 ? "s" : "") ago"   }
+        if minutesFrom(date) > 0 { return "\(minutesFrom(date)) minute\(minutesFrom(date) > 1 ? "s" : "") ago" }
+        if secondsFrom(date) > 0 { return "\(secondsFrom(date)) second\(secondsFrom(date) > 1 ? "s" : "") ago" }
         return ""
     }
     

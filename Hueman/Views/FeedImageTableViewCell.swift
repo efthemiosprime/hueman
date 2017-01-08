@@ -13,6 +13,9 @@ class FeedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var textFeedLabel: UILabel!
     
+    @IBOutlet weak var textCreatedLabel: UILabel!
+    
+    
     @IBOutlet weak var textAuthorLabel: UILabel!
 
     @IBOutlet weak var feedImage: UIImageView!
@@ -22,6 +25,8 @@ class FeedImageTableViewCell: UITableViewCell {
     @IBOutlet weak var likesButton: UIButton!
     
     @IBOutlet weak var popoverButton: UIButton!
+    
+    @IBOutlet weak var flagButton: UIButton!
     
     @IBOutlet weak var likesLabel: UILabel!
     
