@@ -78,6 +78,7 @@
 		3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B181DED1C6100388DDF /* Feed.swift */; };
 		3A987B1C1DED1CDF00388DDF /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B1B1DED1CDF00388DDF /* FirebaseManager.swift */; };
 		3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B1D1DED1D2500388DDF /* FeedManager.swift */; };
+		3A98C7E51E22AA3A0009B793 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A98C7E41E22AA3A0009B793 /* NotificationsManager.swift */; };
 		3AA3B35E1E123437007D5E9E /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3B35D1E123437007D5E9E /* PopoverViewController.swift */; };
 		3AA4DFB81E0CDB6F00BF75A1 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */; };
 		3AA4DFBA1E0CDEAB00BF75A1 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */; };
@@ -178,6 +179,7 @@
 		3A987B181DED1C6100388DDF /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed.swift; path = Models/Feed.swift; sourceTree = "<group>"; };
 		3A987B1B1DED1CDF00388DDF /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseManager.swift; path = Networking/FirebaseManager.swift; sourceTree = "<group>"; };
 		3A987B1D1DED1D2500388DDF /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedManager.swift; path = Managers/FeedManager.swift; sourceTree = "<group>"; };
+		3A98C7E41E22AA3A0009B793 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsManager.swift; path = Managers/NotificationsManager.swift; sourceTree = "<group>"; };
 		3AA3B35D1E123437007D5E9E /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopoverViewController.swift; path = ViewControllers/PopoverViewController.swift; sourceTree = "<group>"; };
 		3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettings.swift; path = Config/AppSettings.swift; sourceTree = "<group>"; };
 		3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterController.swift; path = ViewControllers/FilterController.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */,
 				3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */,
 				3A76055F1E0DEF9100E682AD /* AuthenticationManager.swift */,
+				3A98C7E41E22AA3A0009B793 /* NotificationsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				3A7605601E0DEF9100E682AD /* AuthenticationManager.swift in Sources */,
 				3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */,
 				3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */,
+				3A98C7E51E22AA3A0009B793 /* NotificationsManager.swift in Sources */,
 				3A987B1C1DED1CDF00388DDF /* FirebaseManager.swift in Sources */,
 				3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */,
 				3A39639E1E21DEE70021279A /* NSDate+Offset.swift in Sources */,
