@@ -10,6 +10,8 @@ import Foundation
 
 
 class Hues  {
+    
+
 
     static let Wanderlust: String = "wanderlust-icon.png"
     static let OnMyPlate: String = "plate-icon.png"
@@ -19,3 +21,5 @@ class Hues  {
     static let RayOfLight:String  = "ray-light-icon.png"
 
 }
+
+

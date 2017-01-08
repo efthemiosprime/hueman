@@ -22,7 +22,9 @@ class NotificationsViewController: UITableViewController {
 
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        self.tabBarController?.tabBar.items![1].badgeValue = "1"
+//        self.tabBarController?.tabBar.items![1].badgeValue = "1"
+        
+        
 
 
     }

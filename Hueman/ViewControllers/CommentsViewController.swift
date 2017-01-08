@@ -86,9 +86,12 @@ class CommentsViewController: UIViewController {
                 let authManager = AuthenticationManager.sharedInstance
                 let uuid = NSUUID().UUIDString
                 let newComment = Comment(name: authManager.currentUser!.name, text: inputText, id: uuid, imageURL: authManager.currentUser!.photoURL!)
+               
+                
                 if key != nil {
                     let commentRef = dataBaseRef.child("comments").child(key).childByAutoId()
                     commentRef.setValue(newComment.toAnyObject())
+                    commentInput.text = ""
                     
                 }
             }

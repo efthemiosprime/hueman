@@ -11,6 +11,7 @@ import Firebase
 
 struct Comment {
     
+    
     let name: String!
     var text: String!
     let id: String!

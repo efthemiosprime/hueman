@@ -62,7 +62,7 @@ import UIKit
     func startAnimation() {
         self.masterSlider = current
         self.setNeedsDisplay()
-        current += 0.1
+        current -= 0.1
         
         
     }
