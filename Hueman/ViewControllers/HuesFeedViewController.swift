@@ -63,17 +63,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
         addNavigationItems()
         
-//        let date = NSDate()
-//        let calendar = NSCalendar.currentCalendar()
-//        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
-//        
-//        let year =  components.year
-//        let month = components.month
-//        let day = components.day
-//        
-//        print(year)
-//        print(month)
-//        print(day)
 
     }
     
@@ -113,17 +102,25 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "ShowComments" {
-            if sender is FeedImageTableViewCell {
-                sender as! FeedImageTableViewCell
-            }else {
-                sender as! FeedTextTableViewCell
-            }
-
-
+            
+            
             if let navController = segue.destinationViewController as? UINavigationController {
                 
+                
+                
                 if let commentsViewController = navController.topViewController as? CommentsViewController {
-                    commentsViewController.key = sender!.key
+                    
+                    let selectedFeed: Feed?
+                    
+                    if sender is FeedImageTableViewCell  {
+                        selectedFeed = (sender as! FeedImageTableViewCell).feed
+                    }else {
+                        selectedFeed = (sender as! FeedTextTableViewCell).feed
+                        
+                    }
+                    
+                    commentsViewController.feed = selectedFeed
+
                 }
         
             }
@@ -161,16 +158,37 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             feedCell.feed = feed
 
             feedCell.showCommentsAction = { (cell) in
+                
                 self.performSegueWithIdentifier("ShowComments", sender: cell)
 
             }
             feedCell.showLikesAction = { cell in
-                let authenticationManager = AuthenticationManager.sharedInstance
-                let id = NSUUID().UUIDString
-                let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
                 
-                let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
-                likesRef.setValue(newLike.toAnyObject())
+                let authenticationManager = AuthenticationManager.sharedInstance
+
+                if let feedUid = feed.uid {
+                    if let userUid = authenticationManager.currentUser!.uid {
+                        if feedUid != userUid {
+                            let id = NSUUID().UUIDString
+                            let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
+                            
+                            let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
+                            likesRef.setValue(newLike.toAnyObject())
+                            
+                            
+                            let newNotification: Notification = Notification(
+                                fromUid: authenticationManager.currentUser!.uid,
+                                id: NSUUID().UUIDString,
+                                type: "liked",
+                                feedKey: feed.key!)
+                            
+                            let notificationManager = NotificationsManager()
+                            notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
+                        }
+                    }
+                }
+                
+
             }
 
             

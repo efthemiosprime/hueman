@@ -1094,7 +1094,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Smith commented on your post." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-8z-s3Y">
-                                            <rect key="frame" x="94" y="22" width="215" height="28"/>
+                                            <rect key="frame" x="98" y="22" width="211" height="28"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1107,7 +1107,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="94" y="53" width="215" height="10"/>
+                                            <rect key="frame" x="98" y="53" width="211" height="10"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1115,11 +1115,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="7nC-8z-s3Y" firstAttribute="top" secondItem="3Tb-X9-oW0" secondAttribute="top" constant="22" id="4a4-Bn-zHU"/>
-                                        <constraint firstItem="7nC-8z-s3Y" firstAttribute="leading" secondItem="Fio-gO-Tsn" secondAttribute="trailing" constant="8" id="AQg-qc-I2E"/>
+                                        <constraint firstItem="7nC-8z-s3Y" firstAttribute="leading" secondItem="Fio-gO-Tsn" secondAttribute="trailing" constant="12" id="AQg-qc-I2E"/>
                                         <constraint firstItem="Fio-gO-Tsn" firstAttribute="centerY" secondItem="3Tb-X9-oW0" secondAttribute="centerY" id="G8d-X2-Lww"/>
                                         <constraint firstAttribute="bottom" secondItem="0Me-Qa-qET" secondAttribute="bottom" id="GsH-MU-5n7"/>
                                         <constraint firstItem="0Me-Qa-qET" firstAttribute="leading" secondItem="3Tb-X9-oW0" secondAttribute="leading" id="Nw6-kC-wFz"/>
-                                        <constraint firstItem="1hf-8g-6yX" firstAttribute="leading" secondItem="Fio-gO-Tsn" secondAttribute="trailing" constant="8" id="Qsz-8G-8xH"/>
+                                        <constraint firstItem="1hf-8g-6yX" firstAttribute="leading" secondItem="Fio-gO-Tsn" secondAttribute="trailing" constant="12" id="Qsz-8G-8xH"/>
                                         <constraint firstAttribute="trailing" secondItem="0Me-Qa-qET" secondAttribute="trailing" id="S0P-ab-hz0"/>
                                         <constraint firstItem="1hf-8g-6yX" firstAttribute="top" secondItem="7nC-8z-s3Y" secondAttribute="bottom" constant="3" id="Z8y-zQ-M9d"/>
                                         <constraint firstItem="Fio-gO-Tsn" firstAttribute="leading" secondItem="3Tb-X9-oW0" secondAttribute="leading" constant="22" id="ZaP-0b-0wp"/>

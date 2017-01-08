@@ -33,7 +33,7 @@ class CommentsViewController: UIViewController {
     
 
     var viewModel: CommentsViewModel!
-    var key: String!
+    var feed: Feed!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class CommentsViewController: UIViewController {
 //        notificationCenter.addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
 
         self.tableView.separatorStyle = .None
-
+        print("feed id \(feed.key)")
         loadComments()
     }
     
@@ -81,6 +81,8 @@ class CommentsViewController: UIViewController {
     
     func postComment() {
         
+        
+        
         if !(commentInput.text?.isEmpty)! ?? true {
             if let inputText = commentInput.text {
                 let authManager = AuthenticationManager.sharedInstance
@@ -88,11 +90,30 @@ class CommentsViewController: UIViewController {
                 let newComment = Comment(name: authManager.currentUser!.name, text: inputText, id: uuid, imageURL: authManager.currentUser!.photoURL!)
                
                 
-                if key != nil {
-                    let commentRef = dataBaseRef.child("comments").child(key).childByAutoId()
+                if feed != nil {
+                    let commentRef = dataBaseRef.child("comments").child(feed.key!).childByAutoId()
                     commentRef.setValue(newComment.toAnyObject())
                     commentInput.text = ""
                     
+                    print(feed.uid)
+                    print(authManager.currentUser?.uid)
+                    
+                    if let feedUid = feed.uid {
+                        if let userUid = authManager.currentUser!.uid {
+                            if (feedUid != userUid) {
+                                                        let newNotification: Notification = Notification(
+                                                            fromUid: authManager.currentUser!.uid,
+                                                            id: NSUUID().UUIDString,
+                                                            type: "commented",
+                                                            feedKey: feed.key!)
+                                
+                                                        let notificationManager = NotificationsManager()
+                                                        notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
+                            }
+                        }
+                    }
+
+    
                 }
             }
         }
@@ -102,7 +123,7 @@ class CommentsViewController: UIViewController {
         
         showWaitOverlay()
         
-        commentsRef = dataBaseRef.child("comments").child(key)
+        commentsRef = dataBaseRef.child("comments").child(feed.key!)
         commentsRef.observeEventType(.Value, withBlock:{ snapshot in
             
             let comments: [Comment]  = snapshot.children.map({(comment) -> Comment in
@@ -121,7 +142,7 @@ class CommentsViewController: UIViewController {
     }
     
     func loadAuthorProfileImage() {
-        commentsRef = dataBaseRef.child("comments").child(key)
+        commentsRef = dataBaseRef.child("comments").child(feed.key!)
 
     }
     

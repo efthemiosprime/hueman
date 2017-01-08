@@ -23,8 +23,14 @@ struct NotificationsManager {
         return FIRStorage.storage()
     }
     
-    func add(notification: Notification, completed: (() -> ())? = nil) {
+    func add(userUidToNotfiy: String, notification: Notification, completed: (() -> ())? = nil) {
+        
+
+        let notificationsRef = self.dataBaseRef.child("notifications").child(userUidToNotfiy).childByAutoId()
+        notificationsRef.setValue(notification.toAnyObject())
+        
         
     }
+
     
 }

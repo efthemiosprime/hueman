@@ -14,6 +14,19 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var notificationTimestampLabel: UILabel!
    
     @IBOutlet weak var profileImage: UIImageView!
+    
+    var key: String!
+    
+    var data: NotificationItem? {
+        didSet {
+            if let notification = data {
+                notificationLabel.text = "\(notification.name) \(notification.type) on your post."
+                notificationTimestampLabel.text = notification.dateCreated ?? ""
+                
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

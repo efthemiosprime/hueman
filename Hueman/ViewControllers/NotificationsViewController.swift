@@ -11,6 +11,8 @@ import UIKit
 class NotificationsViewController: UITableViewController {
 
     var menuItem: UIBarButtonItem!
+    var viewModel: NotificationsViewModel!
+    var data = [NotificationItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class NotificationsViewController: UITableViewController {
 //        self.tabBarController?.tabBar.items![1].badgeValue = "1"
         
         
-
+        
 
     }
 
@@ -39,7 +41,15 @@ class NotificationsViewController: UITableViewController {
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
+        viewModel = NotificationsViewModel()
+        viewModel.load({ items in
+            self.data = items.reverse()
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+            
+        })
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -60,11 +70,12 @@ class NotificationsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return data.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell", forIndexPath: indexPath) as! NotificationCell
+        cell.data = self.data[indexPath.row]
         
 
         return cell

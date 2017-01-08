@@ -12,38 +12,30 @@ import Firebase
 
 struct Notification {
     
-    enum Type : String {
-        case Like = "like", Comment = "comment"
-    }
-
-    
-    
-    let name: String!
-    var text: String!
+    let fromUid: String!
     let id: String!
-    var imageURL: String!
-    var dateCreated: String!
-    var type: Type!
+    var type: String!
+    var dateCreated: String?
     var createdAt: AnyObject?
+    var feedKey: String!
     
-    init(name: String, text:String, id: String, imageURL: String, dateCreated: String, type: Type) {
+    init(fromUid: String, id: String, type: String, feedKey: String) {
         
-        self.name = name
-        self.text = text
+        self.fromUid = fromUid
         self.id = id
-        self.imageURL = imageURL
-        self.dateCreated = dateCreated
+        self.feedKey = feedKey
+        self.type = type
+        self.createdAt = [".sv": "timestamp"]
+
     }
     
     
     init(snapshot: FIRDataSnapshot) {
         
-        self.name = snapshot.value!["name"] as? String
-        self.text = snapshot.value!["text"] as? String
+        self.fromUid = snapshot.value!["fromUid"] as? String
         self.id = snapshot.value!["id"] as? String
-        self.imageURL = snapshot.value!["imageURL"] as? String
-        
-        
+        self.feedKey = snapshot.value!["feedKey"] as? String
+        self.type = snapshot.value!["type"] as! String
         if snapshot.value!["created_at"] != nil {
             if let date = snapshot.value!["created_at"] as? NSTimeInterval{
                 let dateCreated = NSDate(timeIntervalSince1970: date/1000)
@@ -51,16 +43,11 @@ struct Notification {
                 self.dateCreated = now.offsetFrom(dateCreated)
             }
         }
-
-        
-        
     }
     
     
-    
+
     func toAnyObject() -> [String: AnyObject] {
-        
-        let theType = String(self.type)
-        return ["name": self.name!, "text":self.text!, "id": self.id, "imageURL": self.imageURL, "created_at": self.createdAt!, "type": theType]
+        return ["fromUid": self.fromUid!, "id": self.id, "created_at": self.createdAt!, "type": self.type, "feedKey": self.feedKey]
     }
 }
