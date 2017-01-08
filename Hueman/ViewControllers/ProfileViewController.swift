@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             print(self.view.frame)
             self.view.frame = CGRectMake(0.0, 0.0, screenWidth, screenHeight)
             
@@ -110,7 +110,7 @@ class ProfileViewController: UIViewController {
 //        self.view.backgroundColor = UIColor.clearColor()
 
         // Animate the transition.
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.view.frame = CGRectOffset(self.view.frame, screenWidth, 0.0)
             
         }) { (Finished) -> Void in

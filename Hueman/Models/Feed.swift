@@ -18,9 +18,11 @@ struct Feed {
     var text: String!
     var id: String!
     var topic: String!
+    var createdAt: AnyObject?
     var ref: FIRDatabaseReference!
     var key: String?
     var imageURL: String?
+    var dateCreated: String?
     var withImage: Bool?
     
     init(snapshot: FIRDataSnapshot) {
@@ -29,6 +31,17 @@ struct Feed {
         self.author = snapshot.value!["author"] as! String
         self.text = snapshot.value!["text"] as! String
         self.topic = snapshot.value!["topic"] as! String
+        
+        
+        if snapshot.value!["created_at"] != nil {
+            if let date = snapshot.value!["created_at"] as? NSTimeInterval{
+                let dateCreated = NSDate(timeIntervalSince1970: date/1000)
+                let now: NSDate = NSDate()
+                self.dateCreated = now.offsetFrom(dateCreated)
+            }
+        }
+
+        
         self.uid = snapshot.value!["uid"] as? String
         self.imageURL = snapshot.value!["imageURL"] as? String
         self.withImage = snapshot.value!["withImage"] as? Bool
@@ -39,13 +52,14 @@ struct Feed {
         self.id = id
         self.text = text
         self.topic = topic
+        self.createdAt = [".sv": "timestamp"]
         self.uid = uid
         self.imageURL = imageURL
         self.withImage = withImage
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["author": self.author, "id":self.id, "uid": self.uid!, "text": self.text, "topic": topic, "imageURL": imageURL!, "withImage": withImage!]
+        return ["author": self.author, "id":self.id, "uid": self.uid!, "text": self.text, "topic": topic, "created_at": self.createdAt!, "imageURL": imageURL!, "withImage": withImage!]
     }
     
 }
