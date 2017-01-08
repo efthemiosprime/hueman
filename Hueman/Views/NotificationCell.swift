@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class NotificationCell: UITableViewCell {
 
@@ -17,14 +18,47 @@ class NotificationCell: UITableViewCell {
     
     var key: String!
     
+    var cachedImages = NSCache()
+
+    
     var data: NotificationItem? {
         didSet {
             if let notification = data {
                 notificationLabel.text = "\(notification.name) \(notification.type) on your post."
                 notificationTimestampLabel.text = notification.dateCreated ?? ""
                 
+                
+                if let cachedImage = self.cachedImages.objectForKey(notification.photoURL) {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.profileImage.image = cachedImage as? UIImage
+                        
+                    })
+                } else {
+                    storageRef.referenceForURL(notification.photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                        if error == nil {
+                            
+                            if let imageData = data {
+                                let photoImage = UIImage(data: imageData)
+                                self.cachedImages.setObject(photoImage!, forKey:notification.photoURL)
+                                
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.profileImage.image = photoImage
+                                    
+                                })
+                            }
+                            
+                        }else {
+                            print(error!.localizedDescription)
+                        }
+                    })
+                }
+                
             }
         }
+    }
+    
+    var storageRef: FIRStorage! {
+        return FIRStorage.storage()
     }
     
     override func awakeFromNib() {

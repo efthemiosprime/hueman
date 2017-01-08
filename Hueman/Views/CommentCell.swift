@@ -12,9 +12,7 @@ import FirebaseStorage
 
 import UIKit
 
-var storageRef: FIRStorage! {
-    return FIRStorage.storage()
-}
+
 class CommentCell: UITableViewCell {
     
     @IBOutlet var name: UILabel!
@@ -22,6 +20,10 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var authorImage: UIImageView!
     
     var cachedImages = NSCache()
+    
+    var storageRef: FIRStorage! {
+        return FIRStorage.storage()
+    }
     
     var comment: Comment? {
         didSet {
@@ -59,6 +61,8 @@ class CommentCell: UITableViewCell {
             }
         }
     }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

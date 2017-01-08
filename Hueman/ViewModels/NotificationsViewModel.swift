@@ -36,24 +36,34 @@ class NotificationsViewModel: NSObject {
                 var counter:UInt = 0
                 let numberOfNotifications = snapshot.childrenCount
                 var items = [NotificationItem]()
-
-                for snap in snapshot.children {
+                
+                let sortedNotifications = snapshot.children.map({(snap) -> Notification in
                     
-                    let notification = Notification(snapshot: snap as! FIRDataSnapshot)
-                    let userRef = self.dataBaseRef.child("users").child(notification.fromUid)
+                    let newNotification: Notification = Notification(snapshot: snap as! FIRDataSnapshot)
+                    return newNotification
+                    
+                })
+
+                for snap in sortedNotifications {
+                    
+                    let userRef = self.dataBaseRef.child("users").child(snap.fromUid)
                     
                     userRef.observeSingleEventOfType(.Value, withBlock: {
                         userSnapshot in
                         
                         if userSnapshot.exists() {
                             let user = User(snapshot: userSnapshot)
-                            let item = NotificationItem(name: user.name, type: notification.type, dateCreated: notification.dateCreated!, photoURL: user.photoURL!, key: notification.feedKey)
+                            let item = NotificationItem(name: user.name, type: snap.type, dateCreated: snap.dateCreated!, photoURL: user.photoURL!, key: snap.feedKey, date: snap.date!)
                             
                             items.append(item)
                             counter = counter + 1
                             
                             if counter == numberOfNotifications {
-                                complete?(notifications: items)
+                                
+
+                                let sortedItems =   items.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
+
+                                complete?(notifications: sortedItems)
                             }
                             
                         }
@@ -73,12 +83,14 @@ struct NotificationItem {
     var dateCreated: String!
     var photoURL: String!
     var key: String!
+    var date: NSDate?
     
-    init(name: String, type: String, dateCreated: String, photoURL: String, key: String) {
+    init(name: String, type: String, dateCreated: String, photoURL: String, key: String, date: NSDate) {
         self.name = name
         self.type = type
         self.dateCreated = dateCreated
         self.photoURL = photoURL
         self.key = key
+        self.date = date
     }
 }

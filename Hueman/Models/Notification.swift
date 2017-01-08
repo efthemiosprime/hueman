@@ -18,6 +18,7 @@ struct Notification {
     var dateCreated: String?
     var createdAt: AnyObject?
     var feedKey: String!
+    var date: NSDate?
     
     init(fromUid: String, id: String, type: String, feedKey: String) {
         
@@ -38,6 +39,7 @@ struct Notification {
         self.type = snapshot.value!["type"] as! String
         if snapshot.value!["created_at"] != nil {
             if let date = snapshot.value!["created_at"] as? NSTimeInterval{
+                self.date = NSDate(timeIntervalSince1970: date/1000)
                 let dateCreated = NSDate(timeIntervalSince1970: date/1000)
                 let now: NSDate = NSDate()
                 self.dateCreated = now.offsetFrom(dateCreated)
