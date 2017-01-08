@@ -47,6 +47,7 @@ class FeedImageTableViewCell: UITableViewCell {
             if let feed = feed {
                 textFeedLabel.text = feed.text
                 textAuthorLabel.text = feed.author
+                textCreatedLabel.text = feed.dateCreated ?? ""
                 feedImage.clipsToBounds = true
                 key = feed.key
             }

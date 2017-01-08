@@ -694,15 +694,19 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
                                             <rect key="frame" x="0.0" y="319" width="375" height="30"/>
                                             <subviews>
-                                                <view alpha="0.10000000149011612" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-yU-eVX">
+                                                <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-yU-eVX">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="BNf-sd-pby"/>
+                                                    </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7h4-t7-KWJ">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h4-t7-KWJ">
                                                     <rect key="frame" x="0.0" y="25" width="375" height="5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="5" id="HRp-Uj-DM0"/>
+                                                    </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwO-G9-Arb" userLabel="Heart">
                                                     <rect key="frame" x="8" y="5" width="18" height="14"/>
@@ -747,7 +751,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gk2-yU-eVX" secondAttribute="trailing" id="664-ZD-oo9"/>
+                                                <constraint firstItem="gk2-yU-eVX" firstAttribute="leading" secondItem="QTI-Uo-JSf" secondAttribute="leading" id="eXD-HI-LFi"/>
+                                                <constraint firstAttribute="bottom" secondItem="7h4-t7-KWJ" secondAttribute="bottom" id="elv-HR-bSt"/>
+                                                <constraint firstAttribute="trailing" secondItem="7h4-t7-KWJ" secondAttribute="trailing" id="hwz-cb-txk"/>
+                                                <constraint firstItem="7h4-t7-KWJ" firstAttribute="leading" secondItem="QTI-Uo-JSf" secondAttribute="leading" id="sQD-ts-EED"/>
                                                 <constraint firstAttribute="height" constant="30" id="wY1-sg-Vkh"/>
+                                                <constraint firstItem="gk2-yU-eVX" firstAttribute="top" secondItem="QTI-Uo-JSf" secondAttribute="top" id="yCY-VA-qgu"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wn3-x9-pSq" userLabel="Profile Container">
@@ -863,15 +873,19 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM" userLabel="Footer">
                                             <rect key="frame" x="0.0" y="121" width="375" height="30"/>
                                             <subviews>
-                                                <view alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-g0-6X1">
+                                                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-g0-6X1">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="iwP-cD-KeF"/>
+                                                    </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uh-Jr-Tdz">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uh-Jr-Tdz">
                                                     <rect key="frame" x="0.0" y="25" width="375" height="5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="5" id="ryn-FV-rJ5"/>
+                                                    </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCw-Yj-47u" userLabel="flag">
                                                     <rect key="frame" x="312" y="0.0" width="63" height="25"/>
@@ -916,7 +930,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Jam-g0-6X1" secondAttribute="trailing" id="811-1o-ozN"/>
+                                                <constraint firstItem="9uh-Jr-Tdz" firstAttribute="leading" secondItem="c5C-BH-ulM" secondAttribute="leading" id="HMI-1D-GMW"/>
+                                                <constraint firstAttribute="trailing" secondItem="9uh-Jr-Tdz" secondAttribute="trailing" id="Smp-Ve-bJU"/>
                                                 <constraint firstAttribute="height" constant="30" id="efc-Hn-1rF"/>
+                                                <constraint firstItem="Jam-g0-6X1" firstAttribute="top" secondItem="c5C-BH-ulM" secondAttribute="top" id="pGB-Fn-oiz"/>
+                                                <constraint firstAttribute="bottom" secondItem="9uh-Jr-Tdz" secondAttribute="bottom" id="qkh-Y5-xHf"/>
+                                                <constraint firstItem="Jam-g0-6X1" firstAttribute="leading" secondItem="c5C-BH-ulM" secondAttribute="leading" id="r9w-cE-j2l"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hse-qf-p65" userLabel="Profile Container">
@@ -1353,7 +1373,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1w-BA-dXT">
                                 <rect key="frame" x="179" y="53" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="filter-icon"/>
+                                <state key="normal" image="create-post-filter-icon"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZC-zr-4cu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1372,17 +1392,17 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="wanderlust-icon"/>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8f-kd-KO1">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8f-kd-KO1" userLabel="love">
                                         <rect key="frame" x="153.5" y="148" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="relationship-icon"/>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sy-YR-VQ4">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sy-YR-VQ4" userLabel="health">
                                         <rect key="frame" x="205" y="148" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="health-icon"/>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-O3-Hww">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-O3-Hww" userLabel="close">
                                         <rect key="frame" x="179" y="54" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="close-topic"/>
@@ -1390,12 +1410,12 @@
                                             <action selector="didTappedCloseTopic:" destination="TVX-Vb-Dl9" eventType="touchUpInside" id="2sL-3u-TEZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-lO-M60">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-lO-M60" userLabel="hustler">
                                         <rect key="frame" x="253" y="124" width="37" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="hustle-icon"/>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-kG-kVI">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-kG-kVI" userLabel="ray of light">
                                         <rect key="frame" x="281" y="77" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ray-light-icon"/>
@@ -3069,6 +3089,7 @@
         <image name="close-topic" width="33" height="33"/>
         <image name="connection-image-bg" width="75" height="75"/>
         <image name="create-plus-icon" width="13" height="13"/>
+        <image name="create-post-filter-icon" width="34" height="34"/>
         <image name="create-profile-add-location-icon" width="65" height="65"/>
         <image name="create-profile-birthday" width="65" height="65"/>
         <image name="create-profile-name-bio" width="375" height="106"/>
@@ -3079,7 +3100,6 @@
         <image name="feed-heart-icon" width="18" height="15"/>
         <image name="feed-plus-icon" width="16" height="16"/>
         <image name="filter-bg" width="41" height="305"/>
-        <image name="filter-icon" width="41" height="41"/>
         <image name="health-icon" width="35" height="35"/>
         <image name="health-selected-icon" width="32" height="32"/>
         <image name="help-center-icon_1" width="34" height="34"/>
