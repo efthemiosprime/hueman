@@ -45,7 +45,6 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
     }
     
     func showProfile() {
-        print("showing....")
 
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
@@ -83,7 +82,6 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
 
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        print (tabBarController.selectedIndex)
         
         if viewController == tabBarController.viewControllers![3]    {
             createPost()

@@ -41,7 +41,7 @@ struct User {
         
         if snapshot.value!["hues"]  != nil {
             if let unwrappedHues =  snapshot.value!["hues"] as? NSArray {
-                print("xx \(unwrappedHues)"  )
+              //  print("xx \(unwrappedHues)"  )
             }
         }
         

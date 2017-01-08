@@ -36,7 +36,6 @@ class AddHueController: UIViewController {
         detailLabel.becomeFirstResponder()
         
         
-        print(type)
         if let unwrappedType = type {
             switch unwrappedType {
                 
@@ -136,7 +135,6 @@ class AddHueController: UIViewController {
 
 
     @IBAction func didTappedConfirm(sender: AnyObject) {
-        print("tap")
         self.delegate?.setHue(detailLabel.text!, type: self.type!)
         self.dismissViewControllerAnimated(true, completion: nil)
 

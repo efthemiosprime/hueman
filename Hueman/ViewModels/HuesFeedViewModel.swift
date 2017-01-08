@@ -166,7 +166,6 @@ class HuesFeedViewModel: NSObject {
             if snapshot.exists() {
                 
                 for snap in snapshot.children {
-                    print(snap.value["uid"])
                 
                     if let uid = snap.value["uid"] as? String {
                         if uid == currentUID {

@@ -182,7 +182,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     }
     
     func addConnections() {
-        print("addd")
         performSegueWithIdentifier("AddConnections", sender: nil);
     }
     

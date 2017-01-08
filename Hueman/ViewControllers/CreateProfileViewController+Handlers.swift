@@ -139,7 +139,6 @@ extension CreateProfileViewController: BirthdayDelegate {
 
 extension CreateProfileViewController: LocationDelegate {
     func setLocation(location: String) {
-        print(location)
         locationLabel.text = location
         checkRequiredProfileInfos()
 

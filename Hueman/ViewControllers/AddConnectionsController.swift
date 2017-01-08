@@ -290,7 +290,6 @@ class AddConnectionsController: UITableViewController {
                         friendshipsReq.setValue(friendships.toAnyObject(), withCompletionBlock: {
                             (error, ref) in
                             
-                            print("posted \(ref)")
                         })
                     }
                 })

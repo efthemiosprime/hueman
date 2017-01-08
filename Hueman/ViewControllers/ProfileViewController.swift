@@ -77,7 +77,6 @@ class ProfileViewController: UIViewController {
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
         UIView.animateWithDuration(0.3, animations: { () -> Void in
-            print(self.view.frame)
             self.view.frame = CGRectMake(0.0, 0.0, screenWidth, screenHeight)
             
             
