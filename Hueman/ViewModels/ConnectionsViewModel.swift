@@ -30,14 +30,18 @@ class ConnectionsViewModel: NSObject {
         let friendsRef = authenticationManager.databaseRef.child("friends").child((currentUser?.uid)!)
         friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            let connections = snapshot.children.map({(con) -> Connection in
-                let connection = Connection(name: (con.value!["name"] as? String)!,
-                    location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
-                return connection
-            }).sort({ (user1, user2) -> Bool in
-                user1.name < user2.name })
+            if snapshot.exists() {
+                let connections = snapshot.children.map({(con) -> Connection in
+                    let connection = Connection(name: (con.value!["name"] as? String)!,
+                        location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                    return connection
+                }).sort({ (user1, user2) -> Bool in
+                    user1.name < user2.name })
+                
+                completion?(connections)
+            }
             
-            completion?(connections)
+
             
         }) {(error) in
             print(error.localizedDescription)
@@ -53,6 +57,7 @@ class ConnectionsViewModel: NSObject {
         
         requestRef.observeSingleEventOfType(.Value, withBlock:{
             snapshot in
+            
             
             withRequests(snapshot.exists())
       

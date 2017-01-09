@@ -36,14 +36,18 @@ class HuesFeedViewModel: NSObject {
         databaseRef.child("feeds").observeSingleEventOfType(.Value, withBlock: {
             feedsSnapshot in
             
-            let feeds: [Feed]  = feedsSnapshot.children.map({(feed) -> Feed in
-                let newFeed: Feed = Feed(snapshot: feed as! FIRDataSnapshot)
-                return newFeed
-            }).reverse()
+            if feedsSnapshot.exists() {
+                let feeds: [Feed]  = feedsSnapshot.children.map({(feed) -> Feed in
+                    let newFeed: Feed = Feed(snapshot: feed as! FIRDataSnapshot)
+                    return newFeed
+                }).reverse()
+                
+                
+                self.oldFeeds = feeds
+                completion?(feeds)
+        
+            }
             
-            
-            self.oldFeeds = feeds
-            completion?(feeds)
 
             
         }) {  error in

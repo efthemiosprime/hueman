@@ -55,9 +55,14 @@ class AddConnectionsController: UITableViewController {
         let currentAuthenticatedUser = FIRAuth.auth()?.currentUser
         let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            self.currentUser = User(snapshot: snapshot)
-            self.fetchConnections()
-            self.fetchAllRequests()
+            
+            if snapshot.exists() {
+                self.currentUser = User(snapshot: snapshot)
+                self.fetchConnections()
+                self.fetchAllRequests()
+            }
+            
+
         }) { error in
             print(error.localizedDescription)
         }
@@ -80,31 +85,37 @@ class AddConnectionsController: UITableViewController {
         userRef.observeSingleEventOfType(.Value, withBlock:{
             snapshot in
             
-            
-            let connectionsUids: [String] = self.connections.map({$0.uid})
-            self.users = snapshot.children.map({(snap) -> User in
-                let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
-                return newUser
-            })
-                .filter({!connectionsUids.contains($0.uid)})
-                .sort({ (user1, user2) -> Bool in
-                user1.name < user2.name
-            })
-
-
-
-            if self.requests.count > 0 {
-                self.sections.append("pending")
-                self.data.append(self.requests)
+            if snapshot.exists() {
                 
-                self.sections.append("users")
-                self.data.append(self.users)
-            }else {
-                self.sections.append("users")
-                self.data.append(self.users)
+                let connectionsUids: [String] = self.connections.map({$0.uid})
+                self.users = snapshot.children.map({(snap) -> User in
+                    let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
+                    return newUser
+                })
+                    .filter({!connectionsUids.contains($0.uid)})
+                    .sort({ (user1, user2) -> Bool in
+                        user1.name < user2.name
+                    })
+                
+                
+                
+                if self.requests.count > 0 {
+                    self.sections.append("pending")
+                    self.data.append(self.requests)
+                    
+                    self.sections.append("users")
+                    self.data.append(self.users)
+                }else {
+                    self.sections.append("users")
+                    self.data.append(self.users)
+                }
+                
+                self.tableView.reloadData()
+                
             }
+            
+            
 
-            self.tableView.reloadData()
 
         }) {(error) in
             print(error.localizedDescription)
@@ -155,11 +166,12 @@ class AddConnectionsController: UITableViewController {
         let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
         friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
-            
-            for con in snapshot.children {
-                let connection = Connection(name: (con.value!["name"] as? String)!,
-                    location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
-                self.connections.append(connection)
+            if snapshot.exists() {
+                for con in snapshot.children {
+                    let connection = Connection(name: (con.value!["name"] as? String)!,
+                        location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                    self.connections.append(connection)
+                }
             }
             
             
@@ -211,44 +223,50 @@ class AddConnectionsController: UITableViewController {
                 let requestRef = self.databaseRef.child("requests").child((self.currentUser?.uid)!)
                 requestRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
-                    if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                    if snapshot.exists() {
                         
-                        
-                        
-                        for child in result {
+                        if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                             
-                            let friendshipKey = child.value!["id"] as! String
-                            let friendshipRequester = child.value!["requester"] as! String
-                            let friendshipRecipient = child.value!["recipient"] as! String
-                            let friendshipRef = self.databaseRef.child("friendships").child(friendshipKey)
                             
-                            friendshipRef.updateChildValues(["status":Friendship.Accepted])
                             
-                            // friendshipRecipient == currentUserUid
-                            // Recipient is the current user
-    
-                            
-                            let userRef = self.databaseRef.child("users").child(friendshipRequester)
-                            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                                if snapshot.exists() {
-                                    var requester = Connection(snapshot: snapshot)
-                                    requester.friendship = friendshipKey
-                                    
-                                    var recipient = Connection(name: self.currentUser!.name, location: self.currentUser!.location!, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
-                                    recipient.friendship = friendshipKey
-                                    
-                                    
-                                    self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
-                                    self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
-                                    
+                            for child in result {
+                                
+                                let friendshipKey = child.value!["id"] as! String
+                                let friendshipRequester = child.value!["requester"] as! String
+                                let friendshipRecipient = child.value!["recipient"] as! String
+                                let friendshipRef = self.databaseRef.child("friendships").child(friendshipKey)
+                                
+                                friendshipRef.updateChildValues(["status":Friendship.Accepted])
+                                
+                                // friendshipRecipient == currentUserUid
+                                // Recipient is the current user
+                                
+                                
+                                let userRef = self.databaseRef.child("users").child(friendshipRequester)
+                                userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                                    if snapshot.exists() {
+                                        var requester = Connection(snapshot: snapshot)
+                                        requester.friendship = friendshipKey
+                                        
+                                        var recipient = Connection(name: self.currentUser!.name, location: self.currentUser!.location!, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
+                                        recipient.friendship = friendshipKey
+                                        
+                                        
+                                        self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
+                                        self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
+                                        
+                                    }
+                                }) { error in
+                                    print(error.localizedDescription)
                                 }
-                            }) { error in
-                                print(error.localizedDescription)
+                                
                             }
-
-                        }
+                            
+                            requestRef.removeValue()
                         
-                        requestRef.removeValue()
+                    }
+                    
+
                     } else {
                         print("no results")
                     }

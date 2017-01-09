@@ -31,49 +31,47 @@ struct FeedManager {
         userRef.observeSingleEventOfType(.Value, withBlock: {
             snapshot in
             
-            for userInfo in snapshot.children {
-                currentUser = User(snapshot: userInfo as! FIRDataSnapshot)
-            }
-            
-            var newFeed = feed
-            newFeed.author = currentUser!.name
-            newFeed.uid = FIRAuth.auth()!.currentUser!.uid
-            
-            if imageData != nil {
-                let metaData = FIRStorageMetadata()
-                metaData.contentType = "image/jpeg"
-                let imagePath = "feedImage\(FIRAuth.auth()!.currentUser!.uid)/feed\(NSUUID().UUIDString).jpg"
-                let imageRef = self.storageRef.reference().child(imagePath)
+            if snapshot.exists() {
+                for userInfo in snapshot.children {
+                    currentUser = User(snapshot: userInfo as! FIRDataSnapshot)
+                }
                 
-                imageRef.putData(imageData!, metadata: metaData, completion: {
-                    (newMetaData, error) in
+                var newFeed = feed
+                newFeed.author = currentUser!.name
+                newFeed.uid = FIRAuth.auth()!.currentUser!.uid
+                
+                if imageData != nil {
+                    let metaData = FIRStorageMetadata()
+                    metaData.contentType = "image/jpeg"
+                    let imagePath = "feedImage\(FIRAuth.auth()!.currentUser!.uid)/feed\(NSUUID().UUIDString).jpg"
+                    let imageRef = self.storageRef.reference().child(imagePath)
                     
-                    if error == nil {
-                        newFeed.imageURL = String(newMetaData!.downloadURL()!)
-                        newFeed.withImage = true
-                        let feedRef = self.dataBaseRef.child("feeds").childByAutoId()
-                        feedRef.setValue(newFeed.toAnyObject(), withCompletionBlock: {
-                            (error, ref) in
-                            if error == nil {
-                                feedPosted?()
-                            }
-                        })
-                    }
-                })
-
-            }else {
-                let feedRef = self.dataBaseRef.child("feeds").childByAutoId()
-                feedRef.setValue(newFeed.toAnyObject(), withCompletionBlock: {
-                    (error, ref) in
-                    if error == nil {
-                        feedPosted?()
-                    }
-                })
+                    imageRef.putData(imageData!, metadata: metaData, completion: {
+                        (newMetaData, error) in
+                        
+                        if error == nil {
+                            newFeed.imageURL = String(newMetaData!.downloadURL()!)
+                            newFeed.withImage = true
+                            let feedRef = self.dataBaseRef.child("feeds").childByAutoId()
+                            feedRef.setValue(newFeed.toAnyObject(), withCompletionBlock: {
+                                (error, ref) in
+                                if error == nil {
+                                    feedPosted?()
+                                }
+                            })
+                        }
+                    })
+                    
+                }else {
+                    let feedRef = self.dataBaseRef.child("feeds").childByAutoId()
+                    feedRef.setValue(newFeed.toAnyObject(), withCompletionBlock: {
+                        (error, ref) in
+                        if error == nil {
+                            feedPosted?()
+                        }
+                    })
+                }
             }
-            
-
-            
-            
 
             
         }) { (error) in

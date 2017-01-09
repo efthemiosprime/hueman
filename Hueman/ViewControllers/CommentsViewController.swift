@@ -126,18 +126,22 @@ class CommentsViewController: UIViewController {
         commentsRef = dataBaseRef.child("comments").child(feed.key!)
         commentsRef.observeEventType(.Value, withBlock:{ snapshot in
             
-            let comments: [Comment]  = snapshot.children.map({(comment) -> Comment in
-                let newComment: Comment = Comment(snapshot: comment as! FIRDataSnapshot)
-                return newComment
-            }).reverse()
+            if snapshot.exists() {
+                let comments: [Comment]  = snapshot.children.map({(comment) -> Comment in
+                    let newComment: Comment = Comment(snapshot: comment as! FIRDataSnapshot)
+                    return newComment
+                }).reverse()
+                
+                
+                self.viewModel.comments = comments
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.removeAllOverlays()
+                    self.tableView.reloadData()
+                })
+            }
             
-            
-            self.viewModel.comments = comments
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                self.removeAllOverlays()
-                self.tableView.reloadData()
-            })
+
         })
     }
     
