@@ -26,14 +26,16 @@ class NotificationsViewController: UITableViewController {
         
 //        self.tabBarController?.tabBar.items![1].badgeValue = "1"
         
-        
-        
+        viewModel = NotificationsViewModel()
 
+        
     }
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+
         self.navigationController?.navigationBar.topItem!.title = "notifications"
         
         if revealViewController() != nil {
@@ -41,14 +43,29 @@ class NotificationsViewController: UITableViewController {
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        viewModel = NotificationsViewModel()
         viewModel.load({ items in
             self.data = items.reverse()
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
             
+            
         })
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            self.clearBadge()
+        })
+
+    }
+    
+    func clearBadge () {
+        let notificationManager = NotificationsManager()
+        notificationManager.deleteNotifications({
+
+        })
+        
+        self.tabBarController?.tabBar.items![1].badgeValue = nil
 
     }
     

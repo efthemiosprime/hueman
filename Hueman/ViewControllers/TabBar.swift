@@ -32,13 +32,37 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         
         self.delegate = self
         
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.showProfile), name:"ShowProfile", object: nil)
-
-        
+    
     }
 
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+    
+        let authManager = AuthenticationManager.sharedInstance
+        if authManager.currentUser == nil {
+            authManager.loadCurrentUser({
+                let notificationManager = NotificationsManager()
+                notificationManager.getTotalNotifications({ count in
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tabBar.items![1].badgeValue = String(count)
+                    })
+                })
+            })
+        }
 
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.showProfile), name:"ShowProfile", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ShowProfile", object: nil)
+
+    }
     
     @IBAction func createFeed(sender: AnyObject) {
         createPost()

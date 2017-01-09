@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-802" y="-77"/>
+            <point key="canvasLocation" x="-2086" y="-1351"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="x1j-Ww-F3H">
@@ -557,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfg-sl-0bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-802" y="742"/>
+            <point key="canvasLocation" x="-2086" y="-531"/>
         </scene>
         <!--Hueboards-->
         <scene sceneID="xHy-pg-vin">
@@ -1484,11 +1484,6 @@
                             <constraint firstItem="zAx-sf-uWU" firstAttribute="top" secondItem="DyD-jV-SBc" secondAttribute="bottom" id="uM7-Ff-auQ"/>
                             <constraint firstItem="YbP-56-ZdH" firstAttribute="baseline" secondItem="Lhr-t2-O7d" secondAttribute="baseline" constant="-10" id="xI2-g1-bxv"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="WZC-zr-4cu"/>
-                            </mask>
-                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -2067,6 +2062,10 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jma-Db-tas" customClass="ActivityIndicator" customModule="Hueman" customModuleProvider="target">
+                                                <rect key="frame" x="167" y="274" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2132,6 +2131,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1350"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="jma-Db-tas" id="pb5-kG-tYU"/>
                         <outlet property="bioTextfield" destination="hzF-1l-UeY" id="XFP-1j-5Lj"/>
                         <outlet property="birthdayImage" destination="nE7-Bb-ZDo" id="VxE-ZH-5Db"/>
                         <outlet property="dateLabel" destination="2lC-va-hjq" id="4LO-w3-oC5"/>
@@ -2156,7 +2156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12l-CS-ga1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="1648"/>
+            <point key="canvasLocation" x="326" y="904"/>
         </scene>
         <!--Birthday Controller-->
         <scene sceneID="b1W-EM-Udg">
@@ -2213,7 +2213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yo2-xZ-EMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647" y="904"/>
+            <point key="canvasLocation" x="1646" y="281"/>
         </scene>
         <!--Nav Bar-->
         <scene sceneID="qbd-cq-q9s">
@@ -2603,7 +2603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="we3-u3-vKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="1611"/>
+            <point key="canvasLocation" x="1646" y="988"/>
         </scene>
         <!--Add Hue Controller-->
         <scene sceneID="JfR-XM-leI">
@@ -2691,7 +2691,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWq-DA-MOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1645.5999999999999" y="2333.8830584707648"/>
+            <point key="canvasLocation" x="1646" y="1711"/>
         </scene>
         <!--Error Controller-->
         <scene sceneID="ZNS-ZK-Yj8">
@@ -3205,6 +3205,6 @@
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gNX-ic-ARf"/>
+        <segue reference="OkO-K9-BA2"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -230,11 +230,34 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             
             feedCell.showLikesAction = { cell in
                 let authenticationManager = AuthenticationManager.sharedInstance
-                let id = NSUUID().UUIDString
-                let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
 
-                let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
-                likesRef.setValue(newLike.toAnyObject())
+                if let fedUid = feed.uid {
+                    if let userUid = authenticationManager.currentUser?.uid {
+                        
+                        if fedUid != userUid {
+                            let authenticationManager = AuthenticationManager.sharedInstance
+                            let id = NSUUID().UUIDString
+                            let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
+                            
+                            let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
+                            likesRef.setValue(newLike.toAnyObject())
+                            
+                            let newNotification: Notification = Notification(
+                                fromUid: authenticationManager.currentUser!.uid,
+                                id: NSUUID().UUIDString,
+                                type: "liked",
+                                feedKey: feed.key!)
+                            
+                            
+                            let notificationManager = NotificationsManager()
+                            notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
+                        }
+                        
+
+                    }
+                }
+                
+
             }
             
         }

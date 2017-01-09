@@ -89,14 +89,15 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
         
         if let email = self.emailField.text, let password = self.passwordField.text {
             firebaseManager.logIn(email, password: password, loggedIn: {
-                AuthenticationManager.sharedInstance
+               // AuthenticationManager.sharedInstance
                 self.activityIndicator.hide()
+                
+                print(AuthenticationManager.sharedInstance.currentUser)
 
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
                 }, onerror: { errorMsg in
                     
                     self.activityIndicator.hide()
-
                     self.showError(errorMsg)
             })
         }else {

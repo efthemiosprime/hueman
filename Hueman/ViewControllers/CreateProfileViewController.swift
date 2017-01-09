@@ -26,6 +26,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var tapToAddPhotoLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var activityIndicator: ActivityIndicator!
     
     @IBOutlet var profilesHues: [ProfileHue]?
     
@@ -42,6 +43,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.hidden = true
         saveButton.enabled = false
         
         self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.clearColor();
@@ -147,7 +149,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
     @IBAction func didTappedSave(sender: AnyObject) {
         
-        showWaitOverlay()
+        //showWaitOverlay()
+        activityIndicator.show()
 
         
         let currentUser = FIRAuth.auth()?.currentUser
@@ -197,7 +200,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                             }
                         })
             
-                        self.removeAllOverlays()
+                        self.activityIndicator.hide()
+
                         self.performSegueWithIdentifier("UserCreated", sender: sender)
 
                         

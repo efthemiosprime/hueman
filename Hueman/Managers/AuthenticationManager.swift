@@ -42,13 +42,35 @@ class AuthenticationManager {
     private init() {
         
         
+//        let currentAuthenticatedUser = FIRAuth.auth()?.currentUser
+//        let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
+//        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//            
+//            if snapshot.exists() {
+//                self.currentUser = User(snapshot: snapshot)
+//                
+//                
+//                
+//                userRef.removeAllObservers()
+//            }
+//            
+//            })
+//        { error in
+//            print(error.localizedDescription)
+//        }
+    }
+    
+    func loadCurrentUser(completed: (() -> ())? = nil) {
         let currentAuthenticatedUser = FIRAuth.auth()?.currentUser
         let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             if snapshot.exists() {
                 self.currentUser = User(snapshot: snapshot)
-                userRef.removeAllObservers()
+                
+                completed?()
+                
+                
             }
             
             })

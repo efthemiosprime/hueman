@@ -29,8 +29,39 @@ struct NotificationsManager {
         let notificationsRef = self.dataBaseRef.child("notifications").child(userUidToNotfiy).childByAutoId()
         notificationsRef.setValue(notification.toAnyObject())
         
-        
+        let notificationsCountRef = self.dataBaseRef.child("notificationsCount").child(userUidToNotfiy).childByAutoId()
+        notificationsCountRef.setValue(notification.id)
+
     }
+    
+    
+    func getTotalNotifications(completed: ((badgeCount: UInt) -> ())? = nil) {
+        
+        let authManager = AuthenticationManager.sharedInstance
+        let notificationsCountRef = self.dataBaseRef.child("notificationsCount").child(authManager.currentUser!.uid!)
+        
+        notificationsCountRef.observeEventType(.Value, withBlock: {
+            snapshot in
+            
+            if snapshot.exists() {
+                completed?(badgeCount: snapshot.childrenCount)
+            }
+        })
+    }
+    
+    func deleteNotifications(completed: (() -> ())? = nil) {
+        let authManager = AuthenticationManager.sharedInstance
+        let notificationsCountRef = self.dataBaseRef.child("notificationsCount").child(authManager.currentUser!.uid!)
+        
+        notificationsCountRef.observeSingleEventOfType(.Value, withBlock: {
+            snapshot in
+            
+            if snapshot.exists() {
+                notificationsCountRef.removeValue()
+            }
+        })
+    }
+
 
     
 }

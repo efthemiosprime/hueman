@@ -59,8 +59,7 @@ class NotificationsViewModel: NSObject {
                             counter = counter + 1
                             
                             if counter == numberOfNotifications {
-                                
-
+                            
                                 let sortedItems =   items.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
 
                                 complete?(notifications: sortedItems)
@@ -72,6 +71,8 @@ class NotificationsViewModel: NSObject {
             }
         })
     }
+    
+
 
 }
 
