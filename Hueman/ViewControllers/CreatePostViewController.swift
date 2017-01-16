@@ -34,6 +34,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet var huesCollections: Array<UIButton>?
     
+    var storedEntry = [String: AnyObject]()
+    
     var topicColor: UInt?
     var topicIcon: String?
     var topicString: String? {
@@ -42,13 +44,15 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
-
     
     var currentUser: User!
     
     var feedManager = FeedManager()
     
     var originalTopicRects = [CGRect]()
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +96,33 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         icon.addGestureRecognizer(tapIconGesture)
         
         
+        if let entry = defaults.objectForKey("storedEntry") as? [String: AnyObject] {
+            storedEntry = entry
+            
+            if storedEntry.count > 0 {
+                
+                if let input = storedEntry["postInput"] as? String {
+                    postInput.text = input
+                }
+                
+                if let topic = storedEntry["topic"] as? String, let icon = storedEntry["icon"] as? String, let color = storedEntry["color"] as? UInt {
+                    topicString = topic
+                    topicIcon = icon
+                    topicColor = color
+                    
+                    updateTopic(topicColor!, hueIcon: topicIcon!, topic: topicString!)
+                    
+                }
+                
+                if let postImageData = storedEntry["postImage"] as? NSData {
+                    postImage.image = UIImage(data: postImageData)
+                }
+            }
+
+        }
+
+        
+
         
 
 
@@ -154,6 +185,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
             icon.image = UIImage(named: "wanderlust-icon.png")
             topicString = Topic.Wanderlust
+            topicIcon = "wanderlust-icon.png"
+            topicColor = 0x34b5d4
         }
         
         
@@ -162,6 +195,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xF49445)
             icon.image = UIImage(named: "plate-icon.png")
             topicString = Topic.OnMyPlate
+            topicIcon = "plate-icon.png"
+            topicColor = 0xF49445
         }
         
         if sender.tag == 2 {
@@ -169,6 +204,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xe2563b)
             icon.image = UIImage(named: "relationship-icon.png")
             topicString = Topic.RelationshipMusing
+            topicIcon = "relationship-icon.png"
+            topicColor = 0xe2563b
         }
         
         if sender.tag == 3 {
@@ -176,6 +213,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x7BC8A4)
             icon.image = UIImage(named: "health-icon.png")
             topicString = Topic.Health
+            topicIcon = "health-icon.png"
+            topicColor = 0x7BC8A4
         }
         
         if sender.tag == 4 {
@@ -183,6 +222,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x93648D)
             icon.image = UIImage(named: "hustle-icon.png")
             topicString = Topic.DailyHustle
+            topicIcon = "hustle-icon.png"
+            topicColor = 0x93648D
         }
         
         if sender.tag == 5 {
@@ -190,8 +231,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xEACD53)
             icon.image = UIImage(named: "ray-light-icon.png")
             topicString = Topic.RayOfLight
+            topicIcon = "ray-light-icon.png"
+            topicColor = 0xEACD53
         }
         
+
         showTopic(true)
     }
 
@@ -200,10 +244,19 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func updateTopic(hueColor: UInt, hueIcon: String, topic: String) {
+        
+        topicColor = hueColor
+        topicString = topic
+        topicIcon = hueIcon
+        
         self.view.backgroundColor = UIColor.UIColorFromRGB(hueColor)
         inputBackground.backgroundColor = UIColor.UIColorFromRGB(hueColor)
         icon.image = UIImage(named: hueIcon)
         self.topicString = topic
+        filterButton.hidden = true
+        icon.hidden = false
+        icon.userInteractionEnabled = true
+
     }
     
     func handleCamera() {
@@ -233,6 +286,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             postImage.image = selectedImage
         }
         
+
         withImage = true
         dismissViewControllerAnimated(true, completion: nil)
         
@@ -253,6 +307,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         submitButton.enabled = false
         showWaitOverlay()
 
+        
         if postInput.text.isEmpty {
             print("input can't be empty")
         }else {
@@ -269,20 +324,19 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                     feedManager.createFeed(feed, imageData: imageData,  feedPosted: {
                         self.removeAllOverlays()
                         
+                        
+                        self.defaults.removeObjectForKey("storedEntry")
                         self.dismissViewControllerAnimated(true, completion: nil)
                         
                     })
                 }else {
                     feedManager.createFeed(feed, imageData: nil,  feedPosted: {
                         self.removeAllOverlays()
-                        
+                        self.defaults.removeObjectForKey("storedEntry")
                         self.dismissViewControllerAnimated(true, completion: nil)
                         
                     })
                 }
-                
-                
-
                 
             }
             
@@ -300,6 +354,29 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func backButton(sender: AnyObject) {
         postInput?.resignFirstResponder()
+        
+        
+        if postInput.text.characters.count > 0 {
+            storedEntry["postInput"] = postInput.text
+        }
+        
+        if postImage.image != nil {
+            storedEntry["postImage"] = UIImageJPEGRepresentation(postImage.image!, 0.5)
+        }
+        
+        if topicString != nil {
+            if let topic = topicString where !topic.isEmpty {
+                storedEntry["topic"] = topic
+                storedEntry["icon"] = topicIcon
+                storedEntry["color"] = topicColor
+            }
+        }
+        
+            
+        defaults.setObject(storedEntry, forKey: "storedEntry")
+        defaults.synchronize()
+       
+    
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -338,11 +415,18 @@ extension CreatePostViewController: UITextViewDelegate {
     
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        textView.text = ""
+        
+        if postInput.text == "Write here..." {
+            textView.text = ""
+
+        }
+        
+ 
         return true
     }
     func textViewDidChange(textView: UITextView) {
         headerLabel.text = "\(textView.text.characters.count)/250 characters left"
+
         
     }
     
