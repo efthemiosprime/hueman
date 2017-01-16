@@ -79,6 +79,7 @@ class AddConnectionsController: UITableViewController {
     
     func fetchAllUsers() {
         
+        let authManager = AuthenticationManager.sharedInstance
         let userRef = databaseRef.child("users")
     
 
@@ -93,11 +94,12 @@ class AddConnectionsController: UITableViewController {
                     return newUser
                 })
                     .filter({!connectionsUids.contains($0.uid)})
+                    .filter({$0.uid != authManager.currentUser!.uid})
                     .sort({ (user1, user2) -> Bool in
                         user1.name < user2.name
                     })
                 
-                
+
                 
                 if self.requests.count > 0 {
                     self.sections.append("pending")
@@ -320,6 +322,41 @@ class AddConnectionsController: UITableViewController {
     }
     
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AddUserCell {
+            print(cell.user?.name)
+            
+                    let screenWidth = UIScreen.mainScreen().bounds.size.width
+                    let screenHeight = UIScreen.mainScreen().bounds.size.height
+            
+                    if let unwrappedUid = cell.user?.uid {
+            
+                        let userRef = databaseRef.child("users").child(unwrappedUid )
+                        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                            if snapshot.exists() {
+            
+                                let user = User(snapshot: snapshot)
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+                                profileController?.user = user
+            
+            
+                                self.tabBarController?.parentViewController!.addChildViewController(profileController!)
+                                profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+                                self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
+                                profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                            }
+                            
+                        })
+                        
+                    }
+        }
+
+        
+
+
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

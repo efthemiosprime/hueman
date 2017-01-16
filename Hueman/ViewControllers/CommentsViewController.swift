@@ -19,6 +19,7 @@ class CommentsViewController: UIViewController {
     @IBOutlet weak var textViewContainer: UIView!
     @IBOutlet weak var commentInput: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: ActivityIndicator!
     
     
     var dataBaseRef: FIRDatabaseReference! {
@@ -38,16 +39,14 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CommentsViewModel()
-           // self.navigationController?.navigationBar.topItem!.title = "comments"
-           // self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
         commentInput.becomeFirstResponder()
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-//        notificationCenter.addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+
 
         self.tableView.separatorStyle = .None
-        print("feed id \(feed.key)")
         loadComments()
     }
     
@@ -56,7 +55,18 @@ class CommentsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "comments"
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.view.frame = CGRectMake(0.0, 0.0, screenWidth, screenHeight)
             
+            
+        }) { (Finished) -> Void in
+            
+        }
+        
 
     }
     
@@ -121,7 +131,7 @@ class CommentsViewController: UIViewController {
     
     func loadComments() {
         
-        showWaitOverlay()
+        activityIndicator.show()
         
         commentsRef = dataBaseRef.child("comments").child(feed.key!)
         commentsRef.observeEventType(.Value, withBlock:{ snapshot in
@@ -136,7 +146,7 @@ class CommentsViewController: UIViewController {
                 self.viewModel.comments = comments
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.removeAllOverlays()
+                    self.activityIndicator.hide()
                     self.tableView.reloadData()
                 })
             }

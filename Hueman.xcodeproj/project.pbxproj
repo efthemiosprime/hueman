@@ -66,6 +66,8 @@
 		3A7605621E0E013900E682AD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605611E0E013900E682AD /* Camera.swift */; };
 		3A7605641E0E080800E682AD /* UIImage+resizeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */; };
 		3A7605661E0E3DA200E682AD /* HuesFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */; };
+		3A7E830D1E2C43BE00D76F9A /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E830C1E2C43BE00D76F9A /* FeedController.swift */; };
+		3A7E830F1E2C4BF900D76F9A /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E830E1E2C4BF900D76F9A /* FeedViewModel.swift */; };
 		3A82E6681E118A38008F520A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82E6671E118A38008F520A /* Comment.swift */; };
 		3A82E66A1E118D00008F520A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82E6691E118D00008F520A /* CommentCell.swift */; };
 		3A82E66C1E11977F008F520A /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82E66B1E11977F008F520A /* CommentsViewModel.swift */; };
@@ -167,6 +169,8 @@
 		3A7605611E0E013900E682AD /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Camera.swift; path = Hueman/Helpers/Camera.swift; sourceTree = "<group>"; };
 		3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+resizeWith.swift"; path = "Extensions/UIImage+resizeWith.swift"; sourceTree = "<group>"; };
 		3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuesFeedViewModel.swift; path = ViewModels/HuesFeedViewModel.swift; sourceTree = "<group>"; };
+		3A7E830C1E2C43BE00D76F9A /* FeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedController.swift; path = ViewControllers/FeedController.swift; sourceTree = "<group>"; };
+		3A7E830E1E2C4BF900D76F9A /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewModel.swift; path = ViewModels/FeedViewModel.swift; sourceTree = "<group>"; };
 		3A82E6671E118A38008F520A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Models/Comment.swift; sourceTree = "<group>"; };
 		3A82E6691E118D00008F520A /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentCell.swift; path = Views/CommentCell.swift; sourceTree = "<group>"; };
 		3A82E66B1E11977F008F520A /* CommentsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewModel.swift; path = ViewModels/CommentsViewModel.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				3A7605651E0E3DA200E682AD /* HuesFeedViewModel.swift */,
 				3A82E66B1E11977F008F520A /* CommentsViewModel.swift */,
 				3A98C7E61E22C2290009B793 /* NotificationsViewModel.swift */,
+				3A7E830E1E2C4BF900D76F9A /* FeedViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				3ACF44371E17718B00CB97DF /* AddLocationController.swift */,
 				3ACF44391E17872300CB97DF /* AddHueController.swift */,
 				3AEFA4721E19EB88005C78D2 /* ErrorController.swift */,
+				3A7E830C1E2C43BE00D76F9A /* FeedController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -641,6 +647,7 @@
 				3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */,
 				3A82E66E1E11BA8F008F520A /* Like.swift in Sources */,
 				3A76055E1E0DEB8100E682AD /* ConnectionsViewModel.swift in Sources */,
+				3A7E830D1E2C43BE00D76F9A /* FeedController.swift in Sources */,
 				3A154E5C1DCD7389005A79EC /* ConnectionLeftItem.swift in Sources */,
 				3ACF443A1E17872300CB97DF /* AddHueController.swift in Sources */,
 				3A154E481DCD7352005A79EC /* HueboardsViewController.swift in Sources */,
@@ -704,6 +711,7 @@
 				3AEFA4691E198A18005C78D2 /* CircleHues.swift in Sources */,
 				3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */,
 				3A7605621E0E013900E682AD /* Camera.swift in Sources */,
+				3A7E830F1E2C4BF900D76F9A /* FeedViewModel.swift in Sources */,
 				3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */,
 				3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */,
 				3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */,

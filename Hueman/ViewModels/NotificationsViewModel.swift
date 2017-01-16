@@ -72,6 +72,17 @@ class NotificationsViewModel: NSObject {
         })
     }
     
+    func getFeed(key: String, result: ((feed: Feed) -> ())? = nil)  {
+        let feedRef = dataBaseRef.child("feeds").child(key)
+        feedRef.observeEventType(.Value, withBlock: {
+            snapshot in
+            if snapshot.exists() {
+                let feed = Feed(snapshot: snapshot)
+                result?(feed: feed)
+            }
+        })
+    }
+    
 
 
 }

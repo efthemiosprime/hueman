@@ -79,6 +79,29 @@ class NotificationsViewController: UITableViewController {
         }
     }
     
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        if segue.identifier == "ShowComments" {
+//            
+//            
+//            if let navController = segue.destinationViewController as? UINavigationController {
+//                
+//                
+//                
+//                if let commentsViewController = navController.topViewController as? CommentsViewController {
+//                    
+//                    let selectedFeed: Feed?
+//                    commentsViewController.feed = selectedFeed
+//                    
+//                }
+//                
+//            }
+//        }
+//    }
+//    
+
+    
 
     
     // MARK: - Table View
@@ -101,6 +124,38 @@ class NotificationsViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 90
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedNotification: NotificationItem = data[indexPath.row]
+        viewModel.getFeed(selectedNotification.key, result: {
+            feed in
+                
+            
+            if selectedNotification.type == "commented" {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let commentsController = storyboard.instantiateViewControllerWithIdentifier("CommentView") as? CommentsViewController
+                
+                commentsController?.feed = feed
+                let navController = UINavigationController(rootViewController: commentsController!)
+                self.presentViewController(navController, animated:true, completion: nil)
+                //                    self.tabBarController?.selectedIndex = 2
+            }else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let feedController = storyboard.instantiateViewControllerWithIdentifier("FeedView") as? FeedController
+                
+                feedController?.feed = feed
+                let navController = UINavigationController(rootViewController: feedController!)
+                self.presentViewController(navController, animated:true, completion: nil)
+            }
+
+        })
+
+        
+
+    }
+    
+
     
     /*
     // MARK: - Navigation
