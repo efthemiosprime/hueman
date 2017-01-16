@@ -41,6 +41,7 @@ class FeedImageTableViewCell: UITableViewCell {
     var showCommentsAction: ((UITableViewCell) -> Void)?
     var showLikesAction: ((UITableViewCell) -> Void)?
     var showPopover:((UITableViewCell) -> Void)?
+    var showAuthor:((UITableViewCell) -> Void)?
     
     var feed: Feed? {
         didSet{
@@ -49,7 +50,12 @@ class FeedImageTableViewCell: UITableViewCell {
                 textAuthorLabel.text = feed.author
                 textCreatedLabel.text = feed.dateCreated ?? ""
                 feedImage.clipsToBounds = true
+
                 key = feed.key
+                
+                authorProfileImage.userInteractionEnabled = true
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedShowAuthor))
+                authorProfileImage.addGestureRecognizer(tapGesture)
             }
         }
     }
@@ -57,6 +63,14 @@ class FeedImageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        authorProfileImage.layer.shadowColor = UIColor.blackColor().CGColor
+        authorProfileImage.layer.shadowOpacity = 0.5
+        authorProfileImage.layer.shadowOffset = CGSizeMake(2, 2)
+        authorProfileImage.layer.shadowRadius = 3
+        authorProfileImage.layer.borderColor = UIColor.UIColorFromRGB(0xffffff).CGColor
+        
+        
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -80,6 +94,10 @@ class FeedImageTableViewCell: UITableViewCell {
 
         
         showLikesAction?(self)
+    }
+    
+    func didTappedShowAuthor() {
+        showAuthor?(self)
     }
 
 }

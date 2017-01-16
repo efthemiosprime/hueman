@@ -98,6 +98,8 @@ class HuesFeedViewModel: NSObject {
                         } else {
                             (cell as? FeedImageTableViewCell)!.authorProfileImage.image = cachedImage as? UIImage
                         }
+                        
+                        
                     })
                 }else {
                     self.storageRef.referenceForURL(photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
@@ -172,15 +174,22 @@ class HuesFeedViewModel: NSObject {
                 for snap in snapshot.children {
                 
                     if let uid = snap.value["uid"] as? String {
-                        if uid == currentUID {
-                            if cell is FeedImageTableViewCell {
-                                (cell as! FeedImageTableViewCell).likesButton.enabled = false
-                            }else {
-        
-                                (cell as! FeedTextTableViewCell).likesButton.enabled = false
+                        
+                        if let unWrappedUID = currentUID {
+                            if uid == unWrappedUID {
                                 
+                                
+                                if cell is FeedImageTableViewCell {
+                                    (cell as! FeedImageTableViewCell).likesButton.enabled = false
+                                }else {
+                                    
+                                    (cell as! FeedTextTableViewCell).likesButton.enabled = false
+                                    
+                                }
                             }
                         }
+                        
+
                     }
                 }
                 

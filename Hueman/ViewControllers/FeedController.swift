@@ -203,7 +203,7 @@ class FeedController: UIViewController {
     func displayTotalLikes(key:String) {
         
         let authManager = AuthenticationManager.sharedInstance
-        let currentUID = authManager.currentUser?.uid
+        let currentUID = authManager.currentUser?.uid!
         
         let likesRef = databaseRef.child("likes").child(key)
         likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -213,11 +213,13 @@ class FeedController: UIViewController {
                     
                     if let uid = snap.value["uid"] as? String {
                         
-                        print("uid \(uid)")
-                        print("currentUID \(currentUID)")
-                        if uid == currentUID {
-                            self.likesButton.enabled = false
+                        if let unwrappedUID = currentUID {
+                            if uid == unwrappedUID {
+                                self.likesButton.enabled = false
+                            }
                         }
+                        
+
                     }
                 }
                 

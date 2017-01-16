@@ -156,6 +156,8 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         {
             let feedCell = cell as! FeedImageTableViewCell
             feedCell.feed = feed
+            
+
 
             feedCell.showCommentsAction = { (cell) in
                 
@@ -204,6 +206,36 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                                 
                 self.presentViewController(popController, animated: true, completion: nil)
 
+            }
+            
+            feedCell.showAuthor = { cell in
+                
+                let screenWidth = UIScreen.mainScreen().bounds.size.width
+                let screenHeight = UIScreen.mainScreen().bounds.size.height
+                
+                
+                
+                if let unwrappedUid = (cell as! FeedImageTableViewCell).feed?.uid {
+                    
+                    let userRef = self.databaseRef.child("users").child(unwrappedUid )
+                    userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        if snapshot.exists() {
+                            
+                            let user = User(snapshot: snapshot)
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+                            profileController?.user = user
+                            
+                            
+                            self.tabBarController?.parentViewController!.addChildViewController(profileController!)
+                            profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+                            self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
+                            profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                        }
+                        
+                    })
+                    
+                }
             }
             
             
@@ -256,9 +288,53 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
                     }
                 }
-                
-
             }
+            
+            feedCell.showAuthor = { cell in
+                
+                let screenWidth = UIScreen.mainScreen().bounds.size.width
+                let screenHeight = UIScreen.mainScreen().bounds.size.height
+                
+                
+                
+                if let unwrappedUid = (cell as! FeedTextTableViewCell).feed?.uid {
+                    
+                    let userRef = self.databaseRef.child("users").child(unwrappedUid )
+                    userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        if snapshot.exists() {
+                            
+                            let user = User(snapshot: snapshot)
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+                            profileController?.user = user
+                            
+                            
+                            self.tabBarController?.parentViewController!.addChildViewController(profileController!)
+                            profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+                            self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
+                            profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                        }
+                        
+                    })
+                    
+                }
+            }
+            
+            feedCell.showPopover = { (cell) in
+                let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("popoverID")
+                popController.preferredContentSize = CGSizeMake(120, 160)
+                popController.modalPresentationStyle = UIModalPresentationStyle.Popover
+                // set up the popover presentation controller
+                popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
+                popController.popoverPresentationController?.delegate = self
+                popController.popoverPresentationController?.sourceView = (cell as! FeedTextTableViewCell).popoverButton // button
+                popController.popoverPresentationController?.sourceRect = (cell as! FeedTextTableViewCell).popoverButton.bounds
+                
+                self.presentViewController(popController, animated: true, completion: nil)
+                
+            }
+            
+            
             
         }
         
