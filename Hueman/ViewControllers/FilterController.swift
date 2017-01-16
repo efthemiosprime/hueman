@@ -18,6 +18,7 @@ class FilterController: UIViewController {
     
     
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var filterView: UIView!
     @IBOutlet var hues: Array<UIButton>?
     var delegate : FilterControllerDelegate?
     var topics = [String]()
@@ -37,19 +38,26 @@ class FilterController: UIViewController {
         for hue in hues! {
             hue.addTarget(self, action: #selector(FilterController.filterFeeds(_:)), forControlEvents: .TouchUpInside)
         }
-        
-//        // Creating Tap Gesture to dismiss Keyboard
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(FilterController.selfDestruct))
-//        tapGesture.numberOfTapsRequired = 1
-//        view.addGestureRecognizer(tapGesture)
+
+
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            let frame = self.filterView.frame
+
+            self.filterView.frame = frame.offsetBy(dx: 0, dy: frame.size.height)
+            
+            
+        }) { (Finished) -> Void in
+            
+        }
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+
     }
-    
 
     
     @IBAction func didTappedClose(sender: AnyObject) {
@@ -62,16 +70,30 @@ class FilterController: UIViewController {
         }
         
         self.delegate?.onFilter(filters)
+        
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            let frame = self.filterView.frame
+            
+            self.filterView.frame = frame.offsetBy(dx: 0, dy: -frame.size.height)
+            
+            
+        }) { (Finished) -> Void in
+
+            self.selfDestruct()
+
+        }
     
 
-        selfDestruct()
-        
+
     }
     
     func selfDestruct() {
+        
+
         self.didMoveToParentViewController(nil)
         self.view.removeFromSuperview()
         self.removeFromParentViewController()
+
     }
 
     func filterFeeds(sender: UIButton) {

@@ -371,7 +371,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
     func onFilter(topics: [String])
     {
-        
+        print("xxxxx")
         feeds = topics.count > 0 ? huesFeedModel.oldFeeds.filter({topics.contains($0.topic!)}) : huesFeedModel.oldFeeds
         self.tableView.reloadData()
         

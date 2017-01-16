@@ -23,6 +23,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var topic: UIView!
+    @IBOutlet weak var topicCloseButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
@@ -47,12 +48,22 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     var feedManager = FeedManager()
     
-
+    var originalTopicRects = [CGRect]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showTopic(false)
+        for btn in huesCollections! {
+            originalTopicRects.append(btn.frame)
+            print(btn.frame)
+            btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
+        }
+        
+        
+        
+        showTopic(true)
+        filterButton.hidden = false
+        filterButton.enabled = true
         submitButton.enabled = false
         icon.hidden = true
         
@@ -68,11 +79,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             updateTopic(topicColor, hueIcon: topicIcon, topic: topicString)
             
         }
+    
         
-        
-        for btn in huesCollections! {
-            btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
-        }
+
         
         cameraButton.addTarget(self, action: #selector(CreatePostViewController.handleCamera), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
@@ -81,6 +90,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         icon.userInteractionEnabled = false
         let tapIconGesture = UITapGestureRecognizer(target: self, action: #selector(CreatePostViewController.showTopicAction))
         icon.addGestureRecognizer(tapIconGesture)
+        
+        
+        
+
 
     }
     
@@ -92,15 +105,40 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func showTopic(show: Bool) {
-        topic.hidden = show
         if show == true {
-            postInput?.userInteractionEnabled = true
-            postInput?.becomeFirstResponder()
-            filterButton.hidden = true
-            icon.hidden = false
-            icon.userInteractionEnabled = true
+            
+            let closeFrame = topicCloseButton.frame
+            var index = 0
+            var done = false
+            for btn in huesCollections! {
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    btn.frame = closeFrame
+                    btn.alpha = 0
+                    index = index + 1
+
+                    }, completion: { finished in
+                        if done == false {
+                            done = true
+                            self.topic.hidden = show
+
+                        }
+                })
+                
+            }
+            
+            
+            self.postInput?.userInteractionEnabled = true
+            self.postInput?.becomeFirstResponder()
+            self.filterButton.hidden = true
+            self.icon.hidden = false
+            self.icon.userInteractionEnabled = true
+
+
     
         }else {
+            topic.hidden = show
+
+            openTopic()
 
             postInput?.userInteractionEnabled = false
             postInput?.resignFirstResponder()
@@ -265,6 +303,34 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func closeTopic() {
+        let closeFrame = topicCloseButton.frame
+        for btn in huesCollections! {
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                btn.frame = closeFrame
+                btn.alpha = 0
+                }, completion: { finished in
+                })
+        }
+    }
+    
+    func openTopic() {
+        var index = 0
+        
+        for btn in huesCollections! {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                btn.frame = self.originalTopicRects[index]
+                btn.alpha = 1
+
+                index = index + 1
+                }, completion: { finished in
+
+
+            })
+        }
+        
+
+    }
 
 }
 
