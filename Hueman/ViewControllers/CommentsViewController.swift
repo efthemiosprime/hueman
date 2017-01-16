@@ -21,6 +21,7 @@ class CommentsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: ActivityIndicator!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     var dataBaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
@@ -40,12 +41,15 @@ class CommentsViewController: UIViewController {
         super.viewDidLoad()
         viewModel = CommentsViewModel()
 
+        commentInput.delegate = self
         commentInput.becomeFirstResponder()
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
 
 
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 160
         self.tableView.separatorStyle = .None
         loadComments()
     }
@@ -79,14 +83,9 @@ class CommentsViewController: UIViewController {
     func keyboardWillShow(notification: NSNotification) {
         let userInfo = notification.userInfo!
         let keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
-       //bottomHeight.constant = keyboardHeight
-       // self.view.setNeedsLayout()
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        print(keyboardHeight)
-        textViewContainer.frame = CGRectMake(0, screenHeight - (keyboardHeight + 102), screenWidth, textViewContainer.frame.size.height)
-        self.view.setNeedsLayout()
+
+        bottomConstraint.constant = keyboardHeight
+        self.view.layoutIfNeeded()
     }
     
     func postComment() {
@@ -187,10 +186,32 @@ extension CommentsViewController: UITableViewDataSource {
 }
 
 
-extension CommentsViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 96
+extension CommentsViewController: UITextFieldDelegate {
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
+    
+    // Moving the View up after the Keyboard appears
+    func textFieldDidBeginEditing(textField: UITextField) {
+        //animateView(true, moveValue: 80)
+        
+        
+    }
+    
+    
+    // Moving the View down after the Keyboard disappears
+    func textFieldDidEndEditing(textField: UITextField) {
+        // animateView(false, moveValue: 80)
+    }
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= 250
+    }
+    
     
 }
 

@@ -212,8 +212,10 @@ class FeedController: UIViewController {
                 for snap in snapshot.children {
                     
                     if let uid = snap.value["uid"] as? String {
+                        
+                        print("uid \(uid)")
+                        print("currentUID \(currentUID)")
                         if uid == currentUID {
-                            print("xxxxx")
                             self.likesButton.enabled = false
                         }
                     }
