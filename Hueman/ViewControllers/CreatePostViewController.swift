@@ -49,7 +49,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     var feedManager = FeedManager()
     
-    var originalTopicRects = [CGRect]()
+    var topicRectOffsets = [CGPoint]()
     
     let defaults = NSUserDefaults.standardUserDefaults()
 
@@ -58,11 +58,16 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         
         for btn in huesCollections! {
-            originalTopicRects.append(btn.frame)
             btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
         }
         
-        
+        topicRectOffsets.append(CGPoint(x: -101, y: 23))
+        topicRectOffsets.append(CGPoint(x: -74, y: 70))
+        topicRectOffsets.append(CGPoint(x: -26, y: 94))
+        topicRectOffsets.append(CGPoint(x: 26, y: 94))
+        topicRectOffsets.append(CGPoint(x: 74, y: 70))
+        topicRectOffsets.append(CGPoint(x: 101, y: 23))
+
         
         showTopic(true)
         filterButton.hidden = false
@@ -163,7 +168,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             self.icon.hidden = false
             self.icon.userInteractionEnabled = true
 
-
     
         }else {
             topic.hidden = show
@@ -247,6 +251,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         topicColor = hueColor
         topicString = topic
         topicIcon = hueIcon
+        
         
         self.view.backgroundColor = UIColor.UIColorFromRGB(hueColor)
         inputBackground.backgroundColor = UIColor.UIColorFromRGB(hueColor)
@@ -395,7 +400,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         for btn in huesCollections! {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
-                btn.frame = self.originalTopicRects[index]
+                btn.frame = btn.frame.offsetBy(dx: self.topicRectOffsets[index].x, dy: self.topicRectOffsets[index].y)
                 btn.alpha = 1
 
                 index = index + 1

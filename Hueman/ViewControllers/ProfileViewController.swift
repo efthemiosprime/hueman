@@ -66,6 +66,7 @@ class ProfileViewController: UIViewController {
         self.view.layer.shadowOffset = CGSizeMake(0.0, 5.0)
         self.view.layer.shadowOpacity = 0.5
         
+
     }
     
     override func viewWillAppear(animated: Bool) {

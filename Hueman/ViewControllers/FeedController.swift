@@ -109,7 +109,9 @@ class FeedController: UIViewController {
         }
         
         
-
+        authorProfileImage.userInteractionEnabled = true
+        let tapIconGesture = UITapGestureRecognizer(target: self, action: #selector(showAuthorProfile))
+        authorProfileImage.addGestureRecognizer(tapIconGesture)
 
     }
 
@@ -119,6 +121,36 @@ class FeedController: UIViewController {
 
     }
 
+    func showAuthorProfile() {
+        /*
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        if let unwrappedUid = feed?.uid {
+            
+            
+            let userRef = self.databaseRef.child("users").child(unwrappedUid )
+            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if snapshot.exists() {
+                    
+                    let user = User(snapshot: snapshot)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+                    profileController?.user = user
+                    
+                    
+                    self.parentViewController!.addChildViewController(profileController!)
+                    profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+                    self.parentViewController!.view.addSubview((profileController?.view)!)
+                    profileController!.didMoveToParentViewController(self.parentViewController!)
+                }
+                
+            })
+            
+        }
+        */
+    }
+    
+    
     func displayImageFeedWithURL(url:String) {
         if let cachedImage = self.cachedImages.objectForKey(url) {
             dispatch_async(dispatch_get_main_queue(), {

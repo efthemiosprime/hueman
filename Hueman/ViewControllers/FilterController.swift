@@ -39,6 +39,7 @@ class FilterController: UIViewController {
             hue.addTarget(self, action: #selector(FilterController.filterFeeds(_:)), forControlEvents: .TouchUpInside)
         }
 
+        
 
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             let frame = self.filterView.frame
