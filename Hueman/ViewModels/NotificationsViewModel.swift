@@ -53,7 +53,7 @@ class NotificationsViewModel: NSObject {
                         
                         if userSnapshot.exists() {
                             let user = User(snapshot: userSnapshot)
-                            let item = NotificationItem(name: user.name, type: snap.type, dateCreated: snap.dateCreated!, photoURL: user.photoURL!, key: snap.feedKey, date: snap.date!)
+                            let item = NotificationItem(name: user.name, type: snap.type, dateCreated: snap.dateCreated!, feedTopic: snap.feedTopic!, photoURL: user.photoURL!, key: snap.feedKey, date: snap.date!)
                             
                             items.append(item)
                             counter = counter + 1
@@ -94,14 +94,16 @@ struct NotificationItem {
     var type: String!
     var dateCreated: String!
     var photoURL: String!
+    var feedTopic: String!
     var key: String!
     var date: NSDate?
     
-    init(name: String, type: String, dateCreated: String, photoURL: String, key: String, date: NSDate) {
+    init(name: String, type: String, dateCreated: String, feedTopic: String, photoURL: String, key: String, date: NSDate) {
         self.name = name
         self.type = type
         self.dateCreated = dateCreated
         self.photoURL = photoURL
+        self.feedTopic = feedTopic
         self.key = key
         self.date = date
     }

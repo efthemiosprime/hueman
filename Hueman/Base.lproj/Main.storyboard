@@ -845,7 +845,7 @@
                                         <constraint firstItem="dQ1-mK-8wB" firstAttribute="leading" secondItem="wEW-UF-yFW" secondAttribute="leading" constant="20" id="wec-BN-5Fg"/>
                                         <constraint firstItem="kGm-EW-FyY" firstAttribute="leading" secondItem="wEW-UF-yFW" secondAttribute="leading" constant="20" id="xhW-eN-7px"/>
                                         <constraint firstAttribute="trailing" secondItem="xOb-pU-zay" secondAttribute="trailing" constant="23" id="y4J-Tc-eWJ"/>
-                                        <constraint firstItem="xOb-pU-zay" firstAttribute="top" secondItem="WEo-Tr-vKD" secondAttribute="bottom" constant="5" id="yWk-Je-Cid"/>
+                                        <constraint firstItem="xOb-pU-zay" firstAttribute="top" secondItem="WEo-Tr-vKD" secondAttribute="bottom" constant="8" id="yWk-Je-Cid"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -870,7 +870,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O14-Iz-Paj">
-                                            <rect key="frame" x="343" y="15" width="11" height="22"/>
+                                            <rect key="frame" x="343" y="8" width="11" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="11" id="7NN-Nb-zxH"/>
                                                 <constraint firstAttribute="height" constant="22" id="bpj-QX-36D"/>
@@ -1011,7 +1011,7 @@
                                         <constraint firstAttribute="bottom" secondItem="c5C-BH-ulM" secondAttribute="bottom" id="YFG-gA-g6n"/>
                                         <constraint firstAttribute="trailing" secondItem="O14-Iz-Paj" secondAttribute="trailing" constant="21" id="dEB-gA-yez"/>
                                         <constraint firstItem="ahI-Kb-bpT" firstAttribute="leading" secondItem="BpH-j8-DCk" secondAttribute="leading" constant="20" id="dHO-2L-fIh"/>
-                                        <constraint firstItem="O14-Iz-Paj" firstAttribute="top" secondItem="BpH-j8-DCk" secondAttribute="top" constant="15" id="gPw-fE-low"/>
+                                        <constraint firstItem="O14-Iz-Paj" firstAttribute="top" secondItem="BpH-j8-DCk" secondAttribute="top" constant="8" id="gPw-fE-low"/>
                                         <constraint firstAttribute="trailing" secondItem="ahI-Kb-bpT" secondAttribute="trailing" constant="85" id="nvH-e3-pVS"/>
                                         <constraint firstItem="c5C-BH-ulM" firstAttribute="leading" secondItem="BpH-j8-DCk" secondAttribute="leading" id="ocM-8N-zIY"/>
                                         <constraint firstItem="jjs-TM-vxg" firstAttribute="top" secondItem="BpH-j8-DCk" secondAttribute="top" constant="18" id="uHI-tA-f6s"/>
@@ -1099,7 +1099,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Fio-gO-Tsn">
-                                            <rect key="frame" x="22" y="13" width="64" height="64"/>
+                                            <rect key="frame" x="20" y="13" width="64" height="64"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="64" id="J9r-ZG-SeM"/>
                                                 <constraint firstAttribute="width" constant="64" id="bpf-BF-MNX"/>
@@ -1112,8 +1112,8 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Smith commented on your post." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-8z-s3Y">
-                                            <rect key="frame" x="98" y="22" width="211" height="28"/>
-                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                            <rect key="frame" x="96" y="22" width="210" height="28"/>
+                                            <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1125,27 +1125,37 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="98" y="53" width="211" height="10"/>
+                                            <rect key="frame" x="96" y="53" width="210" height="10"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPr-2l-8KT">
+                                            <rect key="frame" x="318" y="26" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="37" id="G3Z-Hp-KNS"/>
+                                                <constraint firstAttribute="height" constant="37" id="M7z-oP-SD2"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="7nC-8z-s3Y" firstAttribute="top" secondItem="3Tb-X9-oW0" secondAttribute="top" constant="22" id="4a4-Bn-zHU"/>
+                                        <constraint firstAttribute="trailing" secondItem="yPr-2l-8KT" secondAttribute="trailing" constant="20" id="9J4-0l-KVx"/>
                                         <constraint firstItem="7nC-8z-s3Y" firstAttribute="leading" secondItem="Fio-gO-Tsn" secondAttribute="trailing" constant="12" id="AQg-qc-I2E"/>
+                                        <constraint firstItem="yPr-2l-8KT" firstAttribute="centerY" secondItem="3Tb-X9-oW0" secondAttribute="centerY" id="EAh-a9-h92"/>
                                         <constraint firstItem="Fio-gO-Tsn" firstAttribute="centerY" secondItem="3Tb-X9-oW0" secondAttribute="centerY" id="G8d-X2-Lww"/>
                                         <constraint firstAttribute="bottom" secondItem="0Me-Qa-qET" secondAttribute="bottom" id="GsH-MU-5n7"/>
                                         <constraint firstItem="0Me-Qa-qET" firstAttribute="leading" secondItem="3Tb-X9-oW0" secondAttribute="leading" id="Nw6-kC-wFz"/>
                                         <constraint firstItem="1hf-8g-6yX" firstAttribute="leading" secondItem="Fio-gO-Tsn" secondAttribute="trailing" constant="12" id="Qsz-8G-8xH"/>
                                         <constraint firstAttribute="trailing" secondItem="0Me-Qa-qET" secondAttribute="trailing" id="S0P-ab-hz0"/>
                                         <constraint firstItem="1hf-8g-6yX" firstAttribute="top" secondItem="7nC-8z-s3Y" secondAttribute="bottom" constant="3" id="Z8y-zQ-M9d"/>
-                                        <constraint firstItem="Fio-gO-Tsn" firstAttribute="leading" secondItem="3Tb-X9-oW0" secondAttribute="leading" constant="22" id="ZaP-0b-0wp"/>
-                                        <constraint firstAttribute="trailing" secondItem="7nC-8z-s3Y" secondAttribute="trailing" constant="66" id="cQz-xf-mbl"/>
-                                        <constraint firstAttribute="trailing" secondItem="1hf-8g-6yX" secondAttribute="trailing" constant="66" id="hLP-iU-YfW"/>
+                                        <constraint firstItem="Fio-gO-Tsn" firstAttribute="leading" secondItem="3Tb-X9-oW0" secondAttribute="leading" constant="20" id="ZaP-0b-0wp"/>
+                                        <constraint firstAttribute="trailing" secondItem="7nC-8z-s3Y" secondAttribute="trailing" constant="69" id="cQz-xf-mbl"/>
+                                        <constraint firstAttribute="trailing" secondItem="1hf-8g-6yX" secondAttribute="trailing" constant="69" id="hLP-iU-YfW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="icon" destination="yPr-2l-8KT" id="I9J-cf-7oN"/>
                                     <outlet property="notificationLabel" destination="7nC-8z-s3Y" id="ca8-Nc-4w4"/>
                                     <outlet property="notificationTimestampLabel" destination="1hf-8g-6yX" id="zMS-03-RTU"/>
                                     <outlet property="profileImage" destination="Fio-gO-Tsn" id="Pac-Pi-V1w"/>

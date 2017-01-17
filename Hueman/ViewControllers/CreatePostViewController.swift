@@ -59,7 +59,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         for btn in huesCollections! {
             originalTopicRects.append(btn.frame)
-            print(btn.frame)
             btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
         }
         
@@ -418,7 +417,6 @@ extension CreatePostViewController: UITextViewDelegate {
         
         if postInput.text == "Write here..." {
             textView.text = ""
-
         }
         
  

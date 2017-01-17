@@ -177,11 +177,11 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                             let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
                             likesRef.setValue(newLike.toAnyObject())
                             
-                            
                             let newNotification: Notification = Notification(
                                 fromUid: authenticationManager.currentUser!.uid,
                                 id: NSUUID().UUIDString,
                                 type: "liked",
+                                feedTopic: feed.topic!,
                                 feedKey: feed.key!)
                             
                             let notificationManager = NotificationsManager()
@@ -278,6 +278,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                                 fromUid: authenticationManager.currentUser!.uid,
                                 id: NSUUID().UUIDString,
                                 type: "liked",
+                                feedTopic: feed.topic!,
                                 feedKey: feed.key!)
                             
                             

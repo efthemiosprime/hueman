@@ -113,7 +113,9 @@ class CommentsViewController: UIViewController {
                                                         let newNotification: Notification = Notification(
                                                             fromUid: authManager.currentUser!.uid,
                                                             id: NSUUID().UUIDString,
+                                                            
                                                             type: "commented",
+                                                            feedTopic: feed.topic!,
                                                             feedKey: feed.key!)
                                 
                                                         let notificationManager = NotificationsManager()

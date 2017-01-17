@@ -18,13 +18,15 @@ struct Notification {
     var dateCreated: String?
     var createdAt: AnyObject?
     var feedKey: String!
+    var feedTopic: String!
     var date: NSDate?
     
-    init(fromUid: String, id: String, type: String, feedKey: String) {
+    init(fromUid: String, id: String, type: String, feedTopic:String, feedKey: String) {
         
         self.fromUid = fromUid
         self.id = id
         self.feedKey = feedKey
+        self.feedTopic = feedTopic
         self.type = type
         self.createdAt = [".sv": "timestamp"]
 
@@ -36,6 +38,8 @@ struct Notification {
         self.fromUid = snapshot.value!["fromUid"] as? String
         self.id = snapshot.value!["id"] as? String
         self.feedKey = snapshot.value!["feedKey"] as? String
+        self.feedTopic = snapshot.value!["feedTopic"] as? String
+
         self.type = snapshot.value!["type"] as! String
         if snapshot.value!["created_at"] != nil {
             if let date = snapshot.value!["created_at"] as? NSTimeInterval{
@@ -50,6 +54,6 @@ struct Notification {
     
 
     func toAnyObject() -> [String: AnyObject] {
-        return ["fromUid": self.fromUid!, "id": self.id, "created_at": self.createdAt!, "type": self.type, "feedKey": self.feedKey]
+        return ["fromUid": self.fromUid!, "id": self.id, "created_at": self.createdAt!, "type": self.type, "feedTopic": self.feedTopic,  "feedKey": self.feedKey]
     }
 }

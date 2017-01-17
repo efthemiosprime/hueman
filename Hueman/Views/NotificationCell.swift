@@ -13,6 +13,7 @@ class NotificationCell: UITableViewCell {
 
     @IBOutlet weak var notificationLabel: UILabel!
     @IBOutlet weak var notificationTimestampLabel: UILabel!
+    @IBOutlet weak var icon: UIImageView!
    
     @IBOutlet weak var profileImage: UIImageView!
     
@@ -26,6 +27,36 @@ class NotificationCell: UITableViewCell {
             if let notification = data {
                 notificationLabel.text = "\(notification.name) \(notification.type) on your post."
                 notificationTimestampLabel.text = notification.dateCreated ?? ""
+                
+
+                    switch notification.feedTopic {
+
+                    case Topic.Wanderlust:
+                        icon.image = UIImage(named: Icon.Wanderlust)
+                        break
+                        
+                    case Topic.OnMyPlate:
+                        icon.image = UIImage(named: Icon.OnMyPlate)
+                        break
+                        
+                    case Topic.RelationshipMusing:
+                        icon.image = UIImage(named: Icon.RelationshipMusing)
+                        break
+                        
+                    case Topic.Health:
+                        icon.image = UIImage(named: Icon.Health)
+                        break
+                        
+                    case Topic.DailyHustle:
+                        icon.image = UIImage(named: Icon.DailyHustle)
+                        break
+                        
+                    default:
+                        icon.image = UIImage(named: Icon.RayOfLight)
+                        break
+                    }
+            
+                
                 
                 
                 if let cachedImage = self.cachedImages.objectForKey(notification.photoURL) {
@@ -52,8 +83,9 @@ class NotificationCell: UITableViewCell {
                         }
                     })
                 }
-                
             }
+            
+
         }
     }
     
