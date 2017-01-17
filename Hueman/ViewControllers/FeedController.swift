@@ -218,8 +218,6 @@ class FeedController: UIViewController {
                                 self.likesButton.enabled = false
                             }
                         }
-                        
-
                     }
                 }
                 
@@ -236,7 +234,17 @@ class FeedController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
-
+    @IBAction func didTappedCommentButton(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let commentsController = storyboard.instantiateViewControllerWithIdentifier("CommentView") as? CommentsViewController
+        
+        commentsController?.feed = feed
+        let navController = UINavigationController(rootViewController: commentsController!)
+        self.presentViewController(navController, animated:true, completion: nil)
+    }
+    
+    @IBAction func didTappedLikeButton(sender: AnyObject) {
+    }
     
     
 }

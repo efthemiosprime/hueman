@@ -13,7 +13,8 @@ class NotificationsViewController: UITableViewController {
     var menuItem: UIBarButtonItem!
     var viewModel: NotificationsViewModel!
     var data = [NotificationItem]()
-
+    var nData: [[NotificationItem]] = []
+    //var data: [[User]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +45,8 @@ class NotificationsViewController: UITableViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         viewModel.load({ items in
-            self.data = items.reverse()
+            //self.data = items.reverse()
+            self.nData = items
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
@@ -79,6 +81,14 @@ class NotificationsViewController: UITableViewController {
         }
     }
     
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.nData.removeAll()
+        viewModel.reset()
+    }
+    
+    
 //    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        
@@ -106,16 +116,35 @@ class NotificationsViewController: UITableViewController {
     
     // MARK: - Table View
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return viewModel.sectionTitles.count
     }
     
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return nData[section].count
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return viewModel.sectionTitles[section]
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        view.tintColor = UIColor.UIColorFromRGB(0x666666)
+        
+        let title = UILabel()
+        title.font = UIFont(name: Font.SofiaProRegular, size: 12)!
+        title.textColor = UIColor.whiteColor()
+        
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font=title.font
+        header.textLabel?.textColor=title.textColor
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell", forIndexPath: indexPath) as! NotificationCell
-        cell.data = self.data[indexPath.row]
+        cell.data = self.nData[indexPath.section][indexPath.row]
         
 
         return cell
@@ -127,7 +156,7 @@ class NotificationsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let selectedNotification: NotificationItem = data[indexPath.row]
+        let selectedNotification: NotificationItem = nData[indexPath.section][indexPath.row]
         viewModel.getFeed(selectedNotification.key, result: {
             feed in
                 
@@ -156,7 +185,6 @@ class NotificationsViewController: UITableViewController {
     }
     
 
-    
     /*
     // MARK: - Navigation
 
@@ -165,6 +193,9 @@ class NotificationsViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+     
+     UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: Font.SofiaProRegular, size: 20)!]
+
     */
 
 }
