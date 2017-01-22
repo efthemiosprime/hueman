@@ -14,7 +14,7 @@ class ConnectionsViewModel: NSObject {
     
     let cachedImages = NSCache()
     var connections = [Connection]()
-
+    var numberOfRequests:UInt = 0
     var storageRef: FIRStorage!{
         return FIRStorage.storage()
     }
@@ -58,8 +58,13 @@ class ConnectionsViewModel: NSObject {
         requestRef.observeSingleEventOfType(.Value, withBlock:{
             snapshot in
             
-            
+
             withRequests(snapshot.exists())
+            
+            if snapshot.exists() {
+                self.numberOfRequests = snapshot.childrenCount
+            }
+            
       
             
         }) {(error) in

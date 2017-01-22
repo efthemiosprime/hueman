@@ -88,7 +88,8 @@ class AddConnectionsController: UITableViewController {
             
             if snapshot.exists() {
                 
-                let connectionsUids: [String] = self.connections.map({$0.uid})
+                let connectionsUids: [String] = self.requests.map({$0.uid})
+                print("connections \(connectionsUids)")
                 self.users = snapshot.children.map({(snap) -> User in
                     let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
                     return newUser
@@ -377,6 +378,19 @@ class AddConnectionsController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 96
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        view.tintColor = UIColor.UIColorFromRGB(0x666666)
+        
+        let title = UILabel()
+        title.font = UIFont(name: Font.SofiaProRegular, size: 12)!
+        title.textColor = UIColor.whiteColor()
+        
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font=title.font
+        header.textLabel?.textColor=title.textColor
     }
     
 //    override func setEditing(editing: Bool, animated: Bool) {

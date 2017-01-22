@@ -533,7 +533,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Efthemios Prime";
 				TargetAttributes = {
 					3A060D291D9CADE9007F2B02 = {
