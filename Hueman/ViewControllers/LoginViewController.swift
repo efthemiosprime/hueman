@@ -113,7 +113,7 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
     
     func showError(msg: String) {
         let errorController: ErrorController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("errorID") as? ErrorController)!
-        errorController.preferredContentSize = CGSizeMake(300, 150)
+      // errorController.preferredContentSize = CGSizeMake(300, 150)
         errorController.modalPresentationStyle = UIModalPresentationStyle.Popover
         errorController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         errorController.popoverPresentationController?.delegate = self

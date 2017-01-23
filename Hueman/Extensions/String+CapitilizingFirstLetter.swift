@@ -13,6 +13,8 @@ func capitalizingFirstLetter() -> String {
     let other = String(characters.dropFirst())
     return first + other
 }
+    
+    
 
 mutating func capitalizeFirstLetter() {
     self = self.capitalizingFirstLetter()

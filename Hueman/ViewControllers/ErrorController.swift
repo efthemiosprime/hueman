@@ -30,6 +30,11 @@ class ErrorController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.view.superview!.layer.cornerRadius = 5;
+        
+
+        
+        print(errorLabel.frame.size.height)
+        self.preferredContentSize = CGSizeMake(300, errorLabel.frame.size.height + 60)
 
     }
     

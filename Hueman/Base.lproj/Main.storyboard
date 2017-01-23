@@ -815,7 +815,7 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ds4-c1-LfF" customClass="ActivityIndicator" customModule="Hueman" customModuleProvider="target">
-                                            <rect key="frame" x="166" y="79" width="40" height="40"/>
+                                            <rect key="frame" x="165.5" y="79" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
@@ -1112,7 +1112,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Smith commented on your post." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-8z-s3Y">
-                                            <rect key="frame" x="96" y="22" width="210" height="33"/>
+                                            <rect key="frame" x="96" y="22" width="210" height="28"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1125,7 +1125,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="96" y="58" width="210" height="12"/>
+                                            <rect key="frame" x="96" y="53" width="210" height="10"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1555,7 +1555,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/250 characters left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-jV-SBc">
-                                <rect key="frame" x="38" y="95.5" width="299" height="16.5"/>
+                                <rect key="frame" x="38" y="98" width="299" height="14"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1802,7 +1802,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1913,7 +1913,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNU-AJ-1eG" userLabel="Name + Bio">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                                         <subviews>
-                                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="create-profile-name-bio" translatesAutoresizingMaskIntoConstraints="NO" id="325-h0-99p">
+                                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="create-profile-name-bio" translatesAutoresizingMaskIntoConstraints="NO" id="325-h0-99p">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                                             </imageView>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What’s your name?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Rq-c4-qLh">
@@ -1947,6 +1947,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="sNU-AJ-1eG" secondAttribute="bottom" id="E2c-I1-DxZ"/>
                                                     <constraint firstItem="sNU-AJ-1eG" firstAttribute="top" secondItem="TCb-jh-U5z" secondAttribute="top" id="GHQ-ak-skt"/>
                                                     <constraint firstAttribute="height" constant="103" id="i9f-Ue-EuV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sNU-AJ-1eG" secondAttribute="trailing" id="kS7-gV-tMv"/>
+                                                    <constraint firstItem="sNU-AJ-1eG" firstAttribute="leading" secondItem="TCb-jh-U5z" secondAttribute="leading" id="rFO-Jt-pxK"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Daz-P8-oBA" userLabel="City + Birthday">
@@ -2023,6 +2025,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSo-YB-ixN" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="4mM-ZQ-qUn">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-M6-qmv">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2047,6 +2052,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="4mM-ZQ-qUn" secondAttribute="trailing" id="78C-iM-uxR"/>
+                                                                    <constraint firstItem="4mM-ZQ-qUn" firstAttribute="leading" secondItem="rSo-YB-ixN" secondAttribute="leading" id="Kpj-bK-0lC"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="4mM-ZQ-qUn" secondAttribute="bottom" id="M3i-3f-BfS"/>
+                                                                    <constraint firstItem="4mM-ZQ-qUn" firstAttribute="top" secondItem="rSo-YB-ixN" secondAttribute="top" constant="5" id="R58-PR-ogc"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="zfG-mW-sMQ" id="uje-W3-tyM"/>
                                                                     <outlet property="icon" destination="nRQ-0g-Dxs" id="ak7-bQ-1iv"/>
@@ -2057,6 +2068,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-n2-gNm" userLabel="plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="TIm-AB-Ek1">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="LXI-mA-kP3">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2081,6 +2095,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="TIm-AB-Ek1" firstAttribute="leading" secondItem="VfG-n2-gNm" secondAttribute="leading" id="006-nD-eXf"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="TIm-AB-Ek1" secondAttribute="trailing" id="1xP-aa-T60"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="TIm-AB-Ek1" secondAttribute="bottom" id="BlK-Z9-QsV"/>
+                                                                    <constraint firstItem="TIm-AB-Ek1" firstAttribute="top" secondItem="VfG-n2-gNm" secondAttribute="top" constant="5" id="vu7-EM-E2P"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="niQ-El-EqS" id="Q1F-Li-ejx"/>
                                                                     <outlet property="icon" destination="EwS-Rn-5NE" id="25D-v2-Utq"/>
@@ -2096,6 +2116,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKc-yL-RN9" userLabel="love musings" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="Ydq-BF-gcL">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ORj-dM-tru">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2120,6 +2143,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="Ydq-BF-gcL" firstAttribute="top" secondItem="HKc-yL-RN9" secondAttribute="top" constant="5" id="izw-7x-BMz"/>
+                                                                    <constraint firstItem="Ydq-BF-gcL" firstAttribute="leading" secondItem="HKc-yL-RN9" secondAttribute="leading" id="kLx-cg-3VT"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Ydq-BF-gcL" secondAttribute="bottom" id="nIs-gh-8yS"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Ydq-BF-gcL" secondAttribute="trailing" id="xBb-Vq-B5D"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="BeA-8V-Vlc" id="mdE-wd-J8q"/>
                                                                     <outlet property="icon" destination="z8u-AM-Qgr" id="ETy-P3-Nas"/>
@@ -2130,6 +2159,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o31-ep-JYG" userLabel="health" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="acf-OM-Mr4">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-Pe-Wj6">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2154,6 +2186,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="acf-OM-Mr4" secondAttribute="bottom" id="9LK-KA-mUu"/>
+                                                                    <constraint firstItem="acf-OM-Mr4" firstAttribute="top" secondItem="o31-ep-JYG" secondAttribute="top" constant="5" id="Jh0-Ib-xY4"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="acf-OM-Mr4" secondAttribute="trailing" id="LyF-Sc-fQc"/>
+                                                                    <constraint firstItem="acf-OM-Mr4" firstAttribute="leading" secondItem="o31-ep-JYG" secondAttribute="leading" id="uO2-Y1-7On"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="kbx-ft-1oJ" id="mp4-oT-Xem"/>
                                                                     <outlet property="icon" destination="44K-3G-WLj" id="SUe-7n-cMb"/>
@@ -2169,6 +2207,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpw-zU-m4P" userLabel="daily" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="wAF-hH-gHn">
+                                                                        <rect key="frame" x="0.0" y="1" width="149.5" height="195.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-De-L62">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2193,6 +2234,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="wAF-hH-gHn" secondAttribute="trailing" id="3VW-D1-Vnw"/>
+                                                                    <constraint firstItem="wAF-hH-gHn" firstAttribute="leading" secondItem="mpw-zU-m4P" secondAttribute="leading" id="GJs-50-16Y"/>
+                                                                    <constraint firstItem="wAF-hH-gHn" firstAttribute="top" secondItem="mpw-zU-m4P" secondAttribute="top" constant="5" id="Gb3-wM-c93"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="wAF-hH-gHn" secondAttribute="bottom" id="Svc-c8-QGf"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="C8c-Ss-Gud" id="3TW-WB-6h1"/>
                                                                     <outlet property="icon" destination="l4E-fH-js1" id="pg5-XR-0ab"/>
@@ -2203,6 +2250,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IN-XA-Wbq" userLabel="ray" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="Gng-Rp-dYF">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-Q4-IFT">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2227,6 +2277,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="Gng-Rp-dYF" secondAttribute="bottom" id="Iwz-rq-QJQ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Gng-Rp-dYF" secondAttribute="trailing" id="L6Z-v7-lKF"/>
+                                                                    <constraint firstItem="Gng-Rp-dYF" firstAttribute="leading" secondItem="8IN-XA-Wbq" secondAttribute="leading" id="yKD-qy-Vqh"/>
+                                                                    <constraint firstItem="Gng-Rp-dYF" firstAttribute="top" secondItem="8IN-XA-Wbq" secondAttribute="top" constant="5" id="zRY-CL-yPr"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="Lwk-tz-aRC" id="jG6-kP-ZT2"/>
                                                                     <outlet property="icon" destination="NtG-Nd-iJ5" id="CdI-1n-chd"/>
@@ -2904,24 +2960,29 @@
                         <viewControllerLayoutGuide type="bottom" id="UoW-EP-8ec"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="n3y-48-v8r">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="46"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icd-ZT-IyP">
-                                <rect key="frame" x="31" y="8" width="238" height="134"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icd-ZT-IyP">
+                                <rect key="frame" x="20" y="15" width="260" height="16"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Icd-ZT-IyP" firstAttribute="leading" secondItem="n3y-48-v8r" secondAttribute="leading" constant="20" id="Klz-im-cNB"/>
+                            <constraint firstAttribute="trailing" secondItem="Icd-ZT-IyP" secondAttribute="trailing" constant="20" id="R98-T4-cYA"/>
+                            <constraint firstItem="UoW-EP-8ec" firstAttribute="top" secondItem="Icd-ZT-IyP" secondAttribute="bottom" constant="15" id="aSt-Qx-pxZ"/>
+                            <constraint firstItem="Icd-ZT-IyP" firstAttribute="top" secondItem="nzw-Ae-pZR" secondAttribute="bottom" constant="15" id="n9G-ij-4df"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="150"/>
+                    <size key="freeformSize" width="300" height="46"/>
                     <connections>
                         <outlet property="errorLabel" destination="Icd-ZT-IyP" id="tqx-xM-GwB"/>
                     </connections>
@@ -3045,6 +3106,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRx-xC-3Nc" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="p8L-li-hGp">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="R9U-Dz-WTg">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3069,6 +3133,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="p8L-li-hGp" secondAttribute="trailing" id="LAq-sR-PQZ"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="p8L-li-hGp" secondAttribute="bottom" id="afs-vF-Bmz"/>
+                                                                    <constraint firstItem="p8L-li-hGp" firstAttribute="top" secondItem="VRx-xC-3Nc" secondAttribute="top" constant="5" id="ivM-V2-gcg"/>
+                                                                    <constraint firstItem="p8L-li-hGp" firstAttribute="leading" secondItem="VRx-xC-3Nc" secondAttribute="leading" id="kbD-HK-fVy"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="ioH-WA-ahy" id="HPL-kD-aQM"/>
                                                                     <outlet property="icon" destination="lgs-KL-Tun" id="ZuP-Wr-6RU"/>
@@ -3079,6 +3149,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqs-YO-Qhm" userLabel="plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="ANp-8f-FgG">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="AdH-54-zOB">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3103,6 +3176,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="ANp-8f-FgG" firstAttribute="top" secondItem="qqs-YO-Qhm" secondAttribute="top" constant="5" id="IRV-1i-vEm"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="ANp-8f-FgG" secondAttribute="bottom" id="JUY-NU-Jof"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ANp-8f-FgG" secondAttribute="trailing" id="TkG-jh-dTF"/>
+                                                                    <constraint firstItem="ANp-8f-FgG" firstAttribute="leading" secondItem="qqs-YO-Qhm" secondAttribute="leading" id="kcx-u1-jdw"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="6Yn-Mx-FqC" id="QVH-Tm-gQi"/>
                                                                     <outlet property="icon" destination="Sav-G4-eyQ" id="Ds6-F6-w8l"/>
@@ -3118,6 +3197,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lij-EA-deo" userLabel="love musings" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="Gth-ZX-cFe">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fZ7-bZ-2Vz">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3142,6 +3224,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="Gth-ZX-cFe" secondAttribute="bottom" id="Ffr-Qc-M8w"/>
+                                                                    <constraint firstItem="Gth-ZX-cFe" firstAttribute="leading" secondItem="Lij-EA-deo" secondAttribute="leading" id="Tyy-YW-1no"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Gth-ZX-cFe" secondAttribute="trailing" id="guu-4J-m0U"/>
+                                                                    <constraint firstItem="Gth-ZX-cFe" firstAttribute="top" secondItem="Lij-EA-deo" secondAttribute="top" constant="5" id="kgT-26-t11"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="iq8-xl-vXg" id="ybt-OR-5on"/>
                                                                     <outlet property="icon" destination="beE-zx-es1" id="gPL-u6-0eI"/>
@@ -3152,6 +3240,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsY-3j-LQY" userLabel="health" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="mP7-1v-Tdu">
+                                                                        <rect key="frame" x="-0.5" y="5" width="149.5" height="194"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="CZV-Cf-qBd">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3176,6 +3267,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="mP7-1v-Tdu" secondAttribute="bottom" id="QbI-QH-FWc"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="mP7-1v-Tdu" secondAttribute="trailing" id="ifF-PK-wVt"/>
+                                                                    <constraint firstItem="mP7-1v-Tdu" firstAttribute="leading" secondItem="QsY-3j-LQY" secondAttribute="leading" id="jYQ-mO-JLP"/>
+                                                                    <constraint firstItem="mP7-1v-Tdu" firstAttribute="top" secondItem="QsY-3j-LQY" secondAttribute="top" constant="5" id="sAK-jP-qjZ"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="5Og-bu-Jvu" id="uZa-1e-d5N"/>
                                                                     <outlet property="icon" destination="hxZ-Te-R7o" id="4V5-Yg-ePu"/>
@@ -3191,6 +3288,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6b2-P5-ukT" userLabel="daily" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="vQY-Pk-7cU">
+                                                                        <rect key="frame" x="0.0" y="5" width="149.5" height="194.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7f5-JY-AWe">
                                                                         <rect key="frame" x="68.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3215,6 +3315,12 @@
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="vQY-Pk-7cU" secondAttribute="trailing" id="ZIm-1Z-xXM"/>
+                                                                    <constraint firstItem="vQY-Pk-7cU" firstAttribute="leading" secondItem="6b2-P5-ukT" secondAttribute="leading" id="knf-gd-N8R"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="vQY-Pk-7cU" secondAttribute="bottom" id="taY-g0-vMm"/>
+                                                                    <constraint firstItem="vQY-Pk-7cU" firstAttribute="top" secondItem="6b2-P5-ukT" secondAttribute="top" constant="5" id="xmk-bw-51i"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="ulB-xY-sse" id="FBh-gM-63A"/>
                                                                     <outlet property="icon" destination="Pqd-I5-iRI" id="30b-2q-Cy8"/>
@@ -3225,6 +3331,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unm-w3-JoT" userLabel="ray" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="create-post-hue-fx" translatesAutoresizingMaskIntoConstraints="NO" id="Jbq-Xh-9eE">
+                                                                        <rect key="frame" x="-0.5" y="5" width="149.5" height="194.5"/>
+                                                                    </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ye5-5e-npe">
                                                                         <rect key="frame" x="69.5" y="156" width="13" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3249,6 +3358,12 @@
                                                                     </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="Jbq-Xh-9eE" secondAttribute="bottom" id="25N-Fo-fSg"/>
+                                                                    <constraint firstItem="Jbq-Xh-9eE" firstAttribute="leading" secondItem="unm-w3-JoT" secondAttribute="leading" id="TtN-Ve-nBQ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Jbq-Xh-9eE" secondAttribute="trailing" id="h4A-He-7SS"/>
+                                                                    <constraint firstItem="Jbq-Xh-9eE" firstAttribute="top" secondItem="unm-w3-JoT" secondAttribute="top" constant="5" id="hBp-BA-rLx"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="descriptionLabel" destination="zhP-OP-Qwj" id="J8y-mB-yKr"/>
                                                                     <outlet property="icon" destination="KLZ-si-dIp" id="5Z9-dB-1Vt"/>
@@ -3356,6 +3471,7 @@
         <image name="connection-image-bg" width="75" height="75"/>
         <image name="create-plus-icon" width="13" height="13"/>
         <image name="create-post-filter-icon" width="34" height="34"/>
+        <image name="create-post-hue-fx" width="150" height="191"/>
         <image name="create-profile-add-location-icon" width="65" height="65"/>
         <image name="create-profile-birthday" width="65" height="65"/>
         <image name="create-profile-name-bio" width="375" height="106"/>
