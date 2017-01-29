@@ -70,6 +70,10 @@ class SignupViewController: UIViewController, UIPopoverPresentationControllerDel
     
     }
 
+    
+    @IBAction func didTappedCancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     
     // Dismissing all editing actions when User Tap or Swipe down on the Main View
