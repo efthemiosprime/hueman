@@ -38,6 +38,7 @@ class FeedImageTableViewCell: UITableViewCell {
     
     var key: String!
     
+    
     var showCommentsAction: ((UITableViewCell) -> Void)?
     var showLikesAction: ((UITableViewCell) -> Void)?
     var showPopover:((UITableViewCell) -> Void)?

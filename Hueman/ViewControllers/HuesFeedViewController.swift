@@ -210,8 +210,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             
             feedCell.showAuthor = { cell in
                 
-                let screenWidth = UIScreen.mainScreen().bounds.size.width
-                let screenHeight = UIScreen.mainScreen().bounds.size.height
+
                 
                 
                 
@@ -220,17 +219,27 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                     let userRef = self.databaseRef.child("users").child(unwrappedUid )
                     userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         if snapshot.exists() {
+                            var profileViewIsPresent = false
                             
-                            let user = User(snapshot: snapshot)
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
-                            profileController?.user = user
+                        
+                            if let viewControllers = self.tabBarController?.parentViewController?.childViewControllers {
+                                for viewController in viewControllers {
+                                    print("controller: \(viewController)")
+                                    if(viewController is ProfileViewController) {
+                                        profileViewIsPresent = true
+                                        continue
+                                    }
+                                } 
+                            }
                             
+                            if profileViewIsPresent == false {
+                                
+                                let user = User(snapshot: snapshot)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.showAuthorProfile(user)
+                                })
+                            }
                             
-                            self.tabBarController?.parentViewController!.addChildViewController(profileController!)
-                            profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
-                            self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
-                            profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
                         }
                         
                     })
@@ -304,16 +313,26 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                     userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         if snapshot.exists() {
                             
-                            let user = User(snapshot: snapshot)
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
-                            profileController?.user = user
+                            var profileViewIsPresent = false
                             
                             
-                            self.tabBarController?.parentViewController!.addChildViewController(profileController!)
-                            profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
-                            self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
-                            profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                            if let viewControllers = self.tabBarController?.parentViewController?.childViewControllers {
+                                for viewController in viewControllers {
+                                    if(viewController is ProfileViewController) {
+                                        profileViewIsPresent = true
+                                        continue
+                                    }
+                                }
+                            }
+                            
+                            if profileViewIsPresent == false {
+                                
+                                let user = User(snapshot: snapshot)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.showAuthorProfile(user)
+                                })
+                            }
+                            
                         }
                         
                     })
@@ -368,11 +387,25 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         return cell
     }
     
+    
+    func showAuthorProfile(user: User) {
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+        profileController?.user = user
+        
+        self.tabBarController?.parentViewController!.addChildViewController(profileController!)
+        profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+        self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
+        profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+    }
+    
     // MARK: - Filter Option
 
     func onFilter(topics: [String])
     {
-        print("xxxxx")
         feeds = topics.count > 0 ? huesFeedModel.oldFeeds.filter({topics.contains($0.topic!)}) : huesFeedModel.oldFeeds
         self.tableView.reloadData()
         
