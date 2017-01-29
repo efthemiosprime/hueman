@@ -302,11 +302,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             
             feedCell.showAuthor = { cell in
                 
-                let screenWidth = UIScreen.mainScreen().bounds.size.width
-                let screenHeight = UIScreen.mainScreen().bounds.size.height
-                
-                
-                
+
                 if let unwrappedUid = (cell as! FeedTextTableViewCell).feed?.uid {
                     
                     let userRef = self.databaseRef.child("users").child(unwrappedUid )

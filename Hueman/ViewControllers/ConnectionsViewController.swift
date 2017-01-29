@@ -247,16 +247,39 @@ extension ConnectionsViewController: UITableViewDelegate {
             userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if snapshot.exists() {
                     
-                    let user = User(snapshot: snapshot)
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
-                    profileController?.user = user
+                    
+                    var profileViewIsPresent = false
                     
                     
-                    self.tabBarController?.parentViewController!.addChildViewController(profileController!)
-                    profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
-                    self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
-                    profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                    if let viewControllers = self.tabBarController?.parentViewController?.childViewControllers {
+                        for viewController in viewControllers {
+                            if(viewController is ProfileViewController) {
+                                profileViewIsPresent = true
+                                continue
+                            }
+                        }
+                    }
+                    
+                    if profileViewIsPresent == false {
+                        
+                        let user = User(snapshot: snapshot)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+                            profileController?.user = user
+                            
+                            
+                            self.tabBarController?.parentViewController!.addChildViewController(profileController!)
+                            profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+                            self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
+                            profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                            
+                        })
+                    }
+                    
+                    
+
                 }
                 
             })
