@@ -114,14 +114,17 @@ class ProfileViewController: UIViewController {
             self.view.frame = CGRectOffset(self.view.frame, screenWidth, 0.0)
             
         }) { (Finished) -> Void in
-            
-             self.willMoveToParentViewController(nil)
-             self.didMoveToParentViewController(nil)
-             self.view.removeFromSuperview()
-             self.removeFromParentViewController()
         
+            self.remove()
         }
 
+    }
+    
+    func remove() {
+        self.willMoveToParentViewController(nil)
+        self.didMoveToParentViewController(nil)
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
     }
 
     func getCurrentProfile(_user: User) {

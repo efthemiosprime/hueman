@@ -125,11 +125,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
         }
 
-        
-
-        
-
-
     }
     
     override func viewWillAppear(animated: Bool) {

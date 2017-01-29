@@ -277,15 +277,11 @@ extension ConnectionsViewController: UITableViewDelegate {
                             
                         })
                     }
-                    
-                    
-
                 }
                 
             })
             
         }
-
         
     }
     

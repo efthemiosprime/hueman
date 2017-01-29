@@ -134,11 +134,9 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                     
                 }
 
-                
-                
-                
             }
         }
+        
     }
 
 
@@ -201,8 +199,9 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         })
             
                         self.activityIndicator.hide()
-
+                        
                         self.performSegueWithIdentifier("UserCreated", sender: sender)
+
 
                         
                     }else {
@@ -217,6 +216,13 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     @IBAction func nameTextFieldDidChanged(sender: AnyObject) {
         checkRequiredProfileInfos()
+    }
+    
+    func remove() {
+        self.willMoveToParentViewController(nil)
+        self.didMoveToParentViewController(nil)
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
     }
 
     

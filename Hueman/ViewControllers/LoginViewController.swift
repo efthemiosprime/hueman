@@ -64,6 +64,15 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
 
             }
         }
+        
+        
+            for viewController in self.childViewControllers {
+                print("controller: \(viewController)")
+            }
+        
+        
+        
+        
     }
     
     override func prefersStatusBarHidden() -> Bool {

@@ -52,9 +52,6 @@
 		3A45BAB11DE926BB0062081E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */; };
 		3A48D7B01E1C839600AB2FB6 /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48D7AF1E1C839600AB2FB6 /* SegueFromRight.swift */; };
 		3A48D7B21E1C83F800AB2FB6 /* UnwindSegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48D7B11E1C83F800AB2FB6 /* UnwindSegueFromRight.swift */; };
-		3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */; };
-		3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */; };
-		3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */; };
 		3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */; };
 		3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */; };
 		3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */; };
@@ -91,13 +88,13 @@
 		3ADE12331E17048C00BE3DE6 /* BirthdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */; };
 		3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */; };
 		3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */; };
+		3ADF90151E3D9778008138A6 /* DrawerControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF90141E3D9778008138A6 /* DrawerControllerController.swift */; };
 		3AEB8B2D1DAB46670004A191 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8B2C1DAB46670004A191 /* splash_screen.png */; };
 		3AEFA4691E198A18005C78D2 /* CircleHues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA4681E198A18005C78D2 /* CircleHues.swift */; };
 		3AEFA46B1E198C98005C78D2 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46A1E198C98005C78D2 /* ActivityIndicator.swift */; };
 		3AEFA46D1E19B62B005C78D2 /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46C1E19B62B005C78D2 /* Hue.swift */; };
 		3AEFA46F1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */; };
 		3AEFA4731E19EB88005C78D2 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA4721E19EB88005C78D2 /* ErrorController.swift */; };
-		3AEFA4751E1A1002005C78D2 /* SidebarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA4741E1A1002005C78D2 /* SidebarCell.swift */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
@@ -155,9 +152,6 @@
 		3A45BAB21DE927D60062081E /* Hueman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hueman.entitlements; sourceTree = "<group>"; };
 		3A48D7AF1E1C839600AB2FB6 /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegueFromRight.swift; path = Hueman/Helpers/SegueFromRight.swift; sourceTree = "<group>"; };
 		3A48D7B11E1C83F800AB2FB6 /* UnwindSegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnwindSegueFromRight.swift; path = Hueman/Helpers/UnwindSegueFromRight.swift; sourceTree = "<group>"; };
-		3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HamburgerDrawerTableViewController.swift; path = ViewControllers/HamburgerDrawerTableViewController.swift; sourceTree = "<group>"; };
-		3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerProfileImageRowCell.swift; path = Views/DrawerProfileImageRowCell.swift; sourceTree = "<group>"; };
-		3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerProfileNameRowCell.swift; path = Views/DrawerProfileNameRowCell.swift; sourceTree = "<group>"; };
 		3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = ViewControllers/CommentsViewController.swift; sourceTree = "<group>"; };
 		3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -197,13 +191,13 @@
 		3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdayController.swift; path = ViewControllers/BirthdayController.swift; sourceTree = "<group>"; };
 		3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHue.swift; path = Views/ProfileHue.swift; sourceTree = "<group>"; };
 		3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHueModel.swift; path = Models/ProfileHueModel.swift; sourceTree = "<group>"; };
+		3ADF90141E3D9778008138A6 /* DrawerControllerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerControllerController.swift; path = ViewControllers/DrawerControllerController.swift; sourceTree = "<group>"; };
 		3AEB8B2C1DAB46670004A191 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = Images/splash_screen.png; sourceTree = "<group>"; };
 		3AEFA4681E198A18005C78D2 /* CircleHues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleHues.swift; path = Views/CircleHues.swift; sourceTree = "<group>"; };
 		3AEFA46A1E198C98005C78D2 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = Views/ActivityIndicator.swift; sourceTree = "<group>"; };
 		3AEFA46C1E19B62B005C78D2 /* Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hue.swift; path = Models/Hue.swift; sourceTree = "<group>"; };
 		3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+CapitilizingFirstLetter.swift"; path = "Extensions/String+CapitilizingFirstLetter.swift"; sourceTree = "<group>"; };
 		3AEFA4721E19EB88005C78D2 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorController.swift; path = ViewControllers/ErrorController.swift; sourceTree = "<group>"; };
-		3AEFA4741E1A1002005C78D2 /* SidebarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidebarCell.swift; path = Views/SidebarCell.swift; sourceTree = "<group>"; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
@@ -301,7 +295,6 @@
 				3A154E421DCD7352005A79EC /* NotificationsViewController.swift */,
 				3A154E431DCD7352005A79EC /* HuesFeedViewController.swift */,
 				3A154E441DCD7352005A79EC /* SignupViewController.swift */,
-				3A4F3F621DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift */,
 				3A3B2AC81DF8FA83004350A0 /* CreateProfileViewController.swift */,
 				3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */,
 				3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */,
@@ -313,6 +306,7 @@
 				3ACF44391E17872300CB97DF /* AddHueController.swift */,
 				3AEFA4721E19EB88005C78D2 /* ErrorController.swift */,
 				3A7E830C1E2C43BE00D76F9A /* FeedController.swift */,
+				3ADF90141E3D9778008138A6 /* DrawerControllerController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -343,15 +337,12 @@
 				3A154E591DCD7389005A79EC /* NotificationCell.swift */,
 				3A154E5A1DCD7389005A79EC /* HueboardCell.swift */,
 				3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */,
-				3A4F3F661DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift */,
-				3A4F3F681DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift */,
 				3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */,
 				3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */,
 				3C908B7D1E04937F00DA0109 /* AddUserCell.swift */,
 				3A82E6691E118D00008F520A /* CommentCell.swift */,
 				3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */,
 				3AEFA46A1E198C98005C78D2 /* ActivityIndicator.swift */,
-				3AEFA4741E1A1002005C78D2 /* SidebarCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -643,6 +634,7 @@
 				3A987B1A1DED1C6100388DDF /* Feed.swift in Sources */,
 				3A154E5B1DCD7389005A79EC /* ConnectionLabel.swift in Sources */,
 				3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */,
+				3ADF90151E3D9778008138A6 /* DrawerControllerController.swift in Sources */,
 				3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */,
 				3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */,
 				3A82E66E1E11BA8F008F520A /* Like.swift in Sources */,
@@ -674,7 +666,6 @@
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
 				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,
 				3A154E461DCD7352005A79EC /* LoginViewController.swift in Sources */,
-				3A4F3F631DF4F2FC001CDC54 /* HamburgerDrawerTableViewController.swift in Sources */,
 				3A7605641E0E080800E682AD /* UIImage+resizeWith.swift in Sources */,
 				3ACF44381E17718B00CB97DF /* AddLocationController.swift in Sources */,
 				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
@@ -691,11 +682,9 @@
 				3AEFA46B1E198C98005C78D2 /* ActivityIndicator.swift in Sources */,
 				3A0AB1911E086E1300295AA5 /* Request.swift in Sources */,
 				3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */,
-				3AEFA4751E1A1002005C78D2 /* SidebarCell.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A3963A01E222AA70021279A /* Notification.swift in Sources */,
 				3A48D7B21E1C83F800AB2FB6 /* UnwindSegueFromRight.swift in Sources */,
-				3A4F3F691DF4F6C9001CDC54 /* DrawerProfileNameRowCell.swift in Sources */,
 				3AEFA46D1E19B62B005C78D2 /* Hue.swift in Sources */,
 				3A98C7E71E22C2290009B793 /* NotificationsViewModel.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
@@ -706,7 +695,6 @@
 				3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */,
 				3A98C7E51E22AA3A0009B793 /* NotificationsManager.swift in Sources */,
 				3A987B1C1DED1CDF00388DDF /* FirebaseManager.swift in Sources */,
-				3A4F3F671DF4F6AB001CDC54 /* DrawerProfileImageRowCell.swift in Sources */,
 				3A39639E1E21DEE70021279A /* NSDate+Offset.swift in Sources */,
 				3AEFA4691E198A18005C78D2 /* CircleHues.swift in Sources */,
 				3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */,
