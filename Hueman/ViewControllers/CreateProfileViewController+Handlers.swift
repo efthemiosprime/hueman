@@ -32,17 +32,20 @@ extension CreateProfileViewController: UIImagePickerControllerDelegate {
         
         if let editedImage = info["UIImagePickerControllerEditedImage"] {
             selectedImageFromPicker = editedImage as? UIImage
+            profileImageSet = true
         }else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
             selectedImageFromPicker = originalImage as? UIImage
+            profileImageSet = true
         }
         
         if let selectedImage = selectedImageFromPicker {
             profileImage.image = selectedImage
             tapToAddPhotoLabel.hidden = true
+            profileImageSet = true
         }
         
         
-        checkRequiredProfileInfos()
+   //     checkRequiredProfileInfos()
         dismissViewControllerAnimated(true, completion: nil)
 
     }
@@ -58,8 +61,10 @@ extension CreateProfileViewController: UIImagePickerControllerDelegate {
 extension CreateProfileViewController: UITextFieldDelegate {
     // Dismissing the Keyboard with the Return Keyboard Button
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        
         nameTextfield.resignFirstResponder()
-        checkRequiredProfileInfos()
+      //  checkRequiredProfileInfos()
         return true
     }
     
@@ -102,6 +107,7 @@ extension CreateProfileViewController: UITextViewDelegate {
 
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         if textView.text.lowercaseString == "Write anything you’d like telling other Huemans who view your profile to see...".lowercaseString {
+            textView.textColor = UIColor.whiteColor()
             textView.text = ""
 
         }
@@ -116,7 +122,7 @@ extension CreateProfileViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
-        checkRequiredProfileInfos()
+       // checkRequiredProfileInfos()
     }
 //    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
 //        if(text == "\n") {
@@ -200,14 +206,14 @@ extension CreateProfileViewController: AddHueDelegate {
 
 extension CreateProfileViewController: UIPopoverPresentationControllerDelegate {
     
-    func showError(msg: String) {
+    func showError(msg: String, srcView: UIView) {
         let errorController: ErrorController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("errorID") as? ErrorController)!
-        errorController.preferredContentSize = CGSizeMake(300, 150)
+        errorController.preferredContentSize = CGSizeMake(300, 120)
         errorController.modalPresentationStyle = UIModalPresentationStyle.Popover
         errorController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         errorController.popoverPresentationController?.delegate = self
-        errorController.popoverPresentationController?.sourceView = self.view
-        errorController.popoverPresentationController?.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds),0,0)
+        errorController.popoverPresentationController?.sourceView = srcView
+        errorController.popoverPresentationController?.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds),CGRectGetMidY(srcView.bounds),0,0)
         
         // set up the popover presentation controller
         errorController.errorMsg = msg

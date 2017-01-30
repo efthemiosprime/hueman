@@ -40,11 +40,13 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     var hues: [String: String] = [:]
     
+    var profileImageSet = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         activityIndicator.hidden = true
-        saveButton.enabled = false
+       // saveButton.enabled = false
         
         self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.clearColor();
         
@@ -90,9 +92,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
         birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
         
-        
-        self.navigationBar.topItem!.title = "create profile"
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 18)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
+
         
         hues = [
             Topic.Wanderlust: "",
@@ -108,7 +108,14 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-    
+        
+        
+        saveButton.tintColor = UIColor.UIColorFromRGB(0x999999)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.UIColorFromRGB(0x999999)
+
+        
+        self.navigationBar.topItem!.title = "create profile"
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -148,7 +155,35 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     @IBAction func didTappedSave(sender: AnyObject) {
         
         //showWaitOverlay()
+        
+        if profileImageSet == false {
+            self.showError("Please choose your profile photo.", srcView: profileImage)
+            return
+        }
+        
+        
+        if bioTextfield.text.isEmpty || bioTextfield.text == "Write anything you’d like telling other Huemans who view your profile to see..." {
+            self.showError("Please enter your bio.", srcView: bioTextfield)
+            return
+        }
+        
+        
+        if locationLabel.text == "What city do you live in?" || locationLabel.text!.isEmpty {
+            self.showError("Please add your current location.", srcView: locationImage)
+            return
+        }
+        
+        
+        if dateLabel.text == "When’s your birthday?" || dateLabel.text!.isEmpty {
+            self.showError("Please enter your date of birth.", srcView: birthdayImage)
+            return
+        }
+        
+
+        
         activityIndicator.show()
+
+        /*
 
         
         let currentUser = FIRAuth.auth()?.currentUser
@@ -210,12 +245,20 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                 })
             }
         })
+ 
+        */
         
     }
     
     
     @IBAction func nameTextFieldDidChanged(sender: AnyObject) {
         checkRequiredProfileInfos()
+    }
+    
+    func checkInputs() {
+        if bioTextfield.text.characters.isEmpty {
+            print("xxxx")
+        }
     }
     
     func remove() {
@@ -252,6 +295,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     // Dismissing all editing actions when User Tap or Swipe down on the Main View
     func dismissKeyboard(gesture: UIGestureRecognizer){
+        bioTextfield.resignFirstResponder()
+
         self.view.endEditing(true)
         
     }
