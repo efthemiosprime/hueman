@@ -146,7 +146,7 @@ extension CreateProfileViewController: BirthdayDelegate {
 extension CreateProfileViewController: LocationDelegate {
     func setLocation(location: String) {
         locationLabel.text = location
-        checkRequiredProfileInfos()
+    //    checkRequiredProfileInfos()
 
     }
 }
@@ -213,7 +213,7 @@ extension CreateProfileViewController: UIPopoverPresentationControllerDelegate {
         errorController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         errorController.popoverPresentationController?.delegate = self
         errorController.popoverPresentationController?.sourceView = srcView
-        errorController.popoverPresentationController?.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds),CGRectGetMidY(srcView.bounds),0,0)
+        errorController.popoverPresentationController?.sourceRect = CGRectMake(CGRectGetMidX(srcView.bounds),CGRectGetMidY(srcView.bounds),0,0)
         
         // set up the popover presentation controller
         errorController.errorMsg = msg
@@ -226,5 +226,12 @@ extension CreateProfileViewController: UIPopoverPresentationControllerDelegate {
     }
     
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        if errorType == "location" {
+            didTappedLocation()
+        }
+        
+        if errorType == "dob" {
+            didTappedLocation()
+        }
     }
 }

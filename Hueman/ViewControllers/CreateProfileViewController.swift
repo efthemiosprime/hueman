@@ -42,6 +42,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     var profileImageSet = false
     
+    var errorType: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,7 +91,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         bioTextfield.delegate = self
         
         
-        let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(birthdayImageTapped))
+        let birthdayImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedBirthday))
         birthdayImage.addGestureRecognizer(birthdayImageTapGesture)
         
 
@@ -164,17 +166,22 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         if bioTextfield.text.isEmpty || bioTextfield.text == "Write anything you’d like telling other Huemans who view your profile to see..." {
             self.showError("Please enter your bio.", srcView: bioTextfield)
+//            bioTextfield.layer.borderWidth = 1.0;
+//            bioTextfield.layer.borderColor = UIColor.redColor().CGColor
             return
         }
         
         
         if locationLabel.text == "What city do you live in?" || locationLabel.text!.isEmpty {
+            errorType = "location"
             self.showError("Please add your current location.", srcView: locationImage)
             return
         }
         
         
         if dateLabel.text == "When’s your birthday?" || dateLabel.text!.isEmpty {
+            errorType = "dob"
+
             self.showError("Please enter your date of birth.", srcView: birthdayImage)
             return
         }
@@ -276,7 +283,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     
     
-    func birthdayImageTapped() {
+    func didTappedBirthday() {
         
         self.performSegueWithIdentifier("BirthdayEntry", sender: nil )
         
