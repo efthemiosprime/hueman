@@ -455,4 +455,54 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 }
 
 
+//extension HuesFeedViewController {
+//    
+//    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+//        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0{
+//            changeTabBar(true, animated: true)
+//            
+//            UIView.animateWithDuration(0.3, animations: { () -> Void in
+//                self.navigationController?.setNavigationBarHidden(true, animated: true)
+//                self.navigationController?.setToolbarHidden(true, animated: true)
+//                print("Hide")
+//                
+//            }) { (Finished) -> Void in
+//                
+//            }
+//            
+//            
+//        }
+//        else{
+//            changeTabBar(false, animated: true)
+//            UIView.animateWithDuration(0.3, animations: { () -> Void in
+//                self.navigationController?.setNavigationBarHidden(false, animated: true)
+//                self.navigationController?.setToolbarHidden(false, animated: true)
+//                print("Unhide")
+//                
+//            }) { (Finished) -> Void in
+//                
+//            }
+//        }
+//    }
+//    
+//    func changeTabBar(hidden:Bool, animated: Bool){
+//        let tabBar = self.tabBarController?.tabBar
+//        if tabBar!.hidden == hidden{ return }
+//        let frame = tabBar?.frame
+//        let offset = (hidden ? (frame?.size.height)! : -(frame?.size.height)!)
+//        let duration:NSTimeInterval = (animated ? 0.5 : 0.0)
+//        tabBar?.hidden = false
+//        if frame != nil
+//        {
+//            UIView.animateWithDuration(duration,
+//                                       animations: {tabBar!.frame = CGRectOffset(frame!, 0, offset)},
+//                                       completion: {
+//                                        if $0 {tabBar?.hidden = hidden}
+//            })
+//        }
+//    }
+//
+//}
+
+
 
