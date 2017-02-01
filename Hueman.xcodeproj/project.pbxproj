@@ -71,6 +71,7 @@
 		3A82E66E1E11BA8F008F520A /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82E66D1E11BA8F008F520A /* Like.swift */; };
 		3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */; };
 		3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */; };
+		3A8FC23D1E418605008E8142 /* AddHuesPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FC23C1E418605008E8142 /* AddHuesPageController.swift */; };
 		3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */; };
 		3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B151DED1BC600388DDF /* KeychainWrapper.m */; };
 		3A987B191DED1C6100388DDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B171DED1C6100388DDF /* User.swift */; };
@@ -171,6 +172,7 @@
 		3A82E66D1E11BA8F008F520A /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Like.swift; path = Models/Like.swift; sourceTree = "<group>"; };
 		3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedImageTableViewCell.swift; path = Views/FeedImageTableViewCell.swift; sourceTree = "<group>"; };
 		3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationManager.swift; path = Managers/RegistrationManager.swift; sourceTree = "<group>"; };
+		3A8FC23C1E418605008E8142 /* AddHuesPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddHuesPageController.swift; path = ViewControllers/AddHuesPageController.swift; sourceTree = "<group>"; };
 		3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreateProfileViewController+Handlers.swift"; path = "ViewControllers/CreateProfileViewController+Handlers.swift"; sourceTree = "<group>"; };
 		3A987B141DED1BC600388DDF /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = ThirdParties/KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
 		3A987B151DED1BC600388DDF /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = ThirdParties/KeychainWrapper/KeychainWrapper.m; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				3AEFA4721E19EB88005C78D2 /* ErrorController.swift */,
 				3A7E830C1E2C43BE00D76F9A /* FeedController.swift */,
 				3ADF90141E3D9778008138A6 /* DrawerControllerController.swift */,
+				3A8FC23C1E418605008E8142 /* AddHuesPageController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -621,7 +624,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -681,6 +684,7 @@
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
 				3AEFA46B1E198C98005C78D2 /* ActivityIndicator.swift in Sources */,
 				3A0AB1911E086E1300295AA5 /* Request.swift in Sources */,
+				3A8FC23D1E418605008E8142 /* AddHuesPageController.swift in Sources */,
 				3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */,
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A3963A01E222AA70021279A /* Notification.swift in Sources */,

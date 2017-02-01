@@ -25,14 +25,14 @@ class AddHueController: UIViewController {
     @IBOutlet weak var charactersLabel: UILabel!
     var delegate: AddHueDelegate?
 
-    
     var type: String?
+    var hueIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         detailLabel.delegate = self
-        confirmButton.enabled = false
+        //confirmButton.enabled = false
         detailLabel.becomeFirstResponder()
         
         

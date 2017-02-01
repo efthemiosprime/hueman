@@ -67,6 +67,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         for (index, hue) in profilesHues!.enumerate() {
             hue.type = topics[index]
             let hueGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProfileViewController.addHue(_:)))
+            hue.tag = index
             hue.addGestureRecognizer(hueGesture)
         }
         
@@ -124,25 +125,55 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         if segue.identifier  == "BirthdayEntry" {
             
             let birthdayController = segue.destinationViewController as! BirthdayController
+            
+            if sender != nil {
+                if let dob = sender as? String {
+                    birthdayController.entry = dob
+                }
+  
+            }
+
             birthdayController.delegate = self
         }
         
         if segue.identifier  == "AddLocation" {
             
             let locationController = segue.destinationViewController as! AddLocationController
+            if sender != nil {
+                if let entry = sender as? String {
+                    locationController.entry = entry
+                }
+                
+            }
+            
             locationController.delegate = self
         }
+        
+//        if segue.identifier  == "AddHue" {
+//            if sender != nil {
+//                
+//                if let unwrappedType = sender {
+//                    let hueController = segue.destinationViewController as! AddHueController
+//                    hueController.delegate = self
+//                    hueController.type = unwrappedType as? String
+//                    
+//                }
+//
+//            }
+//        }
         
         if segue.identifier  == "AddHue" {
             if sender != nil {
                 
-                if let unwrappedType = sender {
-                    let hueController = segue.destinationViewController as! AddHueController
-                    hueController.delegate = self
-                    hueController.type = unwrappedType as? String
+                if let unwrappedTag = sender {
+                    let addPageHuesController = segue.destinationViewController as! AddHuesPageController
+                    addPageHuesController.selectedHueIndex = unwrappedTag.integerValue
+                    addPageHuesController.hueDelegate = self
+                  //  hueController.delegate = self
+                    //hueController.type = unwrappedType as? String
                     
                 }
-
+                
             }
         }
         
@@ -262,11 +293,6 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         checkRequiredProfileInfos()
     }
     
-    func checkInputs() {
-        if bioTextfield.text.characters.isEmpty {
-            print("xxxx")
-        }
-    }
     
     func remove() {
         self.willMoveToParentViewController(nil)
@@ -285,19 +311,33 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     func didTappedBirthday() {
         
-        self.performSegueWithIdentifier("BirthdayEntry", sender: nil )
+        if dateLabel.text != "When’s your birthday?" && !(dateLabel.text?.isEmpty)! {
+            print("xxxxxxxxxx")
+            self.performSegueWithIdentifier("BirthdayEntry", sender: dateLabel.text )
+        }else {
+            self.performSegueWithIdentifier("BirthdayEntry", sender: nil )
+
+        }
         
     }
     
     func addHue(sender: UITapGestureRecognizer) {
         let hue = (sender as UITapGestureRecognizer).view as? ProfileHue
-        self.performSegueWithIdentifier("AddHue", sender: hue?.type )
+        print("tage \(hue!.tag) ")
+        self.performSegueWithIdentifier("AddHue", sender: hue?.tag )
         
         
     }
     
     func didTappedLocation() {
-        self.performSegueWithIdentifier("AddLocation", sender: nil )
+        
+        if locationLabel.text != "What city do you live in?" && !(locationLabel.text?.isEmpty)! {
+            self.performSegueWithIdentifier("AddLocation", sender: locationLabel.text )
+        }else {
+            self.performSegueWithIdentifier("AddLocation", sender: nil )
+            
+        }
+        
     }
     
     // Dismissing all editing actions when User Tap or Swipe down on the Main View

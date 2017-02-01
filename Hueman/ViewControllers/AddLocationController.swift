@@ -21,6 +21,8 @@ class AddLocationController: UIViewController {
     @IBOutlet weak var charactersLabel: UILabel!
     
     var delegate: LocationDelegate?
+    
+    var entry: String?
 
     
     override func viewDidLoad() {
@@ -34,6 +36,14 @@ class AddLocationController: UIViewController {
         locationField.attributedPlaceholder = NSAttributedString(string: "Type here...", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
         
         locationField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        
+        
+        if let unwrappedEntry = entry {
+            
+            locationField.text = unwrappedEntry
+            confirmButton.enabled = true
+            
+        }
 
     }
 

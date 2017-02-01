@@ -19,6 +19,7 @@ class BirthdayController: UIViewController {
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     
     var delegate: BirthdayDelegate?
+    var entry: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,22 @@ class BirthdayController: UIViewController {
         
         birthdayPicker.setValue(UIColor.whiteColor(), forKey: "textColor")
         birthdayPicker.setValue(false, forKey: "highlightsToday")
+        
+        
+        
+        if let unwrappedEntry = entry {
+            let dateString = unwrappedEntry
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MM dd yyyy"
+            let dateObj = dateFormatter.dateFromString(dateString)
+            
+            
+            birthdayPicker.date = dateObj!
+            
+            confirmButton.enabled = true
+
+        }
+        
         
         birthdayPicker.addTarget(self, action: #selector(BirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
