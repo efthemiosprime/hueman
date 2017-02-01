@@ -28,7 +28,6 @@ class AddHuesPageController: UIPageViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print(selectedHueIndex)
 
     }
 

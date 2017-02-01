@@ -51,7 +51,7 @@ class BirthdayController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationBar.topItem!.title = "create profile"
+        self.navigationBar.topItem!.title = "add birthday"
         self.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x999999)
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
     }

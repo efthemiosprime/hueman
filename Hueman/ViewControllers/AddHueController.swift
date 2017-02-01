@@ -115,7 +115,7 @@ class AddHueController: UIViewController {
         super.viewWillAppear(animated)
         
         
-        self.navigationBar.topItem!.title = "create profile"
+        self.navigationBar.topItem!.title = "add hues"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
     }
     
@@ -135,8 +135,16 @@ class AddHueController: UIViewController {
 
 
     @IBAction func didTappedConfirm(sender: AnyObject) {
-        self.delegate?.setHue(detailLabel.text!, type: self.type!)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+        if let text = detailLabel.text where !text.isEmpty {
+            self.delegate?.setHue(detailLabel.text!, type: self.type!)
+            self.dismissViewControllerAnimated(true, completion: nil)
+
+        } else {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
 
     }
     /*

@@ -52,7 +52,7 @@ class AddLocationController: UIViewController {
         
         locationField.becomeFirstResponder()
         
-        self.navigationBar.topItem!.title = "create profile"
+        self.navigationBar.topItem!.title = "add location"
         self.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x999999)
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
     }
