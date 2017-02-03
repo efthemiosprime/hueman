@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class FeedImageTableViewCell: UITableViewCell {
 
@@ -38,6 +39,9 @@ class FeedImageTableViewCell: UITableViewCell {
     
     var key: String!
     
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
     
     var showCommentsAction: ((UITableViewCell) -> Void)?
     var showLikesAction: ((UITableViewCell) -> Void)?
@@ -57,6 +61,8 @@ class FeedImageTableViewCell: UITableViewCell {
                 authorProfileImage.userInteractionEnabled = true
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedShowAuthor))
                 authorProfileImage.addGestureRecognizer(tapGesture)
+                
+                update()
             }
         }
     }
@@ -89,16 +95,56 @@ class FeedImageTableViewCell: UITableViewCell {
     }
 
     @IBAction func didTappedLikeAction(sender: AnyObject) {
-        likesButton.enabled = false
-        
-        likesLabel.text = String(UInt(likesLabel.text!)! + 1)
-
-        
         showLikesAction?(self)
     }
     
     func didTappedShowAuthor() {
         showAuthor?(self)
+    }
+    
+    func update() {
+        let authManager = AuthenticationManager.sharedInstance
+        if authManager.currentUser == nil {
+            authManager.loadCurrentUser({
+                let currentUID = authManager.currentUser?.uid
+                
+                let likesRef = self.databaseRef.child("likes").child(self.key)
+                
+                likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    
+                    if snapshot.exists() {
+                        for snap in snapshot.children {
+                            if let uid = snap.value["uid"] as? String, let unWrappedCurrentUid = currentUID {
+                                if uid == unWrappedCurrentUid {
+                                   dispatch_async(dispatch_get_main_queue(), {
+                                        self.likesButton.selected = true
+                                   })
+                                }
+                            }
+                        }
+                    }
+                })
+            })
+        }else {
+            let currentUID = authManager.currentUser?.uid
+            
+            let likesRef = self.databaseRef.child("likes").child(self.key)
+            
+            likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                
+                if snapshot.exists() {
+                    for snap in snapshot.children {
+                        if let uid = snap.value["uid"] as? String, let unWrappedCurrentUid = currentUID {
+                            if uid == unWrappedCurrentUid {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.likesButton.selected = true
+                                })
+                            }
+                        }
+                    }
+                }
+            })
+        }
     }
 
 }

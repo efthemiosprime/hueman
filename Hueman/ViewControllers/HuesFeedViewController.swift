@@ -157,7 +157,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let feed = feeds[indexPath.row]
-        
         let cell = feed.withImage == true ? tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_IMAGE_IDENTIFIER, forIndexPath: indexPath) as! FeedImageTableViewCell : tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_TEXT_IDENTIFIER, forIndexPath: indexPath) as! FeedTextTableViewCell
     
         if (feed.withImage == true)
@@ -173,31 +172,57 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
             }
             feedCell.showLikesAction = { cell in
-                
                 let authenticationManager = AuthenticationManager.sharedInstance
 
-                if let feedUid = feed.uid {
-                    if let userUid = authenticationManager.currentUser!.uid {
-                        if feedUid != userUid {
-                            let id = NSUUID().UUIDString
-                            let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
+                if feedCell.likesButton.selected == false {
+                    if let fedUid = feed.uid {
+                        if let userUid = authenticationManager.currentUser?.uid {
+                            let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(userUid)
                             
-                            let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
-                            likesRef.setValue(newLike.toAnyObject())
                             
-                            let newNotification: Notification = Notification(
-                                fromUid: authenticationManager.currentUser!.uid,
-                                id: NSUUID().UUIDString,
-                                type: "liked",
-                                feedTopic: feed.topic!,
-                                feedKey: feed.key!)
+                            if fedUid != userUid {
+                                
+                                
+                                let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid)
+                                likesRef.setValue(newLike.toAnyObject())
+                                
+                                let newNotification: Notification = Notification(
+                                    fromUid: authenticationManager.currentUser!.uid,
+                                    id: NSUUID().UUIDString,
+                                    type: "liked",
+                                    feedTopic: feed.topic!,
+                                    feedKey: feed.key!)
+                                
+                                
+                                let notificationManager = NotificationsManager()
+                                notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
+                                
+                                
+                                feedCell.likesButton.selected = true
+                                feedCell.likesLabel.text = String(UInt(feedCell.likesLabel.text!)! + 1)
+                                
+                            }
                             
-                            let notificationManager = NotificationsManager()
-                            notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
                         }
                     }
+                }else {
+                    let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(authenticationManager.currentUser!.uid!)
+                    likesRef.removeValueWithCompletionBlock({(error, referer) in
+                        if error != nil {
+                            print(error?.description)
+                        }else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                feedCell.likesButton.selected = false
+                                feedCell.likesLabel.text = String(UInt(feedCell.likesLabel.text!)! - 1)
+                                
+                            })
+                        }
+                    })
+                    
                 }
                 
+                
+
 
             }
 
@@ -267,7 +292,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             
             
         }else {
-            
             let feedCell = cell as! FeedTextTableViewCell
 
             feedCell.feed = feed
@@ -280,32 +304,55 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             feedCell.showLikesAction = { cell in
                 let authenticationManager = AuthenticationManager.sharedInstance
 
-                if let fedUid = feed.uid {
-                    if let userUid = authenticationManager.currentUser?.uid {
-                        
-                        if fedUid != userUid {
-                            let authenticationManager = AuthenticationManager.sharedInstance
-                            let id = NSUUID().UUIDString
-                            let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(id)
-                            
-                            let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid, id: id)
-                            likesRef.setValue(newLike.toAnyObject())
-                            
-                            let newNotification: Notification = Notification(
-                                fromUid: authenticationManager.currentUser!.uid,
-                                id: NSUUID().UUIDString,
-                                type: "liked",
-                                feedTopic: feed.topic!,
-                                feedKey: feed.key!)
-                            
-                            
-                            let notificationManager = NotificationsManager()
-                            notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
-                        }
-                        
+                if feedCell.likesButton.selected == false {
+                    if let fedUid = feed.uid {
+                        if let userUid = authenticationManager.currentUser?.uid {
+                            let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(userUid)
 
+                            
+                            if fedUid != userUid {
+
+                                
+                                let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid)
+                                likesRef.setValue(newLike.toAnyObject())
+                                
+                                let newNotification: Notification = Notification(
+                                    fromUid: authenticationManager.currentUser!.uid,
+                                    id: NSUUID().UUIDString,
+                                    type: "liked",
+                                    feedTopic: feed.topic!,
+                                    feedKey: feed.key!)
+                                
+                                
+                                let notificationManager = NotificationsManager()
+                                notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
+                                
+                                
+                                feedCell.likesButton.selected = true
+                                feedCell.likesLabel.text = String(UInt(feedCell.likesLabel.text!)! + 1)
+
+                            }
+                            
+                        }
                     }
+                }else {
+                    let likesRef = self.databaseRef.child("likes").child(feedCell.key).child(authenticationManager.currentUser!.uid!)
+                    likesRef.removeValueWithCompletionBlock({(error, referer) in
+                        if error != nil {
+                            print(error?.description)
+                        }else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                feedCell.likesButton.selected = false
+                                feedCell.likesLabel.text = String(UInt(feedCell.likesLabel.text!)! - 1)
+
+                            })
+                        }
+                    })
+
                 }
+                
+
+
             }
             
             feedCell.showAuthor = { cell in

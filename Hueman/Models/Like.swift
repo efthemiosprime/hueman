@@ -12,26 +12,23 @@ import Firebase
 struct Like {
     let name: String!
     let uid: String!
-    let id: String!
     
-    init(name: String, uid:String, id: String) {
+    init(name: String, uid:String) {
         
         self.name = name
         self.uid = uid
-        self.id = id
     }
     
     init(snapshot: FIRDataSnapshot) {
         
         self.name = snapshot.value!["name"] as? String
         self.uid = snapshot.value!["uid"] as? String
-        self.id = snapshot.value!["id"] as? String
         
     }
     
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["name": self.name!, "uid":self.uid!, "id": self.id]
+        return ["name": self.name!, "uid":self.uid!]
     }
     
 }

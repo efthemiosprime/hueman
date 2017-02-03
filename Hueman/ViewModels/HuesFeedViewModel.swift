@@ -164,48 +164,34 @@ class HuesFeedViewModel: NSObject {
     
     func displayTotalLikes(key:String, cell: AnyObject) {
         
-        let authManager = AuthenticationManager.sharedInstance
-        let currentUID = authManager.currentUser?.uid
+
         
         let likesRef = databaseRef.child("likes").child(key)
         likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
                 
-                for snap in snapshot.children {
-                
-                    if let uid = snap.value["uid"] as? String {
-                        
-                        if let unWrappedUID = currentUID {
-                            if uid == unWrappedUID {
-                                
-                                
-                                if cell is FeedImageTableViewCell {
-                                    (cell as! FeedImageTableViewCell).likesButton.enabled = false
-                                }else {
-                                    
-                                    (cell as! FeedTextTableViewCell).likesButton.enabled = false
-                                    
-                                }
-                            }
-                        }
-                        
-
+                dispatch_async(dispatch_get_main_queue(), {
+                    if cell is FeedImageTableViewCell {
+                        (cell as! FeedImageTableViewCell).likesLabel.text = String(snapshot.childrenCount)
+                    }else {
+                        (cell as! FeedTextTableViewCell).likesLabel.text = String(snapshot.childrenCount)
                     }
-                }
+                })
                 
-                if cell is FeedImageTableViewCell {
-                    (cell as! FeedImageTableViewCell).likesLabel.text = String(snapshot.childrenCount)
-                }else {
-                    (cell as! FeedTextTableViewCell).likesLabel.text = String(snapshot.childrenCount)
-                }
+
+                
             }else {
-                if cell is FeedImageTableViewCell {
-                    (cell as! FeedImageTableViewCell).likesLabel.text = "0"
-                    
-                }else {
-                    (cell as! FeedTextTableViewCell).likesLabel.text = "0"
-                    
-                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    if cell is FeedImageTableViewCell {
+                        (cell as! FeedImageTableViewCell).likesLabel.text = "0"
+                        (cell as! FeedImageTableViewCell).likesButton.selected = false
+                        
+                    }else {
+                        (cell as! FeedTextTableViewCell).likesLabel.text = "0"
+                        (cell as! FeedTextTableViewCell).likesButton.selected = false
+                        
+                    }
+                })
             }
         })
     }

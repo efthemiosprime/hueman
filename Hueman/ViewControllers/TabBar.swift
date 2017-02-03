@@ -50,6 +50,13 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
                     })
                 })
             })
+        }else {
+            let notificationManager = NotificationsManager()
+            notificationManager.getTotalNotifications({ count in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tabBar.items![1].badgeValue = String(count)
+                })
+            })
         }
 
         
