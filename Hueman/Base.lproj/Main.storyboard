@@ -539,6 +539,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="feed-flag-button"/>
                                                     <state key="disabled" image="feed-flag-button-disable.png"/>
+                                                    <state key="selected" image="feed-flag-button-disable.png"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-DJ-kxS">
                                                     <rect key="frame" x="84" y="2" width="22" height="21"/>
@@ -707,6 +708,10 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="feed-flag-button"/>
                                                     <state key="disabled" image="feed-flag-button-disable.png"/>
+                                                    <state key="selected" image="feed-flag-button-disable.png"/>
+                                                    <connections>
+                                                        <action selector="didTappedFlagAction:" destination="Ek0-2G-lI8" eventType="touchUpInside" id="8ai-Rj-Y1i"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-Am-UtL" userLabel="Heart">
                                                     <rect key="frame" x="8" y="5" width="18" height="14"/>

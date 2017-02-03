@@ -62,6 +62,34 @@ class FeedImageTableViewCell: UITableViewCell {
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedShowAuthor))
                 authorProfileImage.addGestureRecognizer(tapGesture)
                 
+                
+                switch feed.topic {
+                case Topic.Wanderlust:
+                    flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
+                    break
+                case Topic.DailyHustle:
+                    flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
+                    break
+                    
+                    
+                case Topic.RayOfLight:
+                    flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
+                    break;
+                    
+                case Topic.Health:
+                    flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
+                    break
+                    
+                case Topic.OnMyPlate:
+                    flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
+                    break;
+                    
+                default:
+                    flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
+                    
+                    
+                }
+                
                 update()
             }
         }

@@ -164,8 +164,6 @@ class HuesFeedViewModel: NSObject {
     
     func displayTotalLikes(key:String, cell: AnyObject) {
         
-
-        
         let likesRef = databaseRef.child("likes").child(key)
         likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
@@ -195,5 +193,46 @@ class HuesFeedViewModel: NSObject {
             }
         })
     }
+    
+    func checkFeedForDeletion(likeKey: String, flagKey: String) {
+     //   let feedRef = databaseRef.child("feeds").child(feedKey)
+        let likesRef = databaseRef.child("likes").child(likeKey)
+        let flagRef = databaseRef.child("flags").child(flagKey)
+        
+
+        likesRef.observeSingleEventOfType(.Value, withBlock: {
+            likesSnapshot in
+            if likesSnapshot.exists() {
+                let likesCount = likesSnapshot.childrenCount
+                flagRef.observeSingleEventOfType(.Value, withBlock: {
+                    flagsSnapshot in
+                    if flagsSnapshot.exists() {
+                        let flagsCount = flagsSnapshot.childrenCount
+                        let gcd = self.gcd(12, flags: 13)
+                        print("ratio \(12/gcd) : \(13/gcd)")
+                       // print("ratio \(self.ratio(likesCount, flagsCount)")
+                        
+//                        print("flags \(flagsCount)")
+//                        print("likes \(likesCount)")
+
+                    }
+                    
+                })
+            }
+        })
+
+    }
+    
+
+    
+    func gcd(likes: Double, flags: Double) -> Double {
+        let r = likes % flags
+        if r != 0 {
+            return gcd(flags, flags: r)
+        } else {
+            return flags
+        }
+    }
+
     
 }

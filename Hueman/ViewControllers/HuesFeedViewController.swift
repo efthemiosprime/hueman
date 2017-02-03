@@ -293,6 +293,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             
         }else {
             let feedCell = cell as! FeedTextTableViewCell
+            let authenticationManager = AuthenticationManager.sharedInstance
 
             feedCell.feed = feed
             huesFeedModel.displayTotalComments(feedCell.key, cell: feedCell)
@@ -301,8 +302,37 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 self.performSegueWithIdentifier("ShowComments", sender: cell)
             }
             
+            feedCell.flagAction = {
+            
+                let userUid = authenticationManager.currentUser!.uid!
+                let flagsRef = self.databaseRef.child("flags").child(feedCell.key).child(userUid)
+                
+                if feedCell.flagButton.selected == false {
+                    let newFlag = Flag(name: authenticationManager.currentUser!.name, uid: userUid)
+                    flagsRef.setValue(newFlag.toAnyObject()) { (error, ref) in
+                        if error != nil {
+                            print(error?.description)
+                        }else {
+                            feedCell.flagButton.selected = true
+                            feedCell.flagButton.backgroundColor = UIColor.clearColor()
+                            self.huesFeedModel.checkFeedForDeletion(feedCell.feed!.key!, flagKey: (feedCell.feed?.key)!)
+                        }
+                        
+                    }
+                }else {
+                    flagsRef.removeValueWithCompletionBlock({ (error, ref) in
+                        if error != nil {
+                            print(error?.description)
+                        }else {
+                            feedCell.updateFlagButton((feedCell.feed?.topic)! )
+                        }
+                    })
+                }
+
+                
+            }
+            
             feedCell.showLikesAction = { cell in
-                let authenticationManager = AuthenticationManager.sharedInstance
 
                 if feedCell.likesButton.selected == false {
                     if let fedUid = feed.uid {
@@ -314,22 +344,34 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
                                 
                                 let newLike = Like(name: authenticationManager.currentUser!.name, uid: authenticationManager.currentUser!.uid)
-                                likesRef.setValue(newLike.toAnyObject())
+                                likesRef.setValue(newLike.toAnyObject()) { (error, ref) in
+                                    if error != nil {
+                                        print(error?.description)
+                                    }else {
+                                        let newNotification: Notification = Notification(
+                                            fromUid: authenticationManager.currentUser!.uid,
+                                            id: NSUUID().UUIDString,
+                                            type: "liked",
+                                            feedTopic: feed.topic!,
+                                            feedKey: feed.key!)
+                                        
+                                        
+                                        let notificationManager = NotificationsManager()
+                                        notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
+                                        
+                                        
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            feedCell.likesButton.selected = true
+                                            feedCell.likesLabel.text = String(UInt(feedCell.likesLabel.text!)! + 1)
+                                            
+                                        })
+                                        
+                                    }
+                                }
                                 
-                                let newNotification: Notification = Notification(
-                                    fromUid: authenticationManager.currentUser!.uid,
-                                    id: NSUUID().UUIDString,
-                                    type: "liked",
-                                    feedTopic: feed.topic!,
-                                    feedKey: feed.key!)
+
                                 
-                                
-                                let notificationManager = NotificationsManager()
-                                notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
-                                
-                                
-                                feedCell.likesButton.selected = true
-                                feedCell.likesLabel.text = String(UInt(feedCell.likesLabel.text!)! + 1)
+
 
                             }
                             
@@ -416,6 +458,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         switch feeds[indexPath.row].topic {
         case Topic.Wanderlust:
             cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
+
             break;
         case Topic.DailyHustle:
             cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
