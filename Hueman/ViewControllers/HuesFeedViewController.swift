@@ -164,6 +164,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             let feedCell = cell as! FeedImageTableViewCell
             feedCell.feed = feed
             
+            let authenticationManager = AuthenticationManager.sharedInstance
 
 
             feedCell.showCommentsAction = { (cell) in
@@ -171,6 +172,39 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 self.performSegueWithIdentifier("ShowComments", sender: cell)
 
             }
+            
+            
+            feedCell.flagAction = {
+                
+                let userUid = authenticationManager.currentUser!.uid!
+                let flagsRef = self.databaseRef.child("flags").child(feedCell.key).child(userUid)
+                
+                if feedCell.flagButton.selected == false {
+                    let newFlag = Flag(name: authenticationManager.currentUser!.name, uid: userUid)
+                    flagsRef.setValue(newFlag.toAnyObject()) { (error, ref) in
+                        if error != nil {
+                            print(error?.description)
+                        }else {
+                            feedCell.flagButton.selected = true
+                            feedCell.flagButton.backgroundColor = UIColor.clearColor()
+                            self.huesFeedModel.checkFeedForDeletion(feedCell.feed!.key!, flagKey: (feedCell.feed?.key)!)
+                        }
+                        
+                    }
+                }else {
+                    flagsRef.removeValueWithCompletionBlock({ (error, ref) in
+                        if error != nil {
+                            print(error?.description)
+                        }else {
+                            feedCell.updateFlagButton((feedCell.feed?.topic)! )
+                        }
+                    })
+                }
+                
+                
+            }
+            
+            
             feedCell.showLikesAction = { cell in
                 let authenticationManager = AuthenticationManager.sharedInstance
 

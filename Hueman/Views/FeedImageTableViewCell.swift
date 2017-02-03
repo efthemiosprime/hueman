@@ -47,7 +47,8 @@ class FeedImageTableViewCell: UITableViewCell {
     var showLikesAction: ((UITableViewCell) -> Void)?
     var showPopover:((UITableViewCell) -> Void)?
     var showAuthor:((UITableViewCell) -> Void)?
-    
+    var flagAction:(() -> Void)?
+
     var feed: Feed? {
         didSet{
             if let feed = feed {
@@ -125,6 +126,12 @@ class FeedImageTableViewCell: UITableViewCell {
     @IBAction func didTappedLikeAction(sender: AnyObject) {
         showLikesAction?(self)
     }
+
+    
+    @IBAction func didTappedFlagAction(sender: AnyObject) {
+        flagAction?()
+    }
+    
     
     func didTappedShowAuthor() {
         showAuthor?(self)
@@ -132,6 +139,14 @@ class FeedImageTableViewCell: UITableViewCell {
     
     func update() {
         let authManager = AuthenticationManager.sharedInstance
+        updateLike(authManager)
+        updateFlag(authManager, topic: (feed?.topic)!)
+        updateFlagButton(feed!.topic)
+
+    }
+    
+    
+    func updateLike(authManager: AuthenticationManager) {
         if authManager.currentUser == nil {
             authManager.loadCurrentUser({
                 let currentUID = authManager.currentUser?.uid
@@ -144,9 +159,9 @@ class FeedImageTableViewCell: UITableViewCell {
                         for snap in snapshot.children {
                             if let uid = snap.value["uid"] as? String, let unWrappedCurrentUid = currentUID {
                                 if uid == unWrappedCurrentUid {
-                                   dispatch_async(dispatch_get_main_queue(), {
+                                    dispatch_async(dispatch_get_main_queue(), {
                                         self.likesButton.selected = true
-                                   })
+                                    })
                                 }
                             }
                         }
@@ -174,5 +189,82 @@ class FeedImageTableViewCell: UITableViewCell {
             })
         }
     }
+    
+    func updateFlag(authManager: AuthenticationManager, topic: String) {
+        if authManager.currentUser == nil {
+            authManager.loadCurrentUser({
+                let currentUID = authManager.currentUser?.uid
+                
+                let likesRef = self.databaseRef.child("flags").child(self.key)
+                
+                likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    
+                    if snapshot.exists() {
+                        for snap in snapshot.children {
+                            if let uid = snap.value["uid"] as? String, let unWrappedCurrentUid = currentUID {
+                                if uid == unWrappedCurrentUid {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        self.flagButton.selected = true
+                                    })
+                                }
+                            }
+                        }
+                    }
+                })
+            })
+        }else {
+            let currentUID = authManager.currentUser?.uid
+            
+            let likesRef = self.databaseRef.child("flags").child(self.key)
+            
+            likesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                
+                if snapshot.exists() {
+                    for snap in snapshot.children {
+                        if let uid = snap.value["uid"] as? String, let unWrappedCurrentUid = currentUID {
+                            if uid == unWrappedCurrentUid {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.flagButton.selected = true
+                                })
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        
+        
+        
+    }
+    
+    func updateFlagButton(topic: String) {
+        flagButton.selected = false
+        switch topic {
+        case Topic.Wanderlust:
+            flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
+            break
+        case Topic.DailyHustle:
+            flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
+            break
+            
+            
+        case Topic.RayOfLight:
+            flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
+            break;
+            
+        case Topic.Health:
+            flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
+            break
+            
+        case Topic.OnMyPlate:
+            flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
+            break;
+            
+        default:
+            flagButton.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
+            
+        }
+    }
+    
 
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AddHuesPageDelegate {
+    func setHue(hue: String, type: String)
+}
+
+
 class AddHuesPageController: UIPageViewController {
     
     var topics: NSArray = NSArray()
@@ -17,7 +22,8 @@ class AddHuesPageController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.dataSource = self;
+        self.dataSource = self
+       // self.delegate = self
         
         topics = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
         
@@ -70,7 +76,7 @@ class AddHuesPageController: UIPageViewController {
         addHueController.type = "\(topics[index])"
         addHueController.hueIndex = index
         addHueController.delegate = hueDelegate
-        
+
         return addHueController
     }
 
@@ -81,7 +87,8 @@ extension AddHuesPageController: UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
         let pageContent: AddHueController = viewController as! AddHueController
-        
+        print(pageContent.detailLabel.text)
+
         var index = pageContent.hueIndex
         
         if ((index == 0) || (index == NSNotFound))
@@ -90,6 +97,8 @@ extension AddHuesPageController: UIPageViewControllerDataSource {
         }
         
         index -= 1;
+        
+
         return getViewControllerAtIndex(index)
         
     }
@@ -109,6 +118,7 @@ extension AddHuesPageController: UIPageViewControllerDataSource {
         {
             return nil;
         }
+        
         return getViewControllerAtIndex(index)
     }
     
@@ -120,4 +130,26 @@ extension AddHuesPageController: UIPageViewControllerDataSource {
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return selectedHueIndex
     }
+    
+
 }
+
+//
+//extension AddHuesPageController: UIPageViewControllerDelegate {
+//    
+//    func pageViewController(pageViewController: UIPageViewController,
+//                            didFinishAnimating finished: Bool,
+//                                               previousViewControllers: [UIViewController],
+//                                               transitionCompleted completed: Bool)
+//    {
+//        //        guard completed else { return }
+//        //        print("xxxxx")
+//        
+//        if(completed) {
+//            let prev = pageViewController as? AddHueController
+//            print(prev!.detailLabel.text)
+//        }
+//    }
+//    
+//
+//}

@@ -33,7 +33,7 @@ class AddHueController: UIViewController {
         
         detailLabel.delegate = self
         //confirmButton.enabled = false
-        detailLabel.becomeFirstResponder()
+       // detailLabel.becomeFirstResponder()
         
         
         if let unwrappedType = type {

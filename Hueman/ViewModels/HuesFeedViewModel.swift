@@ -208,8 +208,8 @@ class HuesFeedViewModel: NSObject {
                     flagsSnapshot in
                     if flagsSnapshot.exists() {
                         let flagsCount = flagsSnapshot.childrenCount
-                        let gcd = self.gcd(12, flags: 13)
-                        print("ratio \(12/gcd) : \(13/gcd)")
+                        let gcd = self.gcd(66, flags: 39)
+                        print("ratio \(66/gcd) : \(39/gcd)")
                        // print("ratio \(self.ratio(likesCount, flagsCount)")
                         
 //                        print("flags \(flagsCount)")
