@@ -190,7 +190,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         //showWaitOverlay()
         
         if profileImageSet == false {
-            self.showError("Please choose your profile photo.", srcView: profileImage)
+            self.showError("Please add your profile photo.", srcView: profileImage)
             return
         }
         
@@ -221,7 +221,6 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         activityIndicator.show()
 
-        /*
 
         
         let currentUser = FIRAuth.auth()?.currentUser
@@ -278,13 +277,13 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 
                         
                     }else {
-                        self.showError((error?.localizedDescription)!)
+                        self.showError((error?.localizedDescription)!, srcView: self.view)
                     }
                 })
             }
         })
- 
-        */
+
+        
         
     }
     
@@ -352,9 +351,9 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         if !(nameTextfield.text?.isEmpty)! && !bioTextfield.text.isEmpty && tapToAddPhotoLabel.hidden == true && locationLabel.text?.lowercaseString != "What city do you live in?".lowercaseString && dateLabel.text?.lowercaseString != "When’s your birthday?".lowercaseString {
             
-            saveButton.enabled = true
+            saveButton.image = UIImage(named: "topbar-save-valid-icon")
         }else {
-            saveButton.enabled = false
+            saveButton.image = UIImage(named: "topbar-save-invalid-icon")
         }
         
         

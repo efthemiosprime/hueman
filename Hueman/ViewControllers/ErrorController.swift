@@ -16,7 +16,7 @@ class ErrorController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.UIColorFromRGB(0xf35f62)
+        self.view.backgroundColor = UIColor.UIColorFromRGB(0xFF0000)
         if let msg = errorMsg {
             errorLabel.text = msg
         }

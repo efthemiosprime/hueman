@@ -45,7 +45,7 @@ extension CreateProfileViewController: UIImagePickerControllerDelegate {
         }
         
         
-   //     checkRequiredProfileInfos()
+        checkRequiredProfileInfos()
         dismissViewControllerAnimated(true, completion: nil)
 
     }
@@ -64,7 +64,7 @@ extension CreateProfileViewController: UITextFieldDelegate {
         
         
         nameTextfield.resignFirstResponder()
-      //  checkRequiredProfileInfos()
+       checkRequiredProfileInfos()
         return true
     }
     
@@ -122,7 +122,7 @@ extension CreateProfileViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
-       // checkRequiredProfileInfos()
+       checkRequiredProfileInfos()
     }
 //    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
 //        if(text == "\n") {
@@ -146,7 +146,7 @@ extension CreateProfileViewController: BirthdayDelegate {
 extension CreateProfileViewController: LocationDelegate {
     func setLocation(location: String) {
         locationLabel.text = location
-    //    checkRequiredProfileInfos()
+     checkRequiredProfileInfos()
 
     }
 }
