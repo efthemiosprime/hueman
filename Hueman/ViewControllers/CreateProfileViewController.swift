@@ -136,6 +136,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         self.navigationBar.topItem!.title = "create profile"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
+        
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -422,19 +424,6 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             UIView.commitAnimations()
         }
 
-//        if up {
-//            let distanceFactor = distance + scrollOffset
-//
-//            let movement: CGFloat = CGFloat(up ? distanceFactor : -distanceFactor)
-//            uiView.frame = CGRectOffset(uiView.frame, 0, movement)
-//            UIView.commitAnimations()
-//        }else {
-//            uiView.frame = bioFrame!
-//            UIView.commitAnimations()
-//        }
-//        
-
-        
 
     }
     

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import MessageUI
 import SwiftOverlays
 
 class HuesFeedViewController: UITableViewController, UIPopoverPresentationControllerDelegate, FilterControllerDelegate {
@@ -279,7 +280,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 }
                 let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(popupType!) as! PopoverViewController
                 popController.delegate = self
-                popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 100 : 80)
+                popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 120 : 80)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
                 // set up the popover presentation controller
                 popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
@@ -491,7 +492,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 
                 let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(popupType!) as! PopoverViewController
                 popController.delegate = self
-                popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 100 : 80)
+                popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 120 : 80)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
                 // set up the popover presentation controller
                 popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
@@ -601,7 +602,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
 }
 
-extension HuesFeedViewController: PopoverDelegate {
+extension HuesFeedViewController: PopoverDelegate, MFMailComposeViewControllerDelegate {
     func editPost(feed: Feed) {
         let defaults = NSUserDefaults.standardUserDefaults()
         var storedEntry = [String: AnyObject]()
@@ -655,6 +656,44 @@ extension HuesFeedViewController: PopoverDelegate {
         
         self.performSegueWithIdentifier("EditPost", sender: nil)
     }
+    
+    func reportPost(feed: Feed) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            mailVC.setToRecipients(["report@huemanapp.com"])
+            mailVC.setSubject("Subject for email")
+            mailVC.setMessageBody("Email message string", isHTML: false)
+            presentViewController(mailVC, animated: true, completion: nil)
+            
+        }else {
+            // show failure alert
+            print("error")
+        }
+
+        
+    }
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        
+//        switch result.value {
+//        case MFMailComposeResultCancelled.value:
+//            print("Mail cancelled")
+//        case MFMailComposeResultSaved.value:
+//            println("Mail saved")
+//        case MFMailComposeResultSent.value:
+//            println("Mail sent")
+//        case MFMailComposeResultFailed.value:
+//            println("Mail sent failure: %@", [error.localizedDescription])
+//        default:
+//            break
+//        }
+        
+        
+        controller.dismissViewControllerAnimated(true, completion: nil)
+
+    }
+    
+
 }
 
 

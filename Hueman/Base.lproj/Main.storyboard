@@ -2165,9 +2165,13 @@
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-Kv-aCi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="18"/>
+                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="create profile" id="o1b-Hd-2v7">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="topbar-save-invalid-icon" width="22" style="plain" id="hgH-s5-6pw">
+                                        <barButtonItem key="rightBarButtonItem" image="topbar-save-invalid-icon" width="22" style="plain" id="hgH-s5-6pw">
                                             <inset key="imageInsets" minX="3" minY="0.0" maxX="-3" maxY="0.0"/>
                                             <connections>
                                                 <action selector="didTappedSave:" destination="BCO-Qn-cTH" id="17a-f3-2to"/>
@@ -2480,6 +2484,9 @@
                                 <rect key="frame" x="0.0" y="24" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="popover-report"/>
+                                <connections>
+                                    <action selector="reportPostAction:" destination="pYv-Y1-js6" eventType="touchUpInside" id="5sB-EM-FTX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3384,17 +3391,17 @@
                                     <constraint firstAttribute="trailing" secondItem="mkD-SX-WKa" secondAttribute="trailing" id="hAA-WN-tJc"/>
                                 </constraints>
                             </scrollView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-sM-9dJ">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-sM-9dJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="barTintColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="20"/>
+                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="create profile" id="C4w-LJ-qMc">
                                         <barButtonItem key="leftBarButtonItem" image="back-bar-item" id="9Tv-nb-ksH">
                                             <inset key="imageInsets" minX="-5" minY="0.0" maxX="5" maxY="0.0"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backActionHandler:" destination="6zI-pR-dOP" id="2Or-WA-7zU"/>
                                             </connections>
@@ -3445,11 +3452,11 @@
                         <viewControllerLayoutGuide type="bottom" id="3es-xx-3CY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T9m-we-paA">
-                        <rect key="frame" x="0.0" y="0.0" width="118" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="118" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWy-Sm-5jv">
-                                <rect key="frame" x="0.0" y="14" width="118" height="32"/>
+                                <rect key="frame" x="0.0" y="11" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="popover-edit"/>
                                 <connections>
@@ -3457,18 +3464,26 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqN-6d-917">
-                                <rect key="frame" x="0.0" y="54" width="118" height="32"/>
+                                <rect key="frame" x="0.0" y="77" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="popover-report"/>
+                                <connections>
+                                    <action selector="reportPostAction:" destination="43W-tG-UXt" eventType="touchUpInside" id="6YG-cX-997"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlp-4c-KVh">
+                                <rect key="frame" x="0.0" y="44" width="118" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="popover-delete"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="118" height="100"/>
+                    <size key="freeformSize" width="118" height="120"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F88-94-JS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3518,6 +3533,7 @@
         <image name="logout-icon_1" width="27" height="28"/>
         <image name="plate-icon" width="37" height="37"/>
         <image name="plate-selected-icon" width="32" height="32"/>
+        <image name="popover-delete" width="120" height="33"/>
         <image name="popover-edit" width="118" height="32"/>
         <image name="popover-report" width="118" height="32"/>
         <image name="post-icon" width="41" height="41"/>

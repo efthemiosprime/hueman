@@ -23,11 +23,10 @@ class AddHuesPageController: UIPageViewController {
         super.viewDidLoad()
 
         self.dataSource = self
-       // self.delegate = self
+        self.delegate = self
         
         topics = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
         
-        print(selectedHueIndex)
         
         self.setViewControllers([getViewControllerAtIndex(selectedHueIndex)] as [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
     }
@@ -76,6 +75,8 @@ class AddHuesPageController: UIPageViewController {
         addHueController.type = "\(topics[index])"
         addHueController.hueIndex = index
         addHueController.delegate = hueDelegate
+        
+        print("xxxx controller")
 
         return addHueController
     }
@@ -134,22 +135,22 @@ extension AddHuesPageController: UIPageViewControllerDataSource {
 
 }
 
-//
-//extension AddHuesPageController: UIPageViewControllerDelegate {
-//    
-//    func pageViewController(pageViewController: UIPageViewController,
-//                            didFinishAnimating finished: Bool,
-//                                               previousViewControllers: [UIViewController],
-//                                               transitionCompleted completed: Bool)
-//    {
-//        //        guard completed else { return }
-//        //        print("xxxxx")
-//        
-//        if(completed) {
-//            let prev = pageViewController as? AddHueController
-//            print(prev!.detailLabel.text)
-//        }
-//    }
-//    
-//
-//}
+
+extension AddHuesPageController: UIPageViewControllerDelegate {
+    
+    func pageViewController(pageViewController: UIPageViewController,
+                            didFinishAnimating finished: Bool,
+                                               previousViewControllers: [UIViewController],
+                                               transitionCompleted completed: Bool)
+    {
+        //        guard completed else { return }
+        //        print("xxxxx")
+        
+        if(completed) {
+            let prev = pageViewController as? AddHueController
+            print(prev!.detailLabel.text)
+        }
+    }
+    
+
+}

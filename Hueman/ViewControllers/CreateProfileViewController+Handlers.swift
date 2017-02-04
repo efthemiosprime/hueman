@@ -115,7 +115,6 @@ extension CreateProfileViewController: UITextViewDelegate {
             textView.textColor = UIColor.whiteColor()
             textView.text = ""
 
-
         }
         
         moveUI(bioView, distance: -55, up: true)
@@ -250,7 +249,6 @@ extension CreateProfileViewController: UIPopoverPresentationControllerDelegate {
 
 extension CreateProfileViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
         scrollOffset = scrollView.contentOffset.y
     }
 }

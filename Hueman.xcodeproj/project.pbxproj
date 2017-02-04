@@ -97,6 +97,7 @@
 		3AEFA46D1E19B62B005C78D2 /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46C1E19B62B005C78D2 /* Hue.swift */; };
 		3AEFA46F1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */; };
 		3AEFA4731E19EB88005C78D2 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA4721E19EB88005C78D2 /* ErrorController.swift */; };
+		3AFB8EE91E468F7B0035B609 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFB8EE81E468F7B0035B609 /* MessageUI.framework */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
@@ -202,6 +203,8 @@
 		3AEFA46C1E19B62B005C78D2 /* Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hue.swift; path = Models/Hue.swift; sourceTree = "<group>"; };
 		3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+CapitilizingFirstLetter.swift"; path = "Extensions/String+CapitilizingFirstLetter.swift"; sourceTree = "<group>"; };
 		3AEFA4721E19EB88005C78D2 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorController.swift; path = ViewControllers/ErrorController.swift; sourceTree = "<group>"; };
+		3AFB8EE81E468F7B0035B609 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3AFB8EEA1E468FF30035B609 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFB8EE91E468F7B0035B609 /* MessageUI.framework in Frameworks */,
 				3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */,
 				3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */,
 				BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */,
@@ -470,6 +474,8 @@
 		3A6C94701DAB12F6002A7EA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AFB8EEA1E468FF30035B609 /* Messages.framework */,
+				3AFB8EE81E468F7B0035B609 /* MessageUI.framework */,
 				3ABD76201DBC9E9900AD2538 /* Photos.framework */,
 				3ABD761E1DBC9E6C00AD2538 /* AssetsLibrary.framework */,
 				3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */,

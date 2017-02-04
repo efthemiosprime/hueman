@@ -10,6 +10,7 @@ import UIKit
 
 protocol PopoverDelegate: class {
     func editPost(feed: Feed)
+    func reportPost(feed: Feed)
 }
 
 class PopoverViewController: UIViewController {
@@ -45,6 +46,14 @@ class PopoverViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: {
             if let feed = self.feed {
                 self.delegate?.editPost(feed)
+            }
+        })
+    }
+    
+    @IBAction func reportPostAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {
+            if let feed = self.feed {
+                self.delegate?.reportPost(feed)
             }
         })
     }
