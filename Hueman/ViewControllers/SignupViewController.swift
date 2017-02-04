@@ -55,8 +55,9 @@ class SignupViewController: UIViewController, UIPopoverPresentationControllerDel
             firebaseManager.signUp(email, password: password, name: name, completion: {
                 
                     self.removeAllOverlays()
-                    self.performSegueWithIdentifier("CreateProfile", sender: sender)
-                    
+
+                self.performSegueWithIdentifier("CreateProfile", sender: sender)
+
                 }, onerror: { errorMsg in
                     self.removeAllOverlays()
                     self.showError(errorMsg)

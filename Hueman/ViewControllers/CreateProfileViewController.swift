@@ -106,6 +106,10 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             Topic.RayOfLight: ""
         ]
         
+        
+        addDoneBtnToKeyboard()
+
+        
     }
     
 
@@ -346,6 +350,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
     }
     
+
     
     func checkRequiredProfileInfos() {
         
@@ -359,6 +364,28 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
     }
     
+    
+    func addDoneBtnToKeyboard() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneEditing))
+        doneBtn.tintColor = UIColor.UIColorFromRGB(0x666666)
+        
+        if let font = UIFont(name: Font.SofiaProRegular, size: 15) {
+            doneBtn.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+        
+        toolbar.setItems([spacer, doneBtn], animated: false)
+        
+        bioTextfield.inputAccessoryView = toolbar
+        
+    }
+    
+    func doneEditing() {
+        view.endEditing(true)
+    }
     
 
     
