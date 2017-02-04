@@ -29,13 +29,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var imagePickerButton: UIButton!
     @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var withImage: Bool = false
     
     @IBOutlet var huesCollections: Array<UIButton>?
     
     var storedEntry = [String: AnyObject]()
-    
+    var mode: String = "create"
     var topicColor: UInt?
     var topicIcon: String?
     var topicString: String? {
@@ -88,9 +89,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             
         }
     
-        
-
-        
         cameraButton.addTarget(self, action: #selector(CreatePostViewController.handleCamera), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
         imagePickerButton.addTarget(self, action: #selector(CreatePostViewController.handleSelectedFeedImageView), forControlEvents: .TouchUpInside)
@@ -118,9 +116,23 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                     
                 }
                 
-                if let postImageData = storedEntry["postImage"] as? NSData {
-                    postImage.image = UIImage(data: postImageData)
+                if mode == "edit" {
+                    let imageURL:String = storedEntry["imageURL"] as! String
+                    if !imageURL.isEmpty {
+                        feedManager.getFeedImage(storedEntry["imageURL"] as! String, complete: {
+                            image in
+                            self.postImage.image = image
+                            self.withImage = true
+                        })
+                    }
+
+                }else {
+                    if let postImageData = storedEntry["postImage"] as? NSData {
+                        postImage.image = UIImage(data: postImageData)
+                        self.withImage = true
+                    }
                 }
+
             }
 
         }
@@ -130,6 +142,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
    //     postInput?.becomeFirstResponder()
+        if mode == "edit" {
+            titleLabel.text = "edit post"
+        }
         
 
     }
@@ -296,15 +311,39 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     @IBAction func didTapCreateFeed(sender: AnyObject) {
         submitButton.enabled = false
         showWaitOverlay()
+        
+        if mode == "edit" {
+            let imageURL:String = storedEntry["imageURL"] as! String
+
+            var editedFeed = Feed(author: "", id: "", uid: "", text: postInput.text, topic: topicString!, imageURL: imageURL)
+            
+            if withImage {
+                editedFeed.withImage = true
+                let imageData = UIImageJPEGRepresentation(postImage.image!, 0.1)
+
+                feedManager.editFeed(editedFeed, key: storedEntry["key"] as! String, imageData: imageData,  feedEdited: {
+                    self.removeAllOverlays()
+                    self.defaults.removeObjectForKey("storedEntry")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            }else {
+
+                feedManager.editFeed(editedFeed, key: storedEntry["key"] as! String, feedEdited: {
+                    
+                    self.removeAllOverlays()
+                    self.defaults.removeObjectForKey("storedEntry")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            }
+
+            
+
+            return
+        }
 
         
         if postInput.text.isEmpty {
@@ -319,7 +358,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                 
 
                 if withImage == true {
-                    let imageData = UIImageJPEGRepresentation(postImage.image!, 0.4)
+                    let imageData = UIImageJPEGRepresentation(postImage.image!, 0.2)
                     feedManager.createFeed(feed, imageData: imageData,  feedPosted: {
                         self.removeAllOverlays()
                         
@@ -352,15 +391,22 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func backButton(sender: AnyObject) {
+        
         postInput?.resignFirstResponder()
         
+        if mode == "edit" {
+            self.defaults.removeObjectForKey("storedEntry")
+            self.dismissViewControllerAnimated(true, completion: nil)
+
+            return
+        }
         
         if postInput.text.characters.count > 0 {
             storedEntry["postInput"] = postInput.text
         }
         
         if postImage.image != nil {
-            storedEntry["postImage"] = UIImageJPEGRepresentation(postImage.image!, 0.5)
+            storedEntry["postImage"] = UIImageJPEGRepresentation(postImage.image!, 0.2)
         }
         
         if topicString != nil {

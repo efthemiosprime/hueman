@@ -312,7 +312,6 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     func didTappedBirthday() {
         
         if dateLabel.text != "When’s your birthday?" && !(dateLabel.text?.isEmpty)! {
-            print("xxxxxxxxxx")
             self.performSegueWithIdentifier("BirthdayEntry", sender: dateLabel.text )
         }else {
             self.performSegueWithIdentifier("BirthdayEntry", sender: nil )

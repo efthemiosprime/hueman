@@ -8,7 +8,17 @@
 
 import UIKit
 
+protocol PopoverDelegate: class {
+    func editPost(feed: Feed)
+}
+
 class PopoverViewController: UIViewController {
+    
+    weak var delegate: PopoverDelegate?
+    
+    var feed: Feed?
+    
+    var type:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,4 +41,11 @@ class PopoverViewController: UIViewController {
     }
     */
 
+    @IBAction func editPostAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {
+            if let feed = self.feed {
+                self.delegate?.editPost(feed)
+            }
+        })
+    }
 }

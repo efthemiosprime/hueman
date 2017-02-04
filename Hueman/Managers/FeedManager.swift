@@ -77,11 +77,120 @@ struct FeedManager {
         }) { (error) in
             print("error: " + error.localizedDescription    )
         }
+    }
+    
+    func editFeed(editedFeed: Feed, key:String, imageData: NSData? = nil, feedEdited: (() -> ())? = nil) {
         
+
+
+        let feedRef = dataBaseRef.child("feeds/\(key)")
         
+        if imageData != nil {
+            print(editedFeed.imageURL)
+            if let imageURL = editedFeed.imageURL {
+                if !imageURL.isEmpty {
+                    let metaData = FIRStorageMetadata()
+                    metaData.contentType = "image/jpeg"
+                    let imagePath = imageURL
+                    let imageRef = self.storageRef.reference().child(imagePath)
+                    
+                    imageRef.putData(imageData!, metadata: metaData, completion: {
+                        (newMetaData, error) in
+                        
+                        if error == nil {
+ 
+                            
+                            
+                            let updatedFeed = [
+                                "text" : editedFeed.text,
+                                "topic" : editedFeed.topic,
+                                "imageURL": String(newMetaData!.downloadURL()!),
+                                "withImage": true
+                            ]
+                            
+                            
+                            feedRef.updateChildValues(updatedFeed as [NSObject : AnyObject], withCompletionBlock: {(err, ref) in
+                                if err != nil {
+                                    print(err?.description)
+                                }else {
+                                    feedEdited?()
+                            
+                                }
+                            })
+                        }
+                    })
+
+                }else {
+                    let metaData = FIRStorageMetadata()
+                    metaData.contentType = "image/jpeg"
+                    let imagePath = "feedImage\(FIRAuth.auth()!.currentUser!.uid)/feed\(NSUUID().UUIDString).jpg"
+                    let imageRef = self.storageRef.reference().child(imagePath)
+                    
+                    imageRef.putData(imageData!, metadata: metaData, completion: {
+                        (newMetaData, error) in
+                        
+                        if error == nil {
+                            
+                            
+                            
+                            let updatedFeed = [
+                                "text" : editedFeed.text,
+                                "topic" : editedFeed.topic,
+                                "imageURL": String(newMetaData!.downloadURL()!),
+                                "withImage": true
+                            ]
+                            
+                            
+                            feedRef.updateChildValues(updatedFeed as [NSObject : AnyObject], withCompletionBlock: {(err, ref) in
+                                if err != nil {
+                                    print(err?.description)
+                                }else {
+                                    feedEdited?()
+                                    
+                                }
+                            })
+                        }
+                    })
+                }
+            }
+        }else {
+            
+            let updatedFeed = [
+                "text" : editedFeed.text,
+                "topic" : editedFeed.topic
+            ]
+            
+            feedRef.updateChildValues(updatedFeed, withCompletionBlock: {(err, ref) in
+                if err != nil {
+                    print(err?.description)
+                }else {
+                    feedEdited?()
+                    
+                }
+            })
+            
+            
+        }
+
+
         
 
     }
     
+    func getFeed(feed: Feed, completed: (() -> ())? = nil) {
+        completed?()
+    }
     
+    func getFeedImage(url: String, complete: ((image: UIImage) -> ())? = nil) {
+        storageRef.referenceForURL(url).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+            if error == nil {
+                if let imageData = data {
+                    let image = UIImage(data: imageData)
+                    complete?(image: image!)
+                }
+            }else {
+                print(error!.localizedDescription)
+            }
+        })
+    }
 }

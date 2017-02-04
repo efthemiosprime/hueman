@@ -56,7 +56,7 @@ class FeedImageTableViewCell: UITableViewCell {
                 textAuthorLabel.text = feed.author
                 textCreatedLabel.text = feed.dateCreated ?? ""
                 feedImage.clipsToBounds = true
-
+                
                 key = feed.key
                 
                 authorProfileImage.userInteractionEnabled = true

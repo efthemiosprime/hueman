@@ -133,6 +133,14 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         
             }
         }
+        
+        
+        if segue.identifier == "EditPost" {
+                        
+            let createPostController = segue.destinationViewController as! CreatePostViewController
+            createPostController.mode = "edit"
+
+        }
     }
     
 
@@ -262,24 +270,29 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
             
             feedCell.showPopover = { (cell) in
-                let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("popoverID")
-                popController.preferredContentSize = CGSizeMake(120, 160)
+                
+                var popupType: String?
+                
+                if let unWrappedUserUid = authenticationManager.currentUser?.uid, let unWrappedFeedUid = feedCell.feed?.uid {
+                    popupType = (unWrappedUserUid == unWrappedFeedUid) ? "PopoverEdit" : "PopoverReport"
+                    
+                }
+                let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(popupType!) as! PopoverViewController
+                popController.delegate = self
+                popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 100 : 80)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
                 // set up the popover presentation controller
                 popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
                 popController.popoverPresentationController?.delegate = self
                 popController.popoverPresentationController?.sourceView = (cell as! FeedImageTableViewCell).popoverButton // button
                 popController.popoverPresentationController?.sourceRect = (cell as! FeedImageTableViewCell).popoverButton.bounds
-                                
+                popController.feed = feed
+                
                 self.presentViewController(popController, animated: true, completion: nil)
 
             }
             
             feedCell.showAuthor = { cell in
-                
-
-                
-                
                 
                 if let unwrappedUid = (cell as! FeedImageTableViewCell).feed?.uid {
                     
@@ -468,15 +481,25 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             }
             
             feedCell.showPopover = { (cell) in
-                let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("popoverID")
-                popController.preferredContentSize = CGSizeMake(120, 160)
+                
+                var popupType: String?
+                
+                if let unWrappedUserUid = authenticationManager.currentUser?.uid, let unWrappedFeedUid = feedCell.feed?.uid {
+                    popupType = (unWrappedUserUid == unWrappedFeedUid) ? "PopoverEdit" : "PopoverReport"
+                    
+                }
+                
+                let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(popupType!) as! PopoverViewController
+                popController.delegate = self
+                popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 100 : 80)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
                 // set up the popover presentation controller
                 popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
                 popController.popoverPresentationController?.delegate = self
                 popController.popoverPresentationController?.sourceView = (cell as! FeedTextTableViewCell).popoverButton // button
                 popController.popoverPresentationController?.sourceRect = (cell as! FeedTextTableViewCell).popoverButton.bounds
-                
+                popController.feed = feed
+
                 self.presentViewController(popController, animated: true, completion: nil)
                 
             }
@@ -576,6 +599,62 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     }
     
 
+}
+
+extension HuesFeedViewController: PopoverDelegate {
+    func editPost(feed: Feed) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var storedEntry = [String: AnyObject]()
+        storedEntry["postInput"] = feed.text
+        
+        if let feedKey = feed.key  {
+            storedEntry["key"] = feedKey
+        }
+        
+        if let withImage = feed.withImage {
+            if let imageURL = feed.imageURL {
+                storedEntry["imageURL"] = imageURL
+            }
+        }
+        
+        if let topic = feed.topic {
+            storedEntry["topic"] = topic
+            switch topic {
+            case Topic.Wanderlust:
+                storedEntry["icon"] = Icon.Wanderlust
+                storedEntry["color"] = Color.Wanderlust
+                break
+            case Topic.DailyHustle:
+                storedEntry["icon"] = Icon.DailyHustle
+                storedEntry["color"] = Color.DailyHustle
+                break
+            case Topic.Health:
+                storedEntry["icon"] = Icon.Health
+                storedEntry["color"] = Color.Health
+                break
+                
+            case Topic.OnMyPlate:
+                storedEntry["icon"] = Icon.OnMyPlate
+                storedEntry["color"] = Color.OnMyPlate
+                break
+                
+            case Topic.RelationshipMusing:
+                storedEntry["icon"] = Icon.RelationshipMusing
+                storedEntry["color"] = Color.RelationshipMusing
+                break
+            default:
+                storedEntry["icon"] = Icon.RayOfLight
+                storedEntry["color"] = Color.RayOfLight
+            }
+            
+            
+            defaults.setObject(storedEntry, forKey: "storedEntry")
+            defaults.synchronize()
+        }
+
+        
+        self.performSegueWithIdentifier("EditPost", sender: nil)
+    }
 }
 
 

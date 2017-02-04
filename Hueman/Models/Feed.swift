@@ -24,6 +24,7 @@ struct Feed {
     var imageURL: String?
     var dateCreated: String?
     var withImage: Bool?
+    var editMode = false
     
     init(snapshot: FIRDataSnapshot) {
         self.ref = snapshot.ref
@@ -33,18 +34,21 @@ struct Feed {
         self.topic = snapshot.value!["topic"] as! String
         
         
+        self.uid = snapshot.value!["uid"] as? String
+        self.imageURL = snapshot.value!["imageURL"] as? String
+        self.withImage = snapshot.value!["withImage"] as? Bool
+        
+        
         if snapshot.value!["created_at"] != nil {
+
             if let date = snapshot.value!["created_at"] as? NSTimeInterval{
+                
                 let dateCreated = NSDate(timeIntervalSince1970: date/1000)
                 let now: NSDate = NSDate()
                 self.dateCreated = now.offsetFrom(dateCreated)
             }
         }
 
-        
-        self.uid = snapshot.value!["uid"] as? String
-        self.imageURL = snapshot.value!["imageURL"] as? String
-        self.withImage = snapshot.value!["withImage"] as? Bool
     }
     
     init(author: String, id: String, uid: String, text: String, topic: String, imageURL: String, withImage: Bool = false) {
