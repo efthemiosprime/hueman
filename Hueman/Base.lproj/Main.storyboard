@@ -1723,6 +1723,14 @@
                                                     <constraint firstAttribute="width" constant="271" id="atk-iw-kla"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dd-c4-5Kb" userLabel="Camera">
+                                                <rect key="frame" x="255" y="230" width="57" height="57"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="camera-button"/>
+                                                <connections>
+                                                    <action selector="cameraTapped:" destination="BCO-Qn-cTH" eventType="touchUpInside" id="PLi-2n-kkl"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-jh-U5z" userLabel="Name + Bio">
                                                 <rect key="frame" x="0.0" y="328" width="375" height="103"/>
                                                 <subviews>
@@ -1745,7 +1753,7 @@
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Write anything you’d like telling other Huemans who view your profile to see..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hzF-1l-UeY">
                                                                 <rect key="frame" x="22" y="40" width="330" height="62"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
@@ -2114,14 +2122,6 @@
                                                     <constraint firstAttribute="height" constant="630" id="abZ-ZQ-udz"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dd-c4-5Kb" userLabel="Camera">
-                                                <rect key="frame" x="255" y="230" width="57" height="57"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="camera-button"/>
-                                                <connections>
-                                                    <action selector="cameraTapped:" destination="BCO-Qn-cTH" eventType="touchUpInside" id="PLi-2n-kkl"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tap to add photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMX-xK-oRS">
                                                 <rect key="frame" x="123" y="150" width="128" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2196,6 +2196,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="jma-Db-tas" id="pb5-kG-tYU"/>
                         <outlet property="bioTextfield" destination="hzF-1l-UeY" id="XFP-1j-5Lj"/>
+                        <outlet property="bioView" destination="sNU-AJ-1eG" id="ory-Qu-17F"/>
                         <outlet property="birthdayImage" destination="nE7-Bb-ZDo" id="VxE-ZH-5Db"/>
                         <outlet property="dateLabel" destination="2lC-va-hjq" id="4LO-w3-oC5"/>
                         <outlet property="locationImage" destination="vo8-dv-LXo" id="CBZ-lH-3TN"/>
@@ -2204,6 +2205,7 @@
                         <outlet property="navigationBar" destination="7Sz-Kv-aCi" id="xQh-wT-Hrh"/>
                         <outlet property="profileImage" destination="cwm-c5-B8w" id="bBp-e6-au6"/>
                         <outlet property="saveButton" destination="hgH-s5-6pw" id="oJT-DP-xe0"/>
+                        <outlet property="scrollView" destination="D8b-WN-1n4" id="k05-pQ-WuI"/>
                         <outlet property="tapToAddPhotoLabel" destination="PMX-xK-oRS" id="Nor-Pw-ytD"/>
                         <outletCollection property="profilesHues" destination="rSo-YB-ixN" collectionClass="NSMutableArray" id="PNa-ku-U5U"/>
                         <outletCollection property="profilesHues" destination="VfG-n2-gNm" collectionClass="NSMutableArray" id="NId-DO-rza"/>

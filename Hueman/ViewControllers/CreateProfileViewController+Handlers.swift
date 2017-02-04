@@ -54,6 +54,11 @@ extension CreateProfileViewController: UIImagePickerControllerDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+
+    
+    
+    
 }
 
 
@@ -110,13 +115,19 @@ extension CreateProfileViewController: UITextViewDelegate {
             textView.textColor = UIColor.whiteColor()
             textView.text = ""
 
+
         }
+        
+        moveUI(bioView, distance: -55, up: true)
+
         return true
     }
 
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        moveUI(bioView, distance: -55, up: false)
+
         textField.text?.capitalizeFirstLetter()
+        textField.resignFirstResponder()
 
         return true
     }
@@ -233,5 +244,13 @@ extension CreateProfileViewController: UIPopoverPresentationControllerDelegate {
         if errorType == "dob" {
             didTappedLocation()
         }
+    }
+}
+
+
+extension CreateProfileViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+        scrollOffset = scrollView.contentOffset.y
     }
 }

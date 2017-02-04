@@ -25,7 +25,9 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var tapToAddPhotoLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var bioView: UIView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: ActivityIndicator!
     
     @IBOutlet var profilesHues: [ProfileHue]?
@@ -44,12 +46,16 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     var errorType: String = ""
     
+    var scrollOffset: CGFloat = 0.0
+    var keyboardHeight: CGFloat = 0.0
+    var bioFrame: CGRect?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         activityIndicator.hidden = true
        // saveButton.enabled = false
-        
+        scrollView.delegate = self
         self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.clearColor();
         
         if !AppSettings.DEBUG {
@@ -110,6 +116,13 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         addDoneBtnToKeyboard()
 
         
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: #selector(CreateProfileViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        
+        
+                notificationCenter.addObserver(self, selector: #selector(CreateProfileViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
+        bioFrame = bioView.frame
     }
     
 
@@ -344,6 +357,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     // Dismissing all editing actions when User Tap or Swipe down on the Main View
     func dismissKeyboard(gesture: UIGestureRecognizer){
+        
+        
         bioTextfield.resignFirstResponder()
 
         self.view.endEditing(true)
@@ -383,11 +398,76 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
     }
     
+    
+    func moveUI(uiView: UIView, distance: CGFloat, up: Bool) {
+        
+        if scrollOffset > 50.0 {
+            return
+        }
+        let duration = 0.3
+        
+        
+        UIView.beginAnimations("moveUI", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(duration)
+        let distanceFactor = distance + scrollOffset
+        
+        let movement: CGFloat = CGFloat(up ? distanceFactor : -distanceFactor)
+        
+        if up {
+            uiView.frame = CGRectOffset(uiView.frame, 0, movement)
+            UIView.commitAnimations()
+        }else {
+            uiView.frame = bioFrame!
+            UIView.commitAnimations()
+        }
+
+//        if up {
+//            let distanceFactor = distance + scrollOffset
+//
+//            let movement: CGFloat = CGFloat(up ? distanceFactor : -distanceFactor)
+//            uiView.frame = CGRectOffset(uiView.frame, 0, movement)
+//            UIView.commitAnimations()
+//        }else {
+//            uiView.frame = bioFrame!
+//            UIView.commitAnimations()
+//        }
+//        
+
+        
+
+    }
+    
     func doneEditing() {
-        view.endEditing(true)
+        
+        if bioTextfield.text.isEmpty {
+            bioTextfield.text = "Write anything you’d like telling other Huemans who view your profile to see..."
+            bioTextfield.textColor = UIColor.UIColorFromRGB(0xAAAAAA)
+        }
+        
+        
+        self.view.endEditing(true)
+        bioTextfield.resignFirstResponder()
+
+
     }
     
 
+    
+    func keyboardWillShow(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+
+        moveUI(bioView, distance: -55, up: false)
+
+        bioTextfield.resignFirstResponder()
+        self.view.endEditing(true)
+
+    }
     
 }
 
