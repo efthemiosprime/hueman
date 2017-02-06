@@ -64,6 +64,9 @@ class BirthdayController: UIViewController {
         self.delegate?.pickerDidChange(dateFormatter.stringFromDate(sender.date))
         
     }
+    
+    
+    
 
     @IBAction func didTappedConfirmButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

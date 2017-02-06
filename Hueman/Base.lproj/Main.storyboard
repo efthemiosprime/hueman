@@ -47,13 +47,13 @@
                                 <rect key="frame" x="56" y="177" width="263" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSN-y8-Ivj">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="17"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="270" verticalHuggingPriority="240" verticalCompressionResistancePriority="700" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-Id-sGN" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="263" height="32"/>
+                                        <rect key="frame" x="0.0" y="25" width="263" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
@@ -72,13 +72,13 @@
                                 <rect key="frame" x="56" y="245" width="263" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-qs-aKn">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="17"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="8Mg-Sd-psX" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="263" height="32"/>
+                                        <rect key="frame" x="0.0" y="25" width="263" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
@@ -94,7 +94,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y5-o9-uPi">
-                                <rect key="frame" x="235" y="383.5" width="84" height="30"/>
+                                <rect key="frame" x="235" y="381" width="84" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="FFf-SI-nwt"/>
                                     <constraint firstAttribute="width" constant="84" id="yI6-FR-t3g"/>
@@ -122,13 +122,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet a hueman?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25e-jP-tTb">
-                                <rect key="frame" x="63" y="360" width="256" height="15.5"/>
+                                <rect key="frame" x="63" y="360" width="256" height="13"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrj-8I-rfQ">
-                                <rect key="frame" x="56" y="313" width="123" height="28"/>
+                                <rect key="frame" x="56" y="313" width="126" height="25"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                 <state key="normal" title="I forgot my password">
                                     <color key="titleColor" red="0.20000000000000001" green="0.70980392156862748" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
@@ -217,13 +217,13 @@
                                 <rect key="frame" x="56" y="122" width="263" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="full name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYX-wd-EsR">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="17"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="S8O-Eh-3bj" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="263" height="32"/>
+                                        <rect key="frame" x="0.0" y="25" width="263" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad"/>
@@ -242,13 +242,13 @@
                                 <rect key="frame" x="56" y="190" width="263" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY7-HE-8E9">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="17"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-yO-66B" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="263" height="32"/>
+                                        <rect key="frame" x="0.0" y="25" width="263" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
@@ -267,13 +267,13 @@
                                 <rect key="frame" x="56" y="258" width="263" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtG-qH-qMf">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="17"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="271" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="17" background="input-bg" translatesAutoresizingMaskIntoConstraints="NO" id="JjH-KL-bGG" customClass="TextField" customModule="Hueman" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="263" height="32"/>
+                                        <rect key="frame" x="0.0" y="25" width="263" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
@@ -489,7 +489,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
@@ -613,7 +613,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="344" y="202" width="11" height="22"/>
+                                            <rect key="frame" x="344" y="207" width="11" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="1su-i0-dQR"/>
                                                 <constraint firstAttribute="width" constant="11" id="TFh-F4-vUT"/>
@@ -628,7 +628,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="20" y="212" width="270" height="33"/>
+                                            <rect key="frame" x="20" y="217" width="270" height="28"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -908,7 +908,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KOF-vt-Ifb" id="3Tb-X9-oW0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Fio-gO-Tsn">
@@ -1171,7 +1171,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ryb-Qq-HS5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="connectionCell" rowHeight="96" id="ol3-Gi-Nou" customClass="ConnectionCell" customModule="Hueman" customModuleProvider="target">
@@ -1267,7 +1267,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NPY-LV-JAV" firstAttribute="top" secondItem="ryb-Qq-HS5" secondAttribute="bottom" constant="49" id="6It-r2-17r"/>
+                            <constraint firstItem="NPY-LV-JAV" firstAttribute="top" secondItem="ryb-Qq-HS5" secondAttribute="bottom" id="6It-r2-17r"/>
                             <constraint firstItem="ryb-Qq-HS5" firstAttribute="top" secondItem="swM-Nb-eag" secondAttribute="top" id="92g-Uo-xr1"/>
                             <constraint firstAttribute="trailing" secondItem="ryb-Qq-HS5" secondAttribute="trailing" id="BaZ-NW-ALi"/>
                             <constraint firstItem="ryb-Qq-HS5" firstAttribute="leading" secondItem="swM-Nb-eag" secondAttribute="leading" id="bUb-dc-0mr"/>
@@ -1618,7 +1618,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1649,7 +1649,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1670,7 +1670,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2172,7 +2172,7 @@
                                 <items>
                                     <navigationItem title="create profile" id="o1b-Hd-2v7">
                                         <barButtonItem key="rightBarButtonItem" image="topbar-save-invalid-icon" width="22" style="plain" id="hgH-s5-6pw">
-                                            <inset key="imageInsets" minX="3" minY="0.0" maxX="-3" maxY="0.0"/>
+                                            <inset key="imageInsets" minX="6" minY="0.0" maxX="-6" maxY="0.0"/>
                                             <connections>
                                                 <action selector="didTappedSave:" destination="BCO-Qn-cTH" id="17a-f3-2to"/>
                                             </connections>
@@ -2292,7 +2292,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2325,7 +2325,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w89-qe-1tX" id="KlQ-wT-DYb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="116.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IN-mo-CI1" userLabel="Footer">
@@ -2477,11 +2477,11 @@
                         <viewControllerLayoutGuide type="bottom" id="6hn-4f-HgA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Iwa-bn-pYt">
-                        <rect key="frame" x="0.0" y="0.0" width="118" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="118" height="48"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t78-x2-Kyr">
-                                <rect key="frame" x="0.0" y="24" width="118" height="32"/>
+                                <rect key="frame" x="0.0" y="8" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="popover-report"/>
                                 <connections>
@@ -2495,7 +2495,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="118" height="80"/>
+                    <size key="freeformSize" width="118" height="48"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNi-f2-LWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2593,7 +2593,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3452,11 +3452,11 @@
                         <viewControllerLayoutGuide type="bottom" id="3es-xx-3CY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T9m-we-paA">
-                        <rect key="frame" x="0.0" y="0.0" width="118" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="118" height="115"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWy-Sm-5jv">
-                                <rect key="frame" x="0.0" y="11" width="118" height="32"/>
+                                <rect key="frame" x="0.0" y="8" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="popover-edit"/>
                                 <connections>
@@ -3464,7 +3464,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqN-6d-917">
-                                <rect key="frame" x="0.0" y="77" width="118" height="32"/>
+                                <rect key="frame" x="0.0" y="74" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="popover-report"/>
                                 <connections>
@@ -3472,7 +3472,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlp-4c-KVh">
-                                <rect key="frame" x="0.0" y="44" width="118" height="32"/>
+                                <rect key="frame" x="0.0" y="41" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="popover-delete"/>
                             </button>
@@ -3483,7 +3483,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="118" height="120"/>
+                    <size key="freeformSize" width="118" height="115"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F88-94-JS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

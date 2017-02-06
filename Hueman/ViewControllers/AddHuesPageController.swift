@@ -144,11 +144,10 @@ extension AddHuesPageController: UIPageViewControllerDelegate {
                                                transitionCompleted completed: Bool)
     {
         //        guard completed else { return }
-        //        print("xxxxx")
+                print("xxxxx")
         
         if(completed) {
-            let prev = pageViewController as? AddHueController
-            print(prev!.detailLabel.text)
+
         }
     }
     

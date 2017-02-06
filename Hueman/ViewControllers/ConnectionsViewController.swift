@@ -5,17 +5,17 @@
 //  Created by Efthemios Prime on 10/21/16.
 //  Copyright © 2016 Efthemios Prime. All rights reserved.
 //
-
+// http://shrikar.com/swift-ios-tutorial-uisearchbar-and-uisearchbardelegate/
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 import SwiftOverlays
 
-class ConnectionsViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class ConnectionsViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var searhItem: UIBarButtonItem!
     var addItem: UIBarButtonItem!
@@ -24,11 +24,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     var addIconWithBadge: UIImage!
     var addIconNoBadge: UIImage!
     
-    var connections = [Connection]()
-    var searchController: UISearchController!
-
-    
-    var searchBarOpen: Bool = false
+    var searchIsBarOpen: Bool = false
     
     
     var databaseRef: FIRDatabaseReference! {
@@ -69,20 +65,19 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         self.navigationController?.navigationBar.topItem!.title = "connections"
         
         
-        
         self.tableView.separatorStyle = .None
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
-
 
         if revealViewController() != nil {
             menuItem.target = revealViewController()
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
+        
+        
+        searchBar.delegate = self
 
     }
     
@@ -100,7 +95,6 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
         
         
         connectionsModel.fetchConnections({ connections in
-            self.connections = connections
             dispatch_async(dispatch_get_main_queue(),{
                 self.tableView.reloadData()
                 
@@ -129,7 +123,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        if searchBarOpen {
+        if searchIsBarOpen {
             didCancelSearch()
         }
         
@@ -139,7 +133,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
             self.view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        connections.removeAll()
+        connectionsModel.connections.removeAll()
     }
     
     
@@ -161,7 +155,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
 //        }
 //    }
     
-    
+
     func addNavigationItems () {
         self.navigationItem.leftBarButtonItem = menuItem
         self.navigationItem.rightBarButtonItems = [addItem, searhItem]
@@ -173,7 +167,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     }
     
     func showSearchBar() {
-        searchBarOpen = true
+        searchIsBarOpen = true
         hideNavigationItems()
         self.navigationItem.leftBarButtonItem = backItem
         self.navigationItem.titleView = searchBar
@@ -181,10 +175,12 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     }
     
     func didCancelSearch() {
-        searchBarOpen = false
+        searchIsBarOpen = false
         hideNavigationItems()
         addNavigationItems()
         self.navigationItem.titleView = nil
+        
+        tableView.reloadData()
     }
     
     func addConnections() {
@@ -193,11 +189,7 @@ class ConnectionsViewController: UIViewController, UISearchControllerDelegate, U
     
 
 
-    
-    // MARK: - Search Controller
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-    }
+
     
 
     @IBAction func didTapSearch(sender: AnyObject) {
@@ -216,11 +208,26 @@ extension ConnectionsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(CONNECTION_CELL_IDENTIFIER, forIndexPath: indexPath) as! ConnectionCell
-        cell.connection = connections[indexPath.row]
         
-        if let url = connections[indexPath.row].imageURL {
-            connectionsModel.displayConnectionImage(url, cell: cell)
+        
+        if searchIsBarOpen && searchBar.text != "" && connectionsModel.filteredConnections.count > 0 {
+
+
+            cell.connection = connectionsModel.filteredConnections[indexPath.row]
+            if let url = connectionsModel.filteredConnections[indexPath.row].imageURL {
+                connectionsModel.displayConnectionImage(url, cell: cell)
+            }
+        }else {
+            cell.connection = connectionsModel.connections[indexPath.row]
+            
+            
+            if let url = connectionsModel.connections[indexPath.row].imageURL {
+                connectionsModel.displayConnectionImage(url, cell: cell)
+            }
         }
+        
+        
+
 
         
         return cell
@@ -235,13 +242,21 @@ extension ConnectionsViewController: UITableViewDelegate {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.selectionStyle = UITableViewCellSelectionStyle.None
         
-        let senderConnection = connections[indexPath.row] as Connection
+        let senderConnection: Connection?
+        
+        if searchIsBarOpen && searchBar.text != "" && connectionsModel.filteredConnections.count > 0 {
+            senderConnection = connectionsModel.filteredConnections[indexPath.row]
+        }else {
+            senderConnection = connectionsModel.connections[indexPath.row] as Connection
+
+        }
+        
        
         
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
-        if let unwrappedUid = senderConnection.uid {
+        if let unwrappedUid = senderConnection!.uid {
             
             let userRef = databaseRef.child("users").child(unwrappedUid )
             userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -299,6 +314,42 @@ extension ConnectionsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return connections.count
+        
+        if searchIsBarOpen && searchBar.text != "" && connectionsModel.filteredConnections.count > 0 {
+            return connectionsModel.filteredConnections.count
+        }
+        return connectionsModel.connections.count
     }
+}
+
+// MARK: - Search Controller
+extension ConnectionsViewController: UISearchBarDelegate {
+
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchIsBarOpen = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchIsBarOpen = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchIsBarOpen = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchIsBarOpen = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    
+        
+        connectionsModel.filterConnections(searchText)
+        
+        
+        self.tableView.reloadData()
+        
+    }
+
+
 }

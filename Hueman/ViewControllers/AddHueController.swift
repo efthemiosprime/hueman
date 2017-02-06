@@ -28,14 +28,14 @@ class AddHueController: UIViewController {
     var type: String?
     var hueIndex: Int = 0
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         detailLabel.delegate = self
-        //confirmButton.enabled = false
-       // detailLabel.becomeFirstResponder()
-        
-        
+
         if let unwrappedType = type {
             switch unwrappedType {
                 
@@ -109,11 +109,17 @@ class AddHueController: UIViewController {
         
         
         detailLabel.addTarget(self, action: #selector(self.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        
+        addDoneBtnToKeyboard()
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+                
         
+        if let text = defaults.objectForKey(type!) as? String   {
+            detailLabel.text = text
+        }
         
         self.navigationBar.topItem!.title = "add hues"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
@@ -125,6 +131,8 @@ class AddHueController: UIViewController {
         
         if textField.text?.characters.count > 3 {
             confirmButton.enabled = true
+            
+            defaults.setObject(textField.text, forKey: type!)
         }
         let charCount: String = String(textField.text!.characters.count)
         if textField.text?.characters.count > 1 {
@@ -147,16 +155,34 @@ class AddHueController: UIViewController {
         
 
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func addDoneBtnToKeyboard() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneEditing))
+        doneBtn.tintColor = UIColor.UIColorFromRGB(0x666666)
+        
+        if let font = UIFont(name: Font.SofiaProRegular, size: 15) {
+            doneBtn.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+        
+        toolbar.setItems([spacer, doneBtn], animated: false)
+        
+        detailLabel.inputAccessoryView = toolbar
+        
     }
-    */
+    
 
+    
+    func doneEditing() {
+        
+        self.view.endEditing(true)
+        detailLabel.resignFirstResponder()
+        
+    }
 }
 
 

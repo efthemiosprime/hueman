@@ -14,6 +14,7 @@ class ConnectionsViewModel: NSObject {
     
     let cachedImages = NSCache()
     var connections = [Connection]()
+    var filteredConnections = [Connection]()
     var numberOfRequests:UInt = 0
     var storageRef: FIRStorage!{
         return FIRStorage.storage()
@@ -31,14 +32,14 @@ class ConnectionsViewModel: NSObject {
         friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             if snapshot.exists() {
-                let connections = snapshot.children.map({(con) -> Connection in
+                self.connections = snapshot.children.map({(con) -> Connection in
                     let connection = Connection(name: (con.value!["name"] as? String)!,
                         location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
                     return connection
                 }).sort({ (user1, user2) -> Bool in
                     user1.name < user2.name })
                 
-                completion?(connections)
+                completion?(self.connections)
             }
             
 
@@ -91,16 +92,22 @@ class ConnectionsViewModel: NSObject {
                         
                         })
                     }
-                    
-
-                    
-                    
                 }else {
                     print(error!.localizedDescription)
                 }
             })
         }
-        
+    }
+    
+    
+    func filterConnections(input: String) {
 
+        self.filteredConnections = self.connections.filter( {connection in
+            let name = connection.name!
+            return (name.lowercaseString.containsString(input.lowercaseString))
+            }
+        )
+        
+        
     }
 }
