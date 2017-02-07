@@ -11,6 +11,7 @@ import UIKit
 protocol PopoverDelegate: class {
     func editPost(feed: Feed)
     func reportPost(feed: Feed)
+    func deletePost(feed: Feed, indexPath: NSIndexPath)
 }
 
 class PopoverViewController: UIViewController {
@@ -20,6 +21,8 @@ class PopoverViewController: UIViewController {
     var feed: Feed?
     
     var type:String?
+    
+    var indexPath: NSIndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,14 @@ class PopoverViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: {
             if let feed = self.feed {
                 self.delegate?.reportPost(feed)
+            }
+        })
+    }
+    
+    @IBAction func deletePostAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {
+            if let feed = self.feed {
+                self.delegate?.deletePost(feed, indexPath: self.indexPath!)
             }
         })
     }

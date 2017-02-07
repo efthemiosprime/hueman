@@ -5,7 +5,7 @@
 //  Created by Efthemios Prime on 10/21/16.
 //  Copyright © 2016 Efthemios Prime. All rights reserved.
 //
-// http://shrikar.com/swift-ios-tutorial-uisearchbar-and-uisearchbardelegate/
+
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
@@ -187,10 +187,6 @@ class ConnectionsViewController: UIViewController{
     func addConnections() {
         performSegueWithIdentifier("AddConnections", sender: nil);
     }
-    
-
-
-
     
 
     @IBAction func didTapSearch(sender: AnyObject) {

@@ -272,13 +272,14 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             feedCell.showPopover = { (cell) in
                 
                 var popupType: String?
-                
+                indexPath
                 if let unWrappedUserUid = authenticationManager.currentUser?.uid, let unWrappedFeedUid = feedCell.feed?.uid {
                     popupType = (unWrappedUserUid == unWrappedFeedUid) ? "PopoverEdit" : "PopoverReport"
                     
                 }
                 let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(popupType!) as! PopoverViewController
                 popController.delegate = self
+                popController.indexPath = indexPath
                 popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 115 : 48)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
                 // set up the popover presentation controller
@@ -458,7 +459,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             }
             
             feedCell.showAuthor = { cell in
-                
+            
 
                 if let unwrappedUid = (cell as! FeedTextTableViewCell).feed?.uid {
                     
@@ -504,6 +505,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 
                 let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(popupType!) as! PopoverViewController
                 popController.delegate = self
+                popController.indexPath = indexPath
                 popController.preferredContentSize = CGSizeMake(120, (popupType!) == "PopoverEdit" ? 115 : 48)
                 popController.modalPresentationStyle = UIModalPresentationStyle.Popover
                 // set up the popover presentation controller
@@ -696,6 +698,28 @@ extension HuesFeedViewController: PopoverDelegate, MFMailComposeViewControllerDe
 
         
     }
+    
+    func deletePost(feed: Feed, indexPath: NSIndexPath) {
+        
+        
+        
+    
+        
+        huesFeedModel.deleteFeed(feed.key!, completion:{
+            self.tableView.beginUpdates()
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            self.huesFeedModel.feeds.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
+            self.tableView.endUpdates()
+        })
+
+        
+        
+    
+
+        
+    }
+    
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         
 //        switch result.value {

@@ -25,7 +25,14 @@ class ConnectionProfileViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = true
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
+            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)
+        ]
+        
+        
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func viewWillDisappear(animated: Bool){

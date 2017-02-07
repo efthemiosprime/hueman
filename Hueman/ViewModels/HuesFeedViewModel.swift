@@ -238,6 +238,18 @@ class HuesFeedViewModel: NSObject {
         
     }
     
+    func deleteFeed(key: String, completion: (() -> ())? = nil) {
+        let feedRef = databaseRef.child("feeds").child(key)
+        feedRef.removeValueWithCompletionBlock({
+            (error, ref) in
+            if( error != nil ) {
+                print(error?.localizedDescription)
+            }else{
+                completion?()
+            }
+        })
+    }
+    
     func gcd(likes: Double, flags: Double) -> Double {
         let r = likes % flags
         if r != 0 {

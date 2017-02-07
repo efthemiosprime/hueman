@@ -43,11 +43,11 @@ class ProfileViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
         profileImage.contentMode = .ScaleAspectFill
-        
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
-            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x959595)
+            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)
         ]
+
         
         var topics: [String] = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
         for (index, hue) in hues!.enumerate() {
@@ -72,7 +72,10 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
+            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)
+        ]
         
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
