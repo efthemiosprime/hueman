@@ -179,7 +179,8 @@ class ConnectionsViewController: UIViewController{
         hideNavigationItems()
         addNavigationItems()
         self.navigationItem.titleView = nil
-        
+        searchBar.text = ""
+
         tableView.reloadData()
     }
     

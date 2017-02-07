@@ -33,15 +33,16 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         return FIRStorage.storage()
     }
     
-    var oldFeeds = [Feed]()
-    var feeds = [Feed]()
     var filterController: FilterController?
     var huesFeedModel: HuesFeedViewModel!
+    
+    var searchIsBarOpen = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         huesFeedModel = HuesFeedViewModel()
+        searchBar.delegate = self
 
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
 
@@ -55,7 +56,8 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         filterItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0)
         menuItem = UIBarButtonItem(image: UIImage(named: "hamburger-bar-item"), style: .Plain, target: self, action: nil)
         
-        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160
@@ -66,9 +68,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 print("controller: \(viewController)")
             }
         }
-
-        
-        
 
         addNavigationItems()
         
@@ -88,7 +87,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         
         showWaitOverlay()
         huesFeedModel.feetchFeeds({ feeds in
-            self.feeds = feeds
             self.tableView.reloadData()
             self.removeAllOverlays()
         })
@@ -160,12 +158,18 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feeds.count
+        if searchIsBarOpen && searchBar.text != "" && huesFeedModel.filteredFeeds.count > 0 {
+            return huesFeedModel.filteredFeeds.count
+        }
+        return huesFeedModel.feeds.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let feed = feeds[indexPath.row]
+        
+        let feed = ( searchIsBarOpen && searchBar.text != "" && huesFeedModel.filteredFeeds.count > 0) ? huesFeedModel.filteredFeeds[indexPath.row] : huesFeedModel.feeds[indexPath.row]
+        
+        
         let cell = feed.withImage == true ? tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_IMAGE_IDENTIFIER, forIndexPath: indexPath) as! FeedImageTableViewCell : tableView.dequeueReusableCellWithIdentifier(HuesFeedViewModel.CELL_TEXT_IDENTIFIER, forIndexPath: indexPath) as! FeedTextTableViewCell
     
         if (feed.withImage == true)
@@ -326,12 +330,25 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             
             huesFeedModel.displayTotalComments(feedCell.key, cell: feedCell)
             huesFeedModel.displayTotalLikes(feedCell.key, cell: feedCell)
-
-            if let imageFeedURL = feeds[indexPath.row].imageURL {
-                
-                self.huesFeedModel.displayImageFeedWithURL(imageFeedURL, cell: feedCell)
-                
+            
+            
+            if searchIsBarOpen && searchBar.text != "" && huesFeedModel.filteredFeeds.count > 0 {
+                if let imageFeedURL = huesFeedModel.filteredFeeds[indexPath.row].imageURL {
+                    
+                    self.huesFeedModel.displayImageFeedWithURL(imageFeedURL, cell: feedCell)
+                    
+                }
+            }else {
+                if let imageFeedURL = huesFeedModel.feeds[indexPath.row].imageURL {
+                    
+                    self.huesFeedModel.displayImageFeedWithURL(imageFeedURL, cell: feedCell)
+                    
+                }
             }
+            
+            
+
+
             
             
         }else {
@@ -507,8 +524,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         
         self.huesFeedModel.displayAuthorProfileImageWithURL(feed.uid!, cell: cell)
 
-        
-        switch feeds[indexPath.row].topic {
+
+        let whichFeeds = (searchIsBarOpen && searchBar.text != "" && huesFeedModel.filteredFeeds.count > 0) ? huesFeedModel.filteredFeeds : huesFeedModel.feeds
+        switch whichFeeds[indexPath.row].topic {
         case Topic.Wanderlust:
             cell.contentView.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
 
@@ -553,7 +571,14 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
 
     func onFilter(topics: [String])
     {
-        feeds = topics.count > 0 ? huesFeedModel.oldFeeds.filter({topics.contains($0.topic!)}) : huesFeedModel.oldFeeds
+        
+        if searchIsBarOpen && searchBar.text != "" && huesFeedModel.filteredFeeds.count > 0 {
+            huesFeedModel.filteredFeeds = topics.count > 0 ? huesFeedModel.oldFeeds.filter({topics.contains($0.topic!)}) : huesFeedModel.oldFeeds
+
+        }else {
+            huesFeedModel.feeds = topics.count > 0 ? huesFeedModel.oldFeeds.filter({topics.contains($0.topic!)}) : huesFeedModel.oldFeeds
+        }
+        
         self.tableView.reloadData()
         
     }
@@ -581,6 +606,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         searchBarOpen = false
         hideNavigationItems()
         addNavigationItems()
+        searchBar.text = ""
+        huesFeedModel.filteredFeeds.removeAll()
+        self.tableView.reloadData()
         self.navigationItem.titleView = nil
     }
     
@@ -690,6 +718,39 @@ extension HuesFeedViewController: PopoverDelegate, MFMailComposeViewControllerDe
     
 
 }
+
+
+
+// MARK: - Search Controller
+extension HuesFeedViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchIsBarOpen = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchIsBarOpen = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchIsBarOpen = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchIsBarOpen = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        
+        huesFeedModel.filterFeeds(searchText)
+        self.tableView.reloadData()
+ 
+    }
+    
+    
+}
+
 
 
 //extension HuesFeedViewController {

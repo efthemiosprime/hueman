@@ -107,7 +107,5 @@ class ConnectionsViewModel: NSObject {
             return (name.lowercaseString.containsString(input.lowercaseString))
             }
         )
-        
-        
     }
 }

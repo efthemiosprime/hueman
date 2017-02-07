@@ -29,6 +29,8 @@ class HuesFeedViewModel: NSObject {
     
     var cachedImages =  NSCache()
     var oldFeeds = [Feed]()
+    var feeds = [Feed]()
+    var filteredFeeds = [Feed]()
 
     override init() {super.init()}
     
@@ -44,6 +46,7 @@ class HuesFeedViewModel: NSObject {
                 
                 
                 self.oldFeeds = feeds
+                self.feeds = feeds
                 completion?(feeds)
         
             }
@@ -223,7 +226,17 @@ class HuesFeedViewModel: NSObject {
 
     }
     
-
+    func filterFeeds(input: String) {
+        
+        self.filteredFeeds = self.feeds.filter( { feed in
+            let text = feed.text!
+            let topic = feed.topic!
+            let author = feed.author!
+            return (text.lowercaseString.containsString(input.lowercaseString) || topic.lowercaseString.containsString(input.lowercaseString) || author.lowercaseString.containsString(input.lowercaseString) )
+            }
+        )
+        
+    }
     
     func gcd(likes: Double, flags: Double) -> Double {
         let r = likes % flags
