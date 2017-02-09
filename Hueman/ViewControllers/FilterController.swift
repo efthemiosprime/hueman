@@ -39,7 +39,10 @@ class FilterController: UIViewController {
             hue.addTarget(self, action: #selector(FilterController.filterFeeds(_:)), forControlEvents: .TouchUpInside)
         }
 
-        
+        // Creating Tap Gesture to dismiss Keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(FilterController.back))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
 
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             let frame = self.filterView.frame
@@ -59,9 +62,22 @@ class FilterController: UIViewController {
 
 
     }
+    
+    
 
     
     @IBAction func didTappedClose(sender: AnyObject) {
+        back()
+
+    }
+    
+    
+    func back() {
+        self.filter()
+        self.selfDestruct()
+    }
+    
+    func filter() {
         
         var filters = [String]()
         for btn in hues! {
@@ -72,6 +88,13 @@ class FilterController: UIViewController {
         
         self.delegate?.onFilter(filters)
         
+        
+
+    }
+    
+    func selfDestruct() {
+        
+        
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             let frame = self.filterView.frame
             
@@ -79,21 +102,15 @@ class FilterController: UIViewController {
             
             
         }) { (Finished) -> Void in
-
-            self.selfDestruct()
-
+            
+            self.didMoveToParentViewController(nil)
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
+            
         }
-    
-
-
-    }
-    
-    func selfDestruct() {
         
 
-        self.didMoveToParentViewController(nil)
-        self.view.removeFromSuperview()
-        self.removeFromParentViewController()
+
 
     }
 

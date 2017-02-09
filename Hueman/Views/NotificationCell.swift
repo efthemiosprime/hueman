@@ -25,7 +25,7 @@ class NotificationCell: UITableViewCell {
     var data: NotificationItem? {
         didSet {
             if let notification = data {
-                notificationLabel.text = "\(notification.name) \(notification.type) on your post."
+                notificationLabel.text = "\(notification.name) \(notification.type) your post."
                 notificationTimestampLabel.text = notification.dateCreated ?? ""
                 
 
