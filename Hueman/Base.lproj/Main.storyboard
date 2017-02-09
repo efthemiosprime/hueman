@@ -166,6 +166,7 @@
                         <outlet property="emailField" destination="FdB-Id-sGN" id="YQV-aI-mVw"/>
                         <outlet property="forgotPasswordButton" destination="Wrj-8I-rfQ" id="iTT-Pa-7sV"/>
                         <outlet property="passwordField" destination="8Mg-Sd-psX" id="VRX-Je-4Mj"/>
+                        <outlet property="signupButton" destination="0Y5-o9-uPi" id="jTi-Zo-i1s"/>
                         <segue destination="lAe-Do-sBk" kind="show" identifier="LoginConfirmed" id="gNX-ic-ARf"/>
                     </connections>
                 </viewController>

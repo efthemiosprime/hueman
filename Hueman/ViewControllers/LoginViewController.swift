@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 import SwiftOverlays
 
-class LoginViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class LoginViewController: UIViewController, UIPopoverPresentationControllerDelegate, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
     
     @IBOutlet weak var activityIndicator: ActivityIndicator!
     let firebaseManager = FirebaseManager()
@@ -33,7 +35,6 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
             forgotPasswordButton.titleLabel?.font = UIFont(name: Font.SofiaProRegular, size: 13)
         }
         
-
         
         emailField.delegate = self
         passwordField.delegate = self
@@ -50,6 +51,12 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard(_:)))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
+        
+        
+        // -------------------------------
+        // FACEBOOK LOGIN
+        facebookLogin()
+        // -------------------------------
         
     }
     
@@ -141,6 +148,38 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
 
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
         loginButton.enabled = true
+    }
+    
+    // MARK: - Facebook Login
+    func facebookLogin() {
+        let signupFrame = signupButton.frame
+        let facebookLoginButton = FBSDKLoginButton()
+        view.addSubview(facebookLoginButton)
+        facebookLoginButton.frame = CGRectMake(signupFrame.origin.x, signupFrame.origin.y + signupFrame.size.height + 8, signupFrame.size.width, signupFrame.size.height)
+        facebookLoginButton.delegate = self
+        facebookLoginButton.readPermissions = ["email", "public_profile"]
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        
+        guard error == nil else {
+            print(error)
+            return
+        }
+        
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email, locale"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+            guard error == nil else {
+                print(error)
+                return
+            }
+            
+            print(result)
+        })
+    
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("did logout")
     }
 }
 

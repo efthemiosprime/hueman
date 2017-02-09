@@ -11,6 +11,13 @@ target 'Hueman' do
   pod 'Firebase/Storage'
   pod 'SwiftOverlays', '~> 2.0.0'
 
+  # Pods for Firebase Social Login
+
+  pod 'Bolts'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
+
   # Pods for Hueman
 
 end
