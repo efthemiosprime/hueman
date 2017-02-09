@@ -30,6 +30,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imagePickerButton: UIButton!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var withImage: Bool = false
     
@@ -57,7 +58,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        postImage.hidden = true
+        deleteButton.hidden = true
         for btn in huesCollections! {
             btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
         }
@@ -69,8 +71,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         topicRectOffsets.append(CGPoint(x: 74, y: 70))
         topicRectOffsets.append(CGPoint(x: 101, y: 23))
 
-        
         showTopic(true)
+
         filterButton.hidden = false
         filterButton.enabled = true
         submitButton.enabled = false
@@ -123,13 +125,20 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                             image in
                             self.postImage.image = image
                             self.withImage = true
+                            self.postImage.hidden = false
+                            self.deleteButton.hidden = false
                         })
                     }
 
                 }else {
+                    print(storedEntry["postImage"])
                     if let postImageData = storedEntry["postImage"] as? NSData {
+                        print(postImage.image?.accessibilityIdentifier)
                         postImage.image = UIImage(data: postImageData)
                         self.withImage = true
+                        postImage.hidden = false
+                        deleteButton.hidden = false
+
                     }
                 }
 
@@ -146,7 +155,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             titleLabel.text = "edit post"
         }
         
-
     }
     
     func showTopic(show: Bool) {
@@ -248,7 +256,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             topicColor = 0xEACD53
         }
         
-
+        addButtonToKeyboard()
         showTopic(true)
     }
 
@@ -301,6 +309,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
 
+        self.postImage.hidden = false
+        self.deleteButton.hidden = false
         withImage = true
         dismissViewControllerAnimated(true, completion: nil)
         
@@ -382,6 +392,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
 
     }
+
+    @IBAction func didTappedDeleteImage(sender: AnyObject) {
+        
+        removeImage()
+    }
     
     @IBAction func didTappedCloseTopic(sender: AnyObject) {
         showTopic(true)
@@ -405,7 +420,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             storedEntry["postInput"] = postInput.text
         }
         
-        if postImage.image != nil {
+        if  withImage  {
             storedEntry["postImage"] = UIImageJPEGRepresentation(postImage.image!, 0.2)
         }
         
@@ -450,8 +465,24 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
             })
         }
-        
+    }
+    
+    func removeImage() {
 
+        deleteButton.hidden = true
+        postImage.image = UIImage(named: "image_empty")
+        postImage.image?.accessibilityIdentifier = "image_empty"
+        postImage.hidden = true
+        withImage = false
+        
+        if storedEntry.count > 0 {
+            storedEntry.removeValueForKey("postImage")
+            storedEntry.removeValueForKey("imageURL")
+            storedEntry["postImage"] = nil
+            storedEntry["imageURL"]  = nil
+            
+        }
+        
     }
 
 }
@@ -483,6 +514,33 @@ extension CreatePostViewController: UITextViewDelegate {
     }
     
 
+}
+
+
+extension CreatePostViewController {
+    func addButtonToKeyboard() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneEditing))
+        doneBtn.tintColor = UIColor.UIColorFromRGB(0x666666)
+        
+        if let font = UIFont(name: Font.SofiaProRegular, size: 15) {
+            doneBtn.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+        
+        toolbar.setItems([spacer, doneBtn], animated: false)
+        
+        postInput.inputAccessoryView = toolbar
+        
+    }
+    
+    func doneEditing() {
+        self.view.endEditing(true)
+        postInput.resignFirstResponder()
+    }
+    
 }
 
 
