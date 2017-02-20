@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import SwiftOverlays
 
-class LoginViewController: UIViewController, UIPopoverPresentationControllerDelegate, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
         
         // -------------------------------
         // FACEBOOK LOGIN
-        facebookLogin()
+       // facebookLogin()
         // -------------------------------
         
     }
@@ -82,9 +82,7 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
         
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+
     
     func printFonts() {
         let fontFamilyNames = UIFont.familyNames()
@@ -108,7 +106,6 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
                // AuthenticationManager.sharedInstance
                 self.activityIndicator.hide()
                 
-                print(AuthenticationManager.sharedInstance.currentUser)
 
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
                 }, onerror: { errorMsg in
@@ -154,20 +151,19 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
     func facebookLogin() {
         let signupFrame = signupButton.frame
         let facebookLoginButton = FBSDKLoginButton()
+        facebookLoginButton.readPermissions = ["public_profile", "email", "user_about_me"]
         view.addSubview(facebookLoginButton)
         facebookLoginButton.frame = CGRectMake(signupFrame.origin.x, signupFrame.origin.y + signupFrame.size.height + 8, signupFrame.size.width, signupFrame.size.height)
-        facebookLoginButton.delegate = self
-        facebookLoginButton.readPermissions = ["email", "public_profile"]
+     //   facebookLoginButton.delegate = self
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        
         guard error == nil else {
             print(error)
             return
         }
         
-        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email, locale"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": " email, id, name, picture"]).startWithCompletionHandler({ (connection, result, error) -> Void in
             guard error == nil else {
                 print(error)
                 return
@@ -181,6 +177,67 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("did logout")
     }
+    
+    @IBAction func facebookLoginAction(sender: AnyObject) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logInWithReadPermissions(["email", "public_profile", "user_about_me"], fromViewController: self, handler: {
+            (result, error) in
+            
+            self.activityIndicator.show()
+
+
+            guard error == nil else {
+                print(error)
+                return
+            }
+            
+            if result.isCancelled {
+                print("is cancelled")
+                return
+            }
+            
+            let req = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,email,name,picture.width(480).height(480)"], tokenString: result.token.tokenString, version: "v2.4", HTTPMethod: "GET")
+            req.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+                
+                if(error == nil)
+                {
+                    if (result.valueForKey("email") as? String) != nil {
+                        if let picture = result["picture"] {
+                            if let data = picture!["data"]{
+                                if let url = data!["url"] as? String {
+
+                                    self.firebaseManager.loginWithFacebook(url, loggedIn: {
+                                        
+                                        self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
+                                        
+                                        self.activityIndicator.hide()
+
+
+                                    })
+
+                                }
+                            }
+                        }
+                    }
+                }else
+                {
+                    print("error \(error)")
+                }
+            }
+        
+        })
+    }
+    
+    @IBAction func facebookLogoutAction(sender: AnyObject) {
+       // FBSDKLoginManager().logOut()
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut() // this is an instance function
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        FBSDKProfile.setCurrentProfile(nil)
+    }
+    
+  
+    
 }
 
 

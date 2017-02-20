@@ -43,10 +43,6 @@ class ProfileViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
         profileImage.contentMode = .ScaleAspectFill
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
-            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)
-        ]
 
         
         var topics: [String] = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
@@ -76,6 +72,9 @@ class ProfileViewController: UIViewController {
             NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
             NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)
         ]
+        
+        self.navigationBar.topItem?.title = user!.name
+
         
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
@@ -131,7 +130,7 @@ class ProfileViewController: UIViewController {
     }
 
     func getCurrentProfile(_user: User) {
-        self.navigationBar.topItem!.title = _user.name
+       // self.navigationBar.topItem!.title = _user.name
         self.birthdayLabel.text = _user.birthday
         self.cityLabel.text = _user.location
         self.bioLabel.text = _user.bio

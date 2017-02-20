@@ -11,6 +11,8 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import FBSDKLoginKit
+import FBSDKShareKit
 import SwiftOverlays
 
 struct FirebaseManager {
@@ -19,6 +21,10 @@ struct FirebaseManager {
     
     var dataBaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
+    }
+    
+    var storageRef: FIRStorageReference! {
+        return FIRStorage.storage().reference()
     }
 
     
@@ -46,6 +52,27 @@ struct FirebaseManager {
             }
         })
 
+    }
+    
+    func loginWithFacebook(url: String, loggedIn: (()->())? = nil) {
+        let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+        FIRAuth.auth()?.signInWithCredential(credential, completion: {
+            (user, error) in
+            guard error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            if let userEmail = user?.email {
+                let exists = self.userExist(userEmail)
+                if !exists {
+                    self.uploadImageFromURL(url, user: user!, complete: {
+                        loggedIn?()
+                    })
+                }else {
+                    loggedIn?()
+                }
+            }
+        })
     }
     
     func signUp(email: String, password:String, name: String, completion: (() -> ())? = nil, onerror: ((errorMsg: String) -> ())? = nil) {
@@ -102,7 +129,7 @@ struct FirebaseManager {
             "name": userVo.name!,
             "email": userVo.email!,
             "uid": userVo.uid!,
-            "photoURL": "",
+            "photoURL": userVo.photoURL! ?? "",
             "bio": "",
             "birthday": "",
             "location": ""
@@ -147,6 +174,16 @@ struct FirebaseManager {
         
     }
     
+    func userExist(email: String) -> Bool {
+        let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue("\(email)")
+        userRef.observeSingleEventOfType(.Value, withBlock: {
+            snapshot in
+            return snapshot.exists()
+        })
+        
+        return false
+    }
+    
     func resetStoredUserInfo()  {
         let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
         if hasLogin {
@@ -162,6 +199,78 @@ struct FirebaseManager {
                 
             }
         }
+    }
+    
+    func uploadImageFromURL(url: String, user: FIRUser, complete:  (() -> ())? = nil) {
+        let url = NSURL(string: url)!
+        
+        // Download task:
+        // - sharedSession = global NSURLCache, NSHTTPCookieStorage and NSURLCredentialStorage objects.
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (responseData, responseUrl, error) -> Void in
+            // if responseData is not null...
+            if let data = responseData{
+                
+                let trimmedName = user.displayName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+
+                
+                let imageData = UIImageJPEGRepresentation(UIImage(data: data)!, 0.5)
+                let imagePath = "userProfileImage\(user.uid)/\(trimmedName).jpg"
+                let imageRef = self.storageRef.child(imagePath)
+                let metaData = FIRStorageMetadata()
+                metaData.contentType = "image/jpeg"
+                
+                imageRef.putData(imageData!, metadata: metaData, completion: { (metadata, error) in
+                    guard error == nil else {
+                        print(error)
+                        return
+                    }
+                    
+                    let changeRequest = user.profileChangeRequest()
+                    if let photoURL = metadata!.downloadURL(){
+                        changeRequest.photoURL = photoURL
+                    }
+                    
+                    changeRequest.commitChangesWithCompletion({
+                        error in
+                        
+                        guard error == nil else {
+                            print(error)
+                            return
+                        }
+                        
+                        let newUserVo = User(email: (user.email)!, name: (user.displayName)!, userId: (user.uid), photoURL: (changeRequest.photoURL?.absoluteString)! )
+                        self.saveUserInfo(user, userVo: newUserVo)
+                        
+                        AuthenticationManager.sharedInstance.currentUser = newUserVo
+                        print(FBSDKAccessToken.currentAccessToken())
+                        complete?()
+                    })
+                    
+
+
+                })
+                
+                
+                
+                
+            }
+        }
+        
+        // Run task
+        task.resume()
+    }
+    
+    func facebookLogout() {
+        
+        if FBSDKAccessToken.currentAccessToken() != nil {
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+            FBSDKAccessToken.setCurrentAccessToken(nil)
+            FBSDKProfile.setCurrentProfile(nil)
+        }
+
+        
+
     }
     
      func manuallyStoreCreds() {

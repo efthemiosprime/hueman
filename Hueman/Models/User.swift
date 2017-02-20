@@ -54,6 +54,13 @@ struct User {
         self.uid = userId
     }
     
+    init(email: String, name: String, userId: String, photoURL: String) {
+        self.email = email
+        self.name = name
+        self.uid = userId
+        self.photoURL = photoURL
+    }
+    
     func toAnyObject() -> [String: AnyObject] {
         return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!, "location": self.location!, "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
     }

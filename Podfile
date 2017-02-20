@@ -14,9 +14,9 @@ target 'Hueman' do
   # Pods for Firebase Social Login
 
   pod 'Bolts'
-  pod 'FBSDKCoreKit'
+  pod 'FBSDKCoreKit', "~> 4.19.0”
   pod 'FBSDKShareKit'
-  pod 'FBSDKLoginKit'
+  pod 'FBSDKLoginKit', "~> 4.19.0”;
 
   # Pods for Hueman
 

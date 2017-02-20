@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FBSDKLoginKit
 
 class DrawerControllerController: UIViewController {
     
@@ -129,6 +130,36 @@ class DrawerControllerController: UIViewController {
     }
     
     @IBAction func logoutAction(sender: AnyObject) {
+        
+        if FBSDKAccessToken.currentAccessToken() != nil  {
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+            FBSDKAccessToken.setCurrentAccessToken(nil)
+            FBSDKProfile.setCurrentProfile(nil)
+
+            AuthenticationManager.sharedInstance.dispose()
+            let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+            if hasLogin {
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "hasLoginKey")
+                NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "email")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+            
+            let keychainWrapper = KeychainWrapper()
+            let vData = keychainWrapper.myObjectForKey("v_Data");
+            if (!(vData as? String)!.isEmpty) || vData == nil {
+                keychainWrapper.mySetObject(nil, forKey:"v_Data")
+                keychainWrapper.writeToKeychain()
+                
+            }
+            
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+
+            return
+        }
+        
+        
         
         userRef.removeAllObservers()
         

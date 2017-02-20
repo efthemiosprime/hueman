@@ -138,6 +138,17 @@
                                 <rect key="frame" x="167" y="235" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ow-yH-Kic">
+                                <rect key="frame" x="235" y="419" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="fb login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rFY-6p-GrS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -172,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2086" y="-1351"/>
+            <point key="canvasLocation" x="-2087.1999999999998" y="-1351.5742128935533"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="x1j-Ww-F3H">
@@ -620,7 +631,7 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ds4-c1-LfF" customClass="ActivityIndicator" customModule="Hueman" customModuleProvider="target">
-                                            <rect key="frame" x="159.5" y="79" width="40.5" height="40"/>
+                                            <rect key="frame" x="159" y="79" width="41" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
@@ -2983,8 +2994,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1330"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYe-HX-LBm">
-                                <rect key="frame" x="0.0" y="44" width="375" height="1286"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYe-HX-LBm" userLabel="View Profile">
+                                <rect key="frame" x="0.0" y="64" width="375" height="1266"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkD-SX-WKa" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1206"/>
@@ -3094,7 +3105,7 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-Kh-cEZ">
-                                                                        <rect key="frame" x="8" y="85" width="134" height="40"/>
+                                                                        <rect key="frame" x="8.5" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -3108,7 +3119,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lgs-KL-Tun">
-                                                                        <rect key="frame" x="48" y="20" width="55" height="55"/>
+                                                                        <rect key="frame" x="48.5" y="20" width="54.5" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -3185,7 +3196,7 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSa-bW-kXH">
-                                                                        <rect key="frame" x="8" y="85" width="134" height="40"/>
+                                                                        <rect key="frame" x="8.5" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -3199,7 +3210,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="beE-zx-es1">
-                                                                        <rect key="frame" x="48" y="20" width="55" height="55"/>
+                                                                        <rect key="frame" x="48.5" y="20" width="54.5" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -3276,7 +3287,7 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krS-FD-S07">
-                                                                        <rect key="frame" x="8" y="85" width="134" height="40"/>
+                                                                        <rect key="frame" x="8.5" y="85" width="134" height="40"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -3290,7 +3301,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-I5-iRI">
-                                                                        <rect key="frame" x="48" y="20" width="55" height="55"/>
+                                                                        <rect key="frame" x="48.5" y="20" width="54.5" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -3330,7 +3341,7 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhP-OP-Qwj">
-                                                                        <rect key="frame" x="20" y="135" width="112" height="55"/>
+                                                                        <rect key="frame" x="20.5" y="135" width="111.5" height="55"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -3386,7 +3397,7 @@
                                 </constraints>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-sM-9dJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="20"/>
                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -3407,16 +3418,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IYe-HX-LBm" secondAttribute="trailing" id="3ml-QU-R4f"/>
                             <constraint firstItem="mkD-SX-WKa" firstAttribute="height" secondItem="dIm-V5-fH2" secondAttribute="height" priority="250" id="7GQ-fG-ZEZ"/>
-                            <constraint firstItem="bEd-sM-9dJ" firstAttribute="top" secondItem="dIm-V5-fH2" secondAttribute="topMargin" id="Do7-du-Bfv"/>
                             <constraint firstItem="rkf-pH-p8M" firstAttribute="top" secondItem="IYe-HX-LBm" secondAttribute="bottom" id="QMU-ox-QGq"/>
                             <constraint firstItem="IYe-HX-LBm" firstAttribute="leading" secondItem="dIm-V5-fH2" secondAttribute="leading" id="ROH-UA-J7n"/>
                             <constraint firstItem="bEd-sM-9dJ" firstAttribute="trailing" secondItem="IYe-HX-LBm" secondAttribute="trailing" id="Zqa-YA-jcK"/>
                             <constraint firstItem="IYe-HX-LBm" firstAttribute="top" secondItem="bEd-sM-9dJ" secondAttribute="bottom" id="a70-h2-8n9"/>
                             <constraint firstItem="bEd-sM-9dJ" firstAttribute="leading" secondItem="IYe-HX-LBm" secondAttribute="leading" id="lcg-Yh-mqQ"/>
+                            <constraint firstItem="bEd-sM-9dJ" firstAttribute="top" secondItem="1hK-8m-PUy" secondAttribute="bottom" id="rTN-4Z-LxI"/>
                         </constraints>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1330"/>
                     <connections>
@@ -3557,7 +3566,7 @@
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gNX-ic-ARf"/>
         <segue reference="x6K-ez-uIt"/>
+        <segue reference="gNX-ic-ARf"/>
     </inferredMetricsTieBreakers>
 </document>
