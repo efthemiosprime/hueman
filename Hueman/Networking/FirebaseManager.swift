@@ -125,11 +125,13 @@ struct FirebaseManager {
 
     private func saveUserInfo(user: FIRUser!, userVo: User) {
 
+        
+        
         let userInfo = [
             "name": userVo.name!,
             "email": userVo.email!,
             "uid": userVo.uid!,
-            "photoURL": userVo.photoURL! ?? "",
+            "photoURL": userVo.photoURL ?? "",
             "bio": "",
             "birthday": "",
             "location": ""
