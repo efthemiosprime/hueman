@@ -21,7 +21,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet var hues: [ProfileHue]?
     @IBOutlet weak var navigationBar: UINavigationBar!
-    
+
+    var editButton: UIBarButtonItem!
     var user: User?
     
     let cachedProfileImage = NSCache()
@@ -33,6 +34,8 @@ class ProfileViewController: UIViewController {
     var storageRef: FIRStorage! {
         return FIRStorage.storage()
     }
+    
+    var editable = false
     
     
     override func viewDidLoad() {
@@ -50,32 +53,34 @@ class ProfileViewController: UIViewController {
             hue.type = topics[index]
         }
         
-        if let unwrappedUser = user {
-            getCurrentProfile(unwrappedUser)
-        }
-        
 
-
-        
         self.view.layer.masksToBounds = false
         self.view.layer.shadowColor = UIColor.blackColor().CGColor
         self.view.layer.shadowOffset = CGSizeMake(0.0, 5.0)
         self.view.layer.shadowOpacity = 0.5
-        
+
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        print(editable)
+        if editable {
+            editButton =  UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(self.editActionHandler))
+            self.navigationBar.topItem?.rightBarButtonItem = editButton
+        }
+        
+        if let unwrappedUser = user {
+            getCurrentProfile(unwrappedUser)
+        }
+        
+        self.navigationBar.topItem?.title = user!.name
+
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
             NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)
         ]
-        
-        self.navigationBar.topItem?.title = user!.name
-
-        
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
@@ -87,6 +92,22 @@ class ProfileViewController: UIViewController {
             
         }
 
+        
+
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        
+        if segue.identifier  == "EditProfile" {
+            let editProfile = segue.destinationViewController as! CreateProfileViewController
+            editProfile.mode = .edit
+            if let unwrappedUser = user {
+                editProfile.viewModel.user = unwrappedUser
+
+            }
+        }
+        
     }
     
 //    override func viewDidLayoutSubviews() {
@@ -120,6 +141,10 @@ class ProfileViewController: UIViewController {
             self.remove()
         }
 
+    }
+    
+    func editActionHandler() {
+        self.performSegueWithIdentifier("EditProfile", sender: nil)
     }
     
     func remove() {
@@ -166,39 +191,41 @@ class ProfileViewController: UIViewController {
             
             if snapshot.exists() {
                 // TODO: to refactor iterate?
+                
                 if let wanderlust = snapshot.value![Topic.Wanderlust]  {
                     if let unWrappedDetail = wanderlust  {
-                        self.hues![0].data = ProfileHueModel(title: "I would love to visit", description: unWrappedDetail as! String, type: Topic.Wanderlust)
+                        self.hues![0].data = ProfileHueModel(title: HueTitle.Wanderlust, description: unWrappedDetail as! String, type: Topic.Wanderlust)
+                    
                     }
                 }
                 
                 if let food = snapshot.value![Topic.OnMyPlate]  {
                     if let detail = food  {
-                        self.hues![1].data = ProfileHueModel(title: "I love to stuff myself with", description: detail as! String, type: Topic.OnMyPlate)
+                        self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: detail as! String, type: Topic.OnMyPlate)
                     }
                 }
                 
                 
                 if let snap = snapshot.value![Topic.RelationshipMusing]  {
                     if let detail = snap  {
-                        self.hues![2].data = ProfileHueModel(title: "I cherish my relationship with", description: detail as! String, type: Topic.RelationshipMusing)
+                        self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: detail as! String, type: Topic.RelationshipMusing)
                     }
                 }
                 
                 if let snap = snapshot.value![Topic.Health]  {
                     if let detail = snap  {
-                        self.hues![3].data = ProfileHueModel(title: "I keep health / fit by", description: detail as! String, type: Topic.Health)
+                        self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: detail as! String, type: Topic.Health)
                     }
                 }
                 
                 if let snap = snapshot.value![Topic.DailyHustle]  {
                     if let detail = snap  {
-                        self.hues![4].data = ProfileHueModel(title: "I am a", description: detail as! String, type: Topic.DailyHustle)
+                        self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: detail as! String, type: Topic.DailyHustle)
                     }
                 }
                 if let snap = snapshot.value![Topic.RayOfLight]  {
                     if let detail = snap  {
-                        self.hues![5].data = ProfileHueModel(title: "What makes you smile?", description: detail as! String, type: Topic.RayOfLight)
+                        self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: detail as! String, type: Topic.RayOfLight)
                     }
                 }
       

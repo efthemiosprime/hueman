@@ -15,6 +15,7 @@
 		3A0AB1911E086E1300295AA5 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB1901E086E1300295AA5 /* Request.swift */; };
 		3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB1921E086ECB00295AA5 /* Friendship.swift */; };
 		3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */; };
+		3A14FEF41E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14FEF31E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift */; };
 		3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E201DCD6EA6005A79EC /* Theme.swift */; };
 		3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E211DCD6EA6005A79EC /* Hues.swift */; };
 		3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E231DCD6EA6005A79EC /* Hueboard.swift */; };
@@ -114,6 +115,7 @@
 		3A0AB1901E086E1300295AA5 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Models/Request.swift; sourceTree = "<group>"; };
 		3A0AB1921E086ECB00295AA5 /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Friendship.swift; path = Models/Friendship.swift; sourceTree = "<group>"; };
 		3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionCell.swift; path = Views/ConnectionCell.swift; sourceTree = "<group>"; };
+		3A14FEF31E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateProfileViewModel.swift; path = ViewModels/CreateProfileViewModel.swift; sourceTree = "<group>"; };
 		3A154E201DCD6EA6005A79EC /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Models/Theme.swift; sourceTree = "<group>"; };
 		3A154E211DCD6EA6005A79EC /* Hues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hues.swift; path = Models/Hues.swift; sourceTree = "<group>"; };
 		3A154E231DCD6EA6005A79EC /* Hueboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hueboard.swift; path = Models/Hueboard.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				3A82E66B1E11977F008F520A /* CommentsViewModel.swift */,
 				3A98C7E61E22C2290009B793 /* NotificationsViewModel.swift */,
 				3A7E830E1E2C4BF900D76F9A /* FeedViewModel.swift */,
+				3A14FEF31E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
 				3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */,
 				3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */,
+				3A14FEF41E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift in Sources */,
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,
 				3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */,

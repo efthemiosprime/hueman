@@ -75,7 +75,9 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         createPost()
     }
     
-    func showProfile() {
+    func showProfile(notification: NSNotification) {
+        
+
 
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
@@ -86,8 +88,13 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         if self.parentViewController?.childViewControllers.count < 3 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+            
             profileController?.user = AuthenticationManager.sharedInstance.currentUser
+            if let editable = notification.userInfo?["editable"]  {
+                print("editable \(editable)")
+                profileController?.editable = Bool(editable as! NSNumber)
 
+            }
             
             self.parentViewController!.addChildViewController(profileController!)
             profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)

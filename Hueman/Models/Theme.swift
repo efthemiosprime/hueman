@@ -42,3 +42,12 @@ struct Topic {
     static let DailyHustle: String = "Daily Hustle"
     static let RayOfLight:String  = "Ray of Light"
 }
+
+struct HueTitle {
+    static let Wanderlust: String = "I would love to visit"
+    static let OnMyPlate: String = "I love to stuff myself with"
+    static let RelationshipMusing: String = "I cherish my relationship with"
+    static let Health: String = "I keep health / fit by"
+    static let DailyHustle: String = "I am a"
+    static let RayOfLight:String  = "What makes you smile?"
+}

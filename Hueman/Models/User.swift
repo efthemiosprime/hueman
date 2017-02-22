@@ -21,7 +21,7 @@ struct User {
     var uid: String!
     var ref: FIRDatabaseReference?
     var key: String?
-    var hues = [[String: String]]()
+    var hues = [String: String]()
     
     
     init(snapshot: FIRDataSnapshot) {
@@ -39,13 +39,12 @@ struct User {
         
         uid = snapshot.value!["uid"] as! String
         
-     //   if snapshot.value!["hues"]  != nil {
-//            if let unwrappedHues =  snapshot.value!["hues"] as? NSArray {
-//            }
-       // }
+        if let unwrappedHues = snapshot.value!["hues"] as? [String: String] {
+            hues = unwrappedHues
+        }
         
-
-        
+        print(hues.count)
+ 
     }
     
     init(email: String, name: String, userId: String) {

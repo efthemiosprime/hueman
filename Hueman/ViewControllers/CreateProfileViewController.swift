@@ -13,6 +13,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import SwiftOverlays
 
+
 class CreateProfileViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -32,12 +33,19 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     
     @IBOutlet var profilesHues: [ProfileHue]?
     
+    var backItem: UIBarButtonItem!
+    
     var dataBaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
     }
     
     var storageRef: FIRStorageReference! {
         return FIRStorage.storage().reference()
+    }
+    
+    enum Mode {
+        case edit
+        case create
     }
     
     var hues: [String: String] = [:]
@@ -50,8 +58,12 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     var keyboardHeight: CGFloat = 0.0
     var bioFrame: CGRect?
     
+    var mode = Mode.create
+    var viewModel = CreateProfileViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         activityIndicator.hidden = true
        // saveButton.enabled = false
@@ -65,6 +77,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                 nameTextfield.attributedPlaceholder = NSAttributedString(string: "What's your name?", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
             }
         }
+        
+        
         nameTextfield.delegate = self
         nameTextfield.autocapitalizationType = .Words
         nameTextfield.attributedPlaceholder = NSAttributedString(string: "What's your name?", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
@@ -123,20 +137,24 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                 notificationCenter.addObserver(self, selector: #selector(CreateProfileViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         bioFrame = bioView.frame
+        
+        if mode == .edit {
+            editMode()
+            
+        }
     }
     
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
         
         
         saveButton.tintColor = UIColor.UIColorFromRGB(0x999999)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.UIColorFromRGB(0x999999)
+        
+        self.navigationBar.topItem?.title = (mode == .edit) ? "edit profile" : "create profile"
 
-        
-        self.navigationBar.topItem!.title = "create profile"
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
-        
         
     }
     
@@ -236,6 +254,12 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             return
         }
         
+        if nameTextfield.text!.isEmpty {
+            errorType = "name"
+            self.showError("Please enter your date of birth.", srcView: nameTextfield)
+            return
+        }
+        
 
         
         activityIndicator.show()
@@ -264,12 +288,16 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                     changeRequest!.photoURL = photoURL
                 }
                 
+                changeRequest!.displayName = (self.mode == .edit) ? self.nameTextfield.text : (currentUser?.displayName)!
+                
                 changeRequest?.commitChangesWithCompletion({
                   error in
                     if error == nil {
                         
-                        var updatedUser = User(email: (currentUser?.email!)!, name: (currentUser?.displayName)!, userId: currentUser!.uid)
                         
+                        var updatedUser = User(email: (currentUser?.email!)!, name: (changeRequest?.displayName)!, userId: currentUser!.uid)
+                        
+
                         updatedUser.birthday = self.dateLabel.text
                         updatedUser.location = self.locationLabel.text
                         updatedUser.bio = self.bioTextfield.text
@@ -311,6 +339,52 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         checkRequiredProfileInfos()
     }
     
+    func editMode() {
+        
+        
+        profileImageSet = true
+        
+        hues = [
+            Topic.Wanderlust: (viewModel.user?.hues[Topic.Wanderlust])!,
+            Topic.OnMyPlate: (viewModel.user?.hues[Topic.OnMyPlate])!,
+            Topic.RelationshipMusing: (viewModel.user?.hues[Topic.RelationshipMusing])!,
+            Topic.Health: (viewModel.user?.hues[Topic.Health])!,
+            Topic.DailyHustle: (viewModel.user?.hues[Topic.DailyHustle])!,
+            Topic.RayOfLight: (viewModel.user?.hues[Topic.RayOfLight])!
+        ]
+        
+        backItem = UIBarButtonItem(image: UIImage(named: "back-bar-item"), style: .Plain, target: self, action: #selector(CreateProfileViewController.backActionHandler))
+        
+        self.navigationBar.topItem?.leftBarButtonItem = backItem
+      //  self.navigationItem.leftBarButtonItem = backItem
+
+        
+        viewModel.getUserImage({
+            img in
+            self.profileImage.image = img
+            self.tapToAddPhotoLabel.hidden = true
+        })
+        
+        if let bioText = viewModel.user?.bio {
+            bioTextfield.text = bioText
+        }
+        
+        if let birthdayText = viewModel.user?.birthday {
+            dateLabel.text = birthdayText
+        }
+        
+        if let locationText = viewModel.user?.location {
+            locationLabel.text = locationText
+        }
+        
+        saveButton.image = UIImage(named: "topbar-save-valid-icon")
+        
+        viewModel.getUserHues(profilesHues!)
+    }
+    
+    func backActionHandler() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func remove() {
         self.willMoveToParentViewController(nil)

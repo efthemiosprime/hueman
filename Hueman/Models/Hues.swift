@@ -10,7 +10,6 @@ import Foundation
 
 
 class Hues  {
-    
 
 
     static let Wanderlust: String = "wanderlust-icon.png"
@@ -19,6 +18,7 @@ class Hues  {
     static let Health: String = "health-icon.png"
     static let DailyHustle: String = "hustle-icon.png"
     static let RayOfLight:String  = "ray-light-icon.png"
+
 
 }
 

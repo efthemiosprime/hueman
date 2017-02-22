@@ -62,7 +62,9 @@ class DrawerControllerController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier  == "ShowProfile" {
+            print("show pfroe")
             let profileController = segue.destinationViewController as! ProfileViewController
+            profileController.editable = true
             profileController.user = AuthenticationManager.sharedInstance.currentUser
         }
     }
@@ -208,7 +210,8 @@ class DrawerControllerController: UIViewController {
         if self.revealViewController() != nil {
             self.revealViewController().revealToggleAnimated(true)
         }
-        NSNotificationCenter.defaultCenter().postNotificationName("ShowProfile", object: nil)
+        let editable: [String: Bool] = ["editable": true]
+        NSNotificationCenter.defaultCenter().postNotificationName("ShowProfile", object: nil, userInfo: editable)
     }
     
 
