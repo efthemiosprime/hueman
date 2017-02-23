@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol LocationDelegate {
     func setLocation(location: String)
@@ -19,7 +20,11 @@ class AddLocationController: UIViewController {
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var charactersLabel: UILabel!
+    @IBOutlet weak var `switch`: UISwitch!
     
+    var locationManager:CLLocationManager!
+    let geoCoder = CLGeocoder()
+
     var delegate: LocationDelegate?
     
     var entry: String?
@@ -27,6 +32,8 @@ class AddLocationController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
 
         confirmButton.enabled = false
         
@@ -38,25 +45,41 @@ class AddLocationController: UIViewController {
         locationField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
         
-        if let unwrappedEntry = entry {
-            
-            locationField.text = unwrappedEntry
-            confirmButton.enabled = true
-            
-        }
-      
-        
         addDoneBtnToKeyboard()
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
         locationField.becomeFirstResponder()
-        
+     
         self.navigationBar.topItem!.title = "add location"
         self.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x999999)
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
+        
+        
+
+        if let unwrappedEntry = entry {
+            
+            locationField.text = unwrappedEntry
+            confirmButton.enabled = true
+            
+        }else {
+            if CLLocationManager.locationServicesEnabled() {
+                if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+                    determineMyCurrentLocation()
+                }
+
+            }else {
+                print("Location services are not enabled")
+            }
+            
+        }
+        
+        
     }
 
     @IBAction func didTappedConfirmButton(sender: AnyObject) {
@@ -147,4 +170,48 @@ extension AddLocationController: UITextFieldDelegate {
     }
     
     
+}
+
+
+extension AddLocationController: CLLocationManagerDelegate {
+    
+    func determineMyCurrentLocation() {
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            //locationManager.startUpdatingHeading()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
+        
+
+
+        geoCoder.reverseGeocodeLocation(userLocation, completionHandler: { (placemarks, error) -> Void in
+            
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            
+            
+            // City
+            if let state = placeMark.addressDictionary!["State"] as? NSString, let city = placeMark.addressDictionary!["City"] as? NSString {
+                self.locationField.text = "\(city), \(state)"
+                manager.stopUpdatingLocation()
+            }
+
+            
+        })
+        
+        manager.stopUpdatingLocation()
+    }
+    
+
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error \(error)")
+
+    }
+
 }

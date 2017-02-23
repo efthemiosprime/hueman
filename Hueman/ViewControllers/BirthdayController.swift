@@ -17,6 +17,7 @@ class BirthdayController: UIViewController {
     @IBOutlet weak var birthdayPicker: UIDatePicker!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
+    @IBOutlet weak var `switch`: UISwitch!
     
     var delegate: BirthdayDelegate?
     var entry: String?

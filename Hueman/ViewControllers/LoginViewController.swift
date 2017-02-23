@@ -71,14 +71,10 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
 
             }
         }
-        
-        
+    
             for viewController in self.childViewControllers {
                 print("controller: \(viewController)")
             }
-        
-        
-        
         
     }
     
@@ -125,6 +121,7 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
     }
     
     func showError(msg: String) {
+        activityIndicator.hide()
         let errorController: ErrorController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("errorID") as? ErrorController)!
       // errorController.preferredContentSize = CGSizeMake(300, 150)
         errorController.modalPresentationStyle = UIModalPresentationStyle.Popover
@@ -144,7 +141,9 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
     }
 
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        loginButton.enabled = true
+        if loginButton != nil {
+            loginButton.enabled = true
+        }
     }
     
     // MARK: - Facebook Login
@@ -157,22 +156,6 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
      //   facebookLoginButton.delegate = self
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        guard error == nil else {
-            print(error)
-            return
-        }
-        
-        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": " email, id, name, picture"]).startWithCompletionHandler({ (connection, result, error) -> Void in
-            guard error == nil else {
-                print(error)
-                return
-            }
-            
-            print(result)
-        })
-    
-    }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("did logout")
@@ -188,11 +171,12 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
 
             guard error == nil else {
                 print(error)
+                self.showError(error.localizedDescription)
                 return
             }
             
             if result.isCancelled {
-                print("is cancelled")
+                self.showError("cancelled")
                 return
             }
             
@@ -201,6 +185,7 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
                 
                 if(error == nil)
                 {
+                    print(result)
                     if (result.valueForKey("email") as? String) != nil {
                         if let picture = result["picture"] {
                             if let data = picture!["data"]{
@@ -218,10 +203,14 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
                                 }
                             }
                         }
+                    }else {
+                        self.showError("authorize facebook to use email")
+                        self.firebaseManager.facebookLogout()
                     }
                 }else
                 {
-                    print("error \(error)")
+                    self.showError(error.localizedDescription)
+
                 }
             }
         

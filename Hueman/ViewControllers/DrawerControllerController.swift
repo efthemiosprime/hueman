@@ -42,7 +42,7 @@ class DrawerControllerController: UIViewController {
         
         
         profileImage.layer.borderWidth = 2
-        profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x666666).CGColor
+        profileImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = 61

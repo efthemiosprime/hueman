@@ -71,6 +71,8 @@ struct FirebaseManager {
                 }else {
                     loggedIn?()
                 }
+            }else {
+                print("user facebook email not available!")
             }
         })
     }
