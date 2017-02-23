@@ -20,17 +20,16 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
     @IBOutlet weak var inputBackground: UIView!
     @IBOutlet weak var postInput: UITextView!
-    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var topic: UIView!
     @IBOutlet weak var topicCloseButton: UIButton!
-    @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var imagePickerButton: UIButton!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
+    
+    var textStats: UILabel!
+    var submitBtn: UIBarButtonItem!
     
     var withImage: Bool = false
     
@@ -42,7 +41,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     var topicIcon: String?
     var topicString: String? {
         didSet {
-            submitButton.enabled = true
+            submitBtn.enabled = true
         }
     }
     
@@ -75,14 +74,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
         filterButton.hidden = false
         filterButton.enabled = true
-        submitButton.enabled = false
         icon.hidden = true
         
         postInput.delegate = self
         self.navigationController?.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x93648D)
-
-        inputBackground.layer.borderWidth = 2
-        inputBackground.layer.borderColor = UIColor.whiteColor().CGColor
         
         
         if let topicColor = topicColor, let topicIcon = topicIcon, let topicString = topicString {
@@ -91,14 +86,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             
         }
     
-        cameraButton.addTarget(self, action: #selector(CreatePostViewController.handleCamera), forControlEvents: .TouchUpInside)
         filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
-        imagePickerButton.addTarget(self, action: #selector(CreatePostViewController.handleSelectedFeedImageView), forControlEvents: .TouchUpInside)
         
         icon.userInteractionEnabled = false
         let tapIconGesture = UITapGestureRecognizer(target: self, action: #selector(CreatePostViewController.showTopicAction))
         icon.addGestureRecognizer(tapIconGesture)
         
+        addButtonToKeyboard()
+
         
         if let entry = defaults.objectForKey("storedEntry") as? [String: AnyObject] {
             storedEntry = entry
@@ -145,12 +140,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             }
 
         }
+        
+
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-   //     postInput?.becomeFirstResponder()
+        postInput?.becomeFirstResponder()
         if mode == "edit" {
             titleLabel.text = "edit post"
         }
@@ -256,7 +253,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             topicColor = 0xEACD53
         }
         
-        addButtonToKeyboard()
         showTopic(true)
     }
 
@@ -313,7 +309,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         self.deleteButton.hidden = false
         withImage = true
         dismissViewControllerAnimated(true, completion: nil)
-        
+        postInput.resignFirstResponder()
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -323,7 +319,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
 
     @IBAction func didTapCreateFeed(sender: AnyObject) {
-        submitButton.enabled = false
+        submitBtn.enabled = false
         showWaitOverlay()
         
         if mode == "edit" {
@@ -500,7 +496,7 @@ extension CreatePostViewController: UITextViewDelegate {
         return true
     }
     func textViewDidChange(textView: UITextView) {
-        headerLabel.text = "\(textView.text.characters.count)/250 characters left"
+        textStats.text = "\(textView.text.characters.count)/250 characters left"
 
         
     }
@@ -521,20 +517,36 @@ extension CreatePostViewController {
     func addButtonToKeyboard() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        
+     //   searhItem = UIBarButtonItem(image: UIImage(named: "search-item-icon"), style: .Plain, target: self, action: #selector(ConnectionsViewController.showSearchBar))
+
         let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneEditing))
-        doneBtn.tintColor = UIColor.UIColorFromRGB(0x666666)
+        let cameraBtn = UIBarButtonItem(image: UIImage(named: "camera-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleCamera))
+        let photoBtn = UIBarButtonItem(image: UIImage(named: "photo-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleSelectedFeedImageView))
+        submitBtn = UIBarButtonItem(image: UIImage(named: "submit-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.didTapCreateFeed(_:)))
+        submitBtn.enabled = false
+        textStats = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        textStats.text = "0/250 characters left"
+        textStats.textColor = UIColor.UIColorFromRGB(0x666666)
+        textStats.font = UIFont(name: Font.SofiaProRegular, size: 16)
+        textStats.center = CGPoint(x: CGRectGetMidX(view.frame), y: view.frame.height)
+        textStats.textAlignment = NSTextAlignment.Center
         
-        if let font = UIFont(name: Font.SofiaProRegular, size: 15) {
-            doneBtn.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-        }
+        let toolbarTitle = UIBarButtonItem(customView: textStats)
         
-        toolbar.setItems([spacer, doneBtn], animated: false)
+//        let doneBtn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneEditing))
+//        doneBtn.tintColor = UIColor.UIColorFromRGB(0x666666)
+        
+//        if let font = UIFont(name: Font.SofiaProRegular, size: 15) {
+//            doneBtn.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+//        }
+        
+        toolbar.setItems([cameraBtn,photoBtn, spacer,toolbarTitle, submitBtn], animated: false)
         
         postInput.inputAccessoryView = toolbar
         
     }
+    
+    
     
     func doneEditing() {
         self.view.endEditing(true)

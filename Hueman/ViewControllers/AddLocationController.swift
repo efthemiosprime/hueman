@@ -198,7 +198,7 @@ extension AddLocationController: CLLocationManagerDelegate {
             // City
             if let state = placeMark.addressDictionary!["State"] as? NSString, let city = placeMark.addressDictionary!["City"] as? NSString {
                 self.locationField.text = "\(city), \(state)"
-                confirmButton.enabled = true
+                self.confirmButton.enabled = true
                 manager.stopUpdatingLocation()
             }
 
