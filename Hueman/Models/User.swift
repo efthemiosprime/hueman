@@ -43,7 +43,6 @@ struct User {
             hues = unwrappedHues
         }
         
-        print(hues.count)
  
     }
     

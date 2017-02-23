@@ -155,6 +155,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         self.navigationBar.topItem?.title = (mode == .edit) ? "edit profile" : "create profile"
 
+        print(viewModel.updateUser())
         
     }
     
@@ -304,7 +305,6 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         updatedUser.photoURL = changeRequest?.photoURL?.absoluteString
                         
                         let updateRef = self.dataBaseRef.child("/users/\(updatedUser.uid)")
-                        updateRef.updateChildValues(updatedUser.toAnyObject())
                         
                     
                         
@@ -316,10 +316,30 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                                 huesRef.setValue(self.hues)
                             }
                         })
+                        
+                        
+                        updateRef.updateChildValues(updatedUser.toAnyObject())
+//                        updateRef.updateChildValues(updatedUser.toAnyObject(), withCompletionBlock: {
+//                            (error, ref) in
+//                            ref.observeEventType(.Value, withBlock: {
+//                                snapshot in
+//                                let updatedUser = User(snapshot: snapshot)
+//                                us
+//                            })
+//                        })
+                        
+                    
+
             
                         self.activityIndicator.hide()
                         
-                        self.performSegueWithIdentifier("UserCreated", sender: sender)
+                        if self.mode == .edit {
+                            self.dismissViewControllerAnimated(false, completion: nil)
+                        }else {
+                            self.performSegueWithIdentifier("UserCreated", sender: sender)
+ 
+                        }
+                        
 
 
                         
@@ -344,14 +364,17 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         profileImageSet = true
         
-        hues = [
-            Topic.Wanderlust: (viewModel.user?.hues[Topic.Wanderlust])!,
-            Topic.OnMyPlate: (viewModel.user?.hues[Topic.OnMyPlate])!,
-            Topic.RelationshipMusing: (viewModel.user?.hues[Topic.RelationshipMusing])!,
-            Topic.Health: (viewModel.user?.hues[Topic.Health])!,
-            Topic.DailyHustle: (viewModel.user?.hues[Topic.DailyHustle])!,
-            Topic.RayOfLight: (viewModel.user?.hues[Topic.RayOfLight])!
-        ]
+        if !(viewModel.user?.hues.isEmpty)! {
+            hues = [
+                Topic.Wanderlust: (viewModel.user?.hues[Topic.Wanderlust])!,
+                Topic.OnMyPlate: (viewModel.user?.hues[Topic.OnMyPlate])!,
+                Topic.RelationshipMusing: (viewModel.user?.hues[Topic.RelationshipMusing])!,
+                Topic.Health: (viewModel.user?.hues[Topic.Health])!,
+                Topic.DailyHustle: (viewModel.user?.hues[Topic.DailyHustle])!,
+                Topic.RayOfLight: (viewModel.user?.hues[Topic.RayOfLight])!
+            ]
+        }
+
         
         backItem = UIBarButtonItem(image: UIImage(named: "back-bar-item"), style: .Plain, target: self, action: #selector(CreateProfileViewController.backActionHandler))
         

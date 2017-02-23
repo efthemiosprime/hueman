@@ -63,14 +63,16 @@ struct FirebaseManager {
                 return
             }
             if let userEmail = user?.email {
-                let exists = self.userExist(userEmail)
-                if !exists {
-                    self.uploadImageFromURL(url, user: user!, complete: {
+                self.userExist(userEmail, completion: {
+                    exists in
+                    if exists {
                         loggedIn?()
-                    })
-                }else {
-                    loggedIn?()
-                }
+                    }else {
+                        self.uploadImageFromURL(url, user: user!, complete: {
+                            loggedIn?()
+                        })
+                    }
+                })
             }else {
                 print("user facebook email not available!")
             }
@@ -178,14 +180,13 @@ struct FirebaseManager {
         
     }
     
-    func userExist(email: String) -> Bool {
-        let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue("\(email)")
+    func userExist(email: String, completion: ((exists: Bool) -> ())? = nil) {
+        let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue(email)
         userRef.observeSingleEventOfType(.Value, withBlock: {
             snapshot in
-            return snapshot.exists()
+            completion?(exists: snapshot.exists())
         })
         
-        return false
     }
     
     func resetStoredUserInfo()  {

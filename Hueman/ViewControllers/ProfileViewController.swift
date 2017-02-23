@@ -65,15 +65,40 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(editable)
         if editable {
             editButton =  UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(self.editActionHandler))
             self.navigationBar.topItem?.rightBarButtonItem = editButton
+            
+            let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue(AuthenticationManager.sharedInstance.currentUser?.email!)
+            userRef.observeSingleEventOfType(.Value, withBlock: {
+                snapshot in
+                if snapshot.exists() {
+                    
+                    let uid = self.user?.uid!
+                    let userInfo = snapshot.value![uid!]!
+                    self.user?.name = userInfo!["name"] as? String ?? ""
+                    self.user?.bio =  userInfo!["bio"] as? String ?? ""
+                    self.user?.birthday = userInfo!["birthday"] as? String ?? ""
+                    self.user?.location = userInfo!["location"] as? String ?? ""
+                    
+                    
+                    if let unwrappedUser = self.user {
+                        self.getCurrentProfile(unwrappedUser)
+                    }
+                }
+                
+                
+            })
+            
+            
+        }else {
+            if let unwrappedUser = user {
+                getCurrentProfile(unwrappedUser)
+            }
         }
         
-        if let unwrappedUser = user {
-            getCurrentProfile(unwrappedUser)
-        }
+    
+
         
         self.navigationBar.topItem?.title = user!.name
 
@@ -91,8 +116,6 @@ class ProfileViewController: UIViewController {
         }) { (Finished) -> Void in
             
         }
-
-        
 
     }
     
