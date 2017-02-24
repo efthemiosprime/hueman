@@ -269,12 +269,18 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         
         let currentUser = FIRAuth.auth()?.currentUser
         
-        
-        let trimmedName = currentUser?.displayName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-
+    
         let imageData = UIImageJPEGRepresentation(profileImage.image!, 0.4)
+        
 
-        let imagePath = "userProfileImage\(currentUser?.uid)/\(trimmedName).jpg"
+        var imagePath = ""
+        if let name = currentUser?.displayName {
+            let trimName = String(name.characters.map {$0 == " " ? "_" : $0})
+            if let unwrappedUID = currentUser?.uid {
+                imagePath = "userProfileImage/\(unwrappedUID)/\(trimName.lowercaseString).jpg"
+            }
+        }
+        
         let imageRef = storageRef.child(imagePath)
         
         let metadata = FIRStorageMetadata()

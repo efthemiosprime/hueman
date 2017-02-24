@@ -215,11 +215,19 @@ struct FirebaseManager {
             // if responseData is not null...
             if let data = responseData{
                 
-                let trimmedName = user.displayName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
 
                 
                 let imageData = UIImageJPEGRepresentation(UIImage(data: data)!, 0.5)
-                let imagePath = "userProfileImage\(user.uid)/\(trimmedName).jpg"
+                
+                
+                var imagePath = ""
+                if let name = user.displayName {
+                    let trimName = String(name.characters.map {$0 == " " ? "_" : $0})
+                    imagePath = "userProfileImage/\(user.uid)/\(trimName.lowercaseString).jpg"
+                    
+                }
+        
+                
                 let imageRef = self.storageRef.child(imagePath)
                 let metaData = FIRStorageMetadata()
                 metaData.contentType = "image/jpeg"

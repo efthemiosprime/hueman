@@ -200,7 +200,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                         }else {
                             feedCell.flagButton.selected = true
                             feedCell.flagButton.backgroundColor = UIColor.clearColor()
-                            self.huesFeedModel.checkFeedForDeletion(feedCell.feed!.key!, flagKey: (feedCell.feed?.key)!)
+                            self.huesFeedModel.checkFeedForDeletion(feedCell.feed!.key!, deleteIt: {
+                                self.deletePost(feedCell.feed!, indexPath: indexPath)
+                            })
                         }
                         
                     }
@@ -374,9 +376,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                         if error != nil {
                             print(error?.description)
                         }else {
-                            feedCell.flagButton.selected = true
+                           // feedCell.flagButton.selected = true
                             feedCell.flagButton.backgroundColor = UIColor.clearColor()
-                            self.huesFeedModel.checkFeedForDeletion(feedCell.feed!.key!, flagKey: (feedCell.feed?.key)!)
+                            self.huesFeedModel.checkFeedForDeletion(feedCell.feed!.key!)
                         }
                         
                     }

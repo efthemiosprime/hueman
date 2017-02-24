@@ -63,13 +63,13 @@ class HuesFeedViewModel: NSObject {
         if let cachedImage = self.cachedImages.objectForKey(url) {
             dispatch_async(dispatch_get_main_queue(), {
                 cell.feedImage.image = cachedImage as? UIImage
-                    
+                cell.activityIndicator.hide()
+
             })
         }else {
             cell.activityIndicator.show()
             storageRef.referenceForURL(url).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
                 if error == nil {
-                   cell.activityIndicator.hide()
 
                     if let imageData = data {
                         let feedImage = UIImage(data: imageData)
@@ -77,7 +77,8 @@ class HuesFeedViewModel: NSObject {
                             
                         dispatch_async(dispatch_get_main_queue(), {
                             cell.feedImage.image = feedImage
-                            
+                            cell.activityIndicator.hide()
+
                         })
                     }
                         
@@ -197,10 +198,10 @@ class HuesFeedViewModel: NSObject {
         })
     }
     
-    func checkFeedForDeletion(likeKey: String, flagKey: String) {
+    func checkFeedForDeletion(key: String, deleteIt: (() -> ())? = nil) {
      //   let feedRef = databaseRef.child("feeds").child(feedKey)
-        let likesRef = databaseRef.child("likes").child(likeKey)
-        let flagRef = databaseRef.child("flags").child(flagKey)
+        let likesRef = databaseRef.child("likes").child(key)
+        let flagRef = databaseRef.child("flags").child(key)
         
 
         likesRef.observeSingleEventOfType(.Value, withBlock: {
@@ -211,12 +212,43 @@ class HuesFeedViewModel: NSObject {
                     flagsSnapshot in
                     if flagsSnapshot.exists() {
                         let flagsCount = flagsSnapshot.childrenCount
-                        let gcd = self.gcd(66, flags: 39)
-                        print("ratio \(66/gcd) : \(39/gcd)")
-                       // print("ratio \(self.ratio(likesCount, flagsCount)")
+  
+                        if likesCount < 5 && flagsCount >= 7 {
+                            deleteIt?()
+                        }
                         
-//                        print("flags \(flagsCount)")
-//                        print("likes \(likesCount)")
+                        if 6...10 ~= likesCount && flagsCount >= 10 {
+                            deleteIt?()
+                        }
+                        
+                        if 11...30 ~= likesCount {
+                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+                            if ratio >= 1.0 {
+                                deleteIt?()
+                            }
+                        }
+                        
+                        if 31...40 ~= likesCount && flagsCount >= 32 {
+                            deleteIt?()
+                        }
+                        
+                        if 41...70 ~= likesCount {
+                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+                            if ratio >= 1.2 {
+                                deleteIt?()
+                            }
+                        }
+                        
+                        if 71...80 ~= likesCount && flagsCount >= 58 {
+                            deleteIt?()
+                        }
+                        
+                        if likesCount > 80 {
+                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+                            if ratio >= 1.4 {
+                                deleteIt?()
+                            }
+                        }
 
                     }
                     
@@ -258,6 +290,7 @@ class HuesFeedViewModel: NSObject {
             return flags
         }
     }
+    
 
     
 }
