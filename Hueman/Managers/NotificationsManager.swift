@@ -31,6 +31,8 @@ struct NotificationsManager {
         
         let notificationsCountRef = self.dataBaseRef.child("notificationsCount").child(userUidToNotfiy).childByAutoId()
         notificationsCountRef.setValue(notification.id)
+        
+        completed?()
 
     }
     

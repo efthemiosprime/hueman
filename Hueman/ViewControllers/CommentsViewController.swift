@@ -42,16 +42,22 @@ class CommentsViewController: UIViewController {
         viewModel = CommentsViewModel()
 
         commentInput.delegate = self
-        commentInput.becomeFirstResponder()
+       // commentInput.becomeFirstResponder()
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-
-
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 160
+        self.tableView.estimatedRowHeight = 100
         self.tableView.separatorStyle = .None
-        loadComments()
+        
+        
+        viewModel.fetchComments(feed , completion: {
+            dispatch_async(dispatch_get_main_queue(), {
+               // self.activityIndicator.hide()
+                self.tableView.reloadData()
+            })
+        })
     }
     
 
@@ -65,19 +71,14 @@ class CommentsViewController: UIViewController {
         
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.view.frame = CGRectMake(0.0, 0.0, screenWidth, screenHeight)
-            
-            
         }) { (Finished) -> Void in
-            
         }
-        
-
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        commentsRef.removeAllObservers()
+        viewModel.commentsRef.removeAllObservers()
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -88,78 +89,6 @@ class CommentsViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
-    func postComment() {
-        
-        
-        
-        if !(commentInput.text?.isEmpty)! ?? true {
-            if let inputText = commentInput.text {
-                let authManager = AuthenticationManager.sharedInstance
-                let uuid = NSUUID().UUIDString
-                let newComment = Comment(name: authManager.currentUser!.name, text: inputText, id: uuid, imageURL: authManager.currentUser!.photoURL!)
-               
-                
-                if feed != nil {
-                    let commentRef = dataBaseRef.child("comments").child(feed.key!).childByAutoId()
-                    commentRef.setValue(newComment.toAnyObject())
-                    commentInput.text = ""
-                    
-                    print(feed.uid)
-                    print(authManager.currentUser?.uid)
-                    
-                    if let feedUid = feed.uid {
-                        if let userUid = authManager.currentUser!.uid {
-                            if (feedUid != userUid) {
-                                                        let newNotification: Notification = Notification(
-                                                            fromUid: authManager.currentUser!.uid,
-                                                            id: NSUUID().UUIDString,
-                                                            
-                                                            type: "commented",
-                                                            feedTopic: feed.topic!,
-                                                            feedKey: feed.key!)
-                                
-                                                        let notificationManager = NotificationsManager()
-                                                        notificationManager.add(feed.uid!, notification: newNotification, completed: nil)
-                            }
-                        }
-                    }
-
-    
-                }
-            }
-        }
-    }
-    
-    func loadComments() {
-        
-        activityIndicator.show()
-        
-        commentsRef = dataBaseRef.child("comments").child(feed.key!)
-        commentsRef.observeEventType(.Value, withBlock:{ snapshot in
-            
-            if snapshot.exists() {
-                let comments: [Comment]  = snapshot.children.map({(comment) -> Comment in
-                    let newComment: Comment = Comment(snapshot: comment as! FIRDataSnapshot)
-                    return newComment
-                }).reverse()
-                
-                
-                self.viewModel.comments = comments
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.activityIndicator.hide()
-                    self.tableView.reloadData()
-                })
-            }
-            
-
-        })
-    }
-    
-    func loadAuthorProfileImage() {
-        commentsRef = dataBaseRef.child("comments").child(feed.key!)
-
-    }
     
     @IBAction func didTappedBackButton(sender: AnyObject) {
         commentInput.resignFirstResponder()
@@ -168,9 +97,16 @@ class CommentsViewController: UIViewController {
     
 
     @IBAction func didTappedPost(sender: AnyObject) {
-        postComment()
-    }
         
+        if !(commentInput.text?.isEmpty)! ?? true {
+            if let inputText = commentInput.text {
+                if feed != nil {
+                    viewModel.postComment(feed, comment: inputText)
+                }
+            }
+        }
+    }
+    
 }
 
 extension CommentsViewController: UITableViewDataSource {

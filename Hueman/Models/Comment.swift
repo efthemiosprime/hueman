@@ -16,6 +16,7 @@ struct Comment {
     var text: String!
     let id: String!
     let imageURL: String!
+    var key: String?
     
     init(name: String, text:String, id: String, imageURL: String) {
         
@@ -28,6 +29,7 @@ struct Comment {
     
     init(snapshot: FIRDataSnapshot) {
         
+        self.key = snapshot.key
         self.name = snapshot.value!["name"] as? String
         self.text = snapshot.value!["text"] as? String
         self.id = snapshot.value!["id"] as? String
