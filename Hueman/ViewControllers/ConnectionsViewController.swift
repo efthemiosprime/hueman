@@ -97,10 +97,21 @@ class ConnectionsViewController: UIViewController{
         connectionsModel.fetchConnections({ connections in
             dispatch_async(dispatch_get_main_queue(),{
                 self.tableView.reloadData()
-                
+                self.tableView.backgroundView = nil
+
             })
 
-        })
+        },
+        onerror: { errorString in
+            
+            if errorString == "Empty" {
+                let emptyBackground = UIImage(named: "connections-empty")
+                let emptyView = UIImageView(image: emptyBackground)
+                emptyView.contentMode = .ScaleAspectFill
+                self.tableView.backgroundView = emptyView
+            }
+        }
+        )
         
         connectionsModel.fetchAllRequests({ withRequest in
             if(withRequest) {

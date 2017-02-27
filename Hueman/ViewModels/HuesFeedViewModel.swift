@@ -30,11 +30,18 @@ class HuesFeedViewModel: NSObject {
     var cachedImages =  NSCache()
     var oldFeeds = [Feed]()
     var feeds = [Feed]()
+    var connections: [Connection] = [Connection]()
+    var connectionUIDs: [String] = [String]()
+
     var filteredFeeds = [Feed]()
 
-    override init() {super.init()}
+    override init() {
+        super.init()
+        
+
+    }
     
-    func feetchFeeds(completion: (([Feed]) -> ())? = nil) {
+    func feetchFeeds(onerror:  ((errorString: String) -> ())? = nil ,completion: (([Feed]) -> ())? = nil) {
         databaseRef.child("feeds").observeSingleEventOfType(.Value, withBlock: {
             feedsSnapshot in
             
@@ -42,19 +49,55 @@ class HuesFeedViewModel: NSObject {
                 let feeds: [Feed]  = feedsSnapshot.children.map({(feed) -> Feed in
                     let newFeed: Feed = Feed(snapshot: feed as! FIRDataSnapshot)
                     return newFeed
-                }).reverse()
-                
+                })
+                .filter({ $0.uid == AuthenticationManager.sharedInstance.currentUser?.uid  || self.connectionUIDs.contains($0.uid!)  })
+                .reverse()
+
                 
                 self.oldFeeds = feeds
                 self.feeds = feeds
                 completion?(feeds)
         
+            }else {
+                onerror?(errorString: "Empty")
+
             }
             
 
             
         }) {  error in
+            onerror?(errorString: error.localizedDescription)
             print (error.localizedDescription)
+        }
+    }
+    
+    func fetchConnections(completion: (() -> ())? = nil, onError:((errorString: String) -> ())? = nil ) {
+        let authenticationManager =  AuthenticationManager.sharedInstance
+        let currentUser = authenticationManager.currentUser
+        
+        let friendsRef = self.databaseRef.child("friends").child((currentUser?.uid)!)
+        friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            if snapshot.exists() {
+                self.connections = snapshot.children.map({(con) -> Connection in
+                    let connection = Connection(name: (con.value!["name"] as? String)!,
+                        location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                    return connection
+                })
+                
+                self.connectionUIDs = self.connections.map({return $0.uid!})
+                print(self.connectionUIDs)
+                completion?()
+                
+            }else {
+                onError?(errorString: "Empty")
+            }
+            
+            
+            
+        }) {(error) in
+            onError?(errorString: error.localizedDescription)
+            print(error.localizedDescription)
         }
     }
     

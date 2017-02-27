@@ -59,7 +59,6 @@ class AddConnectionsController: UITableViewController {
             if snapshot.exists() {
                 self.currentUser = User(snapshot: snapshot)
                 self.fetchConnections()
-                self.fetchAllRequests()
             }
             
 
@@ -88,17 +87,19 @@ class AddConnectionsController: UITableViewController {
             
             if snapshot.exists() {
                 
-                let connectionsUids: [String] = self.requests.map({$0.uid})
+                let connectionsUids: [String] = self.connections.map({$0.uid})
+                let requestsUids: [String] = self.requests.map({$0.uid})
                 print("connections \(connectionsUids)")
                 self.users = snapshot.children.map({(snap) -> User in
                     let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
                     return newUser
                 })
-                    .filter({!connectionsUids.contains($0.uid)})
-                    .filter({$0.uid != authManager.currentUser!.uid})
-                    .sort({ (user1, user2) -> Bool in
-                        user1.name < user2.name
-                    })
+                .filter({ !connectionsUids.contains($0.uid) })
+                .filter({ $0.uid != authManager.currentUser!.uid} )
+                .filter({ !requestsUids.contains($0.uid) })
+                .sort({ (user1, user2) -> Bool in
+                    user1.name < user2.name
+                })
                 
 
                 
@@ -150,15 +151,10 @@ class AddConnectionsController: UITableViewController {
                     }
                 }
 
-
-                self.fetchAllUsers()
-
-            }else {
-
-                self.fetchAllUsers()
             }
-
             
+            self.fetchAllUsers()
+
         }) {(error) in
             print(error.localizedDescription)
         }
@@ -177,6 +173,8 @@ class AddConnectionsController: UITableViewController {
                 }
             }
             
+            self.fetchAllRequests()
+
             
         }) {(error) in
             print(error.localizedDescription)

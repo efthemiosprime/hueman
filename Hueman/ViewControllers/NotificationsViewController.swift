@@ -48,11 +48,22 @@ class NotificationsViewController: UITableViewController {
             //self.data = items.reverse()
             self.nData = items
             dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.backgroundView = nil
                 self.tableView.reloadData()
             })
+        },
+        onerror: { errorString in
             
-            
-        })
+            if errorString == "Empty" {
+                let emptyBackground = UIImage(named: "notifications-empty")
+                let emptyView = UIImageView(image: emptyBackground)
+                emptyView.contentMode = .ScaleAspectFill
+                self.tableView.backgroundView = emptyView
+            }
+
+        }
+        
+        )
         
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in

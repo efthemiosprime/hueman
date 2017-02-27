@@ -25,7 +25,7 @@ class ConnectionsViewModel: NSObject {
         super.init()
     }
     
-    func fetchConnections(completion: (([Connection]) -> ())? = nil) {
+    func fetchConnections(completion: (([Connection]) -> ())? = nil, onerror: ((errorString: String) -> ())? = nil) {
         let authenticationManager =  AuthenticationManager.sharedInstance
         let currentUser = authenticationManager.currentUser
         let friendsRef = authenticationManager.databaseRef.child("friends").child((currentUser?.uid)!)
@@ -40,11 +40,15 @@ class ConnectionsViewModel: NSObject {
                     user1.name < user2.name })
                 
                 completion?(self.connections)
+            }else {
+                onerror?(errorString: "Empty")
             }
             
 
             
         }) {(error) in
+            onerror?(errorString: error.localizedDescription)
+
             print(error.localizedDescription)
         }
     }

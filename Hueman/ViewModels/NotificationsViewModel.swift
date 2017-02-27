@@ -29,7 +29,7 @@ class NotificationsViewModel: NSObject {
     var data: [[NotificationItem]] = []
     var sectionTitles = [String]()
 
-    func load(complete: ((notifications: [[NotificationItem]]) -> ())? = nil) {
+    func load(complete: ((notifications: [[NotificationItem]]) -> ())? = nil, onerror: ((errorString: String) -> ())? = nil ) {
         let authManager = AuthenticationManager.sharedInstance
         let notificationsRef = self.dataBaseRef.child("notifications").child(authManager.currentUser!.uid)
         notificationsRef.observeSingleEventOfType(.Value, withBlock: {
@@ -101,6 +101,8 @@ class NotificationsViewModel: NSObject {
                         }
                     })
                 }
+            }else {
+                onerror?(errorString: "Empty")
             }
         })
     }

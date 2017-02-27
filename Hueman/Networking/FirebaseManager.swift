@@ -42,9 +42,15 @@ struct FirebaseManager {
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
                     NSUserDefaults.standardUserDefaults().synchronize()
                     
+                    if AuthenticationManager.sharedInstance.currentUser == nil {
+                        
+                        AuthenticationManager.sharedInstance.loadCurrentUser({
+                            loggedIn?()
 
+                        })
+                    }
                     
-                    loggedIn?()
+                    
                 }
             }else {
                 onerror!(errorMsg: (error?.localizedDescription)!)

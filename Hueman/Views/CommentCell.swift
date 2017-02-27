@@ -33,9 +33,9 @@ class CommentCell: UITableViewCell {
     }
     
     
-   // var likedAction: ((_ commentKey: String) -> Void)?
-    //var flaggedAction: ((_ commentKey: String) -> Void)?
+    var deleteAction: ((key: String) -> Void)?
 
+    var commentKey: String?
 
     var comment: Comment? {
         didSet {
@@ -90,6 +90,8 @@ class CommentCell: UITableViewCell {
                         }else {
                             commentRef.setValue(commentLike.toAnyObject())
                             self.likeButton.selected = true
+                            
+                            
                         }
                     }
                     self.getNumberOfLikes()
@@ -109,22 +111,35 @@ class CommentCell: UITableViewCell {
             let userUid = (AuthenticationManager.sharedInstance.currentUser?.uid)!
             let commentLike = CommentLike(uid: userUid)
             
-            let commentRef = databaseRef.child("commentFlags/\(key)/\(userUid)")
-            commentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            let flagRefs = databaseRef.child("commentFlags/\(key)/\(userUid)")
+            flagRefs.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 
                 if snapshot.exists() {
                     if let uid =  snapshot.value!["uid"] as? String {
                         if userUid == uid {
-                            commentRef.removeValue()
+                            flagRefs.removeValue()
                             self.flagButton.selected = false
                         }else {
-                            commentRef.setValue(commentLike.toAnyObject())
+                            flagRefs.setValue(commentLike.toAnyObject(), withCompletionBlock: { (error, dbref) in
+                                
+                                self.checkForDeletion(key, deleteIt: {
+                                    self.deleteAction?(key: key)
+
+                                })
+                                
+                            })
                             self.flagButton.selected = true
                         }
                     }
                     
                 }else {
-                    commentRef.setValue(commentLike.toAnyObject())
+                    flagRefs.setValue(commentLike.toAnyObject(), withCompletionBlock: { (error, dbref) in
+                        
+                        self.checkForDeletion(key, deleteIt: {
+                            self.deleteAction?(key: key)
+
+                        })
+                    })
                     self.flagButton.selected = true
                     
                 }
@@ -171,7 +186,6 @@ class CommentCell: UITableViewCell {
 
             likeRefs.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if snapshot.exists() {
-                    print(snapshot.value!["uid"])
                     if let uid =  snapshot.value!["uid"] as? String {
                         if uid == userUid {
                             self.likeButton.selected = true
@@ -187,7 +201,6 @@ class CommentCell: UITableViewCell {
             
             flagRefs.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if snapshot.exists() {
-                    print(snapshot.value!["uid"])
                     if let uid =  snapshot.value!["uid"] as? String {
                         if uid == userUid {
                             self.flagButton.selected = true
@@ -203,6 +216,82 @@ class CommentCell: UITableViewCell {
         }
         
         getNumberOfLikes()
+    }
+    
+    
+
+    func flag(dbRef: FIRDatabaseReference, key: String, obj: AnyObject) {
+        dbRef.setValue(obj, withCompletionBlock: { (error, dbref) in
+            
+            self.checkForDeletion(key, deleteIt: {
+            
+                let commentRef = self.databaseRef.child("comments/\(key)")
+                commentRef.removeValueWithCompletionBlock({ (error, ref) in
+                  //  self.deleteAction?(key)
+                })
+            })
+            
+        })
+
+    }
+    
+    func checkForDeletion(key: String, deleteIt: (() -> ())? = nil) {
+        let likeRefs = self.databaseRef.child("commentLikes/\(key)")
+        let flagRefs = self.databaseRef.child("commentFlags/\(key)")
+        
+        flagRefs.observeSingleEventOfType(.Value, withBlock: { flagSnapshot in
+            if flagSnapshot.exists() {
+                let flagsCount = flagSnapshot.childrenCount
+                
+                if flagsCount >= 7 {
+                    deleteIt?()
+                }
+                
+                likeRefs.observeSingleEventOfType(.Value, withBlock: { likeSnapshot in
+                    if likeSnapshot.exists() {
+                        let likesCount = likeSnapshot.childrenCount
+
+                        if 1...5 ~= likesCount && flagsCount >= 7 {
+                            deleteIt?()
+                        }
+                        
+                        if 6...10 ~= likesCount && flagsCount >= 10 {
+                            deleteIt?()
+                        }
+                        
+                        if 11...30 ~= likesCount {
+                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+                            if ratio >= 1.0 {
+                                deleteIt?()
+                            }
+                        }
+                        
+                        if 31...40 ~= likesCount && flagsCount >= 32 {
+                            deleteIt?()
+                        }
+                        
+                        if 41...70 ~= likesCount {
+                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+                            if ratio >= 1.2 {
+                                deleteIt?()
+                            }
+                        }
+                        
+                        if 71...80 ~= likesCount && flagsCount >= 58 {
+                            deleteIt?()
+                        }
+                        
+                        if likesCount > 80 {
+                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+                            if ratio >= 1.4 {
+                                deleteIt?()
+                            }
+                        }
+                    }
+                })
+                
+            }
+        })
     }
     
     

@@ -118,6 +118,30 @@ extension CommentsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(viewModel.cellID, forIndexPath: indexPath) as! CommentCell
         
         cell.comment = viewModel.comments[indexPath.row]
+        cell.deleteAction = { key in
+            
+            if let feedKey = self.feed.key {
+                let commentRef = self.dataBaseRef.child("comments/\(feedKey)").queryOrderedByChild(key)
+                commentRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+                    if snapshot.exists() {
+                        let comment = self.dataBaseRef.child("comments/\(feedKey)/\(key)")
+                        comment.removeValue()
+                        self.tableView.beginUpdates()
+
+                        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                        self.viewModel.comments.removeAtIndex(indexPath.row)
+                        
+                        self.tableView.reloadData()
+                        self.tableView.endUpdates()
+                        
+
+                        
+                    }
+                })
+                
+            }
+
+        }
     
         return cell
     }

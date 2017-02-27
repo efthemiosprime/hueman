@@ -86,11 +86,51 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         }
         
         showWaitOverlay()
-        huesFeedModel.feetchFeeds({ feeds in
-            self.tableView.reloadData()
-            self.removeAllOverlays()
-        })
         
+        huesFeedModel.fetchConnections({
+            
+            self.huesFeedModel.feetchFeeds({ errorString in
+                
+                if errorString == "Empty" {
+                    let emptyBackground = UIImage(named: "huesfeed-empty")
+                    let emptyView = UIImageView(image: emptyBackground)
+                    emptyView.contentMode = .ScaleAspectFill
+                    self.tableView.backgroundView = emptyView
+                }
+                
+                self.removeAllOverlays()
+                
+                },
+                completion: { feeds in
+                    self.tableView.backgroundView = nil
+                    self.tableView.reloadData()
+                    self.removeAllOverlays()
+            })
+            
+            
+        },
+        onError: { errorString in
+            if errorString == "Empty" {
+                self.huesFeedModel.feetchFeeds({ errorString in
+                    
+                    if errorString == "Empty" {
+                        let emptyBackground = UIImage(named: "huesfeed-empty")
+                        let emptyView = UIImageView(image: emptyBackground)
+                        emptyView.contentMode = .ScaleAspectFill
+                        self.tableView.backgroundView = emptyView
+                    }
+                    
+                    self.removeAllOverlays()
+                    
+                    },
+                    completion: { feeds in
+                        self.tableView.backgroundView = nil
+                        self.tableView.reloadData()
+                        self.removeAllOverlays()
+                })
+            }
+        })
+
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -102,8 +102,9 @@ class LoginViewController: UIViewController, UIPopoverPresentationControllerDele
                // AuthenticationManager.sharedInstance
                 self.activityIndicator.hide()
                 
-
+                
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
+
                 }, onerror: { errorMsg in
                     
                     self.activityIndicator.hide()

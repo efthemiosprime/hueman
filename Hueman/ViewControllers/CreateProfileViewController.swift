@@ -142,6 +142,10 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             editMode()
             
         }
+        
+        if AuthenticationManager.sharedInstance.currentUser == nil {
+            AuthenticationManager.sharedInstance.loadCurrentUser()
+        }
     }
     
 
@@ -325,15 +329,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         
                         
                         updateRef.updateChildValues(updatedUser.toAnyObject())
-//                        updateRef.updateChildValues(updatedUser.toAnyObject(), withCompletionBlock: {
-//                            (error, ref) in
-//                            ref.observeEventType(.Value, withBlock: {
-//                                snapshot in
-//                                let updatedUser = User(snapshot: snapshot)
-//                                us
-//                            })
-//                        })
-                        
+
                     
 
             
@@ -342,8 +338,9 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         if self.mode == .edit {
                             self.dismissViewControllerAnimated(false, completion: nil)
                         }else {
-                            self.performSegueWithIdentifier("UserCreated", sender: sender)
- 
+                            
+                           self.performSegueWithIdentifier("UserCreated", sender: sender)
+
                         }
                         
 
