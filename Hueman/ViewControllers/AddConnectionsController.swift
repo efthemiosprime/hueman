@@ -149,6 +149,8 @@ class AddConnectionsController: UITableViewController {
                             
                         }
                     }
+                    
+
                 }
 
             }
@@ -192,8 +194,8 @@ class AddConnectionsController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currentCell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! AddUserCell
-        currentCell.user = data[indexPath.section][indexPath.row]
         
+        currentCell.user = data[indexPath.section][indexPath.row]
         
         storageRef.referenceForURL((currentCell.user?.photoURL)!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
             if error == nil {
@@ -290,13 +292,14 @@ class AddConnectionsController: UITableViewController {
                 let requestId = NSUUID().UUIDString
                 let connectionRequest = Request(from: self.currentUser!.uid, to: currentCell.user!.uid, id: requestId)
                 let requestRef = self.databaseRef.child("requests").child(connectionRequest.recipient!).child(connectionRequest.id!)
-                
-                self.tableView.beginUpdates()
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                self.data[indexPath.section].removeAtIndex(indexPath.row)
-                
-                self.tableView.reloadData()
-                self.tableView.endUpdates()
+
+
+//                self.tableView.beginUpdates()
+//                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//                self.data[indexPath.section].removeAtIndex(indexPath.row)
+//                
+//                self.tableView.reloadData()
+//                self.tableView.endUpdates()
                 
                 requestRef.setValue(connectionRequest.toAnyObject(), withCompletionBlock: {
                     (error, ref) in
@@ -308,7 +311,7 @@ class AddConnectionsController: UITableViewController {
                         let friendships = Friendship(from: connectionRequest.requester!, to: connectionRequest.recipient!, id: connectionRequest.id!, status: Friendship.Pending)
                         friendshipsReq.setValue(friendships.toAnyObject(), withCompletionBlock: {
                             (error, ref) in
-                            
+                            currentCell.added()
                         })
                     }
                 })

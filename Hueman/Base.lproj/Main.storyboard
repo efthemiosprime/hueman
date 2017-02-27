@@ -1318,7 +1318,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="create a post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHo-0f-h4g">
-                                <rect key="frame" x="127" y="14" width="121" height="21"/>
+                                <rect key="frame" x="127.5" y="14" width="121" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7qT-1o-cve"/>
                                 </constraints>
@@ -1536,11 +1536,24 @@
                                                 <action selector="didTappedAddUser:" destination="AxQ-hA-xTp" eventType="touchUpInside" id="Ehp-j5-qiV"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTv-ip-fmQ" userLabel="Pending Buton">
+                                            <rect key="frame" x="324" y="34" width="27" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="3sf-ER-l9r"/>
+                                                <constraint firstAttribute="width" constant="27" id="UO3-yR-MXl"/>
+                                            </constraints>
+                                            <state key="normal" image="pending-connection-icon"/>
+                                            <connections>
+                                                <action selector="didTappedAddUser:" destination="AxQ-hA-xTp" eventType="touchUpInside" id="MYd-rg-11B"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="YPa-gb-TEW" firstAttribute="leading" secondItem="V5r-jE-Xqz" secondAttribute="leading" constant="10" id="B94-yE-Bbl"/>
                                         <constraint firstItem="CkN-C8-wcK" firstAttribute="centerY" secondItem="V5r-jE-Xqz" secondAttribute="centerY" id="OHS-Ae-0f9"/>
                                         <constraint firstAttribute="trailing" secondItem="YPa-gb-TEW" secondAttribute="trailing" constant="10" id="Xzq-4z-pdt"/>
+                                        <constraint firstItem="eTv-ip-fmQ" firstAttribute="centerY" secondItem="V5r-jE-Xqz" secondAttribute="centerY" id="a8y-5n-zsd"/>
+                                        <constraint firstAttribute="trailing" secondItem="eTv-ip-fmQ" secondAttribute="trailing" constant="24" id="cuV-CT-DZP"/>
                                         <constraint firstAttribute="trailing" secondItem="CkN-C8-wcK" secondAttribute="trailing" constant="24" id="cxq-cl-J96"/>
                                         <constraint firstAttribute="bottom" secondItem="YPa-gb-TEW" secondAttribute="bottom" id="wcY-uy-RX9"/>
                                     </constraints>
@@ -1550,6 +1563,7 @@
                                     <outlet property="connectionImage" destination="s7F-0B-jPM" id="vPh-Vp-X9T"/>
                                     <outlet property="locationLabel" destination="lDT-R6-uI2" id="lQi-I7-VND"/>
                                     <outlet property="nameLabel" destination="uHb-E0-Vge" id="oKk-4P-co0"/>
+                                    <outlet property="pendingButton" destination="eTv-ip-fmQ" id="vRI-Ty-Tb4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -3552,6 +3566,7 @@
         <image name="location-icon" width="43" height="43"/>
         <image name="login-bg" width="7" height="7"/>
         <image name="logout-icon_1" width="27" height="28"/>
+        <image name="pending-connection-icon" width="27" height="27"/>
         <image name="plate-icon" width="37" height="37"/>
         <image name="plate-selected-icon" width="32" height="32"/>
         <image name="popover-delete" width="120" height="33"/>

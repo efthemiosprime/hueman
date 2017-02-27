@@ -42,7 +42,7 @@ class CommentsViewController: UIViewController {
         viewModel = CommentsViewModel()
 
         commentInput.delegate = self
-       // commentInput.becomeFirstResponder()
+        commentInput.becomeFirstResponder()
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)

@@ -111,19 +111,22 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         },
         onError: { errorString in
             if errorString == "Empty" {
+                
+                let emptyBackground = UIImage(named: "huesfeed-empty")
+                let emptyView = UIImageView(image: emptyBackground)
+                emptyView.contentMode = .ScaleAspectFill
+                self.tableView.backgroundView = emptyView
+                
+                self.removeAllOverlays()
+
+                
                 self.huesFeedModel.feetchFeeds({ errorString in
                     
-                    if errorString == "Empty" {
-                        let emptyBackground = UIImage(named: "huesfeed-empty")
-                        let emptyView = UIImageView(image: emptyBackground)
-                        emptyView.contentMode = .ScaleAspectFill
-                        self.tableView.backgroundView = emptyView
-                    }
                     
                     self.removeAllOverlays()
                     
-                    },
-                    completion: { feeds in
+                },
+                completion: { feeds in
                         self.tableView.backgroundView = nil
                         self.tableView.reloadData()
                         self.removeAllOverlays()

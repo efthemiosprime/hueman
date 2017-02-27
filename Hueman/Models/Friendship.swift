@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Friendship {
     
@@ -19,6 +20,17 @@ struct Friendship {
     static let Accepted: String = "Accepted"
     static let Rejected: String = "Rejected"
     static let Removed: String = "Removed"
+    
+    
+
+    init(snapshot: FIRDataSnapshot) {
+        
+        self.requester = snapshot.value!["requester"] as? String
+        self.recipient = snapshot.value!["recipient"] as? String
+        self.id = snapshot.value!["id"] as? String
+        self.status = snapshot.value!["status"] as? String
+        
+    }
 
     
     init(from: String, to:String, id: String,  status: String) {

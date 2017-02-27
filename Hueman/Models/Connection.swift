@@ -17,6 +17,7 @@ struct Connection {
     let imageURL: String?
     let uid: String!
     var friendship:String?
+    var pending: Bool = false
 
     init(name: String, location:String, imageURL:String, uid: String, friendship: String = "") {
         
