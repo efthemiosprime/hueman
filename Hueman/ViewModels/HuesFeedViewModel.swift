@@ -74,7 +74,6 @@ class HuesFeedViewModel: NSObject {
     func fetchConnections(completion: (() -> ())? = nil, onError:((errorString: String) -> ())? = nil ) {
         let authenticationManager =  AuthenticationManager.sharedInstance
         let currentUser = authenticationManager.currentUser
-        
         let friendsRef = self.databaseRef.child("friends").child((currentUser?.uid)!)
         friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             

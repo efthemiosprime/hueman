@@ -52,7 +52,7 @@ class AddConnectionsController: UITableViewController {
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
         
-        let currentAuthenticatedUser = FIRAuth.auth()?.currentUser
+        let currentAuthenticatedUser = AuthenticationManager.sharedInstance.currentUser
         let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
@@ -114,6 +114,7 @@ class AddConnectionsController: UITableViewController {
                     self.data.append(self.users)
                 }
                 
+                print(self.data)
                 self.tableView.reloadData()
                 
             }
@@ -195,7 +196,9 @@ class AddConnectionsController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currentCell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! AddUserCell
         
+
         currentCell.user = data[indexPath.section][indexPath.row]
+        
         
         storageRef.referenceForURL((currentCell.user?.photoURL)!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
             if error == nil {
@@ -266,6 +269,7 @@ class AddConnectionsController: UITableViewController {
                             }
                             
                             requestRef.removeValue()
+                            
                         
                     }
                     

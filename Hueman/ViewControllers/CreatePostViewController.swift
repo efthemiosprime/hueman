@@ -126,9 +126,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                     }
 
                 }else {
-                    print(storedEntry["postImage"])
                     if let postImageData = storedEntry["postImage"] as? NSData {
-                        print(postImage.image?.accessibilityIdentifier)
                         postImage.image = UIImage(data: postImageData)
                         self.withImage = true
                         postImage.hidden = false

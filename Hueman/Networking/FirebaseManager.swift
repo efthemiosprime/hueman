@@ -72,7 +72,11 @@ struct FirebaseManager {
                 self.userExist(userEmail, completion: {
                     exists in
                     if exists {
-                        loggedIn?()
+                        if AuthenticationManager.sharedInstance.currentUser == nil {
+                            AuthenticationManager.sharedInstance.loadCurrentUser({
+                                loggedIn?()
+                            })
+                        }
                     }else {
                         self.uploadImageFromURL(url, user: user!, complete: {
                             loggedIn?()

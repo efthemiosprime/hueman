@@ -76,7 +76,6 @@ class AddHuesPageController: UIPageViewController {
         addHueController.hueIndex = index
         addHueController.delegate = hueDelegate
         
-        print("xxxx controller")
 
         return addHueController
     }
@@ -88,7 +87,6 @@ extension AddHuesPageController: UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
         let pageContent: AddHueController = viewController as! AddHueController
-        print(pageContent.detailLabel.text)
 
         var index = pageContent.hueIndex
         
@@ -144,7 +142,6 @@ extension AddHuesPageController: UIPageViewControllerDelegate {
                                                transitionCompleted completed: Bool)
     {
         //        guard completed else { return }
-                print("xxxxx")
         
         if(completed) {
 

@@ -155,6 +155,9 @@ class DrawerControllerController: UIViewController {
                 
             }
             
+            let caches = NSCache()
+            caches.removeAllObjects()
+            
             
             self.dismissViewControllerAnimated(true, completion: nil)
 
@@ -187,6 +190,8 @@ class DrawerControllerController: UIViewController {
                 
             }
             
+            let caches = NSCache()
+            caches.removeAllObjects()
             
             if NSUserDefaults.standardUserDefaults().objectForKey("storedEntry") != nil {
                 NSUserDefaults.standardUserDefaults().removeObjectForKey("storedEntry")
