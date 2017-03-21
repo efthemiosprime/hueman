@@ -42,7 +42,6 @@ class AddConnectionsController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 96
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,21 +51,28 @@ class AddConnectionsController: UITableViewController {
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
         
-        let currentAuthenticatedUser = AuthenticationManager.sharedInstance.currentUser
-        let userRef = databaseRef.child("users").child((currentAuthenticatedUser?.uid)!)
-        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            if snapshot.exists() {
-                self.currentUser = User(snapshot: snapshot)
-                self.fetchConnections()
-            }
-            
-
-        }) { error in
-            print(error.localizedDescription)
+        if currentUser == nil {
+            currentUser = AuthenticationManager.sharedInstance.currentUser
         }
         
+        fetchConnections()
         
+//        if let unwrappedUID = currentUser?.uid {
+//            let userRef = databaseRef.child("users").child(unwrappedUID)
+//            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//                
+//                if snapshot.exists() {
+//                   / self.currentUser = User(snapshot: snapshot)
+//                    self.fetchConnections()
+//                }
+//                
+//                
+//            }) { error in
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+
         
     }
     
@@ -78,7 +84,6 @@ class AddConnectionsController: UITableViewController {
     
     func fetchAllUsers() {
         
-        let authManager = AuthenticationManager.sharedInstance
         let userRef = databaseRef.child("users")
     
 
@@ -89,13 +94,12 @@ class AddConnectionsController: UITableViewController {
                 
                 let connectionsUids: [String] = self.connections.map({$0.uid})
                 let requestsUids: [String] = self.requests.map({$0.uid})
-                print("connections \(connectionsUids)")
                 self.users = snapshot.children.map({(snap) -> User in
                     let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
                     return newUser
                 })
                 .filter({ !connectionsUids.contains($0.uid) })
-                .filter({ $0.uid != authManager.currentUser!.uid} )
+                .filter({ $0.uid != self.currentUser!.uid} )
                 .filter({ !requestsUids.contains($0.uid) })
                 .sort({ (user1, user2) -> Bool in
                     user1.name < user2.name
@@ -110,12 +114,15 @@ class AddConnectionsController: UITableViewController {
                     self.sections.append("users")
                     self.data.append(self.users)
                 }else {
-                    self.sections.append("users")
                     self.data.append(self.users)
+                    self.sections.append("users")
+
+
                 }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
                 
-                print(self.data)
-                self.tableView.reloadData()
                 
             }
             
@@ -130,57 +137,63 @@ class AddConnectionsController: UITableViewController {
     
     func fetchAllRequests() {
         
-        let requestRef = databaseRef.child("requests").child((currentUser?.uid)!)
-
-        requestRef.observeSingleEventOfType(.Value, withBlock:{
-            snapshot in
-            if snapshot.exists() {
-                
-                
-                for snap in snapshot.children {
-                    if let requester = snap.value!["requester"] as? String {
-                        let requestFromRef = self.databaseRef.child("/users/\(requester)")
-                        
-                        requestFromRef.observeSingleEventOfType(.Value, withBlock: {userSnap in
+        if let unwrappedUID = currentUser?.uid {
+            let requestRef = databaseRef.child("requests").child(unwrappedUID)
+            
+            requestRef.observeSingleEventOfType(.Value, withBlock:{
+                snapshot in
+                if snapshot.exists() {
+                    
+                    
+                    for snap in snapshot.children {
+                        if let requester = snap.value!["requester"] as? String {
+                            let requestFromRef = self.databaseRef.child("/users/\(requester)")
                             
-                            let userRequest = User(snapshot: userSnap )
-                            self.requests.append(userRequest)
-                        }) {(error ) in
-                            print(error.localizedDescription)
-                            
+                            requestFromRef.observeSingleEventOfType(.Value, withBlock: {userSnap in
+                                
+                                let userRequest = User(snapshot: userSnap )
+                                self.requests.append(userRequest)
+                            }) {(error ) in
+                                print(error.localizedDescription)
+                                
+                            }
                         }
+                        
+                        
                     }
                     
-
                 }
-
+                
+                self.fetchAllUsers()
+                
+            }) {(error) in
+                print(error.localizedDescription)
             }
-            
-            self.fetchAllUsers()
-
-        }) {(error) in
-            print(error.localizedDescription)
         }
+
     }
     
     func fetchConnections() {
-        let currentUser = FIRAuth.auth()?.currentUser
-        let friendsRef = databaseRef.child("friends").child((currentUser?.uid)!)
-        friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        if let unwrappedUID = currentUser?.uid {
+            print("uid \(unwrappedUID)")
+            let friendsRef = databaseRef.child("friends").child(unwrappedUID)
             
-            if snapshot.exists() {
-                for con in snapshot.children {
-                    let connection = Connection(name: (con.value!["name"] as? String)!,
-                        location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
-                    self.connections.append(connection)
+            friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                
+                if snapshot.exists() {
+                    for con in snapshot.children {
+                       let connection = Connection(name: (con.value!["name"] as? String)!,
+                            location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                       self.connections.append(connection)
+                    }
                 }
+                
+               self.fetchAllRequests()
+                
+                
+            }) {(error) in
+                print(error.localizedDescription)
             }
-            
-            self.fetchAllRequests()
-
-            
-        }) {(error) in
-            print(error.localizedDescription)
         }
         
     }
@@ -200,20 +213,23 @@ class AddConnectionsController: UITableViewController {
         currentCell.user = data[indexPath.section][indexPath.row]
         
         
-        storageRef.referenceForURL((currentCell.user?.photoURL)!).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-            if error == nil {
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    if let data = data {
-                        currentCell.connectionImage.image = UIImage(data: data)
-                    }
-                })
-                
-                
-            }else {
-                print(error!.localizedDescription)
-            }
-        })
+        if let photoURL = currentCell.user?.photoURL where !(currentCell.user?.photoURL?.isEmpty)! {
+            storageRef.referenceForURL(photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                if error == nil {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if let data = data {
+                            currentCell.connectionImage.image = UIImage(data: data)
+                        }
+                    })
+                    
+                    
+                }else {
+                    print(error!.localizedDescription)
+                }
+            })
+        }
+
         
 
         if indexPath.section == 0 && sections.count > 1 {
@@ -387,7 +403,7 @@ class AddConnectionsController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return sections.count
+        return self.data.count
     }
 
     
@@ -398,7 +414,7 @@ class AddConnectionsController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return self.sections[section]
+        return sections[section]
         
     }
     
