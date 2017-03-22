@@ -495,56 +495,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="huesfeedimagecell" rowHeight="350" id="jso-0v-QCx" userLabel="huesfeedimagecell" customClass="FeedImageTableViewCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="10" width="375" height="350"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="huesfeedimagecell" rowHeight="365" id="jso-0v-QCx" userLabel="huesfeedimagecell" customClass="FeedImageTableViewCell" customModule="Hueman" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="10" width="375" height="365"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jso-0v-QCx" id="wEW-UF-yFW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="349"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="364"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="207.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
-                                            <rect key="frame" x="0.0" y="319" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="327.5" width="375" height="37"/>
                                             <subviews>
                                                 <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-yU-eVX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="BNf-sd-pby"/>
+                                                        <constraint firstAttribute="height" constant="37" id="BNf-sd-pby"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h4-t7-KWJ">
-                                                    <rect key="frame" x="0.0" y="25" width="375" height="5"/>
+                                                    <rect key="frame" x="0.0" y="32" width="375" height="5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="5" id="HRp-Uj-DM0"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwO-G9-Arb" userLabel="Heart">
-                                                    <rect key="frame" x="8" y="5" width="18" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="feed-heart-icon"/>
-                                                    <state key="selected" image="feed-heart-icon-highlighted"/>
-                                                    <connections>
-                                                        <action selector="didTappedLikeAction:" destination="jso-0v-QCx" eventType="touchUpInside" id="NWx-qA-oYd"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upt-Dd-l8c" userLabel="Comments">
-                                                    <rect key="frame" x="65" y="5" width="18" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="feed-comments-icon"/>
-                                                    <connections>
-                                                        <action selector="didTappedComments:" destination="jso-0v-QCx" eventType="touchUpInside" id="pup-aP-cKR"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDB-IY-4nd" userLabel="flag">
-                                                    <rect key="frame" x="312" y="0.0" width="63" height="25"/>
+                                                    <rect key="frame" x="294" y="0.0" width="81" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="feed-flag-button"/>
                                                     <state key="disabled" image="feed-flag-button-disable.png"/>
@@ -553,17 +536,34 @@
                                                         <action selector="didTappedFlagAction:" destination="jso-0v-QCx" eventType="touchUpInside" id="JDB-fO-yus"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-DJ-kxS">
-                                                    <rect key="frame" x="84" y="2" width="22" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwO-G9-Arb" userLabel="Heart">
+                                                    <rect key="frame" x="20" y="5" width="24" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
+                                                    <state key="normal" image="feed-heart-icon"/>
+                                                    <state key="selected" image="feed-heart-icon-highlighted"/>
+                                                    <connections>
+                                                        <action selector="didTappedLikeAction:" destination="jso-0v-QCx" eventType="touchUpInside" id="NWx-qA-oYd"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upt-Dd-l8c" userLabel="Comments">
+                                                    <rect key="frame" x="80" y="6" width="25" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="feed-comments-icon"/>
+                                                    <connections>
+                                                        <action selector="didTappedComments:" destination="jso-0v-QCx" eventType="touchUpInside" id="pup-aP-cKR"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-DJ-kxS">
+                                                    <rect key="frame" x="106" y="6" width="22" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyQ-l5-aZD">
-                                                    <rect key="frame" x="28" y="2" width="22" height="21"/>
+                                                    <rect key="frame" x="43" y="6" width="22" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -574,12 +574,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="7h4-t7-KWJ" secondAttribute="bottom" id="elv-HR-bSt"/>
                                                 <constraint firstAttribute="trailing" secondItem="7h4-t7-KWJ" secondAttribute="trailing" id="hwz-cb-txk"/>
                                                 <constraint firstItem="7h4-t7-KWJ" firstAttribute="leading" secondItem="QTI-Uo-JSf" secondAttribute="leading" id="sQD-ts-EED"/>
-                                                <constraint firstAttribute="height" constant="30" id="wY1-sg-Vkh"/>
+                                                <constraint firstAttribute="height" constant="37" id="wY1-sg-Vkh"/>
                                                 <constraint firstItem="gk2-yU-eVX" firstAttribute="top" secondItem="QTI-Uo-JSf" secondAttribute="top" id="yCY-VA-qgu"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wn3-x9-pSq" userLabel="Profile Container">
-                                            <rect key="frame" x="0.0" y="246" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="254.5" width="375" height="65"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed-avatar-background" translatesAutoresizingMaskIntoConstraints="NO" id="4lu-IW-HOb">
                                                     <rect key="frame" x="290" y="0.0" width="66" height="66"/>
@@ -613,7 +613,7 @@
                                             </variation>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGm-EW-FyY">
-                                            <rect key="frame" x="20" y="243" width="270" height="21"/>
+                                            <rect key="frame" x="20" y="251.5" width="270" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="6hn-CY-Kt4"/>
                                             </constraints>
@@ -622,10 +622,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="344" y="207" width="11" height="22"/>
+                                            <rect key="frame" x="331" y="215.5" width="24" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="22" id="1su-i0-dQR"/>
-                                                <constraint firstAttribute="width" constant="11" id="TFh-F4-vUT"/>
+                                                <constraint firstAttribute="height" constant="24" id="1su-i0-dQR"/>
+                                                <constraint firstAttribute="width" constant="24" id="TFh-F4-vUT"/>
                                             </constraints>
                                             <state key="normal" image="huesfeed-popover-button"/>
                                             <connections>
@@ -637,7 +637,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="20" y="217" width="270" height="28"/>
+                                            <rect key="frame" x="20" y="225.5" width="270" height="28"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -679,18 +679,18 @@
                                     <outlet property="textFeedLabel" destination="dQ1-mK-8wB" id="1b7-ih-MFs"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="huesfeedtextcell" rowHeight="152" id="Ek0-2G-lI8" customClass="FeedTextTableViewCell" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="360" width="375" height="152"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="huesfeedtextcell" rowHeight="165" id="Ek0-2G-lI8" customClass="FeedTextTableViewCell" customModule="Hueman" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="375" width="375" height="165"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ek0-2G-lI8" id="BpH-j8-DCk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O14-Iz-Paj">
-                                            <rect key="frame" x="344" y="8" width="11" height="22"/>
+                                            <rect key="frame" x="331" y="8" width="24" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="11" id="7NN-Nb-zxH"/>
-                                                <constraint firstAttribute="height" constant="22" id="bpj-QX-36D"/>
+                                                <constraint firstAttribute="width" constant="24" id="7NN-Nb-zxH"/>
+                                                <constraint firstAttribute="height" constant="24" id="bpj-QX-36D"/>
                                             </constraints>
                                             <state key="normal" image="huesfeed-popover-button"/>
                                             <connections>
@@ -698,24 +698,24 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-BH-ulM" userLabel="Footer">
-                                            <rect key="frame" x="0.0" y="121" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="127" width="375" height="37"/>
                                             <subviews>
                                                 <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-g0-6X1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="iwP-cD-KeF"/>
+                                                        <constraint firstAttribute="height" constant="37" id="iwP-cD-KeF"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uh-Jr-Tdz">
-                                                    <rect key="frame" x="0.0" y="25" width="375" height="5"/>
+                                                    <rect key="frame" x="0.0" y="32" width="375" height="5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="5" id="ryn-FV-rJ5"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCw-Yj-47u" userLabel="flag">
-                                                    <rect key="frame" x="312" y="0.0" width="63" height="25"/>
+                                                    <rect key="frame" x="294" y="0.0" width="81" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="feed-flag-button"/>
                                                     <state key="disabled" image="feed-flag-button-disable.png"/>
@@ -725,7 +725,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-Am-UtL" userLabel="Heart">
-                                                    <rect key="frame" x="8" y="5" width="18" height="14"/>
+                                                    <rect key="frame" x="20" y="5" width="24" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="feed-heart-icon"/>
                                                     <state key="selected" image="feed-heart-icon-highlighted"/>
@@ -734,7 +734,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-ed-JFN" userLabel="Comments">
-                                                    <rect key="frame" x="65" y="5" width="18" height="14"/>
+                                                    <rect key="frame" x="80" y="6" width="25" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="feed-comments-icon"/>
                                                     <connections>
@@ -742,16 +742,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xc-dP-Gje">
-                                                    <rect key="frame" x="84" y="2" width="22" height="21"/>
+                                                    <rect key="frame" x="106" y="6" width="22" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhP-6i-JVL">
-                                                    <rect key="frame" x="28" y="2" width="22" height="21"/>
+                                                    <rect key="frame" x="43" y="6" width="22" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -760,14 +760,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="Jam-g0-6X1" secondAttribute="trailing" id="811-1o-ozN"/>
                                                 <constraint firstItem="9uh-Jr-Tdz" firstAttribute="leading" secondItem="c5C-BH-ulM" secondAttribute="leading" id="HMI-1D-GMW"/>
                                                 <constraint firstAttribute="trailing" secondItem="9uh-Jr-Tdz" secondAttribute="trailing" id="Smp-Ve-bJU"/>
-                                                <constraint firstAttribute="height" constant="30" id="efc-Hn-1rF"/>
+                                                <constraint firstAttribute="height" constant="37" id="efc-Hn-1rF"/>
                                                 <constraint firstItem="Jam-g0-6X1" firstAttribute="top" secondItem="c5C-BH-ulM" secondAttribute="top" id="pGB-Fn-oiz"/>
                                                 <constraint firstAttribute="bottom" secondItem="9uh-Jr-Tdz" secondAttribute="bottom" id="qkh-Y5-xHf"/>
                                                 <constraint firstItem="Jam-g0-6X1" firstAttribute="leading" secondItem="c5C-BH-ulM" secondAttribute="leading" id="r9w-cE-j2l"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hse-qf-p65" userLabel="Profile Container">
-                                            <rect key="frame" x="0.0" y="48" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="54" width="375" height="65"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aq-k2-d3A">
                                                     <rect key="frame" x="72" y="24" width="208" height="17"/>
@@ -801,13 +801,13 @@
                                             </variation>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjs-TM-vxg">
-                                            <rect key="frame" x="20" y="18" width="270" height="29"/>
+                                            <rect key="frame" x="20" y="18" width="270" height="35"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahI-Kb-bpT">
-                                            <rect key="frame" x="20" y="45" width="270" height="21"/>
+                                            <rect key="frame" x="20" y="51" width="270" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="zA0-SS-Wyl"/>
                                             </constraints>
@@ -929,7 +929,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Smith commented on your post." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-8z-s3Y">
-                                            <rect key="frame" x="96" y="22" width="210" height="33"/>
+                                            <rect key="frame" x="96" y="22" width="210" height="28"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -942,7 +942,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-8g-6yX">
-                                            <rect key="frame" x="96" y="58" width="210" height="12"/>
+                                            <rect key="frame" x="96" y="53" width="210" height="10"/>
                                             <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1318,7 +1318,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="create a post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHo-0f-h4g">
-                                <rect key="frame" x="129" y="14" width="117.5" height="21"/>
+                                <rect key="frame" x="127" y="14" width="121" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7qT-1o-cve"/>
                                 </constraints>
@@ -1650,7 +1650,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2618,7 +2618,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3555,18 +3555,18 @@
         <image name="create-profile-birthday" width="65" height="65"/>
         <image name="create-profile-name-bio" width="375" height="106"/>
         <image name="feed-avatar-background" width="66" height="66"/>
-        <image name="feed-comments-icon" width="18" height="15"/>
-        <image name="feed-flag-button" width="63" height="25"/>
+        <image name="feed-comments-icon" width="25" height="21"/>
+        <image name="feed-flag-button" width="81" height="32"/>
         <image name="feed-flag-button-disable.png" width="63" height="25"/>
-        <image name="feed-heart-icon" width="18" height="15"/>
-        <image name="feed-heart-icon-highlighted" width="17" height="14"/>
+        <image name="feed-heart-icon" width="24" height="21"/>
+        <image name="feed-heart-icon-highlighted" width="23" height="20"/>
         <image name="filter-bg" width="41" height="305"/>
         <image name="health-icon" width="35" height="35"/>
         <image name="health-selected-icon" width="32" height="32"/>
         <image name="help-center-icon_1" width="34" height="34"/>
         <image name="hue-wanderlust-icon" width="55" height="55"/>
         <image name="hueman-logo" width="247" height="58"/>
-        <image name="huesfeed-popover-button" width="11" height="6"/>
+        <image name="huesfeed-popover-button" width="24" height="24"/>
         <image name="hulyo.jpg" width="720" height="483"/>
         <image name="hustle-icon" width="37" height="37"/>
         <image name="hustle-selected-icon" width="32" height="32"/>
