@@ -33,6 +33,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         return FIRStorage.storage()
     }
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+
+    
     var filterController: FilterController?
     var huesFeedModel: HuesFeedViewModel!
     
@@ -102,9 +105,18 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 
                 },
                 completion: { feeds in
-                    self.tableView.backgroundView = nil
-                    self.tableView.reloadData()
-                    self.removeAllOverlays()
+                    
+                    if let savedFilters = self.defaults.objectForKey("savedFilters") as? [String] {
+                        self.onFilter(savedFilters)
+                        self.removeAllOverlays()
+
+                    }else {
+                        self.tableView.backgroundView = nil
+                        self.tableView.reloadData()
+                        self.removeAllOverlays()
+                    }
+                    
+
             })
             
             

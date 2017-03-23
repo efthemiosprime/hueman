@@ -22,9 +22,16 @@ class FilterController: UIViewController {
     @IBOutlet var hues: Array<UIButton>?
     var delegate : FilterControllerDelegate?
     var topics = [String]()
+    var filters = [String]()
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+
+        
         
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
 
@@ -37,6 +44,14 @@ class FilterController: UIViewController {
 
         for hue in hues! {
             hue.addTarget(self, action: #selector(FilterController.filterFeeds(_:)), forControlEvents: .TouchUpInside)
+        }
+        
+        if let savedFilters = defaults.objectForKey("savedFilters") as? [String] {
+            for filter in savedFilters {
+                if let tag = topics.indexOf(filter) {
+                    hues![tag].selected = true
+                }
+            }
         }
 
         // Creating Tap Gesture to dismiss Keyboard
@@ -53,13 +68,12 @@ class FilterController: UIViewController {
         }) { (Finished) -> Void in
             
         }
+
         
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-
 
     }
     
@@ -79,11 +93,16 @@ class FilterController: UIViewController {
     
     func filter() {
         
-        var filters = [String]()
         for btn in hues! {
             if btn.selected {
                 filters.append(topics[btn.tag])
             }
+        }
+        
+        if filters.count > 0 {
+            defaults.setObject(filters, forKey: "savedFilters")
+        }else {
+            defaults.removeObjectForKey("savedFilters")
         }
         
         self.delegate?.onFilter(filters)
