@@ -133,6 +133,13 @@ class DrawerControllerController: UIViewController {
     
     @IBAction func logoutAction(sender: AnyObject) {
         
+        
+        if (NSUserDefaults.standardUserDefaults().objectForKey("savedFilters") as? [String]) != nil {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("savedFilters")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+            
+            
         if FBSDKAccessToken.currentAccessToken() != nil  {
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
