@@ -20,18 +20,19 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
     @IBOutlet weak var inputBackground: UIView!
     @IBOutlet weak var postInput: UITextView!
-    @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var topic: UIView!
-    @IBOutlet weak var topicCloseButton: UIButton!
-    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
     var textStats: UILabel!
     var submitBtn: UIBarButtonItem!
-    
+    var filterBtn: UIBarButtonItem!
     var withImage: Bool = false
+    
+    
+    var keyboardHeight: CGFloat = 0
+    var toolbarFilters: UIToolbar?
+    
     
     @IBOutlet var huesCollections: Array<UIButton>?
     
@@ -59,9 +60,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         postImage.hidden = true
         deleteButton.hidden = true
-        for btn in huesCollections! {
-            btn.addTarget(self, action: #selector(CreatePostViewController.topicChangedAction(_:)), forControlEvents: .TouchUpInside)
-        }
+
         
         topicRectOffsets.append(CGPoint(x: -101, y: 23))
         topicRectOffsets.append(CGPoint(x: -74, y: 70))
@@ -70,14 +69,13 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         topicRectOffsets.append(CGPoint(x: 74, y: 70))
         topicRectOffsets.append(CGPoint(x: 101, y: 23))
 
-        showTopic(true)
 
-        filterButton.hidden = false
-        filterButton.enabled = true
-        icon.hidden = true
         
         postInput.delegate = self
         self.navigationController?.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x93648D)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
         
         if let topicColor = topicColor, let topicIcon = topicIcon, let topicString = topicString {
@@ -86,14 +84,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             
         }
     
-        filterButton.addTarget(self, action: #selector(CreatePostViewController.showTopicAction), forControlEvents: .TouchUpInside)
-        
-        icon.userInteractionEnabled = false
-        let tapIconGesture = UITapGestureRecognizer(target: self, action: #selector(CreatePostViewController.showTopicAction))
-        icon.addGestureRecognizer(tapIconGesture)
         
         addButtonToKeyboard()
-
+        addFiltersToolbar()
         
         if let entry = defaults.objectForKey("storedEntry") as? [String: AnyObject] {
             storedEntry = entry
@@ -152,56 +145,16 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    func showTopic(show: Bool) {
-        if show == true {
-            
-            let closeFrame = topicCloseButton.frame
-            var index = 0
-            var done = false
-            for btn in huesCollections! {
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    btn.frame = closeFrame
-                    btn.alpha = 0
-                    index = index + 1
 
-                    }, completion: { finished in
-                        if done == false {
-                            done = true
-                            self.topic.hidden = show
-
-                        }
-                })
-                
-            }
-            
-            
-            self.postInput?.userInteractionEnabled = true
-            self.postInput?.becomeFirstResponder()
-            self.filterButton.hidden = true
-            self.icon.hidden = false
-            self.icon.userInteractionEnabled = true
-
-    
-        }else {
-            topic.hidden = show
-
-            openTopic()
-
-            postInput?.userInteractionEnabled = false
-            postInput?.resignFirstResponder()
-        }
-
-
-    }
     
 
     func topicChangedAction(sender: UIButton!) {
         if sender.tag == 0 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
-            icon.image = UIImage(named: "wanderlust-icon.png")
+            filterBtn!.image = UIImage(named: "filter-wanderlust-accessory-icon")
             topicString = Topic.Wanderlust
-            topicIcon = "wanderlust-icon.png"
+            topicIcon = "filter-wanderlust-accessory-icon"
             topicColor = 0x34b5d4
         }
         
@@ -209,55 +162,54 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         if sender.tag == 1 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0xF49445)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xF49445)
-            icon.image = UIImage(named: "plate-icon.png")
+            filterBtn!.image = UIImage(named: "filter-plate-accessory-icon")
+
             topicString = Topic.OnMyPlate
-            topicIcon = "plate-icon.png"
+            topicIcon = "filter-plate-accessory-icon"
             topicColor = 0xF49445
         }
         
         if sender.tag == 2 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0xe2563b)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xe2563b)
-            icon.image = UIImage(named: "relationship-icon.png")
+            filterBtn!.image = UIImage(named: "filter-musing-accessory-icon")
+
             topicString = Topic.RelationshipMusing
-            topicIcon = "relationship-icon.png"
+            topicIcon = "filter-musing-accessory-icon"
             topicColor = 0xe2563b
         }
         
         if sender.tag == 3 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x7BC8A4)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x7BC8A4)
-            icon.image = UIImage(named: "health-icon.png")
+            filterBtn!.image = UIImage(named: "filter-health-accessory-icon")
             topicString = Topic.Health
-            topicIcon = "health-icon.png"
+            topicIcon = "ilter-health-accessory-icon"
             topicColor = 0x7BC8A4
         }
         
         if sender.tag == 4 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x93648D)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x93648D)
-            icon.image = UIImage(named: "hustle-icon.png")
+            filterBtn!.image = UIImage(named: "filter-daily-hustle-accessory-icon")
             topicString = Topic.DailyHustle
-            topicIcon = "hustle-icon.png"
+            topicIcon = "filter-daily-hustle-accessory-icon"
             topicColor = 0x93648D
         }
         
         if sender.tag == 5 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0xEACD53)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0xEACD53)
-            icon.image = UIImage(named: "ray-light-icon.png")
+            filterBtn!.image = UIImage(named: "filter-rayoflight-accessory-icon")
             topicString = Topic.RayOfLight
-            topicIcon = "ray-light-icon.png"
+            topicIcon = "filter-rayoflight-accessory-icon"
             topicColor = 0xEACD53
         }
         
-        showTopic(true)
+        hideFiltersToolbar()
     }
 
-    func showTopicAction() {
-        showTopic(false)
-    }
-    
+
     func updateTopic(hueColor: UInt, hueIcon: String, topic: String) {
         
         topicColor = hueColor
@@ -267,11 +219,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         self.view.backgroundColor = UIColor.UIColorFromRGB(hueColor)
         inputBackground.backgroundColor = UIColor.UIColorFromRGB(hueColor)
-        icon.image = UIImage(named: hueIcon)
         self.topicString = topic
-        filterButton.hidden = true
-        icon.hidden = false
-        icon.userInteractionEnabled = true
+        filterBtn!.image = UIImage(named: topicIcon!)
 
     }
     
@@ -286,6 +235,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         camera.PresentPhotoLibrary(self, canEdit: true)
     }
     
+
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -392,12 +342,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         removeImage()
     }
     
-    @IBAction func didTappedCloseTopic(sender: AnyObject) {
-        showTopic(true)
-        if icon.image == nil {
-            filterButton.hidden = false
-        }
-    }
+
     
     @IBAction func backButton(sender: AnyObject) {
         
@@ -435,32 +380,15 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     func closeTopic() {
-        let closeFrame = topicCloseButton.frame
         for btn in huesCollections! {
             UIView.animateWithDuration(0.7, animations: { () -> Void in
-                btn.frame = closeFrame
                 btn.alpha = 0
                 }, completion: { finished in
                 })
         }
     }
     
-    func openTopic() {
-        var index = 0
-        
-        for btn in huesCollections! {
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                btn.frame = btn.frame.offsetBy(dx: self.topicRectOffsets[index].x, dy: self.topicRectOffsets[index].y)
-                btn.alpha = 1
 
-                index = index + 1
-                }, completion: { finished in
-
-
-            })
-        }
-    }
-    
     func removeImage() {
 
         deleteButton.hidden = true
@@ -494,7 +422,7 @@ extension CreatePostViewController: UITextViewDelegate {
         return true
     }
     func textViewDidChange(textView: UITextView) {
-        textStats.text = "\(textView.text.characters.count)/250 characters left"
+        textStats.text = "\(textView.text.characters.count)/300"
 
         
     }
@@ -504,7 +432,7 @@ extension CreatePostViewController: UITextViewDelegate {
             postInput.resignFirstResponder()
             return false
         }
-        return textView.text.characters.count + (text.characters.count - range.length) <= 250
+        return textView.text.characters.count + (text.characters.count - range.length) <= 300
     }
     
 
@@ -512,18 +440,20 @@ extension CreatePostViewController: UITextViewDelegate {
 
 
 extension CreatePostViewController {
+
     func addButtonToKeyboard() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
      //   searhItem = UIBarButtonItem(image: UIImage(named: "search-item-icon"), style: .Plain, target: self, action: #selector(ConnectionsViewController.showSearchBar))
 
         let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
+        filterBtn = UIBarButtonItem(image: UIImage(named: "filter-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleFilter))
         let cameraBtn = UIBarButtonItem(image: UIImage(named: "camera-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleCamera))
         let photoBtn = UIBarButtonItem(image: UIImage(named: "photo-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleSelectedFeedImageView))
         submitBtn = UIBarButtonItem(image: UIImage(named: "submit-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.didTapCreateFeed(_:)))
         submitBtn.enabled = false
-        textStats = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        textStats.text = "0/250 characters left"
+        textStats = UILabel(frame: CGRectMake(0, 0, 50, 21))
+        textStats.text = "0/300"
         textStats.textColor = UIColor.UIColorFromRGB(0x666666)
         textStats.font = UIFont(name: Font.SofiaProRegular, size: 16)
         textStats.center = CGPoint(x: CGRectGetMidX(view.frame), y: view.frame.height)
@@ -531,20 +461,73 @@ extension CreatePostViewController {
         
         let toolbarTitle = UIBarButtonItem(customView: textStats)
         
-//        let doneBtn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneEditing))
-//        doneBtn.tintColor = UIColor.UIColorFromRGB(0x666666)
-        
-//        if let font = UIFont(name: Font.SofiaProRegular, size: 15) {
-//            doneBtn.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-//        }
-        
-        toolbar.setItems([cameraBtn,photoBtn, spacer,toolbarTitle, submitBtn], animated: false)
+
+        toolbar.setItems([filterBtn, cameraBtn,photoBtn, spacer,toolbarTitle, submitBtn], animated: false)
         
         postInput.inputAccessoryView = toolbar
         
     }
     
+    func addFiltersToolbar() {
+
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        let icons:[String] = ["filter-wanderlust-accessory-icon", "filter-plate-accessory-icon", "filter-musing-accessory-icon", "filter-health-accessory-icon", "filter-daily-hustle-accessory-icon",  "filter-rayoflight-accessory-icon" ]
+        var items = [UIBarButtonItem]()
+        
+        
+        if toolbarFilters == nil {
+            var tagIndex = 0
+            for item in icons {
+                let btnItem = UIBarButtonItem(image: UIImage(named: item), style: .Plain, target: self, action: #selector(CreatePostViewController.topicChangedAction(_:)))
+                btnItem.imageInsets = UIEdgeInsetsMake(0.0, -15, 0, -15)
+                btnItem.tag = tagIndex
+                items.append(btnItem)
+                tagIndex += 1
+            }
+            
+            let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
+
+            toolbarFilters = UIToolbar()
+            toolbarFilters!.frame = CGRectMake(0, screenHeight, screenWidth, 44)
+            toolbarFilters!.sizeToFit()
+            
+            toolbarFilters!.setItems([items[0], spacer, items[1], spacer, items[2], spacer, items[3], spacer, items[4], spacer, items[5]], animated: false)
+        
+            self.view.addSubview(toolbarFilters!)
+        }
+
+    }
     
+    func showFiltersToolbar() {
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.toolbarFilters!.frame = CGRectMake(0.0, (screenHeight - self.keyboardHeight) - 43, screenWidth, 44)
+        }) { (Finished) -> Void in
+        }
+    }
+    
+    func hideFiltersToolbar() {
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.toolbarFilters!.frame = CGRectMake(0.0, screenHeight, screenWidth, 44)
+        }) { (Finished) -> Void in
+        }
+    }
+    
+    
+    func keyboardWillShow(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+    }
+    
+    func handleFilter() {
+        showFiltersToolbar()
+    }
     
     func doneEditing() {
         self.view.endEditing(true)
