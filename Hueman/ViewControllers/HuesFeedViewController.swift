@@ -698,8 +698,8 @@ extension HuesFeedViewController: PopoverDelegate, MFMailComposeViewControllerDe
             storedEntry["key"] = feedKey
         }
         
-        if let withImage = feed.withImage {
-            if let imageURL = feed.imageURL {
+        if feed.withImage != nil {
+            if let imageURL = feed.imageURL where !(feed.imageURL?.isEmpty)! {
                 storedEntry["imageURL"] = imageURL
             }
         }

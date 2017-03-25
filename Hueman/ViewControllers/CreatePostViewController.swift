@@ -95,6 +95,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                 
                 if let input = storedEntry["postInput"] as? String {
                     postInput.text = input
+                    textStats.text = "\(postInput.text.characters.count)/300"
+
+                }else {
+                    postInput.text = "Write here..."
                 }
                 
                 if let topic = storedEntry["topic"] as? String, let icon = storedEntry["icon"] as? String, let color = storedEntry["color"] as? UInt {
@@ -414,13 +418,20 @@ extension CreatePostViewController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         
-        if postInput.text == "Write here..." {
-            textView.text = ""
+        if postInput.text == "Write here..."{
+         //   textView.text = ""
         }
         
  
         return true
     }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Write here..."{
+            textView.text = ""
+        }
+    }
+    
     func textViewDidChange(textView: UITextView) {
         textStats.text = "\(textView.text.characters.count)/300"
 
@@ -452,7 +463,7 @@ extension CreatePostViewController {
         let photoBtn = UIBarButtonItem(image: UIImage(named: "photo-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleSelectedFeedImageView))
         submitBtn = UIBarButtonItem(image: UIImage(named: "submit-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.didTapCreateFeed(_:)))
         submitBtn.enabled = false
-        textStats = UILabel(frame: CGRectMake(0, 0, 50, 21))
+        textStats = UILabel(frame: CGRectMake(0, 0, 60, 21))
         textStats.text = "0/300"
         textStats.textColor = UIColor.UIColorFromRGB(0x666666)
         textStats.font = UIFont(name: Font.SofiaProRegular, size: 16)

@@ -18,6 +18,7 @@ class CommentsViewController: UIViewController {
         
     @IBOutlet weak var textViewContainer: UIView!
     @IBOutlet weak var commentInput: UITextField!
+    @IBOutlet weak var commentInputStats: UILabel!;
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: ActivityIndicator!
     
@@ -40,10 +41,10 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CommentsViewModel()
-
         commentInput.delegate = self
         commentInput.becomeFirstResponder()
-        
+        commentInputStats.text = "0/250"
+        commentInput.addTarget(self, action: #selector(CommentsViewController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
@@ -89,6 +90,9 @@ class CommentsViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
+    func textFieldDidChange(textfield: UITextField) {
+        commentInputStats.text = "\(commentInput.text!.characters.count)/250"
+    }
     
     @IBAction func didTappedBackButton(sender: AnyObject) {
         commentInput.resignFirstResponder()

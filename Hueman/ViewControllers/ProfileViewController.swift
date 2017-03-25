@@ -182,8 +182,8 @@ class ProfileViewController: UIViewController {
         self.birthdayLabel.text = _user.birthday
         self.cityLabel.text = _user.location
         self.bioLabel.text = _user.bio
-        
-        if let unwrappedPhotoURL = _user.photoURL {
+
+        if let unwrappedPhotoURL = _user.photoURL where !(_user.photoURL?.isEmpty)! {
             
             if let cachedImage = self.cachedProfileImage.objectForKey(unwrappedPhotoURL) {
                 self.profileImage.image = cachedImage as? UIImage
