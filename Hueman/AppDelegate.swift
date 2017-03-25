@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         // -------------------------------
         
+        
         return true
 
     }
