@@ -37,12 +37,14 @@ class FeedImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var authorProfileImage: UIImageView!
     
+    var imagePlaceHolder: UIImage?
+    
     var key: String!
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
     }
-    
+    let cache = NSCache()
     var showCommentsAction: ((UITableViewCell) -> Void)?
     var showLikesAction: ((UITableViewCell) -> Void)?
     var showPopover:((UITableViewCell) -> Void)?
@@ -105,7 +107,6 @@ class FeedImageTableViewCell: UITableViewCell {
         authorProfileImage.layer.shadowRadius = 3
         authorProfileImage.layer.borderColor = UIColor.UIColorFromRGB(0xffffff).CGColor
         
-        
 
     }
 
@@ -113,6 +114,19 @@ class FeedImageTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        if let cacheImagePlaceHolder = cache.objectForKey("imagePlacheHolder") {
+            feedImage.image = cacheImagePlaceHolder as? UIImage
+        }else {
+            imagePlaceHolder = UIImage(named: "image-placeholder")
+            feedImage.image = imagePlaceHolder
+            cache.setObject(imagePlaceHolder!, forKey: "imagePlacheHolder")
+        }
+        textFeedLabel.text = ""
+        textCreatedLabel.text = ""
+        textAuthorLabel.text = ""
     }
     
     @IBAction func didTappedPopover(sender: AnyObject) {
@@ -266,5 +280,7 @@ class FeedImageTableViewCell: UITableViewCell {
         }
     }
     
+    
+
 
 }
