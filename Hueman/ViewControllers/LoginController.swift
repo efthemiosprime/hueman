@@ -36,16 +36,7 @@ class LoginController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupAddNameController.doneEditing))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
-        
-        
-        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
-        if hasLogin {
-            if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = firebaseManager.keychainWrapper.myObjectForKey("v_Data") as? String {
-                emailInput.text = storedEmail
-                passwordInput.text = storedPassword
-            }
-        }
-        
+    
 
         emailInput.delegate = self
         passwordInput.delegate = self
@@ -56,8 +47,26 @@ class LoginController: UIViewController {
         super.viewWillAppear(animated)
         activityIndicatorContainer.hidden = true
 
-        emailLabel.text = ""
-        passwordLabel.text = ""
+        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        if hasLogin {
+            if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = firebaseManager.keychainWrapper.myObjectForKey("v_Data") as? String {
+                emailInput.text = storedEmail
+                passwordInput.text = storedPassword
+                
+            }
+        }else {
+            emailInput.text = ""
+            passwordInput.text = ""
+            emailLabel.text = ""
+            passwordLabel.text = ""
+        }
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        
     }
 
     func textFieldDidChange(textField: UITextField) {

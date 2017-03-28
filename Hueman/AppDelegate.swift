@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         // -------------------------------
         
-        
+        UITabBar.appearance().tintColor = UIColor.blackColor()
+
         return true
 
     }

@@ -14,17 +14,57 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
     @IBOutlet weak var activityIndicatorContainer: UIView!
     @IBOutlet weak var activityIndicator: ActivityIndicator!
     
+    @IBOutlet weak var cover: UIView!
     let firebaseManager = FirebaseManager()
 
+    var hasLogin = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         activityIndicatorContainer.hidden = true
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        
+        if !hasLogin {
+            UIView.animateWithDuration(0.5, animations: {
+                self.cover.alpha = 0
+                }, completion: {
+                    (value: Bool) in
+                    self.cover.hidden = true
+            })
+        }
+
+        
+        if hasLogin {
+
+            if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = firebaseManager.keychainWrapper.myObjectForKey("v_Data") as? String {
+                
+                showIndicator()
+                
+                firebaseManager.logIn(storedEmail, password: storedPassword, loggedIn: {
+                    // AuthenticationManager.sharedInstance
+                    self.hideIndicator()
+                    
+                    
+                    self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
+                    
+                    }, onerror: { errorMsg in
+                        
+                        self.hideIndicator()
+                        self.showError(errorMsg)
+                })
+            }
+        }
+          
     }
     
     @IBAction func facebookLoginAction(sender: AnyObject) {
