@@ -80,7 +80,7 @@ class SignupAddNameController: UIViewController {
                 lastnameLabel.text = LASTNAME_TEXT
             }
         }
-        
+    
 
         if isValidInput(firstnameInput.text!) &&
             isValidInput(lastnameInput.text!)  {

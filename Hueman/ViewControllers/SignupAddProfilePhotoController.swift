@@ -33,12 +33,15 @@ class SignupAddProfilePhotoController: UIViewController, UINavigationControllerD
         addIcon = UIImage(named: "add-profile-photo-btn")
         deleteIcon = UIImage(named: "delete-profile-photo-btn")
         profilePhotoPlaceholder = UIImage(named: "profile-image-placeholder")
+        enableNext()
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        disableNext()
+       disableNext()
+        enableNext()
         profilePhotoContainer.layer.borderWidth = 1
         profilePhotoContainer.layer.borderColor = UIColor.whiteColor().CGColor
     }
@@ -46,7 +49,7 @@ class SignupAddProfilePhotoController: UIViewController, UINavigationControllerD
     
     @IBAction func addProfilePhotoAction(sender: AnyObject) {
         
-        
+        print("profilePhotoIsSet \(profilePhotoIsSet)")
         if profilePhotoIsSet {
             profilePhoto.image = profilePhotoPlaceholder
             profilePhotoIsSet = false
@@ -99,19 +102,20 @@ extension SignupAddProfilePhotoController: UIImagePickerControllerDelegate {
         
         if let editedImage = info["UIImagePickerControllerEditedImage"] {
             selectedImageFromPicker = editedImage as? UIImage
+            profilePhotoIsSet = true
         }else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
             selectedImageFromPicker = originalImage as? UIImage
+            profilePhotoIsSet = true
         }
         
         if let selectedImage = selectedImageFromPicker {
-            enableNext()
             profilePhoto.image = selectedImage
             profilePhotoIsSet = true
             addEditButton.setImage(deleteIcon, forState: .Normal)
             headerLabel.text = HEADER_LABEL_SET
             subHeaderLabel.text = ""
-            profilePhotoContainer.layer.borderWidth = 1
-            profilePhotoContainer.layer.borderColor = UIColor.whiteColor().CGColor
+            enableNext()
+            print("xxxxx 000 xxxx")
         }
         
         

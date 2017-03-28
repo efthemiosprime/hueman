@@ -68,6 +68,10 @@ struct FirebaseManager {
                 print(error?.localizedDescription)
                 return
             }
+            
+            self.keychainWrapper.mySetObject(credential, forKey: kSecValueData)
+            self.keychainWrapper.writeToKeychain()
+            
             if let userEmail = user?.email {
                 self.userExist(userEmail, completion: {
                     exists in

@@ -52,6 +52,7 @@
 		3A31D4B61E63DAD800A83272 /* PendingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31D4B51E63DAD800A83272 /* PendingRequest.swift */; };
 		3A39639E1E21DEE70021279A /* NSDate+Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39639D1E21DEE70021279A /* NSDate+Offset.swift */; };
 		3A3963A01E222AA70021279A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39639F1E222AA70021279A /* Notification.swift */; };
+		3A3AF70A1E8A087200ED793F /* AddBirthdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF7091E8A087200ED793F /* AddBirthdayController.swift */; };
 		3A3B2AC91DF8FA83004350A0 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2AC81DF8FA83004350A0 /* CreateProfileViewController.swift */; };
 		3A45BAAF1DE926430062081E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BAAE1DE926430062081E /* Constants.swift */; };
 		3A45BAB11DE926BB0062081E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */; };
@@ -163,6 +164,7 @@
 		3A31D4B51E63DAD800A83272 /* PendingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingRequest.swift; path = Models/PendingRequest.swift; sourceTree = "<group>"; };
 		3A39639D1E21DEE70021279A /* NSDate+Offset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Offset.swift"; path = "Extensions/NSDate+Offset.swift"; sourceTree = "<group>"; };
 		3A39639F1E222AA70021279A /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
+		3A3AF7091E8A087200ED793F /* AddBirthdayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBirthdayController.swift; path = ViewControllers/AddBirthdayController.swift; sourceTree = "<group>"; };
 		3A3B2AC81DF8FA83004350A0 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateProfileViewController.swift; path = ViewControllers/CreateProfileViewController.swift; sourceTree = "<group>"; };
 		3A45BAAE1DE926430062081E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
 		3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */,
 				3AA3B35D1E123437007D5E9E /* PopoverViewController.swift */,
 				3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */,
+				3A3AF7091E8A087200ED793F /* AddBirthdayController.swift */,
 				3ACF44371E17718B00CB97DF /* AddLocationController.swift */,
 				3ACF44391E17872300CB97DF /* AddHueController.swift */,
 				3AEFA4721E19EB88005C78D2 /* ErrorController.swift */,
@@ -732,6 +735,7 @@
 				3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */,
 				3A3963A01E222AA70021279A /* Notification.swift in Sources */,
 				3A48D7B21E1C83F800AB2FB6 /* UnwindSegueFromRight.swift in Sources */,
+				3A3AF70A1E8A087200ED793F /* AddBirthdayController.swift in Sources */,
 				3AEFA46D1E19B62B005C78D2 /* Hue.swift in Sources */,
 				3A98C7E71E22C2290009B793 /* NotificationsViewModel.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
