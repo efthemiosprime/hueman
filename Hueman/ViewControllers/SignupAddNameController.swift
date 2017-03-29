@@ -45,10 +45,33 @@ class SignupAddNameController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        firstnameLabel.text = ""
-        lastnameLabel.text = ""
         
-        disableNext()
+        if firstnameInput.text?.characters.count == 0 {
+            firstnameInput.placeholder = FISTNAME_PLACEHOLDER_TEXT
+            firstnameLabel.text = ""
+            firstnameLine.backgroundColor = UIColor.whiteColor()
+            
+        }else {
+            firstnameLabel.text = FIRSTNAME_TEXT
+        }
+        
+        
+        if lastnameInput.text?.characters.count == 0 {
+            lastnameInput.placeholder = LASTNAME_PLACEHOLDER_TEXT
+            lastnameLabel.text = ""
+            lastnameLine.backgroundColor = UIColor.whiteColor()
+            
+        }else {
+            lastnameLabel.text = LASTNAME_TEXT
+            
+        }
+        
+        if lastnameInput.text?.characters.count > 2 && firstnameInput.text?.characters.count > 2 {
+            enableNext()
+        }else {
+            disableNext()
+        }
+        
 
         
     }
@@ -96,7 +119,7 @@ class SignupAddNameController: UIViewController {
         return Test.evaluateWithObject(Input)
     }
     
-    @IBAction func unwindAction(segue: UIStoryboardSegue) {}
+    @IBAction func backToAddName(segue: UIStoryboardSegue) {}
 
 }
 

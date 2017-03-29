@@ -19,7 +19,7 @@ class SignupController: UIViewController {
 
 
     @IBAction func loginAction(sender: UIButton) {
-        self.performSegueWithIdentifier("unwindAction", sender: self)
+        self.performSegueWithIdentifier("backToLogin", sender: self)
 
     }
     

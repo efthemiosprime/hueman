@@ -134,7 +134,7 @@ class LoginController: UIViewController {
         }
     }
     
-    @IBAction func unwindAction(segue: UIStoryboardSegue) {}
+    @IBAction func backToLogin(segue: UIStoryboardSegue) {}
 
 }
 

@@ -74,10 +74,13 @@ class SignupAddProfilePhotoController: UIViewController, UINavigationControllerD
 
     }
     
+    
 
     @IBAction func backAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("unwindAction", sender: self)
+        self.performSegueWithIdentifier("backToAddName", sender: self)
     }
+
+    @IBAction func backToAddPhoto(segue: UIStoryboardSegue) {}
 
 }
 

@@ -17,10 +17,8 @@ protocol LocationDelegate {
 class AddLocationController: UIViewController {
 
     @IBOutlet weak var locationField: UITextField!
-    @IBOutlet weak var confirmButton: UIBarButtonItem!
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var charactersLabel: UILabel!
     @IBOutlet weak var `switch`: UISwitch!
+    @IBOutlet weak var nextButton: RoundedCornersButton!
     
     var locationManager:CLLocationManager!
     let geoCoder = CLGeocoder()
@@ -35,7 +33,6 @@ class AddLocationController: UIViewController {
         
 
 
-        confirmButton.enabled = false
         
         locationField.delegate = self
 
@@ -56,16 +53,10 @@ class AddLocationController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         locationField.becomeFirstResponder()
      
-        self.navigationBar.topItem!.title = "add location"
-        self.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x999999)
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
-        
-        
 
         if let unwrappedEntry = entry {
             
             locationField.text = unwrappedEntry
-            confirmButton.enabled = true
             
         }else {
             if CLLocationManager.locationServicesEnabled() {
@@ -89,18 +80,20 @@ class AddLocationController: UIViewController {
         
     }
     
+    @IBAction func backAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("backToAddBirthday", sender: self)
+    }
     
     func textFieldDidChange(textField: UITextField){
         
         
         
         if textField.text?.characters.count > 6 {
-            confirmButton.enabled = true
         }
-        let charCount: String = String(textField.text!.characters.count)
-        if textField.text?.characters.count > 1 {
-            charactersLabel.text = "\(charCount)/30 characters"
-        }
+//        let charCount: String = String(textField.text!.characters.count)
+//        if textField.text?.characters.count > 1 {
+//            charactersLabel.text = "\(charCount)/30 characters"
+//        }
         
     }
     /*
@@ -198,7 +191,6 @@ extension AddLocationController: CLLocationManagerDelegate {
             // City
             if let state = placeMark.addressDictionary!["State"] as? NSString, let city = placeMark.addressDictionary!["City"] as? NSString {
                 self.locationField.text = "\(city), \(state)"
-                self.confirmButton.enabled = true
                 manager.stopUpdatingLocation()
             }
 
