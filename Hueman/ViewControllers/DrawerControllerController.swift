@@ -84,7 +84,9 @@ class DrawerControllerController: UIViewController {
                 }
                 
                 self.profileLabel.text = self.currentUser.name
-                if let profileImageURL = self.currentUser.photoURL {
+                
+                
+                if let profileImageURL = self.currentUser.photoURL where !(self.currentUser.photoURL?.isEmpty)! {
                     if let cachedImage = self.cachedProfileImage.objectForKey(profileImageURL) {
                         self.profileImage.image = cachedImage as? UIImage
                         

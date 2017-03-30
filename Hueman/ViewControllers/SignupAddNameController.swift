@@ -144,7 +144,7 @@ extension SignupAddNameController {
         nextButton.layer.borderWidth = 0
         nextButton.layer.borderColor = UIColor.whiteColor().CGColor
         nextButton.backgroundColor = UIColor.whiteColor()
-        nextButton.tintColor = UIColor.UIColorFromRGB(0x33b5d3)
+        nextButton.tintColor = UIColor.UIColorFromRGB(0xe2573b)
         nextButton.enabled = true
 
     }
