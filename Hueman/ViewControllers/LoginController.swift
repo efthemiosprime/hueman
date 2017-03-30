@@ -113,7 +113,7 @@ class LoginController: UIViewController {
 //        btn.enabled = false
         
         showIndicator()
-        
+        doneEditing()
         
         if let email = self.emailInput.text, let password = self.passwordInput.text {
             firebaseManager.logIn(email, password: password, loggedIn: {

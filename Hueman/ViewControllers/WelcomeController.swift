@@ -61,6 +61,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                         
                         self.hideIndicator()
                         self.showError(errorMsg)
+                        
                 })
             }
         }
@@ -162,6 +163,15 @@ extension WelcomeController {
     // MARK: - Popover
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        UIView.animateWithDuration(0.5, animations: {
+            self.cover.alpha = 0
+            }, completion: {
+                (value: Bool) in
+                self.cover.hidden = true
+        })
     }
     
 

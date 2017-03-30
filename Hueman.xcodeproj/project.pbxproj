@@ -50,6 +50,7 @@
 		3A2796321E5E3B1D00682BAD /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2796311E5E3B1D00682BAD /* NetworkReachability.swift */; };
 		3A2DE15A1E441DC5001C3170 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DE1591E441DC5001C3170 /* Flag.swift */; };
 		3A31D4B61E63DAD800A83272 /* PendingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31D4B51E63DAD800A83272 /* PendingRequest.swift */; };
+		3A3745341E8C97F200369479 /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3745331E8C97F200369479 /* SignupManager.swift */; };
 		3A39639E1E21DEE70021279A /* NSDate+Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39639D1E21DEE70021279A /* NSDate+Offset.swift */; };
 		3A3963A01E222AA70021279A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39639F1E222AA70021279A /* Notification.swift */; };
 		3A3AF70A1E8A087200ED793F /* AddBirthdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF7091E8A087200ED793F /* AddBirthdayController.swift */; };
@@ -162,6 +163,7 @@
 		3A2796311E5E3B1D00682BAD /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkReachability.swift; path = Hueman/Helpers/NetworkReachability.swift; sourceTree = "<group>"; };
 		3A2DE1591E441DC5001C3170 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Flag.swift; path = Models/Flag.swift; sourceTree = "<group>"; };
 		3A31D4B51E63DAD800A83272 /* PendingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingRequest.swift; path = Models/PendingRequest.swift; sourceTree = "<group>"; };
+		3A3745331E8C97F200369479 /* SignupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupManager.swift; path = Managers/SignupManager.swift; sourceTree = "<group>"; };
 		3A39639D1E21DEE70021279A /* NSDate+Offset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Offset.swift"; path = "Extensions/NSDate+Offset.swift"; sourceTree = "<group>"; };
 		3A39639F1E222AA70021279A /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
 		3A3AF7091E8A087200ED793F /* AddBirthdayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBirthdayController.swift; path = ViewControllers/AddBirthdayController.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				3AA4DFB71E0CDB6F00BF75A1 /* AppSettings.swift */,
 				3A76055F1E0DEF9100E682AD /* AuthenticationManager.swift */,
 				3A98C7E41E22AA3A0009B793 /* NotificationsManager.swift */,
+				3A3745331E8C97F200369479 /* SignupManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				3ACF44381E17718B00CB97DF /* AddLocationController.swift in Sources */,
 				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
 				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
+				3A3745341E8C97F200369479 /* SignupManager.swift in Sources */,
 				3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */,
 				3A31D4B61E63DAD800A83272 /* PendingRequest.swift in Sources */,
 				3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */,
