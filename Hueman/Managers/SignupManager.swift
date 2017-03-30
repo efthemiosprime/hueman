@@ -16,8 +16,9 @@ import FirebaseDatabase
 
 class SignupManager {
     
-    var currentUser: User?
-    
+    var currentUser :User?
+    var userImageData: NSData?
+
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
     }
@@ -47,7 +48,9 @@ class SignupManager {
     
     func dispose() {
         currentUser = nil
+        userImageData = nil
         SignupManager.Static.instance = nil
     }
 }
 
+// let imagePt = UIImage(data: (caminhodaImagem as! NSData) as Data)

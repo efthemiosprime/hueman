@@ -27,6 +27,9 @@ class SignupAddNameController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstnameInput.delegate = self
+        lastnameInput.delegate = self
 
         firstnameInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
@@ -39,8 +42,11 @@ class SignupAddNameController: UIViewController {
         
         firstnameInput.delegate = self
         lastnameInput.delegate = self
+        
+        
 
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,6 +80,19 @@ class SignupAddNameController: UIViewController {
         
 
         
+    }
+    
+    
+    @IBAction func nextAction(sender: AnyObject) {
+        let trimmedFirstNameString = firstnameInput.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        let trimmedLastNameString = lastnameInput.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        SignupManager.sharedInstance.currentUser?.name = "\(trimmedFirstNameString) \(trimmedLastNameString)"
+
+        
+        self.performSegueWithIdentifier("gotoAddPhoto", sender: self)
+
     }
 
     func textFieldDidChange(textField: UITextField) {
@@ -123,12 +142,6 @@ class SignupAddNameController: UIViewController {
 
 }
 
-extension SignupAddNameController: UITextFieldDelegate {
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-}
 
 extension SignupAddNameController {
     
@@ -174,5 +187,22 @@ extension SignupAddNameController {
         firstnameInput.resignFirstResponder()
         lastnameInput.resignFirstResponder()
 
+    }
+}
+
+extension SignupAddNameController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) { }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        let convertedString = textField.text
+        textField.text = convertedString?.capitalizedStringWithLocale(NSLocale.currentLocale())
+        
     }
 }

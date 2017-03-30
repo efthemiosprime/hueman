@@ -89,6 +89,7 @@ class AddLocationController: UIViewController {
         
         
         if textField.text?.characters.count > 6 {
+            
         }
 //        let charCount: String = String(textField.text!.characters.count)
 //        if textField.text?.characters.count > 1 {

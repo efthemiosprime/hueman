@@ -27,6 +27,7 @@ class SignupAddProfilePhotoController: UIViewController, UINavigationControllerD
     let HEADER_LABEL = "Be ready to embrace\nlife’s awesomeness."
     let SUB_HEADER_LABEL = "But first, give us your best shot!"
     let HEADER_LABEL_SET = "Looking good!"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,7 +50,6 @@ class SignupAddProfilePhotoController: UIViewController, UINavigationControllerD
     
     @IBAction func addProfilePhotoAction(sender: AnyObject) {
         
-        print("profilePhotoIsSet \(profilePhotoIsSet)")
         if profilePhotoIsSet {
             profilePhoto.image = profilePhotoPlaceholder
             profilePhotoIsSet = false
@@ -118,7 +118,7 @@ extension SignupAddProfilePhotoController: UIImagePickerControllerDelegate {
             headerLabel.text = HEADER_LABEL_SET
             subHeaderLabel.text = ""
             enableNext()
-            print("xxxxx 000 xxxx")
+            SignupManager.sharedInstance.userImageData = UIImagePNGRepresentation(selectedImage)! as NSData?
         }
         
         

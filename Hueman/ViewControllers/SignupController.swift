@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SignupController: UIViewController {
 
@@ -108,7 +110,11 @@ class SignupController: UIViewController {
             
             firebaseManager.signUp(email, password: password, name: "", completion: {
                 self.hideIndicator()
+                if let authenticatedUser = FIRAuth.auth()?.currentUser {
+                    SignupManager.sharedInstance.currentUser = User(email: authenticatedUser.email!, name: authenticatedUser.displayName!, userId: authenticatedUser.uid)
+                }
                 self.performSegueWithIdentifier("gotoAddName", sender: sender)
+
                 
             }, onerror: { errorMsg in
                 self.hideIndicator()
