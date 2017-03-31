@@ -26,7 +26,7 @@ class AddUserCell: UITableViewCell {
         didSet {
             if let user = user {
                 nameLabel.text = user.name
-                locationLabel.text = user.location
+                locationLabel.text = user.location!.location
                 connectionImage.clipsToBounds = true
                 
                 

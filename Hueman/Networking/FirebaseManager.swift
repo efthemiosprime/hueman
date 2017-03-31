@@ -31,8 +31,15 @@ struct FirebaseManager {
     func logIn(email: String, password: String, loggedIn: (() -> ())? = nil, onerror: ((errorMsg: String) -> ())? = nil) {
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: {
             (user, error) in
+            
             if error == nil {
+
+                
                 if let user = user {
+                    if (!user.emailVerified) {
+                        onerror!(errorMsg: "Email is not verified, please check your email.")
+                        return
+                    }
                     
                     NSUserDefaults.standardUserDefaults().setValue(user.uid, forKey: "uid")
                     NSUserDefaults.standardUserDefaults().setValue(email, forKeyPath: "email")

@@ -309,8 +309,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
                         var updatedUser = User(email: (currentUser?.email!)!, name: (changeRequest?.displayName)!, userId: currentUser!.uid)
                         
 
-                        updatedUser.birthday = self.dateLabel.text
-                        updatedUser.location = self.locationLabel.text
+                        updatedUser.birthday!.date = self.dateLabel.text
+                        updatedUser.location!.location = self.locationLabel.text
                         updatedUser.bio = self.bioTextfield.text
                         updatedUser.photoURL = changeRequest?.photoURL?.absoluteString
                         
@@ -395,12 +395,12 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
             bioTextfield.text = bioText
         }
         
-        if let birthdayText = viewModel.user?.birthday {
-            dateLabel.text = birthdayText
+        if let userBirthday = viewModel.user?.birthday {
+            dateLabel.text = userBirthday.date
         }
         
-        if let locationText = viewModel.user?.location {
-            locationLabel.text = locationText
+        if let userLocation = viewModel.user?.location {
+            locationLabel.text = userLocation.location
         }
         
         saveButton.image = UIImage(named: "topbar-save-valid-icon")

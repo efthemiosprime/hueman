@@ -116,10 +116,11 @@ class SignupController: UIViewController {
 
     @IBAction func signupAction(sender: AnyObject) {
         showIndicator()
+        disableSignup()
+        doneEditing()
         if let email = self.emailInput.text, let password = self.passwordInput.text{
             
             firebaseManager.signUp(email, password: password, name: "", completion: {
-                self.hideIndicator()
 //                if let authenticatedUser = FIRAuth.auth()?.currentUser {
 //                    SignupManager.sharedInstance.currentUser = User(email: authenticatedUser.email!, name: authenticatedUser.displayName!, userId: authenticatedUser.uid)
 //                }
@@ -130,8 +131,10 @@ class SignupController: UIViewController {
                     self.showModalConfirmation()
                     self.verificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SignupController.checkIfTheEmailIsVerified), userInfo: nil, repeats: true)
                 }))
+                
+                self.hideIndicator()
                 self.presentViewController(alert, animated: true, completion: nil)
-
+                
             }, onerror: { errorMsg in
                 self.hideIndicator()
                 self.showError(errorMsg)
@@ -210,7 +213,7 @@ extension SignupController {
                     }
                 } else {
                     
-                    self.showError("email is not verified")
+                    self.showError("Email is not verified, please check your email.")
 
                 }
             } else {

@@ -78,8 +78,8 @@ class ProfileViewController: UIViewController {
                     let userInfo = snapshot.value![uid!]!
                     self.user?.name = userInfo!["name"] as? String ?? ""
                     self.user?.bio =  userInfo!["bio"] as? String ?? ""
-                    self.user?.birthday = userInfo!["birthday"] as? String ?? ""
-                    self.user?.location = userInfo!["location"] as? String ?? ""
+                    self.user?.birthday = userInfo!["birthday"] as? UserBirthday
+                    self.user?.location = userInfo!["location"] as? UserLocation
                     
                     
                     if let unwrappedUser = self.user {
@@ -179,8 +179,8 @@ class ProfileViewController: UIViewController {
 
     func getCurrentProfile(_user: User) {
        // self.navigationBar.topItem!.title = _user.name
-        self.birthdayLabel.text = _user.birthday
-        self.cityLabel.text = _user.location
+        self.birthdayLabel.text = _user.birthday!.date
+        self.cityLabel.text = _user.location!.location
         self.bioLabel.text = _user.bio
 
         if let unwrappedPhotoURL = _user.photoURL where !(_user.photoURL?.isEmpty)! {

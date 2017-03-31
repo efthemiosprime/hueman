@@ -14,8 +14,8 @@ struct User {
     
     var name: String!
     var email: String!
-    var birthday: String?
-    var location: String?
+    var birthday: UserBirthday?
+    var location: UserLocation?
     var photoURL: String?
     var bio: String?
     var uid: String!
@@ -30,9 +30,8 @@ struct User {
         ref = snapshot.ref
         
         name = snapshot.value!["name"] as! String
-        birthday = snapshot.value!["birthday"] as? String
+
         bio = snapshot.value!["bio"] as? String
-        location = snapshot.value!["location"] as? String
         email = snapshot.value!["email"] as! String
 
         photoURL = snapshot.value!["photoURL"] as? String
@@ -42,8 +41,14 @@ struct User {
         if let unwrappedHues = snapshot.value!["hues"] as? [String: String] {
             hues = unwrappedHues
         }
+
+        if let unwrappedBirthday = snapshot.value!["birthday"] as? [String: AnyObject] {
+            birthday = UserBirthday(date: unwrappedBirthday["data"]! as! String, visible: (unwrappedBirthday["visible"] as? Bool)!)
+        }
         
- 
+         if let unwrappedLocation = snapshot.value!["location"] as? [String: AnyObject] {
+            location = UserLocation(location: unwrappedLocation["data"]! as! String, visible: (unwrappedLocation["visible"] as? Bool)!)
+        }
     }
     
     init(email: String, name: String, userId: String) {
@@ -60,7 +65,36 @@ struct User {
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!, "location": self.location!, "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
+        return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!.toAnyObject(), "location": self.location!.toAnyObject(), "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
     }
     
+}
+
+struct UserBirthday {
+    var date: String?
+    var visible: Bool = false
+    
+    init(date: String, visible: Bool = false) {
+        self.date = date
+        self.visible = visible
+    }
+    
+    func toAnyObject() -> [String: AnyObject] {
+        return ["date": self.date!, "visible": self.visible]
+    }
+}
+
+struct UserLocation {
+    var location: String?
+    var visible = false
+    
+    init(location: String, visible: Bool = false) {
+        self.location = location
+        self.visible = visible
+    }
+    
+    func toAnyObject() -> [String: AnyObject] {
+        return ["location": self.location!, "visible": self.visible]
+
+    }
 }

@@ -63,7 +63,7 @@ class AddBirthdayController: UIViewController {
         dateFormatter.dateFormat = "MMM dd yyyy"
         
         //self.delegate?.pickerDidChange(dateFormatter.stringFromDate(sender.date))
-        SignupManager.sharedInstance.currentUser?.birthday = dateFormatter.stringFromDate(sender.date)
+        SignupManager.sharedInstance.currentUser?.birthday = UserBirthday(date: dateFormatter.stringFromDate(sender.date))
     }
     
     

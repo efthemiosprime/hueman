@@ -270,7 +270,7 @@ class AddConnectionsController: UITableViewController {
                                         var requester = Connection(snapshot: snapshot)
                                         requester.friendship = friendshipKey
                                         
-                                        var recipient = Connection(name: self.currentUser!.name, location: self.currentUser!.location!, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
+                                        var recipient = Connection(name: self.currentUser!.name, location: self.currentUser!.location!.location!, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
                                         recipient.friendship = friendshipKey
                                         
                                         

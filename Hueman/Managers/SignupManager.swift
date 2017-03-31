@@ -18,6 +18,8 @@ class SignupManager {
     
     var currentUser :User?
     var userImageData: NSData?
+    var userBirthday: UserBirthday?
+    var userLocation: UserLocation?
 
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();

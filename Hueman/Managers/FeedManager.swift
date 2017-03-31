@@ -43,7 +43,7 @@ struct FeedManager {
                 if imageData != nil {
                     let metaData = FIRStorageMetadata()
                     metaData.contentType = "image/jpeg"
-                    let imagePath = "feedImage/\(FIRAuth.auth()!.currentUser!.uid)/feed\(NSUUID().UUIDString).jpg"
+                    let imagePath = "huesfeed/\(FIRAuth.auth()!.currentUser!.uid)/feed\(NSUUID().UUIDString).jpg"
                     let imageRef = self.storageRef.reference().child(imagePath)
                     
                     imageRef.putData(imageData!, metadata: metaData, completion: {
@@ -123,7 +123,7 @@ struct FeedManager {
                 }else {
                     let metaData = FIRStorageMetadata()
                     metaData.contentType = "image/jpeg"
-                    let imagePath = "feedImage\(FIRAuth.auth()!.currentUser!.uid)/feed\(NSUUID().UUIDString).jpg"
+                    let imagePath = "huesfeed\(FIRAuth.auth()!.currentUser!.uid)/feed\(NSUUID().UUIDString).jpg"
                     let imageRef = self.storageRef.reference().child(imagePath)
                     
                     imageRef.putData(imageData!, metadata: metaData, completion: {
