@@ -122,7 +122,15 @@ struct FirebaseManager {
                         newUserVo.uid = FIRAuth.auth()?.currentUser?.uid
                         
                         self.saveUserInfo(user, userVo: newUserVo)
-                        completion?()
+                        
+                        FIRAuth.auth()?.currentUser?.sendEmailVerificationWithCompletion({ (error) in
+                            if let error = error {
+                                onerror!(errorMsg: (error.localizedDescription))
+                                return
+                            }
+                           /// print("Sent")
+                            completion?()
+                        })
                     }
                     else {
                         

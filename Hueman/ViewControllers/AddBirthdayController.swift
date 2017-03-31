@@ -16,7 +16,7 @@ class AddBirthdayController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     
     
-    var delegate: BirthdayDelegate?
+//    var delegate: BirthdayDelegate?
     var entry: String?
     
     
@@ -48,7 +48,7 @@ class AddBirthdayController: UIViewController {
         }
         
         
-        datePicker.addTarget(self, action: #selector(BirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
+//        datePicker.addTarget(self, action: #selector(BirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     override func viewWillAppear(animated: Bool) {

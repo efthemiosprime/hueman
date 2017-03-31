@@ -166,16 +166,16 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier  == "BirthdayEntry" {
             
-            let birthdayController = segue.destinationViewController as! BirthdayController
+//            let birthdayController = segue.destinationViewController as! BirthdayController
             
             if sender != nil {
                 if let dob = sender as? String {
-                    birthdayController.entry = dob
+//                    birthdayController.entry = dob
                 }
   
             }
 
-            birthdayController.delegate = self
+//            birthdayController.delegate = self
         }
         
         if segue.identifier  == "AddLocation" {

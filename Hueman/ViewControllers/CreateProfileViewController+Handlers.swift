@@ -145,12 +145,12 @@ extension CreateProfileViewController: UITextViewDelegate {
     
 }
 
-extension CreateProfileViewController: BirthdayDelegate {
-    func pickerDidChange(date: String) {
-        dateLabel.text = date
-        checkRequiredProfileInfos()
-    }
-}
+//extension CreateProfileViewController: BirthdayDelegate {
+//    func pickerDidChange(date: String) {
+//        dateLabel.text = date
+//        checkRequiredProfileInfos()
+//    }
+//}
 
 
 extension CreateProfileViewController: LocationDelegate {

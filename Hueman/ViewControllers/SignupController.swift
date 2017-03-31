@@ -16,6 +16,9 @@ class SignupController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var confirmPasswordInput: UITextField!
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var modalConfirmation: UIView!
+    @IBOutlet weak var continueButton: RoundedCornersButton!
+    @IBOutlet weak var modalLabel: UILabel!
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -33,6 +36,8 @@ class SignupController: UIViewController {
     let PASSWORD_PLACEHOLDER_TEXT = "must have at least 6 characters"
     let CONFIRM_PASSWORD_PLACEHOLDER_TEXT = "confirm password"
     
+    var verificationTimer: NSTimer = NSTimer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         disableSignup()
@@ -46,6 +51,11 @@ class SignupController: UIViewController {
         passwordInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
         confirmPasswordInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        
+        
+        disableContinue()
+        hideModalConfirmation()
+
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -110,12 +120,18 @@ class SignupController: UIViewController {
             
             firebaseManager.signUp(email, password: password, name: "", completion: {
                 self.hideIndicator()
-                if let authenticatedUser = FIRAuth.auth()?.currentUser {
-                    SignupManager.sharedInstance.currentUser = User(email: authenticatedUser.email!, name: authenticatedUser.displayName!, userId: authenticatedUser.uid)
-                }
-                self.performSegueWithIdentifier("gotoAddName", sender: sender)
+//                if let authenticatedUser = FIRAuth.auth()?.currentUser {
+//                    SignupManager.sharedInstance.currentUser = User(email: authenticatedUser.email!, name: authenticatedUser.displayName!, userId: authenticatedUser.uid)
+//                }
+                //self.performSegueWithIdentifier("gotoAddName", sender: sender)
+                let alert = UIAlertController(title: "Email confirmation", message: "Look for the verification email in your inbox and click the link in the email.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+                    
+                    self.showModalConfirmation()
+                    self.verificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SignupController.checkIfTheEmailIsVerified), userInfo: nil, repeats: true)
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
 
-                
             }, onerror: { errorMsg in
                 self.hideIndicator()
                 self.showError(errorMsg)
@@ -123,6 +139,11 @@ class SignupController: UIViewController {
             
         }
     }
+    
+    @IBAction func continueAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("gotoAddName", sender: sender)
+    }
+    
 }
 
 
@@ -172,6 +193,36 @@ extension SignupController {
         return passPredicate.evaluateWithObject(enteredPassword)
     }
     
+    
+    func checkIfTheEmailIsVerified(){
+        
+        FIRAuth.auth()?.currentUser?.reloadWithCompletion({ (err) in
+            if err == nil{
+                
+                if let user =  FIRAuth.auth()!.currentUser {
+                    if user.emailVerified {
+                        self.verificationTimer.invalidate()     //Kill the timer
+                        self.modalLabel.text = "email confirmed!"
+                        self.enableContinue()
+                        if let authenticatedUser = FIRAuth.auth()?.currentUser {
+                            SignupManager.sharedInstance.currentUser = User(email: authenticatedUser.email!, name: authenticatedUser.displayName!, userId: authenticatedUser.uid)
+                        }
+                    }
+                } else {
+                    
+                    self.showError("email is not verified")
+
+                }
+            } else {
+                
+                self.showError((err?.localizedDescription)!)
+                
+            }
+        })
+        
+    }
+
+    
     func showIndicator() {
         progressIndicator.hidden = false
         activityIndicator.show()
@@ -191,6 +242,35 @@ extension SignupController {
         passwordInput.resignFirstResponder()
         confirmPasswordInput.resignFirstResponder()
     }
+}
+
+
+extension SignupController {
+    // modal
+    func enableContinue() {
+        continueButton.layer.borderWidth = 0
+        continueButton.backgroundColor = UIColor.UIColorFromRGB(0x7BC8A4)
+        continueButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        continueButton.enabled = true
+    }
+    
+    func disableContinue() {
+        continueButton.layer.borderWidth = 1
+        continueButton.setTitleColor(UIColor(rgb: 0x7BC8A4, alphaVal: 0.4), forState: .Normal)
+        continueButton.layer.borderColor = UIColor(rgb: 0x7BC8A4, alphaVal: 0.4).CGColor
+        continueButton.backgroundColor = UIColor.clearColor()
+        continueButton.enabled = false
+    }
+    
+    func showModalConfirmation() {
+        modalConfirmation.hidden = false
+    }
+    
+    func hideModalConfirmation() {
+        modalConfirmation.hidden = true
+    }
+    
+    
 }
 
 extension SignupController: UIPopoverPresentationControllerDelegate {

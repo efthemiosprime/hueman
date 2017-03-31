@@ -23,7 +23,6 @@
 		3A154E2E1DCD71A1005A79EC /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E2D1DCD71A1005A79EC /* RoundedCornersView.swift */; };
 		3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E331DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift */; };
 		3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E351DCD7345005A79EC /* AutoLabel.swift */; };
-		3A154E461DCD7352005A79EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E381DCD7352005A79EC /* LoginViewController.swift */; };
 		3A154E481DCD7352005A79EC /* HueboardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E3A1DCD7352005A79EC /* HueboardsViewController.swift */; };
 		3A154E491DCD7352005A79EC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E3B1DCD7352005A79EC /* CreatePostViewController.swift */; };
 		3A154E4A1DCD7352005A79EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E3C1DCD7352005A79EC /* ProfileViewController.swift */; };
@@ -33,7 +32,6 @@
 		3A154E4F1DCD7352005A79EC /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E411DCD7352005A79EC /* NavBar.swift */; };
 		3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E421DCD7352005A79EC /* NotificationsViewController.swift */; };
 		3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E431DCD7352005A79EC /* HuesFeedViewController.swift */; };
-		3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E441DCD7352005A79EC /* SignupViewController.swift */; };
 		3A154E5B1DCD7389005A79EC /* ConnectionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E541DCD7389005A79EC /* ConnectionLabel.swift */; };
 		3A154E5C1DCD7389005A79EC /* ConnectionLeftItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E551DCD7389005A79EC /* ConnectionLeftItem.swift */; };
 		3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E561DCD7389005A79EC /* ConnectionRightItem.swift */; };
@@ -98,7 +96,6 @@
 		3ABDCC021E88629E006B97AE /* SignupAddProfilePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDCC011E88629E006B97AE /* SignupAddProfilePhotoController.swift */; };
 		3ACF44381E17718B00CB97DF /* AddLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF44371E17718B00CB97DF /* AddLocationController.swift */; };
 		3ACF443A1E17872300CB97DF /* AddHueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF44391E17872300CB97DF /* AddHueController.swift */; };
-		3ADE12331E17048C00BE3DE6 /* BirthdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */; };
 		3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */; };
 		3ADE12371E171DF800BE3DE6 /* ProfileHueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */; };
 		3ADF90151E3D9778008138A6 /* DrawerControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF90141E3D9778008138A6 /* DrawerControllerController.swift */; };
@@ -133,7 +130,6 @@
 		3A154E2D1DCD71A1005A79EC /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedCornersView.swift; path = Hueman/Helpers/RoundedCornersView.swift; sourceTree = "<group>"; };
 		3A154E331DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+UIColorFromRGB.swift"; path = "Extensions/UIColor+UIColorFromRGB.swift"; sourceTree = "<group>"; };
 		3A154E351DCD7345005A79EC /* AutoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoLabel.swift; path = Hueman/Helpers/AutoLabel.swift; sourceTree = "<group>"; };
-		3A154E381DCD7352005A79EC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		3A154E3A1DCD7352005A79EC /* HueboardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HueboardsViewController.swift; path = ViewControllers/HueboardsViewController.swift; sourceTree = "<group>"; };
 		3A154E3B1DCD7352005A79EC /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewController.swift; path = ViewControllers/CreatePostViewController.swift; sourceTree = "<group>"; };
 		3A154E3C1DCD7352005A79EC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +139,6 @@
 		3A154E411DCD7352005A79EC /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = ViewControllers/NavBar.swift; sourceTree = "<group>"; };
 		3A154E421DCD7352005A79EC /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsViewController.swift; path = ViewControllers/NotificationsViewController.swift; sourceTree = "<group>"; };
 		3A154E431DCD7352005A79EC /* HuesFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuesFeedViewController.swift; path = ViewControllers/HuesFeedViewController.swift; sourceTree = "<group>"; };
-		3A154E441DCD7352005A79EC /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ViewControllers/SignupViewController.swift; sourceTree = "<group>"; };
 		3A154E541DCD7389005A79EC /* ConnectionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionLabel.swift; path = Views/ConnectionLabel.swift; sourceTree = "<group>"; };
 		3A154E551DCD7389005A79EC /* ConnectionLeftItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionLeftItem.swift; path = Views/ConnectionLeftItem.swift; sourceTree = "<group>"; };
 		3A154E561DCD7389005A79EC /* ConnectionRightItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionRightItem.swift; path = Views/ConnectionRightItem.swift; sourceTree = "<group>"; };
@@ -215,7 +210,6 @@
 		3ABDCC011E88629E006B97AE /* SignupAddProfilePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupAddProfilePhotoController.swift; path = ViewControllers/SignupAddProfilePhotoController.swift; sourceTree = "<group>"; };
 		3ACF44371E17718B00CB97DF /* AddLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLocationController.swift; path = ViewControllers/AddLocationController.swift; sourceTree = "<group>"; };
 		3ACF44391E17872300CB97DF /* AddHueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddHueController.swift; path = ViewControllers/AddHueController.swift; sourceTree = "<group>"; };
-		3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdayController.swift; path = ViewControllers/BirthdayController.swift; sourceTree = "<group>"; };
 		3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHue.swift; path = Views/ProfileHue.swift; sourceTree = "<group>"; };
 		3ADE12361E171DF800BE3DE6 /* ProfileHueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHueModel.swift; path = Models/ProfileHueModel.swift; sourceTree = "<group>"; };
 		3ADF90141E3D9778008138A6 /* DrawerControllerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerControllerController.swift; path = ViewControllers/DrawerControllerController.swift; sourceTree = "<group>"; };
@@ -314,7 +308,6 @@
 		3A154E2A1DCD6F9A005A79EC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3A154E381DCD7352005A79EC /* LoginViewController.swift */,
 				3ABDCBFB1E8855D8006B97AE /* LoginController.swift */,
 				3A154E3A1DCD7352005A79EC /* HueboardsViewController.swift */,
 				3A154E3B1DCD7352005A79EC /* CreatePostViewController.swift */,
@@ -325,7 +318,6 @@
 				3A154E411DCD7352005A79EC /* NavBar.swift */,
 				3A154E421DCD7352005A79EC /* NotificationsViewController.swift */,
 				3A154E431DCD7352005A79EC /* HuesFeedViewController.swift */,
-				3A154E441DCD7352005A79EC /* SignupViewController.swift */,
 				3ABDCBFD1E8856F3006B97AE /* SignupController.swift */,
 				3ABDCC011E88629E006B97AE /* SignupAddProfilePhotoController.swift */,
 				3ABDCBFF1E886232006B97AE /* SignupAddNameController.swift */,
@@ -335,7 +327,6 @@
 				3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */,
 				3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */,
 				3AA3B35D1E123437007D5E9E /* PopoverViewController.swift */,
-				3ADE12321E17048C00BE3DE6 /* BirthdayController.swift */,
 				3A3AF7091E8A087200ED793F /* AddBirthdayController.swift */,
 				3ACF44371E17718B00CB97DF /* AddLocationController.swift */,
 				3ACF44391E17872300CB97DF /* AddHueController.swift */,
@@ -696,7 +687,6 @@
 				3AEFA4731E19EB88005C78D2 /* ErrorController.swift in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A154E4F1DCD7352005A79EC /* NavBar.swift in Sources */,
-				3ADE12331E17048C00BE3DE6 /* BirthdayController.swift in Sources */,
 				3A154E601DCD7389005A79EC /* NotificationCell.swift in Sources */,
 				3A154E611DCD7389005A79EC /* HueboardCell.swift in Sources */,
 				3AB06AD91E883A2D00A7AD1F /* RoundedCornersButton.swift in Sources */,
@@ -712,11 +702,9 @@
 				3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */,
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
 				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,
-				3A154E461DCD7352005A79EC /* LoginViewController.swift in Sources */,
 				3A7605641E0E080800E682AD /* UIImage+resizeWith.swift in Sources */,
 				3ACF44381E17718B00CB97DF /* AddLocationController.swift in Sources */,
 				3A987B1E1DED1D2500388DDF /* FeedManager.swift in Sources */,
-				3A154E521DCD7352005A79EC /* SignupViewController.swift in Sources */,
 				3A3745341E8C97F200369479 /* SignupManager.swift in Sources */,
 				3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */,
 				3A31D4B61E63DAD800A83272 /* PendingRequest.swift in Sources */,
