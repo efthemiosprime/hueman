@@ -40,17 +40,22 @@ class SignupController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        disableSignup()
+        
+        if AppSettings.DEBUG {
+            enableSignup()
+        }else {
+            disableSignup()
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupController.doneEditing))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
         
-        emailInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        emailInput.addTarget(self, action: #selector(AddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
-        passwordInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        passwordInput.addTarget(self, action: #selector(AddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
-        confirmPasswordInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        confirmPasswordInput.addTarget(self, action: #selector(AddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
         
         disableContinue()
@@ -115,32 +120,35 @@ class SignupController: UIViewController {
     }
 
     @IBAction func signupAction(sender: AnyObject) {
-        showIndicator()
-        disableSignup()
-        doneEditing()
-        if let email = self.emailInput.text, let password = self.passwordInput.text{
-            
-            firebaseManager.signUp(email, password: password, name: "", completion: {
-//                if let authenticatedUser = FIRAuth.auth()?.currentUser {
-//                    SignupManager.sharedInstance.currentUser = User(email: authenticatedUser.email!, name: authenticatedUser.displayName!, userId: authenticatedUser.uid)
-//                }
-                //self.performSegueWithIdentifier("gotoAddName", sender: sender)
-                let alert = UIAlertController(title: "Email confirmation", message: "Look for the verification email in your inbox and click the link in the email.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+        
+        if AppSettings.DEBUG {
+            self.performSegueWithIdentifier("gotoAddName", sender: sender)
+        }else {
+            showIndicator()
+            disableSignup()
+            doneEditing()
+            if let email = self.emailInput.text, let password = self.passwordInput.text{
+                
+                firebaseManager.signUp(email, password: password, name: "", completion: {
+                    let alert = UIAlertController(title: "Email confirmation", message: "Look for the verification email in your inbox and click the link in the email.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+                        
+                        self.showModalConfirmation()
+                        self.verificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SignupController.checkIfTheEmailIsVerified), userInfo: nil, repeats: true)
+                    }))
                     
-                    self.showModalConfirmation()
-                    self.verificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SignupController.checkIfTheEmailIsVerified), userInfo: nil, repeats: true)
-                }))
+                    self.hideIndicator()
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    }, onerror: { errorMsg in
+                        self.hideIndicator()
+                        self.showError(errorMsg)
+                })
                 
-                self.hideIndicator()
-                self.presentViewController(alert, animated: true, completion: nil)
-                
-            }, onerror: { errorMsg in
-                self.hideIndicator()
-                self.showError(errorMsg)
-            })
+            }
             
         }
+        
     }
     
     @IBAction func continueAction(sender: AnyObject) {

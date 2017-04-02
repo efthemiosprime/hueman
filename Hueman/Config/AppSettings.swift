@@ -13,5 +13,5 @@ class AppSettings {
     static let sharedInstance = AppSettings()
     private init() {} //This prevents others from using the default '()' initializer for this class.
     
-    static var DEBUG: Bool = false
+    static var DEBUG: Bool = true
 }

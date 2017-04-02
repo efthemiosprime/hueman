@@ -8,15 +8,16 @@
 
 import UIKit
 
-class SignupAddProfilePhotoController: UIViewController, UINavigationControllerDelegate{
+class AddProfilePhotoController: UIViewController, UINavigationControllerDelegate{
 
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var addEditButton: UIButton!
     @IBOutlet weak var profilePhotoContainer: RoundedCornersView!
-    @IBOutlet weak var nextButton: RoundedCornersButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var subHeaderLabel: UILabel!
+    
+    @IBOutlet weak var nextButton: RoundedCornersButton!
     
     var addIcon: UIImage?
     var deleteIcon: UIImage?
@@ -85,7 +86,7 @@ class SignupAddProfilePhotoController: UIViewController, UINavigationControllerD
 }
 
 
-extension SignupAddProfilePhotoController: UIImagePickerControllerDelegate {
+extension AddProfilePhotoController: UIImagePickerControllerDelegate {
     
     func handlePhotoLibrary() {
         
@@ -132,7 +133,7 @@ extension SignupAddProfilePhotoController: UIImagePickerControllerDelegate {
     
 }
 
-extension SignupAddProfilePhotoController {
+extension AddProfilePhotoController {
     func disableNext() {
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor

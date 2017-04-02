@@ -33,7 +33,7 @@ class LoginController: UIViewController {
         passwordInput.addTarget(self, action: #selector(LoginController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
         // Creating Tap Gesture to dismiss Keyboard
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupAddNameController.doneEditing))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddNameController.doneEditing))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
     

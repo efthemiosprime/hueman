@@ -325,7 +325,6 @@ class AddConnectionsController: UITableViewController {
                     (error, ref) in
                     if error == nil {
                         //feedPosted?()
-                      //  print("posted")
                         
                         let friendshipsReq = self.databaseRef.child("friendships").child(requestId)
                         let friendships = Friendship(from: connectionRequest.requester!, to: connectionRequest.recipient!, id: connectionRequest.id!, status: Friendship.Pending)
@@ -347,7 +346,6 @@ class AddConnectionsController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AddUserCell {
-            print(cell.user?.name)
             
                     let screenWidth = UIScreen.mainScreen().bounds.size.width
                     let screenHeight = UIScreen.mainScreen().bounds.size.height

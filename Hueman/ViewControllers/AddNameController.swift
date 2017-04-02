@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupAddNameController: UIViewController {
+class AddNameController: UIViewController {
 
     @IBOutlet weak var firstnameInput: UITextField!
     @IBOutlet weak var lastnameInput: UITextField!
@@ -31,12 +31,12 @@ class SignupAddNameController: UIViewController {
         firstnameInput.delegate = self
         lastnameInput.delegate = self
 
-        firstnameInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        firstnameInput.addTarget(self, action: #selector(AddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
-        lastnameInput.addTarget(self, action: #selector(SignupAddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+        lastnameInput.addTarget(self, action: #selector(AddNameController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
         // Creating Tap Gesture to dismiss Keyboard
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupAddNameController.doneEditing))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddNameController.doneEditing))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
         
@@ -143,7 +143,7 @@ class SignupAddNameController: UIViewController {
 }
 
 
-extension SignupAddNameController {
+extension AddNameController {
     
     func disableNext() {
         nextButton.layer.borderWidth = 1
@@ -190,7 +190,7 @@ extension SignupAddNameController {
     }
 }
 
-extension SignupAddNameController: UITextFieldDelegate {
+extension AddNameController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         self.view.endEditing(true)

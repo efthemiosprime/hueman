@@ -92,8 +92,8 @@
 		3AB900CA1DFE5D8E0038D147 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB900C91DFE5D8E0038D147 /* TextField.swift */; };
 		3ABDCBFC1E8855D8006B97AE /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDCBFB1E8855D8006B97AE /* LoginController.swift */; };
 		3ABDCBFE1E8856F3006B97AE /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDCBFD1E8856F3006B97AE /* SignupController.swift */; };
-		3ABDCC001E886232006B97AE /* SignupAddNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDCBFF1E886232006B97AE /* SignupAddNameController.swift */; };
-		3ABDCC021E88629E006B97AE /* SignupAddProfilePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDCC011E88629E006B97AE /* SignupAddProfilePhotoController.swift */; };
+		3ABDCC001E886232006B97AE /* AddNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDCBFF1E886232006B97AE /* AddNameController.swift */; };
+		3ABDCC021E88629E006B97AE /* AddProfilePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDCC011E88629E006B97AE /* AddProfilePhotoController.swift */; };
 		3ACF44381E17718B00CB97DF /* AddLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF44371E17718B00CB97DF /* AddLocationController.swift */; };
 		3ACF443A1E17872300CB97DF /* AddHueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF44391E17872300CB97DF /* AddHueController.swift */; };
 		3ADE12351E171C2500BE3DE6 /* ProfileHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */; };
@@ -206,8 +206,8 @@
 		3ABD76201DBC9E9900AD2538 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		3ABDCBFB1E8855D8006B97AE /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = ViewControllers/LoginController.swift; sourceTree = "<group>"; };
 		3ABDCBFD1E8856F3006B97AE /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupController.swift; path = ViewControllers/SignupController.swift; sourceTree = "<group>"; };
-		3ABDCBFF1E886232006B97AE /* SignupAddNameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupAddNameController.swift; path = ViewControllers/SignupAddNameController.swift; sourceTree = "<group>"; };
-		3ABDCC011E88629E006B97AE /* SignupAddProfilePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupAddProfilePhotoController.swift; path = ViewControllers/SignupAddProfilePhotoController.swift; sourceTree = "<group>"; };
+		3ABDCBFF1E886232006B97AE /* AddNameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNameController.swift; path = ViewControllers/AddNameController.swift; sourceTree = "<group>"; };
+		3ABDCC011E88629E006B97AE /* AddProfilePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfilePhotoController.swift; path = ViewControllers/AddProfilePhotoController.swift; sourceTree = "<group>"; };
 		3ACF44371E17718B00CB97DF /* AddLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLocationController.swift; path = ViewControllers/AddLocationController.swift; sourceTree = "<group>"; };
 		3ACF44391E17872300CB97DF /* AddHueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddHueController.swift; path = ViewControllers/AddHueController.swift; sourceTree = "<group>"; };
 		3ADE12341E171C2500BE3DE6 /* ProfileHue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHue.swift; path = Views/ProfileHue.swift; sourceTree = "<group>"; };
@@ -319,8 +319,8 @@
 				3A154E421DCD7352005A79EC /* NotificationsViewController.swift */,
 				3A154E431DCD7352005A79EC /* HuesFeedViewController.swift */,
 				3ABDCBFD1E8856F3006B97AE /* SignupController.swift */,
-				3ABDCC011E88629E006B97AE /* SignupAddProfilePhotoController.swift */,
-				3ABDCBFF1E886232006B97AE /* SignupAddNameController.swift */,
+				3ABDCC011E88629E006B97AE /* AddProfilePhotoController.swift */,
+				3ABDCBFF1E886232006B97AE /* AddNameController.swift */,
 				3A3B2AC81DF8FA83004350A0 /* CreateProfileViewController.swift */,
 				3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */,
 				3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */,
@@ -716,7 +716,7 @@
 				3A16DFE91E6222C8007AD51B /* CommentLike.swift in Sources */,
 				3A82E66A1E118D00008F520A /* CommentCell.swift in Sources */,
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
-				3ABDCC001E886232006B97AE /* SignupAddNameController.swift in Sources */,
+				3ABDCC001E886232006B97AE /* AddNameController.swift in Sources */,
 				3A987B191DED1C6100388DDF /* User.swift in Sources */,
 				3A2DE15A1E441DC5001C3170 /* Flag.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
@@ -736,7 +736,7 @@
 				3A7605601E0DEF9100E682AD /* AuthenticationManager.swift in Sources */,
 				3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */,
 				3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */,
-				3ABDCC021E88629E006B97AE /* SignupAddProfilePhotoController.swift in Sources */,
+				3ABDCC021E88629E006B97AE /* AddProfilePhotoController.swift in Sources */,
 				3A98C7E51E22AA3A0009B793 /* NotificationsManager.swift in Sources */,
 				3A987B1C1DED1CDF00388DDF /* FirebaseManager.swift in Sources */,
 				3A39639E1E21DEE70021279A /* NSDate+Offset.swift in Sources */,
