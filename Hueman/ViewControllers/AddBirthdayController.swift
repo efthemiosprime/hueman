@@ -47,8 +47,12 @@ class AddBirthdayController: UIViewController {
             
         }
         
+        disableNext()
         
-//        datePicker.addTarget(self, action: #selector(BirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        datePicker.addTarget(self, action: #selector(AddBirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        ControllersStackManager.sharedInstance.controllers.append(self)
+        print(" AddBirthdayController view did load ")
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -61,9 +65,12 @@ class AddBirthdayController: UIViewController {
     func handleBirthdayPicker(sender: UIDatePicker) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd yyyy"
-        
+     
         //self.delegate?.pickerDidChange(dateFormatter.stringFromDate(sender.date))
         SignupManager.sharedInstance.currentUser?.birthday = UserBirthday(date: dateFormatter.stringFromDate(sender.date))
+        
+        enableNext()
+        
     }
     
     
@@ -72,6 +79,33 @@ class AddBirthdayController: UIViewController {
         self.performSegueWithIdentifier("backToAddPhoto", sender: self)
     }
 
+    @IBAction func nextAction(sender: AnyObject) {
+        SignupManager.sharedInstance.currentUser?.birthday?.visible = visibilitySwitch.on
+
+        self.performSegueWithIdentifier("gotoAddLocation", sender: self)
+    }
+    
     @IBAction func backToAddBirthday(segue: UIStoryboardSegue) {}
 
+}
+
+
+extension AddBirthdayController {
+    func disableNext() {
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor
+        nextButton.backgroundColor = UIColor.clearColor()
+        nextButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
+        nextButton.enabled = false
+    }
+    
+    func enableNext() {
+        nextButton.layer.borderWidth = 0
+        nextButton.layer.borderColor = UIColor.whiteColor().CGColor
+        nextButton.backgroundColor = UIColor.whiteColor()
+        nextButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
+        nextButton.enabled = true
+        
+    }
+    
 }

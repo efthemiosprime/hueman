@@ -146,6 +146,8 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         if AuthenticationManager.sharedInstance.currentUser == nil {
             AuthenticationManager.sharedInstance.loadCurrentUser()
         }
+        
+ 
     }
     
 

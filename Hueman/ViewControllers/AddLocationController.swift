@@ -31,9 +31,6 @@ class AddLocationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-
-        
         locationField.delegate = self
 
         locationField.contentHorizontalAlignment = .Center
@@ -73,17 +70,20 @@ class AddLocationController: UIViewController {
         
     }
 
-    @IBAction func didTappedConfirmButton(sender: AnyObject) {
-        
-           self.delegate?.setLocation(locationField.text!)
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
+//    @IBAction func didTappedConfirmButton(sender: AnyObject) {
+//        
+//           self.delegate?.setLocation(locationField.text!)
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//        
+//    }
     
     @IBAction func backAction(sender: AnyObject) {
         self.performSegueWithIdentifier("backToAddBirthday", sender: self)
     }
     
+    @IBAction func nextAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("gotoInterstitial", sender: self)
+    }
     func textFieldDidChange(textField: UITextField){
         
         

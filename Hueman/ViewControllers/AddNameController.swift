@@ -1,5 +1,5 @@
 //
-//  SignupAddNameController.swift
+//  AddNameController.swift
 //  Hueman
 //
 //  Created by Efthemios Prime on 3/26/17.
@@ -42,8 +42,10 @@ class AddNameController: UIViewController {
         
         firstnameInput.delegate = self
         lastnameInput.delegate = self
-        
-        
+        ControllersStackManager.sharedInstance.controllers.append(self)
+
+        print(ControllersStackManager.sharedInstance.controllers.count)
+
 
     }
     

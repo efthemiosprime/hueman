@@ -40,6 +40,8 @@ class LoginController: UIViewController {
 
         emailInput.delegate = self
         passwordInput.delegate = self
+        
+
 
     }
     

@@ -28,6 +28,12 @@ class UnwindSegueFromRight: UIStoryboardSegue {
             toViewController.view.frame = finalToFrame
             fromViewController.view.frame = finalFromFrame
             }, completion: { finished in
+//                let window = UIApplication.sharedApplication().keyWindow
+//                window?.subviews.last?.removeFromSuperview()
+//                let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
+                
+               // print(appDelegate.window!.subviews.count)
+
                 let fromVC: UIViewController = self.sourceViewController
                 fromVC.dismissViewControllerAnimated(false, completion: nil)
         })

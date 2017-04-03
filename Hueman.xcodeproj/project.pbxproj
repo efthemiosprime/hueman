@@ -41,6 +41,9 @@
 		3A154E661DCD7458005A79EC /* HueboardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E651DCD7458005A79EC /* HueboardsViewModel.swift */; };
 		3A154E721DCD75FC005A79EC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E701DCD75FC005A79EC /* SWRevealViewController.m */; };
 		3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A154E751DCD7852005A79EC /* NetworkManager.swift */; };
+		3A16041F1E91B4BC00FF4DCB /* AddBioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16041E1E91B4BC00FF4DCB /* AddBioController.swift */; };
+		3A1604211E91BF1F00FF4DCB /* InterstitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604201E91BF1F00FF4DCB /* InterstitialController.swift */; };
+		3A1604231E91DF0700FF4DCB /* ControllersStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604221E91DF0700FF4DCB /* ControllersStackManager.swift */; };
 		3A16DFE91E6222C8007AD51B /* CommentLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16DFE81E6222C8007AD51B /* CommentLike.swift */; };
 		3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */; };
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
@@ -150,6 +153,9 @@
 		3A154E711DCD75FC005A79EC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ThirdParties/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		3A154E731DCD763E005A79EC /* Hueman-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hueman-Bridging-Header.h"; path = "Hueman/Helpers/Hueman-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A154E751DCD7852005A79EC /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Networking/NetworkManager.swift; sourceTree = "<group>"; };
+		3A16041E1E91B4BC00FF4DCB /* AddBioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBioController.swift; path = ViewControllers/AddBioController.swift; sourceTree = "<group>"; };
+		3A1604201E91BF1F00FF4DCB /* InterstitialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterstitialController.swift; path = ViewControllers/InterstitialController.swift; sourceTree = "<group>"; };
+		3A1604221E91DF0700FF4DCB /* ControllersStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControllersStackManager.swift; path = Managers/ControllersStackManager.swift; sourceTree = "<group>"; };
 		3A16DFE81E6222C8007AD51B /* CommentLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentLike.swift; path = Models/CommentLike.swift; sourceTree = "<group>"; };
 		3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddConnectionsController.swift; path = ViewControllers/AddConnectionsController.swift; sourceTree = "<group>"; };
 		3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light.otf"; path = "Fonts/Sofia Pro Light.otf"; sourceTree = "<group>"; };
@@ -321,10 +327,11 @@
 				3ABDCBFD1E8856F3006B97AE /* SignupController.swift */,
 				3ABDCC011E88629E006B97AE /* AddProfilePhotoController.swift */,
 				3ABDCBFF1E886232006B97AE /* AddNameController.swift */,
+				3A16041E1E91B4BC00FF4DCB /* AddBioController.swift */,
+				3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */,
 				3A3B2AC81DF8FA83004350A0 /* CreateProfileViewController.swift */,
 				3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */,
 				3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */,
-				3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */,
 				3AA4DFB91E0CDEAB00BF75A1 /* FilterController.swift */,
 				3AA3B35D1E123437007D5E9E /* PopoverViewController.swift */,
 				3A3AF7091E8A087200ED793F /* AddBirthdayController.swift */,
@@ -335,6 +342,7 @@
 				3ADF90141E3D9778008138A6 /* DrawerControllerController.swift */,
 				3A8FC23C1E418605008E8142 /* AddHuesPageController.swift */,
 				3A12A11D1E889B69006FD410 /* WelcomeController.swift */,
+				3A1604201E91BF1F00FF4DCB /* InterstitialController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -517,6 +525,7 @@
 				3A76055F1E0DEF9100E682AD /* AuthenticationManager.swift */,
 				3A98C7E41E22AA3A0009B793 /* NotificationsManager.swift */,
 				3A3745331E8C97F200369479 /* SignupManager.swift */,
+				3A1604221E91DF0700FF4DCB /* ControllersStackManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -681,6 +690,7 @@
 				3A154E5C1DCD7389005A79EC /* ConnectionLeftItem.swift in Sources */,
 				3ACF443A1E17872300CB97DF /* AddHueController.swift in Sources */,
 				3A154E481DCD7352005A79EC /* HueboardsViewController.swift in Sources */,
+				3A16041F1E91B4BC00FF4DCB /* AddBioController.swift in Sources */,
 				3A154E4B1DCD7352005A79EC /* ConnectionProfileViewController.swift in Sources */,
 				3A154E641DCD7430005A79EC /* HueboardsLayout.swift in Sources */,
 				3A3B2AC91DF8FA83004350A0 /* CreateProfileViewController.swift in Sources */,
@@ -755,6 +765,8 @@
 				3A154E341DCD72AA005A79EC /* UIColor+UIColorFromRGB.swift in Sources */,
 				3A154E4A1DCD7352005A79EC /* ProfileViewController.swift in Sources */,
 				3A154E491DCD7352005A79EC /* CreatePostViewController.swift in Sources */,
+				3A1604211E91BF1F00FF4DCB /* InterstitialController.swift in Sources */,
+				3A1604231E91DF0700FF4DCB /* ControllersStackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

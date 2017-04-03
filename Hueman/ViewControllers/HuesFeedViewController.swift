@@ -73,7 +73,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         }
 
         addNavigationItems()
-        
+
 
     }
     

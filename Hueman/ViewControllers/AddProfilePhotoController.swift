@@ -1,5 +1,5 @@
 //
-//  SignupAddProfilePhotoController.swift
+//  AddProfilePhotoController.swift
 //  Hueman
 //
 //  Created by Efthemios Prime on 3/26/17.
@@ -36,13 +36,17 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
         deleteIcon = UIImage(named: "delete-profile-photo-btn")
         profilePhotoPlaceholder = UIImage(named: "profile-image-placeholder")
         enableNext()
+//        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
+//        print(appDelegate.window!.subviews.count)
+
+       // let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
+
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-       disableNext()
         enableNext()
         profilePhotoContainer.layer.borderWidth = 1
         profilePhotoContainer.layer.borderColor = UIColor.whiteColor().CGColor
@@ -79,6 +83,9 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
 
     @IBAction func backAction(sender: AnyObject) {
         self.performSegueWithIdentifier("backToAddName", sender: self)
+    }
+    @IBAction func nextAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("gotoAddBirthday", sender: self)
     }
 
     @IBAction func backToAddPhoto(segue: UIStoryboardSegue) {}

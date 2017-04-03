@@ -60,6 +60,7 @@ class SignupController: UIViewController {
         
         disableContinue()
         hideModalConfirmation()
+        ControllersStackManager.sharedInstance.controllers.append(self)
 
     }
 
