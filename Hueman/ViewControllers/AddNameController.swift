@@ -90,7 +90,7 @@ class AddNameController: UIViewController {
         SignupManager.sharedInstance.currentUser?.name = "\(trimmedFirstNameString) \(trimmedLastNameString)"
 
         
-        self.performSegueWithIdentifier("gotoAddPhoto", sender: self)
+        self.performSegueWithIdentifier("gotoAddBirthday", sender: self)
 
     }
 

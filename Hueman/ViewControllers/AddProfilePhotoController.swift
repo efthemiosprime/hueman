@@ -46,6 +46,7 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
         
         enableNext()
         profilePhotoContainer.layer.borderWidth = 1
@@ -82,14 +83,15 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     
 
     @IBAction func backAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("backToAddName", sender: self)
+        self.performSegueWithIdentifier("backToBio", sender: self)
     }
     @IBAction func nextAction(sender: AnyObject) {
         
         if profilePhotoIsSet {
-            SignupManager.sharedInstance.userImageData = UIImagePNGRepresentation(profilePhoto.image!)! as NSData?
+            
+            SignupManager.sharedInstance.userImageData = UIImageJPEGRepresentation(profilePhoto.image!, 0.1) as NSData?
         }
-        self.performSegueWithIdentifier("gotoAddBirthday", sender: self)
+        self.performSegueWithIdentifier("gotoAddHues", sender: self)
     }
 
     @IBAction func backToAddPhoto(segue: UIStoryboardSegue) {}

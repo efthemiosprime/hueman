@@ -20,19 +20,78 @@ class AddBioController: UIViewController {
     let SKIP_LABEL = "maybe later"
     let NEXT_LABEL = "next"
     
+    var isSet = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SignupManager.sharedInstance.currentUser = AuthenticationManager.sharedInstance.currentUser
+
+        bioInput.delegate = self
         buttonSkip()
 
     }
 
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if SignupManager.sharedInstance.currentUser != nil {
+            if !(SignupManager.sharedInstance.currentUser?.bio?.isEmpty)! {
+                bioInput.text = SignupManager.sharedInstance.currentUser?.bio
+            }
+        }
+    }
     
     @IBAction func backAction(sender: AnyObject) {
+
     }
 
+    @IBAction func nextAction(sender: AnyObject) {
+        if bioInput.text == "write here..." &&  !bioInput.text.isEmpty {
+            SignupManager.sharedInstance.currentUser?.bio = ""
+
+        }else {
+            SignupManager.sharedInstance.currentUser?.bio = bioInput.text
+
+        }
+        self.performSegueWithIdentifier("gotoAddPhoto", sender: self)
+    }
+    
+    @IBAction func backToBio(segue: UIStoryboardSegue) {}
+}
+
+
+extension AddBioController: UITextViewDelegate {
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        if textView.text == "write here..." {
+            textView.text = ""
+        }
+        return true
+    }
+    
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        
+        textField.text?.capitalizeFirstLetter()
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        
+        if textView.text == "write here..." || textView.text.characters.count == 0{
+            buttonSkip()
+        }
+        
+        if textView.text.characters.count >= 10 && textView.text != "write here..."{
+            buttonNext()
+        }
+        
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+
+        return textView.text.characters.count + (text.characters.count - range.length) <= 300
+    }
 }
 
 

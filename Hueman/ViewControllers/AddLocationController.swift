@@ -89,7 +89,7 @@ class AddLocationController: UIViewController {
             SignupManager.sharedInstance.userLocation!.location = locationField.text
         }
         
-        SignupManager.sharedInstance.editProfile({
+        SignupManager.sharedInstance.createProfile({
             SignupManager.sharedInstance.dispose()
             self.performSegueWithIdentifier("gotoInterstitial", sender: self)
         })

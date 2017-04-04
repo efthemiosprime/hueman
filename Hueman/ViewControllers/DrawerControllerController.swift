@@ -62,7 +62,6 @@ class DrawerControllerController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier  == "ShowProfile" {
-            print("show pfroe")
             let profileController = segue.destinationViewController as! ProfileViewController
             profileController.editable = true
             profileController.user = AuthenticationManager.sharedInstance.currentUser
@@ -79,12 +78,10 @@ class DrawerControllerController: UIViewController {
                     for userInfo in snapshot.children {
                         
                         self.currentUser = User(snapshot: userInfo as! FIRDataSnapshot)
-                        
                     }
                 }
                 
                 self.profileLabel.text = self.currentUser.name
-                
                 
                 if let profileImageURL = self.currentUser.photoURL where !(self.currentUser.photoURL?.isEmpty)! {
                     if let cachedImage = self.cachedProfileImage.objectForKey(profileImageURL) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fL2-sb-gmn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Og-Bi-Brk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -120,20 +120,20 @@
                                 <rect key="frame" x="81" y="616" width="212" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSn-Jw-YCK">
-                                        <rect key="frame" x="0.0" y="0.0" width="77" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                         <state key="normal" title="Terms of Use">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIe-s0-eWh">
-                                        <rect key="frame" x="82" y="0.0" width="22" height="26"/>
+                                        <rect key="frame" x="81" y="0.0" width="23.5" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-Z7-eFg">
-                                        <rect key="frame" x="109" y="0.0" width="103" height="26"/>
+                                        <rect key="frame" x="109.5" y="0.0" width="102.5" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                         <state key="normal" title=" Privacy Policy.">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIZ-Ge-o6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7946" y="-3107"/>
+            <point key="canvasLocation" x="-9119" y="-3051"/>
         </scene>
         <!--Hueboards-->
         <scene sceneID="xHy-pg-vin">
@@ -335,7 +335,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
@@ -454,7 +454,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="331" y="211" width="24" height="24"/>
+                                            <rect key="frame" x="331" y="216" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="1su-i0-dQR"/>
                                                 <constraint firstAttribute="width" constant="24" id="TFh-F4-vUT"/>
@@ -469,7 +469,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="20" y="221" width="270" height="33"/>
+                                            <rect key="frame" x="20" y="226" width="270" height="28"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3242,7 +3242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xr-Og-ned" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5964" y="-3058"/>
+            <point key="canvasLocation" x="-7137" y="-3001"/>
         </scene>
         <!--Signup Controller-->
         <scene sceneID="yUw-cE-5Mj">
@@ -3506,7 +3506,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwO-61-jVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RWq-Zu-Bzb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-6966" y="-2161"/>
+            <point key="canvasLocation" x="-8140" y="-2104"/>
         </scene>
         <!--Add Name Controller-->
         <scene sceneID="s6a-bG-bDU">
@@ -3636,12 +3636,12 @@
                         <outlet property="lastnameLabel" destination="Wt9-vH-SCN" id="jkZ-tE-ZPy"/>
                         <outlet property="lastnameLine" destination="FVe-Hc-82g" id="jSJ-3v-Vla"/>
                         <outlet property="nextButton" destination="nMP-Ez-5Vl" id="Aow-en-mqJ"/>
-                        <segue destination="GZR-ur-4m9" kind="custom" identifier="gotoAddPhoto" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="jRU-bi-R2z"/>
+                        <segue destination="6ga-AE-rf0" kind="custom" identifier="gotoAddBirthday" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="ghl-dz-4cy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSZ-1B-26h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7606" y="-1402"/>
+            <point key="canvasLocation" x="-8780" y="-1346"/>
         </scene>
         <!--Add Profile Photo Controller-->
         <scene sceneID="mNo-t6-cTf">
@@ -3759,14 +3759,14 @@ life’s awesomeness.</string>
                         <outlet property="profilePhoto" destination="AbU-xs-oGF" id="5KA-SV-jti"/>
                         <outlet property="profilePhotoContainer" destination="fT9-EO-Sh9" id="E7U-pr-VIU"/>
                         <outlet property="subHeaderLabel" destination="3zC-sh-wA8" id="8vc-PH-Sx6"/>
-                        <segue destination="NNZ-gO-4yv" kind="unwind" identifier="backToAddName" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backToAddName:" id="WUD-jm-wqL"/>
-                        <segue destination="6ga-AE-rf0" kind="custom" identifier="gotoAddBirthday" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="P9S-BB-RD0"/>
+                        <segue destination="g6S-fn-xrg" kind="custom" identifier="gotoAddHues" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="vIE-e6-CMm"/>
+                        <segue destination="NNZ-gO-4yv" kind="unwind" identifier="backToBio" unwindAction="backToBio:" id="crU-CR-5oF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzO-ma-En0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NNZ-gO-4yv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-6719" y="-1208"/>
+            <point key="canvasLocation" x="-4340" y="130"/>
         </scene>
         <!--Add Birthday Controller-->
         <scene sceneID="kUQ-CU-aAl">
@@ -3883,14 +3883,14 @@ just saying.</string>
                         <outlet property="datePicker" destination="2sk-xh-QJe" id="h69-fg-bQq"/>
                         <outlet property="nextButton" destination="SSZ-UK-bbX" id="4Cq-ra-N3v"/>
                         <outlet property="visibilitySwitch" destination="6m5-Br-eWE" id="EU7-aY-aEa"/>
-                        <segue destination="kzA-0h-HIf" kind="unwind" identifier="backToAddPhoto" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backToAddPhoto:" id="IAP-xO-aJ3"/>
                         <segue destination="8Qo-er-h2N" kind="custom" identifier="gotoAddLocation" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="9n7-z9-NGl"/>
+                        <segue destination="kzA-0h-HIf" kind="unwind" unwindAction="backToAddName:" id="ovf-9V-MfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8x-lf-SEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kzA-0h-HIf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-5863" y="-1075"/>
+            <point key="canvasLocation" x="-7716" y="-991"/>
         </scene>
         <!--Add Location Controller-->
         <scene sceneID="Z0q-po-f9t">
@@ -4026,7 +4026,7 @@ just saying.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnc-qm-YBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5cF-M2-j43" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-5018" y="-875"/>
+            <point key="canvasLocation" x="-6628" y="-819"/>
         </scene>
         <!--Add Bio Controller-->
         <scene sceneID="gX8-UI-IWw">
@@ -4069,14 +4069,17 @@ who you are.</string>
                                     <constraint firstAttribute="width" constant="265" id="5l9-cY-HVa"/>
                                     <constraint firstAttribute="height" constant="39" id="QaW-pP-Vte"/>
                                 </constraints>
-                                <state key="normal" image="next-btn-tintable"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextAction:" destination="5Og-Bi-Brk" eventType="touchUpInside" id="Oh3-Fn-kiq"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17u-rd-RpI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17u-rd-RpI">
                                 <rect key="frame" x="16" y="25" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back-bar-item"/>
@@ -4118,6 +4121,11 @@ who you are.</string>
                             <constraint firstItem="0hL-Wc-awA" firstAttribute="leading" secondItem="DkP-eX-mmc" secondAttribute="leading" id="YFz-EM-zlO"/>
                             <constraint firstAttribute="trailing" secondItem="6rE-7x-gz1" secondAttribute="trailing" constant="16" id="Ya5-Og-P7L"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="17u-rd-RpI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="bioInput" destination="6rE-7x-gz1" id="rGn-vJ-OQ2"/>
@@ -4125,11 +4133,12 @@ who you are.</string>
                         <outlet property="headerLabel" destination="f7O-8z-O6v" id="1ce-Yi-pDP"/>
                         <outlet property="keyboardConstraintHeight" destination="b69-Q6-r2b" id="DBp-CX-aay"/>
                         <outlet property="nextButton" destination="CRa-QZ-gZE" id="ZoC-V5-vhZ"/>
+                        <segue destination="GZR-ur-4m9" kind="custom" identifier="gotoAddPhoto" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="3wt-B8-Y8g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OR-hu-WD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3183" y="-179"/>
+            <point key="canvasLocation" x="-5215" y="130"/>
         </scene>
         <!--Interstitial Controller-->
         <scene sceneID="0vx-vN-7rV">
@@ -4231,17 +4240,18 @@ awesome profile anytime.</string>
                         <outlet property="profileButton" destination="9mC-C7-ejX" id="q0B-ve-mjf"/>
                         <segue destination="zFQ-4z-9lN" kind="unwind" identifier="backToAddBirthday" customClass="UnwindSegueFromRight" customModule="Hueman" unwindAction="backToAddBirthday:" id="kec-Iw-B6v"/>
                         <segue destination="lAe-Do-sBk" kind="show" identifier="gotoExplore" id="5p5-Yn-Sfa"/>
+                        <segue destination="5Og-Bi-Brk" kind="custom" identifier="continueWithProfile" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="cmF-CZ-IH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3Q-sB-Xkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zFQ-4z-9lN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4042" y="-772"/>
+            <point key="canvasLocation" x="-5215" y="-716"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Hues Controller-->
         <scene sceneID="KRg-uV-0qp">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="g6S-fn-xrg" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="g6S-fn-xrg" customClass="AddHuesController" customModule="Hueman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iIM-5h-dsN"/>
                         <viewControllerLayoutGuide type="bottom" id="dOw-i0-kyC"/>
@@ -4284,14 +4294,14 @@ your profile.</string>
                                     <action selector="backAction:" destination="g6S-fn-xrg" eventType="touchUpInside" id="SnU-2u-r8n"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-6x-GAx">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-6x-GAx">
                                 <rect key="frame" x="30" y="194" width="316" height="459"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vD3-4b-noL">
-                                        <rect key="frame" x="0.0" y="0.0" width="316" height="140"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="316" height="142.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5v-a7-ILV" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="140"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="VYU-qU-1Bk">
                                                         <rect key="frame" x="68" y="98" width="14" height="13"/>
@@ -4317,6 +4327,9 @@ your profile.</string>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="7MQ-ly-S0k"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="descriptionLabel" destination="QEF-Yg-4UU" id="Kvi-C4-nEL"/>
                                                     <outlet property="icon" destination="5xK-o0-FSo" id="d1S-nC-qd2"/>
@@ -4325,7 +4338,7 @@ your profile.</string>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-IX-JcH" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                <rect key="frame" x="166" y="0.0" width="150" height="140"/>
+                                                <rect key="frame" x="166" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Izq-Et-frE">
                                                         <rect key="frame" x="68" y="98" width="14" height="13"/>
@@ -4351,6 +4364,9 @@ your profile.</string>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="4xh-uI-db4"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="descriptionLabel" destination="AGf-xW-oAA" id="Dhi-ym-oAQ"/>
                                                     <outlet property="icon" destination="iYf-Jn-bqc" id="byQ-KT-cyh"/>
@@ -4363,11 +4379,11 @@ your profile.</string>
                                             <constraint firstItem="cFv-IX-JcH" firstAttribute="leading" secondItem="vD3-4b-noL" secondAttribute="leading" constant="166" id="slj-H0-mq7"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BIV-iR-gkf">
-                                        <rect key="frame" x="0.0" y="156" width="316" height="147"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BIV-iR-gkf">
+                                        <rect key="frame" x="0.0" y="158.5" width="316" height="142"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwX-bu-D5k" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="147"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="142"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="KSg-Yy-jeY">
                                                         <rect key="frame" x="68" y="98" width="14" height="13"/>
@@ -4401,7 +4417,7 @@ your profile.</string>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXB-Js-Uqn" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                <rect key="frame" x="166" y="0.0" width="150" height="147"/>
+                                                <rect key="frame" x="166" y="0.0" width="150" height="142"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="2Zy-Kh-gjl">
                                                         <rect key="frame" x="68" y="98" width="14" height="13"/>
@@ -4439,11 +4455,11 @@ your profile.</string>
                                             <constraint firstItem="GXB-Js-Uqn" firstAttribute="leading" secondItem="BIV-iR-gkf" secondAttribute="leading" constant="166" id="PTp-eb-GTf"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-pY-oyq">
-                                        <rect key="frame" x="0.0" y="319" width="316" height="140"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-pY-oyq">
+                                        <rect key="frame" x="0.0" y="316.5" width="316" height="142.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Yf-bX-0eW" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="140"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vhO-Eq-Wf9">
                                                         <rect key="frame" x="68" y="98" width="14" height="13"/>
@@ -4477,7 +4493,7 @@ your profile.</string>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-Cv-00j" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
-                                                <rect key="frame" x="166" y="0.0" width="150" height="140"/>
+                                                <rect key="frame" x="166" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ytx-RX-hIm">
                                                         <rect key="frame" x="68" y="98" width="14" height="13"/>
@@ -4518,7 +4534,6 @@ your profile.</string>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="BIV-iR-gkf" firstAttribute="centerY" secondItem="0ed-6x-GAx" secondAttribute="centerY" id="4cH-kE-e43"/>
-                                    <constraint firstItem="BIV-iR-gkf" firstAttribute="top" secondItem="0ed-6x-GAx" secondAttribute="top" constant="156" id="6EB-Xm-vz1"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -4537,7 +4552,7 @@ your profile.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGa-CE-ldI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2127" y="-136"/>
+            <point key="canvasLocation" x="-3348" y="131"/>
         </scene>
         <!--Facebook Interstitial Controller-->
         <scene sceneID="UMV-rR-XLU">
@@ -4644,7 +4659,7 @@ your Facebook friends.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laR-IL-1qW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4578" y="-1700"/>
+            <point key="canvasLocation" x="-5751" y="-1644"/>
         </scene>
     </scenes>
     <resources>
@@ -4726,7 +4741,7 @@ your Facebook friends.</string>
     <inferredMetricsTieBreakers>
         <segue reference="5p5-Yn-Sfa"/>
         <segue reference="eFq-P6-QEy"/>
-        <segue reference="PBT-r4-Iq7"/>
+        <segue reference="5mf-yO-1rC"/>
         <segue reference="x6K-ez-uIt"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -124,11 +124,10 @@ struct FirebaseManager {
                         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
                         NSUserDefaults.standardUserDefaults().synchronize()
                         
-                        
-                        var newUserVo = User(email: email, name: name, userId: (user?.uid)! )
-                        newUserVo.uid = FIRAuth.auth()?.currentUser?.uid
-                        
-                        self.saveUserInfo(user, userVo: newUserVo)
+//                        var newUserVo = User(email: email, name: name, userId: (user?.uid)! )
+//                        newUserVo.uid = FIRAuth.auth()?.currentUser?.uid
+//                        
+//                        self.saveUserInfo(user, userVo: newUserVo)
                         
                         FIRAuth.auth()?.currentUser?.sendEmailVerificationWithCompletion({ (error) in
                             if let error = error {

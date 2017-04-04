@@ -82,6 +82,7 @@
 		3A8B07611DF7D48C0002D9EE /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */; };
 		3A8BCFB11E078C19007AE84B /* RegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */; };
 		3A8FC23D1E418605008E8142 /* AddHuesPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FC23C1E418605008E8142 /* AddHuesPageController.swift */; };
+		3A96FD1F1E93336500766BEF /* UIView+ parentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96FD1E1E93336500766BEF /* UIView+ parentViewController.swift */; };
 		3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */; };
 		3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B151DED1BC600388DDF /* KeychainWrapper.m */; };
 		3A987B191DED1C6100388DDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A987B171DED1C6100388DDF /* User.swift */; };
@@ -198,6 +199,7 @@
 		3A8B07601DF7D48C0002D9EE /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedImageTableViewCell.swift; path = Views/FeedImageTableViewCell.swift; sourceTree = "<group>"; };
 		3A8BCFB01E078C19007AE84B /* RegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationManager.swift; path = Managers/RegistrationManager.swift; sourceTree = "<group>"; };
 		3A8FC23C1E418605008E8142 /* AddHuesPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddHuesPageController.swift; path = ViewControllers/AddHuesPageController.swift; sourceTree = "<group>"; };
+		3A96FD1E1E93336500766BEF /* UIView+ parentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+ parentViewController.swift"; path = "Extensions/UIView+ parentViewController.swift"; sourceTree = "<group>"; };
 		3A982BB71DF9023D005DF901 /* CreateProfileViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreateProfileViewController+Handlers.swift"; path = "ViewControllers/CreateProfileViewController+Handlers.swift"; sourceTree = "<group>"; };
 		3A987B141DED1BC600388DDF /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = ThirdParties/KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
 		3A987B151DED1BC600388DDF /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = ThirdParties/KeychainWrapper/KeychainWrapper.m; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				3A7605631E0E080800E682AD /* UIImage+resizeWith.swift */,
 				3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */,
 				3A39639D1E21DEE70021279A /* NSDate+Offset.swift */,
+				3A96FD1E1E93336500766BEF /* UIView+ parentViewController.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */,
 				3A154E4C1DCD7352005A79EC /* ConnectionsViewController.swift in Sources */,
 				3A82E6681E118A38008F520A /* Comment.swift in Sources */,
+				3A96FD1F1E93336500766BEF /* UIView+ parentViewController.swift in Sources */,
 				3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */,
 				3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */,
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,

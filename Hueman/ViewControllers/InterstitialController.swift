@@ -20,9 +20,23 @@ class InterstitialController: UIViewController {
         enableButton(profileButton, label: "continue with profile")
         disableButton(exploreButton, label: "start exploring hueman")
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
+        for view in appDelegate.window!.subviews {
+            print("view: \(view.parentViewController)")
+        }
+
+    }
 
 
     @IBAction func editProfileAction(sender: AnyObject) {
+        AuthenticationManager.sharedInstance.loadCurrentUser({
+            self.performSegueWithIdentifier("continueWithProfile", sender: nil)
+        })
+        
     }
     
     @IBAction func exploreAction(sender: AnyObject) {

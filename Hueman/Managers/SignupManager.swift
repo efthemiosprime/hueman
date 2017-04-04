@@ -55,7 +55,43 @@ class SignupManager {
     private init() {
     }
     
+    func createProfile(completed: (() -> ())? = nil) {
+        let currentAuthUser = FIRAuth.auth()?.currentUser
+        
+        
+        let changeRequest = currentAuthUser!.profileChangeRequest()
+        if let name = self.currentUser?.name {
+            changeRequest.displayName = self.currentUser?.name
+            changeRequest.commitChangesWithCompletion({ error in
+                
+                guard error == nil else {
+                    print(error?.localizedDescription)
+                    return
+                }
+                
+                if let birthday = self.userBirthday {
+                    self.currentUser?.birthday = birthday
+                }
+                
+                if let location = self.userLocation {
+                    self.currentUser?.location = location
+                }
+                self.currentUser?.bio = ""
+                
+                self.currentUser?.photoURL = ""
+                
+                let uid = (currentAuthUser?.uid)!
+                
+                let userRef = self.dataBaseRef.child("users").child(uid)
+                userRef.setValue(self.currentUser?.toAnyObject())
+                completed?()
+            })
+        }
 
+        
+
+    }
+    
     func editProfile(completed: (() -> ())? = nil) {
         let currentAuthUser = FIRAuth.auth()?.currentUser
         
@@ -129,6 +165,8 @@ class SignupManager {
     func dispose() {
         currentUser = nil
         userImageData = nil
+        userBirthday = nil
+        userLocation = nil
         SignupManager.Static.instance = nil
     }
 }
