@@ -14,6 +14,7 @@
 		3A083B9F1DA4357C0092AE75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3EE1DA3B6080011B467 /* Main.storyboard */; };
 		3A0AB1911E086E1300295AA5 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB1901E086E1300295AA5 /* Request.swift */; };
 		3A0AB1931E086ECB00295AA5 /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB1921E086ECB00295AA5 /* Friendship.swift */; };
+		3A0B4BB61E92B0F800A6F1BB /* FacebookInterstitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B4BB51E92B0F800A6F1BB /* FacebookInterstitialController.swift */; };
 		3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */; };
 		3A12A11E1E889B69006FD410 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A12A11D1E889B69006FD410 /* WelcomeController.swift */; };
 		3A14FEF41E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14FEF31E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift */; };
@@ -44,6 +45,7 @@
 		3A16041F1E91B4BC00FF4DCB /* AddBioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16041E1E91B4BC00FF4DCB /* AddBioController.swift */; };
 		3A1604211E91BF1F00FF4DCB /* InterstitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604201E91BF1F00FF4DCB /* InterstitialController.swift */; };
 		3A1604231E91DF0700FF4DCB /* ControllersStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604221E91DF0700FF4DCB /* ControllersStackManager.swift */; };
+		3A1604251E91FAC000FF4DCB /* AddHuesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1604241E91FAC000FF4DCB /* AddHuesController.swift */; };
 		3A16DFE91E6222C8007AD51B /* CommentLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16DFE81E6222C8007AD51B /* CommentLike.swift */; };
 		3A21B4241E03909300CDF8B5 /* AddConnectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */; };
 		3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */; };
@@ -124,6 +126,7 @@
 		3A060D391D9CADE9007F2B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A0AB1901E086E1300295AA5 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Models/Request.swift; sourceTree = "<group>"; };
 		3A0AB1921E086ECB00295AA5 /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Friendship.swift; path = Models/Friendship.swift; sourceTree = "<group>"; };
+		3A0B4BB51E92B0F800A6F1BB /* FacebookInterstitialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookInterstitialController.swift; path = ViewControllers/FacebookInterstitialController.swift; sourceTree = "<group>"; };
 		3A10BC591DF60A1F00B0CADC /* ConnectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionCell.swift; path = Views/ConnectionCell.swift; sourceTree = "<group>"; };
 		3A12A11D1E889B69006FD410 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeController.swift; path = ViewControllers/WelcomeController.swift; sourceTree = "<group>"; };
 		3A14FEF31E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateProfileViewModel.swift; path = ViewModels/CreateProfileViewModel.swift; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 		3A16041E1E91B4BC00FF4DCB /* AddBioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBioController.swift; path = ViewControllers/AddBioController.swift; sourceTree = "<group>"; };
 		3A1604201E91BF1F00FF4DCB /* InterstitialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterstitialController.swift; path = ViewControllers/InterstitialController.swift; sourceTree = "<group>"; };
 		3A1604221E91DF0700FF4DCB /* ControllersStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControllersStackManager.swift; path = Managers/ControllersStackManager.swift; sourceTree = "<group>"; };
+		3A1604241E91FAC000FF4DCB /* AddHuesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddHuesController.swift; path = ViewControllers/AddHuesController.swift; sourceTree = "<group>"; };
 		3A16DFE81E6222C8007AD51B /* CommentLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentLike.swift; path = Models/CommentLike.swift; sourceTree = "<group>"; };
 		3A21B4231E03909300CDF8B5 /* AddConnectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddConnectionsController.swift; path = ViewControllers/AddConnectionsController.swift; sourceTree = "<group>"; };
 		3A22A3E91DA3A86C0011B467 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Light.otf"; path = "Fonts/Sofia Pro Light.otf"; sourceTree = "<group>"; };
@@ -343,6 +347,8 @@
 				3A8FC23C1E418605008E8142 /* AddHuesPageController.swift */,
 				3A12A11D1E889B69006FD410 /* WelcomeController.swift */,
 				3A1604201E91BF1F00FF4DCB /* InterstitialController.swift */,
+				3A1604241E91FAC000FF4DCB /* AddHuesController.swift */,
+				3A0B4BB51E92B0F800A6F1BB /* FacebookInterstitialController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,
 				3A82E66C1E11977F008F520A /* CommentsViewModel.swift in Sources */,
 				3AA4DFBA1E0CDEAB00BF75A1 /* FilterController.swift in Sources */,
+				3A0B4BB61E92B0F800A6F1BB /* FacebookInterstitialController.swift in Sources */,
 				3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */,
 				3A154E241DCD6EA6005A79EC /* Theme.swift in Sources */,
 				3A987B161DED1BC600388DDF /* KeychainWrapper.m in Sources */,
@@ -728,6 +735,7 @@
 				3A154E501DCD7352005A79EC /* NotificationsViewController.swift in Sources */,
 				3ABDCC001E886232006B97AE /* AddNameController.swift in Sources */,
 				3A987B191DED1C6100388DDF /* User.swift in Sources */,
+				3A1604251E91FAC000FF4DCB /* AddHuesController.swift in Sources */,
 				3A2DE15A1E441DC5001C3170 /* Flag.swift in Sources */,
 				3A45BAAF1DE926430062081E /* Constants.swift in Sources */,
 				3AEFA46B1E198C98005C78D2 /* ActivityIndicator.swift in Sources */,

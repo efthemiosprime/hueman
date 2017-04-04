@@ -19,7 +19,6 @@ class AddBirthdayController: UIViewController {
 //    var delegate: BirthdayDelegate?
     var entry: String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,8 +50,6 @@ class AddBirthdayController: UIViewController {
         
         datePicker.addTarget(self, action: #selector(AddBirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
-        ControllersStackManager.sharedInstance.controllers.append(self)
-        print(" AddBirthdayController view did load ")
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -67,7 +64,7 @@ class AddBirthdayController: UIViewController {
         dateFormatter.dateFormat = "MMM dd yyyy"
      
         //self.delegate?.pickerDidChange(dateFormatter.stringFromDate(sender.date))
-        SignupManager.sharedInstance.currentUser?.birthday = UserBirthday(date: dateFormatter.stringFromDate(sender.date))
+        SignupManager.sharedInstance.userBirthday = UserBirthday(date: dateFormatter.stringFromDate(sender.date))
         
         enableNext()
         
@@ -80,7 +77,7 @@ class AddBirthdayController: UIViewController {
     }
 
     @IBAction func nextAction(sender: AnyObject) {
-        SignupManager.sharedInstance.currentUser?.birthday?.visible = visibilitySwitch.on
+        SignupManager.sharedInstance.userBirthday?.visible = visibilitySwitch.on
 
         self.performSegueWithIdentifier("gotoAddLocation", sender: self)
     }

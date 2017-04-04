@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "create-profile-hustle.png",
+      "filename" : "invite-facebook-friends-btn.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "create-profile-hustle@2x.png",
+      "filename" : "invite-facebook-friends-btn@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "create-profile-hustle@3x.png",
+      "filename" : "invite-facebook-friends-btn@3x.png",
       "scale" : "3x"
     }
   ],

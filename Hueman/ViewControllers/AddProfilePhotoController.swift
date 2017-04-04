@@ -85,6 +85,10 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
         self.performSegueWithIdentifier("backToAddName", sender: self)
     }
     @IBAction func nextAction(sender: AnyObject) {
+        
+        if profilePhotoIsSet {
+            SignupManager.sharedInstance.userImageData = UIImagePNGRepresentation(profilePhoto.image!)! as NSData?
+        }
         self.performSegueWithIdentifier("gotoAddBirthday", sender: self)
     }
 
@@ -126,7 +130,6 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
             headerLabel.text = HEADER_LABEL_SET
             subHeaderLabel.text = ""
             enableNext()
-            SignupManager.sharedInstance.userImageData = UIImagePNGRepresentation(selectedImage)! as NSData?
         }
         
         

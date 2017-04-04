@@ -26,8 +26,9 @@ class InterstitialController: UIViewController {
     }
     
     @IBAction func exploreAction(sender: AnyObject) {
-
-        self.performSegueWithIdentifier("gotoExplore", sender: nil)
+        AuthenticationManager.sharedInstance.loadCurrentUser({
+            self.performSegueWithIdentifier("gotoExplore", sender: nil)
+        })
     }
     
 }

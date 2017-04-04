@@ -17,8 +17,8 @@ protocol LocationDelegate {
 class AddLocationController: UIViewController {
 
     @IBOutlet weak var locationField: UITextField!
-    @IBOutlet weak var `switch`: UISwitch!
     @IBOutlet weak var nextButton: RoundedCornersButton!
+    @IBOutlet weak var visibilitySwitch: UISwitch!
     
     var locationManager:CLLocationManager!
     let geoCoder = CLGeocoder()
@@ -38,7 +38,7 @@ class AddLocationController: UIViewController {
         
         locationField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         
-        
+        disableNext()
         addDoneBtnToKeyboard()
     }
 
@@ -82,15 +82,29 @@ class AddLocationController: UIViewController {
     }
     
     @IBAction func nextAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("gotoInterstitial", sender: self)
+        print("next action")
+        if SignupManager.sharedInstance.userLocation == nil {
+            SignupManager.sharedInstance.userLocation = UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on)
+        }else {
+            SignupManager.sharedInstance.userLocation!.location = locationField.text
+        }
+        
+        SignupManager.sharedInstance.editProfile({
+            SignupManager.sharedInstance.dispose()
+            self.performSegueWithIdentifier("gotoInterstitial", sender: self)
+        })
+        
     }
     func textFieldDidChange(textField: UITextField){
         
         
         
-        if textField.text?.characters.count > 6 {
-            
+        if textField.text?.characters.count > 3 {
+
+            enableNext()
+
         }
+
 //        let charCount: String = String(textField.text!.characters.count)
 //        if textField.text?.characters.count > 1 {
 //            charactersLabel.text = "\(charCount)/30 characters"
@@ -192,6 +206,13 @@ extension AddLocationController: CLLocationManagerDelegate {
             // City
             if let state = placeMark.addressDictionary!["State"] as? NSString, let city = placeMark.addressDictionary!["City"] as? NSString {
                 self.locationField.text = "\(city), \(state)"
+                if SignupManager.sharedInstance.userLocation == nil {
+                    SignupManager.sharedInstance.userLocation = UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on)
+                }else {
+                    SignupManager.sharedInstance.userLocation!.location = self.locationField.text
+                }
+                
+                self.enableNext()
                 manager.stopUpdatingLocation()
             }
 
@@ -209,3 +230,25 @@ extension AddLocationController: CLLocationManagerDelegate {
     }
 
 }
+
+
+extension AddLocationController {
+    func disableNext() {
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor
+        nextButton.backgroundColor = UIColor.clearColor()
+        //nextButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
+        nextButton.enabled = false
+    }
+    
+    func enableNext() {
+        nextButton.layer.borderWidth = 0
+        nextButton.layer.borderColor = UIColor.whiteColor().CGColor
+        nextButton.backgroundColor = UIColor.whiteColor()
+        nextButton.tintColor = UIColor.UIColorFromRGB(0x7bc8a4)
+        nextButton.enabled = true
+        
+    }
+    
+}
+

@@ -18,6 +18,8 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
     let firebaseManager = FirebaseManager()
 
     var hasLogin = false
+    let defaults = NSUserDefaults.standardUserDefaults()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

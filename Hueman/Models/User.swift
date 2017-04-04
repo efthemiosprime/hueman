@@ -43,11 +43,11 @@ struct User {
         }
 
         if let unwrappedBirthday = snapshot.value!["birthday"] as? [String: AnyObject] {
-            birthday = UserBirthday(date: unwrappedBirthday["data"]! as! String, visible: (unwrappedBirthday["visible"] as? Bool)!)
+            birthday = UserBirthday(date: unwrappedBirthday["date"]! as! String, visible: (unwrappedBirthday["visible"] as? Bool)!)
         }
         
          if let unwrappedLocation = snapshot.value!["location"] as? [String: AnyObject] {
-            location = UserLocation(location: unwrappedLocation["data"]! as! String, visible: (unwrappedLocation["visible"] as? Bool)!)
+            location = UserLocation(location: unwrappedLocation["location"]! as! String, visible: (unwrappedLocation["visible"] as? Bool)!)
         }
     }
     
