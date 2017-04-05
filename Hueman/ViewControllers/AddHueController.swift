@@ -116,10 +116,10 @@ class AddHueController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
                 
-        
-        if let text = defaults.objectForKey(type!) as? String   {
-            detailLabel.text = text
-        }
+//        
+//        if let text = defaults.objectForKey(type!) as? String   {
+//            detailLabel.text = text
+//        }
         
         self.navigationBar.topItem!.title = "add hues"
         self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]

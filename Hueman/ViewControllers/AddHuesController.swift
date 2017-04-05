@@ -10,18 +10,33 @@ import UIKit
 
 class AddHuesController: UIViewController {
 
+    @IBOutlet var profileHues: [ProfileHue]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let topics: [String] = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
 
-        // Do any additional setup after loading the view.
+        for (index, hue) in profileHues!.enumerate() {
+            hue.type = topics[index]
+            let hueGesture = UITapGestureRecognizer(target: self, action: #selector(AddHuesController.addHue(_:)))
+            hue.tag = index
+            hue.addGestureRecognizer(hueGesture)
+        }
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    
+    func addHue(sender: UITapGestureRecognizer) {
+        let hue = (sender as UITapGestureRecognizer).view as? ProfileHue
+        print("tage \(hue!.tag) ")
+        self.performSegueWithIdentifier("AddHue", sender: hue?.tag )
 
+        
+    }
+
+    @IBAction func backAddHues(segue: UIStoryboardSegue) {}
 
 
 }

@@ -1017,29 +1017,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-OM-3cu" userLabel="Profile">
-                                                    <rect key="frame" x="18" y="10" width="76" height="76"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-h1-yc1" userLabel="bg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-f9-n3q" userLabel="img">
-                                                            <rect key="frame" x="2" y="2" width="70" height="70"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="35"/>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                    <integer key="value" value="0"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                    </subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-f9-n3q" userLabel="img">
+                                                    <rect key="frame" x="20" y="16" width="64" height="64"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="76" id="TEe-hg-yxR"/>
-                                                        <constraint firstAttribute="width" constant="76" id="b8H-W0-UEy"/>
+                                                        <constraint firstAttribute="height" constant="64" id="OTx-Ea-gfW"/>
+                                                        <constraint firstAttribute="width" constant="64" id="vsl-aW-yTw"/>
                                                     </constraints>
-                                                </view>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="32"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IK-0w-V3l" userLabel="seperator">
                                                     <rect key="frame" x="10" y="94" width="355" height="1"/>
                                                     <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1081,15 +1071,15 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EOD-OM-3cu" firstAttribute="centerY" secondItem="HjT-yc-MAv" secondAttribute="centerY" id="6rl-b6-P1w"/>
                                                 <constraint firstAttribute="bottom" secondItem="2IK-0w-V3l" secondAttribute="bottom" id="DWU-dU-Gim"/>
-                                                <constraint firstItem="EOD-OM-3cu" firstAttribute="leading" secondItem="HjT-yc-MAv" secondAttribute="leadingMargin" constant="10" id="VOZ-2p-JyC"/>
                                                 <constraint firstAttribute="trailing" secondItem="2IK-0w-V3l" secondAttribute="trailing" constant="10" id="Xla-wK-Vbg"/>
+                                                <constraint firstItem="Tgs-f9-n3q" firstAttribute="leading" secondItem="HjT-yc-MAv" secondAttribute="leading" constant="20" id="Z4G-xd-8GP"/>
                                                 <constraint firstItem="2IK-0w-V3l" firstAttribute="leading" secondItem="HjT-yc-MAv" secondAttribute="leading" constant="10" id="cpP-HU-ttZ"/>
                                                 <constraint firstItem="rUG-Jn-nRf" firstAttribute="centerY" secondItem="HjT-yc-MAv" secondAttribute="centerY" id="eEj-i0-oib"/>
-                                                <constraint firstItem="Jdu-WC-Jxz" firstAttribute="leading" secondItem="EOD-OM-3cu" secondAttribute="trailing" constant="8" id="hE2-aU-xol"/>
+                                                <constraint firstItem="Tgs-f9-n3q" firstAttribute="centerY" secondItem="HjT-yc-MAv" secondAttribute="centerY" id="f60-Cn-htb"/>
                                                 <constraint firstItem="Jdu-WC-Jxz" firstAttribute="centerY" secondItem="HjT-yc-MAv" secondAttribute="centerY" id="kHi-0Q-jii"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="rUG-Jn-nRf" secondAttribute="trailing" constant="10" id="kdF-86-2CO"/>
+                                                <constraint firstItem="Jdu-WC-Jxz" firstAttribute="leading" secondItem="Tgs-f9-n3q" secondAttribute="trailing" constant="18" id="rNR-cL-eSg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1316,34 +1306,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connection-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="c3I-Ft-Q4u" userLabel="bg">
-                                            <rect key="frame" x="23" y="10" width="75" height="75"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7F-0B-jPM" userLabel="img">
-                                            <rect key="frame" x="25" y="12" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="35"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                    <integer key="value" value="0"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="David Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHb-E0-Vge">
-                                            <rect key="frame" x="111" y="28" width="185" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="16"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Boston, Massachusetts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDT-R6-uI2">
-                                            <rect key="frame" x="111" y="47" width="185" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
-                                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpT-FJ-XZS">
+                                            <rect key="frame" x="102" y="27" width="210" height="40"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="David Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHb-E0-Vge">
+                                                    <rect key="frame" x="0.0" y="0.0" width="185" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Boston, Massachusetts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDT-R6-uI2">
+                                                    <rect key="frame" x="0.0" y="21" width="185" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="6aq-my-3LZ"/>
+                                                <constraint firstAttribute="width" constant="210" id="ckr-fg-ju9"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-gb-TEW" userLabel="seperator">
                                             <rect key="frame" x="10" y="94" width="355" height="1"/>
                                             <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1373,14 +1359,31 @@
                                                 <action selector="didTappedAddUser:" destination="AxQ-hA-xTp" eventType="touchUpInside" id="MYd-rg-11B"/>
                                             </connections>
                                         </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="s7F-0B-jPM" userLabel="img">
+                                            <rect key="frame" x="20" y="16" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="jhx-V3-zqf"/>
+                                                <constraint firstAttribute="height" constant="64" id="kGG-bE-nfC"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="35"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="s7F-0B-jPM" firstAttribute="centerY" secondItem="V5r-jE-Xqz" secondAttribute="centerY" id="4Le-9p-4o8"/>
                                         <constraint firstItem="YPa-gb-TEW" firstAttribute="leading" secondItem="V5r-jE-Xqz" secondAttribute="leading" constant="10" id="B94-yE-Bbl"/>
+                                        <constraint firstItem="VpT-FJ-XZS" firstAttribute="centerY" secondItem="V5r-jE-Xqz" secondAttribute="centerY" id="HMy-Pa-s60"/>
                                         <constraint firstItem="CkN-C8-wcK" firstAttribute="centerY" secondItem="V5r-jE-Xqz" secondAttribute="centerY" id="OHS-Ae-0f9"/>
+                                        <constraint firstItem="VpT-FJ-XZS" firstAttribute="leading" secondItem="s7F-0B-jPM" secondAttribute="trailing" constant="18" id="PTp-nZ-DnE"/>
                                         <constraint firstAttribute="trailing" secondItem="YPa-gb-TEW" secondAttribute="trailing" constant="10" id="Xzq-4z-pdt"/>
                                         <constraint firstItem="eTv-ip-fmQ" firstAttribute="centerY" secondItem="V5r-jE-Xqz" secondAttribute="centerY" id="a8y-5n-zsd"/>
                                         <constraint firstAttribute="trailing" secondItem="eTv-ip-fmQ" secondAttribute="trailing" constant="24" id="cuV-CT-DZP"/>
                                         <constraint firstAttribute="trailing" secondItem="CkN-C8-wcK" secondAttribute="trailing" constant="24" id="cxq-cl-J96"/>
+                                        <constraint firstItem="s7F-0B-jPM" firstAttribute="leading" secondItem="V5r-jE-Xqz" secondAttribute="leading" constant="20" id="dvi-YE-jzN"/>
                                         <constraint firstAttribute="bottom" secondItem="YPa-gb-TEW" secondAttribute="bottom" id="wcY-uy-RX9"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -2524,11 +2527,13 @@
                         <outlet property="iconLabel" destination="FFj-55-hFF" id="oiq-YI-gTK"/>
                         <outlet property="navigationBar" destination="soH-jp-HVt" id="Fwm-i1-jbt"/>
                         <outlet property="titleLabel" destination="lGY-Qq-lmg" id="Tly-MS-cEW"/>
+                        <segue destination="BrN-nf-kGO" kind="unwind" identifier="backAddHues" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backAddHues:" id="CUn-R2-VSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWq-DA-MOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BrN-nf-kGO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="132" y="661"/>
+            <point key="canvasLocation" x="-2455" y="222"/>
         </scene>
         <!--Error Controller-->
         <scene sceneID="ZNS-ZK-Yj8">
@@ -4297,7 +4302,7 @@ your profile.</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-6x-GAx">
                                 <rect key="frame" x="30" y="194" width="316" height="459"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vD3-4b-noL">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vD3-4b-noL">
                                         <rect key="frame" x="0.0" y="0.0" width="316" height="142.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5v-a7-ILV" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
@@ -4327,9 +4332,6 @@ your profile.</string>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="7MQ-ly-S0k"/>
-                                                </constraints>
                                                 <connections>
                                                     <outlet property="descriptionLabel" destination="QEF-Yg-4UU" id="Kvi-C4-nEL"/>
                                                     <outlet property="icon" destination="5xK-o0-FSo" id="d1S-nC-qd2"/>
@@ -4337,7 +4339,7 @@ your profile.</string>
                                                     <outlet property="titleLabel" destination="dtV-Lv-dZF" id="3hS-LP-6jf"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-IX-JcH" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-IX-JcH" userLabel="on my plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                 <rect key="frame" x="166" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Izq-Et-frE">
@@ -4375,14 +4377,11 @@ your profile.</string>
                                                 </connections>
                                             </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="cFv-IX-JcH" firstAttribute="leading" secondItem="vD3-4b-noL" secondAttribute="leading" constant="166" id="slj-H0-mq7"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BIV-iR-gkf">
                                         <rect key="frame" x="0.0" y="158.5" width="316" height="142"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwX-bu-D5k" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwX-bu-D5k" userLabel="heart musing" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="142"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="KSg-Yy-jeY">
@@ -4416,7 +4415,7 @@ your profile.</string>
                                                     <outlet property="titleLabel" destination="bZV-0m-kd2" id="VOu-rG-TCf"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXB-Js-Uqn" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXB-Js-Uqn" userLabel="health" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                 <rect key="frame" x="166" y="0.0" width="150" height="142"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="2Zy-Kh-gjl">
@@ -4451,14 +4450,11 @@ your profile.</string>
                                                 </connections>
                                             </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="GXB-Js-Uqn" firstAttribute="leading" secondItem="BIV-iR-gkf" secondAttribute="leading" constant="166" id="PTp-eb-GTf"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-pY-oyq">
                                         <rect key="frame" x="0.0" y="316.5" width="316" height="142.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Yf-bX-0eW" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Yf-bX-0eW" userLabel="daily hustle" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vhO-Eq-Wf9">
@@ -4492,7 +4488,7 @@ your profile.</string>
                                                     <outlet property="titleLabel" destination="ta5-uh-Jhw" id="thp-Ef-Ov4"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-Cv-00j" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-Cv-00j" userLabel="ray of light" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                 <rect key="frame" x="166" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ytx-RX-hIm">
@@ -4527,14 +4523,8 @@ your profile.</string>
                                                 </connections>
                                             </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="7gs-Cv-00j" firstAttribute="leading" secondItem="8Sm-pY-oyq" secondAttribute="leading" constant="166" id="aA2-35-vMT"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="BIV-iR-gkf" firstAttribute="centerY" secondItem="0ed-6x-GAx" secondAttribute="centerY" id="4cH-kE-e43"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -4549,6 +4539,15 @@ your profile.</string>
                             <constraint firstItem="0ed-6x-GAx" firstAttribute="top" secondItem="H7I-N7-CHh" secondAttribute="bottom" constant="20" id="zLw-p7-7mc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="profileHues" destination="d5v-a7-ILV" collectionClass="NSMutableArray" id="pdn-gM-ent"/>
+                        <outletCollection property="profileHues" destination="cFv-IX-JcH" collectionClass="NSMutableArray" id="vP2-LP-lA3"/>
+                        <outletCollection property="profileHues" destination="SwX-bu-D5k" collectionClass="NSMutableArray" id="o4L-vJ-qED"/>
+                        <outletCollection property="profileHues" destination="GXB-Js-Uqn" collectionClass="NSMutableArray" id="aiQ-O1-z9l"/>
+                        <outletCollection property="profileHues" destination="8Yf-bX-0eW" collectionClass="NSMutableArray" id="5Hr-H1-OpY"/>
+                        <outletCollection property="profileHues" destination="7gs-Cv-00j" collectionClass="NSMutableArray" id="JLP-o7-LqS"/>
+                        <segue destination="J8a-pi-IY7" kind="custom" identifier="AddHue" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="x7e-R4-jKz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGa-CE-ldI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4677,7 +4676,6 @@ your Facebook friends.</string>
         <image name="comment-flag-selected-icon" width="12" height="16"/>
         <image name="comment-like-disable-icon" width="19" height="16"/>
         <image name="comment-like-enable-icon" width="20" height="17"/>
-        <image name="connection-image-bg" width="75" height="75"/>
         <image name="create-plus-icon" width="13" height="13"/>
         <image name="create-post-filter-icon" width="34" height="34"/>
         <image name="create-post-hue-fx" width="150" height="191"/>
