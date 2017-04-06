@@ -120,20 +120,20 @@
                                 <rect key="frame" x="81" y="616" width="212" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSn-Jw-YCK">
-                                        <rect key="frame" x="0.0" y="0.0" width="76" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                         <state key="normal" title="Terms of Use">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIe-s0-eWh">
-                                        <rect key="frame" x="81" y="0.0" width="23.5" height="26"/>
+                                        <rect key="frame" x="82" y="0.0" width="22" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-Z7-eFg">
-                                        <rect key="frame" x="109.5" y="0.0" width="102.5" height="26"/>
+                                        <rect key="frame" x="109" y="0.0" width="103" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                         <state key="normal" title=" Privacy Policy.">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -335,7 +335,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
@@ -454,7 +454,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="331" y="216" width="24" height="24"/>
+                                            <rect key="frame" x="331" y="211" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="1su-i0-dQR"/>
                                                 <constraint firstAttribute="width" constant="24" id="TFh-F4-vUT"/>
@@ -469,7 +469,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="20" y="226" width="270" height="28"/>
+                                            <rect key="frame" x="20" y="221" width="270" height="33"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2453,79 +2453,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="w4L-lX-zSo">
-                                <rect key="frame" x="155.5" y="90" width="65" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="w4L-lX-zSo">
+                                <rect key="frame" x="152.5" y="90" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="p5f-Wy-DZg"/>
+                                    <constraint firstAttribute="width" constant="70" id="q4h-6j-hgE"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name a place that you’d like to visit." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVv-Al-95u">
-                                <rect key="frame" x="43" y="378" width="288" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I would love to visit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGY-Qq-lmg">
+                                <rect key="frame" x="16" y="177" width="343" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="07K-QY-e7M"/>
+                                    <constraint firstAttribute="width" constant="343" id="4iI-eV-jOC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I would love to visit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGY-Qq-lmg">
-                                <rect key="frame" x="44" y="265" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30/30 characters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nd-et-o9l">
-                                <rect key="frame" x="44" y="337" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="soH-jp-HVt">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="add some hues" id="ejS-jy-ZUj">
-                                        <barButtonItem key="rightBarButtonItem" image="topbar-check-icon" id="mOF-hw-VTb">
-                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="didTappedConfirm:" destination="J8a-pi-IY7" id="Hl3-O6-cdL"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-LJ-71i">
-                                <rect key="frame" x="16" y="294" width="343" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-h0-5i6">
+                                <rect key="frame" x="16" y="273" width="343" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="OIR-cV-xLb"/>
+                                    <constraint firstAttribute="width" constant="343" id="uYH-Q3-sSM"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFm-Yq-sJp">
+                                <rect key="frame" x="16" y="25" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back-bar-item"/>
+                                <connections>
+                                    <action selector="backAction:" destination="GZR-ur-4m9" eventType="touchUpInside" id="JY0-he-N89"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6N-27-Pt0" userLabel="next button" customClass="RoundedCornersButton" customModule="Hueman" customModuleProvider="target">
+                                <rect key="frame" x="55" y="438" width="265" height="39"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="dqz-yA-jjr"/>
+                                    <constraint firstAttribute="width" constant="265" id="lVH-qy-TmR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
+                                <state key="normal" title="add"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addAction:" destination="J8a-pi-IY7" eventType="touchUpInside" id="VAJ-CQ-P9n"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-LJ-71i">
+                                <rect key="frame" x="17.5" y="232" width="340" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="AsZ-LE-oPv"/>
+                                    <constraint firstAttribute="width" constant="340" id="Ogb-ng-Pg2"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-55-hFF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-55-hFF">
                                 <rect key="frame" x="117" y="155" width="140" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-h0-5i6">
-                                <rect key="frame" x="50" y="335" width="275" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name a place that you’d like to visit." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVv-Al-95u">
+                                <rect key="frame" x="43" y="327" width="288" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="VL1-Ge-gIm"/>
+                                    <constraint firstAttribute="height" constant="56" id="bkj-ts-VwC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="soH-jp-HVt" firstAttribute="leading" secondItem="mhn-9C-7ZK" secondAttribute="leading" id="Ani-O8-d6j"/>
-                            <constraint firstItem="soH-jp-HVt" firstAttribute="top" secondItem="qg3-Rq-iIH" secondAttribute="bottom" id="exV-84-QtB"/>
-                            <constraint firstAttribute="trailing" secondItem="soH-jp-HVt" secondAttribute="trailing" id="nVE-Z8-LlW"/>
+                            <constraint firstItem="G6N-27-Pt0" firstAttribute="centerX" secondItem="mhn-9C-7ZK" secondAttribute="centerX" id="GgS-dP-7GY"/>
+                            <constraint firstItem="b2L-LJ-71i" firstAttribute="top" secondItem="lGY-Qq-lmg" secondAttribute="bottom" constant="17" id="H7M-4V-CqR"/>
+                            <constraint firstItem="w4L-lX-zSo" firstAttribute="top" secondItem="qg3-Rq-iIH" secondAttribute="bottom" constant="70" id="JnD-jQ-fZv"/>
+                            <constraint firstItem="G6N-27-Pt0" firstAttribute="top" secondItem="YVv-Al-95u" secondAttribute="bottom" constant="55" id="LPq-n5-K8G"/>
+                            <constraint firstItem="lGY-Qq-lmg" firstAttribute="top" secondItem="w4L-lX-zSo" secondAttribute="bottom" constant="17" id="ORJ-te-23k"/>
+                            <constraint firstItem="7dP-h0-5i6" firstAttribute="centerX" secondItem="mhn-9C-7ZK" secondAttribute="centerX" id="TIv-Nt-dds"/>
+                            <constraint firstItem="w4L-lX-zSo" firstAttribute="centerX" secondItem="mhn-9C-7ZK" secondAttribute="centerX" id="azB-pr-Wb1"/>
+                            <constraint firstItem="b2L-LJ-71i" firstAttribute="centerX" secondItem="mhn-9C-7ZK" secondAttribute="centerX" id="dCf-VZ-Sio"/>
+                            <constraint firstItem="YVv-Al-95u" firstAttribute="top" secondItem="b2L-LJ-71i" secondAttribute="bottom" constant="53" id="eNT-gf-39a"/>
+                            <constraint firstItem="7dP-h0-5i6" firstAttribute="top" secondItem="lGY-Qq-lmg" secondAttribute="bottom" constant="58" id="myh-OR-iRh"/>
+                            <constraint firstItem="YVv-Al-95u" firstAttribute="centerX" secondItem="mhn-9C-7ZK" secondAttribute="centerX" id="ukf-ty-0m6"/>
+                            <constraint firstItem="lGY-Qq-lmg" firstAttribute="centerX" secondItem="mhn-9C-7ZK" secondAttribute="centerX" id="zHN-0t-aaE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="aFm-Yq-sJp"/>
+                                <exclude reference="FFj-55-hFF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="charactersLabel" destination="2nd-et-o9l" id="uDz-4Y-exp"/>
-                        <outlet property="confirmButton" destination="mOF-hw-VTb" id="mM5-vf-NUd"/>
+                        <outlet property="addButton" destination="G6N-27-Pt0" id="mcM-MT-mNG"/>
                         <outlet property="detailLabel" destination="b2L-LJ-71i" id="j1M-TR-wVt"/>
                         <outlet property="footerLabel" destination="YVv-Al-95u" id="XVD-aU-aFl"/>
                         <outlet property="icon" destination="w4L-lX-zSo" id="ppa-2p-iv3"/>
                         <outlet property="iconLabel" destination="FFj-55-hFF" id="oiq-YI-gTK"/>
-                        <outlet property="navigationBar" destination="soH-jp-HVt" id="Fwm-i1-jbt"/>
                         <outlet property="titleLabel" destination="lGY-Qq-lmg" id="Tly-MS-cEW"/>
                         <segue destination="BrN-nf-kGO" kind="unwind" identifier="backAddHues" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backAddHues:" id="CUn-R2-VSU"/>
                     </connections>
@@ -2533,7 +2567,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWq-DA-MOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BrN-nf-kGO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2455" y="222"/>
+            <point key="canvasLocation" x="-2455.1999999999998" y="221.73913043478262"/>
         </scene>
         <!--Error Controller-->
         <scene sceneID="ZNS-ZK-Yj8">

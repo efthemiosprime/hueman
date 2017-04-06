@@ -15,14 +15,13 @@ protocol AddHueDelegate {
 
 class AddHueController: UIViewController {
 
-    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var detailLabel: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
-    @IBOutlet weak var confirmButton: UIBarButtonItem!
     @IBOutlet weak var charactersLabel: UILabel!
+    @IBOutlet weak var addButton: RoundedCornersButton!
     var delegate: AddHueDelegate?
 
     var type: String?
@@ -43,7 +42,6 @@ class AddHueController: UIViewController {
             case Topic.Wanderlust:
                 icon.image = UIImage(named: "hue-wanderlust-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
-                self.navigationBar.barTintColor = UIColor.UIColorFromRGB(Color.Wanderlust)
                 iconLabel.text = "wanderlust"
                 titleLabel.text  = "I would love to visit"
                 footerLabel.text = "Name a place that you’d like to visit."
@@ -52,7 +50,6 @@ class AddHueController: UIViewController {
             case Topic.OnMyPlate:
                 icon.image = UIImage(named: "hue-plate-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
-                self.navigationBar.barTintColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
 
                 iconLabel.text = "on my plate"
                 titleLabel.text  = "I love to stuff myself with"
@@ -62,7 +59,6 @@ class AddHueController: UIViewController {
             case Topic.RelationshipMusing:
                 icon.image = UIImage(named: "hue-love-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
-                self.navigationBar.barTintColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
 
                 iconLabel.text = "love musings"
                 titleLabel.text  = "I cherish my relationship with"
@@ -73,7 +69,6 @@ class AddHueController: UIViewController {
             case Topic.Health:
                 icon.image = UIImage(named: "hue-health-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
-                self.navigationBar.barTintColor = UIColor.UIColorFromRGB(Color.Health)
 
                 iconLabel.text = "oh health yeah"
                 titleLabel.text  = "I keep health / fit by"
@@ -84,7 +79,6 @@ class AddHueController: UIViewController {
             case Topic.DailyHustle:
                 icon.image = UIImage(named: "hue-hustle-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
-                self.navigationBar.barTintColor = UIColor.UIColorFromRGB(Color.DailyHustle)
 
                 iconLabel.text = "daily hustle"
                 titleLabel.text  = "I am a"
@@ -97,7 +91,6 @@ class AddHueController: UIViewController {
             default:
                 icon.image = UIImage(named: "hue-ray-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
-                self.navigationBar.barTintColor = UIColor.UIColorFromRGB(Color.RayOfLight)
 
                 iconLabel.text = "ray of light"
                 titleLabel.text  = "What makes you smile?"
@@ -121,36 +114,38 @@ class AddHueController: UIViewController {
 //            detailLabel.text = text
 //        }
         
-        self.navigationBar.topItem!.title = "add hues"
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0xffffff)]
     }
+    
+    
+
+
     
     func textFieldDidChange(textField: UITextField){
         
         
         
         if textField.text?.characters.count > 3 {
-            confirmButton.enabled = true
             
             defaults.setObject(textField.text, forKey: type!)
         }
-        let charCount: String = String(textField.text!.characters.count)
-        if textField.text?.characters.count > 1 {
-            charactersLabel.text = "\(charCount)/30 characters"
-        }
-        
+  //      let charCount: String = String(textField.text!.characters.count)
+//        if textField.text?.characters.count > 1 {
+//            charactersLabel.text = "\(charCount)/30 characters"
+//        }
+//        
     }
 
 
-    @IBAction func didTappedConfirm(sender: AnyObject) {
+    @IBAction func addAction(sender: AnyObject) {
         
         
         if let text = detailLabel.text where !text.isEmpty {
             self.delegate?.setHue(detailLabel.text!, type: self.type!)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.performSegueWithIdentifier("backAddHues", sender: nil)
 
         } else {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.performSegueWithIdentifier("backAddHues", sender: nil)
+
         }
         
 
