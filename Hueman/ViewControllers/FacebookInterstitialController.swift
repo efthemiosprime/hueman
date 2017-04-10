@@ -23,6 +23,10 @@ class FacebookInterstitialController: UIViewController {
     
     @IBAction func inviteFriendsAction(sender: AnyObject) {
     }
+    
+    @IBAction func maybeLater(sender: AnyObject) {
+        self.performSegueWithIdentifier("gotoInterstitial", sender: self)
+    }
 
 
 }

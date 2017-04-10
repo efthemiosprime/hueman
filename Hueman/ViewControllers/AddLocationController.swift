@@ -40,16 +40,20 @@ class AddLocationController: UIViewController {
         
         disableNext()
         addDoneBtnToKeyboard()
+        
+
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationField.becomeFirstResponder()
-     
+        
+        print("view did load")
 
         if let unwrappedEntry = entry {
             
@@ -59,6 +63,7 @@ class AddLocationController: UIViewController {
             if CLLocationManager.locationServicesEnabled() {
                 if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
                     determineMyCurrentLocation()
+
                 }
 
             }else {
@@ -69,6 +74,8 @@ class AddLocationController: UIViewController {
         
         
     }
+    
+
 
 //    @IBAction func didTappedConfirmButton(sender: AnyObject) {
 //        
@@ -156,7 +163,7 @@ extension AddLocationController: UITextFieldDelegate {
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+       // textField.resignFirstResponder()
         return true
     }
     
@@ -208,6 +215,8 @@ extension AddLocationController: CLLocationManagerDelegate {
                 self.locationField.text = "\(city), \(state)"
                 if SignupManager.sharedInstance.userLocation == nil {
                     SignupManager.sharedInstance.userLocation = UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on)
+                    self.locationField.becomeFirstResponder()
+                    manager.stopUpdatingLocation()
                 }else {
                     SignupManager.sharedInstance.userLocation!.location = self.locationField.text
                 }

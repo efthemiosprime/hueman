@@ -28,11 +28,11 @@ class AddHueController: UIViewController {
     var hueIndex: Int = 0
     
     let defaults = NSUserDefaults.standardUserDefaults()
-
+    var currentTypeColor: UInt = Color.Wanderlust
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        disableNext()
         detailLabel.delegate = self
 
         if let unwrappedType = type {
@@ -42,6 +42,7 @@ class AddHueController: UIViewController {
             case Topic.Wanderlust:
                 icon.image = UIImage(named: "hue-wanderlust-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
+                currentTypeColor = Color.Wanderlust
                 iconLabel.text = "wanderlust"
                 titleLabel.text  = "I would love to visit"
                 footerLabel.text = "Name a place that you’d like to visit."
@@ -50,6 +51,7 @@ class AddHueController: UIViewController {
             case Topic.OnMyPlate:
                 icon.image = UIImage(named: "hue-plate-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
+                currentTypeColor = Color.OnMyPlate
 
                 iconLabel.text = "on my plate"
                 titleLabel.text  = "I love to stuff myself with"
@@ -59,6 +61,7 @@ class AddHueController: UIViewController {
             case Topic.RelationshipMusing:
                 icon.image = UIImage(named: "hue-love-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
+                currentTypeColor = Color.RelationshipMusing
 
                 iconLabel.text = "love musings"
                 titleLabel.text  = "I cherish my relationship with"
@@ -69,6 +72,7 @@ class AddHueController: UIViewController {
             case Topic.Health:
                 icon.image = UIImage(named: "hue-health-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
+                currentTypeColor = Color.Health
 
                 iconLabel.text = "oh health yeah"
                 titleLabel.text  = "I keep health / fit by"
@@ -79,6 +83,7 @@ class AddHueController: UIViewController {
             case Topic.DailyHustle:
                 icon.image = UIImage(named: "hue-hustle-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
+                currentTypeColor = Color.DailyHustle
 
                 iconLabel.text = "daily hustle"
                 titleLabel.text  = "I am a"
@@ -91,6 +96,7 @@ class AddHueController: UIViewController {
             default:
                 icon.image = UIImage(named: "hue-ray-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
+                currentTypeColor = Color.RayOfLight
 
                 iconLabel.text = "ray of light"
                 titleLabel.text  = "What makes you smile?"
@@ -125,9 +131,10 @@ class AddHueController: UIViewController {
         
         
         if textField.text?.characters.count > 3 {
-            
+            enableNext()
             defaults.setObject(textField.text, forKey: type!)
         }
+        
   //      let charCount: String = String(textField.text!.characters.count)
 //        if textField.text?.characters.count > 1 {
 //            charactersLabel.text = "\(charCount)/30 characters"
@@ -209,5 +216,29 @@ extension AddHueController: UITextFieldDelegate {
         return newLength <= 30
     }
     
+    
+}
+
+
+extension AddHueController {
+    func disableNext() {
+        addButton.setTitle("maybe later", forState: UIControlState.Normal)
+        addButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        addButton.layer.borderWidth = 1
+        addButton.layer.borderColor = UIColor.whiteColor().CGColor
+        addButton.backgroundColor = UIColor.clearColor()
+        
+    }
+    
+    func enableNext() {
+        addButton.setTitle("next", forState: UIControlState.Normal)
+        addButton.setTitleColor(UIColor.UIColorFromRGB(currentTypeColor), forState: UIControlState.Normal)
+
+        addButton.layer.borderWidth = 0
+        addButton.layer.borderColor = UIColor.whiteColor().CGColor
+        addButton.backgroundColor = UIColor.whiteColor()
+        addButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
+        
+    }
     
 }

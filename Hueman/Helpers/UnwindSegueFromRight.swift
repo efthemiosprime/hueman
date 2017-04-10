@@ -14,25 +14,35 @@ class UnwindSegueFromRight: UIStoryboardSegue {
         let toViewController = self.destinationViewController
         let fromViewController = self.sourceViewController
         
-        let containerView = self.sourceViewController.view.superview
-        let screenBounds = UIScreen.mainScreen().bounds
+        // Get the screen width and height.
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
         
-        let finalToFrame = screenBounds
-        let finalFromFrame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+    
         
-        toViewController.view.frame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
-        containerView?.addSubview(toViewController.view)
+        UIGraphicsBeginImageContextWithOptions(toViewController.view.bounds.size, false, 0.0)
+        let context = UIGraphicsGetCurrentContext()
+        toViewController.view.layer.renderInContext(context!)
+        let screenshot = UIImageView(image: UIGraphicsGetImageFromCurrentImageContext())
+        UIGraphicsEndImageContext()
+        
+        
+        fromViewController.view.addSubview(screenshot)
+        screenshot.frame = CGRectMake(-screenWidth, 0, screenWidth, screenHeight)
+//        let finalToFrame = screenBounds
+//        let finalFromFrame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+//        
+//        toViewController.view.frame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
+//        containerView?.addSubview(toViewController.view)
         
         // Animate the transition.
         UIView.animateWithDuration(0.5, animations: {
-            toViewController.view.frame = finalToFrame
-            fromViewController.view.frame = finalFromFrame
+            fromViewController.view.frame = CGRectOffset(fromViewController.view.frame, screenWidth, 0.0)
+
             }, completion: { finished in
-//                let window = UIApplication.sharedApplication().keyWindow
-//                window?.subviews.last?.removeFromSuperview()
-//                let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
-                
-               // print(appDelegate.window!.subviews.count)
+                let window = UIApplication.sharedApplication().keyWindow
+                window?.subviews.last?.removeFromSuperview()
+                screenshot.removeFromSuperview()
 
                 let fromVC: UIViewController = self.sourceViewController
                 fromVC.dismissViewControllerAnimated(false, completion: nil)

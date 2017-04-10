@@ -283,7 +283,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
         if let name = currentUser?.displayName {
             let trimName = String(name.characters.map {$0 == " " ? "_" : $0})
             if let unwrappedUID = currentUser?.uid {
-                imagePath = "userProfileImage/\(unwrappedUID)/\(trimName.lowercaseString).jpg"
+                imagePath = "profile_image/\(unwrappedUID)/\(trimName.lowercaseString).jpg"
             }
         }
         

@@ -86,7 +86,7 @@ class AddNameController: UIViewController {
         let trimmedFirstNameString = firstnameInput.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         let trimmedLastNameString = lastnameInput.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        
+        trimmedLastNameString.capitalizedStringWithLocale(NSLocale.currentLocale())
         SignupManager.sharedInstance.currentUser?.name = "\(trimmedFirstNameString) \(trimmedLastNameString)"
 
         

@@ -165,7 +165,12 @@ class DrawerControllerController: UIViewController {
             caches.removeAllObjects()
             
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+
+            
+            self.dismissViewControllerAnimated(true, completion: {
+
+
+            })
 
             return
         }
@@ -206,9 +211,24 @@ class DrawerControllerController: UIViewController {
         
             AuthenticationManager.sharedInstance.dispose()
             
+
             
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: {
+                
+                if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                    while let presentedViewController = topController.presentedViewController {
+                        topController = presentedViewController
+                        topController.willMoveToParentViewController(nil)
+                        topController.view.removeFromSuperview()
+                        topController.removeFromParentViewController()
+                    }
+                }
+                
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let welcomeController = mainStoryboard.instantiateViewControllerWithIdentifier("WelcomeController") as! WelcomeController
+                UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeController;
+            })
             
             
         } catch let error as NSError {

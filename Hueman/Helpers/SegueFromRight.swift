@@ -11,6 +11,7 @@ import UIKit
 class SegueFromRight: UIStoryboardSegue {
 
     override func perform() {
+        
         // Assign the source and destination views to local variables.
         let firstVCView = self.sourceViewController.view as UIView!
         let secondVCView = self.destinationViewController.view as UIView!
@@ -19,23 +20,44 @@ class SegueFromRight: UIStoryboardSegue {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
+        let statusBarView = UIView(frame: CGRectMake(screenWidth, 0, screenWidth, UIApplication.sharedApplication().statusBarFrame.size.height) )
+        statusBarView.backgroundColor = secondVCView.backgroundColor
+        
+        UIGraphicsBeginImageContextWithOptions(secondVCView.bounds.size, false, 0.0)
+        let context = UIGraphicsGetCurrentContext()
+        secondVCView.layer.renderInContext(context!)
+        let screenshot = UIImageView(image: UIGraphicsGetImageFromCurrentImageContext())
+        UIGraphicsEndImageContext()
+//        secondVCView.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight)
+//        firstVCView.addSubview(secondVCView)
+        firstVCView.addSubview(statusBarView)
+        firstVCView.addSubview(screenshot)
+        screenshot.frame = CGRectMake(screenWidth, UIApplication.sharedApplication().statusBarFrame.height
+, screenWidth, screenHeight )
         // Specify the initial position of the destination view.
-        secondVCView.frame = CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+      //  secondVCView.frame = CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
         
         // Access the app's key window and insert the destination view above the current (source) one.
-        let window = UIApplication.sharedApplication().keyWindow
-        window?.insertSubview(secondVCView, aboveSubview: firstVCView)
+       // let window = UIApplication.sharedApplication().keyWindow
+      //  window?.insertSubview(secondVCView, aboveSubview: firstVCView)
+        
+        
         
         
         // Animate the transition.
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             firstVCView.frame = CGRectOffset(firstVCView.frame, -screenWidth, 0.0)
-            secondVCView.frame = CGRectOffset(secondVCView.frame, -screenWidth, 0.0)
+          //  secondVCView.frame = CGRectOffset(secondVCView.frame, -screenWidth, 0.0)
             
         }) { (Finished) -> Void in
             self.sourceViewController.presentViewController(self.destinationViewController as UIViewController,
                                                             animated: false,
-                                                            completion: nil)
+                                                            completion: {
+                                                                
+                                                                statusBarView.removeFromSuperview()
+                                                                screenshot.removeFromSuperview()
+
+            })
         }
     }
 }

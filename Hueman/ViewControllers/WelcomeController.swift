@@ -29,7 +29,8 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
         super.viewWillAppear(animated)
         
         activityIndicatorContainer.hidden = true
-
+//        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
+//        print(appDelegate.window?.top?.isKindOfClass(WelcomeController))
     }
     
     override func viewDidAppear(animated: Bool) {

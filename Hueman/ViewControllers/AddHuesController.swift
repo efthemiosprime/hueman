@@ -10,9 +10,13 @@ import UIKit
 
 class AddHuesController: UIViewController {
 
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet var profileHues: [ProfileHue]?
     var hues: [String: String] = [:]
-
+    
+    let SKIP_LABEL = "start exploring hueman"
+    let NEXT_LABEL = "next"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +39,8 @@ class AddHuesController: UIViewController {
             Topic.RayOfLight: ""
         ]
         
-        
+        buttonSkip();
+        backButton.tintColor = UIColor.UIColorFromRGB(0x666666)
     }
 
     
@@ -65,6 +70,9 @@ class AddHuesController: UIViewController {
 
     @IBAction func backAddHues(segue: UIStoryboardSegue) {}
 
+    @IBAction func backAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("backToBio", sender: self)
+    }
 
 }
 
@@ -85,7 +93,7 @@ extension AddHuesController: AddHueDelegate {
             break
             
         case Topic.RelationshipMusing:
-            let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.Wanderlust)
+            let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.RelationshipMusing)
             profileHues![2].data = data
             self.hues[Topic.RelationshipMusing] = data.description
             
@@ -116,4 +124,24 @@ extension AddHuesController: AddHueDelegate {
             self.hues[Topic.RayOfLight] = data.description
             break
         }    }
+}
+
+
+extension AddHuesController {
+    func buttonNext() {
+        nextButton.layer.borderWidth = 0
+        nextButton.backgroundColor = UIColor.UIColorFromRGB(0x666666)
+        nextButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        nextButton.setTitle(NEXT_LABEL, forState: .Normal)
+    }
+    
+    func buttonSkip() {
+        nextButton.layer.borderWidth = 1
+        nextButton.setTitleColor(UIColor(rgb: 0x666666, alphaVal: 0.4), forState: .Normal)
+        nextButton.layer.borderColor = UIColor(rgb: 0x666666, alphaVal: 0.4).CGColor
+        nextButton.tintColor = UIColor.UIColorFromRGB(0x666666)
+        nextButton.backgroundColor = UIColor.clearColor()
+        nextButton.setTitle(SKIP_LABEL, forState: .Normal)
+
+    }
 }

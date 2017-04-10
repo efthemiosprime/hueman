@@ -23,11 +23,7 @@ class InterstitialController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
-        for view in appDelegate.window!.subviews {
-            print("view: \(view.parentViewController)")
-        }
+
 
     }
 
@@ -42,6 +38,7 @@ class InterstitialController: UIViewController {
     @IBAction func exploreAction(sender: AnyObject) {
         AuthenticationManager.sharedInstance.loadCurrentUser({
             self.performSegueWithIdentifier("gotoExplore", sender: nil)
+
         })
     }
     

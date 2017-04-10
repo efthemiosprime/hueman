@@ -83,7 +83,7 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     
 
     @IBAction func backAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("backToBio", sender: self)
+      //  self.performSegueWithIdentifier("backToBio", sender: self)
     }
     @IBAction func nextAction(sender: AnyObject) {
         
@@ -91,7 +91,7 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
             
             SignupManager.sharedInstance.userImageData = UIImageJPEGRepresentation(profilePhoto.image!, 0.1) as NSData?
         }
-        self.performSegueWithIdentifier("gotoAddHues", sender: self)
+        self.performSegueWithIdentifier("gotoAddBio", sender: self)
     }
 
     @IBAction func backToAddPhoto(segue: UIStoryboardSegue) {}

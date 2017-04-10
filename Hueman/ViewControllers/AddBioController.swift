@@ -41,7 +41,7 @@ class AddBioController: UIViewController {
     }
     
     @IBAction func backAction(sender: AnyObject) {
-
+        self.performSegueWithIdentifier("backToAddPhoto", sender: self)
     }
 
     @IBAction func nextAction(sender: AnyObject) {
@@ -52,7 +52,7 @@ class AddBioController: UIViewController {
             SignupManager.sharedInstance.currentUser?.bio = bioInput.text
 
         }
-        self.performSegueWithIdentifier("gotoAddPhoto", sender: self)
+        self.performSegueWithIdentifier("gotoAddHues", sender: self)
     }
     
     @IBAction func backToBio(segue: UIStoryboardSegue) {}

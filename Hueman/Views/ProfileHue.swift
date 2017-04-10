@@ -19,7 +19,7 @@ class ProfileHue: UIView {
     var type: String? {
         didSet {
             descriptionLabel.hidden = true
-            plus.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            plus.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             plus.tintColor = UIColor.UIColorFromRGB(0x666666)
             titleLabel.textColor = UIColor.UIColorFromRGB(0x666666)
             if let unwrappedType = type {
@@ -96,8 +96,11 @@ class ProfileHue: UIView {
             if let unwrappedData = data {
             
                 icon.tintColor = UIColor.whiteColor()
-                titleLabel.text = unwrappedData.title
-                descriptionLabel.text = unwrappedData.description
+                titleLabel.text = ""
+                let targetString = "\(unwrappedData.title) \(unwrappedData.description)"
+                let range = NSMakeRange(0, unwrappedData.title.characters.count)
+                descriptionLabel.attributedText = attributedString(from: targetString, nonBoldRange: range)
+               // descriptionLabel.text = "\(unwrappedData.title) \(unwrappedData.description)"
                 titleLabel.textColor = UIColor.whiteColor()
 
                 plus.hidden = true
@@ -153,6 +156,10 @@ class ProfileHue: UIView {
     
     override init (frame : CGRect) {
         super.init(frame : frame)
+        
+        plus.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        plus.tintColor = UIColor.UIColorFromRGB(0x666666)
+
         descriptionLabel.hidden = true
     }
     
@@ -163,7 +170,21 @@ class ProfileHue: UIView {
     }
     
 
-    
+    func attributedString(from string: String, nonBoldRange: NSRange?) -> NSAttributedString {
+        let fontSize = UIFont.systemFontSize()
+        let attrs = [
+            NSFontAttributeName: UIFont.boldSystemFontOfSize(fontSize),
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        ]
+        let nonBoldAttribute = [
+            NSFontAttributeName: UIFont.systemFontOfSize(fontSize)
+            ]
+        let attrStr = NSMutableAttributedString(string: string, attributes: attrs)
+        if let range = nonBoldRange {
+            attrStr.setAttributes(nonBoldAttribute, range: range)
+        }
+        return attrStr
+    }
     
     /*
     // Only override draw() if you perform custom drawing.
