@@ -30,6 +30,7 @@ class AddHueController: UIViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     var currentTypeColor: UInt = Color.Wanderlust
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         disableNext()
@@ -116,9 +117,9 @@ class AddHueController: UIViewController {
         super.viewWillAppear(animated)
                 
 //        
-//        if let text = defaults.objectForKey(type!) as? String   {
-//            detailLabel.text = text
-//        }
+        if let text = defaults.objectForKey(type!) as? String   {
+            detailLabel.text = text
+        }
         
     }
     
@@ -231,7 +232,7 @@ extension AddHueController {
     }
     
     func enableNext() {
-        addButton.setTitle("next", forState: UIControlState.Normal)
+        addButton.setTitle("add", forState: UIControlState.Normal)
         addButton.setTitleColor(UIColor.UIColorFromRGB(currentTypeColor), forState: UIControlState.Normal)
 
         addButton.layer.borderWidth = 0

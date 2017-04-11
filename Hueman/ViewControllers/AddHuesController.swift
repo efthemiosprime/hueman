@@ -16,7 +16,9 @@ class AddHuesController: UIViewController {
     var hues: [String: String] = [:]
     
     let SKIP_LABEL = "start exploring hueman"
-    let NEXT_LABEL = "next"
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +41,7 @@ class AddHuesController: UIViewController {
             Topic.RayOfLight: ""
         ]
         
-        buttonSkip();
+        buttonSkip()
         backButton.tintColor = UIColor.UIColorFromRGB(0x666666)
     }
 
@@ -50,10 +52,11 @@ class AddHuesController: UIViewController {
         if segue.identifier  == "AddHue" {
             if sender != nil {
                 
-                if let unwrappedType = sender {
+                if let unwrappedHue = sender as? ProfileHue {
                     let addHueController = segue.destinationViewController as! AddHueController
                     addHueController.delegate = self
-                    addHueController.type = unwrappedType as? String
+                    addHueController.type = unwrappedHue.type
+
                     
                 }
                 
@@ -63,7 +66,7 @@ class AddHuesController: UIViewController {
     }
     func addHue(sender: UITapGestureRecognizer) {
         let hue = (sender as UITapGestureRecognizer).view as? ProfileHue
-        self.performSegueWithIdentifier("AddHue", sender: hue?.type )
+        self.performSegueWithIdentifier("AddHue", sender: hue )
 
         
     }
@@ -72,6 +75,30 @@ class AddHuesController: UIViewController {
 
     @IBAction func backAction(sender: AnyObject) {
         self.performSegueWithIdentifier("backToBio", sender: self)
+    }
+    
+    @IBAction func exploreAction(sender: AnyObject) {
+        
+        var huesAreEmpty = true
+        checkLoop: for hue in hues {
+            if !hue.1.isEmpty {
+                huesAreEmpty = false
+                break checkLoop
+            }
+        }
+        
+        if huesAreEmpty {
+            print("hes is empty")
+            self.performSegueWithIdentifier("gotoExplore", sender: self)
+        }else {
+            // save
+            SignupManager.sharedInstance.editProfile({
+                self.performSegueWithIdentifier("gotoExplore", sender: self)
+
+            })
+
+        }
+        
     }
 
 }
@@ -123,7 +150,8 @@ extension AddHuesController: AddHueDelegate {
             profileHues![5].data = data
             self.hues[Topic.RayOfLight] = data.description
             break
-        }    }
+        }
+    }
 }
 
 
@@ -132,7 +160,7 @@ extension AddHuesController {
         nextButton.layer.borderWidth = 0
         nextButton.backgroundColor = UIColor.UIColorFromRGB(0x666666)
         nextButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        nextButton.setTitle(NEXT_LABEL, forState: .Normal)
+        nextButton.setTitle(SKIP_LABEL, forState: .Normal)
     }
     
     func buttonSkip() {

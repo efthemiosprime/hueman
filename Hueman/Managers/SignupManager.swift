@@ -60,7 +60,7 @@ class SignupManager {
         
         
         let changeRequest = currentAuthUser!.profileChangeRequest()
-        if let name = self.currentUser?.name {
+        if (self.currentUser?.name) != nil {
             changeRequest.displayName = self.currentUser?.name
             changeRequest.commitChangesWithCompletion({ error in
                 
@@ -95,8 +95,6 @@ class SignupManager {
     func editProfile(completed: (() -> ())? = nil) {
         let currentAuthUser = FIRAuth.auth()?.currentUser
         
-
-        
         var imageURL = ""
         if let name = currentUser?.name {
             let trimName = String(name.characters.map {$0 == " " ? "_" : $0})
@@ -125,7 +123,7 @@ class SignupManager {
                 }
                 
                 
-                changeRequest!.displayName = self.currentUser?.name
+                changeRequest!.displayName = (self.currentUser != nil) ? self.currentUser?.name : ""
                 
                 changeRequest?.commitChangesWithCompletion({
                     error in
@@ -141,7 +139,6 @@ class SignupManager {
                     if let location = self.userLocation {
                         self.currentUser?.location = location
                     }
-                    self.currentUser?.bio = ""
                     
                     self.currentUser?.photoURL = changeRequest?.photoURL?.absoluteString
                     
@@ -150,13 +147,58 @@ class SignupManager {
                     
                     updateRef.updateChildValues(self.currentUser!.toAnyObject())
                     
+                    let huesRef = updateRef.child("hues")
+                    huesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        if snapshot.exists() {
+                            huesRef.updateChildValues((self.currentUser?.hues)!)
+                        }else {
+                            huesRef.setValue((self.currentUser?.hues)!)
+                        }
+                    })
+                    
                     
                     completed?()
                     
                 }) // commitChangesWithCompletion
             }) // imageRef
         } else {
+            changeRequest!.displayName = self.currentUser?.name
             
+            changeRequest?.commitChangesWithCompletion({
+                error in
+                guard error == nil else {
+                    print(error?.localizedDescription)
+                    return
+                }
+                
+                if let birthday = self.userBirthday {
+                    self.currentUser?.birthday = birthday
+                }
+                
+                if let location = self.userLocation {
+                    self.currentUser?.location = location
+                }
+                
+                self.currentUser?.photoURL = changeRequest?.photoURL?.absoluteString
+                
+                let uid = (currentAuthUser?.uid)!
+                let updateRef = self.dataBaseRef.child("/users/\(uid)")
+                
+                updateRef.updateChildValues(self.currentUser!.toAnyObject())
+                
+                let huesRef = updateRef.child("hues")
+                huesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    if snapshot.exists() {
+                        huesRef.updateChildValues((self.currentUser?.hues)!)
+                    }else {
+                        huesRef.setValue((self.currentUser?.hues)!)
+                    }
+                })
+                
+                
+                completed?()
+                
+            }) // commitChangesWithCompletion
         }
         
     }

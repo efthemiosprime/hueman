@@ -320,8 +320,8 @@
 		3A154E2A1DCD6F9A005A79EC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3ABDCBFB1E8855D8006B97AE /* LoginController.swift */,
 				3A154E3A1DCD7352005A79EC /* HueboardsViewController.swift */,
+				3ABDCBFB1E8855D8006B97AE /* LoginController.swift */,
 				3A154E3B1DCD7352005A79EC /* CreatePostViewController.swift */,
 				3A154E3C1DCD7352005A79EC /* ProfileViewController.swift */,
 				3A154E3D1DCD7352005A79EC /* ConnectionProfileViewController.swift */,

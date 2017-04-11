@@ -40,8 +40,10 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
 //        print(appDelegate.window!.subviews.count)
 
        // let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
-
-
+        
+        AuthenticationManager.sharedInstance.loadCurrentUser()
+        SignupManager.sharedInstance.currentUser = AuthenticationManager.sharedInstance.currentUser
+    
     }
     
     override func viewWillAppear(animated: Bool) {
