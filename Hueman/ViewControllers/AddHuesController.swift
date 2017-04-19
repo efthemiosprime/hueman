@@ -88,11 +88,12 @@ class AddHuesController: UIViewController {
         }
         
         if huesAreEmpty {
-            print("hes is empty")
+            SignupManager.sharedInstance.dispose()
             self.performSegueWithIdentifier("gotoExplore", sender: self)
         }else {
             // save
             SignupManager.sharedInstance.editProfile({
+                SignupManager.sharedInstance.dispose()
                 self.performSegueWithIdentifier("gotoExplore", sender: self)
 
             })
@@ -151,6 +152,11 @@ extension AddHuesController: AddHueDelegate {
             self.hues[Topic.RayOfLight] = data.description
             break
         }
+        
+        
+        SignupManager.sharedInstance.currentUser?.hues = hues
+        buttonNext()
+        
     }
 }
 

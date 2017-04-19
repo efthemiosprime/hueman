@@ -82,7 +82,7 @@ extension AddBioController: UITextViewDelegate {
             buttonSkip()
         }
         
-        if textView.text.characters.count >= 10 && textView.text != "write here..."{
+        if textView.text.characters.count >= 5 && textView.text != "write here..."{
             buttonNext()
         }
         
@@ -98,8 +98,8 @@ extension AddBioController: UITextViewDelegate {
 extension AddBioController {
     func buttonNext() {
         nextButton.layer.borderWidth = 0
-        nextButton.backgroundColor = UIColor.UIColorFromRGB(0x666666)
-        nextButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        nextButton.backgroundColor = UIColor.whiteColor()
+        nextButton.setTitleColor(UIColor.UIColorFromRGB(0x666666), forState: .Normal)
         nextButton.setTitle(NEXT_LABEL, forState: .Normal)
 
     }
@@ -109,7 +109,7 @@ extension AddBioController {
         nextButton.setTitle(SKIP_LABEL, forState: .Normal)
         nextButton.setTitleColor(UIColor(rgb: 0xffffff, alphaVal: 0.4), forState: .Normal)
         nextButton.layer.borderColor = UIColor(rgb: 0xffffff, alphaVal: 0.4).CGColor
-        nextButton.tintColor = UIColor.UIColorFromRGB(0x666666)
+        nextButton.tintColor = UIColor.UIColorFromRGB(0xffffff)
         nextButton.backgroundColor = UIColor.clearColor()
     }
 }

@@ -67,7 +67,31 @@ struct FirebaseManager {
 
     }
     
-    func loginWithFacebook(url: String, loggedIn: (()->())? = nil) {
+    
+    func loginWithFacebookAcessToken(accessToken: String, loggedIn: (()->())? = nil) {
+        let credential = FIRFacebookAuthProvider.credentialWithAccessToken(accessToken)
+        FIRAuth.auth()?.signInWithCredential(credential, completion: { (user, error) in
+            guard error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            
+            if let userEmail = user?.email {
+                self.userExist(userEmail, completion: { exist in
+                    if AuthenticationManager.sharedInstance.currentUser == nil {
+                        AuthenticationManager.sharedInstance.loadCurrentUser({
+                            loggedIn?()
+                        })
+                    }
+                })
+            }
+        })
+
+    }
+    func loginWithFacebook(url: String, accessToken: String? = nil, loggedIn: (()->())? = nil) {
+        
+        
+        
         let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
         FIRAuth.auth()?.signInWithCredential(credential, completion: {
             (user, error) in
@@ -76,8 +100,9 @@ struct FirebaseManager {
                 return
             }
             
-            self.keychainWrapper.mySetObject(credential, forKey: kSecValueData)
-            self.keychainWrapper.writeToKeychain()
+          //  self.keychainWrapper.mySetObject(FBSDKAccessToken.currentAccessToken().tokenString, forKey: kSecValueData)
+//            self.keychainWrapper.mySetObject(credential, forKey: kSecValueData)
+//            self.keychainWrapper.writeToKeychain()
             
             if let userEmail = user?.email {
                 self.userExist(userEmail, completion: {
@@ -85,11 +110,17 @@ struct FirebaseManager {
                     if exists {
                         if AuthenticationManager.sharedInstance.currentUser == nil {
                             AuthenticationManager.sharedInstance.loadCurrentUser({
+                                NSUserDefaults.standardUserDefaults().setValue(FBSDKAccessToken.currentAccessToken().tokenString, forKey: "accessToken")
+                                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+                                NSUserDefaults.standardUserDefaults().synchronize()
                                 loggedIn?()
                             })
                         }
                     }else {
                         self.uploadImageFromURL(url, user: user!, complete: {
+                            NSUserDefaults.standardUserDefaults().setValue(FBSDKAccessToken.currentAccessToken().tokenString, forKey: "accessToken")
+                            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+                            NSUserDefaults.standardUserDefaults().synchronize()
                             loggedIn?()
                         })
                     }
@@ -282,7 +313,6 @@ struct FirebaseManager {
                         self.saveUserInfo(user, userVo: newUserVo)
                         
                         AuthenticationManager.sharedInstance.currentUser = newUserVo
-                        print(FBSDKAccessToken.currentAccessToken())
                         complete?()
                     })
                     
@@ -313,14 +343,6 @@ struct FirebaseManager {
 
     }
     
-     func manuallyStoreCreds() {
-        
-        NSUserDefaults.standardUserDefaults().setValue("bongbox@gmail.com", forKeyPath: "email")
-        self.keychainWrapper.mySetObject("12qwaszx#", forKey: kSecValueData)
-        self.keychainWrapper.writeToKeychain()
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
-        NSUserDefaults.standardUserDefaults().synchronize()
-    }
     
     
 }

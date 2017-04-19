@@ -73,14 +73,17 @@ class ProfileViewController: UIViewController {
             userRef.observeSingleEventOfType(.Value, withBlock: {
                 snapshot in
                 if snapshot.exists() {
-                    
                     let uid = self.user?.uid!
                     let userInfo = snapshot.value![uid!]!
                     self.user?.name = userInfo!["name"] as? String ?? ""
                     self.user?.bio =  userInfo!["bio"] as? String ?? ""
-                    self.user?.birthday = userInfo!["birthday"] as? UserBirthday
-                    self.user?.location = userInfo!["location"] as? UserLocation
-                    
+                    if let birthday = userInfo!["birthday"] as? UserBirthday {
+                        self.user?.birthday = birthday
+                    }
+                    if let location = userInfo!["birthday"] as? UserLocation {
+                        self.user?.location = location
+                    }
+   
                     
                     if let unwrappedUser = self.user {
                         self.getCurrentProfile(unwrappedUser)
@@ -179,9 +182,17 @@ class ProfileViewController: UIViewController {
 
     func getCurrentProfile(_user: User) {
        // self.navigationBar.topItem!.title = _user.name
-        self.birthdayLabel.text = _user.birthday!.date
-        self.cityLabel.text = _user.location!.location
+        
+        if let date = _user.birthday?.date {
+            self.birthdayLabel.text = date
+        }
+        
+        if let location = _user.location?.location {
+            self.cityLabel.text = location
+ 
+        }
         self.bioLabel.text = _user.bio
+        
 
         if let unwrappedPhotoURL = _user.photoURL where !(_user.photoURL?.isEmpty)! {
             

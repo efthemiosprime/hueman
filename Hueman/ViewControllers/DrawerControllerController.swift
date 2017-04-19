@@ -141,6 +141,7 @@ class DrawerControllerController: UIViewController {
             
         if FBSDKAccessToken.currentAccessToken() != nil  {
             let loginManager = FBSDKLoginManager()
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "accessToken")
             loginManager.logOut() // this is an instance function
             FBSDKAccessToken.setCurrentAccessToken(nil)
             FBSDKProfile.setCurrentProfile(nil)
@@ -150,6 +151,7 @@ class DrawerControllerController: UIViewController {
             if hasLogin {
                 NSUserDefaults.standardUserDefaults().setBool(false, forKey: "hasLoginKey")
                 NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "email")
+
                 NSUserDefaults.standardUserDefaults().synchronize()
             }
             

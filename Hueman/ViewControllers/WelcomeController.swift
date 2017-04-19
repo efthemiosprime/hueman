@@ -48,25 +48,41 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
 
         
         if hasLogin {
-
-            if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = firebaseManager.keychainWrapper.myObjectForKey("v_Data") as? String {
-                
+            
+            if let fbAccessToken = NSUserDefaults.standardUserDefaults().valueForKey("accessToken") as? String {
                 showIndicator()
-                
-                firebaseManager.logIn(storedEmail, password: storedPassword, loggedIn: {
-                    // AuthenticationManager.sharedInstance
+
+                firebaseManager.loginWithFacebookAcessToken(fbAccessToken, loggedIn: {
                     self.hideIndicator()
-                    
-                    
+
                     self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
-                    
-                    }, onerror: { errorMsg in
-                        
-                        self.hideIndicator()
-                        self.showError(errorMsg)
-                        
+
                 })
+
+            }else {
+                if let storedEmail = NSUserDefaults.standardUserDefaults().valueForKey("email") as? String, let storedPassword = firebaseManager.keychainWrapper.myObjectForKey("v_Data") as? String {
+                    
+                    showIndicator()
+                    
+                    firebaseManager.logIn(storedEmail, password: storedPassword, loggedIn: {
+                        // AuthenticationManager.sharedInstance
+                        self.hideIndicator()
+                        
+                        
+                        self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
+                        
+                        }, onerror: { errorMsg in
+                            
+                            self.hideIndicator()
+                            self.showError(errorMsg)
+                            
+                    })
+                }
             }
+            
+            
+            
+
         }
           
     }
@@ -96,7 +112,6 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                 
                 if(error == nil)
                 {
-                    print(result)
                     if (result.valueForKey("email") as? String) != nil {
                         if let picture = result["picture"] {
                             if let data = picture!["data"]{
