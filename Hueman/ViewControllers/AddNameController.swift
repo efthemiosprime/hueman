@@ -132,7 +132,7 @@ class AddNameController: UIViewController {
     }
     
     func isValidInput(Input:String) -> Bool {
-        let RegEx = "\\A\\w{2,30}\\z"
+        let RegEx = "[a-zA-Z ]{2,30}\\z"
         let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
         return Test.evaluateWithObject(Input)
     }

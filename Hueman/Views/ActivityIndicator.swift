@@ -68,12 +68,15 @@ import UIKit
     }
     
     func stopTimer() {
-        
-        timer.invalidate()
-        timerOn = false
-        current = 0
-        self.masterSlider = 1
-        self.setNeedsDisplay()
+        if timer == nil { return }
+        if timer.valid {
+            timer.invalidate()
+            timerOn = false
+            current = 0
+            self.masterSlider = 1
+            self.setNeedsDisplay()
+        }
+
         
     }
     

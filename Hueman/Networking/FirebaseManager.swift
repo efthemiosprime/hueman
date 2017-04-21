@@ -281,7 +281,7 @@ struct FirebaseManager {
                 var imagePath = ""
                 if let name = user.displayName {
                     let trimName = String(name.characters.map {$0 == " " ? "_" : $0})
-                    imagePath = "profile_image/\(user.uid)/\(trimName.lowercaseString).jpg"
+                    imagePath = "profile_images/\(user.uid)/\(trimName.lowercaseString).jpg"
                     
                 }
         
