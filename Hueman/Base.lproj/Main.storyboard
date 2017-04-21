@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fL2-sb-gmn">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fL2-sb-gmn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -337,14 +337,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-Uo-JSf" userLabel="Footer">
-                                            <rect key="frame" x="0.0" y="328" width="375" height="37"/>
+                                            <rect key="frame" x="0.0" y="327" width="375" height="37"/>
                                             <subviews>
                                                 <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-yU-eVX">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
@@ -413,7 +413,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wn3-x9-pSq" userLabel="Profile Container">
-                                            <rect key="frame" x="0.0" y="255" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="254" width="375" height="65"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed-avatar-background" translatesAutoresizingMaskIntoConstraints="NO" id="4lu-IW-HOb">
                                                     <rect key="frame" x="290" y="0.0" width="66" height="66"/>
@@ -447,7 +447,7 @@
                                             </variation>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGm-EW-FyY">
-                                            <rect key="frame" x="20" y="252" width="270" height="21"/>
+                                            <rect key="frame" x="20" y="251" width="270" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="6hn-CY-Kt4"/>
                                             </constraints>
@@ -456,7 +456,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="331" y="216" width="24" height="24"/>
+                                            <rect key="frame" x="331" y="215" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="1su-i0-dQR"/>
                                                 <constraint firstAttribute="width" constant="24" id="TFh-F4-vUT"/>
@@ -471,7 +471,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="20" y="226" width="270" height="28"/>
+                                            <rect key="frame" x="20" y="225" width="270" height="28"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1142,7 +1142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="create a post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHo-0f-h4g">
-                                <rect key="frame" x="127" y="9" width="121" height="21"/>
+                                <rect key="frame" x="127.5" y="9" width="121" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7qT-1o-cve"/>
                                 </constraints>
@@ -1419,7 +1419,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1450,7 +1450,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1471,7 +1471,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1834,7 +1834,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2184,7 +2184,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2456,7 +2456,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="w4L-lX-zSo">
-                                <rect key="frame" x="152.5" y="90" width="70" height="70"/>
+                                <rect key="frame" x="153" y="90" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="p5f-Wy-DZg"/>
                                     <constraint firstAttribute="width" constant="70" id="q4h-6j-hgE"/>
@@ -2507,7 +2507,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-LJ-71i">
-                                <rect key="frame" x="17.5" y="232" width="340" height="42"/>
+                                <rect key="frame" x="18" y="232" width="340" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="AsZ-LE-oPv"/>
                                     <constraint firstAttribute="width" constant="340" id="Ogb-ng-Pg2"/>
@@ -4785,9 +4785,9 @@ your Facebook friends.</string>
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="man-eV-AnG"/>
+        <segue reference="KSz-sF-lgm"/>
         <segue reference="t3h-Zx-gWI"/>
-        <segue reference="5mf-yO-1rC"/>
+        <segue reference="PBT-r4-Iq7"/>
         <segue reference="eFq-P6-QEy"/>
         <segue reference="x6K-ez-uIt"/>
     </inferredMetricsTieBreakers>

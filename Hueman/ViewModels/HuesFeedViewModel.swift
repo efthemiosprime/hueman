@@ -148,26 +148,31 @@ class HuesFeedViewModel: NSObject {
                         
                     })
                 }else {
-                    self.storageRef.referenceForURL(photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-                        if error == nil {
-                            if let imageData = data {
-                                let image = UIImage(data: imageData)
-                                self.cachedImages.setObject(image!, forKey:photoURL)
-                                
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    if let currentCell = cell as? FeedTextTableViewCell {
-                                        currentCell.authorProfileImage.image = image
-                                    } else {
-                                        (cell as? FeedImageTableViewCell)!.authorProfileImage.image = image
-                                    }
+                    
+                    if photoURL.isEmpty {
+                        print("it's empty")
+                    }else {
+                        self.storageRef.referenceForURL(photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                            if error == nil {
+                                if let imageData = data {
+                                    let image = UIImage(data: imageData)
+                                    self.cachedImages.setObject(image!, forKey:photoURL)
                                     
-                                })
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        if let currentCell = cell as? FeedTextTableViewCell {
+                                            currentCell.authorProfileImage.image = image
+                                        } else {
+                                            (cell as? FeedImageTableViewCell)!.authorProfileImage.image = image
+                                        }
+                                        
+                                    })
+                                }
+                                
+                            }else {
+                                print(error!.localizedDescription)
                             }
-                            
-                        }else {
-                            print(error!.localizedDescription)
-                        }
-                    })
+                        })
+                    }
                 }
             }
             
