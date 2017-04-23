@@ -48,23 +48,28 @@ class CommentCell: UITableViewCell {
                         
                     })
                 } else {
-                    storageRef.referenceForURL(comment.imageURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-                        if error == nil {
-                            
-                            if let imageData = data {
-                                let feedImage = UIImage(data: imageData)
-                                self.cachedImages.setObject(feedImage!, forKey:comment.imageURL)
+                    if comment.imageURL.isEmpty {
+                        print("is empty")
+                    }else {
+                        storageRef.referenceForURL(comment.imageURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                            if error == nil {
                                 
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    self.authorImage.image = feedImage
+                                if let imageData = data {
+                                    let feedImage = UIImage(data: imageData)
+                                    self.cachedImages.setObject(feedImage!, forKey:comment.imageURL)
                                     
-                                })
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        self.authorImage.image = feedImage
+                                        
+                                    })
+                                }
+                                
+                            }else {
+                                print(error!.localizedDescription)
                             }
-                            
-                        }else {
-                            print(error!.localizedDescription)
-                        }
-                    })
+                        })
+                    }
+
                 }
                 
                 update()
