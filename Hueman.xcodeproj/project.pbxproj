@@ -112,6 +112,9 @@
 		3AEFA46F1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA46E1E19D4D3005C78D2 /* String+CapitilizingFirstLetter.swift */; };
 		3AEFA4731E19EB88005C78D2 /* ErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA4721E19EB88005C78D2 /* ErrorController.swift */; };
 		3AFB8EE91E468F7B0035B609 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFB8EE81E468F7B0035B609 /* MessageUI.framework */; };
+		3C2A963E1EAC684900BC84DB /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A963D1EAC684900BC84DB /* OnboardingController.swift */; };
+		3C2A96421EAC73DC00BC84DB /* OnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */; };
+		3C2A96441EAC74B100BC84DB /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A96431EAC74B100BC84DB /* Onboarding.swift */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
@@ -233,6 +236,9 @@
 		3AEFA4721E19EB88005C78D2 /* ErrorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorController.swift; path = ViewControllers/ErrorController.swift; sourceTree = "<group>"; };
 		3AFB8EE81E468F7B0035B609 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3AFB8EEA1E468FF30035B609 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		3C2A963D1EAC684900BC84DB /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingController.swift; path = ViewControllers/OnboardingController.swift; sourceTree = "<group>"; };
+		3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingPageController.swift; path = ViewControllers/OnboardingPageController.swift; sourceTree = "<group>"; };
+		3C2A96431EAC74B100BC84DB /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Onboarding.swift; path = Models/Onboarding.swift; sourceTree = "<group>"; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
@@ -351,6 +357,8 @@
 				3A1604201E91BF1F00FF4DCB /* InterstitialController.swift */,
 				3A1604241E91FAC000FF4DCB /* AddHuesController.swift */,
 				3A0B4BB51E92B0F800A6F1BB /* FacebookInterstitialController.swift */,
+				3C2A963D1EAC684900BC84DB /* OnboardingController.swift */,
+				3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -474,6 +482,7 @@
 				3A2DE1591E441DC5001C3170 /* Flag.swift */,
 				3A16DFE81E6222C8007AD51B /* CommentLike.swift */,
 				3A31D4B51E63DAD800A83272 /* PendingRequest.swift */,
+				3C2A96431EAC74B100BC84DB /* Onboarding.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -714,6 +723,7 @@
 				3A154E4C1DCD7352005A79EC /* ConnectionsViewController.swift in Sources */,
 				3A82E6681E118A38008F520A /* Comment.swift in Sources */,
 				3A96FD1F1E93336500766BEF /* UIView+ parentViewController.swift in Sources */,
+				3C2A96421EAC73DC00BC84DB /* OnboardingPageController.swift in Sources */,
 				3A154E361DCD7345005A79EC /* AutoLabel.swift in Sources */,
 				3A982BB81DF9023D005DF901 /* CreateProfileViewController+Handlers.swift in Sources */,
 				3A154E761DCD7852005A79EC /* NetworkManager.swift in Sources */,
@@ -733,6 +743,7 @@
 				3A14FEF41E5CE6EE00B6FDB0 /* CreateProfileViewModel.swift in Sources */,
 				3A154E511DCD7352005A79EC /* HuesFeedViewController.swift in Sources */,
 				3A154E5D1DCD7389005A79EC /* ConnectionRightItem.swift in Sources */,
+				3C2A963E1EAC684900BC84DB /* OnboardingController.swift in Sources */,
 				3A154E271DCD6EA6005A79EC /* Hueboard.swift in Sources */,
 				3A16DFE91E6222C8007AD51B /* CommentLike.swift in Sources */,
 				3A82E66A1E118D00008F520A /* CommentCell.swift in Sources */,
@@ -751,6 +762,7 @@
 				3A48D7B21E1C83F800AB2FB6 /* UnwindSegueFromRight.swift in Sources */,
 				3A3AF70A1E8A087200ED793F /* AddBirthdayController.swift in Sources */,
 				3AEFA46D1E19B62B005C78D2 /* Hue.swift in Sources */,
+				3C2A96441EAC74B100BC84DB /* Onboarding.swift in Sources */,
 				3A98C7E71E22C2290009B793 /* NotificationsViewModel.swift in Sources */,
 				3A154E4E1DCD7352005A79EC /* TabBar.swift in Sources */,
 				3A48D7B01E1C839600AB2FB6 /* SegueFromRight.swift in Sources */,
