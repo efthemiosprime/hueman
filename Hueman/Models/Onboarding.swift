@@ -12,12 +12,16 @@ struct Onboarding {
     
     var imageName: String?
     var description: String?
+    var background: String?
+    var title: String?
 
     
-    init(imageName: String, description:String) {
+    init(title:String, imageName: String, background:String, description:String) {
         
+        self.title = title
         self.imageName = imageName
         self.description = description
+        self.background = background
         
     }
 

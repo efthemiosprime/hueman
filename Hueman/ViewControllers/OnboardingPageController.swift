@@ -22,8 +22,11 @@ class OnboardingPageController: UIPageViewController {
         self.delegate = self
         
         onboardings = [
-             Onboarding(imageName: "onboarding-welcome", description: "Celebrate life's awesome moments in a safe and positive space - free from online bullying and abuse!"),
-             Onboarding(imageName: "onboarding-share", description: "Share stories with hues that represent positive, inspiring and fun topics that bring people together.")
+            Onboarding(title: "", imageName: "onboarding-welcome", background: "onboarding-welcome-bg", description: "Celebrate life's awesome moments in a safe and positive space - free from online bullying and abuse!"),
+            Onboarding(title:"Share", imageName: "onboarding-share", background: "onboarding-share-bg", description: "Share stories with hues that represent positive, inspiring and fun topics that bring people together."),
+            Onboarding(title:"Flag", imageName: "onboarding-flag", background: "onboarding-flag-bg", description: "Click the flag button and help remove hateful posts or comments in our community."),
+            Onboarding(title:"Customize", imageName: "onboarding-customize", background: "onboarding-customize-bg", description: "Customize your feed right from your home screen, and browse topics you’re in the mood to see!")
+
         ]
 
         
@@ -69,12 +72,12 @@ class OnboardingPageController: UIPageViewController {
         // Create a new view controller and pass suitable data.
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardingController = storyboard.instantiateViewControllerWithIdentifier("Onboarding") as! OnboardingController
+        let onboardingController = storyboard.instantiateViewControllerWithIdentifier("OnboardingItem") as! OnboardingController
         
         
         onboardingController.index = index
         onboardingController.data = onboardings[index]
-        
+        onboardingController.delegate = self
       //  onboardingController.delegate = hueDelegate
         
         
@@ -89,37 +92,37 @@ extension OnboardingPageController: UIPageViewControllerDataSource {
         
         let pageContent: OnboardingController = viewController as! OnboardingController
         
-        var index = pageContent.index
+        selectedIndex = pageContent.index
         
-        if ((index == 0) || (index == NSNotFound))
+        if ((selectedIndex == 0) || (selectedIndex == NSNotFound))
         {
             return nil
         }
         
-        index -= 1;
+        selectedIndex -= 1;
         
         
-        return getViewControllerAtIndex(index)
+        return getViewControllerAtIndex(selectedIndex)
         
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let pageContent: OnboardingController = viewController as! OnboardingController
         
-        var index = pageContent.index
+        var selectedIndex = pageContent.index
         
-        if (index == NSNotFound)
+        if (selectedIndex == NSNotFound)
         {
             return nil;
         }
         
-        index += 1;
-        if (index == onboardings.count)
+        selectedIndex += 1;
+        if (selectedIndex == onboardings.count)
         {
             return nil;
         }
         
-        return getViewControllerAtIndex(index)
+        return getViewControllerAtIndex(selectedIndex)
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
@@ -148,6 +151,22 @@ extension OnboardingPageController: UIPageViewControllerDelegate {
             
         }
     }
-    
-    
 }
+
+
+extension OnboardingPageController: OnboardingDelegate {
+
+    
+    func gotoNextPage(index: Int) {
+        guard let currentPage = self.viewControllers?.first else {return}
+        guard let nextPage = dataSource?.pageViewController( self, viewControllerAfterViewController: currentPage ) else { return }
+                setViewControllers([nextPage], direction: .Forward, animated: true, completion: nil)
+        selectedIndex = index
+
+    }
+    
+    func getTotalPage() -> Int {
+        return onboardings.count
+    }
+}
+

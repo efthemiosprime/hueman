@@ -290,6 +290,7 @@
 		3A060D2C1D9CADE9007F2B02 /* Hueman */ = {
 			isa = PBXGroup;
 			children = (
+				3CA8561E1EAD1BE4005ADF0A /* FirebaseAPI */,
 				3A060D2D1D9CADE9007F2B02 /* AppDelegate.swift */,
 				3A8BCFAD1E078BD2007AE84B /* Managers */,
 				3A45BAAD1DE926200062081E /* Utils */,
@@ -555,6 +556,13 @@
 				3A987B151DED1BC600388DDF /* KeychainWrapper.m */,
 			);
 			name = KeychainWrapper;
+			sourceTree = "<group>";
+		};
+		3CA8561E1EAD1BE4005ADF0A /* FirebaseAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FirebaseAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
