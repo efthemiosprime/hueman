@@ -55,6 +55,7 @@ class AddConnectionsController: UITableViewController {
             currentUser = AuthenticationManager.sharedInstance.currentUser
         }
         
+        
         fetchConnections()
         
 //        if let unwrappedUID = currentUser?.uid {
@@ -182,8 +183,12 @@ class AddConnectionsController: UITableViewController {
                 
                 if snapshot.exists() {
                     for con in snapshot.children {
+                        var userLocation: UserLocation?
+                        if let unwrappedLocation = con.value["location"] as? [String: AnyObject] {
+                            userLocation = UserLocation(location: (unwrappedLocation["location"] as? String)!, visible: (unwrappedLocation["visible"] as? Bool)!)
+                        }
                        let connection = Connection(name: (con.value!["name"] as? String)!,
-                            location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                            location: userLocation!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
                        self.connections.append(connection)
                     }
                 }
@@ -270,12 +275,17 @@ class AddConnectionsController: UITableViewController {
                                         var requester = Connection(snapshot: snapshot)
                                         requester.friendship = friendshipKey
                                         
-                                        var recipient = Connection(name: self.currentUser!.name, location: self.currentUser!.location!.location!, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
-                                        recipient.friendship = friendshipKey
+                                        if let unwrappedLocation = self.currentUser?.location {
+                                            var recipient = Connection(name: self.currentUser!.name, location: unwrappedLocation, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
+                                            recipient.friendship = friendshipKey
+                                            
+                                            self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
+                                            self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
+                                        }
+
                                         
                                         
-                                        self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
-                                        self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
+
                                         
                                     }
                                 }) { error in

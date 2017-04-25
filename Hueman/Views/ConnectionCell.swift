@@ -18,7 +18,10 @@ class ConnectionCell: UITableViewCell {
         didSet {
             if let connection = connection {
                 nameLabel.text = connection.name
-                locationLabel.text = connection.location
+                if let location = connection.location?.location {
+                    locationLabel.text = location
+
+                }
                 //connectionImage.image = UIImage(named: connection.imageURL!)
                 connectionImage.clipsToBounds = true
             }

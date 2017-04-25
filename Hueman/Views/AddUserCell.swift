@@ -30,7 +30,8 @@ class AddUserCell: UITableViewCell {
                     locationLabel.text = location
                 }
                 connectionImage.clipsToBounds = true
-                
+                connectionImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
+
                 
                 getPendingRequest({
                     if let userUid = user.uid {

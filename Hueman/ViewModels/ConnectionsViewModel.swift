@@ -33,8 +33,12 @@ class ConnectionsViewModel: NSObject {
             
             if snapshot.exists() {
                 self.connections = snapshot.children.map({(con) -> Connection in
+                    var userLocation: UserLocation?
+                    if let unwrappedLocation = con.value["location"] as? [String: AnyObject] {
+                        userLocation = UserLocation(location: unwrappedLocation["location"]! as! String, visible: (unwrappedLocation["visible"] as? Bool)!)
+                    }
                     let connection = Connection(name: (con.value!["name"] as? String)!,
-                        location: (con.value!["location"] as? String)!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                        location: userLocation!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
                     return connection
                 }).sort({ (user1, user2) -> Bool in
                     user1.name < user2.name })
@@ -83,6 +87,12 @@ class ConnectionsViewModel: NSObject {
             cell.connectionImage.image = (cachedImage as! UIImage)
         }else {
             
+
+            
+            guard !url.isEmpty else {
+                print("url is empty")
+                return
+            }
             
             storageRef.referenceForURL(url).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
                 if error == nil {
@@ -93,13 +103,14 @@ class ConnectionsViewModel: NSObject {
                         
                         dispatch_async(dispatch_get_main_queue(), {
                             cell.connectionImage.image = image
-                        
+                            
                         })
                     }
                 }else {
                     print(error!.localizedDescription)
                 }
             })
+
         }
     }
     

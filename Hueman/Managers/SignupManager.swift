@@ -150,9 +150,14 @@ class SignupManager {
                     let huesRef = updateRef.child("hues")
                     huesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         if snapshot.exists() {
-                            huesRef.updateChildValues((self.currentUser?.hues)!)
+                          //  huesRef.updateChildValues((self.currentUser?.hues)!)
+                            if let hues = self.currentUser?.hues {
+                                huesRef.updateChildValues(hues)
+                            }
                         }else {
-                            huesRef.setValue((self.currentUser?.hues)!)
+                            if let hues = self.currentUser?.hues {
+                                huesRef.setValue(hues)
+                            }
                         }
                     })
                     

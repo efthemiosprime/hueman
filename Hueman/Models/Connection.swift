@@ -13,13 +13,13 @@ import FirebaseDatabase
 struct Connection {
     
     let name: String?
-    let location: String?
+    var location: UserLocation?
     let imageURL: String?
     let uid: String!
     var friendship:String?
     var pending: Bool = false
 
-    init(name: String, location:String, imageURL:String, uid: String, friendship: String = "") {
+    init(name: String, location:UserLocation, imageURL:String, uid: String, friendship: String = "") {
         
         self.name = name
         self.location = location
@@ -33,7 +33,12 @@ struct Connection {
     init(snapshot: FIRDataSnapshot) {
         
         self.name = snapshot.value!["name"] as? String
-        self.location = snapshot.value!["location"] as? String
+       // self.location = snapshot.value!["location"] as? UserLocation
+        
+        if let unwrappedLocation = snapshot.value!["location"] as? [String: AnyObject] {
+            self.location = UserLocation(location: unwrappedLocation["location"]! as! String, visible: (unwrappedLocation["visible"] as? Bool)!)
+        }
+        
         self.imageURL = snapshot.value!["photoURL"] as? String
         self.uid = snapshot.value!["uid"] as? String
         self.friendship = ""
@@ -42,6 +47,6 @@ struct Connection {
     
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["name": self.name!, "location":self.location!, "imageURL": self.imageURL!, "uid": self.uid!, "friendship": self.friendship!]
+        return ["name": self.name!, "location":self.location!.toAnyObject(), "imageURL": self.imageURL!, "uid": self.uid!, "friendship": self.friendship!]
     }
 }
