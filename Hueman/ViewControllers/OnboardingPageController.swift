@@ -131,6 +131,7 @@ extension OnboardingPageController: UIPageViewControllerDataSource {
     
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+
         return selectedIndex
     }
     
@@ -148,7 +149,7 @@ extension OnboardingPageController: UIPageViewControllerDelegate {
         //        guard completed else { return }
         
         if(completed) {
-            
+            print("xxx completed")
         }
     }
 }
@@ -158,11 +159,12 @@ extension OnboardingPageController: OnboardingDelegate {
 
     
     func gotoNextPage(index: Int) {
+        selectedIndex = index + 1
+
         guard let currentPage = self.viewControllers?.first else {return}
         guard let nextPage = dataSource?.pageViewController( self, viewControllerAfterViewController: currentPage ) else { return }
                 setViewControllers([nextPage], direction: .Forward, animated: true, completion: nil)
-        selectedIndex = index
-
+        
     }
     
     func getTotalPage() -> Int {

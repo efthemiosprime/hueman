@@ -36,7 +36,8 @@ class OnboardingController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        backgroundImage.contentMode = .ScaleAspectFill
+
         welcomeHeaderImage.hidden = index > 0
         backgroundImage.image = UIImage(named: (data?.background)!)
         onboardingImage.image = UIImage(named: (data?.imageName)!)
