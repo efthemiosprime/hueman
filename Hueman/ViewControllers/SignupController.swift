@@ -33,7 +33,7 @@ class SignupController: UIViewController {
     let CONFIRM_PASSWORD_TEXT = "confirm password"
     
     let EMAIL_PLACEHOLDER_TEXT = "example@domain.com"
-    let PASSWORD_PLACEHOLDER_TEXT = "must have at least 6 characters"
+    let PASSWORD_PLACEHOLDER_TEXT = "password"
     let CONFIRM_PASSWORD_PLACEHOLDER_TEXT = "confirm password"
     
     var verificationTimer: NSTimer = NSTimer()

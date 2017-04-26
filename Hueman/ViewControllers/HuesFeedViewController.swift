@@ -81,7 +81,10 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
 
-
+        let facebookManager = FacebookManager()
+        facebookManager.getFriendsList()
+        
+        
         if revealViewController() != nil {
             menuItem.target = revealViewController()
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))

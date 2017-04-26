@@ -115,6 +115,7 @@
 		3C2A963E1EAC684900BC84DB /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A963D1EAC684900BC84DB /* OnboardingController.swift */; };
 		3C2A96421EAC73DC00BC84DB /* OnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */; };
 		3C2A96441EAC74B100BC84DB /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A96431EAC74B100BC84DB /* Onboarding.swift */; };
+		3C46AFC71EB146B500515A9E /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46AFC61EB146B500515A9E /* FacebookManager.swift */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
 		BD740C1BF57CB4BBD2D083F2 /* Pods_Hueman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDB8932AF19BBB6F0B39963 /* Pods_Hueman.framework */; };
@@ -239,6 +240,7 @@
 		3C2A963D1EAC684900BC84DB /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingController.swift; path = ViewControllers/OnboardingController.swift; sourceTree = "<group>"; };
 		3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingPageController.swift; path = ViewControllers/OnboardingPageController.swift; sourceTree = "<group>"; };
 		3C2A96431EAC74B100BC84DB /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Onboarding.swift; path = Models/Onboarding.swift; sourceTree = "<group>"; };
+		3C46AFC61EB146B500515A9E /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookManager.swift; path = Managers/FacebookManager.swift; sourceTree = "<group>"; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
 		907D402A993B1CD31B707647 /* Pods-Hueman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hueman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hueman/Pods-Hueman.release.xcconfig"; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			children = (
 				3A154E751DCD7852005A79EC /* NetworkManager.swift */,
 				3A987B1B1DED1CDF00388DDF /* FirebaseManager.swift */,
+				3C46AFC61EB146B500515A9E /* FacebookManager.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				3AEFA4731E19EB88005C78D2 /* ErrorController.swift in Sources */,
 				3A060D2E1D9CADE9007F2B02 /* AppDelegate.swift in Sources */,
 				3A154E4F1DCD7352005A79EC /* NavBar.swift in Sources */,
+				3C46AFC71EB146B500515A9E /* FacebookManager.swift in Sources */,
 				3A154E601DCD7389005A79EC /* NotificationCell.swift in Sources */,
 				3A154E611DCD7389005A79EC /* HueboardCell.swift in Sources */,
 				3AB06AD91E883A2D00A7AD1F /* RoundedCornersButton.swift in Sources */,

@@ -89,6 +89,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
     
     @IBAction func facebookLoginAction(sender: AnyObject) {
         let loginManager = FBSDKLoginManager()
+        
         loginManager.logInWithReadPermissions(["email", "public_profile", "user_about_me"], fromViewController: self, handler: {
             (result, error) in
             
@@ -106,6 +107,8 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                 self.showError("cancelled")
                 return
             }
+            
+
             
             let req = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,email,name,picture.width(480).height(480)"], tokenString: result.token.tokenString, version: "v2.4", HTTPMethod: "GET")
             req.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
