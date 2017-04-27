@@ -19,6 +19,9 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
 
     var hasLogin = false
     let defaults = NSUserDefaults.standardUserDefaults()
+    
+    var timer: NSTimer = NSTimer()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,23 +40,13 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
         super.viewDidAppear(animated)
         hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
         
-        if !hasLogin {
-            UIView.animateWithDuration(0.5, animations: {
-                self.cover.alpha = 0
-                }, completion: {
-                    (value: Bool) in
-                    self.cover.hidden = true
-            })
-        }
-
-        
         if hasLogin {
-            
             if let fbAccessToken = NSUserDefaults.standardUserDefaults().valueForKey("accessToken") as? String {
                 showIndicator()
 
                 firebaseManager.loginWithFacebookAcessToken(fbAccessToken, loggedIn: {
                     self.hideIndicator()
+                    print("facebook login")
 
                     self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
 
@@ -79,10 +72,13 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                     })
                 }
             }
-            
-            
-            
-
+        }else {
+            UIView.animateWithDuration(0.5, animations: {
+                self.cover.alpha = 0
+                }, completion: {
+                    (value: Bool) in
+                    self.cover.hidden = true
+            })
         }
           
     }
@@ -154,12 +150,14 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
 extension WelcomeController {
     
     func showIndicator() {
+        startTimer()
         activityIndicatorContainer.hidden = false
         activityIndicator.show()
 
     }
     
     func hideIndicator() {
+        stopTimer()
         activityIndicatorContainer.hidden = true
         activityIndicator.hide()
 
@@ -195,5 +193,31 @@ extension WelcomeController {
         })
     }
     
+    
+    // MARK: - Timer
+    func startTimer() {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(40, target: self, selector: #selector(WelcomeController.checkProgress), userInfo: nil, repeats: false)
+    }
+    
+    func stopTimer() {
+        if  timer.valid {
+            timer.invalidate()
+        }
+        
+        UIView.animateWithDuration(0.5, animations: {
+            self.cover.alpha = 0
+            }, completion: {
+                (value: Bool) in
+                self.cover.hidden = true
+        })
+    }
+    
+    func checkProgress() {
+        stopTimer()
+        
+        if activityIndicatorContainer.hidden == false {
 
+            hideIndicator()
+        }
+    }
 }
