@@ -15,6 +15,8 @@ class AddHuesController: UIViewController {
     @IBOutlet var profileHues: [ProfileHue]?
     var hues: [String: String] = [:]
     
+    @IBOutlet weak var progressIndicator: UIView!
+    @IBOutlet weak var activityIndicator: ActivityIndicator!
     let SKIP_LABEL = "start exploring hueman"
     
     
@@ -44,7 +46,11 @@ class AddHuesController: UIViewController {
         buttonSkip()
         backButton.tintColor = UIColor.UIColorFromRGB(0x666666)
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        progressIndicator.hidden = true
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -88,14 +94,16 @@ class AddHuesController: UIViewController {
         }
         
         if huesAreEmpty {
+            showIndicator()
             SignupManager.sharedInstance.dispose()
             self.performSegueWithIdentifier("gotoExplore", sender: self)
         }else {
             // save
+            showIndicator()
             SignupManager.sharedInstance.editProfile({
                 SignupManager.sharedInstance.dispose()
                 self.performSegueWithIdentifier("gotoExplore", sender: self)
-
+                self.hideIndicator()
             })
 
         }
@@ -178,4 +186,18 @@ extension AddHuesController {
         nextButton.setTitle(SKIP_LABEL, forState: .Normal)
 
     }
+    
+    
+    func showIndicator() {
+        progressIndicator.hidden = false
+        activityIndicator.show()
+        
+    }
+    
+    func hideIndicator() {
+        progressIndicator.hidden = true
+        activityIndicator.hide()
+        
+    }
+    
 }

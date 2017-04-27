@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -248,8 +248,8 @@
                                     <constraint firstAttribute="width" constant="212" id="PmR-EL-4s6"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zTV-gU-YJq" userLabel="backface">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTV-gU-YJq" userLabel="backface">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW6-wJ-pL3">
@@ -3554,7 +3554,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awaiting confirmation. please check your email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-LQ-loY">
-                                                <rect key="frame" x="87.5" y="5" width="200" height="60"/>
+                                                <rect key="frame" x="88" y="5" width="200" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="JRA-rm-7LC"/>
                                                     <constraint firstAttribute="height" constant="60" id="oCP-ZG-pJ5"/>
@@ -4670,22 +4670,42 @@ your profile.</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-r2-iQO" userLabel="Progress">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2r-Os-CBI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTA-el-Eia" customClass="ActivityIndicator" customModule="Hueman" customModuleProvider="target">
+                                        <rect key="frame" x="167" y="313" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </view>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0ed-6x-GAx" firstAttribute="centerX" secondItem="eEa-JN-JEa" secondAttribute="centerX" id="1dB-hg-kv6"/>
+                            <constraint firstItem="7Pk-r2-iQO" firstAttribute="leading" secondItem="eEa-JN-JEa" secondAttribute="leading" id="2o9-qL-3qy"/>
                             <constraint firstItem="0ed-6x-GAx" firstAttribute="leading" secondItem="eEa-JN-JEa" secondAttribute="leadingMargin" constant="14" id="3WM-87-aKx"/>
                             <constraint firstItem="H7I-N7-CHh" firstAttribute="centerX" secondItem="eEa-JN-JEa" secondAttribute="centerX" id="J6B-At-02t"/>
                             <constraint firstItem="Ecx-2S-u9c" firstAttribute="top" secondItem="iIM-5h-dsN" secondAttribute="bottom" constant="30" id="LBK-S8-6S5"/>
+                            <constraint firstAttribute="trailing" secondItem="7Pk-r2-iQO" secondAttribute="trailing" id="MdD-1Y-JtU"/>
+                            <constraint firstItem="dOw-i0-kyC" firstAttribute="top" secondItem="7Pk-r2-iQO" secondAttribute="bottom" id="RS3-u9-hgh"/>
                             <constraint firstItem="H7I-N7-CHh" firstAttribute="top" secondItem="Ecx-2S-u9c" secondAttribute="bottom" constant="15" id="cRc-vu-VEC"/>
                             <constraint firstItem="Ecx-2S-u9c" firstAttribute="centerX" secondItem="eEa-JN-JEa" secondAttribute="centerX" id="kta-EJ-pun"/>
                             <constraint firstItem="dOw-i0-kyC" firstAttribute="top" secondItem="0ed-6x-GAx" secondAttribute="bottom" constant="14" id="l28-tH-2YG"/>
+                            <constraint firstItem="7Pk-r2-iQO" firstAttribute="top" secondItem="eEa-JN-JEa" secondAttribute="top" id="zKt-SL-N3i"/>
                             <constraint firstItem="0ed-6x-GAx" firstAttribute="top" secondItem="H7I-N7-CHh" secondAttribute="bottom" constant="20" id="zLw-p7-7mc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Q2r-Os-CBI" id="lwn-CH-5Lh"/>
                         <outlet property="backButton" destination="TJJ-I5-0t8" id="4xb-J7-kh1"/>
                         <outlet property="nextButton" destination="H7I-N7-CHh" id="4M4-bS-CL8"/>
+                        <outlet property="progressIndicator" destination="yTA-el-Eia" id="ZYg-PP-KkY"/>
                         <outletCollection property="profileHues" destination="d5v-a7-ILV" collectionClass="NSMutableArray" id="pdn-gM-ent"/>
                         <outletCollection property="profileHues" destination="cFv-IX-JcH" collectionClass="NSMutableArray" id="vP2-LP-lA3"/>
                         <outletCollection property="profileHues" destination="SwX-bu-D5k" collectionClass="NSMutableArray" id="o4L-vJ-qED"/>
@@ -4801,13 +4821,12 @@ your Facebook friends.</string>
                     </view>
                     <connections>
                         <outlet property="facebookButton" destination="YuE-T5-qrJ" id="sGj-x7-5QG"/>
-                        <outlet property="headerLabel" destination="ln5-e1-sKB" id="0GZ-VG-ujI"/>
                         <outlet property="nextButton" destination="dOR-5U-Bvf" id="TNB-Mh-mRz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laR-IL-1qW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5751" y="-1644"/>
+            <point key="canvasLocation" x="-6678" y="-1886"/>
         </scene>
     </scenes>
     <resources>
@@ -4889,10 +4908,10 @@ your Facebook friends.</string>
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PBT-r4-Iq7"/>
-        <segue reference="t3h-Zx-gWI"/>
         <segue reference="KSz-sF-lgm"/>
-        <segue reference="fAk-Of-mXu"/>
+        <segue reference="t3h-Zx-gWI"/>
         <segue reference="x6K-ez-uIt"/>
+        <segue reference="5mf-yO-1rC"/>
+        <segue reference="fAk-Of-mXu"/>
     </inferredMetricsTieBreakers>
 </document>

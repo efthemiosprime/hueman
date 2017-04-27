@@ -29,14 +29,21 @@ struct User {
         key = snapshot.key
         ref = snapshot.ref
         
-        name = snapshot.value!["name"] as! String
+        if let unwrappedName = snapshot.value!["name"] as? String {
+            name = unwrappedName
+        }
 
         bio = snapshot.value!["bio"] as? String
-        email = snapshot.value!["email"] as! String
+        
+        if let unwrappedEmail = snapshot.value!["email"] as? String {
+            email = unwrappedEmail
+        }
 
         photoURL = snapshot.value!["photoURL"] as? String
         
-        uid = snapshot.value!["uid"] as! String
+        if let unwrappedUID = snapshot.value!["uid"] as? String {
+            uid = unwrappedUID
+        }
         
         if let unwrappedHues = snapshot.value!["hues"] as? [String: String] {
             hues = unwrappedHues

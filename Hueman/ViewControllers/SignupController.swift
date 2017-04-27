@@ -246,6 +246,8 @@ extension SignupController {
         activityIndicator.hide()
         
     }
+    
+    
     func doneEditing() {
         
         self.view.endEditing(true)

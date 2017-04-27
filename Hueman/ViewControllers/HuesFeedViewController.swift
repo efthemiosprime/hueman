@@ -80,9 +80,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
-
-        let facebookManager = FacebookManager()
-        facebookManager.getFriendsList()
         
         
         if revealViewController() != nil {

@@ -90,7 +90,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
     @IBAction func facebookLoginAction(sender: AnyObject) {
         let loginManager = FBSDKLoginManager()
         
-        loginManager.logInWithReadPermissions(["email", "public_profile", "user_about_me"], fromViewController: self, handler: {
+        loginManager.logInWithReadPermissions(["email", "public_profile", "user_about_me", "user_friends"], fromViewController: self, handler: {
             (result, error) in
             
             self.showIndicator()
@@ -122,7 +122,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                                     
                                     self.firebaseManager.loginWithFacebook(url, loggedIn: {
                                         
-                                        self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
+                                        self.performSegueWithIdentifier("gotoFacebookInterstitial", sender: sender)
                                         
                                         self.hideIndicator()
                                         

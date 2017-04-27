@@ -85,6 +85,10 @@ struct FirebaseManager {
                     }
                 })
             }
+            
+            
+            let facebookManager = FacebookManager()
+            facebookManager.getFriendsList(accessToken)
         })
 
     }
@@ -124,6 +128,9 @@ struct FirebaseManager {
                             loggedIn?()
                         })
                     }
+                    
+                    let facebookManager = FacebookManager()
+                    facebookManager.getFriendsList(FBSDKAccessToken.currentAccessToken().tokenString)
                 })
             }else {
                 print("user facebook email not available!")
