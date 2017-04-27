@@ -72,7 +72,12 @@ struct User {
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!.toAnyObject(), "location": self.location!.toAnyObject(), "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
+        if self.birthday != nil || self.location != nil {
+            return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!.toAnyObject(), "location": self.location!.toAnyObject(), "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
+        }else {
+            return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": "", "location": "", "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
+        }
+
     }
     
 }
@@ -87,7 +92,12 @@ struct UserBirthday {
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["date": self.date!, "visible": self.visible]
+        if date != nil || !(date?.isEmpty)! {
+            return ["date": date!, "visible": self.visible]
+        }else {
+            return ["date": "", "visible": false]
+  
+        }
     }
 }
 
@@ -101,7 +111,7 @@ struct UserLocation {
     }
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["location": self.location!, "visible": self.visible]
+        return ["location": self.location! ?? "", "visible": self.visible]
 
     }
 }
