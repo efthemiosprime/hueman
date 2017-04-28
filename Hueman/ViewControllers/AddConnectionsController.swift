@@ -108,18 +108,21 @@ class AddConnectionsController: UITableViewController {
                 
 
                 
-                if self.requests.count > 0 {
-                    self.sections.append("pending")
-                    self.data.append(self.requests)
-                    
-                    self.sections.append("users")
-                    self.data.append(self.users)
-                }else {
-                    self.data.append(self.users)
-                    self.sections.append("users")
-
-
-                }
+//                if self.requests.count > 0 {
+//                    self.sections.append("pending")
+//                    self.data.append(self.requests)
+//                    
+//                    self.sections.append("users")
+//                    self.data.append(self.users)
+//                }else {
+//                    self.data.append(self.users)
+//                    self.sections.append("users")
+//
+//
+//                }
+                self.data.append(self.users)
+                self.sections.append("users")
+                
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })
@@ -186,6 +189,9 @@ class AddConnectionsController: UITableViewController {
                         var userLocation: UserLocation?
                         if let unwrappedLocation = con.value["location"] as? [String: AnyObject] {
                             userLocation = UserLocation(location: (unwrappedLocation["location"] as? String)!, visible: (unwrappedLocation["visible"] as? Bool)!)
+                        }else {
+                            userLocation = UserLocation(location: "")
+
                         }
                        let connection = Connection(name: (con.value!["name"] as? String)!,
                             location: userLocation!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)

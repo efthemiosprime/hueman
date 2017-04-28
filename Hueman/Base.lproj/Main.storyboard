@@ -4549,25 +4549,25 @@ your profile.</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="VYU-qU-1Bk">
-                                                        <rect key="frame" x="68" y="105" width="14" height="13"/>
+                                                        <rect key="frame" x="68" y="105" width="12.5" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Lv-dZF">
-                                                        <rect key="frame" x="8" y="66" width="134" height="30"/>
+                                                        <rect key="frame" x="7.5" y="66" width="133.5" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I keep healthy by walking everyday." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEF-Yg-4UU">
-                                                        <rect key="frame" x="8" y="70" width="134" height="52"/>
+                                                        <rect key="frame" x="7.5" y="70" width="133.5" height="52"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="5xK-o0-FSo">
-                                                        <rect key="frame" x="53" y="25" width="45" height="45"/>
+                                                        <rect key="frame" x="51" y="25" width="46" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>
@@ -4583,25 +4583,25 @@ your profile.</string>
                                                 <rect key="frame" x="166" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Izq-Et-frE">
-                                                        <rect key="frame" x="68" y="105" width="14" height="13"/>
+                                                        <rect key="frame" x="67" y="105" width="14.5" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvW-4S-dmH">
-                                                        <rect key="frame" x="8" y="66" width="134" height="30"/>
+                                                        <rect key="frame" x="6.5" y="66" width="133.5" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I keep healthy by walking everyday." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGf-xW-oAA">
-                                                        <rect key="frame" x="8" y="70" width="134" height="52"/>
+                                                        <rect key="frame" x="6.5" y="70" width="133.5" height="52"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="iYf-Jn-bqc">
-                                                        <rect key="frame" x="53" y="21" width="45" height="45"/>
+                                                        <rect key="frame" x="52.5" y="21" width="44" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>
@@ -4698,25 +4698,25 @@ your profile.</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vhO-Eq-Wf9">
-                                                        <rect key="frame" x="68" y="105" width="14" height="13"/>
+                                                        <rect key="frame" x="68" y="105" width="12.5" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta5-uh-Jhw">
-                                                        <rect key="frame" x="8" y="66" width="134" height="30"/>
+                                                        <rect key="frame" x="7.5" y="66" width="133.5" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I keep healthy by walking everyday." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeM-mK-em6">
-                                                        <rect key="frame" x="8" y="70" width="134" height="52"/>
+                                                        <rect key="frame" x="7.5" y="70" width="133.5" height="52"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="i2E-b5-sfa">
-                                                        <rect key="frame" x="53" y="21" width="45" height="45"/>
+                                                        <rect key="frame" x="51" y="21" width="46" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>
@@ -4732,25 +4732,25 @@ your profile.</string>
                                                 <rect key="frame" x="166" y="0.0" width="150" height="142.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ytx-RX-hIm">
-                                                        <rect key="frame" x="68" y="105" width="14" height="13"/>
+                                                        <rect key="frame" x="67" y="105" width="14.5" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y7-Wq-geg">
-                                                        <rect key="frame" x="8" y="66" width="134" height="30"/>
+                                                        <rect key="frame" x="6.5" y="66" width="133.5" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I keep healthy by walking everyday." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux0-HV-RWf">
-                                                        <rect key="frame" x="8" y="70" width="134" height="52"/>
+                                                        <rect key="frame" x="6.5" y="70" width="133.5" height="52"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="hA0-M0-pel">
-                                                        <rect key="frame" x="53" y="21" width="45" height="45"/>
+                                                        <rect key="frame" x="52.5" y="21" width="44" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>

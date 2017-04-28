@@ -65,23 +65,26 @@ class NotificationCell: UITableViewCell {
                         
                     })
                 } else {
-                    storageRef.referenceForURL(notification.photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-                        if error == nil {
-                            
-                            if let imageData = data {
-                                let photoImage = UIImage(data: imageData)
-                                self.cachedImages.setObject(photoImage!, forKey:notification.photoURL)
+                    if !notification.photoURL.isEmpty {
+                        storageRef.referenceForURL(notification.photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                            if error == nil {
                                 
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    self.profileImage.image = photoImage
+                                if let imageData = data {
+                                    let photoImage = UIImage(data: imageData)
+                                    self.cachedImages.setObject(photoImage!, forKey:notification.photoURL)
                                     
-                                })
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        self.profileImage.image = photoImage
+                                        
+                                    })
+                                }
+                                
+                            }else {
+                                print(error!.localizedDescription)
                             }
-                            
-                        }else {
-                            print(error!.localizedDescription)
-                        }
-                    })
+                        })
+                    }
+
                 }
             }
             

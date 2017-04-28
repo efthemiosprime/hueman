@@ -7,14 +7,25 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 
 class NotificationsViewController: UITableViewController {
 
     var menuItem: UIBarButtonItem!
     var viewModel: NotificationsViewModel!
-    var data = [NotificationItem]()
-    var nData: [[NotificationItem]] = []
-    //var data: [[User]] = []
+    var currentUser: User?
+
+    
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    var storageRef: FIRStorage! {
+        return FIRStorage.storage()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +47,10 @@ class NotificationsViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("xxxxx")
+        if currentUser == nil {
+            currentUser = AuthenticationManager.sharedInstance.currentUser
+        }
+        
         self.navigationController?.navigationBar.topItem!.title = "notifications"
         
         if revealViewController() != nil {
@@ -44,17 +58,19 @@ class NotificationsViewController: UITableViewController {
             menuItem.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+
         viewModel.load({ items in
             //self.data = items.reverse()
-            self.nData = items
-            print("nData \(self.nData.count)")
+            print("xx \(self.viewModel.data.count)" )
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.backgroundView = nil
                 self.tableView.reloadData()
             })
         },
         onerror: { errorString in
-            
+            print("xx \(self.viewModel.data.count)" )
+
             if errorString == "Empty" {
                 let emptyBackground = UIImage(named: "notifications-empty")
                 let emptyView = UIImageView(image: emptyBackground)
@@ -95,7 +111,6 @@ class NotificationsViewController: UITableViewController {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        self.nData.removeAll()
         viewModel.reset()
     }
     
@@ -132,7 +147,9 @@ class NotificationsViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nData[section].count
+       // return nData[section].count
+        print(viewModel.data[section].count)
+        return viewModel.data[section].count
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -155,11 +172,106 @@ class NotificationsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let notificationItem = self.nData[indexPath.section][indexPath.row]
-        print("noti \(notificationItem.type)")
-        let cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell", forIndexPath: indexPath) as! NotificationCell
+        let notificationItem = viewModel.data[indexPath.section][indexPath.row]
         
-        cell.data = self.nData[indexPath.section][indexPath.row]
+        let cell = notificationItem.type == "request" ? tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! AddUserCell : tableView.dequeueReusableCellWithIdentifier("NotificationCell", forIndexPath: indexPath) as! NotificationCell
+
+        if notificationItem.type == "request" {
+            let connectionRequestCell = cell as! AddUserCell
+            
+            var location: UserLocation?
+            
+            if let locString = notificationItem.location {
+                location = UserLocation(location: locString)
+
+            }else {
+                location = UserLocation(location: "")
+
+            }
+            let user = User(name: notificationItem.name, location: location!, userId: notificationItem.uid!, photoURL: notificationItem.photoURL)
+            connectionRequestCell.user = user
+            if self.viewModel.requests.count > 0 {
+                connectionRequestCell.addUserAction = { (cell) in
+                    
+                    self.tableView.beginUpdates()
+                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    self.viewModel.data[0].removeAtIndex(indexPath.row)
+                    
+                    
+                    let requestRef = self.databaseRef.child("requests").child((self.currentUser?.uid)!)
+                    requestRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        
+                        if snapshot.exists() {
+                            
+                            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                                
+                                
+                                
+                                for child in result {
+                                    
+                                    let friendshipKey = child.value!["id"] as! String
+                                    let friendshipRequester = child.value!["requester"] as! String
+                                    let friendshipRecipient = child.value!["recipient"] as! String
+                                    let friendshipRef = self.databaseRef.child("friendships").child(friendshipKey)
+                                    
+                                    friendshipRef.updateChildValues(["status":Friendship.Accepted])
+                                    
+                                    // friendshipRecipient == currentUserUid
+                                    // Recipient is the current user
+                                    
+                                    
+                                    let userRef = self.databaseRef.child("users").child(friendshipRequester)
+                                    userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                                        if snapshot.exists() {
+                                            var requester = Connection(snapshot: snapshot)
+                                            requester.friendship = friendshipKey
+                                            
+                                            if let unwrappedLocation = self.currentUser?.location {
+                                                var recipient = Connection(name: self.currentUser!.name, location: unwrappedLocation, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
+                                                recipient.friendship = friendshipKey
+                                                
+                                                self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
+                                                self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
+                                            }
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        }
+                                    }) { error in
+                                        print(error.localizedDescription)
+                                    }
+                                    
+                                }
+                                
+                                requestRef.removeValue()
+                                
+                                
+                            }
+                            
+                            
+                        } else {
+                            print("no results")
+                        }
+                        
+                        
+                    }) {(error) in
+                        
+                        print(error.localizedDescription)
+                    }
+                    
+                    
+                    self.tableView.reloadData()
+                    self.tableView.endUpdates()
+                }
+            }
+
+        }else {
+            (cell as! NotificationCell).data = viewModel.data[indexPath.section][indexPath.row]
+
+        }
+        
         
 
         return cell
@@ -171,7 +283,7 @@ class NotificationsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let selectedNotification: NotificationItem = nData[indexPath.section][indexPath.row]
+        let selectedNotification: NotificationItem = viewModel.data[indexPath.section][indexPath.row]
         viewModel.getFeed(selectedNotification.key, result: {
             feed in
                 

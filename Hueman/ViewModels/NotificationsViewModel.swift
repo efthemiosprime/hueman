@@ -31,16 +31,15 @@ class NotificationsViewModel: NSObject {
     var sectionTitles = [String]()
 
     func load(complete: ((notifications: [[NotificationItem]]) -> ())? = nil, onerror: ((errorString: String) -> ())? = nil ) {
+        
         let authManager = AuthenticationManager.sharedInstance
         let notificationsRef = self.dataBaseRef.child("notifications").child(authManager.currentUser!.uid)
-
+        
         self.fetchAllRequests({
             
             if self.requests.count > 0 {
-                print("count requests \(self.requests.count)" )
-                self.sectionTitles.append("pending")
+                self.sectionTitles.append("connection requests")
                 self.data.append(self.requests)
-                print("data count \(self.data.count)")
             }
             
             notificationsRef.observeSingleEventOfType(.Value, withBlock: {
@@ -57,7 +56,8 @@ class NotificationsViewModel: NSObject {
                         return newNotification
                         
                     })
-                    
+                    print("number of notifications \(numberOfNotifications)")
+
                     for snap in sortedNotifications {
                         
                         let userRef = self.dataBaseRef.child("users").child(snap.fromUid)
@@ -88,10 +88,6 @@ class NotificationsViewModel: NSObject {
                                 
                                 if counter == numberOfNotifications {
                                     
-
-                                    
-                                    
-                                    
                                     if self.recent.count > 0 {
                                         self.sectionTitles.append("recent")
                                         
@@ -119,12 +115,18 @@ class NotificationsViewModel: NSObject {
                         })
                     }
                 }else {
-                    onerror?(errorString: "Empty")
+                    print("xxx")
+                    if (self.data.count > 0) {
+                        complete?(notifications: self.data)
+                    }else {
+                        onerror?(errorString: "Empty")
+ 
+                    }
                 }
             })
+            
+        })
         
-        }) // end fetch requests
-
     }
     
     func getFeed(key: String, result: ((feed: Feed) -> ())? = nil)  {
@@ -156,6 +158,7 @@ class NotificationsViewModel: NSObject {
                 snapshot in
                 if snapshot.exists() {
                     
+                    let requestCount = snapshot.children.allObjects.count
                     
                     for snap in snapshot.children {
                         if let requester = snap.value!["requester"] as? String {
@@ -166,10 +169,22 @@ class NotificationsViewModel: NSObject {
                               //  print(userSnap)
                               // print (userSnap.value!["name"] ?? "")
                                 let user = User(snapshot: userSnap)
-                                let item = NotificationItem(name: user.name, type: "request", dateCreated: "", feedTopic: "", photoURL: user.photoURL!, key: user.key!, date: NSDate(), location: (user.location?.location)!)
+                                var location: String?
+                                if let unwrappedLocation = user.location {
+                                    location = unwrappedLocation.location
+                                }else {
+                                    location = ""
+                                }
+                                
+                                
+                                let item = NotificationItem(name: user.name, type: "request", dateCreated: "", feedTopic: "", photoURL: user.photoURL!, key: user.key!, date: NSDate(), uid: user.uid, location: location!)
 
 
                                 self.requests.append(item)
+                                if self.requests.count == requestCount {
+                                    completion?()
+                                }
+
                               // let userRequest = User(snapshot: userSnap )
                                // self.requests.append(userRequest)
                             }) {(error ) in
@@ -177,13 +192,12 @@ class NotificationsViewModel: NSObject {
                                 
                             }
                         }
-                        
-                        
                     }
-                    
+                }else {
+                    completion?()
+
                 }
-                
-                completion?()
+
                 
             }) {(error) in
                 print(error.localizedDescription)
@@ -204,8 +218,9 @@ struct NotificationItem {
     var key: String!
     var date: NSDate?
     var location: String?
+    var uid: String?
     
-    init(name: String, type: String, dateCreated: String, feedTopic: String, photoURL: String, key: String, date: NSDate, location:String = "") {
+    init(name: String, type: String, dateCreated: String, feedTopic: String, photoURL: String, key: String, date: NSDate, uid:String = "", location:String = "") {
         self.name = name
         self.type = type
         self.dateCreated = dateCreated
@@ -214,6 +229,7 @@ struct NotificationItem {
         self.key = key
         self.date = date
         self.location = location
+        self.uid = uid
     }
     
 

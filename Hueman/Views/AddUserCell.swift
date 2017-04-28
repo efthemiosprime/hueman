@@ -8,7 +8,8 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseStorage
+import FirebaseAuth
 
 class AddUserCell: UITableViewCell {
     
@@ -18,6 +19,12 @@ class AddUserCell: UITableViewCell {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var pendingButton: UIButton!
     
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    var storageRef: FIRStorage! {
+        return FIRStorage.storage()
+    }
     
     var addUserAction: ((AddUserCell) -> Void)?
     var friendship: Friendship?
@@ -48,15 +55,14 @@ class AddUserCell: UITableViewCell {
 
                     }
                 })
+                
+                getPhoto()
             }
         }
     }
     
     var recipientsUIDs: [String] = [String]()
     
-    var databaseRef: FIRDatabaseReference! {
-        return FIRDatabase.database().reference()
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -102,6 +108,26 @@ class AddUserCell: UITableViewCell {
  
                 }
 
+            })
+        }
+
+    }
+    
+    func getPhoto() {
+        if let photoURL = user?.photoURL where !(user?.photoURL?.isEmpty)! {
+            storageRef.referenceForURL(photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                if error == nil {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if let data = data {
+                            self.connectionImage.image = UIImage(data: data)
+                        }
+                    })
+                    
+                    
+                }else {
+                    print(error!.localizedDescription)
+                }
             })
         }
 

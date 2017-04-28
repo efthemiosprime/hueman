@@ -71,6 +71,13 @@ struct User {
         self.photoURL = photoURL
     }
     
+    init(name: String, location: UserLocation, userId:String, photoURL:String) {
+        self.name = name
+        self.uid = userId
+        self.location = location
+        self.photoURL = photoURL
+    }
+    
     func toAnyObject() -> [String: AnyObject] {
         if self.birthday != nil || self.location != nil {
             return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!.toAnyObject(), "location": self.location!.toAnyObject(), "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
