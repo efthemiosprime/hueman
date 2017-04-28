@@ -36,7 +36,7 @@ class NotificationsViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-
+        print("xxxxx")
         self.navigationController?.navigationBar.topItem!.title = "notifications"
         
         if revealViewController() != nil {
@@ -47,6 +47,7 @@ class NotificationsViewController: UITableViewController {
         viewModel.load({ items in
             //self.data = items.reverse()
             self.nData = items
+            print("nData \(self.nData.count)")
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.backgroundView = nil
                 self.tableView.reloadData()
@@ -84,7 +85,6 @@ class NotificationsViewController: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
         if revealViewController() != nil {
             menuItem.target = nil
             menuItem.action = nil
@@ -154,7 +154,11 @@ class NotificationsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let notificationItem = self.nData[indexPath.section][indexPath.row]
+        print("noti \(notificationItem.type)")
         let cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell", forIndexPath: indexPath) as! NotificationCell
+        
         cell.data = self.nData[indexPath.section][indexPath.row]
         
 

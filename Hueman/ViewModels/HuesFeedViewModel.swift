@@ -82,6 +82,9 @@ class HuesFeedViewModel: NSObject {
                     var userLocation: UserLocation?
                     if let unwrappedLocation = con.value["location"] as? [String: AnyObject] {
                         userLocation = UserLocation(location: unwrappedLocation["location"]! as! String, visible: (unwrappedLocation["visible"] as? Bool)!)
+                    }else {
+                        
+                        userLocation = UserLocation(location: "", visible: false)
                     }
                     let connection = Connection(name: (con.value!["name"] as? String)!,
                         location: userLocation!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)

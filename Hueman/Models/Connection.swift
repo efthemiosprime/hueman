@@ -47,6 +47,11 @@ struct Connection {
     
     
     func toAnyObject() -> [String: AnyObject] {
-        return ["name": self.name!, "location":self.location!.toAnyObject(), "imageURL": self.imageURL!, "uid": self.uid!, "friendship": self.friendship!]
+        if let unwrappedLocation = location {
+            return ["name": self.name!, "location": unwrappedLocation.toAnyObject(), "imageURL": self.imageURL!, "uid": self.uid!, "friendship": self.friendship!]
+        }else {
+            return ["name": self.name!, "location": "", "imageURL": self.imageURL!, "uid": self.uid!, "friendship": self.friendship!]
+        }
+
     }
 }

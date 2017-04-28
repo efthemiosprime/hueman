@@ -24,6 +24,7 @@ class NotificationsViewModel: NSObject {
         return FIRStorage.storage()
     }
     
+    var requests = [NotificationItem]()
     var recent = [NotificationItem]()
     var older = [NotificationItem]()
     var data: [[NotificationItem]] = []
@@ -32,79 +33,98 @@ class NotificationsViewModel: NSObject {
     func load(complete: ((notifications: [[NotificationItem]]) -> ())? = nil, onerror: ((errorString: String) -> ())? = nil ) {
         let authManager = AuthenticationManager.sharedInstance
         let notificationsRef = self.dataBaseRef.child("notifications").child(authManager.currentUser!.uid)
-        notificationsRef.observeSingleEventOfType(.Value, withBlock: {
-            snapshot in
-            if snapshot.exists() {
-                
-                var counter:UInt = 0
-                let numberOfNotifications = snapshot.childrenCount
-                var items = [NotificationItem]()
-                
-                let sortedNotifications = snapshot.children.map({(snap) -> Notification in
-                    
-                    let newNotification: Notification = Notification(snapshot: snap as! FIRDataSnapshot)
-                    return newNotification
-                    
-                })
 
-                for snap in sortedNotifications {
-                    
-                    let userRef = self.dataBaseRef.child("users").child(snap.fromUid)
-                    
-                    userRef.observeSingleEventOfType(.Value, withBlock: {
-                        userSnapshot in
-                        
-                        if userSnapshot.exists() {
-                            let user = User(snapshot: userSnapshot)
-                            let item = NotificationItem(name: user.name, type: snap.type, dateCreated: snap.dateCreated!, feedTopic: snap.feedTopic!, photoURL: user.photoURL!, key: snap.feedKey, date: snap.date!)
-                            
-                            if let dateCreated = snap.dateCreated  {
-                                
-                                if dateCreated.rangeOfString("week|day|month|year", options: .RegularExpressionSearch) != nil {
-                                    self.older.append(item)
-                                    
-                                }else {
-                                    self.recent.append(item)
-                                }
-                                
-                            }
-
-                            
-                            items.append(item)
-                            counter = counter + 1
-                            
-                            if counter == numberOfNotifications {
-                                
-                                if self.recent.count > 0 {
-                                    self.sectionTitles.append("recent")
-                                    
-                                    let sortedItems = self.recent.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
-
-                                    
-                                    self.data.append(sortedItems.reverse())
-                                }
-                                
-                                if self.older.count > 0 {
-                                    self.sectionTitles.append("older")
-                                    let sortedItems  =   self.older.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
-
-                                    self.data.append(sortedItems.reverse())
-                                }
-                                
-
-                            
-//                                let sortedItems =   items.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
-
-                                complete?(notifications: self.data)
-                            }
-                            
-                        }
-                    })
-                }
-            }else {
-                onerror?(errorString: "Empty")
+        self.fetchAllRequests({
+            
+            if self.requests.count > 0 {
+                print("count requests \(self.requests.count)" )
+                self.sectionTitles.append("pending")
+                self.data.append(self.requests)
+                print("data count \(self.data.count)")
             }
-        })
+            
+            notificationsRef.observeSingleEventOfType(.Value, withBlock: {
+                snapshot in
+                if snapshot.exists() {
+                    
+                    var counter:UInt = 0
+                    let numberOfNotifications = snapshot.childrenCount
+                    var items = [NotificationItem]()
+                    
+                    let sortedNotifications = snapshot.children.map({(snap) -> Notification in
+                        
+                        let newNotification: Notification = Notification(snapshot: snap as! FIRDataSnapshot)
+                        return newNotification
+                        
+                    })
+                    
+                    for snap in sortedNotifications {
+                        
+                        let userRef = self.dataBaseRef.child("users").child(snap.fromUid)
+                        
+                        userRef.observeSingleEventOfType(.Value, withBlock: {
+                            userSnapshot in
+                            
+                            if userSnapshot.exists() {
+                                let user = User(snapshot: userSnapshot)
+                                let item = NotificationItem(name: user.name, type: snap.type, dateCreated: snap.dateCreated!, feedTopic: snap.feedTopic!, photoURL: user.photoURL!, key: snap.feedKey, date: snap.date!)
+                                
+                                if let dateCreated = snap.dateCreated  {
+                                    
+                                    if dateCreated.rangeOfString("week|day|month|year", options: .RegularExpressionSearch) != nil {
+                                        self.older.append(item)
+                                        
+                                    }else {
+                                        self.recent.append(item)
+                                    }
+                                    
+                                }
+                                
+                                
+                                items.append(item)
+                                counter = counter + 1
+                                
+                                
+                                
+                                if counter == numberOfNotifications {
+                                    
+
+                                    
+                                    
+                                    
+                                    if self.recent.count > 0 {
+                                        self.sectionTitles.append("recent")
+                                        
+                                        let sortedItems = self.recent.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
+                                        
+                                        
+                                        self.data.append(sortedItems.reverse())
+                                    }
+                                    
+                                    if self.older.count > 0 {
+                                        self.sectionTitles.append("older")
+                                        let sortedItems  =   self.older.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
+                                        
+                                        self.data.append(sortedItems.reverse())
+                                    }
+                                    
+                                    
+                                    
+                                    //                                let sortedItems =   items.sort({ $0.date!.compare($1.date!) == .OrderedAscending })
+                                    
+                                    complete?(notifications: self.data)
+                                }
+                                
+                            }
+                        })
+                    }
+                }else {
+                    onerror?(errorString: "Empty")
+                }
+            })
+        
+        }) // end fetch requests
+
     }
     
     func getFeed(key: String, result: ((feed: Feed) -> ())? = nil)  {
@@ -123,9 +143,54 @@ class NotificationsViewModel: NSObject {
         sectionTitles.removeAll()
         recent.removeAll()
         older.removeAll()
+        requests.removeAll()
     }
 
+    func fetchAllRequests(completion: (() -> ())? = nil) {
+        let authManager = AuthenticationManager.sharedInstance
 
+        if let unwrappedUID = authManager.currentUser?.uid {
+            let requestRef = dataBaseRef.child("requests").child(unwrappedUID)
+            
+            requestRef.observeSingleEventOfType(.Value, withBlock:{
+                snapshot in
+                if snapshot.exists() {
+                    
+                    
+                    for snap in snapshot.children {
+                        if let requester = snap.value!["requester"] as? String {
+                            let requestFromRef = self.dataBaseRef.child("/users/\(requester)")
+                            
+                            requestFromRef.observeSingleEventOfType(.Value, withBlock: {userSnap in
+                                
+                              //  print(userSnap)
+                              // print (userSnap.value!["name"] ?? "")
+                                let user = User(snapshot: userSnap)
+                                let item = NotificationItem(name: user.name, type: "request", dateCreated: "", feedTopic: "", photoURL: user.photoURL!, key: user.key!, date: NSDate(), location: (user.location?.location)!)
+
+
+                                self.requests.append(item)
+                              // let userRequest = User(snapshot: userSnap )
+                               // self.requests.append(userRequest)
+                            }) {(error ) in
+                                print(error.localizedDescription)
+                                
+                            }
+                        }
+                        
+                        
+                    }
+                    
+                }
+                
+                completion?()
+                
+            }) {(error) in
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
 }
 
 
@@ -138,8 +203,9 @@ struct NotificationItem {
     var feedTopic: String!
     var key: String!
     var date: NSDate?
+    var location: String?
     
-    init(name: String, type: String, dateCreated: String, feedTopic: String, photoURL: String, key: String, date: NSDate) {
+    init(name: String, type: String, dateCreated: String, feedTopic: String, photoURL: String, key: String, date: NSDate, location:String = "") {
         self.name = name
         self.type = type
         self.dateCreated = dateCreated
@@ -147,5 +213,8 @@ struct NotificationItem {
         self.feedTopic = feedTopic
         self.key = key
         self.date = date
+        self.location = location
     }
+    
+
 }
