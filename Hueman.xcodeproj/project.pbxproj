@@ -65,7 +65,6 @@
 		3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */; };
 		3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */; };
 		3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */; };
-		3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */; };
 		3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */; };
 		3A6F75101DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */; };
 		3A76055E1E0DEB8100E682AD /* ConnectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A76055D1E0DEB8100E682AD /* ConnectionsViewModel.swift */; };
@@ -186,7 +185,6 @@
 		3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = ViewControllers/CommentsViewController.swift; sourceTree = "<group>"; };
 		3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hulyo.jpg; path = Images/hulyo.jpg; sourceTree = "<group>"; };
 		3A6C94791DAB23F4002A7EA3 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sofia Pro Bold.otf"; path = "Fonts/Sofia Pro Bold.otf"; sourceTree = "<group>"; };
 		3A6F750F1DEBCDA500B8D1D3 /* FeedTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTextTableViewCell.swift; path = Views/FeedTextTableViewCell.swift; sourceTree = "<group>"; };
 		3A76055D1E0DEB8100E682AD /* ConnectionsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionsViewModel.swift; path = ViewModels/ConnectionsViewModel.swift; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 				3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */,
 				3A060D391D9CADE9007F2B02 /* Info.plist */,
 				3AEB8B2C1DAB46670004A191 /* splash_screen.png */,
-				3A6C94771DAB1BFD002A7EA3 /* hulyo.jpg */,
 				3A060D341D9CADE9007F2B02 /* Assets.xcassets */,
 				3A22A3E81DA3A85F0011B467 /* Fonts */,
 			);
@@ -638,7 +635,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A060D381D9CADE9007F2B02 /* LaunchScreen.storyboard in Resources */,
-				3A6C94781DAB1BFD002A7EA3 /* hulyo.jpg in Resources */,
 				3A6C947A1DAB23F4002A7EA3 /* Sofia Pro Bold.otf in Resources */,
 				3A083B9F1DA4357C0092AE75 /* Main.storyboard in Resources */,
 				3A22A3EB1DA3A86C0011B467 /* Sofia Pro Light.otf in Resources */,
@@ -695,7 +691,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

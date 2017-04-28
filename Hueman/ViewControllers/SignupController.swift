@@ -38,6 +38,8 @@ class SignupController: UIViewController {
     
     var verificationTimer: NSTimer = NSTimer()
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -153,6 +155,9 @@ class SignupController: UIViewController {
     }
     
     @IBAction func continueAction(sender: AnyObject) {
+        defaults.setBool(false, forKey: "firstTime")
+        defaults.synchronize()
+        
         self.performSegueWithIdentifier("gotoAddName", sender: sender)
     }
     

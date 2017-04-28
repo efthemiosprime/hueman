@@ -13,6 +13,8 @@ class InterstitialController: UIViewController {
     @IBOutlet weak var profileButton: RoundedCornersButton!
     @IBOutlet weak var exploreButton: RoundedCornersButton!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +25,9 @@ class InterstitialController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        defaults.setBool(false, forKey: "firstTime")
+        defaults.synchronize()
 
     }
 

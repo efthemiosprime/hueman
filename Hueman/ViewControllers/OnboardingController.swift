@@ -48,9 +48,6 @@ class OnboardingController: UIViewController {
 
     @IBAction func nextButtonAction(sender: AnyObject) {
         if index == (self.delegate?.getTotalPage())! - 1 {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(false, forKey: "firstTime")
-            defaults.synchronize()
             
             self.performSegueWithIdentifier("gotoWelcome", sender: nil)
         }else {

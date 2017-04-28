@@ -19,6 +19,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
 
     var hasLogin = false
     let defaults = NSUserDefaults.standardUserDefaults()
+    var isFirstTime = false
     
     var timer: NSTimer = NSTimer()
     
@@ -38,15 +39,21 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        
+        if (defaults.objectForKey("firstTime") != nil) {
+            isFirstTime = defaults.boolForKey("firstTime")
+        }
+        
+        if (defaults.objectForKey("hasLoginKey") != nil) {
+            hasLogin = defaults.boolForKey("hasLoginKey")
+        }
         
         if hasLogin {
-            if let fbAccessToken = NSUserDefaults.standardUserDefaults().valueForKey("accessToken") as? String {
+            if let fbAccessToken = defaults.valueForKey("accessToken") as? String {
                 showIndicator()
 
                 firebaseManager.loginWithFacebookAcessToken(fbAccessToken, loggedIn: {
                     self.hideIndicator()
-                    print("facebook login")
 
                     self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
 
@@ -118,7 +125,17 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                                     
                                     self.firebaseManager.loginWithFacebook(url, loggedIn: {
                                         
-                                        self.performSegueWithIdentifier("gotoFacebookInterstitial", sender: sender)
+                                        self.defaults.setBool(false, forKey: "firstTime")
+                                        self.defaults.synchronize()
+                                        
+                                        if self.isFirstTime {
+                                            self.defaults.setBool(false, forKey: "firstTime")
+                                            self.defaults.synchronize()
+                                            self.performSegueWithIdentifier("gotoFacebookInterstitial", sender: sender)
+                                        }else {
+                                            self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
+                                        }
+                                        
                                         
                                         self.hideIndicator()
                                         
@@ -196,7 +213,7 @@ extension WelcomeController {
     
     // MARK: - Timer
     func startTimer() {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(40, target: self, selector: #selector(WelcomeController.checkProgress), userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: #selector(WelcomeController.checkProgress), userInfo: nil, repeats: false)
     }
     
     func stopTimer() {
