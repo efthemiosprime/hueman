@@ -12,7 +12,7 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
 
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var addEditButton: UIButton!
-    @IBOutlet weak var profilePhotoContainer: RoundedCornersView!
+    @IBOutlet weak var profilePhotoContainer: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var subHeaderLabel: UILabel!
@@ -32,6 +32,17 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        profilePhoto.clipsToBounds = true
+        profilePhoto.layer.cornerRadius = profilePhoto.frame.size.width / 2
+        //        profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
+        profilePhoto.contentMode = .ScaleAspectFill
+        
+        profilePhotoContainer.layer.cornerRadius = profilePhotoContainer.frame.size.width / 2
+        profilePhotoContainer.layer.borderWidth = 1
+        profilePhotoContainer.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        
         addIcon = UIImage(named: "add-profile-photo-btn")
         deleteIcon = UIImage(named: "delete-profile-photo-btn")
         profilePhotoPlaceholder = UIImage(named: "profile-image-placeholder")

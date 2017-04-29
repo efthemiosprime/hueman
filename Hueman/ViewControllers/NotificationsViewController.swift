@@ -283,6 +283,7 @@ class NotificationsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        // TODO : Crash right here
         let selectedNotification: NotificationItem = viewModel.data[indexPath.section][indexPath.row]
         viewModel.getFeed(selectedNotification.key, result: {
             feed in

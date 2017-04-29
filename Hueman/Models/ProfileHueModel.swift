@@ -14,13 +14,16 @@ struct ProfileHueModel {
     let title: String!
     let description: String!
     let type: String!
+    var edit: Bool = false
     
-    init(title: String, description:String, type: String) {
+    
+    init(title: String, description:String, type: String, edit: Bool = false) {
         
         self.title = title
         self.description = description
         self.type = type
-
+        self.edit = edit
+        
     }
     
     init(snapshot: FIRDataSnapshot) {

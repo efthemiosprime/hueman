@@ -82,13 +82,13 @@
                                 <rect key="frame" x="104" y="227" width="166" height="170"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Celebrate life’s awesome moments in a safe and positive space - free from online bullying and abuse! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUv-Yh-JAn">
-                                <rect key="frame" x="16" y="437" width="343" height="48"/>
+                                <rect key="frame" x="16" y="437" width="343" height="56"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-lO-lIl" userLabel="next button" customClass="RoundedCornersButton" customModule="Hueman" customModuleProvider="target">
-                                <rect key="frame" x="55" y="525" width="265" height="39"/>
+                                <rect key="frame" x="55" y="533" width="265" height="39"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="265" id="lyn-2Q-5zZ"/>
@@ -223,20 +223,20 @@
                                 <rect key="frame" x="81" y="616" width="212" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSn-Jw-YCK">
-                                        <rect key="frame" x="0.0" y="0.0" width="76" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                         <state key="normal" title="Terms of Use">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIe-s0-eWh">
-                                        <rect key="frame" x="81" y="0.0" width="23.5" height="26"/>
+                                        <rect key="frame" x="82" y="0.0" width="22" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-Z7-eFg">
-                                        <rect key="frame" x="109.5" y="0.0" width="102.5" height="26"/>
+                                        <rect key="frame" x="109" y="0.0" width="103" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                         <state key="normal" title=" Privacy Policy.">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -438,7 +438,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-Tr-vKD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="49M-Jj-gta"/>
                                                 <constraint firstAttribute="width" constant="375" id="xfs-dn-80q"/>
@@ -557,7 +557,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-pU-zay">
-                                            <rect key="frame" x="331" y="215" width="24" height="24"/>
+                                            <rect key="frame" x="331" y="210" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="1su-i0-dQR"/>
                                                 <constraint firstAttribute="width" constant="24" id="TFh-F4-vUT"/>
@@ -572,7 +572,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My baby brother is going off to college! He’s growing up way too fast!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-mK-8wB">
-                                            <rect key="frame" x="20" y="225" width="270" height="28"/>
+                                            <rect key="frame" x="20" y="220" width="270" height="33"/>
                                             <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2755,54 +2755,53 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="1266"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkD-SX-WKa" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1206"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1135"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ziV-ZT-dWx" userLabel="Profile">
-                                                <rect key="frame" x="52" y="25" width="271" height="271"/>
+                                                <rect key="frame" x="88" y="25" width="200" height="200"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="sWp-wo-S9G">
-                                                        <rect key="frame" x="0.0" y="0.0" width="271" height="271"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="271" id="RCR-lo-5rb"/>
-                                                            <constraint firstAttribute="width" constant="271" id="mlU-fG-t3O"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                <integer key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </imageView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="271" id="6DD-Pg-chT"/>
-                                                    <constraint firstAttribute="width" constant="271" id="AdF-bO-SMf"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uTQ-Af-WKQ" userLabel="View Posts">
-                                                <rect key="frame" x="0.0" y="316" width="375" height="100"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-ix-Plu" userLabel="backgroundView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DN3-C8-7gW" userLabel="profile border">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYF-Yv-KBP">
-                                                                <rect key="frame" x="27" y="19" width="320" height="63"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
-                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="sWp-wo-S9G">
+                                                                <rect key="frame" x="5" y="5" width="190" height="190"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="190" id="8of-4C-jbS"/>
+                                                                    <constraint firstAttribute="height" constant="190" id="tHO-sx-4Uz"/>
+                                                                </constraints>
+                                                            </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="sWp-wo-S9G" firstAttribute="centerY" secondItem="DN3-C8-7gW" secondAttribute="centerY" id="IqE-Tg-7Ia"/>
+                                                            <constraint firstItem="sWp-wo-S9G" firstAttribute="centerX" secondItem="DN3-C8-7gW" secondAttribute="centerX" id="aw6-eO-Zbk"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="DN3-C8-7gW" secondAttribute="bottom" id="2pC-ra-sut"/>
+                                                    <constraint firstAttribute="height" constant="200" id="6DD-Pg-chT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DN3-C8-7gW" secondAttribute="trailing" id="A6M-en-VLd"/>
+                                                    <constraint firstAttribute="width" constant="200" id="AdF-bO-SMf"/>
+                                                    <constraint firstItem="DN3-C8-7gW" firstAttribute="leading" secondItem="ziV-ZT-dWx" secondAttribute="leading" id="EZW-LX-qWz"/>
+                                                    <constraint firstItem="DN3-C8-7gW" firstAttribute="top" secondItem="ziV-ZT-dWx" secondAttribute="top" id="HGp-Bl-IXV"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYF-Yv-KBP">
+                                                <rect key="frame" x="0.0" y="517" width="375" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uTQ-Af-WKQ" userLabel="View Posts">
+                                                <rect key="frame" x="0.0" y="245" width="375" height="100"/>
+                                                <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="27i-kQ-ygO"/>
-                                                    <constraint firstAttribute="bottom" secondItem="dXY-ix-Plu" secondAttribute="bottom" id="Nea-km-JF8"/>
-                                                    <constraint firstItem="dXY-ix-Plu" firstAttribute="top" secondItem="uTQ-Af-WKQ" secondAttribute="top" id="sLn-HQ-5Q7"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-xo-4mM" userLabel="City + Birthday">
-                                                <rect key="frame" x="34" y="436" width="307" height="100"/>
+                                                <rect key="frame" x="34" y="365" width="307" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZd-Eb-IDU" userLabel="What city">
                                                         <rect key="frame" x="0.0" y="0.0" width="145" height="100"/>
@@ -2818,10 +2817,14 @@
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="MYn-j8-60W">
+                                                                <rect key="frame" x="66" y="70" width="12.5" height="13"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkl-fY-ifl">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkl-fY-ifl" userLabel="birthday">
                                                         <rect key="frame" x="161" y="0.0" width="146" height="100"/>
                                                         <subviews>
                                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-birthday-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Eze-Ze-Z8o">
@@ -2835,6 +2838,10 @@
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="SXq-hk-g2t">
+                                                                <rect key="frame" x="66" y="70" width="12.5" height="13"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
@@ -2846,7 +2853,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jfr-9n-NvS" userLabel="Hues">
-                                                <rect key="frame" x="30" y="546" width="315" height="630"/>
+                                                <rect key="frame" x="30" y="475" width="315" height="630"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gEJ-lN-fyj">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="199.5"/>
@@ -3092,7 +3099,6 @@
                                             <constraint firstItem="jfr-9n-NvS" firstAttribute="top" secondItem="e8A-xo-4mM" secondAttribute="bottom" constant="10" id="X4T-ry-0Tb"/>
                                             <constraint firstAttribute="trailing" secondItem="uTQ-Af-WKQ" secondAttribute="trailing" id="bZE-0O-tER"/>
                                             <constraint firstAttribute="bottom" secondItem="jfr-9n-NvS" secondAttribute="bottom" constant="30" id="d0P-4s-Qb3"/>
-                                            <constraint firstItem="dXY-ix-Plu" firstAttribute="width" secondItem="mkD-SX-WKa" secondAttribute="width" id="pBa-WV-CQD"/>
                                             <constraint firstItem="ziV-ZT-dWx" firstAttribute="top" secondItem="mkD-SX-WKa" secondAttribute="top" constant="25" id="phc-j0-jas"/>
                                             <constraint firstItem="jfr-9n-NvS" firstAttribute="leading" secondItem="mkD-SX-WKa" secondAttribute="leading" constant="30" id="qgK-WT-nk3"/>
                                             <constraint firstItem="e8A-xo-4mM" firstAttribute="centerX" secondItem="mkD-SX-WKa" secondAttribute="centerX" id="uvN-7r-oqQ"/>
@@ -3143,8 +3149,11 @@
                     <connections>
                         <outlet property="bioLabel" destination="rYF-Yv-KBP" id="dsS-ha-rOw"/>
                         <outlet property="birthdayLabel" destination="yBb-bw-qLP" id="q2V-fR-rQb"/>
+                        <outlet property="birthdayLocationIcon" destination="SXq-hk-g2t" id="eHJ-bG-9Y9"/>
                         <outlet property="cityLabel" destination="Qa5-DM-gDJ" id="Tcs-RI-SxE"/>
+                        <outlet property="locationPlusIcon" destination="MYn-j8-60W" id="Vf6-Ql-lzu"/>
                         <outlet property="navigationBar" destination="bEd-sM-9dJ" id="yda-el-ecg"/>
+                        <outlet property="profileBorder" destination="DN3-C8-7gW" id="nYq-5q-s6y"/>
                         <outlet property="profileImage" destination="sWp-wo-S9G" id="Qnk-Wk-di2"/>
                         <outletCollection property="hues" destination="OvM-Dk-YDu" collectionClass="NSMutableArray" id="aeb-nL-eFx"/>
                         <outletCollection property="hues" destination="Qdk-Ni-kiu" collectionClass="NSMutableArray" id="IOf-ar-GHJ"/>
@@ -3830,10 +3839,10 @@ life’s awesomeness.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fT9-EO-Sh9" userLabel="profile image" customClass="RoundedCornersView" customModule="Hueman" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fT9-EO-Sh9" userLabel="profile image">
                                 <rect key="frame" x="64" y="177" width="246" height="246"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AbU-xs-oGF">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AbU-xs-oGF">
                                         <rect key="frame" x="10" y="10" width="227" height="227"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="227" id="G18-0O-Jo9"/>
@@ -3841,17 +3850,13 @@ life’s awesomeness.</string>
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.3921568627" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="AbU-xs-oGF" firstAttribute="centerY" secondItem="fT9-EO-Sh9" secondAttribute="centerY" id="0wa-ju-DQ0"/>
                                     <constraint firstItem="AbU-xs-oGF" firstAttribute="centerX" secondItem="fT9-EO-Sh9" secondAttribute="centerX" id="QRP-OM-yLs"/>
                                     <constraint firstAttribute="width" constant="246" id="hEn-Qm-CxX"/>
                                     <constraint firstAttribute="height" constant="246" id="i7b-ke-ccE"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="123"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5W-Pw-n5m" userLabel="next button" customClass="RoundedCornersButton" customModule="Hueman" customModuleProvider="target">
                                 <rect key="frame" x="55" y="478" width="265" height="39"/>

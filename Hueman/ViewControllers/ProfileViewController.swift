@@ -21,7 +21,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet var hues: [ProfileHue]?
     @IBOutlet weak var navigationBar: UINavigationBar!
-
+    @IBOutlet weak var locationPlusIcon: UIImageView!
+    @IBOutlet weak var profileBorder: UIView!
+    @IBOutlet weak var birthdayLocationIcon: UIImageView!
+    
     var editButton: UIBarButtonItem!
     var user: User?
     
@@ -41,12 +44,17 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+
+
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
-        profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
+//        profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
         profileImage.contentMode = .ScaleAspectFill
 
+        profileBorder.layer.cornerRadius = profileBorder.frame.size.width / 2
+        profileBorder.layer.borderWidth = 1
+        profileBorder.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
+        
         
         var topics: [String] = [Topic.Wanderlust, Topic.OnMyPlate, Topic.RelationshipMusing, Topic.Health, Topic.DailyHustle, Topic.RayOfLight]
         for (index, hue) in hues!.enumerate() {
@@ -227,39 +235,42 @@ class ProfileViewController: UIViewController {
                 // TODO: to refactor iterate?
                 
                 if let wanderlust = snapshot.value![Topic.Wanderlust]  {
-                    if let unWrappedDetail = wanderlust  {
-                        self.hues![0].data = ProfileHueModel(title: HueTitle.Wanderlust, description: unWrappedDetail as! String, type: Topic.Wanderlust)
+                    if let unWrappedDetail = wanderlust as? String where !unWrappedDetail.isEmpty  {
+                        self.hues![0].data = ProfileHueModel(title: HueTitle.Wanderlust, description: unWrappedDetail, type: Topic.Wanderlust)
                     
                     }
                 }
                 
                 if let food = snapshot.value![Topic.OnMyPlate]  {
-                    if let detail = food  {
-                        self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: detail as! String, type: Topic.OnMyPlate)
+                    if let detail = food as? String where !detail.isEmpty {
+                        self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: detail, type: Topic.OnMyPlate)
                     }
                 }
                 
                 
                 if let snap = snapshot.value![Topic.RelationshipMusing]  {
-                    if let detail = snap  {
-                        self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: detail as! String, type: Topic.RelationshipMusing)
+                    if let detail = snap as? String where !detail.isEmpty  {
+                        self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: detail, type: Topic.RelationshipMusing)
+
                     }
                 }
                 
                 if let snap = snapshot.value![Topic.Health]  {
-                    if let detail = snap  {
-                        self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: detail as! String, type: Topic.Health)
+                    if let detail = snap as? String where !detail.isEmpty  {
+                        self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: detail, type: Topic.Health)
                     }
                 }
                 
                 if let snap = snapshot.value![Topic.DailyHustle]  {
-                    if let detail = snap  {
-                        self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: detail as! String, type: Topic.DailyHustle)
+                    if let detail = snap as? String where !detail.isEmpty  {
+                        self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: detail, type: Topic.DailyHustle)
+
                     }
                 }
                 if let snap = snapshot.value![Topic.RayOfLight]  {
-                    if let detail = snap  {
-                        self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: detail as! String, type: Topic.RayOfLight)
+                    if let detail = snap as? String where !detail.isEmpty {
+                        self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: detail, type: Topic.RayOfLight)
+
                     }
                 }
       
