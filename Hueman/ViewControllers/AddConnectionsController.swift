@@ -267,7 +267,7 @@ class AddConnectionsController: UITableViewController {
                                 let friendshipKey = child.value!["id"] as! String
                                 let friendshipRequester = child.value!["requester"] as! String
                                 let friendshipRecipient = child.value!["recipient"] as! String
-                                let friendshipRef = self.databaseRef.child("friendships").child(friendshipKey)
+                                let friendshipRef = self.databaseRef.child("connections").child(friendshipKey)
                                 
                                 friendshipRef.updateChildValues(["status":Friendship.Accepted])
                                 
@@ -342,7 +342,7 @@ class AddConnectionsController: UITableViewController {
                     if error == nil {
                         //feedPosted?()
                         
-                        let friendshipsReq = self.databaseRef.child("friendships").child(requestId)
+                        let friendshipsReq = self.databaseRef.child("connections").child(requestId)
                         let friendships = Friendship(from: connectionRequest.requester!, to: connectionRequest.recipient!, id: connectionRequest.id!, status: Friendship.Pending)
                         friendshipsReq.setValue(friendships.toAnyObject(), withCompletionBlock: {
                             (error, ref) in

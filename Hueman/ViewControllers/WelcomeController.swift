@@ -160,6 +160,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
         })
     }
 
+    @IBAction func backToWelcomeController(segue: UIStoryboardSegue) {}
 
 }
 
@@ -213,7 +214,7 @@ extension WelcomeController {
     
     // MARK: - Timer
     func startTimer() {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: #selector(WelcomeController.checkProgress), userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: #selector(WelcomeController.checkProgress), userInfo: nil, repeats: false)
     }
     
     func stopTimer() {
@@ -226,6 +227,8 @@ extension WelcomeController {
             }, completion: {
                 (value: Bool) in
                 self.cover.hidden = true
+                self.showError("connection timeout")
+
         })
     }
     

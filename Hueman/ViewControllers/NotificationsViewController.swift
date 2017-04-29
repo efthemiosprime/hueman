@@ -62,15 +62,12 @@ class NotificationsViewController: UITableViewController {
 
         viewModel.load({ items in
             //self.data = items.reverse()
-            print("xx \(self.viewModel.data.count)" )
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.backgroundView = nil
                 self.tableView.reloadData()
             })
         },
         onerror: { errorString in
-            print("xx \(self.viewModel.data.count)" )
-
             if errorString == "Empty" {
                 let emptyBackground = UIImage(named: "notifications-empty")
                 let emptyView = UIImageView(image: emptyBackground)
@@ -148,7 +145,6 @@ class NotificationsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        // return nData[section].count
-        print(viewModel.data[section].count)
         return viewModel.data[section].count
     }
     
@@ -212,7 +208,7 @@ class NotificationsViewController: UITableViewController {
                                     let friendshipKey = child.value!["id"] as! String
                                     let friendshipRequester = child.value!["requester"] as! String
                                     let friendshipRecipient = child.value!["recipient"] as! String
-                                    let friendshipRef = self.databaseRef.child("friendships").child(friendshipKey)
+                                    let friendshipRef = self.databaseRef.child("connections").child(friendshipKey)
                                     
                                     friendshipRef.updateChildValues(["status":Friendship.Accepted])
                                     
@@ -261,6 +257,10 @@ class NotificationsViewController: UITableViewController {
                         print(error.localizedDescription)
                     }
                     
+                    
+//                    if self.viewModel.data[0].isEmpty && self.viewModel.sectionTitles[0] == "connection requests" {
+//                        self.viewModel.sectionTitles.removeAtIndex(0)
+//                    }
                     
                     self.tableView.reloadData()
                     self.tableView.endUpdates()

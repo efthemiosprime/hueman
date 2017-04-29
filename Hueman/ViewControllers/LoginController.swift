@@ -136,6 +136,12 @@ class LoginController: UIViewController {
         }
     }
     
+    
+    @IBAction func backAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("backToWelcomeController", sender: self)
+
+    }
+    
     @IBAction func backToLogin(segue: UIStoryboardSegue) {}
 
 }

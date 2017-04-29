@@ -79,6 +79,10 @@ class SignupController: UIViewController {
 
     }
     
+    @IBAction func backAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("backToWelcomeController", sender: self)
+
+    }
     func textFieldDidChange(textField: UITextField) {
         if textField == emailInput {
             if textField.text?.characters.count == 0 {

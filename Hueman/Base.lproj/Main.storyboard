@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2877,7 +2877,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="145" height="100"/>
                                                         <subviews>
                                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="8QQ-Vn-nM3">
-                                                                <rect key="frame" x="51" y="-1" width="107" height="54"/>
+                                                                <rect key="frame" x="19" y="-1" width="107" height="54"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What city do you live in?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa5-DM-gDJ">
@@ -2894,7 +2894,7 @@
                                                         <rect key="frame" x="161" y="0.0" width="146" height="100"/>
                                                         <subviews>
                                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-birthday-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Eze-Ze-Z8o">
-                                                                <rect key="frame" x="51" y="-12" width="68" height="65"/>
+                                                                <rect key="frame" x="39" y="-12" width="68" height="65"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When’s your birthday?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBb-bw-qLP">
@@ -2920,7 +2920,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gEJ-lN-fyj">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="199.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-Dk-YDu" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-Dk-YDu" userLabel="Wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dKB-DN-Bql">
@@ -2954,7 +2954,7 @@
                                                                     <outlet property="titleLabel" destination="Ayb-6V-p89" id="B2k-gs-B5i"/>
                                                                 </connections>
                                                             </view>
-                                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdk-Ni-kiu" userLabel="on my plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdk-Ni-kiu" userLabel="OnMyPlate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="EVe-Qk-wGB">
@@ -2996,7 +2996,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e10-Fn-q5z">
                                                         <rect key="frame" x="0.0" y="215.5" width="315" height="199"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0Z-qn-Aio" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0Z-qn-Aio" userLabel="RelationshipMusing" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0L7-JK-XIw">
@@ -3030,7 +3030,7 @@
                                                                     <outlet property="titleLabel" destination="bNh-QE-cuO" id="dB2-0n-BQA"/>
                                                                 </connections>
                                                             </view>
-                                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ots-kr-2S6" userLabel="on my plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ots-kr-2S6" userLabel="Health" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="L7z-NM-GxM">
@@ -3072,7 +3072,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ouG-ED-xcN">
                                                         <rect key="frame" x="0.0" y="430.5" width="315" height="199.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cw-bx-Wqs" userLabel="wanderlust" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cw-bx-Wqs" userLabel="DailyHustle" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Zbo-bp-Idk">
@@ -3106,7 +3106,7 @@
                                                                     <outlet property="titleLabel" destination="8aR-gK-6Tp" id="Ezh-zf-OID"/>
                                                                 </connections>
                                                             </view>
-                                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CV-j1-ujn" userLabel="on my plate" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
+                                                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CV-j1-ujn" userLabel="RayOfLight" customClass="ProfileHue" customModule="Hueman" customModuleProvider="target">
                                                                 <rect key="frame" x="165.5" y="0.0" width="149.5" height="199.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="GqW-bW-vxh">
@@ -3215,6 +3215,12 @@
                         <outlet property="cityLabel" destination="Qa5-DM-gDJ" id="Tcs-RI-SxE"/>
                         <outlet property="navigationBar" destination="bEd-sM-9dJ" id="yda-el-ecg"/>
                         <outlet property="profileImage" destination="sWp-wo-S9G" id="Qnk-Wk-di2"/>
+                        <outletCollection property="hues" destination="OvM-Dk-YDu" collectionClass="NSMutableArray" id="aeb-nL-eFx"/>
+                        <outletCollection property="hues" destination="Qdk-Ni-kiu" collectionClass="NSMutableArray" id="IOf-ar-GHJ"/>
+                        <outletCollection property="hues" destination="j0Z-qn-Aio" collectionClass="NSMutableArray" id="Ukq-jM-cUC"/>
+                        <outletCollection property="hues" destination="ots-kr-2S6" collectionClass="NSMutableArray" id="rKo-eo-VUM"/>
+                        <outletCollection property="hues" destination="6cw-bx-Wqs" collectionClass="NSMutableArray" id="Cn7-Ac-wE4"/>
+                        <outletCollection property="hues" destination="6CV-j1-ujn" collectionClass="NSMutableArray" id="4o7-2I-rEp"/>
                         <segue destination="BCO-Qn-cTH" kind="showDetail" identifier="EditProfile" id="Tmm-0P-OaR"/>
                     </connections>
                 </viewController>
@@ -3375,6 +3381,18 @@
                                     <constraint firstAttribute="width" constant="265" id="oXN-Yg-T6N"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNh-Ov-Zfa" userLabel="Back Button">
+                                <rect key="frame" x="12" y="25" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="back-bar-item">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backAction:" destination="DmI-YG-9nD" eventType="touchUpInside" id="cjd-Gc-RiF"/>
+                                    <action selector="backAction:" destination="6ga-AE-rf0" eventType="touchUpInside" id="jdg-Gh-Q7R"/>
+                                </connections>
+                            </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hV-Ey-5Vj" userLabel="Progress">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -3425,11 +3443,13 @@
                         <outlet property="passwordInput" destination="Suk-EC-bWJ" id="xzR-PX-v0y"/>
                         <outlet property="passwordLabel" destination="QjN-Gf-B1C" id="JPc-UI-Rg6"/>
                         <segue destination="lAe-Do-sBk" kind="show" identifier="LoginConfirmed" id="man-eV-AnG"/>
+                        <segue destination="9R3-FV-qG5" kind="unwind" identifier="backToWelcomeController" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backToWelcomeController:" id="3ll-pB-aK2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xr-Og-ned" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9R3-FV-qG5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-6818" y="-2983"/>
+            <point key="canvasLocation" x="-6798" y="-3115"/>
         </scene>
         <!--Signup Controller-->
         <scene sceneID="yUw-cE-5Mj">
@@ -3572,6 +3592,19 @@
                                     <constraint firstAttribute="width" constant="265" id="isR-RP-TrF"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN0-5E-QcH" userLabel="Back Button">
+                                <rect key="frame" x="12" y="25" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="back-bar-item">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backAction:" destination="6ga-AE-rf0" eventType="touchUpInside" id="0HZ-66-0oU"/>
+                                    <action selector="backAction:" destination="Qlf-h3-hId" eventType="touchUpInside" id="8Be-3A-8fz"/>
+                                    <action selector="backAction:" destination="DmI-YG-9nD" eventType="touchUpInside" id="KDg-X9-xgC"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p80-SM-jDE" userLabel="confirmation">
                                 <rect key="frame" x="0.0" y="151" width="375" height="516"/>
                                 <subviews>
@@ -3689,12 +3722,13 @@
                         <segue destination="RWq-Zu-Bzb" kind="unwind" identifier="backToLogin" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backToLogin:" id="eW1-Ne-ptV"/>
                         <segue destination="Q4A-QY-hlQ" kind="custom" identifier="gotoAddName" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="zCC-ek-GXZ"/>
                         <segue destination="DmI-YG-9nD" kind="custom" identifier="gotoLogin" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="siI-PK-K2k"/>
+                        <segue destination="RWq-Zu-Bzb" kind="unwind" identifier="backToWelcomeController" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backToWelcomeController:" id="BRa-SB-zps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwO-61-jVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RWq-Zu-Bzb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-9751" y="-1952"/>
+            <point key="canvasLocation" x="-9087" y="-2178"/>
         </scene>
         <!--Add Name Controller-->
         <scene sceneID="s6a-bG-bDU">
@@ -4124,7 +4158,7 @@ just saying.</string>
                                     <action selector="nextAction:" destination="8Qo-er-h2N" eventType="touchUpInside" id="mCb-89-6hx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-Vg-22s">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-Vg-22s" userLabel="back button">
                                 <rect key="frame" x="16" y="25" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back-bar-item"/>
@@ -4960,10 +4994,10 @@ your Facebook friends.</string>
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S6n-qU-DNf"/>
-        <segue reference="fAk-Of-mXu"/>
-        <segue reference="t3h-Zx-gWI"/>
+        <segue reference="man-eV-AnG"/>
+        <segue reference="siI-PK-K2k"/>
         <segue reference="5mf-yO-1rC"/>
         <segue reference="x6K-ez-uIt"/>
+        <segue reference="fAk-Of-mXu"/>
     </inferredMetricsTieBreakers>
 </document>

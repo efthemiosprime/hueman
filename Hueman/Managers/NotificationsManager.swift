@@ -53,15 +53,21 @@ struct NotificationsManager {
     
     func deleteNotifications(completed: (() -> ())? = nil) {
         let authManager = AuthenticationManager.sharedInstance
-        let notificationsCountRef = self.dataBaseRef.child("notificationsCount").child(authManager.currentUser!.uid!)
         
-        notificationsCountRef.observeSingleEventOfType(.Value, withBlock: {
-            snapshot in
-            
-            if snapshot.exists() {
-                notificationsCountRef.removeValue()
+        if let currentUser = authManager.currentUser {
+            if let uid = currentUser.uid {
+                let notificationsCountRef = self.dataBaseRef.child("notificationsCount").child(uid)
+                
+                notificationsCountRef.observeSingleEventOfType(.Value, withBlock: {
+                    snapshot in
+                    
+                    if snapshot.exists() {
+                        notificationsCountRef.removeValue()
+                    }
+                })
             }
-        })
+        }
+
     }
 
 

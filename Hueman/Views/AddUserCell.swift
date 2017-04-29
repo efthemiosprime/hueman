@@ -92,7 +92,7 @@ class AddUserCell: UITableViewCell {
     func getPendingRequest(completion: (() -> ())? = nil) {
         let currentUser = AuthenticationManager.sharedInstance.currentUser
         if let uid = currentUser?.uid {
-            let friendshipRef = databaseRef.child("friendships").queryOrderedByChild("requester").queryEqualToValue(uid)
+            let friendshipRef = databaseRef.child("connections").queryOrderedByChild("requester").queryEqualToValue(uid)
 
             friendshipRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if snapshot.exists() {
