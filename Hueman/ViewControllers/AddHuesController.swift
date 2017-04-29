@@ -19,7 +19,7 @@ class AddHuesController: UIViewController {
     @IBOutlet weak var activityIndicator: ActivityIndicator!
     let SKIP_LABEL = "start exploring hueman"
     
-    
+    let defautls = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +84,9 @@ class AddHuesController: UIViewController {
     }
     
     @IBAction func exploreAction(sender: AnyObject) {
+        
+
+        
         
         var huesAreEmpty = true
         checkLoop: for hue in hues {

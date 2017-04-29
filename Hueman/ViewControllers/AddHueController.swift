@@ -118,6 +118,7 @@ class AddHueController: UIViewController {
                 
 //        
         if let text = defaults.objectForKey(type!) as? String   {
+            print("type: \(type)")
             detailLabel.text = text
         }
         

@@ -34,6 +34,7 @@ class SignupManager {
         return FIRStorage.storage().reference()
     }
     
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     struct Static
     {
@@ -210,6 +211,15 @@ class SignupManager {
     
     
     func dispose() {
+        
+        let huesKeys = ["Wanderlust", "Food", "Relationship", "Health", "Daily Hustle", "Ray of Light"]
+        
+        for hue in huesKeys {
+            if  defaults.objectForKey(hue) != nil    {
+                defaults.removeObjectForKey(hue)
+            }
+        }
+
         currentUser = nil
         userImageData = nil
         userBirthday = nil

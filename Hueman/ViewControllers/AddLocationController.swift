@@ -228,6 +228,7 @@ extension AddLocationController: CLLocationManagerDelegate {
             
         })
         
+    
         manager.stopUpdatingLocation()
     }
     
