@@ -40,6 +40,8 @@ class SignupController: UIViewController {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    var direction = "back"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,7 +77,12 @@ class SignupController: UIViewController {
     }
 
     @IBAction func loginAction(sender: UIButton) {
-        self.performSegueWithIdentifier("backToLogin", sender: self)
+        if direction == "back" {
+            self.performSegueWithIdentifier("backToLogin", sender: self)
+        }else {
+            self.performSegueWithIdentifier("gotoLogin", sender: self)
+
+        }
 
     }
     

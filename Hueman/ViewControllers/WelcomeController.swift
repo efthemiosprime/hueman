@@ -90,6 +90,15 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
           
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier  == "gotoSignup" {
+            let signupController = segue.destinationViewController as! SignupController
+            signupController.direction = "forward"
+
+        }
+    }
+    
     @IBAction func facebookLoginAction(sender: AnyObject) {
         let loginManager = FBSDKLoginManager()
         

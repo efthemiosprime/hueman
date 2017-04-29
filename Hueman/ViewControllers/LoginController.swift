@@ -70,6 +70,15 @@ class LoginController: UIViewController {
 
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier  == "gotoSignup" {
+            let signupController = segue.destinationViewController as! SignupController
+            signupController.direction = "back"
+            
+        }
+    }
 
     func textFieldDidChange(textField: UITextField) {
         if textField == emailInput {
