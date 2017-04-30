@@ -73,7 +73,7 @@ class AddBirthdayController: UIViewController {
     
 
     @IBAction func backAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("backToAddPhoto", sender: self)
+        self.performSegueWithIdentifier("backToAddName", sender: self)
     }
 
     @IBAction func nextAction(sender: AnyObject) {
