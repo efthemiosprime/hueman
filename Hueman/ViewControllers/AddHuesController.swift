@@ -86,30 +86,12 @@ class AddHuesController: UIViewController {
     @IBAction func exploreAction(sender: AnyObject) {
         
 
-        
-        
-        var huesAreEmpty = true
-        checkLoop: for hue in hues {
-            if !hue.1.isEmpty {
-                huesAreEmpty = false
-                break checkLoop
-            }
-        }
-        
-        if huesAreEmpty {
-            showIndicator()
+        showIndicator()
+        SignupManager.sharedInstance.editProfile({
             SignupManager.sharedInstance.dispose()
             self.performSegueWithIdentifier("gotoExplore", sender: self)
-        }else {
-            // save
-            showIndicator()
-            SignupManager.sharedInstance.editProfile({
-                SignupManager.sharedInstance.dispose()
-                self.performSegueWithIdentifier("gotoExplore", sender: self)
-                self.hideIndicator()
-            })
-
-        }
+            self.hideIndicator()
+        })
         
     }
 
