@@ -21,7 +21,7 @@ class LoginController: UIViewController {
     
     let EMAIL_LABEL = "email"
     let PASSWORD_LABEL = "password"
-    let EMAIL_PLACEHOLDER = "example@domain.com"
+    let EMAIL_PLACEHOLDER = "email"
     let PASSWORD_PLACEHOLDER = "password"
     
     let firebaseManager = FirebaseManager()
