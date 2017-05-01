@@ -21,11 +21,17 @@ class OnboardingController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var onboardingImage: UIImageView!
     
+    @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var iphoneTopConstraint: NSLayoutConstraint!
+    
     var index:Int = 0
     
     var data: Onboarding?
     
     var delegate: OnboardingDelegate?
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +55,23 @@ class OnboardingController: UIViewController {
         }else {
             buttonNext()
 
+        }
+        
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+       // let iphone5:DisplayType =  UIDevice.currentDevice().userInterfaceIdiom
+        
+        
+        let maxLength = max(screenWidth, screenHeight)
+   //     let minLength = min(screenWidth, screenHeight)
+        
+        
+        if  UIDevice.currentDevice().model == "iPhone" && maxLength == 568 {
+            headerTopConstraint.constant = 20
+            titleTopConstraint.constant = 20
+            iphoneTopConstraint.constant = 30
         }
     }
 
