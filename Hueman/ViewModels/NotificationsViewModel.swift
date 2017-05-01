@@ -115,7 +115,6 @@ class NotificationsViewModel: NSObject {
                         })
                     }
                 }else {
-                    print("xxx")
                     if (self.data.count > 0) {
                         complete?(notifications: self.data)
                     }else {
