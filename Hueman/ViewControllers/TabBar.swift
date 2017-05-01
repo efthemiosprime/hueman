@@ -62,6 +62,9 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.showProfile), name:"ShowProfile", object: nil)
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.updateTabIndex), name:"PostFeed", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -83,7 +86,6 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
         // Specify the initial position of the destination view.
-        print(self.parentViewController?.childViewControllers.count)
 
         if self.parentViewController?.childViewControllers.count < 3 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -103,7 +105,12 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         }
 
     }
-
+    
+    
+    func updateTabIndex() {
+        self.selectedIndex = 2
+    }
+    
     func createPost() {
         self.performSegueWithIdentifier("CreatePost", sender: nil)
 

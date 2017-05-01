@@ -338,6 +338,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             
         }
         
+        NSNotificationCenter.defaultCenter().postNotificationName("PostFeed", object: nil, userInfo: nil)
+        
 
     }
 
