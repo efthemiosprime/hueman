@@ -86,7 +86,6 @@ struct FeedManager {
         let feedRef = dataBaseRef.child("feeds/\(key)")
         
         if imageData != nil {
-            print(editedFeed.imageURL)
             if let imageURL = editedFeed.imageURL {
                 if !imageURL.isEmpty {
                     let metaData = FIRStorageMetadata()
@@ -157,10 +156,12 @@ struct FeedManager {
             
             let updatedFeed = [
                 "text" : editedFeed.text,
-                "topic" : editedFeed.topic
+                "topic" : editedFeed.topic,
+                "imageURL": "",
+                "withImage": false
             ]
             
-            feedRef.updateChildValues(updatedFeed, withCompletionBlock: {(err, ref) in
+            feedRef.updateChildValues(updatedFeed as [NSObject : AnyObject], withCompletionBlock: {(err, ref) in
                 if err != nil {
                     print(err?.description)
                 }else {

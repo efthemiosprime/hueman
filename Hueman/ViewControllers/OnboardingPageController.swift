@@ -149,7 +149,6 @@ extension OnboardingPageController: UIPageViewControllerDelegate {
         //        guard completed else { return }
         
         if(completed) {
-            print("xxx completed")
         }
     }
 }

@@ -111,16 +111,19 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                 }
                 
                 if mode == "edit" {
-                    let imageURL:String = storedEntry["imageURL"] as! String
-                    if !imageURL.isEmpty {
-                        feedManager.getFeedImage(storedEntry["imageURL"] as! String, complete: {
-                            image in
-                            self.postImage.image = image
-                            self.withImage = true
-                            self.postImage.hidden = false
-                            self.deleteButton.hidden = false
-                        })
+                    if storedEntry["imageURL"] != nil {
+                        let imageURL:String = storedEntry["imageURL"] as! String
+                        if !imageURL.isEmpty {
+                            feedManager.getFeedImage(storedEntry["imageURL"] as! String, complete: {
+                                image in
+                                self.postImage.image = image
+                                self.withImage = true
+                                self.postImage.hidden = false
+                                self.deleteButton.hidden = false
+                            })
+                        }
                     }
+
 
                 }else {
                     if let postImageData = storedEntry["postImage"] as? NSData {
@@ -145,6 +148,31 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         postInput?.becomeFirstResponder()
         if mode == "edit" {
             titleLabel.text = "edit post"
+            print(topicIcon!)
+           // filterBtn!.image = UIImage(named: "filter-\(topicIcon!)-accessory")
+            print(topicString)
+            if let topic = topicString {
+                switch topic {
+                case Topic.Wanderlust:
+                    filterBtn!.image = UIImage(named: "filter-wanderlust-accessory-icon")
+                    break
+                case Topic.OnMyPlate:
+                    filterBtn!.image = UIImage(named: "filter-plate-accessory-icon")
+                    break
+                case Topic.Health:
+                    filterBtn!.image = UIImage(named: "filter-health-accessory-icon")
+                    break
+                case Topic.DailyHustle:
+                    filterBtn!.image = UIImage(named: "filter-daily-hustle-accessory-icon")
+                    break
+                case Topic.RelationshipMusing:
+                    filterBtn!.image = UIImage(named: "filter-musing-accessory-icon")
+                    break
+                default:
+                    filterBtn!.image = UIImage(named: "filter-rayoflight-accessory-icon")
+
+                }
+            }
         }
         
     }
@@ -275,7 +303,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         showWaitOverlay()
         
         if mode == "edit" {
-            let imageURL:String = storedEntry["imageURL"] as! String
+            var imageURL: String = ""
+            if storedEntry["imageURL"]  != nil {
+                imageURL = storedEntry["imageURL"] as! String
+            }
 
             var editedFeed = Feed(author: "", id: "", uid: "", text: postInput.text, topic: topicString!, imageURL: imageURL)
             
@@ -304,35 +335,38 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         }
 
         
-        if postInput.text.isEmpty {
-            print("input can't be empty")
-        }else {
-         
-
-            if let text: String = postInput.text, let topic = topicString {
+        if let topic = topicString {
+            
+            var text: String?
+            if let unwrappedText = postInput.text {
+                text = unwrappedText
+            }else {
+                text = "  "
+            }
+            
+            let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text!, topic: topic, imageURL: "")
+            
+            
+            if withImage == true {
+                let imageData = UIImageJPEGRepresentation(postImage.image!, 0.2)
+                feedManager.createFeed(feed, imageData: imageData,  feedPosted: {
+                    self.removeAllOverlays()
+                    
+                    
+                    self.defaults.removeObjectForKey("storedEntry")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                })
+            }else {
                 
-        
-                let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text, topic: topic, imageURL: "")
-                
-
-                if withImage == true {
-                    let imageData = UIImageJPEGRepresentation(postImage.image!, 0.2)
-                    feedManager.createFeed(feed, imageData: imageData,  feedPosted: {
-                        self.removeAllOverlays()
-                        
-                        
-                        self.defaults.removeObjectForKey("storedEntry")
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                        
-                    })
-                }else {
+ 
                     feedManager.createFeed(feed, imageData: nil,  feedPosted: {
                         self.removeAllOverlays()
                         self.defaults.removeObjectForKey("storedEntry")
                         self.dismissViewControllerAnimated(true, completion: nil)
                         
                     })
-                }
+            
                 
             }
             

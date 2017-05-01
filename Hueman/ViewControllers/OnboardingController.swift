@@ -44,6 +44,12 @@ class OnboardingController: UIViewController {
         descriptionLabel.text = data?.description
         titleLabel.text = data?.title
         
+        if index == (self.delegate?.getTotalPage())! - 1 {
+            buttonLast()
+        }else {
+            buttonNext()
+
+        }
     }
 
     @IBAction func nextButtonAction(sender: AnyObject) {
@@ -72,7 +78,17 @@ extension OnboardingController {
     }
     
 
-
+    func buttonLast() {
+        nextButton.layer.borderWidth = 0
+        nextButton.backgroundColor = UIColor.whiteColor()
+        nextButton.setTitleColor(UIColor.UIColorFromRGB(0x666666), forState: .Normal)
+        nextButton.setImage(nil, forState: .Normal)
+        nextButton.tintColor = UIColor.UIColorFromRGB(0xffffff)
+        nextButton.setTitle("get started", forState: .Normal)
+        nextButton.setTitleColor(UIColor(rgb: 0x666666, alphaVal: 1), forState: .Normal)
+        nextButton.enabled = true
+        
+    }
 }
 
 
