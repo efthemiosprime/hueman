@@ -222,8 +222,17 @@ class NotificationsViewController: UITableViewController {
                                             var requester = Connection(snapshot: snapshot)
                                             requester.friendship = friendshipKey
                                             
+                                            
+                                            
                                             if let unwrappedLocation = self.currentUser?.location {
                                                 var recipient = Connection(name: self.currentUser!.name, location: unwrappedLocation, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
+                                                recipient.friendship = friendshipKey
+                                                
+                                                self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
+                                                self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
+                                            }else {
+                                                let nilLocation = UserLocation(location: "")
+                                                var recipient = Connection(name: self.currentUser!.name, location: nilLocation, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
                                                 recipient.friendship = friendshipKey
                                                 
                                                 self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
@@ -232,7 +241,8 @@ class NotificationsViewController: UITableViewController {
                                             
                                             
                                             
-                                            
+                                        NSNotificationCenter.defaultCenter().postNotificationName("ConnectionRequestAccepted", object: nil, userInfo: nil)
+
                                             
                                         }
                                     }) { error in
@@ -264,6 +274,8 @@ class NotificationsViewController: UITableViewController {
                     
                     self.tableView.reloadData()
                     self.tableView.endUpdates()
+
+                    
                 }
             }
 

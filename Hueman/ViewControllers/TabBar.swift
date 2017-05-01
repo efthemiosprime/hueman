@@ -65,6 +65,9 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.updateTabIndex), name:"PostFeed", object: nil)
+        
+        //ConnectionRequestAccepted
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.connectionRequestHandler), name:"ConnectionRequestAccepted", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -109,6 +112,11 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
     
     func updateTabIndex() {
         self.selectedIndex = 2
+    }
+    
+    func connectionRequestHandler() {
+        self.selectedIndex = 0
+
     }
     
     func createPost() {
