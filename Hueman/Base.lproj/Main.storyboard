@@ -1620,7 +1620,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1651,7 +1651,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1672,7 +1672,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1694,7 +1694,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2044,7 +2044,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2777,21 +2777,44 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bio-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Ir-V2-oOZ">
                                                 <rect key="frame" x="345" y="243" width="22" height="23"/>
                                             </imageView>
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r69-vF-i6l" userLabel="Progress">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="949"/>
+                                                <subviews>
+                                                    <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1f6-68-7s5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="949"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trp-PZ-yu8" customClass="ActivityIndicator" customModule="Hueman" customModuleProvider="target">
+                                                        <rect key="frame" x="167" y="313" width="40" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="1f6-68-7s5" firstAttribute="top" secondItem="r69-vF-i6l" secondAttribute="top" id="82O-bh-ehU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1f6-68-7s5" secondAttribute="trailing" id="M62-fw-GO8"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1f6-68-7s5" secondAttribute="bottom" id="ayp-9n-6s7"/>
+                                                    <constraint firstItem="1f6-68-7s5" firstAttribute="leading" secondItem="r69-vF-i6l" secondAttribute="leading" id="hxs-Vb-hoH"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="e8A-xo-4mM" firstAttribute="top" secondItem="rYF-Yv-KBP" secondAttribute="bottom" constant="22" id="5Rb-Hk-xpM"/>
                                             <constraint firstAttribute="trailing" secondItem="3Ir-V2-oOZ" secondAttribute="trailing" constant="8" id="5Z0-Ss-ArW"/>
+                                            <constraint firstAttribute="bottom" secondItem="r69-vF-i6l" secondAttribute="bottom" id="69a-MO-GxD"/>
                                             <constraint firstAttribute="trailing" secondItem="jfr-9n-NvS" secondAttribute="trailing" constant="30" id="6an-mg-Zn4"/>
                                             <constraint firstAttribute="trailing" secondItem="rYF-Yv-KBP" secondAttribute="trailing" constant="8" id="EJL-UR-VLt"/>
                                             <constraint firstItem="jfr-9n-NvS" firstAttribute="top" secondItem="e8A-xo-4mM" secondAttribute="bottom" constant="20" id="X4T-ry-0Tb"/>
                                             <constraint firstAttribute="bottom" secondItem="jfr-9n-NvS" secondAttribute="bottom" constant="20" id="d0P-4s-Qb3"/>
+                                            <constraint firstItem="r69-vF-i6l" firstAttribute="leading" secondItem="mkD-SX-WKa" secondAttribute="leading" id="gUV-mC-943"/>
                                             <constraint firstItem="3Ir-V2-oOZ" firstAttribute="centerY" secondItem="rYF-Yv-KBP" secondAttribute="centerY" id="mG3-z5-0eX"/>
                                             <constraint firstItem="rYF-Yv-KBP" firstAttribute="leading" secondItem="mkD-SX-WKa" secondAttribute="leading" constant="8" id="mtl-uh-4le"/>
                                             <constraint firstItem="ziV-ZT-dWx" firstAttribute="top" secondItem="mkD-SX-WKa" secondAttribute="top" constant="25" id="phc-j0-jas"/>
                                             <constraint firstItem="jfr-9n-NvS" firstAttribute="leading" secondItem="mkD-SX-WKa" secondAttribute="leading" constant="30" id="qgK-WT-nk3"/>
+                                            <constraint firstItem="r69-vF-i6l" firstAttribute="top" secondItem="mkD-SX-WKa" secondAttribute="top" id="t0Y-AG-eYV"/>
                                             <constraint firstItem="rYF-Yv-KBP" firstAttribute="top" secondItem="ziV-ZT-dWx" secondAttribute="bottom" constant="22" id="u2S-My-OYJ"/>
                                             <constraint firstItem="e8A-xo-4mM" firstAttribute="centerX" secondItem="mkD-SX-WKa" secondAttribute="centerX" id="uvN-7r-oqQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="r69-vF-i6l" secondAttribute="trailing" id="xGK-bb-x70"/>
                                             <constraint firstItem="ziV-ZT-dWx" firstAttribute="centerX" secondItem="mkD-SX-WKa" secondAttribute="centerX" id="zib-vx-dvU"/>
                                         </constraints>
                                     </view>
@@ -3767,7 +3790,7 @@ just saying.</string>
                         <viewControllerLayoutGuide type="bottom" id="dw2-gH-G5X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qd6-80-Zp6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you live?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiI-t5-WwV">
@@ -4667,14 +4690,14 @@ your Facebook friends.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="t3h-Zx-gWI"/>
-        <segue reference="PBT-r4-Iq7"/>
-        <segue reference="KSz-sF-lgm"/>
+        <segue reference="5mf-yO-1rC"/>
+        <segue reference="man-eV-AnG"/>
         <segue reference="x6K-ez-uIt"/>
         <segue reference="i6C-9S-InU"/>
         <segue reference="QSW-tO-OIL"/>
         <segue reference="ffB-RO-bLJ"/>
+        <segue reference="D5k-US-s1y"/>
         <segue reference="z5k-ex-qpi"/>
-        <segue reference="9n7-z9-NGl"/>
         <segue reference="eFq-P6-QEy"/>
     </inferredMetricsTieBreakers>
 </document>
