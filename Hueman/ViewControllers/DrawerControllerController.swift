@@ -63,7 +63,7 @@ class DrawerControllerController: UIViewController {
         
         if segue.identifier  == "ShowProfile" {
             let profileController = segue.destinationViewController as! ProfileViewController
-            profileController.editable = true
+            profileController.editMode = true
             profileController.user = AuthenticationManager.sharedInstance.currentUser
         }
     }

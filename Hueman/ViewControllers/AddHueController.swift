@@ -22,6 +22,9 @@ class AddHueController: UIViewController {
     @IBOutlet weak var footerLabel: UILabel!
     @IBOutlet weak var charactersLabel: UILabel!
     @IBOutlet weak var addButton: RoundedCornersButton!
+    
+    
+    
     var delegate: AddHueDelegate?
 
     var type: String?
@@ -29,7 +32,10 @@ class AddHueController: UIViewController {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     var currentTypeColor: UInt = Color.Wanderlust
+    var mode: Mode?
     
+    
+    var previousController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,16 +123,15 @@ class AddHueController: UIViewController {
         super.viewWillAppear(animated)
                 
 //        
-        if let text = defaults.objectForKey(type!) as? String   {
-            print("type: \(type)")
-            detailLabel.text = text
+        if type != nil {
+            if let text = defaults.objectForKey(type!) as? String   {
+                detailLabel.text = text
+            }
         }
+
         
     }
     
-    
-
-
     
     func textFieldDidChange(textField: UITextField){
         
@@ -148,15 +153,25 @@ class AddHueController: UIViewController {
     @IBAction func addAction(sender: AnyObject) {
         
         
-        if let text = detailLabel.text where !text.isEmpty {
-            self.delegate?.setHue(detailLabel.text!, type: self.type!)
-            self.performSegueWithIdentifier("backAddHues", sender: nil)
-
-        } else {
-            self.performSegueWithIdentifier("backAddHues", sender: nil)
+        if mode == .edit {
+            
+            let profileController = self.delegate as? ProfileViewController
+            profileController?.editMode = true
+            self.dismissViewControllerAnimated(true, completion: nil)
 
         }
         
+        if mode == nil || mode == .add {
+            if let text = detailLabel.text where !text.isEmpty {
+                self.delegate?.setHue(detailLabel.text!, type: self.type!)
+                self.performSegueWithIdentifier("backAddHues", sender: nil)
+                
+            } else {
+                self.performSegueWithIdentifier("backAddHues", sender: nil)
+                
+            }
+        }
+
 
     }
 

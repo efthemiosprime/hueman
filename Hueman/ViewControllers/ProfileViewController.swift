@@ -16,16 +16,24 @@ import SwiftOverlays
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet var hues: [ProfileHue]?
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var locationPlusIcon: UIImageView!
     @IBOutlet weak var profileBorder: UIView!
-    @IBOutlet weak var birthdayLocationIcon: UIImageView!
+    @IBOutlet weak var birthdayPlusIcon: UIImageView!
+    @IBOutlet weak var locationPlusIcon: UIImageView!
+    @IBOutlet weak var birthdayEditIcon: UIImageView!
+    @IBOutlet weak var locationEditIcon: UIImageView!
+    @IBOutlet weak var bioEditIcon: UIImageView!
+    @IBOutlet weak var photoEditLabel: UILabel!
+
+    @IBOutlet weak var location: UIView!
+    @IBOutlet weak var birthday: UIView!
     
     var editButton: UIBarButtonItem!
+    var doneButton: UIBarButtonItem!
     var user: User?
     
     let cachedProfileImage = NSCache()
@@ -38,17 +46,27 @@ class ProfileViewController: UIViewController {
         return FIRStorage.storage()
     }
     
-    var editable = false
-    
-    
+    var editMode = false
+    var defaults = NSUserDefaults.standardUserDefaults()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        doneButton =  UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneActionHandler))
+        editButton =  UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(self.editActionHandler))
+        //self.navigationBar.topItem?.rightBarButtonItem = editButton
+        
+        
+        birthdayPlusIcon.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        birthdayPlusIcon.tintColor = UIColor.UIColorFromRGB(0x666666)
+        locationPlusIcon.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        locationPlusIcon.tintColor = UIColor.UIColorFromRGB(0x666666)
 
-
+        bioEditIcon.hidden = true
+        
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
-//        profileImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
+
         profileImage.contentMode = .ScaleAspectFill
 
         profileBorder.layer.cornerRadius = profileBorder.frame.size.width / 2
@@ -61,21 +79,44 @@ class ProfileViewController: UIViewController {
             hue.type = topics[index]
         }
         
+        addEditGestures()
 
+        done()
+        
         self.view.layer.masksToBounds = false
         self.view.layer.shadowColor = UIColor.blackColor().CGColor
         self.view.layer.shadowOffset = CGSizeMake(0.0, 5.0)
         self.view.layer.shadowOpacity = 0.5
-
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if editable {
-            editButton =  UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(self.editActionHandler))
+    
+
+        if (locationLabel.text?.characters.count)! == 0 || (locationLabel.text?.isEmpty)! {
+            locationPlusIcon.hidden = true
+        }else {
+            locationPlusIcon.hidden = false
+
+        }
+        
+        if (birthdayLabel.text?.characters.count)! == 0 || (birthdayLabel.text?.isEmpty)! {
+            birthdayPlusIcon.hidden = true
+        }else {
+            birthdayPlusIcon.hidden = false
+        }
+        
+        
+        if editMode {
             self.navigationBar.topItem?.rightBarButtonItem = editButton
+            
+            if (locationLabel.text?.characters.count)! > 0 || !(locationLabel.text?.isEmpty)! {
+                locationEditIcon.hidden = true
+                birthdayEditIcon.hidden = true
+            }
+
             
             let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue(AuthenticationManager.sharedInstance.currentUser?.email!)
             userRef.observeSingleEventOfType(.Value, withBlock: {
@@ -101,11 +142,13 @@ class ProfileViewController: UIViewController {
                 
             })
             
+            edit()
             
         }else {
             if let unwrappedUser = user {
                 getCurrentProfile(unwrappedUser)
             }
+            //done()
         }
         
     
@@ -133,27 +176,49 @@ class ProfileViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         
-        if segue.identifier  == "EditProfile" {
-            let editProfile = segue.destinationViewController as! CreateProfileViewController
-            editProfile.mode = .edit
-            if let unwrappedUser = user {
-                editProfile.viewModel.user = unwrappedUser
-
+        if segue.identifier  == "EditHue" {
+            if sender != nil {
+                if let unwrappedHue = sender as? ProfileHue {
+                    let addHueController = segue.destinationViewController as! AddHueController
+                    addHueController.delegate = self
+                    addHueController.type = unwrappedHue.type
+                    addHueController.mode = Mode.edit
+                    if let type = unwrappedHue.type  {
+                        if let data = unwrappedHue.data {
+                            self.defaults.setObject(data.description, forKey: type)
+                        }
+                    }
+                }
             }
         }
         
+        if segue.identifier  == "EditBirthday" {
+                let birthdayController = segue.destinationViewController as! AddBirthdayController
+                birthdayController.mode = Mode.edit
+            
+        }
+        
+        if segue.identifier  == "EditLocation" {
+                let locationController = segue.destinationViewController as! AddLocationController
+                locationController.mode = Mode.edit
+        
+        }
+        
+        if segue.identifier  == "EditBio" {
+                let bioController = segue.destinationViewController as! AddBioController
+                bioController.mode = Mode.edit
+        
+        }
+        
+        
+        
+        if segue.identifier  == "EditProfileImage" {
+            let photoController = segue.destinationViewController as! AddProfilePhotoController
+            photoController.mode = Mode.edit
+            
+        }
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        
-//        self.view.layer.masksToBounds = false
-//        self.view.layer.shadowColor = UIColor.blackColor().CGColor
-//        self.view.layer.shadowOffset = CGSizeMake(0.0, 5.0)
-//        self.view.layer.shadowOpacity = 0.5
-//      //  self.view.layer.shadowPath = shadowPath.CGPath
-//    }
-//    
 
 
     @IBAction func backActionHandler(sender: AnyObject) {
@@ -176,9 +241,15 @@ class ProfileViewController: UIViewController {
         }
 
     }
+    @IBAction func backToProfile(segue: UIStoryboardSegue) {}
+
     
+    func doneActionHandler() {
+        done()
+    }
     func editActionHandler() {
-        self.performSegueWithIdentifier("EditProfile", sender: nil)
+        //self.performSegueWithIdentifier("EditProfile", sender: nil)
+        edit()
     }
     
     func remove() {
@@ -196,7 +267,7 @@ class ProfileViewController: UIViewController {
         }
         
         if let location = _user.location?.location {
-            self.cityLabel.text = location
+            self.locationLabel.text = location
  
         }
         self.bioLabel.text = _user.bio
@@ -279,15 +350,4 @@ class ProfileViewController: UIViewController {
        
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

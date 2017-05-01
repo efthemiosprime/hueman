@@ -18,6 +18,7 @@ class AddBirthdayController: UIViewController {
     
 //    var delegate: BirthdayDelegate?
     var entry: String?
+    var mode = Mode.add
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,12 @@ class AddBirthdayController: UIViewController {
     
 
     @IBAction func backAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("backToAddName", sender: self)
+        if mode == .edit {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }else {
+            self.performSegueWithIdentifier("backToAddName", sender: self)
+
+        }
     }
 
     @IBAction func nextAction(sender: AnyObject) {

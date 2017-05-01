@@ -22,6 +22,8 @@ class AddBioController: UIViewController {
     
     var isSet = false
     
+    var mode = Mode.add
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SignupManager.sharedInstance.currentUser = AuthenticationManager.sharedInstance.currentUser
@@ -41,11 +43,17 @@ class AddBioController: UIViewController {
     }
     
     @IBAction func backAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("backToAddPhoto", sender: self)
+        if mode == .edit {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }else {
+            self.performSegueWithIdentifier("backToAddPhoto", sender: self)
+            
+        }
+        
     }
 
     @IBAction func nextAction(sender: AnyObject) {
-        if bioInput.text == "write here..." &&  !bioInput.text.isEmpty {
+        if bioInput.text == "Write here..." &&  !bioInput.text.isEmpty {
             SignupManager.sharedInstance.currentUser?.bio = ""
 
         }else {
@@ -60,8 +68,9 @@ class AddBioController: UIViewController {
 
 
 extension AddBioController: UITextViewDelegate {
+    
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        if textView.text == "write here..." {
+        if textView.text == "Write here..." {
             textView.text = ""
         }
         return true
@@ -73,12 +82,12 @@ extension AddBioController: UITextViewDelegate {
         textField.text?.capitalizeFirstLetter()
         textField.resignFirstResponder()
         
-        return true
+        return false
     }
     
     func textViewDidChange(textView: UITextView) {
         
-        if textView.text == "write here..." || textView.text.characters.count == 0{
+        if textView.text == "Write here..." || textView.text.characters.count == 0{
             buttonSkip()
         }
         

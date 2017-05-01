@@ -62,8 +62,6 @@ class AddHuesController: UIViewController {
                     let addHueController = segue.destinationViewController as! AddHueController
                     addHueController.delegate = self
                     addHueController.type = unwrappedHue.type
-
-                    
                 }
                 
             }

@@ -7,21 +7,54 @@
 //
 
 import UIKit
-
+enum Mode {
+    case edit
+    case add
+}
 class ProfileHue: UIView {
 
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var plus: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var edit: UIImageView!
     
 
+    
+    var mode: Mode? {
+        didSet {
+            if let unwrappedMode = mode {
+                if unwrappedMode == .edit {
+                    if descriptionLabel.text!.isEmpty || descriptionLabel.text?.characters.count == 0 {
+                        plus.hidden = false
+                        edit.hidden = true
+
+                    }else {
+                        edit.hidden = false
+                        
+                    }
+                }else {
+                    edit.hidden = true
+                }
+            }else {
+                edit.hidden = true
+            }
+            
+        }
+    }
+    
+    
     var type: String? {
         didSet {
             descriptionLabel.hidden = true
             plus.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             plus.tintColor = UIColor.UIColorFromRGB(0x666666)
             titleLabel.textColor = UIColor.UIColorFromRGB(0x666666)
+            
+            if mode == nil || mode == .add || edit != nil {
+                edit.hidden = true
+            }
+            
             if let unwrappedType = type {
                 
                 switch unwrappedType {
@@ -105,6 +138,10 @@ class ProfileHue: UIView {
 
                 plus.hidden = true
                 descriptionLabel.hidden = false
+                
+                if mode == nil {
+                    edit.hidden = true
+                }
 
                 switch unwrappedData.type {
                     
@@ -157,10 +194,13 @@ class ProfileHue: UIView {
     override init (frame : CGRect) {
         super.init(frame : frame)
         
+        
         plus.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         plus.tintColor = UIColor.UIColorFromRGB(0x666666)
 
         descriptionLabel.hidden = true
+        edit.hidden = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

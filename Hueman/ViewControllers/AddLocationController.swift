@@ -27,6 +27,7 @@ class AddLocationController: UIViewController {
     
     var entry: String?
 
+    var mode = Mode.add
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +86,14 @@ class AddLocationController: UIViewController {
 //    }
     
     @IBAction func backAction(sender: AnyObject) {
-        self.performSegueWithIdentifier("backToAddBirthday", sender: self)
+        
+        if mode == .edit {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }else {
+            self.performSegueWithIdentifier("backToAddBirthday", sender: self)
+            
+        }
+        
     }
     
     @IBAction func nextAction(sender: AnyObject) {

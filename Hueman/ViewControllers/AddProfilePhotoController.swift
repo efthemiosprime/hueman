@@ -29,6 +29,8 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     let SUB_HEADER_LABEL = "But first, give us your best shot!"
     let HEADER_LABEL_SET = "Looking good!"
     
+    var mode = Mode.add
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,7 +61,13 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if mode == .edit {
+            backButton.hidden = false
+        }else {
+            backButton.hidden = true
 
+        }
         
         enableNext()
         profilePhotoContainer.layer.borderWidth = 1
@@ -97,6 +105,7 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
 
     @IBAction func backAction(sender: AnyObject) {
       //  self.performSegueWithIdentifier("backToBio", sender: self)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func nextAction(sender: AnyObject) {
         

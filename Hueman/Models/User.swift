@@ -39,8 +39,13 @@ struct User {
             email = unwrappedEmail
         }
 
-        photoURL = snapshot.value!["photoURL"] as? String
-        
+        if let unwrappedPhotoURL = snapshot.value!["photoURL"] as? String
+        {
+            photoURL = unwrappedPhotoURL
+
+        }else {
+            photoURL = ""
+        }
         if let unwrappedUID = snapshot.value!["uid"] as? String {
             uid = unwrappedUID
         }
@@ -78,11 +83,15 @@ struct User {
         self.photoURL = photoURL
     }
     
-    func toAnyObject() -> [String: AnyObject] {
+    mutating func toAnyObject() -> [String: AnyObject] {
+        if self.photoURL == nil {
+            self.photoURL = ""
+        }
+        
         if self.birthday != nil || self.location != nil {
             return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": self.birthday!.toAnyObject(), "location": self.location!.toAnyObject(), "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
         }else {
-            return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": "", "location": "", "bio": self.bio!, "photoURL": self.photoURL!, "hues": self.hues]
+            return ["email": self.email, "name":self.name, "uid": self.uid!, "birthday": "", "location": "", "bio": self.bio!, "photoURL": self.photoURL! ?? "", "hues": self.hues]
         }
 
     }

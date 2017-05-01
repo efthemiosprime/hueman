@@ -287,12 +287,15 @@ class AddConnectionsController: UITableViewController {
                                             
                                             self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
                                             self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
+                                        }else {
+                                            let nilLocation = UserLocation(location: "")
+                                            var recipient = Connection(name: self.currentUser!.name, location: nilLocation, imageURL: self.currentUser!.photoURL!, uid: self.currentUser!.uid)
+                                            recipient.friendship = friendshipKey
+                                            
+                                            self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
+                                            self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
                                         }
 
-                                        
-                                        
-
-                                        
                                     }
                                 }) { error in
                                     print(error.localizedDescription)
