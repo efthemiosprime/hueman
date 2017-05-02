@@ -113,6 +113,7 @@ class SignupManager {
         let changeRequest = currentAuthUser?.profileChangeRequest()
 
         if let imageData = userImageData {
+            print("edit with image")
             imageRef.putData(imageData, metadata: metadata, completion: { (metadata, error) in
                 guard error == nil else {
                     print(error?.localizedDescription)
@@ -152,10 +153,13 @@ class SignupManager {
                     huesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         if snapshot.exists() {
                           //  huesRef.updateChildValues((self.currentUser?.hues)!)
+                            print("hues - \(self.currentUser?.hues)")
+
                             if let hues = self.currentUser?.hues {
                                 huesRef.updateChildValues(hues)
                             }
                         }else {
+                            print("hues x \(self.currentUser?.hues)")
                             if let hues = self.currentUser?.hues {
                                 huesRef.setValue(hues)
                             }
@@ -168,6 +172,7 @@ class SignupManager {
                 }) // commitChangesWithCompletion
             }) // imageRef
         } else {
+            print("edit without image")
             changeRequest!.displayName = self.currentUser?.name
             
             changeRequest?.commitChangesWithCompletion({

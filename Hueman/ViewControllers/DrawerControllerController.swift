@@ -74,7 +74,7 @@ class DrawerControllerController: UIViewController {
     
     func getProfile() {
         if self.currentUser == nil {
-            userRef.observeSingleEventOfType(.Value, withBlock: {
+            userRef.observeEventType(.Value, withBlock: {
                 snapshot in
                 
                 if snapshot.exists() {

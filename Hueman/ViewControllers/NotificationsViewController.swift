@@ -65,9 +65,9 @@ class NotificationsViewController: UITableViewController {
                 self.tableView.backgroundView = nil
                 self.tableView.reloadData()
                 
-                if self.viewModel.numberOfNotifications > 0 {
-                    self.tabBarController?.tabBar.items![1].badgeValue = "\(self.viewModel.numberOfNotifications)"
-                }
+//                if self.viewModel.numberOfNotifications > 0 {
+//                    self.tabBarController?.tabBar.items![1].badgeValue = "\(self.viewModel.numberOfNotifications)"
+//                }
             })
             
 

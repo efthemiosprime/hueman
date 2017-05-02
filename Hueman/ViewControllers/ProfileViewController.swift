@@ -48,13 +48,14 @@ class ProfileViewController: UIViewController {
     }
     
     var editedImageData: NSData?
-    var editedLoation: UserLocation?
+    var editedLocation: UserLocation?
     var editedBirthday: UserBirthday?
     var editedBio: String = ""
     
     var editMode = false
     var defaults = NSUserDefaults.standardUserDefaults()
     var signupManager = SignupManager.sharedInstance
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +112,18 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        let autManager =  AuthenticationManager.sharedInstance
+        print(autManager.currentUser?.uid)
+        print(user?.uid)
+        if let authUid = autManager.currentUser?.uid, let userUid = user?.uid {
+            if authUid == userUid {
+                self.navigationBar.topItem?.rightBarButtonItem = editButton
+
+            }else {
+                self.navigationBar.topItem?.rightBarButtonItem = nil
+
+            }
+        }
 
     
         if (locationLabel.text?.characters.count)! == 0 || (locationLabel.text?.isEmpty)! {
@@ -129,7 +142,6 @@ class ProfileViewController: UIViewController {
 
         
         if editMode {
-            self.navigationBar.topItem?.rightBarButtonItem = editButton
             
             if (locationLabel.text?.characters.count)! > 0 || !(locationLabel.text?.isEmpty)! {
                 locationEditIcon.hidden = true
@@ -257,16 +269,15 @@ class ProfileViewController: UIViewController {
 
 
     @IBAction func backActionHandler(sender: AnyObject) {
-       // self.dismissViewControllerAnimated(true, completion: {})
-       // self.performSegueWithIdentifier("UnwindSegue", sender: self)
+        
+        
+        if editMode == true {
+            return
+        }
         
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         
-     //   CGRectOffset(<#T##rect: CGRect##CGRect#>, CGFloat, <#T##dy: CGFloat##CGFloat#>)
-//        self.view.layer.backgroundColor = UIColor.clearColor().CGColor
-//        self.view.backgroundColor = UIColor.clearColor()
 
-        // Animate the transition.
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.view.frame = CGRectOffset(self.view.frame, screenWidth, 0.0)
             
@@ -279,9 +290,54 @@ class ProfileViewController: UIViewController {
     @IBAction func backToProfile(segue: UIStoryboardSegue) {}
 
     
+    
+    // MARK - DONE ACTION
     func doneActionHandler() {
         done()
         
+        if let unwrappedHues = hues {
+            for hue in unwrappedHues {
+                if let unwrappedData = hue.data {
+                    if let type = hue.type, let detail = unwrappedData.description {
+                        if detail.isEmpty {
+                            signupManager.currentUser?.hues[type] = ""
+                        }else {
+                            signupManager.currentUser?.hues[type] = detail
+
+                        }
+                    }
+                }
+
+            }
+        }
+        
+        if let unwrappedEditedLocation = editedLocation {
+            signupManager.userLocation = unwrappedEditedLocation
+            signupManager.currentUser?.location = signupManager.userLocation
+        }else {
+            signupManager.userLocation = user?.location
+        }
+        
+        if let unwrappedProfileImage = editedImageData {
+            signupManager.userImageData = unwrappedProfileImage
+        }else {
+            signupManager.userImageData = UIImageJPEGRepresentation(profileImage.image!, 0.2)
+        }
+        
+        if editedBio.characters.count > 0 || !editedBio.isEmpty {
+            signupManager.currentUser?.bio = editedBio
+        }else {
+            if let bio = user?.bio {
+                if bio.isEmpty {
+                    signupManager.currentUser?.bio = ""
+                }else {
+                    signupManager.currentUser?.bio = bio
+                }
+            }else {
+                signupManager.currentUser?.bio = ""
+
+            }
+        }
 
         if signupManager.currentUser != nil {
             self.signupManager.editProfile({
@@ -297,7 +353,7 @@ class ProfileViewController: UIViewController {
                 ]
                 
                 self.editedImageData = nil
-                self.editedLoation = nil
+                self.editedLocation = nil
                 self.editedBirthday = nil
                 self.editedBio = ""
                 
@@ -345,7 +401,7 @@ class ProfileViewController: UIViewController {
         }
         
 
-        if let unwrappedEditedLocation = editedLoation {
+        if let unwrappedEditedLocation = editedLocation {
             self.locationLabel.text = unwrappedEditedLocation.location
             signupManager.currentUser?.location = unwrappedEditedLocation
 
@@ -353,7 +409,6 @@ class ProfileViewController: UIViewController {
             if let location = _user.location?.location {
                 self.locationLabel.text = location
                 signupManager.currentUser?.location = _user.location
-
             }
         }
         

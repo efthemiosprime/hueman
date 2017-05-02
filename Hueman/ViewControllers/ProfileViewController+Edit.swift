@@ -113,6 +113,7 @@ extension ProfileViewController {
             locationPlusIcon.hidden = false
         }
         
+        
         enableGestures()
 
     }
@@ -181,7 +182,7 @@ extension ProfileViewController: AddHueDelegate {
                     self.editedHues![Topic.RelationshipMusing] = user?.hues[Topic.RelationshipMusing]
 
                 }
-                signupManager.currentUser?.hues = editedHues!
+              //  signupManager.currentUser?.hues = editedHues!
 
                 break
                 
@@ -194,7 +195,7 @@ extension ProfileViewController: AddHueDelegate {
                     self.editedHues![Topic.Health] = user?.hues[Topic.Health]
 
                 }
-                signupManager.currentUser?.hues = editedHues!
+              //  signupManager.currentUser?.hues = editedHues!
 
                 break
                 
@@ -207,7 +208,7 @@ extension ProfileViewController: AddHueDelegate {
                     self.editedHues![Topic.DailyHustle] = user?.hues[Topic.DailyHustle]
 
                 }
-                signupManager.currentUser?.hues = editedHues!
+              //  signupManager.currentUser?.hues = editedHues!
 
                 break
                 
@@ -222,14 +223,14 @@ extension ProfileViewController: AddHueDelegate {
                     self.editedHues![Topic.RayOfLight] = user?.hues[Topic.RayOfLight]
 
                 }
-                signupManager.currentUser?.hues = editedHues!
+               // signupManager.currentUser?.hues = editedHues!
 
                 break
             }
         
         
 
-    
+        print("editHues \(signupManager.currentUser?.hues)" )
         
     }
 }
@@ -245,7 +246,7 @@ extension ProfileViewController: AddProfilePhotoDelegate {
 // MARK: - AddLocationDelegate
 extension ProfileViewController: AddLocationDelegate {
     func didEditLocation(location: UserLocation) {
-        self.editedLoation = location
+        self.editedLocation = location
     }
 }
 // MARK: - AddBirthdayDelegate

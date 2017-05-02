@@ -366,7 +366,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                         
                             if let viewControllers = self.tabBarController?.parentViewController?.childViewControllers {
                                 for viewController in viewControllers {
-                                    print("controller: \(viewController)")
                                     if(viewController is ProfileViewController) {
                                         profileViewIsPresent = true
                                         continue
