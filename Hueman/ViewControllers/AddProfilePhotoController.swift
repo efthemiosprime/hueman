@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AddProfilePhotoDelegate {
+    func editPhoto(imageData: NSData?)
+}
+
+
 class AddProfilePhotoController: UIViewController, UINavigationControllerDelegate{
 
     @IBOutlet weak var profilePhoto: UIImageView!
@@ -30,6 +35,11 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     let HEADER_LABEL_SET = "Looking good!"
     
     var mode = Mode.add
+    
+    var delegate: AddProfilePhotoDelegate?
+    
+    var previousController:String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +74,19 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
         
         if mode == .edit {
             backButton.hidden = false
+            
+            if let unwrappedPrevController = previousController {
+                if unwrappedPrevController == "Profile" {
+                    let profileController = self.delegate as? ProfileViewController
+                    if profileController != nil {
+                        if profileController?.profileImage.image != nil {
+                            profilePhoto.image = profileController?.profileImage.image
+                        }
+                    }
+                }
+            }
+
+
         }else {
             backButton.hidden = true
 
@@ -109,11 +132,17 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     }
     @IBAction func nextAction(sender: AnyObject) {
         
-        if profilePhotoIsSet {
-            
-            SignupManager.sharedInstance.userImageData = UIImageJPEGRepresentation(profilePhoto.image!, 0.1) as NSData?
+        if mode == Mode.edit {
+            self.dismissViewControllerAnimated(true, completion: nil)
+
+        } else {
+            if profilePhotoIsSet {
+                
+                SignupManager.sharedInstance.userImageData = UIImageJPEGRepresentation(profilePhoto.image!, 0.1) as NSData?
+            }
+            self.performSegueWithIdentifier("gotoAddBio", sender: self)
         }
-        self.performSegueWithIdentifier("gotoAddBio", sender: self)
+
     }
 
     @IBAction func backToAddPhoto(segue: UIStoryboardSegue) {}
@@ -124,12 +153,14 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
 extension AddProfilePhotoController: UIImagePickerControllerDelegate {
     
     func handlePhotoLibrary() {
-        
+        previousController = ""
         let camera = Camera(delegate: self)
         camera.PresentPhotoLibrary(self, canEdit: true)
     }
     
     func handleCamera() {
+        previousController = ""
+
         let camera = Camera(delegate: self)
         camera.PresentPhotoCamera(self, canEdit: true)
     }
@@ -142,9 +173,21 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
         if let editedImage = info["UIImagePickerControllerEditedImage"] {
             selectedImageFromPicker = editedImage as? UIImage
             profilePhotoIsSet = true
+            
+            if mode == Mode.edit {
+                let imageData: NSData = UIImagePNGRepresentation(editedImage as! UIImage)!
+                self.delegate?.editPhoto(imageData)
+            }
+            
         }else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
             selectedImageFromPicker = originalImage as? UIImage
             profilePhotoIsSet = true
+            
+            if mode == Mode.edit {
+                let imageData: NSData = UIImagePNGRepresentation(originalImage as! UIImage)!
+                self.delegate?.editPhoto(imageData)
+            }
+            
         }
         
         if let selectedImage = selectedImageFromPicker {
@@ -154,6 +197,11 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
             headerLabel.text = HEADER_LABEL_SET
             subHeaderLabel.text = ""
             enableNext()
+            
+            if mode == Mode.edit {
+                let imageData: NSData = UIImagePNGRepresentation(selectedImage)!
+                self.delegate?.editPhoto(imageData)
+            }
         }
         
         

@@ -153,10 +153,10 @@ extension CreateProfileViewController: UITextViewDelegate {
 //}
 
 
-extension CreateProfileViewController: LocationDelegate {
-    func setLocation(location: String) {
-        locationLabel.text = location
-     checkRequiredProfileInfos()
+extension CreateProfileViewController: AddLocationDelegate {
+    func didEditLocation(location: UserLocation) {
+        locationLabel.text = location.location
+        checkRequiredProfileInfos()
 
     }
 }

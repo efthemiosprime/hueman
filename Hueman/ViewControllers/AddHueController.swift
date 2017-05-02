@@ -126,8 +126,10 @@ class AddHueController: UIViewController {
         if type != nil {
             if let text = defaults.objectForKey(type!) as? String   {
                 detailLabel.text = text
+                enableNext()
             }
         }
+
 
         
     }
@@ -157,6 +159,9 @@ class AddHueController: UIViewController {
             
             let profileController = self.delegate as? ProfileViewController
             profileController?.editMode = true
+            self.delegate?.setHue(detailLabel.text!, type: self.type!)
+
+            
             self.dismissViewControllerAnimated(true, completion: nil)
 
         }

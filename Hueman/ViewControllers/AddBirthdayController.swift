@@ -7,6 +7,11 @@
 //
 
 import UIKit
+protocol AddBirthdayDelegate {
+    func didEditBirthday(birthday:UserBirthday)
+}
+
+
 
 class AddBirthdayController: UIViewController {
 
@@ -19,7 +24,10 @@ class AddBirthdayController: UIViewController {
 //    var delegate: BirthdayDelegate?
     var entry: String?
     var mode = Mode.add
+    var previousController:String?
+    var delegate:AddBirthdayDelegate?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,24 +36,9 @@ class AddBirthdayController: UIViewController {
         visibilitySwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
         //visibilitySwitch.backgroundColor = UIColor.whiteColor()
         
-        
-        
         datePicker.setValue(UIColor.whiteColor(), forKey: "textColor")
         datePicker.setValue(false, forKey: "highlightsToday")
         
-        
-        
-        if let unwrappedEntry = entry {
-            let dateString = unwrappedEntry
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MM dd yyyy"
-            let dateObj = dateFormatter.dateFromString(dateString)
-            
-            
-            datePicker.date = dateObj!
-            
-            
-        }
         
         disableNext()
         
@@ -56,6 +49,30 @@ class AddBirthdayController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        if previousController == "Profile" {
+            let profileController = self.delegate as? ProfileViewController
+            if (profileController?.birthdayLabel.text?.characters.count)! > 0 || !(profileController?.birthdayLabel.text?.isEmpty)! {
+                let dateString = profileController?.birthdayLabel.text
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "MM dd yyyy"
+                let dateObj = dateFormatter.dateFromString(dateString!)
+                datePicker.date = dateObj!
+                
+                enableNext()
+
+            }
+        }else {
+            if let unwrappedEntry = entry {
+                let dateString = unwrappedEntry
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "MM dd yyyy"
+                let dateObj = dateFormatter.dateFromString(dateString)
+                
+                datePicker.date = dateObj!
+            }     
+        }
+        
+        
 
     }
     
@@ -63,7 +80,6 @@ class AddBirthdayController: UIViewController {
     func handleBirthdayPicker(sender: UIDatePicker) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd yyyy"
-     
         //self.delegate?.pickerDidChange(dateFormatter.stringFromDate(sender.date))
         SignupManager.sharedInstance.userBirthday = UserBirthday(date: dateFormatter.stringFromDate(sender.date))
         
@@ -75,6 +91,11 @@ class AddBirthdayController: UIViewController {
 
     @IBAction func backAction(sender: AnyObject) {
         if mode == .edit {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MMM dd yyyy"
+            
+            self.delegate?.didEditBirthday(UserBirthday(date: dateFormatter.stringFromDate(datePicker.date), visible: visibilitySwitch.on))
+            
             self.dismissViewControllerAnimated(true, completion: nil)
         }else {
             self.performSegueWithIdentifier("backToAddName", sender: self)
@@ -83,9 +104,21 @@ class AddBirthdayController: UIViewController {
     }
 
     @IBAction func nextAction(sender: AnyObject) {
-        SignupManager.sharedInstance.userBirthday?.visible = visibilitySwitch.on
+        
+        if mode == .edit {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MMM dd yyyy"
+            
+            dateFormatter.stringFromDate(datePicker.date)
+            self.delegate?.didEditBirthday(UserBirthday(date: dateFormatter.stringFromDate(datePicker.date), visible: visibilitySwitch.on))
 
-        self.performSegueWithIdentifier("gotoAddLocation", sender: self)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }else {
+            SignupManager.sharedInstance.userBirthday?.visible = visibilitySwitch.on
+            
+            self.performSegueWithIdentifier("gotoAddLocation", sender: self)
+        }
+
     }
     
     @IBAction func backToAddBirthday(segue: UIStoryboardSegue) {}
@@ -98,7 +131,7 @@ extension AddBirthdayController {
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor
         nextButton.backgroundColor = UIColor.clearColor()
-        nextButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
+        nextButton.tintColor = UIColor.UIColorFromRGB(0x7BC8A4)
         nextButton.enabled = false
     }
     
@@ -106,7 +139,7 @@ extension AddBirthdayController {
         nextButton.layer.borderWidth = 0
         nextButton.layer.borderColor = UIColor.whiteColor().CGColor
         nextButton.backgroundColor = UIColor.whiteColor()
-        nextButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
+        nextButton.tintColor = UIColor.UIColorFromRGB(0x7BC8A4)
         nextButton.enabled = true
         
     }

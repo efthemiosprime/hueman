@@ -9,8 +9,8 @@
 import UIKit
 import CoreLocation
 
-protocol LocationDelegate {
-    func setLocation(location: String)
+protocol AddLocationDelegate {
+    func didEditLocation(location: UserLocation)
 }
 
 
@@ -23,11 +23,13 @@ class AddLocationController: UIViewController {
     var locationManager:CLLocationManager!
     let geoCoder = CLGeocoder()
 
-    var delegate: LocationDelegate?
+    var delegate: AddLocationDelegate?
     
     var entry: String?
 
     var mode = Mode.add
+    
+    var previousController:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,25 +56,31 @@ class AddLocationController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         locationField.becomeFirstResponder()
         
-        print("view did load")
-
-        if let unwrappedEntry = entry {
-            
-            locationField.text = unwrappedEntry
-            
-        }else {
-            if CLLocationManager.locationServicesEnabled() {
-                if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-                    determineMyCurrentLocation()
-
-                }
-
-            }else {
-                print("Location services are not enabled")
+        if previousController == "Profile" {
+            let profileController = self.delegate as? ProfileViewController
+            if (profileController?.locationLabel.text?.characters.count)! > 0 || !(profileController?.locationLabel.text?.isEmpty)! {
+                locationField.text = profileController?.locationLabel.text
+                enableNext()
             }
-            
+        }else {
+            if let unwrappedEntry = entry {
+                
+                locationField.text = unwrappedEntry
+                
+            }else {
+                if CLLocationManager.locationServicesEnabled() {
+                    if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+                        determineMyCurrentLocation()
+                        
+                    }
+                    
+                }else {
+                    print("Location services are not enabled")
+                }
+                
+            }
         }
-        
+
         
     }
     
@@ -88,6 +96,9 @@ class AddLocationController: UIViewController {
     @IBAction func backAction(sender: AnyObject) {
         
         if mode == .edit {
+            if (self.locationField.text?.characters.count)! > 0 || !(locationField.text?.isEmpty)! {
+                self.delegate?.didEditLocation(UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on))
+            }
             self.dismissViewControllerAnimated(true, completion: nil)
         }else {
             self.performSegueWithIdentifier("backToAddBirthday", sender: self)
@@ -97,7 +108,16 @@ class AddLocationController: UIViewController {
     }
     
     @IBAction func nextAction(sender: AnyObject) {
-        print("next action")
+        
+        if mode == Mode.edit {
+            if (self.locationField.text?.characters.count)! > 0 || !(locationField.text?.isEmpty)! {
+                self.delegate?.didEditLocation(UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on))
+                
+            }
+            self.dismissViewControllerAnimated(true, completion: nil)
+            return
+        }
+        
         if SignupManager.sharedInstance.userLocation == nil {
             SignupManager.sharedInstance.userLocation = UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on)
         }else {
@@ -263,7 +283,7 @@ extension AddLocationController {
         nextButton.layer.borderWidth = 0
         nextButton.layer.borderColor = UIColor.whiteColor().CGColor
         nextButton.backgroundColor = UIColor.whiteColor()
-        nextButton.tintColor = UIColor.UIColorFromRGB(0x7bc8a4)
+        nextButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
         nextButton.enabled = true
         
     }

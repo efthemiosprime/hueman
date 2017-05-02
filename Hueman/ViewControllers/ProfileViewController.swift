@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController {
     
     var editButton: UIBarButtonItem!
     var doneButton: UIBarButtonItem!
+    var editedHues: [String: String]?
     var user: User?
     
     let cachedProfileImage = NSCache()
@@ -45,6 +46,11 @@ class ProfileViewController: UIViewController {
     var storageRef: FIRStorage! {
         return FIRStorage.storage()
     }
+    
+    var editedImageData: NSData?
+    var editedLoation: UserLocation?
+    var editedBirthday: UserBirthday?
+    var editedBio: String = ""
     
     var editMode = false
     var defaults = NSUserDefaults.standardUserDefaults()
@@ -87,6 +93,15 @@ class ProfileViewController: UIViewController {
         self.view.layer.shadowColor = UIColor.blackColor().CGColor
         self.view.layer.shadowOffset = CGSizeMake(0.0, 5.0)
         self.view.layer.shadowOpacity = 0.5
+        
+        editedHues = [
+            Topic.Wanderlust: "",
+            Topic.OnMyPlate: "",
+            Topic.RelationshipMusing: "",
+            Topic.Health: "",
+            Topic.DailyHustle: "",
+            Topic.RayOfLight: ""
+        ]
 
     }
     
@@ -108,6 +123,7 @@ class ProfileViewController: UIViewController {
             birthdayPlusIcon.hidden = false
         }
         
+
         
         if editMode {
             self.navigationBar.topItem?.rightBarButtonItem = editButton
@@ -141,7 +157,7 @@ class ProfileViewController: UIViewController {
                 
                 
             })
-            
+
             edit()
             
         }else {
@@ -170,6 +186,9 @@ class ProfileViewController: UIViewController {
         }) { (Finished) -> Void in
             
         }
+        
+        
+
 
     }
     
@@ -193,27 +212,35 @@ class ProfileViewController: UIViewController {
         }
         
         if segue.identifier  == "EditBirthday" {
-                let birthdayController = segue.destinationViewController as! AddBirthdayController
-                birthdayController.mode = Mode.edit
+            let birthdayController = segue.destinationViewController as! AddBirthdayController
+            birthdayController.delegate = self
+            birthdayController.previousController = "Profile"
+            birthdayController.mode = Mode.edit
             
         }
         
         if segue.identifier  == "EditLocation" {
-                let locationController = segue.destinationViewController as! AddLocationController
-                locationController.mode = Mode.edit
+            let locationController = segue.destinationViewController as! AddLocationController
+            locationController.previousController = "Profile"
+            locationController.delegate = self
+            locationController.mode = Mode.edit
         
         }
         
         if segue.identifier  == "EditBio" {
-                let bioController = segue.destinationViewController as! AddBioController
-                bioController.mode = Mode.edit
-        
+            let bioController = segue.destinationViewController as! AddBioController
+            bioController.mode = Mode.edit
+            bioController.delegate = self
+            bioController.previousController = "Profile"
+
         }
         
         
         
         if segue.identifier  == "EditProfileImage" {
             let photoController = segue.destinationViewController as! AddProfilePhotoController
+            photoController.delegate = self
+            photoController.previousController = "Profile"
             photoController.mode = Mode.edit
             
         }
@@ -262,92 +289,111 @@ class ProfileViewController: UIViewController {
     func getCurrentProfile(_user: User) {
        // self.navigationBar.topItem!.title = _user.name
         
-        if let date = _user.birthday?.date {
-            self.birthdayLabel.text = date
-        }
         
-        if let location = _user.location?.location {
-            self.locationLabel.text = location
- 
-        }
-        self.bioLabel.text = _user.bio
-        
-
-        if let unwrappedPhotoURL = _user.photoURL where !(_user.photoURL?.isEmpty)! {
-            
-            if let cachedImage = self.cachedProfileImage.objectForKey(unwrappedPhotoURL) {
-                self.profileImage.image = cachedImage as? UIImage
-                
-            }else {
-                storageRef.referenceForURL(unwrappedPhotoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
-                    if error == nil {
-                        if let imageData = data {
-                            let image = UIImage(data: imageData)
-                            self.cachedProfileImage.setObject(image!, forKey: unwrappedPhotoURL)
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.profileImage.image = image
-                                
-                            })
-                        }
-                    }else {
-                        print(error!.localizedDescription)
-                    }
-                })
+        if let unwrappedEditedBirthday = editedBirthday {
+            self.birthdayLabel.text = unwrappedEditedBirthday.date
+        }else {
+            if let date = _user.birthday?.date {
+                self.birthdayLabel.text = date
             }
         }
         
-        // todo: 
-        let huesRef = dataBaseRef.child("users").child(_user.uid).child("hues")
-        huesRef.observeSingleEventOfType(.Value, withBlock: {
-            snapshot in
-            
-            
-            if snapshot.exists() {
-                // TODO: to refactor iterate?
+
+        if let unwrappedEditedLocation = editedLoation {
+            self.locationLabel.text = unwrappedEditedLocation.location
+        }else {
+            if let location = _user.location?.location {
+                self.locationLabel.text = location
+            }
+        }
+        
+        if !editedBio.isEmpty || editedBio.characters.count > 0 {
+            self.bioLabel.text = editedBio
+
+        }else {
+            self.bioLabel.text = _user.bio
+
+        }
+        
+        // edit mode
+        if let unwrappedImageData = editedImageData {
+            profileImage.image = UIImage(data: unwrappedImageData)
+        }else {
+            if let unwrappedPhotoURL = _user.photoURL where !(_user.photoURL?.isEmpty)! {
                 
-                if let wanderlust = snapshot.value![Topic.Wanderlust]  {
-                    if let unWrappedDetail = wanderlust as? String where !unWrappedDetail.isEmpty  {
-                        self.hues![0].data = ProfileHueModel(title: HueTitle.Wanderlust, description: unWrappedDetail, type: Topic.Wanderlust)
+                if let cachedImage = self.cachedProfileImage.objectForKey(unwrappedPhotoURL) {
+                    self.profileImage.image = cachedImage as? UIImage
                     
-                    }
+                }else {
+                    storageRef.referenceForURL(unwrappedPhotoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
+                        if error == nil {
+                            if let imageData = data {
+                                let image = UIImage(data: imageData)
+                                self.cachedProfileImage.setObject(image!, forKey: unwrappedPhotoURL)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.profileImage.image = image
+                                    
+                                })
+                            }
+                        }else {
+                            print(error!.localizedDescription)
+                        }
+                    })
                 }
-                
-                if let food = snapshot.value![Topic.OnMyPlate]  {
-                    if let detail = food as? String where !detail.isEmpty {
-                        self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: detail, type: Topic.OnMyPlate)
-                    }
-                }
-                
-                
-                if let snap = snapshot.value![Topic.RelationshipMusing]  {
-                    if let detail = snap as? String where !detail.isEmpty  {
-                        self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: detail, type: Topic.RelationshipMusing)
+            }            
+        }
+        
 
-                    }
-                }
+            let huesRef = dataBaseRef.child("users").child(_user.uid).child("hues")
+            huesRef.observeSingleEventOfType(.Value, withBlock: {
+                snapshot in
                 
-                if let snap = snapshot.value![Topic.Health]  {
-                    if let detail = snap as? String where !detail.isEmpty  {
-                        self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: detail, type: Topic.Health)
-                    }
-                }
                 
-                if let snap = snapshot.value![Topic.DailyHustle]  {
-                    if let detail = snap as? String where !detail.isEmpty  {
-                        self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: detail, type: Topic.DailyHustle)
-
+                if snapshot.exists() {
+                    // TODO: to refactor iterate?
+                    
+                    if let wanderlust = snapshot.value![Topic.Wanderlust]  {
+                        if let unWrappedDetail = wanderlust as? String where !unWrappedDetail.isEmpty  {
+                            self.hues![0].data = ProfileHueModel(title: HueTitle.Wanderlust, description: unWrappedDetail, type: Topic.Wanderlust)
+                            
+                        }
                     }
-                }
-                if let snap = snapshot.value![Topic.RayOfLight]  {
-                    if let detail = snap as? String where !detail.isEmpty {
-                        self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: detail, type: Topic.RayOfLight)
-
+                    
+                    if let food = snapshot.value![Topic.OnMyPlate]  {
+                        if let detail = food as? String where !detail.isEmpty {
+                            self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: detail, type: Topic.OnMyPlate)
+                        }
                     }
+                    
+                    
+                    if let snap = snapshot.value![Topic.RelationshipMusing]  {
+                        if let detail = snap as? String where !detail.isEmpty  {
+                            self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: detail, type: Topic.RelationshipMusing)
+                            
+                        }
+                    }
+                    
+                    if let snap = snapshot.value![Topic.Health]  {
+                        if let detail = snap as? String where !detail.isEmpty  {
+                            self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: detail, type: Topic.Health)
+                        }
+                    }
+                    
+                    if let snap = snapshot.value![Topic.DailyHustle]  {
+                        if let detail = snap as? String where !detail.isEmpty  {
+                            self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: detail, type: Topic.DailyHustle)
+                            
+                        }
+                    }
+                    if let snap = snapshot.value![Topic.RayOfLight]  {
+                        if let detail = snap as? String where !detail.isEmpty {
+                            self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: detail, type: Topic.RayOfLight)
+                            
+                        }
+                    }
+                    
                 }
-      
-            }
-        })
-       
+            })       
 
     }
 }

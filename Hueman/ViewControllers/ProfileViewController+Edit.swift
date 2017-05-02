@@ -39,6 +39,8 @@ extension ProfileViewController {
         birthday.userInteractionEnabled = true
         location.userInteractionEnabled = true
         bioEditIcon.userInteractionEnabled = true
+        profileImage.userInteractionEnabled = true
+
     }
     func disableGestures() {
         for hue in hues! {
@@ -49,6 +51,7 @@ extension ProfileViewController {
 
         birthday.userInteractionEnabled = false
         location.userInteractionEnabled = false
+        profileImage.userInteractionEnabled = false
     }
     
     func done() {
@@ -138,43 +141,56 @@ extension ProfileViewController {
     
 }
 
+// MARK: - AddHueDelegate
 extension ProfileViewController: AddHueDelegate {
     func setHue(hue: String, type: String) {
-        func setHue(hue: String, type: String) {
+        
             switch type {
             case Topic.Wanderlust:
                 let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
-                hues![0].data = data
-             //   self.hues[Topic.Wanderlust] = data.description
+                if hue.characters.count > 0 {
+                    hues![0].data = data
+                }
+                self.editedHues![Topic.Wanderlust] = data.description
+
                 break
                 
             case Topic.OnMyPlate:
                 let data = ProfileHueModel(title: "I love to stuff myself with", description: hue, type: Topic.OnMyPlate)
-                hues![1].data = data
-            //    self.hues[Topic.OnMyPlate] = data.description
+                if hue.characters.count > 0 {
+                    hues![1].data = data
+                }
+                self.editedHues![Topic.OnMyPlate] = data.description
                 
                 break
                 
             case Topic.RelationshipMusing:
                 let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.RelationshipMusing)
-                hues![2].data = data
-          //      self.hues[Topic.RelationshipMusing] = data.description
+                if hue.characters.count > 0 {
+                    hues![2].data = data
+                }
+                self.editedHues![Topic.RelationshipMusing] = data.description
                 
                 
                 break
                 
             case Topic.Health:
                 let data = ProfileHueModel(title: "I keep health / fit by", description: hue, type: Topic.Health)
-                hues![3].data = data
-          //      self.hues[Topic.Health] = data.description
+                if hue.characters.count > 0 {
+                    hues![3].data = data
+
+                }
+                self.editedHues![Topic.Health] = data.description
                 
                 break
                 
             case Topic.DailyHustle:
                 let data = ProfileHueModel(title: "I am a", description: hue, type: Topic.DailyHustle)
-                
-                hues![4].data = data
-          //      self.hues[Topic.DailyHustle] = data.description
+                if hue.characters.count > 0 {
+                    hues![4].data = data
+
+                }
+                self.editedHues![Topic.DailyHustle] = data.description
                 
                 break
                 
@@ -182,12 +198,42 @@ extension ProfileViewController: AddHueDelegate {
                 
             default:
                 let data = ProfileHueModel(title: "What makes you smile?", description: hue, type: Topic.RayOfLight)
-                
-                hues![5].data = data
-           //     self.hues[Topic.RayOfLight] = data.description
+                if hue.characters.count > 0 {
+                    hues![5].data = data
+
+                }
+                self.editedHues![Topic.RayOfLight] = data.description
                 break
             }
-        }
+    
         
+    }
+}
+
+// MARK: - AddProfilePhotoDelegate
+extension ProfileViewController: AddProfilePhotoDelegate {
+    func editPhoto(imageData: NSData?) {
+        self.editedImageData = imageData
+    }
+}
+
+
+// MARK: - AddLocationDelegate
+extension ProfileViewController: AddLocationDelegate {
+    func didEditLocation(location: UserLocation) {
+        self.editedLoation = location
+    }
+}
+// MARK: - AddBirthdayDelegate
+extension ProfileViewController: AddBirthdayDelegate {
+    func didEditBirthday(birthday: UserBirthday) {
+        editedBirthday = birthday
+    }
+}
+
+// MARK: - AddBioDelegate
+extension ProfileViewController: AddBioDelegate {
+    func didEditBio(bio: String) {
+        editedBio = bio
     }
 }

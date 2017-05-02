@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol AddBioDelegate {
+    func didEditBio(bio:String)
+}
 class AddBioController: UIViewController {
 
     @IBOutlet weak var nextButton: RoundedCornersButton!
@@ -24,6 +26,10 @@ class AddBioController: UIViewController {
     
     var mode = Mode.add
     
+    var delegate:AddBioDelegate?
+    
+    var previousController:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SignupManager.sharedInstance.currentUser = AuthenticationManager.sharedInstance.currentUser
@@ -35,15 +41,28 @@ class AddBioController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if SignupManager.sharedInstance.currentUser != nil {
-            if !(SignupManager.sharedInstance.currentUser?.bio?.isEmpty)! {
-                bioInput.text = SignupManager.sharedInstance.currentUser?.bio
+
+        
+        if mode == .edit {
+            let profileController = self.delegate as? ProfileViewController
+            if profileController?.bioLabel.text?.characters.count > 0 {
+                bioInput.text = profileController?.bioLabel.text
+                buttonNext()
+            }
+            
+        }else {
+            if SignupManager.sharedInstance.currentUser != nil {
+                if !(SignupManager.sharedInstance.currentUser?.bio?.isEmpty)! {
+                    bioInput.text = SignupManager.sharedInstance.currentUser?.bio
+                }
             }
         }
     }
     
     @IBAction func backAction(sender: AnyObject) {
         if mode == .edit {
+            self.delegate?.didEditBio(bioInput.text)
+
             self.dismissViewControllerAnimated(true, completion: nil)
         }else {
             self.performSegueWithIdentifier("backToAddPhoto", sender: self)
@@ -53,14 +72,22 @@ class AddBioController: UIViewController {
     }
 
     @IBAction func nextAction(sender: AnyObject) {
-        if bioInput.text == "Write here..." &&  !bioInput.text.isEmpty {
-            SignupManager.sharedInstance.currentUser?.bio = ""
-
+        
+        if mode == .edit {
+            self.delegate?.didEditBio(bioInput.text)
+            self.dismissViewControllerAnimated(true, completion: nil)
         }else {
-            SignupManager.sharedInstance.currentUser?.bio = bioInput.text
-
+            if bioInput.text == "Write here..." &&  !bioInput.text.isEmpty {
+                SignupManager.sharedInstance.currentUser?.bio = ""
+                
+            }else {
+                SignupManager.sharedInstance.currentUser?.bio = bioInput.text
+                
+            }
+            self.performSegueWithIdentifier("gotoAddHues", sender: self)
         }
-        self.performSegueWithIdentifier("gotoAddHues", sender: self)
+        
+
     }
     
     @IBAction func backToBio(segue: UIStoryboardSegue) {}

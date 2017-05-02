@@ -19,7 +19,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
 
     var hasLogin = false
     let defaults = NSUserDefaults.standardUserDefaults()
-    var isFirstTime = false
+    var isFirstTime = true
     
     var timer: NSTimer = NSTimer()
     
@@ -134,18 +134,14 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                                     
                                     self.firebaseManager.loginWithFacebook(url, loggedIn: {
                                         
-                                        self.defaults.setBool(false, forKey: "firstTime")
-                                        self.defaults.synchronize()
-                                        
                                         if self.isFirstTime {
-                                            self.defaults.setBool(false, forKey: "firstTime")
-                                            self.defaults.synchronize()
                                             self.performSegueWithIdentifier("gotoFacebookInterstitial", sender: sender)
                                         }else {
                                             self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
                                         }
                                         
-                                        
+                                        self.defaults.setBool(false, forKey: "firstTime")
+                                        self.defaults.synchronize()
                                         self.hideIndicator()
                                         
                                     })
@@ -223,7 +219,7 @@ extension WelcomeController {
     
     // MARK: - Timer
     func startTimer() {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: #selector(WelcomeController.checkProgress), userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(25, target: self, selector: #selector(WelcomeController.checkProgress), userInfo: nil, repeats: false)
     }
     
     func stopTimer() {
@@ -236,13 +232,20 @@ extension WelcomeController {
             }, completion: {
                 (value: Bool) in
                 self.cover.hidden = true
-                self.showError("connection timeout")
-
         })
     }
     
     func checkProgress() {
         stopTimer()
+        
+        UIView.animateWithDuration(0.5, animations: {
+            self.cover.alpha = 0
+            }, completion: {
+                (value: Bool) in
+                self.cover.hidden = true
+                self.showError("connection timeout")
+                
+        })
         
         if activityIndicatorContainer.hidden == false {
 
