@@ -40,7 +40,6 @@ class NotificationsViewController: UITableViewController {
         
         viewModel = NotificationsViewModel()
 
-        
     }
 
     
@@ -65,7 +64,13 @@ class NotificationsViewController: UITableViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.backgroundView = nil
                 self.tableView.reloadData()
+                
+                if self.viewModel.numberOfNotifications > 0 {
+                    self.tabBarController?.tabBar.items![1].badgeValue = "\(self.viewModel.numberOfNotifications)"
+                }
             })
+            
+
         },
         onerror: { errorString in
             if errorString == "Empty" {
@@ -78,6 +83,8 @@ class NotificationsViewController: UITableViewController {
         }
         
         )
+        
+
         
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in

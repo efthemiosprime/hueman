@@ -24,6 +24,7 @@ class ConnectionCell: UITableViewCell {
                 }
                 //connectionImage.image = UIImage(named: connection.imageURL!)
                 connectionImage.clipsToBounds = true
+                connectionImage.layer.borderColor = UIColor.UIColorFromRGB(0x999999).CGColor
             }
         }
     }

@@ -171,7 +171,7 @@ class CreateProfileViewController: UIViewController, UINavigationControllerDeleg
 //            let birthdayController = segue.destinationViewController as! BirthdayController
             
             if sender != nil {
-                if let dob = sender as? String {
+                if (sender as? String) != nil {
 //                    birthdayController.entry = dob
                 }
   

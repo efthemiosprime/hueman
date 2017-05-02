@@ -124,6 +124,10 @@ class FeedImageTableViewCell: UITableViewCell {
             feedImage.image = imagePlaceHolder
             cache.setObject(imagePlaceHolder!, forKey: "imagePlacheHolder")
         }
+        
+        authorProfileImage.image = UIImage(named: "image-placeholder")
+
+        
         textFeedLabel.text = ""
         textCreatedLabel.text = ""
         textAuthorLabel.text = ""

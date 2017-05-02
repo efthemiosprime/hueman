@@ -79,6 +79,17 @@ class FeedTextTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func prepareForReuse() {
+        
+        authorProfileImage.image = UIImage(named: "image-placeholder")
+        textFeedLabel.text = ""
+        textCreatedLabel.text = ""
+        textAuthorLabel.text = ""
+    }
+    
+    
+    
     @IBAction func didTappedPopover(sender: AnyObject) {
         showPopover?(self)
 

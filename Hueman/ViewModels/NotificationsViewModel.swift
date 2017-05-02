@@ -29,6 +29,8 @@ class NotificationsViewModel: NSObject {
     var older = [NotificationItem]()
     var data: [[NotificationItem]] = []
     var sectionTitles = [String]()
+    
+    var numberOfNotifications:UInt = 0
 
     func load(complete: ((notifications: [[NotificationItem]]) -> ())? = nil, onerror: ((errorString: String) -> ())? = nil ) {
         
@@ -47,7 +49,7 @@ class NotificationsViewModel: NSObject {
                 if snapshot.exists() {
                     
                     var counter:UInt = 0
-                    let numberOfNotifications = snapshot.childrenCount
+                    self.numberOfNotifications = snapshot.childrenCount
                     var items = [NotificationItem]()
                     
                     let sortedNotifications = snapshot.children.map({(snap) -> Notification in
@@ -56,7 +58,7 @@ class NotificationsViewModel: NSObject {
                         return newNotification
                         
                     })
-                    print("number of notifications \(numberOfNotifications)")
+                    print("number of notifications \(self.numberOfNotifications)")
 
                     for snap in sortedNotifications {
                         
@@ -86,7 +88,7 @@ class NotificationsViewModel: NSObject {
                                 
                                 
                                 
-                                if counter == numberOfNotifications {
+                                if counter == self.numberOfNotifications {
                                     
                                     if self.recent.count > 0 {
                                         self.sectionTitles.append("recent")
@@ -204,6 +206,8 @@ class NotificationsViewModel: NSObject {
         }
         
     }
+    
+
 }
 
 

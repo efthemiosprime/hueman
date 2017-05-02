@@ -113,22 +113,22 @@ class ConnectionsViewController: UIViewController{
         }
         )
         
-        connectionsModel.fetchAllRequests({ withRequest in
-            if(withRequest) {
-                
-                if self.connectionsModel.numberOfRequests > 0 {
-                    self.tabBarController?.tabBar.items![0].badgeValue = String(self.connectionsModel.numberOfRequests)
-                }
-
-
-                self.navigationItem.rightBarButtonItems![0].image = self.addIconWithBadge
-            }else {
-                self.navigationItem.rightBarButtonItems![0].image = self.addIconNoBadge
-                
-                self.tabBarController?.tabBar.items![0].badgeValue = nil
-
-            }
-        })
+//        connectionsModel.fetchAllRequests({ withRequest in
+//            if(withRequest) {
+//                
+//                if self.connectionsModel.numberOfRequests > 0 {
+//                    self.tabBarController?.tabBar.items![0].badgeValue = String(self.connectionsModel.numberOfRequests)
+//                }
+//
+//
+//                self.navigationItem.rightBarButtonItems![0].image = self.addIconWithBadge
+//            }else {
+//                self.navigationItem.rightBarButtonItems![0].image = self.addIconNoBadge
+//                
+//                self.tabBarController?.tabBar.items![0].badgeValue = nil
+//
+//            }
+//        })
         
     }
     
