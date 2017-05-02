@@ -36,6 +36,7 @@ class AddHueController: UIViewController {
     
     
     var previousController: UIViewController?
+    var prev: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

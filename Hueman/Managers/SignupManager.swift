@@ -233,6 +233,21 @@ class SignupManager {
         userLocation = nil
         SignupManager.Static.instance = nil
     }
+    
+    func cleanup() {
+        
+        let huesKeys = ["Wanderlust", "Food", "Relationship", "Health", "Daily Hustle", "Ray of Light"]
+        
+        for hue in huesKeys {
+            if  defaults.objectForKey(hue) != nil    {
+                defaults.removeObjectForKey(hue)
+            }
+        }
+        
+        userImageData = nil
+        userBirthday = nil
+        userLocation = nil
+    }
 }
 
 // let imagePt = UIImage(data: (caminhodaImagem as! NSData) as Data)

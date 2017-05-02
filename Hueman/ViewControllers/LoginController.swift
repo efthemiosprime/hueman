@@ -131,6 +131,9 @@ class LoginController: UIViewController {
                 // AuthenticationManager.sharedInstance
                 self.hideIndicator()
                 
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setBool(false, forKey: "firstTime")
+                defaults.synchronize()
                 
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
                 

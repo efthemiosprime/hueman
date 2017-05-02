@@ -148,10 +148,13 @@ extension ProfileViewController: AddHueDelegate {
             switch type {
             case Topic.Wanderlust:
                 let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
-                if hue.characters.count > 0 {
+                if hue.characters.count > 0 || !hue.characters.isEmpty {
                     hues![0].data = data
+                    self.editedHues![Topic.Wanderlust] = data.description
+                }else {
+                    self.editedHues![Topic.Wanderlust] = user?.hues[Topic.Wanderlust]
+
                 }
-                self.editedHues![Topic.Wanderlust] = data.description
 
                 break
                 
@@ -159,39 +162,53 @@ extension ProfileViewController: AddHueDelegate {
                 let data = ProfileHueModel(title: "I love to stuff myself with", description: hue, type: Topic.OnMyPlate)
                 if hue.characters.count > 0 {
                     hues![1].data = data
+                    self.editedHues![Topic.OnMyPlate] = data.description
+
+                }else {
+                    self.editedHues![Topic.OnMyPlate] = user?.hues[Topic.OnMyPlate]
+
                 }
-                self.editedHues![Topic.OnMyPlate] = data.description
-                
+
                 break
                 
             case Topic.RelationshipMusing:
                 let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.RelationshipMusing)
                 if hue.characters.count > 0 {
                     hues![2].data = data
+                    self.editedHues![Topic.RelationshipMusing] = data.description
+
+                }else {
+                    self.editedHues![Topic.RelationshipMusing] = user?.hues[Topic.RelationshipMusing]
+
                 }
-                self.editedHues![Topic.RelationshipMusing] = data.description
-                
-                
+                signupManager.currentUser?.hues = editedHues!
+
                 break
                 
             case Topic.Health:
                 let data = ProfileHueModel(title: "I keep health / fit by", description: hue, type: Topic.Health)
                 if hue.characters.count > 0 {
                     hues![3].data = data
+                    self.editedHues![Topic.Health] = data.description
+                }else {
+                    self.editedHues![Topic.Health] = user?.hues[Topic.Health]
 
                 }
-                self.editedHues![Topic.Health] = data.description
-                
+                signupManager.currentUser?.hues = editedHues!
+
                 break
                 
             case Topic.DailyHustle:
                 let data = ProfileHueModel(title: "I am a", description: hue, type: Topic.DailyHustle)
                 if hue.characters.count > 0 {
                     hues![4].data = data
+                    self.editedHues![Topic.DailyHustle] = data.description
+                }else {
+                    self.editedHues![Topic.DailyHustle] = user?.hues[Topic.DailyHustle]
 
                 }
-                self.editedHues![Topic.DailyHustle] = data.description
-                
+                signupManager.currentUser?.hues = editedHues!
+
                 break
                 
                 
@@ -200,11 +217,18 @@ extension ProfileViewController: AddHueDelegate {
                 let data = ProfileHueModel(title: "What makes you smile?", description: hue, type: Topic.RayOfLight)
                 if hue.characters.count > 0 {
                     hues![5].data = data
+                    self.editedHues![Topic.RayOfLight] = data.description
+                }else {
+                    self.editedHues![Topic.RayOfLight] = user?.hues[Topic.RayOfLight]
 
                 }
-                self.editedHues![Topic.RayOfLight] = data.description
+                signupManager.currentUser?.hues = editedHues!
+
                 break
             }
+        
+        
+
     
         
     }

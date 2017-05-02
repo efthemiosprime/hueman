@@ -35,6 +35,8 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
         activityIndicatorContainer.hidden = true
 //        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
 //        print(appDelegate.window?.top?.isKindOfClass(WelcomeController))
+        
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -68,7 +70,8 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                         // AuthenticationManager.sharedInstance
                         self.hideIndicator()
                         
-                        
+                        self.defaults.setBool(false, forKey: "firstTime")
+                        self.defaults.synchronize()
                         self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
                         
                         }, onerror: { errorMsg in

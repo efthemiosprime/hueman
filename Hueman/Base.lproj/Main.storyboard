@@ -1620,7 +1620,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1651,7 +1651,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1672,7 +1672,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1694,7 +1694,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2044,7 +2044,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2426,7 +2426,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="change profile photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBl-jX-Dvd">
-                                                                <rect key="frame" x="35" y="92" width="130" height="17"/>
+                                                                <rect key="frame" x="36" y="92" width="130" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -2775,7 +2775,7 @@
                                                 </constraints>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bio-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Ir-V2-oOZ">
-                                                <rect key="frame" x="345" y="244" width="22" height="23"/>
+                                                <rect key="frame" x="345" y="245" width="22" height="23"/>
                                             </imageView>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r69-vF-i6l" userLabel="Progress">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="949"/>
@@ -3795,7 +3795,7 @@ just saying.</string>
                         <viewControllerLayoutGuide type="bottom" id="dw2-gH-G5X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qd6-80-Zp6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you live?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiI-t5-WwV">
@@ -4696,13 +4696,13 @@ your Facebook friends.</string>
     <inferredMetricsTieBreakers>
         <segue reference="t3h-Zx-gWI"/>
         <segue reference="5mf-yO-1rC"/>
-        <segue reference="man-eV-AnG"/>
-        <segue reference="x6K-ez-uIt"/>
-        <segue reference="9n7-z9-NGl"/>
-        <segue reference="ffB-RO-bLJ"/>
+        <segue reference="D5k-US-s1y"/>
         <segue reference="i6C-9S-InU"/>
         <segue reference="QSW-tO-OIL"/>
         <segue reference="z5k-ex-qpi"/>
+        <segue reference="ffB-RO-bLJ"/>
+        <segue reference="S6n-qU-DNf"/>
+        <segue reference="x6K-ez-uIt"/>
         <segue reference="eFq-P6-QEy"/>
     </inferredMetricsTieBreakers>
 </document>

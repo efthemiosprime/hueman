@@ -53,11 +53,14 @@ class DrawerControllerController: UIViewController {
         let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfileAction))
         profileImage.addGestureRecognizer(profileImageTapGesture)
         
-        getProfile()
         
     
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        getProfile()
+    }
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

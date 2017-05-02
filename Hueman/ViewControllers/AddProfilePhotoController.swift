@@ -175,7 +175,8 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
             profilePhotoIsSet = true
             
             if mode == Mode.edit {
-                let imageData: NSData = UIImagePNGRepresentation(editedImage as! UIImage)!
+                let imageData: NSData = UIImageJPEGRepresentation(editedImage as! UIImage, 0.2)!
+
                 self.delegate?.editPhoto(imageData)
             }
             
@@ -184,7 +185,7 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
             profilePhotoIsSet = true
             
             if mode == Mode.edit {
-                let imageData: NSData = UIImagePNGRepresentation(originalImage as! UIImage)!
+                let imageData: NSData = UIImageJPEGRepresentation(originalImage as! UIImage, 0.2)!
                 self.delegate?.editPhoto(imageData)
             }
             
@@ -199,7 +200,7 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
             enableNext()
             
             if mode == Mode.edit {
-                let imageData: NSData = UIImagePNGRepresentation(selectedImage)!
+                let imageData: NSData = UIImageJPEGRepresentation(selectedImage, 0.2)!
                 self.delegate?.editPhoto(imageData)
             }
         }

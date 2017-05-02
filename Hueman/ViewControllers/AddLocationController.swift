@@ -15,18 +15,18 @@ protocol AddLocationDelegate {
 
 
 class AddLocationController: UIViewController {
-
+    
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var nextButton: RoundedCornersButton!
     @IBOutlet weak var visibilitySwitch: UISwitch!
     
     var locationManager:CLLocationManager!
     let geoCoder = CLGeocoder()
-
+    
     var delegate: AddLocationDelegate?
     
     var entry: String?
-
+    
     var mode = Mode.add
     
     var previousController:String?
@@ -35,7 +35,7 @@ class AddLocationController: UIViewController {
         super.viewDidLoad()
         
         locationField.delegate = self
-
+        
         locationField.contentHorizontalAlignment = .Center
         locationField.attributedPlaceholder = NSAttributedString(string: "Type here...", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
         
@@ -44,12 +44,12 @@ class AddLocationController: UIViewController {
         disableNext()
         addDoneBtnToKeyboard()
         
-
+        
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -80,18 +80,18 @@ class AddLocationController: UIViewController {
                 
             }
         }
-
+        
         
     }
     
-
-
-//    @IBAction func didTappedConfirmButton(sender: AnyObject) {
-//        
-//           self.delegate?.setLocation(locationField.text!)
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//        
-//    }
+    
+    
+    //    @IBAction func didTappedConfirmButton(sender: AnyObject) {
+    //
+    //           self.delegate?.setLocation(locationField.text!)
+    //        self.dismissViewControllerAnimated(true, completion: nil)
+    //
+    //    }
     
     @IBAction func backAction(sender: AnyObject) {
         
@@ -135,26 +135,26 @@ class AddLocationController: UIViewController {
         
         
         if textField.text?.characters.count > 3 {
-
+            
             enableNext()
-
+            
         }
-
-//        let charCount: String = String(textField.text!.characters.count)
-//        if textField.text?.characters.count > 1 {
-//            charactersLabel.text = "\(charCount)/30 characters"
-//        }
+        
+        //        let charCount: String = String(textField.text!.characters.count)
+        //        if textField.text?.characters.count > 1 {
+        //            charactersLabel.text = "\(charCount)/30 characters"
+        //        }
         
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     
     func addDoneBtnToKeyboard() {
@@ -183,7 +183,7 @@ class AddLocationController: UIViewController {
         locationField.resignFirstResponder()
         
     }
-
+    
 }
 
 
@@ -191,7 +191,7 @@ extension AddLocationController: UITextFieldDelegate {
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-       // textField.resignFirstResponder()
+        // textField.resignFirstResponder()
         return true
     }
     
@@ -219,7 +219,7 @@ extension AddLocationController: UITextFieldDelegate {
 extension AddLocationController: CLLocationManagerDelegate {
     
     func determineMyCurrentLocation() {
-
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
             //locationManager.startUpdatingHeading()
@@ -229,8 +229,8 @@ extension AddLocationController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
         
-
-
+        
+        
         geoCoder.reverseGeocodeLocation(userLocation, completionHandler: { (placemarks, error) -> Void in
             
             // Place details
@@ -252,21 +252,21 @@ extension AddLocationController: CLLocationManagerDelegate {
                 self.enableNext()
                 manager.stopUpdatingLocation()
             }
-
+            
             
         })
         
-    
+        
         manager.stopUpdatingLocation()
     }
     
-
+    
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Error \(error)")
-
+        
     }
-
+    
 }
 
 
@@ -289,4 +289,3 @@ extension AddLocationController {
     }
     
 }
-
