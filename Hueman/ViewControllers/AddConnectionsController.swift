@@ -28,17 +28,17 @@ class AddConnectionsController: UITableViewController {
     
     var sections = [String]()
     var data: [[User]] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: Font.SofiaProRegular, size: 20)!]
-
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 96
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -49,7 +49,8 @@ class AddConnectionsController: UITableViewController {
         
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
+        self.navigationController?.navigationItem.title = "huemans to connect with"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 18)!,NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)]
         
         if currentUser == nil {
             currentUser = AuthenticationManager.sharedInstance.currentUser
@@ -58,22 +59,22 @@ class AddConnectionsController: UITableViewController {
         
         fetchConnections()
         
-//        if let unwrappedUID = currentUser?.uid {
-//            let userRef = databaseRef.child("users").child(unwrappedUID)
-//            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//                
-//                if snapshot.exists() {
-//                   / self.currentUser = User(snapshot: snapshot)
-//                    self.fetchConnections()
-//                }
-//                
-//                
-//            }) { error in
-//                print(error.localizedDescription)
-//            }
-//        }
-//        
-
+        //        if let unwrappedUID = currentUser?.uid {
+        //            let userRef = databaseRef.child("users").child(unwrappedUID)
+        //            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        //
+        //                if snapshot.exists() {
+        //                   / self.currentUser = User(snapshot: snapshot)
+        //                    self.fetchConnections()
+        //                }
+        //
+        //
+        //            }) { error in
+        //                print(error.localizedDescription)
+        //            }
+        //        }
+        //
+        
         
     }
     
@@ -83,11 +84,12 @@ class AddConnectionsController: UITableViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    
     func fetchAllUsers() {
         
         let userRef = databaseRef.child("users")
-    
-
+        
+        
         userRef.observeSingleEventOfType(.Value, withBlock:{
             snapshot in
             
@@ -99,27 +101,27 @@ class AddConnectionsController: UITableViewController {
                     let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
                     return newUser
                 })
-                .filter({ !connectionsUids.contains($0.uid) })
-                .filter({ $0.uid != self.currentUser!.uid} )
-                .filter({ !requestsUids.contains($0.uid) })
-                .sort({ (user1, user2) -> Bool in
-                    user1.name < user2.name
-                })
+                    .filter({ !connectionsUids.contains($0.uid) })
+                    .filter({ $0.uid != self.currentUser!.uid} )
+                    .filter({ !requestsUids.contains($0.uid) })
+                    .sort({ (user1, user2) -> Bool in
+                        user1.name < user2.name
+                    })
                 
-
                 
-//                if self.requests.count > 0 {
-//                    self.sections.append("pending")
-//                    self.data.append(self.requests)
-//                    
-//                    self.sections.append("users")
-//                    self.data.append(self.users)
-//                }else {
-//                    self.data.append(self.users)
-//                    self.sections.append("users")
-//
-//
-//                }
+                
+                //                if self.requests.count > 0 {
+                //                    self.sections.append("pending")
+                //                    self.data.append(self.requests)
+                //
+                //                    self.sections.append("users")
+                //                    self.data.append(self.users)
+                //                }else {
+                //                    self.data.append(self.users)
+                //                    self.sections.append("users")
+                //
+                //
+                //                }
                 self.data.append(self.users)
                 self.sections.append("users")
                 
@@ -131,8 +133,8 @@ class AddConnectionsController: UITableViewController {
             }
             
             
-
-
+            
+            
         }) {(error) in
             print(error.localizedDescription)
         }
@@ -174,7 +176,7 @@ class AddConnectionsController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
-
+        
     }
     
     func fetchConnections() {
@@ -191,15 +193,15 @@ class AddConnectionsController: UITableViewController {
                             userLocation = UserLocation(location: (unwrappedLocation["location"] as? String)!, visible: (unwrappedLocation["visible"] as? Bool)!)
                         }else {
                             userLocation = UserLocation(location: "")
-
+                            
                         }
-                       let connection = Connection(name: (con.value!["name"] as? String)!,
+                        let connection = Connection(name: (con.value!["name"] as? String)!,
                             location: userLocation!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
-                       self.connections.append(connection)
+                        self.connections.append(connection)
                     }
                 }
                 
-               self.fetchAllRequests()
+                self.fetchAllRequests()
                 
                 
             }) {(error) in
@@ -208,19 +210,19 @@ class AddConnectionsController: UITableViewController {
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
-
+    
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currentCell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! AddUserCell
         
-
+        
         currentCell.user = data[indexPath.section][indexPath.row]
         
         
@@ -240,14 +242,14 @@ class AddConnectionsController: UITableViewController {
                 }
             })
         }
-
         
-
+        
+        
         if indexPath.section == 0 && sections.count > 1 {
             // accept request
             currentCell.addUserAction = { (cell) in
                 
-
+                
                 self.tableView.beginUpdates()
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 self.data[0].removeAtIndex(indexPath.row)
@@ -295,7 +297,7 @@ class AddConnectionsController: UITableViewController {
                                             self.databaseRef.child("friends").child(friendshipRequester).child(recipient.uid).setValue(recipient.toAnyObject())
                                             self.databaseRef.child("friends").child(friendshipRecipient).child(requester.uid).setValue(requester.toAnyObject())
                                         }
-
+                                        
                                     }
                                 }) { error in
                                     print(error.localizedDescription)
@@ -305,10 +307,10 @@ class AddConnectionsController: UITableViewController {
                             
                             requestRef.removeValue()
                             
+                            
+                        }
                         
-                    }
-                    
-
+                        
                     } else {
                         print("no results")
                     }
@@ -331,14 +333,14 @@ class AddConnectionsController: UITableViewController {
                 let requestId = NSUUID().UUIDString
                 let connectionRequest = Request(from: self.currentUser!.uid, to: currentCell.user!.uid, id: requestId)
                 let requestRef = self.databaseRef.child("requests").child(connectionRequest.recipient!).child(connectionRequest.id!)
-
-
-//                self.tableView.beginUpdates()
-//                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//                self.data[indexPath.section].removeAtIndex(indexPath.row)
-//                
-//                self.tableView.reloadData()
-//                self.tableView.endUpdates()
+                
+                
+                //                self.tableView.beginUpdates()
+                //                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                //                self.data[indexPath.section].removeAtIndex(indexPath.row)
+                //
+                //                self.tableView.reloadData()
+                //                self.tableView.endUpdates()
                 
                 requestRef.setValue(connectionRequest.toAnyObject(), withCompletionBlock: {
                     (error, ref) in
@@ -356,84 +358,84 @@ class AddConnectionsController: UITableViewController {
                 
             }
         }
-
+        
         
         return currentCell
     }
     
-
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AddUserCell {
             
-                    let screenWidth = UIScreen.mainScreen().bounds.size.width
-                    let screenHeight = UIScreen.mainScreen().bounds.size.height
+            let screenWidth = UIScreen.mainScreen().bounds.size.width
+            let screenHeight = UIScreen.mainScreen().bounds.size.height
             
-                    if let unwrappedUid = cell.user?.uid {
-            
-                        let userRef = databaseRef.child("users").child(unwrappedUid )
-                        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                            if snapshot.exists() {
-                                
-                                
-                                var profileViewIsPresent = false
-                                
-                                
-                                if let viewControllers = self.tabBarController?.parentViewController?.childViewControllers {
-                                    for viewController in viewControllers {
-                                        if(viewController is ProfileViewController) {
-                                            profileViewIsPresent = true
-                                            continue
-                                        }
-                                    }
+            if let unwrappedUid = cell.user?.uid {
+                
+                let userRef = databaseRef.child("users").child(unwrappedUid )
+                userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    if snapshot.exists() {
+                        
+                        
+                        var profileViewIsPresent = false
+                        
+                        
+                        if let viewControllers = self.tabBarController?.parentViewController?.childViewControllers {
+                            for viewController in viewControllers {
+                                if(viewController is ProfileViewController) {
+                                    profileViewIsPresent = true
+                                    continue
                                 }
-                                
-                                if profileViewIsPresent == false {
-                                    
-                                    let user = User(snapshot: snapshot)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        
-                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                        let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
-                                        profileController?.user = user
-                                        
-                                        
-                                        self.tabBarController?.parentViewController!.addChildViewController(profileController!)
-                                        profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
-                                        self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
-                                        profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
-                                        
-                                    })
-                                }
-
                             }
+                        }
+                        
+                        if profileViewIsPresent == false {
                             
-                        })
+                            let user = User(snapshot: snapshot)
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let profileController = storyboard.instantiateViewControllerWithIdentifier("ProfileView") as? ProfileViewController
+                                profileController?.user = user
+                                
+                                
+                                self.tabBarController?.parentViewController!.addChildViewController(profileController!)
+                                profileController?.view.frame =  CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
+                                self.tabBarController?.parentViewController!.view.addSubview((profileController?.view)!)
+                                profileController!.didMoveToParentViewController(self.tabBarController?.parentViewController)
+                                
+                            })
+                        }
                         
                     }
+                    
+                })
+                
+            }
         }
-
         
-
-
+        
+        
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return self.data.count
     }
-
+    
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data[section].count
     }
     
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return sections[section]
-        
-    }
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        
+//        return sections[section]
+//        
+//    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 96
@@ -452,65 +454,65 @@ class AddConnectionsController: UITableViewController {
         header.textLabel?.textColor=title.textColor
     }
     
-//    override func setEditing(editing: Bool, animated: Bool) {
-//        super.setEditing(true, animated: true)
-//    }
+    //    override func setEditing(editing: Bool, animated: Bool) {
+    //        super.setEditing(true, animated: true)
+    //    }
     
     
-
+    
     /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     
+     // Configure the cell...
+     
+     return cell
+     }
+     */
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

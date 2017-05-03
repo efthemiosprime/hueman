@@ -147,6 +147,15 @@ class ConnectionsViewController: UIViewController{
         connectionsModel.connections.removeAll()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        navigationItem.title = nil
+
+        if segue.identifier == "AddConnections"{
+            let vc = segue.destinationViewController as UIViewController
+            vc.navigationItem.title = "huemans to connection with"
+        }
+    }
+    
     
     // MARK: - Life cycle
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

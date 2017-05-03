@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController {
     
     var editButton: UIBarButtonItem!
     var doneButton: UIBarButtonItem!
+    var addButton: UIBarButtonItem!
     var editedHues: [String: String]?
     var user: User?
     
@@ -62,8 +63,12 @@ class ProfileViewController: UIViewController {
         
         doneButton =  UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneActionHandler))
         editButton =  UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(self.editActionHandler))
+        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(self.addActionHandler))
         //self.navigationBar.topItem?.rightBarButtonItem = editButton
-        
+        doneButton.tintColor = UIColor.UIColorFromRGB(0x999999)
+        addButton.tintColor = UIColor.UIColorFromRGB(0x999999)
+        editButton.tintColor = UIColor.UIColorFromRGB(0x999999)
+
         
         birthdayPlusIcon.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         birthdayPlusIcon.tintColor = UIColor.UIColorFromRGB(0x666666)
@@ -113,14 +118,15 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         
         let autManager =  AuthenticationManager.sharedInstance
-        print(autManager.currentUser?.uid)
-        print(user?.uid)
+
+        
         if let authUid = autManager.currentUser?.uid, let userUid = user?.uid {
             if authUid == userUid {
                 self.navigationBar.topItem?.rightBarButtonItem = editButton
 
             }else {
                 self.navigationBar.topItem?.rightBarButtonItem = nil
+                self.navigationBar.topItem?.rightBarButtonItem = addButton
 
             }
         }
@@ -372,6 +378,10 @@ class ProfileViewController: UIViewController {
         }
 
     }
+    
+    func addActionHandler() {
+        
+    }
     func editActionHandler() {
         //self.performSegueWithIdentifier("EditProfile", sender: nil)
         edit()
@@ -386,7 +396,7 @@ class ProfileViewController: UIViewController {
 
     func getCurrentProfile(_user: User) {
        // self.navigationBar.topItem!.title = _user.name
-        
+        let authenticatedUser = AuthenticationManager.sharedInstance.currentUser
         
         if let unwrappedEditedBirthday = editedBirthday {
             self.birthdayLabel.text = unwrappedEditedBirthday.date
@@ -395,8 +405,11 @@ class ProfileViewController: UIViewController {
         }else {
             if let date = _user.birthday?.date {
                 self.birthdayLabel.text = date
-                signupManager.currentUser?.birthday = _user.birthday
-
+                if let unwrappedBirthday = authenticatedUser?.birthday {
+                    signupManager.currentUser?.birthday = unwrappedBirthday
+                }else {
+                    signupManager.currentUser?.birthday = UserBirthday(date: "")
+                }
             }
         }
         
@@ -408,7 +421,11 @@ class ProfileViewController: UIViewController {
         }else {
             if let location = _user.location?.location {
                 self.locationLabel.text = location
-                signupManager.currentUser?.location = _user.location
+                if let unwrappedLocation = authenticatedUser?.location {
+                    signupManager.currentUser?.location = unwrappedLocation
+                }else {
+                    signupManager.currentUser?.location = UserLocation(location: "")
+                }
             }
         }
         
@@ -417,7 +434,11 @@ class ProfileViewController: UIViewController {
             signupManager.currentUser?.bio = editedBio
         }else {
             self.bioLabel.text = _user.bio
-            signupManager.currentUser?.bio = _user.bio
+            if let unwrappedBio = authenticatedUser?.bio {
+                signupManager.currentUser?.bio = unwrappedBio
+            }else {
+                signupManager.currentUser?.bio = ""
+            }
 
         }
         
