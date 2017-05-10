@@ -44,7 +44,23 @@ class AddLocationController: UIViewController {
         disableNext()
         addDoneBtnToKeyboard()
         
+
+        let onColor  = UIColor.UIColorFromRGB(0x33b5d3)
+        let offColor = UIColor.UIColorFromRGB(0x996633)
+
         
+        /*For on state*/
+        visibilitySwitch.onTintColor = onColor
+        
+        /*For off state*/
+        visibilitySwitch.tintColor = offColor
+        visibilitySwitch.layer.cornerRadius = 16
+        visibilitySwitch.backgroundColor = offColor
+
+        visibilitySwitch.tintColor = UIColor.whiteColor()
+        visibilitySwitch.transform = CGAffineTransformMakeScale(0.80, 0.80);
+
+
     }
     
     override func viewWillAppear(animated: Bool) {

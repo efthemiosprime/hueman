@@ -141,11 +141,14 @@ extension AddBioController {
     }
     
     func buttonSkip() {
+
         nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 1.0).CGColor
+        //nextButton.enabled = false
         nextButton.setTitle(SKIP_LABEL, forState: .Normal)
-        nextButton.setTitleColor(UIColor(rgb: 0xffffff, alphaVal: 0.4), forState: .Normal)
-        nextButton.layer.borderColor = UIColor(rgb: 0xffffff, alphaVal: 0.4).CGColor
-        nextButton.tintColor = UIColor.UIColorFromRGB(0xffffff)
+        nextButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         nextButton.backgroundColor = UIColor.clearColor()
+        nextButton.tintColor = UIColor.whiteColor()
+
     }
 }

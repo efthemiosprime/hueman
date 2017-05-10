@@ -31,18 +31,33 @@ class AddBirthdayController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let onColor  = UIColor.UIColorFromRGB(0x33b5d3)
+        let offColor = UIColor.UIColorFromRGB(0x709E85)
+        
+        
+        /*For on state*/
+        visibilitySwitch.onTintColor = onColor
+        
+        /*For off state*/
+        visibilitySwitch.tintColor = offColor
+        visibilitySwitch.layer.cornerRadius = 16
+        visibilitySwitch.backgroundColor = offColor
+        
+        
         visibilitySwitch.on = false
         visibilitySwitch.tintColor = UIColor.whiteColor()
-        visibilitySwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
+        visibilitySwitch.transform = CGAffineTransformMakeScale(0.80, 0.80);
         //visibilitySwitch.backgroundColor = UIColor.whiteColor()
         
         datePicker.setValue(UIColor.whiteColor(), forKey: "textColor")
         datePicker.setValue(false, forKey: "highlightsToday")
         
         
-        disableNext()
+        enableNext()
         
         datePicker.addTarget(self, action: #selector(AddBirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        
         
     }
 
@@ -114,6 +129,7 @@ class AddBirthdayController: UIViewController {
 
             self.dismissViewControllerAnimated(true, completion: nil)
         }else {
+            
             SignupManager.sharedInstance.userBirthday?.visible = visibilitySwitch.on
             
             self.performSegueWithIdentifier("gotoAddLocation", sender: self)

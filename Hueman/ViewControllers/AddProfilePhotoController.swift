@@ -40,6 +40,8 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     
     var previousController:String?
 
+    let SKIP_LABEL = "maybe later"
+    let NEXT_LABEL = "next"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,6 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
         addIcon = UIImage(named: "add-profile-photo-btn")
         deleteIcon = UIImage(named: "delete-profile-photo-btn")
         profilePhotoPlaceholder = UIImage(named: "profile-image-placeholder")
-        enableNext()
 //        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
 //        print(appDelegate.window!.subviews.count)
 
@@ -88,11 +89,11 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
 
 
         }else {
-            backButton.hidden = true
+       //     backButton.hidden = true
 
         }
         
-        enableNext()
+        disableNext()
         profilePhotoContainer.layer.borderWidth = 1
         profilePhotoContainer.layer.borderColor = UIColor.whiteColor().CGColor
     }
@@ -127,8 +128,8 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
     
 
     @IBAction func backAction(sender: AnyObject) {
-      //  self.performSegueWithIdentifier("backToBio", sender: self)
-        self.dismissViewControllerAnimated(true, completion: nil)
+       self.performSegueWithIdentifier("backToInterstitialController", sender: self)
+       // self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func nextAction(sender: AnyObject) {
         
@@ -219,18 +220,26 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
 extension AddProfilePhotoController {
     func disableNext() {
         nextButton.layer.borderWidth = 1
-        nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor
+        nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 1.0).CGColor
+        //nextButton.enabled = false
+        nextButton.setTitle(SKIP_LABEL, forState: .Normal)
+        nextButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         nextButton.backgroundColor = UIColor.clearColor()
         nextButton.tintColor = UIColor.whiteColor()
-        nextButton.enabled = false
+
+
+
     }
     
     func enableNext() {
         nextButton.layer.borderWidth = 0
         nextButton.layer.borderColor = UIColor.whiteColor().CGColor
         nextButton.backgroundColor = UIColor.whiteColor()
-        nextButton.tintColor = UIColor.UIColorFromRGB(0x93648d)
+       // nextButton.tintColor = UIColor.UIColorFromRGB(0x93648d)
         nextButton.enabled = true
+        
+        nextButton.setTitle(SKIP_LABEL, forState: .Normal)
+        nextButton.setTitleColor(UIColor.UIColorFromRGB(0x93648d), forState: .Normal)
         
     }
 }

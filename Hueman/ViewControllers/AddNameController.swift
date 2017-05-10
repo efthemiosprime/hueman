@@ -22,8 +22,8 @@ class AddNameController: UIViewController {
     @IBOutlet weak var nextButton: RoundedCornersButton!
     let FIRSTNAME_TEXT = "first name"
     let LASTNAME_TEXT = "last name"
-    let FISTNAME_PLACEHOLDER_TEXT = "enter your first name"
-    let LASTNAME_PLACEHOLDER_TEXT = "enter your last name"
+    let FISTNAME_PLACEHOLDER_TEXT = "first name"
+    let LASTNAME_PLACEHOLDER_TEXT = "last name"
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -46,6 +46,10 @@ class InterstitialController: UIViewController {
         })
     }
     
+    
+    @IBAction func backToInterstitialController(segue: UIStoryboardSegue) {}
+
+    
 }
 
 
