@@ -50,6 +50,7 @@ class AddHuesController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         progressIndicator.hidden = true
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -99,20 +100,20 @@ extension AddHuesController: AddHueDelegate {
     func setHue(hue: String, type: String) {
         switch type {
         case Topic.Wanderlust:
-            let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
+            let data = ProfileHueModel(title: "I’d love to travel to", description: hue, type: Topic.Wanderlust)
             profileHues![0].data = data
             self.hues[Topic.Wanderlust] = data.description
             break
             
         case Topic.OnMyPlate:
-            let data = ProfileHueModel(title: "I love to stuff myself with", description: hue, type: Topic.OnMyPlate)
+            let data = ProfileHueModel(title: "I can’t stop eating", description: hue, type: Topic.OnMyPlate)
             profileHues![1].data = data
             self.hues[Topic.OnMyPlate] = data.description
             
             break
             
         case Topic.RelationshipMusing:
-            let data = ProfileHueModel(title: "I cherish my relationship with", description: hue, type: Topic.RelationshipMusing)
+            let data = ProfileHueModel(title: "I cherish my", description: hue, type: Topic.RelationshipMusing)
             profileHues![2].data = data
             self.hues[Topic.RelationshipMusing] = data.description
             
@@ -120,14 +121,14 @@ extension AddHuesController: AddHueDelegate {
             break
             
         case Topic.Health:
-            let data = ProfileHueModel(title: "I keep health / fit by", description: hue, type: Topic.Health)
+            let data = ProfileHueModel(title: "I keep healthy by", description: hue, type: Topic.Health)
             profileHues![3].data = data
             self.hues[Topic.Health] = data.description
             
             break
             
         case Topic.DailyHustle:
-            let data = ProfileHueModel(title: "I am a", description: hue, type: Topic.DailyHustle)
+            let data = ProfileHueModel(title: "I am an amazing", description: hue, type: Topic.DailyHustle)
             
             profileHues![4].data = data
             self.hues[Topic.DailyHustle] = data.description
@@ -137,7 +138,7 @@ extension AddHuesController: AddHueDelegate {
             
             
         default:
-            let data = ProfileHueModel(title: "What makes you smile?", description: hue, type: Topic.RayOfLight)
+            let data = ProfileHueModel(title: "Happines is", description: hue, type: Topic.RayOfLight)
             
             profileHues![5].data = data
             self.hues[Topic.RayOfLight] = data.description

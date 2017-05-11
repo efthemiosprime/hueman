@@ -65,6 +65,10 @@ class SignupController: UIViewController {
         disableContinue()
         hideModalConfirmation()
         ControllersStackManager.sharedInstance.controllers.append(self)
+        
+        emailInput.delegate = self
+        passwordInput.delegate = self
+        confirmPasswordInput.delegate = self
 
     }
 
@@ -326,3 +330,13 @@ extension SignupController: UIPopoverPresentationControllerDelegate {
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
     }
 }
+
+
+extension SignupController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+}
+
+

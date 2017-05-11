@@ -152,7 +152,7 @@ class ConnectionsViewController: UIViewController{
 
         if segue.identifier == "AddConnections"{
             let vc = segue.destinationViewController as UIViewController
-            vc.navigationItem.title = "huemans to connection with"
+            vc.navigationItem.title = "huemans to connect with"
         }
     }
     

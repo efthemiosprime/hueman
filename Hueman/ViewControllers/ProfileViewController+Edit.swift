@@ -215,7 +215,7 @@ extension ProfileViewController: AddHueDelegate {
                 
                 
             default:
-                let data = ProfileHueModel(title: "What makes you smile?", description: hue, type: Topic.RayOfLight)
+                let data = ProfileHueModel(title: "Happines is", description: hue, type: Topic.RayOfLight)
                 if hue.characters.count > 0 {
                     hues![5].data = data
                     self.editedHues![Topic.RayOfLight] = data.description

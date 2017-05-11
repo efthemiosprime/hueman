@@ -44,10 +44,10 @@ struct Topic {
 }
 
 struct HueTitle {
-    static let Wanderlust: String = "I would love to visit"
-    static let OnMyPlate: String = "I love to stuff myself with"
-    static let RelationshipMusing: String = "I cherish my relationship with"
-    static let Health: String = "I keep health / fit by"
-    static let DailyHustle: String = "I am a"
-    static let RayOfLight:String  = "What makes you smile?"
+    static let Wanderlust: String = "I’d love to travel to"
+    static let OnMyPlate: String = "I can’t stop eating"
+    static let RelationshipMusing: String = "I cherish my"
+    static let Health: String = "I keep healthy by"
+    static let DailyHustle: String = "I am an amazing"
+    static let RayOfLight:String  = "Happines is"
 }

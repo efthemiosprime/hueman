@@ -100,6 +100,10 @@ class AddLocationController: UIViewController {
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManager.stopUpdatingLocation()
+    }
     
     
     //    @IBAction func didTappedConfirmButton(sender: AnyObject) {
@@ -238,7 +242,6 @@ extension AddLocationController: CLLocationManagerDelegate {
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
-            //locationManager.startUpdatingHeading()
         }
     }
     
@@ -255,12 +258,12 @@ extension AddLocationController: CLLocationManagerDelegate {
             
             
             // City
-            if let state = placeMark.addressDictionary!["State"] as? NSString, let city = placeMark.addressDictionary!["City"] as? NSString {
-                self.locationField.text = "\(city), \(state)"
+            if let country = placeMark.addressDictionary!["Country"] as? NSString, let city = placeMark.addressDictionary!["City"] as? NSString {
+                self.locationField.text = "\(city), \(country)"
                 if SignupManager.sharedInstance.userLocation == nil {
                     SignupManager.sharedInstance.userLocation = UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on)
                     self.locationField.becomeFirstResponder()
-                    manager.stopUpdatingLocation()
+                    //manager.stopUpdatingLocation()
                 }else {
                     SignupManager.sharedInstance.userLocation!.location = self.locationField.text
                 }
@@ -273,7 +276,12 @@ extension AddLocationController: CLLocationManagerDelegate {
         })
         
         
-        manager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedAlways {
+            self.determineMyCurrentLocation()
+        }
     }
     
     

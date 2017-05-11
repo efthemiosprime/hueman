@@ -39,8 +39,11 @@ class ProfileHue: UIView {
             }else {
                 edit.hidden = true
             }
+
             
         }
+        
+
     }
     
     
@@ -117,7 +120,33 @@ class ProfileHue: UIView {
                     break
                 }
                 
+
+                let screenWidth = UIScreen.mainScreen().bounds.size.width
+                let screenHeight = UIScreen.mainScreen().bounds.size.height
                 
+                
+                let maxLength = max(screenWidth, screenHeight)
+                //     let minLength = min(screenWidth, screenHeight)
+                
+                
+                if  UIDevice.currentDevice().model == "iPhone" && maxLength == 568 {
+                    
+                    var viewFrame = icon.frame
+                    icon.frame = CGRectMake(viewFrame.origin.x , viewFrame.origin.y - 15, viewFrame.size.width, viewFrame.size.height)
+                    
+                    viewFrame = titleLabel.frame
+                    titleLabel.frame = CGRectMake(viewFrame.origin.x, viewFrame.origin.y - 18, viewFrame.size.width, viewFrame.size.height)
+                    
+                    viewFrame = descriptionLabel.frame
+                    descriptionLabel.frame = CGRectMake(viewFrame.origin.x, viewFrame.origin.y - 22, viewFrame.size.width, viewFrame.size.height)
+                    
+                    
+                    viewFrame = plus.frame
+                    plus.frame = CGRectMake(viewFrame.origin.x, viewFrame.origin.y - 25, viewFrame.size.width, viewFrame.size.height)
+                    
+
+                    
+                }
             }
 
         }
@@ -187,6 +216,9 @@ class ProfileHue: UIView {
                     break
                 }
             }
+            
+            
+
         }
     }
     
@@ -211,7 +243,22 @@ class ProfileHue: UIView {
     
 
     func attributedString(from string: String, nonBoldRange: NSRange?) -> NSAttributedString {
-        let fontSize = UIFont.systemFontSize()
+        
+        var fontSize = UIFont.systemFontSize()
+
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+    
+        
+        let maxLength = max(screenWidth, screenHeight)
+        //     let minLength = min(screenWidth, screenHeight)
+        
+        
+        if  UIDevice.currentDevice().model == "iPhone" && maxLength == 568 {
+            fontSize = 12
+            
+        }
+        
         let attrs = [
             NSFontAttributeName: UIFont.boldSystemFontOfSize(fontSize),
             NSForegroundColorAttributeName: UIColor.whiteColor()

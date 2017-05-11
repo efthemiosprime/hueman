@@ -22,6 +22,7 @@ class AddHueController: UIViewController {
     @IBOutlet weak var footerLabel: UILabel!
     @IBOutlet weak var charactersLabel: UILabel!
     @IBOutlet weak var addButton: RoundedCornersButton!
+    @IBOutlet weak var headerLabel: UILabel!
     
     
     
@@ -52,8 +53,10 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
                 currentTypeColor = Color.Wanderlust
                 iconLabel.text = "wanderlust"
-                titleLabel.text  = "I would love to visit"
-                footerLabel.text = "Name a place that you’d like to visit."
+                titleLabel.text  = HueTitle.Wanderlust
+                footerLabel.text = "Name a place you’d like to visit."
+                detailLabel.placeholder = "e.g., Paris, France"
+                headerLabel.text = "wanderlust"
                 break
                 
             case Topic.OnMyPlate:
@@ -62,8 +65,10 @@ class AddHueController: UIViewController {
                 currentTypeColor = Color.OnMyPlate
 
                 iconLabel.text = "on my plate"
-                titleLabel.text  = "I love to stuff myself with"
+                titleLabel.text  = HueTitle.OnMyPlate
                 footerLabel.text = "What’s your favorite food?"
+                detailLabel.placeholder = "e.g., Chicken and waffles"
+                headerLabel.text = "on my plate"
                 break
                 
             case Topic.RelationshipMusing:
@@ -71,10 +76,11 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
                 currentTypeColor = Color.RelationshipMusing
 
-                iconLabel.text = "love musings"
-                titleLabel.text  = "I cherish my relationship with"
-                footerLabel.text = "What is one relationship that you cherish dearly?"
-                
+                iconLabel.text = "heart musings"
+                titleLabel.text  = HueTitle.RelationshipMusing
+                footerLabel.text = "What’s one relationship you value dearly?"
+                detailLabel.placeholder = "e.g., Family"
+                headerLabel.text = "heart musings"
                 break
                 
             case Topic.Health:
@@ -83,8 +89,11 @@ class AddHueController: UIViewController {
                 currentTypeColor = Color.Health
 
                 iconLabel.text = "oh health yeah"
-                titleLabel.text  = "I keep health / fit by"
-                footerLabel.text = "What do you like to eat / do to keep healthy or fit?"
+                titleLabel.text  = HueTitle.Health
+                footerLabel.text = "What diet or physical activity do you do?"
+                detailLabel.placeholder = "e.g., Walking everyday"
+                headerLabel.text = Topic.Health.lowercaseString
+
                 
                 break
                 
@@ -93,10 +102,12 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
                 currentTypeColor = Color.DailyHustle
 
-                iconLabel.text = "daily hustle"
-                titleLabel.text  = "I am a"
+                iconLabel.text = HueTitle.DailyHustle
+                titleLabel.text  = "I am an amazing"
                 footerLabel.text = "What do you do for a living?\nWhere are you studying?"
-                
+                detailLabel.placeholder = "e.g., College student"
+                headerLabel.text = Topic.DailyHustle.lowercaseString
+
                 break
                 
                 
@@ -107,9 +118,10 @@ class AddHueController: UIViewController {
                 currentTypeColor = Color.RayOfLight
 
                 iconLabel.text = "ray of light"
-                titleLabel.text  = "What makes you smile?"
-                footerLabel.text = "can turn my day around"
-                
+                titleLabel.text  = HueTitle.RayOfLight
+                footerLabel.text = "Give a random thing that makes you smile."
+                headerLabel.text = Topic.RayOfLight.lowercaseString
+
                 break
             }
         }

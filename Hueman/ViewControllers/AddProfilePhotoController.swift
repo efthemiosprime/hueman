@@ -67,7 +67,8 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
         
         AuthenticationManager.sharedInstance.loadCurrentUser()
         SignupManager.sharedInstance.currentUser = AuthenticationManager.sharedInstance.currentUser
-    
+        disableNext()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -93,7 +94,6 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
 
         }
         
-        disableNext()
         profilePhotoContainer.layer.borderWidth = 1
         profilePhotoContainer.layer.borderColor = UIColor.whiteColor().CGColor
     }
@@ -174,20 +174,22 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
         if let editedImage = info["UIImagePickerControllerEditedImage"] {
             selectedImageFromPicker = editedImage as? UIImage
             profilePhotoIsSet = true
-            
+
             if mode == Mode.edit {
                 let imageData: NSData = UIImageJPEGRepresentation(editedImage as! UIImage, 0.2)!
 
                 self.delegate?.editPhoto(imageData)
+
             }
             
         }else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
             selectedImageFromPicker = originalImage as? UIImage
             profilePhotoIsSet = true
-            
+
             if mode == Mode.edit {
                 let imageData: NSData = UIImageJPEGRepresentation(originalImage as! UIImage, 0.2)!
                 self.delegate?.editPhoto(imageData)
+
             }
             
         }
@@ -198,12 +200,18 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
             addEditButton.setImage(deleteIcon, forState: .Normal)
             headerLabel.text = HEADER_LABEL_SET
             subHeaderLabel.text = ""
-            enableNext()
             
             if mode == Mode.edit {
                 let imageData: NSData = UIImageJPEGRepresentation(selectedImage, 0.2)!
                 self.delegate?.editPhoto(imageData)
+                enableNext()
+
             }
+        }
+        
+        if profilePhotoIsSet {
+            enableNext()
+
         }
         
         
@@ -219,6 +227,7 @@ extension AddProfilePhotoController: UIImagePickerControllerDelegate {
 
 extension AddProfilePhotoController {
     func disableNext() {
+
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 1.0).CGColor
         //nextButton.enabled = false
@@ -233,13 +242,11 @@ extension AddProfilePhotoController {
     
     func enableNext() {
         nextButton.layer.borderWidth = 0
-        nextButton.layer.borderColor = UIColor.whiteColor().CGColor
-        nextButton.backgroundColor = UIColor.whiteColor()
-       // nextButton.tintColor = UIColor.UIColorFromRGB(0x93648d)
+
         nextButton.enabled = true
-        
-        nextButton.setTitle(SKIP_LABEL, forState: .Normal)
+        nextButton.setTitle(NEXT_LABEL, forState: .Normal)
         nextButton.setTitleColor(UIColor.UIColorFromRGB(0x93648d), forState: .Normal)
+                nextButton.backgroundColor = UIColor.whiteColor()
         
     }
 }
