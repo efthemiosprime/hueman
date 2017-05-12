@@ -21,19 +21,19 @@ class UnwindSegueFromRight: UIStoryboardSegue {
     
         
         UIGraphicsBeginImageContextWithOptions(toViewController.view.bounds.size, false, 0.0)
-        let context = UIGraphicsGetCurrentContext()
-        toViewController.view.layer.renderInContext(context!)
+
+        
+        toViewController.view.drawViewHierarchyInRect(toViewController.view.bounds, afterScreenUpdates: true)
+
         let screenshot = UIImageView(image: UIGraphicsGetImageFromCurrentImageContext())
+        
+        
         UIGraphicsEndImageContext()
         
         
         fromViewController.view.addSubview(screenshot)
         screenshot.frame = CGRectMake(-screenWidth, 0, screenWidth, screenHeight)
-//        let finalToFrame = screenBounds
-//        let finalFromFrame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
-//        
-//        toViewController.view.frame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
-//        containerView?.addSubview(toViewController.view)
+
         
         // Animate the transition.
         UIView.animateWithDuration(0.5, animations: {
@@ -45,7 +45,9 @@ class UnwindSegueFromRight: UIStoryboardSegue {
                 screenshot.removeFromSuperview()
 
                 let fromVC: UIViewController = self.sourceViewController
-                fromVC.dismissViewControllerAnimated(false, completion: nil)
+                fromVC.dismissViewControllerAnimated(false, completion: {
+                
+                })
         })
 
     }

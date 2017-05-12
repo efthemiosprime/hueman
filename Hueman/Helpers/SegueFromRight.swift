@@ -20,19 +20,20 @@ class SegueFromRight: UIStoryboardSegue {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
-        let statusBarView = UIView(frame: CGRectMake(screenWidth, 0, screenWidth, UIApplication.sharedApplication().statusBarFrame.size.height) )
-        statusBarView.backgroundColor = secondVCView.backgroundColor
+//        let statusBarView = UIView(frame: CGRectMake(screenWidth, 0, screenWidth, UIApplication.sharedApplication().statusBarFrame.size.height) )
+//        statusBarView.backgroundColor = secondVCView.backgroundColor
         
         UIGraphicsBeginImageContextWithOptions(secondVCView.bounds.size, false, 0.0)
-        let context = UIGraphicsGetCurrentContext()
-        secondVCView.layer.renderInContext(context!)
+
+        secondVCView.drawViewHierarchyInRect(secondVCView.frame, afterScreenUpdates: true)
         let screenshot = UIImageView(image: UIGraphicsGetImageFromCurrentImageContext())
         UIGraphicsEndImageContext()
-//        secondVCView.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight)
-//        firstVCView.addSubview(secondVCView)
-        firstVCView.addSubview(statusBarView)
+
+        
+      //  firstVCView.addSubview(statusBarView)
         firstVCView.addSubview(screenshot)
-        screenshot.frame = CGRectMake(screenWidth, UIApplication.sharedApplication().statusBarFrame.height
+        
+        screenshot.frame = CGRectMake(screenWidth, 0
 , screenWidth, screenHeight )
         // Specify the initial position of the destination view.
       //  secondVCView.frame = CGRectMake(screenWidth, 0.0, screenWidth, screenHeight)
@@ -54,7 +55,7 @@ class SegueFromRight: UIStoryboardSegue {
                                                             animated: false,
                                                             completion: {
                                                                 
-                                                                statusBarView.removeFromSuperview()
+//                                                                statusBarView.removeFromSuperview()
                                                                 screenshot.removeFromSuperview()
 
             })
