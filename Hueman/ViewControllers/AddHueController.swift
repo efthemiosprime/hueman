@@ -23,6 +23,8 @@ class AddHueController: UIViewController {
     @IBOutlet weak var charactersLabel: UILabel!
     @IBOutlet weak var addButton: RoundedCornersButton!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var removeButton: UIButton!
     
     
     
@@ -38,6 +40,7 @@ class AddHueController: UIViewController {
     
     var previousController: UIViewController?
     var prev: String?
+    var placeHolderText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +55,12 @@ class AddHueController: UIViewController {
                 icon.image = UIImage(named: "hue-wanderlust-icon")
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
                 currentTypeColor = Color.Wanderlust
-                iconLabel.text = "wanderlust"
+               // iconLabel.text = "wanderlust"
                 titleLabel.text  = HueTitle.Wanderlust
                 footerLabel.text = "Name a place you’d like to visit."
                 detailLabel.placeholder = "e.g., Paris, France"
                 headerLabel.text = "wanderlust"
+                placeHolderText = "e.g., Paris, France"
                 break
                 
             case Topic.OnMyPlate:
@@ -64,10 +68,11 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
                 currentTypeColor = Color.OnMyPlate
 
-                iconLabel.text = "on my plate"
+              //  iconLabel.text = "on my plate"
                 titleLabel.text  = HueTitle.OnMyPlate
                 footerLabel.text = "What’s your favorite food?"
                 detailLabel.placeholder = "e.g., Chicken and waffles"
+                placeHolderText = "e.g., Chicken and waffles"
                 headerLabel.text = "on my plate"
                 break
                 
@@ -76,10 +81,12 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
                 currentTypeColor = Color.RelationshipMusing
 
-                iconLabel.text = "heart musings"
+            //    iconLabel.text = "heart musings"
                 titleLabel.text  = HueTitle.RelationshipMusing
                 footerLabel.text = "What’s one relationship you value dearly?"
                 detailLabel.placeholder = "e.g., Family"
+                placeHolderText = "e.g., Family"
+
                 headerLabel.text = "heart musings"
                 break
                 
@@ -88,11 +95,12 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
                 currentTypeColor = Color.Health
 
-                iconLabel.text = "oh health yeah"
+             //   iconLabel.text = "oh health yeah"
                 titleLabel.text  = HueTitle.Health
                 footerLabel.text = "What diet or physical activity do you do?"
                 detailLabel.placeholder = "e.g., Walking everyday"
                 headerLabel.text = Topic.Health.lowercaseString
+                placeHolderText = "e.g., Walking everyday"
 
                 
                 break
@@ -102,10 +110,12 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
                 currentTypeColor = Color.DailyHustle
 
-                iconLabel.text = HueTitle.DailyHustle
+           //     iconLabel.text = HueTitle.DailyHustle
                 titleLabel.text  = "I am an amazing"
                 footerLabel.text = "What do you do for a living?\nWhere are you studying?"
                 detailLabel.placeholder = "e.g., College student"
+                placeHolderText = "e.g., College student"
+
                 headerLabel.text = Topic.DailyHustle.lowercaseString
 
                 break
@@ -117,10 +127,12 @@ class AddHueController: UIViewController {
                 self.view.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
                 currentTypeColor = Color.RayOfLight
 
-                iconLabel.text = "ray of light"
+         //      iconLabel.text = "ray of light"
                 titleLabel.text  = HueTitle.RayOfLight
                 footerLabel.text = "Give a random thing that makes you smile."
                 headerLabel.text = Topic.RayOfLight.lowercaseString
+                detailLabel .placeholder = "e.g., Puppy photos"
+                placeHolderText = "e.g., Puppy photos"
 
                 break
             }
@@ -136,8 +148,10 @@ class AddHueController: UIViewController {
         super.viewWillAppear(animated)
                 
 //        
-        if type != nil {
-            if let text = defaults.objectForKey(type!) as? String   {
+
+        
+        if let unwrappedType = type {
+            if let text = defaults.objectForKey(unwrappedType) as? String   {
                 detailLabel.text = text
                 enableNext()
             }
@@ -151,22 +165,25 @@ class AddHueController: UIViewController {
     func textFieldDidChange(textField: UITextField){
         
         
-        
-        if textField.text?.characters.count > 3 {
+        if textField.text?.characters.count > 1 {
             enableNext()
-            defaults.setObject(textField.text, forKey: type!)
+            if let unwrappedType = type {
+                defaults.setObject(textField.text, forKey: unwrappedType)
+            }
         }
         
-  //      let charCount: String = String(textField.text!.characters.count)
-//        if textField.text?.characters.count > 1 {
-//            charactersLabel.text = "\(charCount)/30 characters"
-//        }
-//        
+        if textField.text?.characters.count == 0 || textField.text!.isEmpty {
+            disableNext()
+            if let unwrappedType = type {
+                defaults.removeObjectForKey(unwrappedType)
+            }
+        }
+        
+   
     }
 
 
     @IBAction func addAction(sender: AnyObject) {
-        
         
         if mode == .edit {
             
@@ -176,23 +193,48 @@ class AddHueController: UIViewController {
 
             
             self.dismissViewControllerAnimated(true, completion: nil)
-
         }
         
         if mode == nil || mode == .add {
-            if let text = detailLabel.text where !text.isEmpty {
+//            if let text = detailLabel.text where !text.isEmpty {
+//                self.delegate?.setHue(detailLabel.text!, type: self.type!)
+//                self.performSegueWithIdentifier("backAddHues", sender: nil)
+//            }
+//            
+            if detailLabel.text?.characters.count > 1 || !detailLabel.text!.isEmpty {
                 self.delegate?.setHue(detailLabel.text!, type: self.type!)
                 self.performSegueWithIdentifier("backAddHues", sender: nil)
-                
-            } else {
+            }else {
                 self.performSegueWithIdentifier("backAddHues", sender: nil)
-                
             }
         }
 
 
     }
 
+    @IBAction func backAction(sender: AnyObject) {
+        if detailLabel.text!.isEmpty || detailLabel.text?.characters.count == 0 {
+            if let unwrappedType = self.type {
+              //  self.delegate?.setHue("", type: unwrappedType)
+                defaults.removeObjectForKey(unwrappedType)
+                detailLabel.text = ""
+                detailLabel.placeholder = placeHolderText
+            }
+        }
+        
+        self.performSegueWithIdentifier("backAddHues", sender: nil)
+    }
+    
+    @IBAction func removeAction(sender: AnyObject) {
+        if let unwrappedType = self.type {
+            self.delegate?.setHue("", type: unwrappedType)
+            defaults.removeObjectForKey(unwrappedType)
+        }
+
+        detailLabel.text = ""
+        detailLabel.placeholder = placeHolderText
+        disableNext()
+    }
     
     func addDoneBtnToKeyboard() {
         let toolbar = UIToolbar()
@@ -257,12 +299,14 @@ extension AddHueController: UITextFieldDelegate {
 
 extension AddHueController {
     func disableNext() {
-        addButton.setTitle("maybe later", forState: UIControlState.Normal)
-        addButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        addButton.setTitle("add", forState: UIControlState.Normal)
+        addButton.setTitleColor(UIColor(white: 1.0, alpha: 0.5), forState: UIControlState.Normal)
         addButton.layer.borderWidth = 1
-        addButton.layer.borderColor = UIColor.whiteColor().CGColor
+       // addButton.layer.borderColor = UIColor.whiteColor().CGColor
+        addButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor
+
         addButton.backgroundColor = UIColor.clearColor()
-        
+        addButton.enabled = false
     }
     
     func enableNext() {
@@ -273,7 +317,8 @@ extension AddHueController {
         addButton.layer.borderColor = UIColor.whiteColor().CGColor
         addButton.backgroundColor = UIColor.whiteColor()
         addButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
-        
+        addButton.enabled = true
+
     }
     
 }

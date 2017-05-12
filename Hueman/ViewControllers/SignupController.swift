@@ -19,6 +19,7 @@ class SignupController: UIViewController {
     @IBOutlet weak var modalConfirmation: UIView!
     @IBOutlet weak var continueButton: RoundedCornersButton!
     @IBOutlet weak var modalLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -298,10 +299,12 @@ extension SignupController {
     
     func showModalConfirmation() {
         modalConfirmation.hidden = false
+        backButton.hidden = true
     }
     
     func hideModalConfirmation() {
         modalConfirmation.hidden = true
+        backButton.hidden = false
     }
     
     

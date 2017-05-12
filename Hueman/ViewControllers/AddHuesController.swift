@@ -138,7 +138,7 @@ extension AddHuesController: AddHueDelegate {
             
             
         default:
-            let data = ProfileHueModel(title: "Happines is", description: hue, type: Topic.RayOfLight)
+            let data = ProfileHueModel(title: "Hapiness is", description: hue, type: Topic.RayOfLight)
             
             profileHues![5].data = data
             self.hues[Topic.RayOfLight] = data.description
