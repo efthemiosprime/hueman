@@ -38,6 +38,11 @@ class ProfileViewController: UIViewController {
     var editedHues: [String: String]?
     var user: User?
     
+    @IBOutlet weak var locNBirthdayStackHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var locNbirthdayStackWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var birthdayLeadingConstraint: NSLayoutConstraint!
+    
+    
     let cachedProfileImage = NSCache()
     
     var dataBaseRef: FIRDatabaseReference! {
@@ -186,12 +191,14 @@ class ProfileViewController: UIViewController {
             if let unwrappedUser = user {
                 getCurrentProfile(unwrappedUser)
                 signupManager.currentUser = unwrappedUser
-
+                
             }
             //done()
+
         }
         
     
+
 
         
         self.navigationBar.topItem?.title = user!.name
@@ -419,9 +426,47 @@ class ProfileViewController: UIViewController {
         AuthenticationManager.sharedInstance.loadCurrentUser({
             authenticatedUser = AuthenticationManager.sharedInstance.currentUser
             self.signupManager.currentUser = authenticatedUser!
+            
+            if let unwrappedUser = self.user {
+                if let authenticatedUserUid = self.autManager?.currentUser?.uid, let currentUserUid = self.user?.uid {
+                    if authenticatedUserUid != currentUserUid {
+                        if (unwrappedUser.birthday?.visible == false && unwrappedUser.location?.visible == false) ||
+                            unwrappedUser.birthday == nil && unwrappedUser.location == nil {
+                            self.locNBirthdayStackHeightConstraint.constant = 0
+                            self.location.hidden = true
+                            self.birthday.hidden = true
+                        }else {
+                            self.locNBirthdayStackHeightConstraint.constant = 126
+                            if let locVisible = unwrappedUser.location?.visible, let birthdayVisible = unwrappedUser.birthday?.visible {
+                                let containerWidth = self.locNbirthdayStackWidthConstraint.constant
+       
+                                
+                                self.location.hidden = !locVisible
+                                self.birthday.hidden = !birthdayVisible
+                                
+
+                                
+                                if self.location.hidden == false {
+                                    let locFrame = self.location.frame
+                                    self.location.frame = CGRectMake(containerWidth/2, locFrame.origin.y, locFrame.size.width, locFrame.size.height)
+                                    
+                                }
+                                
+                                if self.birthday.hidden == false {
+                                    let birthdayFrame = self.birthday.frame
+                                    self.birthdayLeadingConstraint.constant = self.birthdayLeadingConstraint.constant/2 - (birthdayFrame.size.width/2)
+                                }
+                                
+                            }
+                            
+                            
+                        }
+                    }
+                } // end
+            }
         })
 
-        
+
         if let unwrappedEditedBirthday = editedBirthday {
             self.birthdayLabel.text = unwrappedEditedBirthday.date
             signupManager.currentUser?.birthday = unwrappedEditedBirthday

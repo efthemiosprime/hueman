@@ -19,6 +19,7 @@ class AddLocationController: UIViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var nextButton: RoundedCornersButton!
     @IBOutlet weak var visibilitySwitch: UISwitch!
+    @IBOutlet weak var visibilityLabel: UILabel!
     
     var locationManager:CLLocationManager!
     let geoCoder = CLGeocoder()
@@ -60,6 +61,7 @@ class AddLocationController: UIViewController {
         visibilitySwitch.tintColor = UIColor.whiteColor()
         visibilitySwitch.transform = CGAffineTransformMakeScale(0.80, 0.80);
 
+        visibilitySwitch.addTarget(self, action: #selector(AddBirthdayController.switchChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
 
     }
     
@@ -196,6 +198,11 @@ class AddLocationController: UIViewController {
     }
     
     
+    
+    func switchChanged(mySwitch: UISwitch) {
+        let on = mySwitch.on
+        visibilityLabel.text = on == true ? "visible" : "hidden"
+    }
     
     func doneEditing() {
         

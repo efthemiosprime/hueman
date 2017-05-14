@@ -1622,7 +1622,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1653,7 +1653,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1674,7 +1674,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1696,7 +1696,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2046,7 +2046,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2237,7 +2237,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Fx8-bp-oNb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mhn-9C-7ZK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="w4L-lX-zSo">
@@ -2453,7 +2453,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="change profile photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBl-jX-Dvd">
-                                                                <rect key="frame" x="36" y="92" width="130" height="17"/>
+                                                                <rect key="frame" x="35" y="92" width="130" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -2487,7 +2487,7 @@
                                                 <rect key="frame" x="34" y="286" width="307" height="126"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZd-Eb-IDU" userLabel="location">
-                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="126"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="126"/>
                                                         <subviews>
                                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="8QQ-Vn-nM3">
                                                                 <rect key="frame" x="19" y="16" width="107" height="54"/>
@@ -2501,7 +2501,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="MYn-j8-60W">
-                                                                <rect key="frame" x="66" y="85" width="12.5" height="13"/>
+                                                                <rect key="frame" x="66" y="85" width="13" height="13"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="edit-w-border-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Cme-Np-ksu" userLabel="Edit">
@@ -2512,21 +2512,21 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkl-fY-ifl" userLabel="birthday">
-                                                        <rect key="frame" x="161" y="0.0" width="146" height="126"/>
+                                                        <rect key="frame" x="160" y="0.0" width="147" height="126"/>
                                                         <subviews>
                                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-birthday-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Eze-Ze-Z8o">
-                                                                <rect key="frame" x="39" y="8" width="68" height="65"/>
+                                                                <rect key="frame" x="40" y="8" width="68" height="65"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBb-bw-qLP">
-                                                                <rect key="frame" x="21" y="80" width="103" height="33"/>
+                                                                <rect key="frame" x="22" y="80" width="103" height="33"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="SXq-hk-g2t">
-                                                                <rect key="frame" x="66" y="85" width="12.5" height="13"/>
+                                                                <rect key="frame" x="67" y="85" width="13" height="13"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="edit-w-border-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PPK-Jy-onH" userLabel="Edit">
@@ -2538,7 +2538,7 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Dkl-fY-ifl" firstAttribute="leading" secondItem="e8A-xo-4mM" secondAttribute="leading" constant="161" id="QEW-Ch-UoN"/>
+                                                    <constraint firstItem="Dkl-fY-ifl" firstAttribute="leading" secondItem="e8A-xo-4mM" secondAttribute="leading" constant="160" id="hiN-re-Ddg"/>
                                                     <constraint firstAttribute="width" constant="307" id="hnU-aW-FqH"/>
                                                     <constraint firstAttribute="height" constant="126" id="tGJ-1b-gtN"/>
                                                 </constraints>
@@ -2553,29 +2553,29 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="156"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dKB-DN-Bql">
-                                                                        <rect key="frame" x="69" y="105" width="12.5" height="13"/>
+                                                                        <rect key="frame" x="69.5" y="105" width="12.5" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayb-6V-p89">
-                                                                        <rect key="frame" x="8.5" y="70" width="134" height="14"/>
+                                                                        <rect key="frame" x="9.5" y="70" width="133.5" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuo-an-WVK">
-                                                                        <rect key="frame" x="8.5" y="70" width="133.5" height="52"/>
+                                                                        <rect key="frame" x="9.5" y="70" width="133.5" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="X4e-9F-toF">
-                                                                        <rect key="frame" x="52.5" y="25" width="46" height="45"/>
+                                                                        <rect key="frame" x="53.5" y="25" width="46" height="45"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="CXt-Qf-d83" userLabel="Edit">
-                                                                        <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
+                                                                        <rect key="frame" x="1" y="0.0" width="150" height="150"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -2592,25 +2592,25 @@
                                                                 <rect key="frame" x="166" y="0.0" width="149" height="156"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="VAe-ns-gpA">
-                                                                        <rect key="frame" x="63" y="105" width="12.5" height="13"/>
+                                                                        <rect key="frame" x="63" y="105" width="14" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4i-8c-Ymt">
-                                                                        <rect key="frame" x="9" y="70" width="134" height="14"/>
+                                                                        <rect key="frame" x="9" y="70" width="134.5" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF0-7z-IKz">
-                                                                        <rect key="frame" x="3.5" y="70" width="133.5" height="52"/>
+                                                                        <rect key="frame" x="4.5" y="70" width="134" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6Xv-lz-eJy">
-                                                                        <rect key="frame" x="46" y="25" width="46" height="45"/>
+                                                                        <rect key="frame" x="47" y="25" width="45.5" height="45"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BTv-VE-48n" userLabel="Edit">
@@ -2636,29 +2636,29 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="156"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="iBk-tl-eHn">
-                                                                        <rect key="frame" x="69" y="105" width="12.5" height="13"/>
+                                                                        <rect key="frame" x="69.5" y="105" width="12.5" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb6-gD-auo">
-                                                                        <rect key="frame" x="8.5" y="70" width="134" height="14"/>
+                                                                        <rect key="frame" x="9.5" y="70" width="133.5" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9v-u1-bgI">
-                                                                        <rect key="frame" x="8.5" y="70" width="133.5" height="52"/>
+                                                                        <rect key="frame" x="9.5" y="70" width="133.5" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="4fz-te-wAw">
-                                                                        <rect key="frame" x="52.5" y="25" width="46" height="45"/>
+                                                                        <rect key="frame" x="53.5" y="25" width="46" height="45"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="1Sa-Oy-PJM" userLabel="Edit">
-                                                                        <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
+                                                                        <rect key="frame" x="1" y="0.0" width="150" height="150"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -2675,25 +2675,25 @@
                                                                 <rect key="frame" x="166" y="0.0" width="149" height="156"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Av6-Bi-EMQ">
-                                                                        <rect key="frame" x="62.5" y="105" width="12.5" height="13"/>
+                                                                        <rect key="frame" x="62.5" y="105" width="14" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFE-NA-tmH">
-                                                                        <rect key="frame" x="9" y="70" width="134" height="14"/>
+                                                                        <rect key="frame" x="9" y="70" width="134.5" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRG-r8-Cux">
-                                                                        <rect key="frame" x="3" y="70" width="133.5" height="52"/>
+                                                                        <rect key="frame" x="3" y="70" width="134" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="SAd-Wg-5EU">
-                                                                        <rect key="frame" x="45.5" y="25" width="46" height="45"/>
+                                                                        <rect key="frame" x="46" y="25" width="46" height="45"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6SA-rD-9BK" userLabel="Edit">
@@ -2719,29 +2719,29 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="156"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="new-k3-iVo">
-                                                                        <rect key="frame" x="69" y="105" width="12.5" height="13"/>
+                                                                        <rect key="frame" x="69.5" y="105" width="12.5" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRF-Uq-Skd">
-                                                                        <rect key="frame" x="8.5" y="70" width="134" height="14"/>
+                                                                        <rect key="frame" x="9.5" y="70" width="133.5" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PM-Iq-dgz">
-                                                                        <rect key="frame" x="8.5" y="70" width="133.5" height="52"/>
+                                                                        <rect key="frame" x="9.5" y="70" width="133.5" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hue-wanderlust-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6Iz-PP-ozY">
-                                                                        <rect key="frame" x="52.5" y="25" width="46" height="45"/>
+                                                                        <rect key="frame" x="53.5" y="25" width="46" height="45"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="v4z-6v-XrA" userLabel="Edit">
-                                                                        <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
+                                                                        <rect key="frame" x="1" y="0.0" width="150" height="150"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -2758,18 +2758,18 @@
                                                                 <rect key="frame" x="166" y="0.0" width="149" height="156"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="create-plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yeN-iM-IM4">
-                                                                        <rect key="frame" x="62" y="105" width="12.5" height="13"/>
+                                                                        <rect key="frame" x="62.5" y="105" width="14" height="13"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wanderlust" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv0-8D-ev1">
-                                                                        <rect key="frame" x="9" y="70" width="134" height="14"/>
+                                                                        <rect key="frame" x="9" y="70" width="134.5" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McG-tt-C4x">
-                                                                        <rect key="frame" x="3" y="70" width="133.5" height="52"/>
+                                                                        <rect key="frame" x="3" y="70" width="134" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2802,7 +2802,7 @@
                                                 </constraints>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bio-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Ir-V2-oOZ">
-                                                <rect key="frame" x="345" y="245" width="22" height="23"/>
+                                                <rect key="frame" x="345" y="244" width="22" height="23"/>
                                             </imageView>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r69-vF-i6l" userLabel="Progress">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="949"/>
@@ -2897,7 +2897,10 @@
                         <outlet property="birthday" destination="Dkl-fY-ifl" id="dxN-0D-X7F"/>
                         <outlet property="birthdayEditIcon" destination="PPK-Jy-onH" id="Txa-TE-H3N"/>
                         <outlet property="birthdayLabel" destination="yBb-bw-qLP" id="q2V-fR-rQb"/>
+                        <outlet property="birthdayLeadingConstraint" destination="hiN-re-Ddg" id="ExE-at-gqr"/>
                         <outlet property="birthdayPlusIcon" destination="SXq-hk-g2t" id="8ce-YD-hOb"/>
+                        <outlet property="locNBirthdayStackHeightConstraint" destination="tGJ-1b-gtN" id="rp3-we-CaL"/>
+                        <outlet property="locNbirthdayStackWidthConstraint" destination="hnU-aW-FqH" id="YWW-vT-6PC"/>
                         <outlet property="location" destination="lZd-Eb-IDU" id="qS2-p8-nH2"/>
                         <outlet property="locationEditIcon" destination="Cme-Np-ksu" id="NDD-P6-1Mf"/>
                         <outlet property="locationLabel" destination="Qa5-DM-gDJ" id="YnS-8t-CbQ"/>
@@ -3570,7 +3573,7 @@
                         <viewControllerLayoutGuide type="bottom" id="p99-Ml-OLK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="egV-ZB-l6M">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj6-Yk-lan">
@@ -3804,6 +3807,7 @@ just saying.</string>
                         <outlet property="backButton" destination="ekZ-TT-CPr" id="5XL-pK-EkJ"/>
                         <outlet property="datePicker" destination="2sk-xh-QJe" id="h69-fg-bQq"/>
                         <outlet property="nextButton" destination="SSZ-UK-bbX" id="4Cq-ra-N3v"/>
+                        <outlet property="visibilityLabel" destination="DtJ-Pu-whJ" id="QrI-Dx-65S"/>
                         <outlet property="visibilitySwitch" destination="6m5-Br-eWE" id="EU7-aY-aEa"/>
                         <segue destination="8Qo-er-h2N" kind="custom" identifier="gotoAddLocation" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="9n7-z9-NGl"/>
                         <segue destination="kzA-0h-HIf" kind="unwind" identifier="backToAddName" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backToAddName:" id="ovf-9V-MfY"/>
@@ -3823,7 +3827,7 @@ just saying.</string>
                         <viewControllerLayoutGuide type="bottom" id="dw2-gH-G5X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qd6-80-Zp6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you live?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiI-t5-WwV">
@@ -3916,8 +3920,8 @@ just saying.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-j4-yEw">
-                                <rect key="frame" x="228" y="207.5" width="31" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="hide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-j4-yEw">
+                                <rect key="frame" x="227" y="209" width="45" height="16"/>
                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -3958,6 +3962,7 @@ just saying.</string>
                     <connections>
                         <outlet property="locationField" destination="RvW-cF-fat" id="zSc-OK-RBJ"/>
                         <outlet property="nextButton" destination="qbg-2e-zAV" id="V3K-dA-O7v"/>
+                        <outlet property="visibilityLabel" destination="XLL-j4-yEw" id="ZSQ-T2-tq9"/>
                         <outlet property="visibilitySwitch" destination="pNw-ir-GzU" id="hgP-X5-YLS"/>
                         <segue destination="5cF-M2-j43" kind="unwind" identifier="backToAddBirthday" customClass="UnwindSegueFromRight" customModule="Hueman" customModuleProvider="target" unwindAction="backToAddBirthday:" id="C03-UU-6B4"/>
                         <segue destination="vV9-mU-Nyy" kind="custom" identifier="gotoInterstitial" customClass="SegueFromRight" customModule="Hueman" customModuleProvider="target" id="eFq-P6-QEy"/>
@@ -3977,7 +3982,7 @@ just saying.</string>
                         <viewControllerLayoutGuide type="bottom" id="r9H-cE-hAv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DkP-eX-mmc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1020"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7O-8z-O6v">
@@ -4028,7 +4033,7 @@ who you are.</string>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6rE-7x-gz1">
-                                <rect key="frame" x="16" y="256" width="343" height="403"/>
+                                <rect key="frame" x="16" y="256" width="343" height="756"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="150" id="cXd-tF-a1s"/>
@@ -4038,7 +4043,7 @@ who you are.</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hL-Wc-awA">
-                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="1020" width="375" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" id="b69-Q6-r2b"/>
@@ -4733,15 +4738,15 @@ your Facebook friends.</string>
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Res-We-OyF"/>
         <segue reference="S6n-qU-DNf"/>
-        <segue reference="JJB-8P-lDN"/>
-        <segue reference="oiw-2V-Xv7"/>
-        <segue reference="TNy-AS-iIu"/>
-        <segue reference="t3h-Zx-gWI"/>
-        <segue reference="PBT-r4-Iq7"/>
-        <segue reference="x7e-R4-jKz"/>
+        <segue reference="QSW-tO-OIL"/>
+        <segue reference="z5k-ex-qpi"/>
+        <segue reference="i6C-9S-InU"/>
         <segue reference="ffB-RO-bLJ"/>
-        <segue reference="D5k-US-s1y"/>
+        <segue reference="9n7-z9-NGl"/>
+        <segue reference="eFq-P6-QEy"/>
+        <segue reference="Res-We-OyF"/>
+        <segue reference="PBT-r4-Iq7"/>
+        <segue reference="t3h-Zx-gWI"/>
     </inferredMetricsTieBreakers>
 </document>

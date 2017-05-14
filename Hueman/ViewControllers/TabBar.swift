@@ -96,7 +96,6 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
             
             profileController?.user = AuthenticationManager.sharedInstance.currentUser
             if let editable = notification.userInfo?["editable"]  {
-                print("editable \(editable)")
                 profileController?.editMode = Bool(editable as! NSNumber)
 
             }

@@ -19,6 +19,7 @@ class AddBirthdayController: UIViewController {
     @IBOutlet weak var visibilitySwitch: UISwitch!
     @IBOutlet weak var nextButton: RoundedCornersButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var visibilityLabel: UILabel!
     
     
 //    var delegate: BirthdayDelegate?
@@ -57,7 +58,8 @@ class AddBirthdayController: UIViewController {
         
         datePicker.addTarget(self, action: #selector(AddBirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
-        
+        visibilitySwitch.addTarget(self, action: #selector(AddBirthdayController.switchChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
+
         
     }
 
@@ -91,6 +93,10 @@ class AddBirthdayController: UIViewController {
 
     }
     
+    func switchChanged(mySwitch: UISwitch) {
+        let on = mySwitch.on
+        visibilityLabel.text = on == true ? "visible" : "hidden"
+    }
     
     func handleBirthdayPicker(sender: UIDatePicker) {
         let dateFormatter = NSDateFormatter()
