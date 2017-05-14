@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 protocol AddHueDelegate {
     func setHue(hue: String, type: String)
@@ -41,6 +45,10 @@ class AddHueController: UIViewController {
     var previousController: UIViewController?
     var prev: String?
     var placeHolderText = ""
+    
+    var dataBaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference();
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,7 +157,6 @@ class AddHueController: UIViewController {
                 
 //        
 
-        
         if let unwrappedType = type {
             if let text = defaults.objectForKey(unwrappedType) as? String   {
                 detailLabel.text = text
@@ -157,8 +164,6 @@ class AddHueController: UIViewController {
             }
         }
 
-
-        
     }
     
     
@@ -187,12 +192,27 @@ class AddHueController: UIViewController {
         
         if mode == .edit {
             
-            let profileController = self.delegate as? ProfileViewController
-            profileController?.editMode = true
-            self.delegate?.setHue(detailLabel.text!, type: self.type!)
+            let autManager = AuthenticationManager.sharedInstance
+            if let unwrappedUid = autManager.currentUser?.uid {
+                if let unwrappedType = type {
+                    dataBaseRef.child("users").child(unwrappedUid).child("hues").updateChildValues([unwrappedType: detailLabel.text!], withCompletionBlock: { (error, ref) in
+                        
+                    })
+                    
+                }else {
+                    let profileController = self.delegate as? ProfileViewController
+                    profileController?.editMode = true
+                    self.delegate?.setHue(detailLabel.text!, type: self.type!)
+                }
+            }
+            
+
+            AuthenticationManager.sharedInstance.loadCurrentUser({
+                self.dismissViewControllerAnimated(true, completion: nil)
+
+            })
 
             
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
         
         if mode == nil || mode == .add {
@@ -213,22 +233,47 @@ class AddHueController: UIViewController {
     }
 
     @IBAction func backAction(sender: AnyObject) {
-        if detailLabel.text!.isEmpty || detailLabel.text?.characters.count == 0 {
-            if let unwrappedType = self.type {
-              //  self.delegate?.setHue("", type: unwrappedType)
-                defaults.removeObjectForKey(unwrappedType)
-                detailLabel.text = ""
-                detailLabel.placeholder = placeHolderText
+        if mode == .edit {
+
+            
+            let autManager = AuthenticationManager.sharedInstance
+            if let unwrappedUid = autManager.currentUser?.uid {
+                if let unwrappedType = type {
+                    dataBaseRef.child("users").child(unwrappedUid).child("hues").updateChildValues([unwrappedType: detailLabel.text!], withCompletionBlock: { (error, ref) in
+                            
+                        AuthenticationManager.sharedInstance.loadCurrentUser({
+                            
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                            
+                        })
+                    })
+
+                }
             }
+            
+
+
+
+        }else {
+            if detailLabel.text!.isEmpty || detailLabel.text?.characters.count == 0 {
+                if let unwrappedType = self.type {
+                    //  self.delegate?.setHue("", type: unwrappedType)
+                    defaults.removeObjectForKey(unwrappedType)
+                    detailLabel.text = ""
+                    detailLabel.placeholder = placeHolderText
+                }
+            }
+            
+            self.performSegueWithIdentifier("backAddHues", sender: nil)
         }
-        
-        self.performSegueWithIdentifier("backAddHues", sender: nil)
+
     }
     
     @IBAction func removeAction(sender: AnyObject) {
         if let unwrappedType = self.type {
             self.delegate?.setHue("", type: unwrappedType)
             defaults.removeObjectForKey(unwrappedType)
+            defaults.synchronize()
         }
 
         detailLabel.text = ""

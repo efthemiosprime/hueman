@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController {
     var editMode = false
     var defaults = NSUserDefaults.standardUserDefaults()
     var signupManager = SignupManager.sharedInstance
-    
+    var autManager: AuthenticationManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,10 +117,10 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let autManager =  AuthenticationManager.sharedInstance
+         autManager =  AuthenticationManager.sharedInstance
 
         
-        if let authUid = autManager.currentUser?.uid, let userUid = user?.uid {
+        if let authUid = autManager!.currentUser?.uid, let userUid = user?.uid {
             if authUid == userUid {
                 self.navigationBar.topItem?.rightBarButtonItem = editButton
 
@@ -148,7 +148,6 @@ class ProfileViewController: UIViewController {
 
         
         if editMode {
-            
             if (locationLabel.text?.characters.count)! > 0 || !(locationLabel.text?.isEmpty)! {
                 locationEditIcon.hidden = true
                 birthdayEditIcon.hidden = true
@@ -172,6 +171,7 @@ class ProfileViewController: UIViewController {
    
                     
                     if let unwrappedUser = self.user {
+                
                         self.getCurrentProfile(unwrappedUser)
                         self.signupManager.currentUser = unwrappedUser
                     }
@@ -321,7 +321,23 @@ class ProfileViewController: UIViewController {
             signupManager.userLocation = unwrappedEditedLocation
             signupManager.currentUser?.location = signupManager.userLocation
         }else {
-            signupManager.userLocation = user?.location
+            if let unwrappedUserLocation = autManager?.currentUser?.location {
+                signupManager.userLocation = unwrappedUserLocation
+            }else {
+                signupManager.userLocation = UserLocation(location: "")
+
+            }
+        }
+        
+        if let unwrappedEditedBirthday = editedBirthday {
+            signupManager.userBirthday = unwrappedEditedBirthday
+            signupManager.currentUser?.birthday = signupManager.userBirthday
+        }else {
+            if let unwrappedUserBirthday = autManager?.currentUser?.birthday {
+                signupManager.currentUser?.birthday = unwrappedUserBirthday
+            }else {
+                signupManager.currentUser?.birthday = UserBirthday(date: "")
+            }
         }
         
         if let unwrappedProfileImage = editedImageData {
@@ -347,31 +363,34 @@ class ProfileViewController: UIViewController {
 
         if signupManager.currentUser != nil {
             self.signupManager.editProfile({
-
-                self.user = self.signupManager.currentUser
-                self.editedHues = [
-                    Topic.Wanderlust: "",
-                    Topic.OnMyPlate: "",
-                    Topic.RelationshipMusing: "",
-                    Topic.Health: "",
-                    Topic.DailyHustle: "",
-                    Topic.RayOfLight: ""
-                ]
                 
-                self.editedImageData = nil
-                self.editedLocation = nil
-                self.editedBirthday = nil
-                self.editedBio = ""
-                
-                self.defaults.removeObjectForKey(Topic.Wanderlust)
-                self.defaults.removeObjectForKey(Topic.OnMyPlate)
-                self.defaults.removeObjectForKey(Topic.Health)
-                self.defaults.removeObjectForKey(Topic.RelationshipMusing)
+                AuthenticationManager.sharedInstance.loadCurrentUser({
+                    self.user = self.signupManager.currentUser
+                    self.editedHues = [
+                        Topic.Wanderlust: "",
+                        Topic.OnMyPlate: "",
+                        Topic.RelationshipMusing: "",
+                        Topic.Health: "",
+                        Topic.DailyHustle: "",
+                        Topic.RayOfLight: ""
+                    ]
+                    
+                    self.editedImageData = nil
+                    self.editedLocation = nil
+                    self.editedBirthday = nil
+                    self.editedBio = ""
+                    
+                    self.defaults.removeObjectForKey(Topic.Wanderlust)
+                    self.defaults.removeObjectForKey(Topic.OnMyPlate)
+                    self.defaults.removeObjectForKey(Topic.Health)
+                    self.defaults.removeObjectForKey(Topic.RelationshipMusing)
+                    
+                    self.defaults.removeObjectForKey(Topic.DailyHustle)
+                    self.defaults.removeObjectForKey(Topic.RayOfLight)
+                    
+                    self.signupManager.cleanup()
+                })
 
-                self.defaults.removeObjectForKey(Topic.DailyHustle)
-                self.defaults.removeObjectForKey(Topic.RayOfLight)
-
-                self.signupManager.cleanup()
                 
             })
 
@@ -396,7 +415,12 @@ class ProfileViewController: UIViewController {
 
     func getCurrentProfile(_user: User) {
        // self.navigationBar.topItem!.title = _user.name
-        let authenticatedUser = AuthenticationManager.sharedInstance.currentUser
+        var authenticatedUser: User?
+        AuthenticationManager.sharedInstance.loadCurrentUser({
+            authenticatedUser = AuthenticationManager.sharedInstance.currentUser
+            self.signupManager.currentUser = authenticatedUser!
+        })
+
         
         if let unwrappedEditedBirthday = editedBirthday {
             self.birthdayLabel.text = unwrappedEditedBirthday.date
@@ -488,7 +512,7 @@ class ProfileViewController: UIViewController {
                     
                     if let wanderlust = snapshot.value![Topic.Wanderlust]  {
                         if self.editedHues![Topic.Wanderlust]?.characters.count > 0 {
-                            self.hues![0].data = ProfileHueModel(title: HueTitle.Wanderlust, description: self.editedHues![Topic.Wanderlust]!, type: Topic.Wanderlust)
+                            self.hues![0].data = ProfileHueModel(title: HueTitle.Wanderlust, description: (wanderlust as? String)!, type: Topic.Wanderlust)
 
                         }else {
                             if let unWrappedDetail = wanderlust as? String where !unWrappedDetail.isEmpty  {
@@ -500,7 +524,7 @@ class ProfileViewController: UIViewController {
                     
                     if let food = snapshot.value![Topic.OnMyPlate]  {
                         if self.editedHues![Topic.OnMyPlate]?.characters.count > 0 {
-                            self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: self.editedHues![Topic.OnMyPlate]!, type: Topic.OnMyPlate)
+                            self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: (food as? String)!, type: Topic.OnMyPlate)
                         }else {
                             if let detail = food as? String where !detail.isEmpty {
                                 self.hues![1].data = ProfileHueModel(title: HueTitle.OnMyPlate, description: detail, type: Topic.OnMyPlate)
@@ -512,7 +536,7 @@ class ProfileViewController: UIViewController {
                     
                     if let snap = snapshot.value![Topic.RelationshipMusing]  {
                         if self.editedHues![Topic.OnMyPlate]?.characters.count > 0 {
-                            self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: self.editedHues![Topic.RelationshipMusing]!, type: Topic.RelationshipMusing)
+                            self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: (snap as? String)!, type: Topic.RelationshipMusing)
                         }else {
                             if let detail = snap as? String where !detail.isEmpty  {
                                 self.hues![2].data = ProfileHueModel(title: HueTitle.RelationshipMusing, description: detail, type: Topic.RelationshipMusing)
@@ -523,7 +547,7 @@ class ProfileViewController: UIViewController {
                     
                     if let snap = snapshot.value![Topic.Health]  {
                         if self.editedHues![Topic.Health]?.characters.count > 0 {
-                            self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: self.editedHues![Topic.Health]!, type: Topic.Health)
+                            self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: (snap as? String)!, type: Topic.Health)
                         }else {
                             if let detail = snap as? String where !detail.isEmpty  {
                                 self.hues![3].data = ProfileHueModel(title: HueTitle.Health, description: detail, type: Topic.Health)
@@ -534,7 +558,7 @@ class ProfileViewController: UIViewController {
                     
                     if let snap = snapshot.value![Topic.DailyHustle]  {
                         if self.editedHues![Topic.DailyHustle]?.characters.count > 0 {
-                            self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: self.editedHues![Topic.DailyHustle]!, type: Topic.DailyHustle)
+                            self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: (snap as? String)!, type: Topic.DailyHustle)
                         }else {
                             if let detail = snap as? String where !detail.isEmpty  {
                                 self.hues![4].data = ProfileHueModel(title: HueTitle.DailyHustle, description: detail, type: Topic.DailyHustle)
@@ -544,7 +568,7 @@ class ProfileViewController: UIViewController {
                     }
                     if let snap = snapshot.value![Topic.RayOfLight]  {
                         if self.editedHues![Topic.RayOfLight]?.characters.count > 0 {
-                            self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: self.editedHues![Topic.RayOfLight]!, type: Topic.RayOfLight)
+                            self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: (snap as? String)!, type: Topic.RayOfLight)
                         }else {
                             if let detail = snap as? String where !detail.isEmpty {
                                 self.hues![5].data = ProfileHueModel(title: HueTitle.RayOfLight, description: detail, type: Topic.RayOfLight)

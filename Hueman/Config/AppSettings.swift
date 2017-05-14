@@ -14,4 +14,5 @@ class AppSettings {
     private init() {} //This prevents others from using the default '()' initializer for this class.
     
     static var DEBUG: Bool = false
+    static var PROFILE_KEY = ""
 }

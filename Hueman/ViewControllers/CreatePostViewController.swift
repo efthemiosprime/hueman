@@ -520,13 +520,17 @@ extension CreatePostViewController {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         let icons:[String] = ["filter-wanderlust-accessory-icon", "filter-plate-accessory-icon", "filter-musing-accessory-icon", "filter-health-accessory-icon", "filter-daily-hustle-accessory-icon",  "filter-rayoflight-accessory-icon" ]
+        let tintColors = [Color.Wanderlust, Color.OnMyPlate, Color.RelationshipMusing, Color.Health, Color.DailyHustle, Color.RayOfLight]
         var items = [UIBarButtonItem]()
         
         
         if toolbarFilters == nil {
             var tagIndex = 0
             for item in icons {
-                let btnItem = UIBarButtonItem(image: UIImage(named: item), style: .Plain, target: self, action: #selector(CreatePostViewController.topicChangedAction(_:)))
+                let btnImage = UIImage(named: item)?.imageWithRenderingMode(.AlwaysTemplate)
+              //  btnImage.tintColor = UIColor.UIColorFromRGB(tintColors[tagIndex])
+                let btnItem = UIBarButtonItem(image: btnImage, style: .Plain, target: self, action: #selector(CreatePostViewController.topicChangedAction(_:)))
+                btnItem.tintColor = UIColor.UIColorFromRGB(tintColors[tagIndex])
                 btnItem.imageInsets = UIEdgeInsetsMake(0.0, -15, 0, -15)
                 btnItem.tag = tagIndex
                 items.append(btnItem)

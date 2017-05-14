@@ -154,19 +154,40 @@ class ProfileHue: UIView {
     
     var data: ProfileHueModel? {
         didSet {
-                
-            if let unwrappedData = data {
             
-                icon.tintColor = UIColor.whiteColor()
-                titleLabel.text = ""
+            if let unwrappedData = data {
+                
+                
+                //titleLabel.text = ""
                 let targetString = "\(unwrappedData.title) \(unwrappedData.description)"
                 let range = NSMakeRange(0, unwrappedData.title.characters.count)
                 descriptionLabel.attributedText = attributedString(from: targetString, nonBoldRange: range)
                // descriptionLabel.text = "\(unwrappedData.title) \(unwrappedData.description)"
-                titleLabel.textColor = UIColor.whiteColor()
 
-                plus.hidden = true
-                descriptionLabel.hidden = false
+                if unwrappedData.description.isEmpty {
+                    plus.hidden = false
+                    descriptionLabel.hidden = true
+                    titleLabel.hidden = false
+                    icon.tintColor = UIColor.UIColorFromRGB(0x666666)
+                    titleLabel.textColor =  UIColor.UIColorFromRGB(0x666666)
+                    if let unwrappedMode = mode {
+                        if unwrappedMode == .edit {
+                            edit.hidden = true
+                        }
+                    }
+                }else {
+                    plus.hidden = true
+                    descriptionLabel.hidden = false
+                    titleLabel.hidden = true
+                    icon.tintColor = UIColor.whiteColor()
+                    titleLabel.textColor = UIColor.whiteColor()
+                    if let unwrappedMode = mode {
+                        if unwrappedMode == .edit {
+                            edit.hidden = false
+                        }
+                    }
+
+                }
                 
                 if mode == nil {
                     edit.hidden = true
@@ -176,43 +197,38 @@ class ProfileHue: UIView {
                     
                     
                 case Topic.Wanderlust:
-
-                    self.backgroundColor = UIColor.UIColorFromRGB(Color.Wanderlust)
+                    
+                    self.backgroundColor = unwrappedData.description.isEmpty ?  UIColor.UIColorFromRGB(0xDDDDDD) :  UIColor.UIColorFromRGB(Color.Wanderlust)
                     
                     break
                     
                 case Topic.OnMyPlate:
 
-                     self.backgroundColor = UIColor.UIColorFromRGB(Color.OnMyPlate)
-                    
+                    self.backgroundColor = unwrappedData.description.isEmpty ?  UIColor.UIColorFromRGB(0xDDDDDD) :  UIColor.UIColorFromRGB(Color.OnMyPlate)
                     
                     break
                     
                 case Topic.RelationshipMusing:
 
                 
-                    self.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
-                    
+                    self.backgroundColor = unwrappedData.description.isEmpty ?  UIColor.UIColorFromRGB(0xDDDDDD) :  UIColor.UIColorFromRGB(Color.RelationshipMusing)
                     break
                     
                 case Topic.Health:
-                    self.backgroundColor = UIColor.UIColorFromRGB(Color.Health)
-                    
+                    self.backgroundColor = unwrappedData.description.isEmpty ?  UIColor.UIColorFromRGB(0xDDDDDD) :  UIColor.UIColorFromRGB(Color.Health)
                     break
                     
                 case Topic.DailyHustle:
 
                     
-                    self.backgroundColor = UIColor.UIColorFromRGB(Color.DailyHustle)
-                    
+                    self.backgroundColor = unwrappedData.description.isEmpty ?  UIColor.UIColorFromRGB(0xDDDDDD) :  UIColor.UIColorFromRGB(Color.DailyHustle)
                     break
                     
                     
                     
                 default:
                     
-                    self.backgroundColor = UIColor.UIColorFromRGB(Color.RayOfLight)
-                    
+                    self.backgroundColor = unwrappedData.description.isEmpty ?  UIColor.UIColorFromRGB(0xDDDDDD) :  UIColor.UIColorFromRGB(Color.RayOfLight)
                     break
                 }
             }

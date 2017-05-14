@@ -138,7 +138,7 @@ class WelcomeController: UIViewController, UIPopoverPresentationControllerDelega
                                     self.firebaseManager.loginWithFacebook(url, loggedIn: {
                                         
                                         if self.isFirstTime {
-                                            self.performSegueWithIdentifier("gotoFacebookInterstitial", sender: sender)
+                                            self.performSegueWithIdentifier("gotoIntertitial", sender: sender)
                                         }else {
                                             self.performSegueWithIdentifier("LoginConfirmed", sender: nil)
                                         }

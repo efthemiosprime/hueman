@@ -145,7 +145,7 @@ extension ProfileViewController {
 // MARK: - AddHueDelegate
 extension ProfileViewController: AddHueDelegate {
     func setHue(hue: String, type: String) {
-        
+
             switch type {
             case Topic.Wanderlust:
                 let data = ProfileHueModel(title: "I would love to visit", description: hue, type: Topic.Wanderlust)
@@ -153,7 +153,7 @@ extension ProfileViewController: AddHueDelegate {
                     hues![0].data = data
                     self.editedHues![Topic.Wanderlust] = data.description
                 }else {
-                    self.editedHues![Topic.Wanderlust] = user?.hues[Topic.Wanderlust]
+                    self.editedHues![Topic.Wanderlust] = autManager?.currentUser?.hues[Topic.Wanderlust]
 
                 }
 
@@ -166,7 +166,7 @@ extension ProfileViewController: AddHueDelegate {
                     self.editedHues![Topic.OnMyPlate] = data.description
 
                 }else {
-                    self.editedHues![Topic.OnMyPlate] = user?.hues[Topic.OnMyPlate]
+                    self.editedHues![Topic.OnMyPlate] = autManager?.currentUser?.hues[Topic.OnMyPlate]
 
                 }
 
@@ -179,7 +179,7 @@ extension ProfileViewController: AddHueDelegate {
                     self.editedHues![Topic.RelationshipMusing] = data.description
 
                 }else {
-                    self.editedHues![Topic.RelationshipMusing] = user?.hues[Topic.RelationshipMusing]
+                    self.editedHues![Topic.RelationshipMusing] = autManager?.currentUser?.hues[Topic.RelationshipMusing]
 
                 }
               //  signupManager.currentUser?.hues = editedHues!
@@ -192,7 +192,7 @@ extension ProfileViewController: AddHueDelegate {
                     hues![3].data = data
                     self.editedHues![Topic.Health] = data.description
                 }else {
-                    self.editedHues![Topic.Health] = user?.hues[Topic.Health]
+                    self.editedHues![Topic.Health] = autManager?.currentUser?.hues[Topic.Health]
 
                 }
               //  signupManager.currentUser?.hues = editedHues!
@@ -205,7 +205,7 @@ extension ProfileViewController: AddHueDelegate {
                     hues![4].data = data
                     self.editedHues![Topic.DailyHustle] = data.description
                 }else {
-                    self.editedHues![Topic.DailyHustle] = user?.hues[Topic.DailyHustle]
+                    self.editedHues![Topic.DailyHustle] = autManager?.currentUser?.hues[Topic.DailyHustle]
 
                 }
               //  signupManager.currentUser?.hues = editedHues!
@@ -215,12 +215,12 @@ extension ProfileViewController: AddHueDelegate {
                 
                 
             default:
-                let data = ProfileHueModel(title: "Happines is", description: hue, type: Topic.RayOfLight)
+                let data = ProfileHueModel(title: "Happiness is", description: hue, type: Topic.RayOfLight)
                 if hue.characters.count > 0 {
                     hues![5].data = data
                     self.editedHues![Topic.RayOfLight] = data.description
                 }else {
-                    self.editedHues![Topic.RayOfLight] = user?.hues[Topic.RayOfLight]
+                    self.editedHues![Topic.RayOfLight] = autManager?.currentUser?.hues[Topic.RayOfLight]
 
                 }
                // signupManager.currentUser?.hues = editedHues!

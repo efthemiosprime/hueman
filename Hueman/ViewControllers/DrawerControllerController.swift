@@ -36,7 +36,7 @@ class DrawerControllerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileImage.hidden = true
+        //profileImage.hidden = true
 
         userRef = FIRDatabase.database().reference().child("users").queryOrderedByChild("email").queryEqualToValue(FIRAuth.auth()!.currentUser!.email)
         
@@ -98,17 +98,19 @@ class DrawerControllerController: UIViewController {
                                 if let imageData = data {
                                     let image = UIImage(data: imageData)
                                     self.cachedProfileImage.setObject(image!, forKey: profileImageURL)
+                                //    AppSettings.PROFILE_KEY = profileImageURL
+                                    
                                     dispatch_async(dispatch_get_main_queue(), {
                                         self.profileImage.image = image
                                         
                                     })
                                 }
                                 
-                                self.profileImage.hidden = false
-
+                                //self.profileImage.hidden = false
                                 
                             }else {
                                 print(error!.localizedDescription)
+                              //  AppSettings.PROFILE_KEY = profileImageURL
                             }
                         })
                     }
