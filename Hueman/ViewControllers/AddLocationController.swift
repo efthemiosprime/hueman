@@ -306,7 +306,7 @@ extension AddLocationController {
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor
         nextButton.backgroundColor = UIColor.clearColor()
-        //nextButton.tintColor = UIColor.UIColorFromRGB(0xf49445)
+        nextButton.tintColor = UIColor.whiteColor()
         nextButton.enabled = false
     }
     
