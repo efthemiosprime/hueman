@@ -52,9 +52,11 @@ class AddBirthdayController: UIViewController {
         
         datePicker.setValue(UIColor.whiteColor(), forKey: "textColor")
         datePicker.setValue(false, forKey: "highlightsToday")
+        datePicker.minimumDate = NSCalendar.currentCalendar().dateByAddingUnit(.Year, value: -50, toDate: NSDate(), options: [])
+        datePicker.maximumDate = NSCalendar.currentCalendar().dateByAddingUnit(.Year, value: -16, toDate: NSDate(), options: [])
+
         
-        
-        enableNext()
+        disableNext()
         
         datePicker.addTarget(self, action: #selector(AddBirthdayController.handleBirthdayPicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
@@ -154,6 +156,7 @@ extension AddBirthdayController {
         nextButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.5).CGColor
         nextButton.backgroundColor = UIColor.clearColor()
         nextButton.tintColor = UIColor.UIColorFromRGB(0x7BC8A4)
+        nextButton.setTitleColor(UIColor(rgb: 0xffffff, alphaVal: 0.4), forState: .Normal)
         nextButton.enabled = false
     }
     

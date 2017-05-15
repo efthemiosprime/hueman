@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var locationEditIcon: UIImageView!
     @IBOutlet weak var bioEditIcon: UIImageView!
     @IBOutlet weak var photoEditLabel: UILabel!
+    @IBOutlet weak var backButton: UIBarButtonItem!
 
     @IBOutlet weak var location: UIView!
     @IBOutlet weak var birthday: UIView!
@@ -35,9 +36,12 @@ class ProfileViewController: UIViewController {
     var editButton: UIBarButtonItem!
     var doneButton: UIBarButtonItem!
     var addButton: UIBarButtonItem!
+    var connectedButton: UIBarButtonItem!
     var editedHues: [String: String]?
     var user: User?
-    
+    var recipientsUIDs: [String] = [String]()
+    var connectionsUIDs: [String] = [String]()
+
     @IBOutlet weak var locNBirthdayStackHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var locNbirthdayStackWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var birthdayLeadingConstraint: NSLayoutConstraint!
@@ -45,7 +49,7 @@ class ProfileViewController: UIViewController {
     
     let cachedProfileImage = NSCache()
     
-    var dataBaseRef: FIRDatabaseReference! {
+    var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference();
     }
     
@@ -66,14 +70,19 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let addIcon = UIImage(named: "profile-add-icon")?.imageWithRenderingMode(.AlwaysOriginal)
+        
+        let connectionIcon = UIImage(named: "profile-connected-icon")?.imageWithRenderingMode(.AlwaysOriginal)
         doneButton =  UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.doneActionHandler))
         editButton =  UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(self.editActionHandler))
-        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(self.addActionHandler))
+        addButton = UIBarButtonItem(image: addIcon, style: .Plain, target: self, action: #selector(self.addActionHandler))
+    
+        connectedButton = UIBarButtonItem(image: connectionIcon, style: .Plain, target: self, action: nil)
         //self.navigationBar.topItem?.rightBarButtonItem = editButton
-        doneButton.tintColor = UIColor.UIColorFromRGB(0x999999)
-        addButton.tintColor = UIColor.UIColorFromRGB(0x999999)
-        editButton.tintColor = UIColor.UIColorFromRGB(0x999999)
-
+        doneButton.tintColor = UIColor.whiteColor()
+       // addButton.tintColor = UIColor.UIColorFromRGB(0x999999)
+        editButton.tintColor = UIColor.whiteColor()
+        backButton.tintColor = UIColor.whiteColor()
         
         birthdayPlusIcon.image = UIImage(named: "create-plus-icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         birthdayPlusIcon.tintColor = UIColor.UIColorFromRGB(0x666666)
@@ -115,7 +124,9 @@ class ProfileViewController: UIViewController {
             Topic.RayOfLight: ""
         ]
         
-
+        
+        self.view.backgroundColor = UIColor.UIColorFromRGB(0x666666)
+        
 
     }
     
@@ -159,7 +170,7 @@ class ProfileViewController: UIViewController {
             }
 
             
-            let userRef = dataBaseRef.child("users").queryOrderedByChild("email").queryEqualToValue(AuthenticationManager.sharedInstance.currentUser?.email!)
+            let userRef = databaseRef.child("users").queryOrderedByChild("email").queryEqualToValue(AuthenticationManager.sharedInstance.currentUser?.email!)
             userRef.observeSingleEventOfType(.Value, withBlock: {
                 snapshot in
                 if snapshot.exists() {
@@ -202,11 +213,15 @@ class ProfileViewController: UIViewController {
 
         
         self.navigationBar.topItem?.title = user!.name
-
-        self.navigationController?.navigationBar.titleTextAttributes = [
+        
+        self.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "SofiaProRegular", size: 20)!,
-            NSForegroundColorAttributeName : UIColor.UIColorFromRGB(0x999999)
+            NSForegroundColorAttributeName : UIColor.whiteColor()
         ]
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        self.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x666666)
+        self.navigationBar.tintColor = UIColor.UIColorFromRGB(0x666666)
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
@@ -219,9 +234,47 @@ class ProfileViewController: UIViewController {
         }
         
         
+        getPendingRequest({
+            if let userUid = self.user!.uid {
+                
+                if self.recipientsUIDs.contains(userUid) {
+                    self.addButton.enabled = false
+
+                }else {
+                    self.addButton.enabled = true
+
+                }
+                
+            }
+        })
+        
+        getConnections({
+            if let userUid = self.user!.uid {
+                
+                if self.connectionsUIDs.contains(userUid) {
+                    print("contains")
+                    self.navigationBar.topItem?.rightBarButtonItem = nil
+                    self.navigationBar.topItem?.rightBarButtonItem = self.connectedButton
+                    self.connectedButton.enabled = false
+                }
+                
+            }
+        })
 
 
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = .Default
+
+    }
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+
+    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
@@ -405,7 +458,83 @@ class ProfileViewController: UIViewController {
 
     }
     
+
+    func  getConnections(completion: (() -> ())? = nil) {
+        if let unwrappedUID = autManager?.currentUser?.uid {
+            let friendsRef = databaseRef.child("friends").child(unwrappedUID)
+            
+            friendsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                
+                if snapshot.exists() {
+                    for con in snapshot.children {
+                        var userLocation: UserLocation?
+                        if let unwrappedLocation = con.value["location"] as? [String: AnyObject] {
+                            userLocation = UserLocation(location: (unwrappedLocation["location"] as? String)!, visible: (unwrappedLocation["visible"] as? Bool)!)
+                        }else {
+                            userLocation = UserLocation(location: "")
+                            
+                        }
+                        let connection = Connection(name: (con.value!["name"] as? String)!,
+                            location: userLocation!, imageURL: (con.value!["imageURL"] as? String)!, uid: (con.value!["uid"] as? String)!, friendship: (con.value!["friendship"] as? String)!)
+                        self.connectionsUIDs.append(connection.uid)
+                    }
+                    
+                    completion?()
+                }
+                
+                
+                
+            }) {(error) in
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func getPendingRequest(completion: (() -> ())? = nil) {
+        let currentUser = autManager?.currentUser
+        if let uid = currentUser?.uid {
+            let friendshipRef = databaseRef.child("connections").queryOrderedByChild("requester").queryEqualToValue(uid)
+            
+            friendshipRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if snapshot.exists() {
+                    
+                    let friendship = snapshot.children.map({ (snap) -> Friendship in
+                        let newFriendship = Friendship(snapshot: snap as! FIRDataSnapshot)
+                        return newFriendship
+                    })
+                        .filter({ $0.status == "Pending"})
+                    
+                    self.recipientsUIDs = friendship.map ( { return $0.recipient!  } )
+                    completion?()
+                    
+                }
+                
+            })
+        }
+        
+    }
+    
     func addActionHandler() {
+        
+        let requestId = NSUUID().UUIDString
+        
+        let connectionRequest = Request(from: (autManager?.currentUser?.uid!)! , to: user!.uid , id: requestId)
+        let requestRef = self.databaseRef.child("requests").child(connectionRequest.recipient!).child(connectionRequest.id!)
+        
+        requestRef.setValue(connectionRequest.toAnyObject(), withCompletionBlock: {
+            (error, ref) in
+            if error == nil {
+                
+                let friendshipsReq = self.databaseRef.child("connections").child(requestId)
+                let friendships = Friendship(from: connectionRequest.requester!, to: connectionRequest.recipient!, id: connectionRequest.id!, status: Friendship.Pending)
+                friendshipsReq.setValue(friendships.toAnyObject(), withCompletionBlock: {
+                    (error, ref) in
+                   // currentCell.added()
+                    self.addButton.enabled = false
+                })
+            }
+        })
         
     }
     func editActionHandler() {
@@ -547,7 +676,7 @@ class ProfileViewController: UIViewController {
         
         
 
-            let huesRef = dataBaseRef.child("users").child(_user.uid).child("hues")
+            let huesRef = databaseRef.child("users").child(_user.uid).child("hues")
             huesRef.observeSingleEventOfType(.Value, withBlock: {
                 snapshot in
                 

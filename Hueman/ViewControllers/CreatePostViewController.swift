@@ -139,6 +139,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
         }
         
+       // self.view.backgroundColor = UIColor.UIColorFromRGB(0x666666)
 
 
     }
@@ -490,6 +491,7 @@ extension CreatePostViewController {
 
     func addButtonToKeyboard() {
         let toolbar = UIToolbar()
+        toolbar.barTintColor = UIColor.whiteColor()
         toolbar.sizeToFit()
      //   searhItem = UIBarButtonItem(image: UIImage(named: "search-item-icon"), style: .Plain, target: self, action: #selector(ConnectionsViewController.showSearchBar))
 
@@ -540,6 +542,7 @@ extension CreatePostViewController {
             let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
 
             toolbarFilters = UIToolbar()
+            toolbarFilters!.barTintColor = UIColor.whiteColor()
             toolbarFilters!.frame = CGRectMake(0, screenHeight, screenWidth, 44)
             toolbarFilters!.sizeToFit()
             
@@ -574,6 +577,7 @@ extension CreatePostViewController {
     func keyboardWillShow(notification: NSNotification) {
         let userInfo = notification.userInfo!
         keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+        showFiltersToolbar()
     }
     
     func handleFilter() {

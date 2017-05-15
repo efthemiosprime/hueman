@@ -351,7 +351,7 @@ class AddConnectionsController: UITableViewController {
                         let friendships = Friendship(from: connectionRequest.requester!, to: connectionRequest.recipient!, id: connectionRequest.id!, status: Friendship.Pending)
                         friendshipsReq.setValue(friendships.toAnyObject(), withCompletionBlock: {
                             (error, ref) in
-                            currentCell.added()
+                            //currentCell.added()
                         })
                     }
                 })

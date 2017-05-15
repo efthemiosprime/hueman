@@ -53,6 +53,8 @@ class DrawerControllerController: UIViewController {
         let profileImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfileAction))
         profileImage.addGestureRecognizer(profileImageTapGesture)
         
+      //  self.view.backgroundColor = UIColor.UIColorFromRGB(0x666666)
+
         
     
     }

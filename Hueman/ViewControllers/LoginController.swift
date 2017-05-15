@@ -42,6 +42,7 @@ class LoginController: UIViewController {
         passwordInput.delegate = self
         
 
+        self.view.backgroundColor = UIColor.UIColorFromRGB(0x666666)
 
     }
     

@@ -149,16 +149,17 @@ class SignupController: UIViewController {
             if let email = self.emailInput.text, let password = self.passwordInput.text{
                 
                 firebaseManager.signUp(email, password: password, name: "", completion: {
-                    let alert = UIAlertController(title: "Email confirmation", message: "Look for the verification email in your inbox and click the link in the email.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
-                        
-                        self.showModalConfirmation()
-                        self.verificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SignupController.checkIfTheEmailIsVerified), userInfo: nil, repeats: true)
-                    }))
-                    
+//                    let alert = UIAlertController(title: "Email confirmation", message: "Look for the verification email in your inbox and click the link in the email.", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+//                        
+//                        self.showModalConfirmation()
+//                        self.verificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SignupController.checkIfTheEmailIsVerified), userInfo: nil, repeats: true)
+//                    }))
+                    self.showModalConfirmation()
+
                     self.hideIndicator()
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    
+                  //  self.presentViewController(alert, animated: true, completion: nil)
+                   self.verificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SignupController.checkIfTheEmailIsVerified), userInfo: nil, repeats: true)
                     }, onerror: { errorMsg in
                         self.hideIndicator()
                         self.showError(errorMsg)
@@ -235,7 +236,7 @@ extension SignupController {
                 if let user =  FIRAuth.auth()!.currentUser {
                     if user.emailVerified {
                         self.verificationTimer.invalidate()     //Kill the timer
-                        self.modalLabel.text = "email confirmed!"
+                        self.modalLabel.text = "Email verified. You're in!"
                         self.enableContinue()
                         if let authenticatedUser = FIRAuth.auth()?.currentUser {
                             SignupManager.sharedInstance.currentUser = User(email: authenticatedUser.email!, name: authenticatedUser.displayName!, userId: authenticatedUser.uid)
