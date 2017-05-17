@@ -145,7 +145,6 @@ class LoginController: UIViewController {
                 self.performSegueWithIdentifier("LoginConfirmed", sender: sender)
                 
                 }, onerror: { errorMsg in
-                    
                     self.hideIndicator()
                     self.showError(errorMsg)
             })

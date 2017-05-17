@@ -13,6 +13,11 @@ import FirebaseAuth
 
 class AddConnectionsController: UITableViewController {
     
+    
+    @IBOutlet var searchBar: UISearchBar!
+    
+    var searchItem: UIBarButtonItem!
+    
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
     }
@@ -25,18 +30,17 @@ class AddConnectionsController: UITableViewController {
     var users = [User]()
     var requests = [User]()
     var connections = [Connection]()
+    var filteredUsers = [User]()
     
     var sections = [String]()
     var data: [[User]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationItem.titleView = searchBar
+        self.searchBar.delegate = self
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: Font.SofiaProRegular, size: 20)!]
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -223,8 +227,9 @@ class AddConnectionsController: UITableViewController {
         let currentCell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! AddUserCell
         
         
-        currentCell.user = data[indexPath.section][indexPath.row]
-        
+            currentCell.user = data[indexPath.section][indexPath.row]
+
+    
         
         if let photoURL = currentCell.user?.photoURL where !(currentCell.user?.photoURL?.isEmpty)! {
             storageRef.referenceForURL(photoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
@@ -366,6 +371,8 @@ class AddConnectionsController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AddUserCell {
             
             let screenWidth = UIScreen.mainScreen().bounds.size.width
@@ -514,5 +521,65 @@ class AddConnectionsController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+
+
+// MARK: - Search Controller
+extension AddConnectionsController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        data[0].removeAll()
+        data[0] = users
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        data[0].removeAll()
+        data[0] = users
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.becomeFirstResponder();
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        data[0].removeAll()
+        filteredUsers.removeAll()
+
+        
+      //  connectionsModel.filterConnections(searchText)
+        filterUsers(searchText)
+        
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    
+    func filterUsers(input: String) {
+        filteredUsers = self.users.filter( {user  in
+                let name = user.name
+                return (name.lowercaseString.containsString(input.lowercaseString))
+            }
+        )
+        
+        if filteredUsers.count > 0 {
+            data[0] = filteredUsers
+        }else {
+            data[0] = users
+
+        }
+    }
+    
     
 }

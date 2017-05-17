@@ -49,5 +49,5 @@ struct HueTitle {
     static let RelationshipMusing: String = "I cherish my"
     static let Health: String = "I keep healthy by"
     static let DailyHustle: String = "I am an amazing"
-    static let RayOfLight:String  = "Happines is"
+    static let RayOfLight:String  = "Happiness is"
 }

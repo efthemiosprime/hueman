@@ -60,7 +60,21 @@ struct FirebaseManager {
                     
                 }
             }else {
-                onerror!(errorMsg: (error?.localizedDescription)!)
+                print(error?.code)
+                print(error?.domain)
+                
+                var errorMessage = ""
+                if let errorCode = error?.code {
+                    if errorCode == 17009 {
+                        errorMessage = "Oops! That email is not yet in our system. Try another email or sign up to create a new account."
+                    }
+                    
+                    if errorCode == 17011 {
+                        errorMessage = "Uh oh, wrong password. Try again. We're rooting for ya'!"
+                    }
+                }
+
+                onerror!(errorMsg: errorMessage)
 
             }
         })

@@ -25,14 +25,15 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var deleteButton: UIButton!
     
     var textStats: UILabel!
+    var filterLabel: UILabel!
     var submitBtn: UIBarButtonItem!
     var filterBtn: UIBarButtonItem!
     var withImage: Bool = false
-    
+    var filterToolbarIsOpen = false
     
     var keyboardHeight: CGFloat = 0
     var toolbarFilters: UIToolbar?
-    
+    var toolbarDefault: UIToolbar?
     
     @IBOutlet var huesCollections: Array<UIButton>?
     
@@ -85,7 +86,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         }
     
         
-        addButtonToKeyboard()
+        addDefaultToolbar()
         addFiltersToolbar()
         
         if let entry = defaults.objectForKey("storedEntry") as? [String: AnyObject] {
@@ -209,6 +210,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
             topicString = Topic.RelationshipMusing
             topicIcon = "filter-musing-accessory-icon"
+
             topicColor = 0xe2563b
         }
         
@@ -218,6 +220,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             filterBtn!.image = UIImage(named: "filter-health-accessory-icon")
             topicString = Topic.Health
             topicIcon = "ilter-health-accessory-icon"
+
             topicColor = 0x7BC8A4
         }
         
@@ -227,6 +230,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             filterBtn!.image = UIImage(named: "filter-daily-hustle-accessory-icon")
             topicString = Topic.DailyHustle
             topicIcon = "filter-daily-hustle-accessory-icon"
+
             topicColor = 0x93648D
         }
         
@@ -236,6 +240,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             filterBtn!.image = UIImage(named: "filter-rayoflight-accessory-icon")
             topicString = Topic.RayOfLight
             topicIcon = "filter-rayoflight-accessory-icon"
+
             topicColor = 0xEACD53
         }
         
@@ -342,7 +347,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             if let unwrappedText = postInput.text {
                 text = unwrappedText
             }else {
-                text = "  "
+                text = " "
             }
             
             let feed = Feed(author: "", id: NSUUID().UUIDString, uid: "", text: text!, topic: topic, imageURL: "")
@@ -489,12 +494,7 @@ extension CreatePostViewController: UITextViewDelegate {
 
 extension CreatePostViewController {
 
-    func addButtonToKeyboard() {
-        let toolbar = UIToolbar()
-        toolbar.barTintColor = UIColor.whiteColor()
-        toolbar.sizeToFit()
-     //   searhItem = UIBarButtonItem(image: UIImage(named: "search-item-icon"), style: .Plain, target: self, action: #selector(ConnectionsViewController.showSearchBar))
-
+    func addToolbarDefaultItems() {
         let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
         filterBtn = UIBarButtonItem(image: UIImage(named: "filter-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleFilter))
         let cameraBtn = UIBarButtonItem(image: UIImage(named: "camera-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleCamera))
@@ -507,13 +507,39 @@ extension CreatePostViewController {
         textStats.font = UIFont(name: Font.SofiaProRegular, size: 16)
         textStats.center = CGPoint(x: CGRectGetMidX(view.frame), y: view.frame.height)
         textStats.textAlignment = NSTextAlignment.Center
-        
+
         let toolbarTitle = UIBarButtonItem(customView: textStats)
         
-
-        toolbar.setItems([filterBtn, cameraBtn,photoBtn, spacer,toolbarTitle, submitBtn], animated: false)
+        toolbarDefault!.setItems([filterBtn, cameraBtn,photoBtn, spacer,toolbarTitle, submitBtn], animated: false)
+    }
+    
+    func addToolbarFilterItems() {
+        let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace , target: nil, action: nil)
+        filterBtn = UIBarButtonItem(image: UIImage(named: "filter-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleFilter))
         
-        postInput.inputAccessoryView = toolbar
+        filterLabel = UILabel(frame: CGRectMake(0, 0, 120, 21))
+        filterLabel.textColor = UIColor.UIColorFromRGB(0x666666)
+        filterLabel.text = "select hues"
+        filterLabel.font = UIFont(name: Font.SofiaProRegular, size: 16)
+        filterLabel.center = CGPoint(x: CGRectGetMidX(view.frame), y: view.frame.height)
+        filterLabel.textAlignment = NSTextAlignment.Right
+        
+        let toolbarTitle = UIBarButtonItem(customView: filterLabel)
+        
+        toolbarDefault!.setItems([filterBtn, spacer,toolbarTitle], animated: false)
+    }
+    
+    func addDefaultToolbar() {
+        toolbarDefault = UIToolbar()
+        toolbarDefault!.barTintColor = UIColor.whiteColor()
+        toolbarDefault!.sizeToFit()
+
+
+        addToolbarDefaultItems()
+        
+
+        
+        postInput.inputAccessoryView = toolbarDefault
         
     }
     
@@ -554,8 +580,14 @@ extension CreatePostViewController {
     }
     
     func showFiltersToolbar() {
+        filterToolbarIsOpen = true
+
+        
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
+
+        addToolbarFilterItems()
+        filterLabel.text = topicString?.lowercaseString
 
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.toolbarFilters!.frame = CGRectMake(0.0, (screenHeight - self.keyboardHeight) - 43, screenWidth, 44)
@@ -564,9 +596,14 @@ extension CreatePostViewController {
     }
     
     func hideFiltersToolbar() {
+        
+        filterToolbarIsOpen = false
+        
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
-
+        
+        addToolbarDefaultItems()
+        
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.toolbarFilters!.frame = CGRectMake(0.0, screenHeight, screenWidth, 44)
         }) { (Finished) -> Void in
