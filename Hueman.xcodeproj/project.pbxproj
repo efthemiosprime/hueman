@@ -62,6 +62,7 @@
 		3A45BAB11DE926BB0062081E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BAB01DE926BB0062081E /* GoogleService-Info.plist */; };
 		3A48D7B01E1C839600AB2FB6 /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48D7AF1E1C839600AB2FB6 /* SegueFromRight.swift */; };
 		3A48D7B21E1C83F800AB2FB6 /* UnwindSegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48D7B11E1C83F800AB2FB6 /* UnwindSegueFromRight.swift */; };
+		3A5412BE1ECC0F9500819E4C /* ResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5412BD1ECC0F9500819E4C /* ResetController.swift */; };
 		3A667DCB1DFD305F0060CF2B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */; };
 		3A6C94721DAB12F6002A7EA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */; };
 		3A6C94741DAB139B002A7EA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */; };
@@ -183,6 +184,7 @@
 		3A45BAB21DE927D60062081E /* Hueman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hueman.entitlements; sourceTree = "<group>"; };
 		3A48D7AF1E1C839600AB2FB6 /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegueFromRight.swift; path = Hueman/Helpers/SegueFromRight.swift; sourceTree = "<group>"; };
 		3A48D7B11E1C83F800AB2FB6 /* UnwindSegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnwindSegueFromRight.swift; path = Hueman/Helpers/UnwindSegueFromRight.swift; sourceTree = "<group>"; };
+		3A5412BD1ECC0F9500819E4C /* ResetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetController.swift; path = ViewControllers/ResetController.swift; sourceTree = "<group>"; };
 		3A667DCA1DFD305F0060CF2B /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = ViewControllers/CommentsViewController.swift; sourceTree = "<group>"; };
 		3A6C94711DAB12F6002A7EA3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A6C94731DAB139B002A7EA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -363,6 +365,7 @@
 				3A0B4BB51E92B0F800A6F1BB /* FacebookInterstitialController.swift */,
 				3C2A963D1EAC684900BC84DB /* OnboardingController.swift */,
 				3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */,
+				3A5412BD1ECC0F9500819E4C /* ResetController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 				3A987B1C1DED1CDF00388DDF /* FirebaseManager.swift in Sources */,
 				3A39639E1E21DEE70021279A /* NSDate+Offset.swift in Sources */,
 				3AEFA4691E198A18005C78D2 /* CircleHues.swift in Sources */,
+				3A5412BE1ECC0F9500819E4C /* ResetController.swift in Sources */,
 				3A10BC5A1DF60A1F00B0CADC /* ConnectionCell.swift in Sources */,
 				3A7605621E0E013900E682AD /* Camera.swift in Sources */,
 				3A12A11E1E889B69006FD410 /* WelcomeController.swift in Sources */,

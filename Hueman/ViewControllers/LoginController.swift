@@ -18,6 +18,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var activityIndicatorContainer: UIView!
     @IBOutlet weak var activityIndicator: ActivityIndicator!
+    @IBOutlet weak var forgotButton: UIButton!
     
     let EMAIL_LABEL = "email"
     let PASSWORD_LABEL = "password"
@@ -42,7 +43,7 @@ class LoginController: UIViewController {
         passwordInput.delegate = self
         
 
-        self.view.backgroundColor = UIColor.UIColorFromRGB(0x666666)
+       // self.view.backgroundColor = UIColor.UIColorFromRGB(0x666666)
 
     }
     
@@ -112,6 +113,11 @@ class LoginController: UIViewController {
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluateWithObject(testStr)
+    }
+    
+    
+    @IBAction func forgotAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("gotoReset", sender: sender)
     }
     
     @IBAction func loginAction(sender: AnyObject) {
