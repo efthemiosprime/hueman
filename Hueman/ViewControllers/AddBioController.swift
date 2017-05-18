@@ -32,7 +32,7 @@ class AddBioController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SignupManager.sharedInstance.currentUser = AuthenticationManager.sharedInstance.currentUser
+
 
         bioInput.delegate = self
         buttonSkip()

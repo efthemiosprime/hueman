@@ -20,7 +20,7 @@ class AddHuesController: UIViewController {
     let SKIP_LABEL = "start exploring hueman"
     
     let defautls = NSUserDefaults.standardUserDefaults()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,8 +49,23 @@ class AddHuesController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        let signupManager = SignupManager.sharedInstance
+
+        print("view will appear \(signupManager.currentUser?.hues)")
         progressIndicator.hidden = true
-        
+        if let signupHues = signupManager.currentUser?.hues{
+            for profileHue in profileHues! {
+                if let hueType = profileHue.type {
+                    print("signupHues \(signupHues)")
+                    if let desc = signupHues[hueType] {
+                        setHue(desc, type: hueType)
+
+                    }
+
+                }
+
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

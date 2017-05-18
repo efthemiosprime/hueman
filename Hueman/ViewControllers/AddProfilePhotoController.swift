@@ -66,7 +66,11 @@ class AddProfilePhotoController: UIViewController, UINavigationControllerDelegat
        // let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
         
         AuthenticationManager.sharedInstance.loadCurrentUser()
-        SignupManager.sharedInstance.currentUser = AuthenticationManager.sharedInstance.currentUser
+        let signupManager = SignupManager.sharedInstance
+        if signupManager.currentUser == nil {
+            signupManager.currentUser = AuthenticationManager.sharedInstance.currentUser
+        }
+
         disableNext()
 
     }

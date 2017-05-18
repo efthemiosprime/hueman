@@ -233,8 +233,22 @@ class AddHueController: UIViewController {
     }
 
     @IBAction func backAction(sender: AnyObject) {
+        
+        
+        if detailLabel.text!.isEmpty || detailLabel.text?.characters.count == 0 {
+            if let unwrappedType = self.type {
+                //  self.delegate?.setHue("", type: unwrappedType)
+                defaults.removeObjectForKey(unwrappedType)
+                detailLabel.text = ""
+                detailLabel.placeholder = placeHolderText
+            }
+        }
+        
         if mode == .edit {
 
+            
+
+            
             
             let autManager = AuthenticationManager.sharedInstance
             if let unwrappedUid = autManager.currentUser?.uid {
@@ -255,14 +269,7 @@ class AddHueController: UIViewController {
 
 
         }else {
-            if detailLabel.text!.isEmpty || detailLabel.text?.characters.count == 0 {
-                if let unwrappedType = self.type {
-                    //  self.delegate?.setHue("", type: unwrappedType)
-                    defaults.removeObjectForKey(unwrappedType)
-                    detailLabel.text = ""
-                    detailLabel.placeholder = placeHolderText
-                }
-            }
+
             
             self.performSegueWithIdentifier("backAddHues", sender: nil)
         }

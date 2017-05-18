@@ -31,25 +31,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         // -------------------------------
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialController: UIViewController?
-
-
-        if (defaults.objectForKey("firstTime") != nil) {
-            if defaults.boolForKey("firstTime") == true {
-                initialController = storyboard.instantiateViewControllerWithIdentifier("Onboarding")
-            }else {
-                initialController = storyboard.instantiateViewControllerWithIdentifier("WelcomeController")
-            }
-        }else {
-            initialController = storyboard.instantiateViewControllerWithIdentifier("Onboarding")
-
-        }
-
-        self.window?.rootViewController = initialController
-        self.window?.makeKeyAndVisible()
         
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var initialController: UIViewController?
+            
+            
+            if (defaults.objectForKey("firstTime") != nil) {
+                if defaults.boolForKey("firstTime") == true {
+                    initialController = storyboard.instantiateViewControllerWithIdentifier("Onboarding")
+                }else {
+                    initialController = storyboard.instantiateViewControllerWithIdentifier("WelcomeController")
+                }
+            }else {
+                initialController = storyboard.instantiateViewControllerWithIdentifier("Onboarding")
+                
+            }
+            
+            self.window?.rootViewController = initialController
+            self.window?.makeKeyAndVisible()
+            
+
         
         return true
 
