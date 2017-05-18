@@ -86,7 +86,7 @@ class ProfileHue: UIView {
                     icon.tintColor = UIColor.UIColorFromRGB(0x666666)
 
                 //    self.backgroundColor = UIColor.UIColorFromRGB(Color.RelationshipMusing)
-                    titleLabel.text = "love musings"
+                    titleLabel.text = "heart musings"
 
                     break
                     

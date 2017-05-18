@@ -51,12 +51,10 @@ class AddHuesController: UIViewController {
         super.viewWillAppear(animated)
         let signupManager = SignupManager.sharedInstance
 
-        print("view will appear \(signupManager.currentUser?.hues)")
         progressIndicator.hidden = true
         if let signupHues = signupManager.currentUser?.hues{
             for profileHue in profileHues! {
                 if let hueType = profileHue.type {
-                    print("signupHues \(signupHues)")
                     if let desc = signupHues[hueType] {
                         setHue(desc, type: hueType)
 

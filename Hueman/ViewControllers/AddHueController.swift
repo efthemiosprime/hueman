@@ -137,7 +137,7 @@ class AddHueController: UIViewController {
 
          //      iconLabel.text = "ray of light"
                 titleLabel.text  = HueTitle.RayOfLight
-                footerLabel.text = "Give a random thing that makes you smile."
+                footerLabel.text = "Name a random thing that makes you smile."
                 headerLabel.text = Topic.RayOfLight.lowercaseString
                 detailLabel .placeholder = "e.g., Puppy photos"
                 placeHolderText = "e.g., Puppy photos"
