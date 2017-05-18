@@ -63,6 +63,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+		self.refreshControl?.addTarget(self, action: #selector(HuesFeedViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -150,6 +153,26 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 })
             }
         })
+
+    }
+    
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+
+        self.huesFeedModel.feetchFeeds({ errorString in
+            print("error string \(errorString)")
+            
+            refreshControl.endRefreshing()
+            
+            },
+            completion: { feeds in
+            if feeds.count > 0 {
+                self.tableView.backgroundView = nil
+                self.tableView.reloadData()
+                refreshControl.endRefreshing()
+            }
+        })
+        
 
     }
     

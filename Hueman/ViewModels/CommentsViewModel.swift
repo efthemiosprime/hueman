@@ -46,7 +46,7 @@ class CommentsViewModel: NSObject {
                 let comments: [Comment]  = snapshot.children.map({(comment) -> Comment in
                     let newComment: Comment = Comment(snapshot: comment as! FIRDataSnapshot)
                     return newComment
-                }).reverse()
+                })
                 
                 
                 self.comments = comments
