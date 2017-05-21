@@ -150,9 +150,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         postInput?.becomeFirstResponder()
         if mode == "edit" {
             titleLabel.text = "edit post"
-            print(topicIcon!)
            // filterBtn!.image = UIImage(named: "filter-\(topicIcon!)-accessory")
-            print(topicString)
             if let topic = topicString {
                 switch topic {
                 case Topic.Wanderlust:
@@ -183,6 +181,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
 
     func topicChangedAction(sender: UIButton!) {
+        print("topicChangedAction")
         if sender.tag == 0 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
@@ -477,7 +476,7 @@ extension CreatePostViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         textStats.text = "\(textView.text.characters.count)/300"
 
-        
+        submitBtn.enabled = !postInput.text.isEmpty
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
@@ -500,7 +499,7 @@ extension CreatePostViewController {
         let cameraBtn = UIBarButtonItem(image: UIImage(named: "camera-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleCamera))
         let photoBtn = UIBarButtonItem(image: UIImage(named: "photo-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleSelectedFeedImageView))
         submitBtn = UIBarButtonItem(image: UIImage(named: "submit-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.didTapCreateFeed(_:)))
-       // submitBtn.enabled = false
+        submitBtn.enabled = false
         textStats = UILabel(frame: CGRectMake(0, 0, 60, 21))
         textStats.text = "0/300"
         textStats.textColor = UIColor.UIColorFromRGB(0x666666)
@@ -576,6 +575,8 @@ extension CreatePostViewController {
         
             self.view.addSubview(toolbarFilters!)
         }
+        
+        
 
     }
     
@@ -603,10 +604,18 @@ extension CreatePostViewController {
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
         addToolbarDefaultItems()
-        
+
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.toolbarFilters!.frame = CGRectMake(0.0, screenHeight, screenWidth, 44)
         }) { (Finished) -> Void in
+            
+            if !self.postInput.text.isEmpty || self.withImage == true  {
+                self.submitBtn.enabled = true
+
+            }else {
+                self.submitBtn.enabled = false
+
+            }
         }
     }
     
