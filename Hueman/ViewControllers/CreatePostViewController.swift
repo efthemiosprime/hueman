@@ -500,7 +500,7 @@ extension CreatePostViewController {
         let cameraBtn = UIBarButtonItem(image: UIImage(named: "camera-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleCamera))
         let photoBtn = UIBarButtonItem(image: UIImage(named: "photo-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.handleSelectedFeedImageView))
         submitBtn = UIBarButtonItem(image: UIImage(named: "submit-accessory-icon"), style: .Plain, target: self, action: #selector(CreatePostViewController.didTapCreateFeed(_:)))
-        submitBtn.enabled = false
+       // submitBtn.enabled = false
         textStats = UILabel(frame: CGRectMake(0, 0, 60, 21))
         textStats.text = "0/300"
         textStats.textColor = UIColor.UIColorFromRGB(0x666666)

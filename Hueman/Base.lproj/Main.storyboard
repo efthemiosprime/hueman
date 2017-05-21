@@ -226,7 +226,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="woC-jU-lDS">
                                 <rect key="frame" x="90" y="616" width="195" height="26"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSn-Jw-YCK">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSn-Jw-YCK">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="26"/>
                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="13"/>
                                         <state key="normal" title="Terms of Use">
@@ -1813,13 +1813,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Smith commented on your post" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyn-C5-L1H">
-                                                    <rect key="frame" x="15" y="30" width="271" height="22"/>
+                                                    <rect key="frame" x="15" y="33" width="271" height="19"/>
                                                     <fontDescription key="fontDescription" name="SofiaPro-Light" family="Sofia Pro" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="David Smith " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bne-aL-rOT">
-                                                    <rect key="frame" x="15" y="12" width="271" height="14"/>
+                                                    <rect key="frame" x="15" y="12" width="271" height="17"/>
                                                     <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1845,7 +1845,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57c-8O-xFm" userLabel="Like">
-                                                    <rect key="frame" x="15" y="63" width="20" height="22"/>
+                                                    <rect key="frame" x="31" y="63" width="20" height="22"/>
                                                     <state key="normal" image="comment-like-enable-icon"/>
                                                     <state key="selected" image="comment-like-disable-icon"/>
                                                     <connections>
@@ -1853,15 +1853,21 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfH-t3-Crl" userLabel="Flag">
-                                                    <rect key="frame" x="58" y="63" width="12" height="22"/>
+                                                    <rect key="frame" x="74" y="63" width="12" height="22"/>
                                                     <state key="normal" image="comment-flag-icon"/>
                                                     <state key="selected" image="comment-flag-selected-icon"/>
                                                     <connections>
                                                         <action selector="flaggedActionHandler:" destination="w89-qe-1tX" eventType="touchUpInside" id="U8m-jH-DGT"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5H" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twl-4d-pk7" userLabel="created At">
+                                                    <rect key="frame" x="15" y="69" width="1" height="14"/>
+                                                    <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPw-FR-9rP">
-                                                    <rect key="frame" x="43" y="69" width="0.0" height="0.0"/>
+                                                    <rect key="frame" x="59" y="69" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1873,14 +1879,16 @@
                                                 <constraint firstItem="9fV-py-QdB" firstAttribute="centerY" secondItem="FUm-ms-im0" secondAttribute="centerY" id="66n-T2-5JW"/>
                                                 <constraint firstItem="rfH-t3-Crl" firstAttribute="top" secondItem="FUm-ms-im0" secondAttribute="bottom" constant="4" id="9Br-FH-whW"/>
                                                 <constraint firstItem="9fV-py-QdB" firstAttribute="leading" secondItem="Nyn-C5-L1H" secondAttribute="trailing" constant="10" id="Baj-pW-2aq"/>
+                                                <constraint firstItem="Twl-4d-pk7" firstAttribute="leading" secondItem="KlQ-wT-DYb" secondAttribute="leadingMargin" constant="7" id="DUX-Aj-fT5"/>
+                                                <constraint firstItem="57c-8O-xFm" firstAttribute="leading" secondItem="Twl-4d-pk7" secondAttribute="leading" constant="16" id="Jwr-Lz-GBT"/>
                                                 <constraint firstItem="FUm-ms-im0" firstAttribute="leading" secondItem="KlQ-wT-DYb" secondAttribute="leading" constant="15" id="LSZ-An-AWJ"/>
                                                 <constraint firstItem="9fV-py-QdB" firstAttribute="leading" secondItem="FUm-ms-im0" secondAttribute="trailing" constant="-20" id="QBG-my-Alu"/>
                                                 <constraint firstItem="Nyn-C5-L1H" firstAttribute="leading" secondItem="KlQ-wT-DYb" secondAttribute="leading" constant="15" id="QpW-ak-tYy"/>
+                                                <constraint firstItem="Twl-4d-pk7" firstAttribute="top" secondItem="FUm-ms-im0" secondAttribute="bottom" constant="10" id="WQs-nH-bmN"/>
                                                 <constraint firstItem="rfH-t3-Crl" firstAttribute="leading" secondItem="jPw-FR-9rP" secondAttribute="trailing" constant="15" id="ZmG-3W-TD4"/>
                                                 <constraint firstItem="Bne-aL-rOT" firstAttribute="leading" secondItem="KlQ-wT-DYb" secondAttribute="leading" constant="15" id="d3k-2w-LUF"/>
                                                 <constraint firstItem="0IN-mo-CI1" firstAttribute="leading" secondItem="KlQ-wT-DYb" secondAttribute="leading" id="dGO-5k-4nf"/>
                                                 <constraint firstItem="0IN-mo-CI1" firstAttribute="top" secondItem="9fV-py-QdB" secondAttribute="bottom" constant="15" id="dKg-jj-Gu2"/>
-                                                <constraint firstItem="57c-8O-xFm" firstAttribute="leading" secondItem="KlQ-wT-DYb" secondAttribute="leading" constant="15" id="e4t-R3-6Uz"/>
                                                 <constraint firstAttribute="trailing" secondItem="9fV-py-QdB" secondAttribute="trailing" constant="15" id="gpy-QZ-bm0"/>
                                                 <constraint firstItem="FUm-ms-im0" firstAttribute="top" secondItem="Nyn-C5-L1H" secondAttribute="bottom" constant="6" id="koe-vu-GGZ"/>
                                                 <constraint firstItem="Nyn-C5-L1H" firstAttribute="top" secondItem="Bne-aL-rOT" secondAttribute="bottom" constant="4" id="lbF-7p-Ng2"/>
@@ -1894,6 +1902,7 @@
                                         <connections>
                                             <outlet property="authorImage" destination="9fV-py-QdB" id="Qdr-1Q-2Gg"/>
                                             <outlet property="commentText" destination="Nyn-C5-L1H" id="IpY-5w-qSF"/>
+                                            <outlet property="createdAtLabel" destination="Twl-4d-pk7" id="jv3-ij-gSy"/>
                                             <outlet property="flagButton" destination="rfH-t3-Crl" id="Dxq-Vl-zcn"/>
                                             <outlet property="likeButton" destination="57c-8O-xFm" id="BBt-IZ-P2Z"/>
                                             <outlet property="likeLabel" destination="jPw-FR-9rP" id="9Sq-c8-byX"/>
@@ -4926,15 +4935,15 @@ your Facebook friends.</string>
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ffB-RO-bLJ"/>
+        <segue reference="9n7-z9-NGl"/>
         <segue reference="S6n-qU-DNf"/>
         <segue reference="JJB-8P-lDN"/>
         <segue reference="oiw-2V-Xv7"/>
-        <segue reference="fAk-Of-mXu"/>
+        <segue reference="TNy-AS-iIu"/>
+        <segue reference="PBT-r4-Iq7"/>
+        <segue reference="t3h-Zx-gWI"/>
         <segue reference="x7e-R4-jKz"/>
         <segue reference="x6K-ez-uIt"/>
-        <segue reference="siI-PK-K2k"/>
-        <segue reference="5mf-yO-1rC"/>
-        <segue reference="ffB-RO-bLJ"/>
-        <segue reference="9n7-z9-NGl"/>
     </inferredMetricsTieBreakers>
 </document>

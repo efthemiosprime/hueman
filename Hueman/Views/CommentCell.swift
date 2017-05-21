@@ -21,6 +21,7 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var flagButton: UIButton!
+    @IBOutlet weak var createdAtLabel: UILabel!
     
     var cachedImages = NSCache()
     
@@ -42,6 +43,8 @@ class CommentCell: UITableViewCell {
             if let comment = comment {
                 self.name.text = comment.name
                 self.commentText.text = comment.text
+                self.createdAtLabel.text = comment.dateCreated ?? ""
+
                 if let cachedImage = self.cachedImages.objectForKey(comment.imageURL) {
                     dispatch_async(dispatch_get_main_queue(), {
                         self.authorImage.image = cachedImage as? UIImage

@@ -70,11 +70,11 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         self.tableView.estimatedRowHeight = 160
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        if let viewControllers = self.tabBarController?.parentViewController?.parentViewController?.childViewControllers {
-            for viewController in viewControllers {
-                print("controller: \(viewController)")
-            }
-        }
+//        if let viewControllers = self.tabBarController?.parentViewController?.parentViewController?.childViewControllers {
+//            for viewController in viewControllers {
+//                print("controller: \(viewController)")
+//            }
+//        }
 
         addNavigationItems()
 
