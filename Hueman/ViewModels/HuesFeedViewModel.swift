@@ -71,6 +71,37 @@ class HuesFeedViewModel: NSObject {
         }
     }
     
+    func fetchUserFeeds(userUid: String, onerror:  ((errorString: String) -> ())? = nil ,completion: (([Feed]) -> ())? = nil) {
+        
+
+        databaseRef.child("feeds").queryOrderedByChild("uid").queryEqualToValue(userUid).observeSingleEventOfType(.Value, withBlock: {
+            feedsSnapshot in
+            
+            if feedsSnapshot.exists() {
+                let feeds: [Feed]  = feedsSnapshot.children.map({(feed) -> Feed in
+                    let newFeed: Feed = Feed(snapshot: feed as! FIRDataSnapshot)
+                    return newFeed
+                })
+                
+                
+                self.oldFeeds = feeds
+                self.feeds = feeds
+                completion?(feeds)
+                
+            }else {
+                onerror?(errorString: "Empty")
+                
+            }
+            
+            
+            
+        }) {  error in
+            onerror?(errorString: error.localizedDescription)
+            print (error.localizedDescription)
+        }
+    }
+    
+    
     func fetchConnections(completion: (() -> ())? = nil, onError:((errorString: String) -> ())? = nil ) {
         let authenticationManager =  AuthenticationManager.sharedInstance
         let currentUser = authenticationManager.currentUser
@@ -92,7 +123,6 @@ class HuesFeedViewModel: NSObject {
                 })
                 
                 self.connectionUIDs = self.connections.map({return $0.uid!})
-                print(self.connectionUIDs)
                 completion?()
                 
             }else {

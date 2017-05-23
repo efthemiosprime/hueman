@@ -46,6 +46,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var locNbirthdayStackWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var birthdayLeadingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var viewPostButtonHeightConstraint: NSLayoutConstraint!
     
     let cachedProfileImage = NSCache()
     
@@ -135,17 +136,6 @@ class ProfileViewController: UIViewController {
         
          autManager =  AuthenticationManager.sharedInstance
 
-        
-        if let authUid = autManager!.currentUser?.uid, let userUid = user?.uid {
-            if authUid == userUid {
-                self.navigationBar.topItem?.rightBarButtonItem = editButton
-
-            }else {
-                self.navigationBar.topItem?.rightBarButtonItem = nil
-                self.navigationBar.topItem?.rightBarButtonItem = addButton
-
-            }
-        }
 
     
         if (locationLabel.text?.characters.count)! == 0 || (locationLabel.text?.isEmpty)! {
@@ -234,6 +224,20 @@ class ProfileViewController: UIViewController {
         }
         
         
+        
+        if let authUid = autManager!.currentUser?.uid, let userUid = user?.uid {
+            if authUid == userUid {
+                self.navigationBar.topItem?.rightBarButtonItem = editButton
+                
+            }else {
+                self.navigationBar.topItem?.rightBarButtonItem = nil
+                self.navigationBar.topItem?.rightBarButtonItem = addButton
+                
+                
+            }
+        }
+        
+        
         getPendingRequest({
             if let userUid = self.user!.uid {
                 
@@ -252,10 +256,19 @@ class ProfileViewController: UIViewController {
             if let userUid = self.user!.uid {
                 
                 if self.connectionsUIDs.contains(userUid) {
-                    print("contains")
                     self.navigationBar.topItem?.rightBarButtonItem = nil
                     self.navigationBar.topItem?.rightBarButtonItem = self.connectedButton
                     self.connectedButton.enabled = false
+
+                }
+                
+                if let authUid = self.autManager!.currentUser?.uid {
+                    if authUid == userUid || self.connectionsUIDs.contains(userUid) {
+                        self.viewPostButtonHeightConstraint.constant = 39
+                    }else {
+                        self.viewPostButtonHeightConstraint.constant = 0
+
+                    }
                 }
                 
             }
@@ -330,9 +343,20 @@ class ProfileViewController: UIViewController {
             photoController.mode = Mode.edit
             
         }
+        
+        if segue.identifier == "gotoUserFeeds" {
+            let userNavigationController = segue.destinationViewController as! UINavigationController
+            let userFeedsController = userNavigationController.topViewController as! UserPostsController
+            userFeedsController.userUid = user?.uid
+            userFeedsController.userName = user?.name
+            
+        }
     }
     
 
+    @IBAction func viewPostsAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("gotoUserFeeds", sender: nil)
+    }
 
     @IBAction func backActionHandler(sender: AnyObject) {
         
@@ -353,6 +377,7 @@ class ProfileViewController: UIViewController {
         }
 
     }
+    
     @IBAction func backToProfile(segue: UIStoryboardSegue) {}
 
     

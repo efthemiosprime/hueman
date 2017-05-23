@@ -57,7 +57,8 @@ extension ProfileViewController {
     func done() {
         editMode = false
         self.navigationBar.topItem?.rightBarButtonItem = editButton
-        
+        viewPostButtonHeightConstraint.constant = 39
+
         profileImage.alpha = 1
         for hue in hues! {
             hue.mode = nil
@@ -89,6 +90,7 @@ extension ProfileViewController {
         profileImage.alpha = 0.5
         self.navigationBar.topItem?.rightBarButtonItem = doneButton
         photoEditLabel.hidden = false
+        viewPostButtonHeightConstraint.constant = 0
         enableGestures()
         
         for hue in hues! {
@@ -230,7 +232,6 @@ extension ProfileViewController: AddHueDelegate {
         
         
 
-        print("editHues \(signupManager.currentUser?.hues)" )
         
     }
 }

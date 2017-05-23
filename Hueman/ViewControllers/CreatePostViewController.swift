@@ -293,6 +293,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         self.postImage.hidden = false
         self.deleteButton.hidden = false
         withImage = true
+        
+        if !self.postInput.text.isEmpty || self.withImage == true  {
+            self.submitBtn.enabled = true
+            
+        }else {
+            self.submitBtn.enabled = false
+            
+        }
         dismissViewControllerAnimated(true, completion: nil)
         postInput.resignFirstResponder()
     }
@@ -587,8 +595,8 @@ extension CreatePostViewController {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
 
-        addToolbarFilterItems()
-        filterLabel.text = topicString?.lowercaseString
+       // addToolbarFilterItems()
+      //  filterLabel.text = topicString?.lowercaseString
 
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.toolbarFilters!.frame = CGRectMake(0.0, (screenHeight - self.keyboardHeight) - 43, screenWidth, 44)
@@ -603,7 +611,7 @@ extension CreatePostViewController {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         
-        addToolbarDefaultItems()
+       // addToolbarDefaultItems()
 
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.toolbarFilters!.frame = CGRectMake(0.0, screenHeight, screenWidth, 44)

@@ -281,11 +281,15 @@ class AddHueController: UIViewController {
             self.delegate?.setHue("", type: unwrappedType)
             defaults.removeObjectForKey(unwrappedType)
             defaults.synchronize()
+
         }
 
         detailLabel.text = ""
         detailLabel.placeholder = placeHolderText
         disableNext()
+        self.dismissViewControllerAnimated(true, completion: nil)
+
+
     }
     
     func addDoneBtnToKeyboard() {

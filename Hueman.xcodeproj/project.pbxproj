@@ -116,6 +116,7 @@
 		3C2A963E1EAC684900BC84DB /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A963D1EAC684900BC84DB /* OnboardingController.swift */; };
 		3C2A96421EAC73DC00BC84DB /* OnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */; };
 		3C2A96441EAC74B100BC84DB /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A96431EAC74B100BC84DB /* Onboarding.swift */; };
+		3C42FDB81ED24B7D00DFBE48 /* UserPostsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42FDB71ED24B7D00DFBE48 /* UserPostsController.swift */; };
 		3C46AFC71EB146B500515A9E /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46AFC61EB146B500515A9E /* FacebookManager.swift */; };
 		3C7FB2A21E04533900FF3160 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7FB2A11E04533900FF3160 /* Connection.swift */; };
 		3C908B7E1E04937F00DA0109 /* AddUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C908B7D1E04937F00DA0109 /* AddUserCell.swift */; };
@@ -242,6 +243,7 @@
 		3C2A963D1EAC684900BC84DB /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingController.swift; path = ViewControllers/OnboardingController.swift; sourceTree = "<group>"; };
 		3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingPageController.swift; path = ViewControllers/OnboardingPageController.swift; sourceTree = "<group>"; };
 		3C2A96431EAC74B100BC84DB /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Onboarding.swift; path = Models/Onboarding.swift; sourceTree = "<group>"; };
+		3C42FDB71ED24B7D00DFBE48 /* UserPostsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPostsController.swift; path = ViewControllers/UserPostsController.swift; sourceTree = "<group>"; };
 		3C46AFC61EB146B500515A9E /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookManager.swift; path = Managers/FacebookManager.swift; sourceTree = "<group>"; };
 		3C7FB2A11E04533900FF3160 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Models/Connection.swift; sourceTree = "<group>"; };
 		3C908B7D1E04937F00DA0109 /* AddUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCell.swift; path = Views/AddUserCell.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				3C2A963D1EAC684900BC84DB /* OnboardingController.swift */,
 				3C2A96411EAC73DC00BC84DB /* OnboardingPageController.swift */,
 				3A5412BD1ECC0F9500819E4C /* ResetController.swift */,
+				3C42FDB71ED24B7D00DFBE48 /* UserPostsController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				3C46AFC71EB146B500515A9E /* FacebookManager.swift in Sources */,
 				3A154E601DCD7389005A79EC /* NotificationCell.swift in Sources */,
 				3A154E611DCD7389005A79EC /* HueboardCell.swift in Sources */,
+				3C42FDB81ED24B7D00DFBE48 /* UserPostsController.swift in Sources */,
 				3AB06AD91E883A2D00A7AD1F /* RoundedCornersButton.swift in Sources */,
 				3AA3B35E1E123437007D5E9E /* PopoverViewController.swift in Sources */,
 				3A154E251DCD6EA6005A79EC /* Hues.swift in Sources */,
