@@ -56,6 +56,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     let defaults = NSUserDefaults.standardUserDefaults()
 
+    var isFirstTime = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +77,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         self.navigationController?.navigationBar.barTintColor = UIColor.UIColorFromRGB(0x93648D)
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: #selector(CommentsViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(CreatePostViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(CreatePostViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         
         if let topicColor = topicColor, let topicIcon = topicIcon, let topicString = topicString {
@@ -88,7 +90,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         addDefaultToolbar()
         addFiltersToolbar()
-        
         if let entry = defaults.objectForKey("storedEntry") as? [String: AnyObject] {
             storedEntry = entry
             
@@ -175,13 +176,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
         
+
+        
     }
     
 
     
 
     func topicChangedAction(sender: UIButton!) {
-        print("topicChangedAction")
         if sender.tag == 0 {
             self.view.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
             inputBackground.backgroundColor = UIColor.UIColorFromRGB(0x34b5d4)
@@ -264,12 +266,15 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     func handleCamera() {
         let camera = Camera(delegate: self)
         camera.PresentPhotoCamera(self, canEdit: true)
-        
+        hideFiltersToolbar()
+
     }
     
     func handleSelectedFeedImageView() {
         let camera = Camera(delegate: self)
         camera.PresentPhotoLibrary(self, canEdit: true)
+        hideFiltersToolbar()
+
     }
     
 
@@ -301,8 +306,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             self.submitBtn.enabled = false
             
         }
-        dismissViewControllerAnimated(true, completion: nil)
         postInput.resignFirstResponder()
+
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -489,8 +495,8 @@ extension CreatePostViewController: UITextViewDelegate {
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
-            postInput.resignFirstResponder()
-            return false
+         //   postInput.resignFirstResponder()
+            return true
         }
         return textView.text.characters.count + (text.characters.count - range.length) <= 300
     }
@@ -534,6 +540,9 @@ extension CreatePostViewController {
         let toolbarTitle = UIBarButtonItem(customView: filterLabel)
         
         toolbarDefault!.setItems([filterBtn, spacer,toolbarTitle], animated: false)
+        
+        
+
     }
     
     func addDefaultToolbar() {
@@ -628,11 +637,23 @@ extension CreatePostViewController {
     }
     
     
+    
     func keyboardWillShow(notification: NSNotification) {
         let userInfo = notification.userInfo!
         keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
-        showFiltersToolbar()
+      //  showFiltersToolbar()
+        if isFirstTime {
+            showFiltersToolbar()
+            isFirstTime = false
+        }
     }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        keyboardHeight = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+        hideFiltersToolbar()
+    }
+    
     
     func handleFilter() {
         showFiltersToolbar()
