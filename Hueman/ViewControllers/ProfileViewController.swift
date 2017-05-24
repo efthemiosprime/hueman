@@ -190,9 +190,9 @@ class ProfileViewController: UIViewController {
             
         }else {
             if let unwrappedUser = user {
+                print(unwrappedUser)
                 getCurrentProfile(unwrappedUser)
                 signupManager.currentUser = unwrappedUser
-                
             }
             //done()
 
@@ -679,8 +679,10 @@ class ProfileViewController: UIViewController {
                 if let cachedImage = self.cachedProfileImage.objectForKey(unwrappedPhotoURL) {
                     self.profileImage.image = cachedImage as? UIImage
                     signupManager.userImageData = UIImageJPEGRepresentation(cachedImage as! UIImage, 0.2)
-
+                    print("cached profile image")
                 }else {
+                    print("load profile")
+                    print(unwrappedPhotoURL)
                     storageRef.referenceForURL(unwrappedPhotoURL).dataWithMaxSize(1 * 512 * 512, completion: { (data, error) in
                         if error == nil {
                             if let imageData = data {
