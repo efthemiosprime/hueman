@@ -170,7 +170,10 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
                 self.tableView.backgroundView = nil
                 self.tableView.reloadData()
                 refreshControl.endRefreshing()
-            }
+            }else {
+                refreshControl.endRefreshing()
+
+                }
         })
         
 

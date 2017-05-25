@@ -100,7 +100,11 @@ class AddConnectionsController: UITableViewController {
             if snapshot.exists() {
                 
                 let connectionsUids: [String] = self.connections.map({$0.uid})
-                let requestsUids: [String] = self.requests.map({$0.uid})
+            
+                let requestsUids: [String] = self.requests.map({
+                    return $0.uid
+                })
+                
                 self.users = snapshot.children.map({(snap) -> User in
                     let newUser: User = User(snapshot: snap as! FIRDataSnapshot)
                     return newUser

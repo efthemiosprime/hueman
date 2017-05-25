@@ -43,8 +43,8 @@ class NotificationsViewModel: NSObject {
                 self.sectionTitles.append("connection requests")
                 self.data.append(self.requests)
             }
-            
-            notificationsRef.observeSingleEventOfType(.Value, withBlock: {
+
+            notificationsRef.observeEventType(.Value, withBlock: {
                 snapshot in
                 if snapshot.exists() {
                     
@@ -167,24 +167,25 @@ class NotificationsViewModel: NSObject {
                             
                             requestFromRef.observeSingleEventOfType(.Value, withBlock: {userSnap in
                                 
-                              //  print(userSnap)
-                              // print (userSnap.value!["name"] ?? "")
-                                let user = User(snapshot: userSnap)
-                                var location: String?
-                                if let unwrappedLocation = user.location {
-                                    location = unwrappedLocation.location
-                                }else {
-                                    location = ""
+                                if userSnap.exists() {
+                                    let user = User(snapshot: userSnap)
+                                    var location: String?
+                                    if let unwrappedLocation = user.location {
+                                        location = unwrappedLocation.location
+                                    }else {
+                                        location = ""
+                                    }
+                                    
+                                    
+                                    let item = NotificationItem(name: user.name, type: "request", dateCreated: "", feedTopic: "", photoURL: user.photoURL!, key: user.key!, date: NSDate(), uid: user.uid, location: location!)
+                                    
+                                    
+                                    self.requests.append(item)
+                                    if self.requests.count == requestCount {
+                                        completion?()
+                                    }
                                 }
-                                
-                                
-                                let item = NotificationItem(name: user.name, type: "request", dateCreated: "", feedTopic: "", photoURL: user.photoURL!, key: user.key!, date: NSDate(), uid: user.uid, location: location!)
 
-
-                                self.requests.append(item)
-                                if self.requests.count == requestCount {
-                                    completion?()
-                                }
 
                               // let userRequest = User(snapshot: userSnap )
                                // self.requests.append(userRequest)

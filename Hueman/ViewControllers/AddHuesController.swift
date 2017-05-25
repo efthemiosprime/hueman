@@ -99,10 +99,11 @@ class AddHuesController: UIViewController {
         
 
         showIndicator()
+        nextButton.enabled = false
         SignupManager.sharedInstance.editProfile({
             SignupManager.sharedInstance.dispose()
-            self.performSegueWithIdentifier("gotoExplore", sender: self)
             self.hideIndicator()
+            self.performSegueWithIdentifier("gotoExplore", sender: self)
         })
         
     }
