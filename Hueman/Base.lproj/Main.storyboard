@@ -435,11 +435,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="GPP-Gz-KBC" userLabel="Refresh Control" customClass="UIRefreshControl">
-                            <rect key="frame" x="0.0" y="540" width="375" height="1000"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="huesfeedimagecell" rowHeight="365" id="jso-0v-QCx" userLabel="huesfeedimagecell" customClass="FeedImageTableViewCell" customModule="Hueman" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="10" width="375" height="365"/>
@@ -801,6 +796,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="WWF-pg-sUe"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="tS6-NA-Spn">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="searchBar" destination="NoY-D8-Uzo" id="Cgr-Vk-ERO"/>
                         <segue destination="EBF-gu-Xh4" kind="showDetail" identifier="ShowComments" id="aB6-8e-GA1"/>
@@ -1350,7 +1348,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="create a post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHo-0f-h4g">
-                                <rect key="frame" x="127" y="9" width="121" height="21"/>
+                                <rect key="frame" x="127.5" y="9" width="121" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="7qT-1o-cve"/>
                                 </constraints>
@@ -1645,7 +1643,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqg-66-zPA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqg-66-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1676,7 +1674,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oH4-Ye-Pe5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oH4-Ye-Pe5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1697,7 +1695,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="man-FM-8io">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="man-FM-8io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1719,7 +1717,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEv-lp-jmo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nEv-lp-jmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2078,7 +2076,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l7W-JJ-2Qi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l7W-JJ-2Qi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2137,7 +2135,7 @@
                                     <constraint firstItem="UjG-Hu-omA" firstAttribute="centerX" secondItem="IM0-jJ-izi" secondAttribute="centerX" id="g39-ts-K1i"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQd-By-rzV">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQd-By-rzV">
                                 <rect key="frame" x="0.0" y="237" width="375" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="otn-C0-6Jw"/>
@@ -2152,7 +2150,7 @@
                                     <action selector="appSettingsAction:" destination="qCT-5q-IxW" eventType="touchUpInside" id="iNg-Zb-Rg7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-yP-tnq">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-yP-tnq">
                                 <rect key="frame" x="0.0" y="293" width="375" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Z4p-qj-RMQ"/>
@@ -2167,7 +2165,7 @@
                                     <action selector="privacyPolicyAction:" destination="qCT-5q-IxW" eventType="touchUpInside" id="bSj-vK-CCQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xE-eY-TlF">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xE-eY-TlF">
                                 <rect key="frame" x="0.0" y="405" width="375" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Q7Z-X5-QIX"/>
@@ -2182,7 +2180,7 @@
                                     <action selector="reportProblemAction:" destination="qCT-5q-IxW" eventType="touchUpInside" id="gxd-Tj-uUk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZy-u3-Z1v">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZy-u3-Z1v">
                                 <rect key="frame" x="0.0" y="461" width="375" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="4gY-tD-Hvz"/>
@@ -2197,7 +2195,7 @@
                                     <action selector="helpCenter:" destination="qCT-5q-IxW" eventType="touchUpInside" id="Ekr-WG-NQi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-6g-RAS">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-6g-RAS">
                                 <rect key="frame" x="0.0" y="349" width="375" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="vG2-Iv-5xl"/>
@@ -2485,7 +2483,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="change profile photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBl-jX-Dvd">
-                                                                <rect key="frame" x="32.5" y="93.5" width="135" height="14"/>
+                                                                <rect key="frame" x="33" y="93" width="135" height="14"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -2834,7 +2832,7 @@
                                                 </constraints>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bio-edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Ir-V2-oOZ">
-                                                <rect key="frame" x="345" y="290.5" width="22" height="23"/>
+                                                <rect key="frame" x="345" y="291" width="22" height="23"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXF-GC-Luc" userLabel="next button" customClass="RoundedCornersButton" customModule="Hueman" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="236" width="265" height="39"/>
@@ -5271,7 +5269,7 @@ your Facebook friends.</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NWE-X5-RdM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lMn-9n-8dO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lMn-9n-8dO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -5362,17 +5360,17 @@ your Facebook friends.</string>
         <image name="wanderlust-selected-icon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S6n-qU-DNf"/>
-        <segue reference="QSW-tO-OIL"/>
-        <segue reference="D5k-US-s1y"/>
-        <segue reference="ffB-RO-bLJ"/>
-        <segue reference="i6C-9S-InU"/>
-        <segue reference="max-IO-dM1"/>
-        <segue reference="chK-bU-iZo"/>
-        <segue reference="x7e-R4-jKz"/>
-        <segue reference="x6K-ez-uIt"/>
+        <segue reference="PBT-r4-Iq7"/>
         <segue reference="t3h-Zx-gWI"/>
         <segue reference="TNy-AS-iIu"/>
-        <segue reference="PBT-r4-Iq7"/>
+        <segue reference="S6n-qU-DNf"/>
+        <segue reference="QSW-tO-OIL"/>
+        <segue reference="ffB-RO-bLJ"/>
+        <segue reference="D5k-US-s1y"/>
+        <segue reference="i6C-9S-InU"/>
+        <segue reference="max-IO-dM1"/>
+        <segue reference="x7e-R4-jKz"/>
+        <segue reference="aB6-8e-GA1"/>
+        <segue reference="x6K-ez-uIt"/>
     </inferredMetricsTieBreakers>
 </document>

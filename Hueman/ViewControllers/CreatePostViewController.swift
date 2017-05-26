@@ -319,6 +319,17 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
     @IBAction func didTapCreateFeed(sender: AnyObject) {
         submitBtn.enabled = false
+        
+        if topicString == nil || topicString!.isEmpty {
+            self.removeAllOverlays()
+            let alertController = UIAlertController(title: "", message:
+                "Pick a hue", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: { (action: UIAlertAction!) in
+                self.showFiltersToolbar()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
         showWaitOverlay()
         
         if mode == "edit" {

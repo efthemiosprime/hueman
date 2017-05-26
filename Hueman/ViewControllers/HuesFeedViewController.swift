@@ -16,6 +16,7 @@ import SwiftOverlays
 // https://github.com/andrewcbancroft/PullToRefreshExample_UITableViewController/tree/swift-2.3/PullToRefreshExample_TableViewController
 class HuesFeedViewController: UITableViewController, UIPopoverPresentationControllerDelegate, FilterControllerDelegate {
     
+
     @IBOutlet var searchBar: UISearchBar!
     
     var searhItem: UIBarButtonItem!
@@ -23,7 +24,6 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     var menuItem: UIBarButtonItem!
     var backItem: UIBarButtonItem!
     var searchBarOpen: Bool = false
-    
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
@@ -41,6 +41,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     var huesFeedModel: HuesFeedViewModel!
     
     var searchIsBarOpen = false
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,9 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-		self.refreshControl?.addTarget(self, action: #selector(HuesFeedViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        //refreshControl = UIRefreshControl()
+        
+		refreshControl!.addTarget(self, action: #selector(HuesFeedViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -85,6 +88,13 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem!.title = "hues feed"
         
+        if self.refreshControl?.refreshing == true {
+            let offset = self.tableView.contentOffset
+            
+            self.refreshControl?.endRefreshing()
+            self.refreshControl?.beginRefreshing()
+            self.tableView.contentOffset = offset
+        }
         
         if revealViewController() != nil {
             menuItem.target = revealViewController()
@@ -158,6 +168,14 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
     
     
     func handleRefresh(refreshControl: UIRefreshControl) {
+        if self.refreshControl?.refreshing == true {
+            let offset = self.tableView.contentOffset
+            
+            self.refreshControl?.endRefreshing()
+            self.refreshControl?.beginRefreshing()
+            self.tableView.contentOffset = offset
+        }
+        
 
         self.huesFeedModel.feetchFeeds({ errorString in
             print("error string \(errorString)")
@@ -173,7 +191,7 @@ class HuesFeedViewController: UITableViewController, UIPopoverPresentationContro
             }else {
                 refreshControl.endRefreshing()
 
-                }
+            }
         })
         
 

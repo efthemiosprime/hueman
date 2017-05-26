@@ -86,20 +86,31 @@ class NotificationsViewController: UITableViewController {
         
 
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            self.clearBadge()
-        })
+        clearBadge()
 
     }
     
     func clearBadge () {
         let notificationManager = NotificationsManager()
+
         notificationManager.deleteNotifications({
 
         })
         
-        self.tabBarController?.tabBar.items![1].badgeValue = nil
+
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+            notificationManager.fetchAllRequests({ totalReq in
+            
+                if totalReq == 0 {
+                    self.tabBarController?.tabBar.items![1].badgeValue = nil
+   
+                }
+            })
+            
+        
+        })
 
     }
     

@@ -23,6 +23,8 @@ struct NotificationsManager {
         return FIRStorage.storage()
     }
     
+    
+    
     func add(userUidToNotfiy: String, notification: Notification, completed: (() -> ())? = nil) {
         
 
@@ -47,6 +49,9 @@ struct NotificationsManager {
             
             if snapshot.exists() {
                 completed?(badgeCount: snapshot.childrenCount)
+            }else {
+                completed?(badgeCount: 0)
+
             }
         })
     }
@@ -70,6 +75,30 @@ struct NotificationsManager {
 
     }
 
+    func fetchAllRequests(completion: ((requestTotal: Int) -> ())? = nil) {
+        let authManager = AuthenticationManager.sharedInstance
+        
+        if let unwrappedUID = authManager.currentUser?.uid {
+            let requestRef = dataBaseRef.child("requests").child(unwrappedUID)
+            
+            requestRef.observeSingleEventOfType(.Value, withBlock:{
+                snapshot in
+                if snapshot.exists() {
+                    
+                    let requestCount = snapshot.children.allObjects.count
+                    completion?(requestTotal: requestCount)
+                }else {
+                    completion?(requestTotal: 0)
+
+
+                }
+                
+            }) {(error) in
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
 
     
 }

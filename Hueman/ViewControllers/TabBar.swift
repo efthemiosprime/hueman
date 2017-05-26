@@ -12,7 +12,6 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
 
     @IBOutlet weak var writePostItem: UIBarButtonItem!
    // @IBOutlet weak var menuButton: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +31,73 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         
         self.delegate = self
         
+        
+        let authManager = AuthenticationManager.sharedInstance
+        if authManager.currentUser == nil {
+            authManager.loadCurrentUser({
+                let notificationManager = NotificationsManager()
+                notificationManager.getTotalNotifications({ notificationCount in
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if notificationCount > 0 {
+                            self.tabBar.items![1].badgeValue = String( Int(notificationCount))
+                            
+                        }
+                    })
+                    
+                    notificationManager.fetchAllRequests({ requestCount in
+                        print("request \(requestCount)")
+                        
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            if requestCount == 0 && notificationCount == 0 {
+                                self.tabBar.items![1].badgeValue = nil
+                                return
+
+                            }
+                            if requestCount == 0 {
+                                self.tabBar.items![1].badgeValue = String( Int(notificationCount) )
+                            }else {
+                                self.tabBar.items![1].badgeValue = String( Int(notificationCount) + Int(requestCount))
+                            }
+                        })
+                    })
+                })
+            })
+        }else {
+            let notificationManager = NotificationsManager()
+            
+            
+            
+            
+            notificationManager.getTotalNotifications({ notificationCount in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if notificationCount > 0 {
+                        self.tabBar.items![1].badgeValue = String( Int(notificationCount))
+
+                    }
+                })
+                
+                notificationManager.fetchAllRequests({ requestCount in
+
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if requestCount == 0 && notificationCount == 0 {
+                            self.tabBar.items![1].badgeValue = nil
+                            return
+                            
+                        }
+                        
+                        if requestCount == 0 {
+                            self.tabBar.items![1].badgeValue = String( Int(notificationCount) )
+                        }else {
+                            self.tabBar.items![1].badgeValue = String( Int(notificationCount) + Int(requestCount))
+                        }
+                    })
+                })
+            })
+        }
+        
+        
+        
     
     }
 
@@ -40,26 +106,7 @@ class TabBar: UITabBarController, UITabBarControllerDelegate{
         super.viewWillAppear(animated)
         
     
-        let authManager = AuthenticationManager.sharedInstance
-        if authManager.currentUser == nil {
-            authManager.loadCurrentUser({
-                let notificationManager = NotificationsManager()
-                notificationManager.getTotalNotifications({ count in
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tabBar.items![1].badgeValue = String(count)
-                    })
-                })
-            })
-        }else {
-            let notificationManager = NotificationsManager()
-            notificationManager.getTotalNotifications({ count in
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tabBar.items![1].badgeValue = String(count)
-                })
-            })
-        }
 
-        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TabBar.showProfile), name:"ShowProfile", object: nil)
         

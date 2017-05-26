@@ -140,6 +140,7 @@ class AddLocationController: UIViewController {
             return
         }
         
+        nextButton.enabled = false
         if SignupManager.sharedInstance.userLocation == nil {
             SignupManager.sharedInstance.userLocation = UserLocation(location: self.locationField.text!, visible: self.visibilitySwitch.on)
         }else {

@@ -296,43 +296,59 @@ class HuesFeedViewModel: NSObject {
                     flagsSnapshot in
                     if flagsSnapshot.exists() {
                         let flagsCount = flagsSnapshot.childrenCount
-  
-                        if likesCount < 5 && flagsCount >= 7 {
+                        
+                        if 0...5 ~= likesCount && flagsCount >= 3 {
                             deleteIt?()
                         }
                         
-                        if 6...10 ~= likesCount && flagsCount >= 10 {
+                        if 6...10 ~= likesCount && flagsCount >= 5 {
                             deleteIt?()
                         }
                         
-                        if 11...30 ~= likesCount {
+                        
+                        if likesCount > 10 {
                             let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
-                            if ratio >= 1.0 {
+                            if ratio >= 2.1 {
                                 deleteIt?()
                             }
                         }
-                        
-                        if 31...40 ~= likesCount && flagsCount >= 32 {
-                            deleteIt?()
-                        }
-                        
-                        if 41...70 ~= likesCount {
-                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
-                            if ratio >= 1.2 {
-                                deleteIt?()
-                            }
-                        }
-                        
-                        if 71...80 ~= likesCount && flagsCount >= 58 {
-                            deleteIt?()
-                        }
-                        
-                        if likesCount > 80 {
-                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
-                            if ratio >= 1.4 {
-                                deleteIt?()
-                            }
-                        }
+//
+//                        if likesCount < 5 && flagsCount >= 7 {
+//                            deleteIt?()
+//                        }
+//                        
+//                        if 6...10 ~= likesCount && flagsCount >= 10 {
+//                            deleteIt?()
+//                        }
+//                        
+//                        if 11...30 ~= likesCount {
+//                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+//                            if ratio >= 1.0 {
+//                                deleteIt?()
+//                            }
+//                        }
+//                        
+//                        if 31...40 ~= likesCount && flagsCount >= 32 {
+//                            deleteIt?()
+//                        }
+//                        
+//                        if 41...70 ~= likesCount {
+//                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+//                            if ratio >= 1.2 {
+//                                deleteIt?()
+//                            }
+//                        }
+//                        
+//                        if 71...80 ~= likesCount && flagsCount >= 58 {
+//                            deleteIt?()
+//                        }
+//                        
+//                        if likesCount > 80 {
+//                            let ratio = Double(round(Double(likesCount)/Double(flagsCount)))
+//                            if ratio >= 1.4 {
+//                                deleteIt?()
+//                            }
+//                        }
 
                     }
                     
